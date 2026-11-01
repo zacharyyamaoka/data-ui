@@ -72,6 +72,8 @@ Everything since the kit began. 1.0.0 is the first release with a promise; until
 
 ### Tooling
 
+- The public repository: github.com/zacharyyamaoka/data-ui, a snapshot of `main`, never its history (`docs/PUBLIC-REPO.md`).
+  `tools/test-all.mjs` skips the suites that read `gallery/md-pages` by name where it is kept out.
 - `bench/`: a noisy machine is judged on the CPUs the bench is pinned to, per sample, not the host's load average; an unstable app is a
   result, not noise; a timing that had to be set aside fails `timing_valid` for that build. `bench/ab.py`: interleaved A/B runs with a
   verdict per metric.

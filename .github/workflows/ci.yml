@@ -107,6 +107,15 @@ jobs:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ matrix.browser }}-${{ env.PLAYWRIGHT_VERSION }}
       - run: python -m playwright install --with-deps ${{ matrix.browser }}
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: ${{ env.UV_VERSION }}
+      - name: Write the .rrd files a dashboard's Open in Rerun serves
+        # WHY: without them a dashboard's HEAD probe gets a 404, which WebKit logs as a console error (docs/RERUN.md)
+        run: |
+          for f in gallery/examples/*/views.base; do
+            if grep -q '^rerun:' "$f"; then uv run --script tools/rerun_export.py "$f"; fi
+          done
       - run: node build.mjs
       - name: Smoke in ${{ matrix.browser }}
         env:
