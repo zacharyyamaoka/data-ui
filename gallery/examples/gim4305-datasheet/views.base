@@ -1,0 +1,54 @@
+# The GIM4305-10 datasheet: one row per field, what the maker states, what BAM's rack measured, what the board
+# reports, what is derived. The table lane's presets (robotparts lane/tables @ ab5ba92, presets/datasheet.base),
+# unchanged. Obsidian Bases syntax; subGroupBy, splitBy, value, display, units and fold are data-ui's keys.
+data: datasheet.json
+properties:
+  field: { displayName: Field }
+  section: { displayName: Section }
+  nominal: { displayName: Nominal (datasheet) }
+  measured: { displayName: Measured (median) }
+  board: { displayName: Board }
+  derived: { displayName: Derived }
+  unit: { displayName: Unit }
+  delta: { displayName: Δ vs datasheet }
+  status: { displayName: Status }
+  n: { displayName: "n" }
+  sources: { displayName: Sources }
+  specimens: { displayName: Units tested }
+  latest: { displayName: Latest }
+  m2: { displayName: M2 needs }
+  models: { displayName: Feeds models }
+  bench: { displayName: How to measure it }
+views:
+  - type: table
+    name: Datasheet
+    order: [field, nominal, measured, board, derived, unit, status, n, sources]
+    groupBy: { property: section }
+  - type: table
+    name: Datasheet only
+    filters: '!nominal.isEmpty()'
+    order: [field, nominal, sources]
+    groupBy: { property: section }
+    units: inline
+  - type: table
+    name: Measured vs datasheet
+    filters: '!measured.isEmpty()'
+    order: [field, nominal, measured, delta, unit, n, specimens, latest]
+    groupBy: { property: section }
+    display: { measured: dist }
+  - type: table
+    name: Twin-ready for M2
+    filters: '!m2.isEmpty()'
+    order: [field, m2, status, measured, nominal, unit, bench]
+    groupBy: { property: m2, direction: DESC }
+    sort:
+      - { property: status, direction: ASC }
+  - type: table
+    name: To measure next
+    filters:
+      or:
+        - 'status == "missing"'
+        - 'status == "partial"'
+        - 'status == "candidate"'
+    order: [field, status, models, bench]
+    groupBy: { property: section }

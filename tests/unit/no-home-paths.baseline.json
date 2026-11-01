@@ -1,0 +1,14 @@
+{
+ "vibetracks-feature-tree/README.md": {
+  "/home/static/spec.js": 1
+ },
+ "vibetracks-feature-tree/views.base": {
+  "/home/static/spec.js": 1
+ },
+ "vibetracks-kpis/README.md": {
+  "/home/static/kpi-chart.js": 1
+ },
+ "vibetracks-kpis/skin.css": {
+  "/home/static/tokens.css": 1
+ }
+}

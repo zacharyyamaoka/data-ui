@@ -1,0 +1,122 @@
+{
+"title": "kit gaps fixture: events",
+"schema": {
+"fields": [
+{
+"name": "t",
+"type": "number",
+"unit": "s"
+},
+{
+"name": "run",
+"type": "string"
+},
+{
+"name": "kind",
+"type": "string"
+},
+{
+"name": "label",
+"type": "string"
+}
+]
+},
+"rows": [
+{
+"t": 1.61,
+"run": "A",
+"kind": "contact",
+"label": "contact"
+},
+{
+"t": 1.91,
+"run": "A",
+"kind": "grasp",
+"label": "grasp"
+},
+{
+"t": 4.97,
+"run": "A",
+"kind": "release",
+"label": "release"
+},
+{
+"t": 2.0,
+"run": "B",
+"kind": "fault",
+"label": "limiter 98 · step 0"
+},
+{
+"t": 2.04,
+"run": "B",
+"kind": "fault",
+"label": "limiter 99 · step 1"
+},
+{
+"t": 2.08,
+"run": "B",
+"kind": "fault",
+"label": "limiter 100 · step 2"
+},
+{
+"t": 2.12,
+"run": "B",
+"kind": "fault",
+"label": "limiter 101 · step 3"
+},
+{
+"t": 2.16,
+"run": "B",
+"kind": "fault",
+"label": "limiter 102 · step 4"
+},
+{
+"t": 2.2,
+"run": "B",
+"kind": "fault",
+"label": "limiter 98 · step 5"
+},
+{
+"t": 2.24,
+"run": "B",
+"kind": "fault",
+"label": "limiter 99 · step 6"
+},
+{
+"t": 2.28,
+"run": "B",
+"kind": "fault",
+"label": "limiter 100 · step 7"
+},
+{
+"t": 2.32,
+"run": "B",
+"kind": "fault",
+"label": "limiter 101 · step 8"
+},
+{
+"t": 2.36,
+"run": "B",
+"kind": "fault",
+"label": "limiter 102 · step 9"
+},
+{
+"t": 2.4,
+"run": "B",
+"kind": "fault",
+"label": "limiter 98 · step 10"
+},
+{
+"t": 2.44,
+"run": "B",
+"kind": "fault",
+"label": "limiter 99 · step 11"
+},
+{
+"t": 4.0,
+"run": "B",
+"kind": "fault",
+"label": "none"
+}
+]
+}

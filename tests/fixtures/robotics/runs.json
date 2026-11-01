@@ -1,0 +1,46 @@
+{
+ "schema": {
+  "fields": [
+   {
+    "name": "run",
+    "type": "string"
+   },
+   {
+    "name": "deployment",
+    "type": "string"
+   },
+   {
+    "name": "started",
+    "type": "datetime"
+   },
+   {
+    "name": "duration_s",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "kind",
+    "type": "string"
+   },
+   {
+    "name": "devices",
+    "type": "array"
+   },
+   {
+    "name": "situations",
+    "type": "array"
+   },
+   {
+    "name": "rate_hz",
+    "type": "number",
+    "unit": "Hz"
+   },
+   {
+    "name": "display_hz",
+    "type": "number",
+    "unit": "Hz"
+   }
+  ]
+ },
+ "rows": []
+}

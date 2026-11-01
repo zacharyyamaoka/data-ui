@@ -1,0 +1,25 @@
+# A SystemSketch board (communication-projection-prototype) as rows (blocks) plus edges (connections, named by
+# their output port). Obsidian Bases grammar plus data-ui's graph keys (docs/CONTRACT.md §5).
+data: blocks.json
+properties:
+  block: { displayName: Block }
+  kind: { displayName: Block type }
+  sends_to: { displayName: Sends to }
+  via: { displayName: Via port }
+views:
+  - type: graph
+    name: Blocks and ports
+    edges: { property: sends_to, label: via }
+    layout: { algorithm: dagre, direction: LR }
+    order: [kind, inputs, outputs]
+  - type: graph
+    name: By block type
+    edges: { property: sends_to, label: via }
+    layout: { algorithm: dagre, direction: TB }
+    groupBy: { property: kind, direction: ASC }
+    order: [n_in, n_out]
+  - type: table
+    name: Blocks
+    order: [block, kind, inputs, outputs, sends_to, via, definition]
+    sort:
+      - { property: block, direction: ASC }

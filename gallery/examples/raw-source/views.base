@@ -1,0 +1,11 @@
+# A CSV with the values that trip a viewer up: a quoted comma, a line break inside a field, leading and trailing
+# spaces, empty fields, a price that is text ("1.50"), keys the schema does not declare. The raw source view shows
+# each as stored and the record's lines verbatim; the table beside it is the same rows as the kit normally draws them.
+# Check it: node bin/data-ui.mjs check gallery/examples/raw-source/views.base
+data: parts.csv
+views:
+  - type: source
+    name: Raw source
+  - type: table
+    name: Table
+    order: [sku, name, price, qty]

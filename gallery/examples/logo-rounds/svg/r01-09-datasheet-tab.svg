@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 64" width="248" height="64" role="img" aria-label="robotparts, Datasheet with tab">
+<title>robotparts, Datasheet with tab</title>
+<g>
+<path d="M8 6H32L46 20V58H8Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+<path d="M32 6V20H46" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+<path d="M16 31H38M16 49H38" fill="none" stroke="currentColor" stroke-width="4"/>
+<path d="M16 40H38" fill="none" style="stroke:var(--a,#e4572e)" stroke-width="4"/>
+<rect x="46" y="26" width="10" height="15" style="fill:var(--a,#e4572e)"/>
+</g>
+<text x="80" y="44.24" font-family="'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif" font-size="34" font-weight="400" fill="currentColor" textLength="166" lengthAdjust="spacingAndGlyphs">robotparts</text>
+</svg>

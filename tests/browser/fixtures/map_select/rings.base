@@ -1,0 +1,12 @@
+# tests/browser/map_select_checks.py: a ring band in the legend is the pick of its rows
+data: places.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    select: name
+    coordinates: at
+    layers:
+      - { type: rings, of: 'kind == "site"', count: 'kind == "demand"', km: [40, 120], title: Rings }

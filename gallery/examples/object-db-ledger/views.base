@@ -1,0 +1,90 @@
+# Proposal 2 · Table-first: ~/bam-waste-objects/views/Objects.base (bam-waste-objects @ 3a3be7a, written by
+# `object-db bases`), read by data-ui. The verbatim file is library/Objects.base; the edits are marked EDIT below.
+# Check it: node bin/data-ui.mjs check gallery/examples/object-db-ledger/views.base
+data: ../object-db-shelf/objects.json   # EDIT 1 (added): data-ui reads a data file; Obsidian reads the vault's notes
+filters:
+  and:
+    # EDIT 2 (commented out): - file.inFolder("objects")  data-ui has no vault folders; the data file IS that folder
+    - 'kind == "instance"'
+properties:
+  note.name:
+    displayName: "Name"
+  note.mass_g:
+    displayName: "Mass (g)"
+  note.size_class:
+    displayName: "Size class"
+  note.geometry_class:
+    displayName: "Geometry"
+views:
+  - type: cards
+    name: "Cards"
+    groupBy:
+      property: type
+      direction: ASC
+    order:
+      - name
+      - material
+      - form
+      - mass_g
+    image: note.thumbnail
+    imageFit: contain
+    cardSize: 170
+    sort:
+      - property: name
+        direction: ASC
+  - type: table
+    name: "Table"
+    order:
+      - name
+      - type
+      - material
+      - form
+      - colour
+      - size_class
+      - geometry_class
+      - mass_g
+      - source
+    sort:
+      - property: name
+        direction: ASC
+  - type: cards
+    name: "Real scans"
+    filters:
+      or:
+        - 'source == "graspclutter6d"'
+        - 'source == "graspnet1b"'
+    groupBy:
+      property: type
+      direction: ASC
+    order:
+      - name
+      - material
+      - form
+      - mass_g
+    image: note.thumbnail
+    imageFit: contain
+    cardSize: 170
+    sort:
+      - property: name
+        direction: ASC
+  - type: cards
+    name: "Soft twins"
+    filters:
+      or:
+        - 'soft_kind == "cloth"'
+        - 'soft_kind == "film"'
+        - 'soft_kind == "shell"'
+    groupBy:
+      property: type
+      direction: ASC
+    order:
+      - name
+      - material
+      - form
+      - mass_g
+    image: note.soft_thumbnail
+    imageFit: contain
+    cardSize: 170
+    sort:
+      - property: name
+        direction: ASC

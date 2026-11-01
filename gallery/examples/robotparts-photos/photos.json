@@ -1,0 +1,3574 @@
+{
+"id": "robotparts-photos",
+"title": "robotparts photos",
+"titleProperty": "model",
+"linkProperty": "url",
+"imageProperty": "photo",
+"properties": {
+"model": {
+"type": "text",
+"label": "Model"
+},
+"brand": {
+"type": "text",
+"label": "Brand",
+"facet": true
+},
+"logo": {
+"type": "text",
+"label": "Logo",
+"display": "image"
+},
+"category": {
+"type": "text",
+"label": "Category",
+"facet": true
+},
+"photo": {
+"type": "text",
+"label": "Photo",
+"media": "image"
+},
+"level": {
+"type": "number",
+"label": "Level",
+"note": "robotparts' evidence level, 0-5",
+"derived": "robotparts' checks"
+},
+"peak_torque": {
+"type": "number",
+"label": "Peak torque",
+"unitText": "N·m"
+},
+"mass": {
+"type": "number",
+"label": "Mass",
+"unitText": "g"
+},
+"resolution": {
+"type": "number",
+"label": "Resolution",
+"unitText": "MP"
+},
+"fps": {
+"type": "number",
+"label": "Max fps",
+"unitText": "fps"
+},
+"shutter": {
+"type": "text",
+"label": "Shutter"
+},
+"sensor": {
+"type": "text",
+"label": "Sensor"
+},
+"url": {
+"type": "text",
+"label": "Page",
+"display": "link"
+}
+},
+"rows": [
+{
+"id": "aifitlab-8879013625992",
+"model": "4210AIO",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-832aeb03.webp",
+"source": "https://aifitlab.com/products/steadywin-4210aio-servo-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 330.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-4210aio-servo-motor"
+},
+{
+"id": "aifitlab-8627514736776",
+"model": "4215AIO",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-8e1a2434.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/4215AIO-main-1-new.jpg?v=1756225498&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 450.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-4215aio-servo-motor"
+},
+{
+"id": "aifitlab-8627549143176",
+"model": "5715AIO",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-cef85771.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/5715AIO-main-1-new.jpg?v=1756225371&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 380.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-5715aio-servo-motor"
+},
+{
+"id": "aifitlab-8627552190600",
+"model": "5730AIO",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-dd07a397.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/5730AIO-main-1-new.jpg?v=1756225254&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 560.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-5730aio-servo-motor"
+},
+{
+"id": "aifitlab-8596613890184",
+"model": "DD11025",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-89c69a0f.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DD10025-1.jpg?v=1751694289&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 8.5,
+"mass": 1028.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-dd11025-motor"
+},
+{
+"id": "aifitlab-8725503017096",
+"model": "DD3006",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-7af88458.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DD3006-main-2.jpg?v=1776611571&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.05,
+"mass": 35.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-dd3006-motor"
+},
+{
+"id": "aifitlab-8698914242696",
+"model": "DD4006",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-5cee0802.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DD4006-main-1.jpg?v=1759918616&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.15,
+"mass": 70.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-dd4006-motor"
+},
+{
+"id": "aifitlab-8879001632904",
+"model": "DD4015",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-d6ea4d80.webp",
+"source": "https://aifitlab.com/products/steadywin-dd4015-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.35,
+"mass": 114.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-dd4015-motor"
+},
+{
+"id": "aifitlab-8596611367048",
+"model": "DD5010",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-679569f1.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DD5010-1.jpg?v=1751688655&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.49,
+"mass": 134.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-dd5010-motor"
+},
+{
+"id": "aifitlab-8880448995464",
+"model": "DD5015",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-836f871f.webp",
+"source": "https://aifitlab.com/products/steadywin-dd5015-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.58,
+"mass": 173.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-dd5015-motor"
+},
+{
+"id": "aifitlab-8698917322888",
+"model": "DD6015",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-dc593e21.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DD6015-main-1.jpg?v=1760937047&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 1.26,
+"mass": 251.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-dd6015-motor"
+},
+{
+"id": "aifitlab-8699641626760",
+"model": "DD7010",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-ccf41c41.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DD7010-main-1.jpg?v=1760026623&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 1.93,
+"mass": 261.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-dd7010-motor"
+},
+{
+"id": "aifitlab-8699684520072",
+"model": "DD8015",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-e0682358.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DD8015-main-1.jpg?v=1760029378&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 3.7,
+"mass": 418.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-dd8015-motor"
+},
+{
+"id": "aifitlab-8596612710536",
+"model": "DD9015",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-b8bc7438.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DD9015-1.jpg?v=1751693650&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 5.17,
+"mass": 534.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-dd9015-motor"
+},
+{
+"id": "aifitlab-8880154542216",
+"model": "GB1105",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-13ede553.webp",
+"source": "https://aifitlab.com/products/steadywin-gb1105-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.01,
+"mass": 10.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb1105-motor"
+},
+{
+"id": "aifitlab-8880094216328",
+"model": "GB1806",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-f4050c05.webp",
+"source": "https://aifitlab.com/products/steadywin-gb1806-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.06,
+"mass": 20.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb1806-motor"
+},
+{
+"id": "aifitlab-8880127443080",
+"model": "GB2205",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-87aec409.webp",
+"source": "https://aifitlab.com/products/steadywin-gb2205-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.06,
+"mass": 22.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb2205-motor"
+},
+{
+"id": "aifitlab-8880190161032",
+"model": "GB2806",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-99478048.webp",
+"source": "https://aifitlab.com/products/steadywin-gb2806-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.09,
+"mass": 45.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb2806-motor"
+},
+{
+"id": "aifitlab-8994854666376",
+"model": "GB3505",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-5f7fdc1f.webp",
+"source": "https://aifitlab.com/products/steadywin-gb3505-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.15,
+"mass": 58.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb3505-motor"
+},
+{
+"id": "aifitlab-8880237641864",
+"model": "GB3506",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-2cbf41e8.webp",
+"source": "https://aifitlab.com/products/steadywin-gb3506-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.15,
+"mass": 58.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb3506-motor"
+},
+{
+"id": "aifitlab-8880436936840",
+"model": "GB3510",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-97a2b00e.webp",
+"source": "https://aifitlab.com/products/steadywin-gb3510-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.16,
+"mass": 76.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb3510-motor"
+},
+{
+"id": "aifitlab-8879089582216",
+"model": "GB4310",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-843a8119.webp",
+"source": "https://aifitlab.com/products/steadywin-gb4310-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.49,
+"mass": 112.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb4310-motor"
+},
+{
+"id": "aifitlab-8880179216520",
+"model": "GB4315",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-b58e9697.webp",
+"source": "https://aifitlab.com/products/steadywin-gb4315-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.42,
+"mass": 161.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb4315-motor"
+},
+{
+"id": "aifitlab-8880424878216",
+"model": "GB5210",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-fb7d78d1.webp",
+"source": "https://aifitlab.com/products/steadywin-gb5210-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 1.03,
+"mass": 178.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb5210-motor"
+},
+{
+"id": "aifitlab-8880422256776",
+"model": "GB5215",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-b7263e68.webp",
+"source": "https://aifitlab.com/products/steadywin-gb5215-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 1.15,
+"mass": 180.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb5215-motor"
+},
+{
+"id": "aifitlab-8880426647688",
+"model": "GB5225",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-9e84a6b4.webp",
+"source": "https://aifitlab.com/products/steadywin-gb5225-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 1.9,
+"mass": 372.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb5225-motor"
+},
+{
+"id": "aifitlab-8880428220552",
+"model": "GB6010",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-c05b0f24.webp",
+"source": "https://aifitlab.com/products/steadywin-gb6010-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 1.59,
+"mass": 242.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb6010-motor"
+},
+{
+"id": "aifitlab-8880430284936",
+"model": "GB6025",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-fdc92c38.webp",
+"source": "https://aifitlab.com/products/steadywin-gb6025-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 2.68,
+"mass": 478.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb6025-motor"
+},
+{
+"id": "aifitlab-8880187834504",
+"model": "GB7215",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-5e4a9b5d.webp",
+"source": "https://aifitlab.com/products/steadywin-gb7215-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 3.7,
+"mass": 389.5,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb7215-motor"
+},
+{
+"id": "aifitlab-8880431661192",
+"model": "GB8115",
+"brand": "Steadywin",
+"logo": "media/logo-steadywin.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-501fb718.webp",
+"source": "https://aifitlab.com/products/steadywin-gb8115-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 5.17,
+"mass": 517.7,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/steadywin-gb8115-motor"
+},
+{
+"id": "aifitlab-8696825413768",
+"model": "DM-2325",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-dd2220f3.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DM2325-main-1.jpg?v=1759666656&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 2.0,
+"mass": 172.2,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-2325-motor"
+},
+{
+"id": "aifitlab-8736216154248",
+"model": "DM-D5730-1EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-82d908b0.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DAMIAO-DM-D5730-1EC-main-1.jpg?v=1763731106&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 1.9,
+"mass": 628.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-d5730-1ec-motor"
+},
+{
+"id": "aifitlab-8629746729096",
+"model": "DM-G6220",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-4696cc01.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DM6220-main-4.jpg?v=1756452536&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 2.7,
+"mass": 494.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-g6220-motor"
+},
+{
+"id": "aifitlab-9114199687304",
+"model": "DM-G8518",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-f235c022.webp",
+"source": "https://aifitlab.com/products/damiao-dm-g8518-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 8.78,
+"mass": 831.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-g8518-motor"
+},
+{
+"id": "aifitlab-8629744304264",
+"model": "DM-H3510",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-19aa853f.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DMH3510-main-3.jpg?v=1756452368&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.45,
+"mass": 116.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-h3510-motor"
+},
+{
+"id": "aifitlab-8923020165256",
+"model": "DM-H55",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-dd8caf34.webp",
+"source": "https://aifitlab.com/products/damiao-dm-h55-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 9.0,
+"mass": 2100.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-h55-motor"
+},
+{
+"id": "aifitlab-8575839699080",
+"model": "DM-H6215",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-c05d0139.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/6215-1.png?v=1748836800&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 2.0,
+"mass": 360.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-h6215-servo-motor"
+},
+{
+"id": "aifitlab-8751188934792",
+"model": "DM-H65-1EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-840e5110.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DAMIAO_DM_H65_1EC-main-3.jpg?v=1765097473&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 21.5,
+"mass": 3150.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-h65-1ec-motor"
+},
+{
+"id": "aifitlab-8573733240968",
+"model": "DM-J10010-2EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-34e6a738.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/10010.png?v=1748581697&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 150.0,
+"mass": 1485.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-j10010-2ec-servo-motor"
+},
+{
+"id": "aifitlab-8573706469512",
+"model": "DM-J10010L-2EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-8bd7479d.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/10010L-1.png?v=1748580205&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 120.0,
+"mass": 1372.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-j10010l-2ec-servo-motor"
+},
+{
+"id": "aifitlab-8845470204040",
+"model": "DM-J10422P-2EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-937c7af3.webp",
+"source": "https://aifitlab.com/products/damiao-dm-j10422p-2ec-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 400.0,
+"mass": 2700.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-j10422p-2ec-motor"
+},
+{
+"id": "aifitlab-8697153945736",
+"model": "DM-J3507-2EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-d90e0343.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DM-3507-2EC-main-1.png?v=1759679536&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 3.0,
+"mass": 150.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-j3507-2ec-motor"
+},
+{
+"id": "aifitlab-8565793194120",
+"model": "DM-J4310-2EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-90858b16.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DAMIAO4310-1.png?v=1747764160&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 12.5,
+"mass": 325.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-j4310-2ec-v1-1-servo-motor"
+},
+{
+"id": "aifitlab-8732704997512",
+"model": "DM-J4310P-2EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-55538515.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/O1CN01j75HE31Jc2ApJWlxW__2218245751048_png_q50_jpg.jpg?v=1763548999&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 12.5,
+"mass": 325.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-j4310p-2ec-motor"
+},
+{
+"id": "aifitlab-8563943571592",
+"model": "DM-J4340-2EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-f3039f50.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/damiao4340-1.jpg?v=1747673792&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 40.0,
+"mass": 362.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-j4340-2ec-servo-motor"
+},
+{
+"id": "aifitlab-8564940603528",
+"model": "DM-J4340P-2EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-0f13c8aa.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DM4340P-1.png?v=1747710963&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 40.0,
+"mass": 362.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-j4340p-2ec-servo-motor"
+},
+{
+"id": "aifitlab-8573596401800",
+"model": "DM-J6006-2EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-f4dc4a61.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DAMIAO-DM-J6006-2EC-1-2.jpg?v=1776521653&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 12.0,
+"mass": 335.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-j6006-2ec-servo-motor"
+},
+{
+"id": "aifitlab-8697173213320",
+"model": "DM-J6248P-2EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-242a0e23.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/DAMIAO-DM6248P-main-1-3.jpg?v=1776521701&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 97.0,
+"mass": 628.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-j6248p-2ec-motor"
+},
+{
+"id": "aifitlab-8573370237064",
+"model": "DM-J8006-2EC V1.1",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-97877da9.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/8006-1.png?v=1748570828&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 20.0,
+"mass": 559.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-j8006-2ec-v1-1-servo-motor"
+},
+{
+"id": "aifitlab-8573474373768",
+"model": "DM-J8009-2EC",
+"brand": "Damiao",
+"logo": "media/logo-damiao.webp",
+"category": "Actuator",
+"photo": {
+"value": "media/p-94b10956.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/8009-1.png?v=1748573276&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 40.0,
+"mass": 896.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/damiao-dm-j8009-2ec-servo-motor"
+},
+{
+"id": "aifitlab-8681703899272",
+"model": "AK10-9 V2.0",
+"brand": "CubeMars",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-e86c47e4.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/AK10-9V2-main-2.png?v=1758552514&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 48.0,
+"mass": 960.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/cubemars-ak10-9-v2-0-motor"
+},
+{
+"id": "aifitlab-8678953713800",
+"model": "AK10-9 V3.0",
+"brand": "CubeMars",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-6bd9f2f9.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/AK10-9V3-main-2.jpg?v=1758213022&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 53.0,
+"mass": 940.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/cubemars-ak10-9-v3-0-motor"
+},
+{
+"id": "aifitlab-8682699948168",
+"model": "AK40-10",
+"brand": "CubeMars",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-d8ea5f3b.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/AK40-10_KV170-main-6.jpg?v=1758469132&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 4.1,
+"mass": 200.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/cubemars-ak40-10-motor"
+},
+{
+"id": "aifitlab-8682698440840",
+"model": "AK45-10",
+"brand": "CubeMars",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-4cd23491.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/AK45-10-main-6.jpg?v=1758468920&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 7.0,
+"mass": 260.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/cubemars-ak45-10-motor"
+},
+{
+"id": "aifitlab-8682681925768",
+"model": "AK45-36",
+"brand": "CubeMars",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-0f645fa3.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/AK45-36-main-4.jpg?v=1758458320&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 24.0,
+"mass": 340.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/cubemars-ak45-36-motor"
+},
+{
+"id": "aifitlab-8682654236808",
+"model": "AK60-39 V3.0",
+"brand": "CubeMars",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-83abcaa9.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/AK60-39_V3.0-main-3.png?v=1758433342&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 72.0,
+"mass": 750.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/cubemars-ak60-39-v3-0-motor"
+},
+{
+"id": "aifitlab-8627141640328",
+"model": "EPS-CEM-15",
+"brand": "MyActuator",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-6c315aec.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/EPS-CEM-15-E-N-main-1.png?v=1755672694&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 15.0,
+"mass": 810.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/myactuator-eps-cem-15-motor"
+},
+{
+"id": "aifitlab-8627148062856",
+"model": "EPS-CEM-25",
+"brand": "MyActuator",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-9761b0ff.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/CEM25-main-1.jpg?v=1756802163&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 25.0,
+"mass": 940.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/myactuator-eps-cem-25-motor"
+},
+{
+"id": "aifitlab-8627238568072",
+"model": "EPS-CEM-45",
+"brand": "MyActuator",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-c4b63231.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/CEM45-main-2.jpg?v=1756802670&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 45.0,
+"mass": 1090.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/myactuator-eps-cem-45-motor"
+},
+{
+"id": "aifitlab-8596325499016",
+"model": "RH-14",
+"brand": "MyActuator",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-2d322896.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/RH-14-1.jpg?v=1751620426&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 28.0,
+"mass": 780.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/myactuator-rh-14-motor"
+},
+{
+"id": "aifitlab-8596356825224",
+"model": "RH-17",
+"brand": "MyActuator",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-55cbb884.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/RH-17-1.jpg?v=1751626204&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 54.0,
+"mass": 1110.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/myactuator-rh-17-motor"
+},
+{
+"id": "aifitlab-8596291846280",
+"model": "RH-20",
+"brand": "MyActuator",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-7da502d4.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/RH-20-1.jpg?v=1751613817&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 80.0,
+"mass": 1450.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/myactuator-rh-20-motor"
+},
+{
+"id": "aifitlab-8579389882504",
+"model": "00",
+"brand": "RobStride",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-c1606e18.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/robstride00-3_2a8f8857-8026-44bf-9f17-4f07e4f5ad07.jpg?v=1752590235&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 14.0,
+"mass": 310.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/robstride-00-motor"
+},
+{
+"id": "aifitlab-8579561586824",
+"model": "01",
+"brand": "RobStride",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-c3170ed3.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/robstride_01_2.jpg?v=1752590253&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 17.0,
+"mass": 380.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/robstride-01-motor"
+},
+{
+"id": "aifitlab-8579891822728",
+"model": "02",
+"brand": "RobStride",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-79b00102.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/robstride02-2_2.jpg?v=1752590280&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 17.0,
+"mass": 405.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/robstride-02-motor"
+},
+{
+"id": "aifitlab-8733379920008",
+"model": "02 IP67",
+"brand": "RobStride",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-059c7879.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/ROBSTRIED_02_IP67-main-1.jpg?v=1763632707&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 17.0,
+"mass": 490.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/robstride-02-ip67-motor"
+},
+{
+"id": "aifitlab-8579892641928",
+"model": "03",
+"brand": "RobStride",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-a42311b3.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/robstride03-2_2.jpg?v=1752590302&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 60.0,
+"mass": 880.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/robstride-03-motor"
+},
+{
+"id": "aifitlab-8579893461128",
+"model": "04",
+"brand": "RobStride",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-23b52ffd.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/robstride04-1_1.jpg?v=1749629201&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 120.0,
+"mass": 1420.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/robstride-04-motor"
+},
+{
+"id": "aifitlab-8578637725832",
+"model": "A1",
+"brand": "Unitree",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-4ad1e241.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/Unitee_A1_Motor-4.png?v=1752678209&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 33.5,
+"mass": 605.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/unitree-a1-motor"
+},
+{
+"id": "aifitlab-8823595696264",
+"model": "Brushless Digital",
+"brand": "Unitree",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-e0e4213d.webp",
+"source": "https://aifitlab.com/products/unitree-brushless-digital-servo-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 19.5,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/unitree-brushless-digital-servo-motor"
+},
+{
+"id": "aifitlab-8577165459592",
+"model": "GO-M8010-6",
+"brand": "Unitree",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-01209367.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/GO-M8010-6-1-1.png?v=1749048664&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 23.7,
+"mass": 530.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/unitree-go-m8010-6-motor"
+},
+{
+"id": "aifitlab-8898406088840",
+"model": "IM6014",
+"brand": "Unitree",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-96de8c6d.webp",
+"source": "https://aifitlab.com/products/unitree-im6014-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 34.4,
+"mass": 535.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/unitree-im6014-motor"
+},
+{
+"id": "aifitlab-8866167881864",
+"model": "AP Series",
+"brand": "Feetech",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-c3cfe1ae.webp",
+"source": "https://aifitlab.com/products/feetech-ap-series-servo-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 10.7873,
+"mass": null,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/feetech-ap-series-servo-motor"
+},
+{
+"id": "aifitlab-8694921461896",
+"model": "FI7622M",
+"brand": "Feetech",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-f01733af.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/FI7622M-main-1.png?v=1759424897&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 2.4517,
+"mass": 66.6,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/feetech-fi7622m-servo-motor"
+},
+{
+"id": "aifitlab-8695973019784",
+"model": "FS90MG",
+"brand": "Feetech",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-f52e3580.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/FS90MG-main-1.png?v=1759593755&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.2157,
+"mass": 12.7,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/feetech-fs90mg-servo-motor"
+},
+{
+"id": "aifitlab-8694782394504",
+"model": "FS90R",
+"brand": "Feetech",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-dfcf8a4f.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/FS90R-main-1.png?v=1759406349&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.1471,
+"mass": 9.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/feetech-fs90r-servo-motor"
+},
+{
+"id": "aifitlab-8698865418376",
+"model": "FT1000",
+"brand": "Feetech",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-d5dd3a0c.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/FT1000-main-1.jpg?v=1759899366&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 98.0665,
+"mass": 1000.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/feetech-ft1000-servo-motor"
+},
+{
+"id": "aifitlab-8695233937544",
+"model": "FT1190M",
+"brand": "Feetech",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-6dabf255.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/FT1190M-main-2.png?v=1759937303&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.3432,
+"mass": 13.5,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/feetech-ft1190m-servo-motor"
+},
+{
+"id": "aifitlab-8929259454600",
+"model": "A06",
+"brand": "KST",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-6cade38f.webp",
+"source": "https://aifitlab.com/products/kst-a06-servo-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.2354,
+"mass": 7.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/kst-a06-servo-motor"
+},
+{
+"id": "aifitlab-8907313741960",
+"model": "A06-LV",
+"brand": "KST",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-c713ff39.webp",
+"source": "https://aifitlab.com/products/kst-a06-lv-servo-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.1373,
+"mass": 7.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/kst-a06-lv-servo-motor"
+},
+{
+"id": "aifitlab-8931213017224",
+"model": "A08",
+"brand": "KST",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-65539239.webp",
+"source": "https://aifitlab.com/products/kst-a08-servo-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.2746,
+"mass": null,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/kst-a08-servo-motor"
+},
+{
+"id": "aifitlab-8931213115528",
+"model": "A08-LV",
+"brand": "KST",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-e65d0f78.webp",
+"source": "https://aifitlab.com/products/kst-a08-lv-servo-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 7.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/kst-a08-lv-servo-motor"
+},
+{
+"id": "aifitlab-8929259618440",
+"model": "A12-610",
+"brand": "KST",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-71aa0ddb.webp",
+"source": "https://aifitlab.com/products/kst-a12-610-servo-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.55,
+"mass": 20.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/kst-a12-610-servo-motor"
+},
+{
+"id": "aifitlab-8931213181064",
+"model": "A12-S",
+"brand": "KST",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-8b8c0b10.webp",
+"source": "https://aifitlab.com/products/kst-a12-s-servo-motor",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 1.1,
+"mass": 32.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/kst-a12-s-servo-motor"
+},
+{
+"id": "aifitlab-8702865604744",
+"model": "MF12025-V2",
+"brand": "LKMTech",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-8aeafd47.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/MF-12025-main-1.jpg?v=1760544972&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 10.0,
+"mass": 1147.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/lkmtech-mf12025-v2-motor"
+},
+{
+"id": "aifitlab-8702372479112",
+"model": "MF4005-V2",
+"brand": "LKMTech",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-6c5700b9.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/MF-4005-main-1.jpg?v=1760455700&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.25,
+"mass": 65.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/lkmtech-mf4005-v2-motor"
+},
+{
+"id": "aifitlab-8702395187336",
+"model": "MF4010-V2",
+"brand": "LKMTech",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-3634f9d5.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/MF-4010-main-1.jpg?v=1760460165&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.33,
+"mass": 90.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/lkmtech-mf4010-v2-motor"
+},
+{
+"id": "aifitlab-8702397841544",
+"model": "MF4015-V2",
+"brand": "LKMTech",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-c1a86bb8.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/MF-4015-main-1.jpg?v=1760460734&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.65,
+"mass": 116.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/lkmtech-mf4015-v2-motor"
+},
+{
+"id": "aifitlab-8702399709320",
+"model": "MF5005-V2",
+"brand": "LKMTech",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-014cafcc.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/MF-5005-main-1.jpg?v=1760461558&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.4,
+"mass": 104.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/lkmtech-mf5005-v2-motor"
+},
+{
+"id": "aifitlab-8702404755592",
+"model": "MF5010-V2",
+"brand": "LKMTech",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-d9176db2.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/MF-5010-main-1.jpg?v=1760941648&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 0.4,
+"mass": 137.0,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/lkmtech-mf5010-v2-motor"
+},
+{
+"id": "aifitlab-8607407603848",
+"model": "PH08",
+"brand": "EYOU",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-1872aad8.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/PH08-1.jpg?v=1752849655&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 2.8,
+"mass": null,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/eyou-ph08-motor"
+},
+{
+"id": "aifitlab-8607550341256",
+"model": "PH11",
+"brand": "EYOU",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-a1e308aa.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/PH11-1.jpg?v=1752863513&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 6.8,
+"mass": null,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/eyou-ph11-motor"
+},
+{
+"id": "aifitlab-8607350685832",
+"model": "PH14",
+"brand": "EYOU",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-763cb5c5.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/PH14-1.jpg?v=1752845724&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 38.0,
+"mass": null,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/eyou-ph14-motor"
+},
+{
+"id": "aifitlab-8607250546824",
+"model": "PH17",
+"brand": "EYOU",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-0d7bd515.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/PH17-1.jpg?v=1752840185&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 52.0,
+"mass": null,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/eyou-ph17-motor"
+},
+{
+"id": "aifitlab-8607512789128",
+"model": "PH20",
+"brand": "EYOU",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-3d3078cf.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/PH20-1.jpg?v=1752862280&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 104.0,
+"mass": null,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/eyou-ph20-motor"
+},
+{
+"id": "aifitlab-8607507939464",
+"model": "PH25",
+"brand": "EYOU",
+"logo": null,
+"category": "Actuator",
+"photo": {
+"value": "media/p-0b3c7011.webp",
+"source": "https://cdn.shopify.com/s/files/1/0673/6848/5000/files/PH25-1.jpg?v=1752860934&width=640",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": 206.0,
+"mass": null,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://aifitlab.com/products/eyou-ph25-motor"
+},
+{
+"id": "lucid-vision-labs-atl050s-cc",
+"model": "ATL050S-CC",
+"brand": "LUCID Vision Labs",
+"logo": "media/logo-lucid_vision_labs.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-8fb6cbb8.webp",
+"source": "https://thinklucid.com/product/atlas-5-mp-imx250/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 240.0,
+"resolution": 5.01,
+"fps": 98.0,
+"shutter": "global",
+"sensor": "Sony IMX250",
+"url": "https://thinklucid.com/product/atlas-5-mp-imx250/"
+},
+{
+"id": "lucid-vision-labs-atp051s-cc",
+"model": "ATP051S-CC",
+"brand": "LUCID Vision Labs",
+"logo": "media/logo-lucid_vision_labs.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-fec59f52.webp",
+"source": "https://thinklucid.com/product/atlas-ip67-5-0-mp-imx547/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 340.0,
+"resolution": 5.01,
+"fps": 110.0,
+"shutter": "global",
+"sensor": "Sony IMX547",
+"url": "https://thinklucid.com/product/atlas-ip67-5-0-mp-imx547/"
+},
+{
+"id": "lucid-vision-labs-atp124s-cc",
+"model": "ATP124S-CC",
+"brand": "LUCID Vision Labs",
+"logo": "media/logo-lucid_vision_labs.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-fec59f52.webp",
+"source": "https://thinklucid.com/product/atlas-ip67-12-3-mp-imx545/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 340.0,
+"resolution": 12.29,
+"fps": 45.2,
+"shutter": "global",
+"sensor": "Sony IMX545",
+"url": "https://thinklucid.com/product/atlas-ip67-12-3-mp-imx545/"
+},
+{
+"id": "lucid-vision-labs-atx051s-cc",
+"model": "ATX051S-CC",
+"brand": "LUCID Vision Labs",
+"logo": "media/logo-lucid_vision_labs.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-100cc39a.webp",
+"source": "https://thinklucid.com/product/atlas10-5-mp-imx537/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 325.0,
+"resolution": 5.01,
+"fps": 203.0,
+"shutter": "global",
+"sensor": "Sony IMX537",
+"url": "https://thinklucid.com/product/atlas10-5-mp-imx537/"
+},
+{
+"id": "lucid-vision-labs-hlt003s-001",
+"model": "HLT003S-001",
+"brand": "LUCID Vision Labs",
+"logo": "media/logo-lucid_vision_labs.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-b6ea699e.webp",
+"source": "https://thinklucid.com/product/helios2-time-of-flight-imx556/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 398,
+"resolution": 0.31,
+"fps": 30,
+"shutter": "global",
+"sensor": "Sony IMX556",
+"url": "https://thinklucid.com/product/helios2-time-of-flight-imx556/"
+},
+{
+"id": "lucid-vision-labs-htp003s-001",
+"model": "HTP003S-001",
+"brand": "LUCID Vision Labs",
+"logo": "media/logo-lucid_vision_labs.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-b6ea699e.webp",
+"source": "https://thinklucid.com/product/helios2plus-time-of-flight-tof-ip67-3d-camera/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 398,
+"resolution": 0.31,
+"fps": 30,
+"shutter": "global",
+"sensor": "Sony IMX556",
+"url": "https://thinklucid.com/product/helios2plus-time-of-flight-tof-ip67-3d-camera/"
+},
+{
+"id": "lucid-vision-labs-htw003s-001",
+"model": "HTW003S-001",
+"brand": "LUCID Vision Labs",
+"logo": "media/logo-lucid_vision_labs.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-f1dc9611.webp",
+"source": "https://thinklucid.com/product/helios2-wide-time-of-flight-tof-ip67-3d-camera/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 390,
+"resolution": 0.31,
+"fps": 30,
+"shutter": "global",
+"sensor": "Sony IMX556",
+"url": "https://thinklucid.com/product/helios2-wide-time-of-flight-tof-ip67-3d-camera/"
+},
+{
+"id": "lucid-vision-labs-phx016s-cc",
+"model": "PHX016S-CC",
+"brand": "LUCID Vision Labs",
+"logo": "media/logo-lucid_vision_labs.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-ab365387.webp",
+"source": "https://thinklucid.com/product/phoenix-16-mp-imx273/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 30.0,
+"resolution": 1.56,
+"fps": 71.6,
+"shutter": "global",
+"sensor": "Sony IMX273",
+"url": "https://thinklucid.com/product/phoenix-16-mp-imx273/"
+},
+{
+"id": "luxonis-oak-4-cs-og05b10",
+"model": "OAK 4 CS OG05B10",
+"brand": "Luxonis",
+"logo": "media/logo-luxonis.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-9e0e0a80.webp",
+"source": "https://shop.luxonis.com/products/oak-4-cs",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": null,
+"resolution": 5.04,
+"fps": null,
+"shutter": "global",
+"sensor": "OmniVision OG05B10",
+"url": "https://docs.luxonis.com/hardware/products/OAK%204%20CS"
+},
+{
+"id": "luxonis-oak-1",
+"model": "OAK-1",
+"brand": "Luxonis",
+"logo": "media/logo-luxonis.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-fbaa5d7b.webp",
+"source": "https://shop.luxonis.com/products/oak-1",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 53,
+"resolution": 12.33,
+"fps": null,
+"shutter": "rolling",
+"sensor": "Sony IMX378",
+"url": "https://docs.luxonis.com/hardware/products/OAK-1"
+},
+{
+"id": "luxonis-oak-1-ov9782",
+"model": "OAK-1 OV9782",
+"brand": "Luxonis",
+"logo": "media/logo-luxonis.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-fbaa5d7b.webp",
+"source": "https://shop.luxonis.com/products/oak-1",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 53,
+"resolution": 1.02,
+"fps": null,
+"shutter": "global",
+"sensor": "OmniVision OV9782",
+"url": "https://docs.luxonis.com/hardware/products/OAK-1"
+},
+{
+"id": "luxonis-oak-1-poe",
+"model": "OAK-1 PoE",
+"brand": "Luxonis",
+"logo": "media/logo-luxonis.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-c7ff1699.webp",
+"source": "https://shop.luxonis.com/products/oak-1-poe",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": null,
+"resolution": 12.33,
+"fps": null,
+"shutter": "rolling",
+"sensor": "Sony IMX378",
+"url": "https://docs.luxonis.com/hardware/products/OAK-1%20PoE"
+},
+{
+"id": "luxonis-oak-1-w-ov9782",
+"model": "OAK-1 W OV9782",
+"brand": "Luxonis",
+"logo": "media/logo-luxonis.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-08910b8a.webp",
+"source": "https://shop.luxonis.com/products/oak-1-w",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 53,
+"resolution": 1.02,
+"fps": null,
+"shutter": "global",
+"sensor": "OmniVision OV9782",
+"url": "https://docs.luxonis.com/hardware/products/OAK-1%20W"
+},
+{
+"id": "luxonis-oak-4-d-w",
+"model": "OAK-4-D-W",
+"brand": "Luxonis",
+"logo": "media/logo-luxonis.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-99b13264.webp",
+"source": "https://shop.luxonis.com/products/oak-4-d",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 674,
+"resolution": 48.0,
+"fps": 18.9,
+"shutter": "rolling",
+"sensor": "Sony IMX586",
+"url": "https://docs.luxonis.com/hardware/products/OAK%204%20D"
+},
+{
+"id": "luxonis-oak-4-pro-w",
+"model": "OAK-4-PRO-W",
+"brand": "Luxonis",
+"logo": "media/logo-luxonis.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-b65294da.webp",
+"source": "https://shop.luxonis.com/products/oak-4-d-ea",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 674,
+"resolution": 48.0,
+"fps": 18.9,
+"shutter": "rolling",
+"sensor": "Sony IMX586",
+"url": "https://docs.luxonis.com/hardware/products/OAK%204%20D%20Pro"
+},
+{
+"id": "luxonis-oak-d-lr",
+"model": "OAK-D LR",
+"brand": "Luxonis",
+"logo": "media/logo-luxonis.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-2209d358.webp",
+"source": "https://shop.luxonis.com/products/oak-d-lr",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 415,
+"resolution": 2.3,
+"fps": 60,
+"shutter": "global",
+"sensor": "onsemi AR0234",
+"url": "https://docs.luxonis.com/hardware/products/OAK-D%20LR"
+},
+{
+"id": "daheng-imaging-mars-1231-46g5c-p",
+"model": "MARS-1231-46G5C-P",
+"brand": "Daheng Imaging",
+"logo": "media/logo-daheng_imaging.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-017eedb6.webp",
+"source": "https://va-imaging.com/products/vision-camera-poe-sony-imx253-mars-1231-46g5c-p",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 305,
+"resolution": 12.29,
+"fps": 47,
+"shutter": "global",
+"sensor": "Sony IMX253",
+"url": "https://en.daheng-imaging.com/show-116-2255-1.html"
+},
+{
+"id": "daheng-imaging-me2s-1260-9gc-p",
+"model": "ME2S-1260-9GC-P",
+"brand": "Daheng Imaging",
+"logo": "media/logo-daheng_imaging.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-0f28dfe9.webp",
+"source": "https://va-imaging.com/products/12mp-gige-machine-vision-camera-poe-color-xgs12000-xgs12000-me2s-1260-9gc-p",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 67,
+"resolution": 12.58,
+"fps": 9.35,
+"shutter": "global",
+"sensor": "onsemi XGS12000",
+"url": "https://en.daheng-imaging.com/show-963-3213-1.html"
+},
+{
+"id": "daheng-imaging-mer2-160-75gc-p",
+"model": "MER2-160-75GC-P",
+"brand": "Daheng Imaging",
+"logo": "media/logo-daheng_imaging.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-414a12c2.webp",
+"source": "https://va-imaging.com/products/1-6mp-gige-machine-vision-camera-poe-color-sony-imx273-mer2-160-75gc-p",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 75,
+"resolution": 1.56,
+"fps": 75.6,
+"shutter": "global",
+"sensor": "Sony IMX273",
+"url": "https://en.daheng-imaging.com/show-92-1933-1.html"
+},
+{
+"id": "daheng-imaging-mer2-231-41gc-p",
+"model": "MER2-231-41GC-P",
+"brand": "Daheng Imaging",
+"logo": "media/logo-daheng_imaging.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-414a12c2.webp",
+"source": "https://va-imaging.com/products/2-3mp-gige-machine-vision-camera-poe-color-sony-imx249-mer2-231-41gc-p",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 75,
+"resolution": 2.3,
+"fps": 41,
+"shutter": "global",
+"sensor": "Sony IMX249",
+"url": "https://en.daheng-imaging.com/show-92-1938-1.html"
+},
+{
+"id": "daheng-imaging-mer2-240-159u3c",
+"model": "MER2-240-159U3C",
+"brand": "Daheng Imaging",
+"logo": "media/logo-daheng_imaging.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-54338cd0.webp",
+"source": "https://va-imaging.com/products/usb3-0-camera-2mp-color-gpixel-gmax4002-mer2-240-159u3c",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 65,
+"resolution": 2.46,
+"fps": 159.4,
+"shutter": "global",
+"sensor": "Gpixel GMAX4002",
+"url": "https://en.daheng-imaging.com/show-106-3196-1.html"
+},
+{
+"id": "daheng-imaging-mer2-280-139u3c",
+"model": "MER2-280-139U3C",
+"brand": "Daheng Imaging",
+"logo": "media/logo-daheng_imaging.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-54338cd0.webp",
+"source": "https://va-imaging.com/products/mer2-280-139u3c-imx421-1936x1464-139fps-2-3-global-shutter-cmos-color",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 65,
+"resolution": 2.83,
+"fps": 139.2,
+"shutter": "global",
+"sensor": "Sony IMX421",
+"url": "https://en.daheng-imaging.com/show-106-3198-1.html"
+},
+{
+"id": "daheng-imaging-mer2-503-23gc-p",
+"model": "MER2-503-23GC-P",
+"brand": "Daheng Imaging",
+"logo": "media/logo-daheng_imaging.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-414a12c2.webp",
+"source": "https://va-imaging.com/products/5mp-gige-machine-vision-camera-poe-color-sony-imx264-mer2-503-23gc-p",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 75,
+"resolution": 5.01,
+"fps": 23.5,
+"shutter": "global",
+"sensor": "Sony IMX264",
+"url": "https://en.daheng-imaging.com/show-92-1944-1.html"
+},
+{
+"id": "daheng-imaging-mer3-506-58g3c-p",
+"model": "MER3-506-58G3C-P",
+"brand": "Daheng Imaging",
+"logo": "media/logo-daheng_imaging.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-48a55575.webp",
+"source": "https://va-imaging.com/products/5mp-gige-machine-vision-camera-color-sony-imx547-mer3-506-58g3c-p",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 69,
+"resolution": 5.01,
+"fps": 58.6,
+"shutter": "global",
+"sensor": "Sony IMX547",
+"url": "https://en.daheng-imaging.com/show-957-3185-1.html"
+},
+{
+"id": "contrastech-leo2-5000s-24gc",
+"model": "LEO2 5000S-24GC",
+"brand": "Contrastech",
+"logo": "media/logo-contrastech.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-ed635b14.webp",
+"source": "https://shop.contrastech.com/products/q-support-ptp-5mp-2-3-global-shutter-gige-vision-imx264-industrial-camera",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 100,
+"resolution": 5.01,
+"fps": 24.2,
+"shutter": "global",
+"sensor": "Sony IMX264",
+"url": "https://www.contrastech.com/en/productview/1850.html"
+},
+{
+"id": "contrastech-mars2000s-22gc",
+"model": "MARS2000S-22GC",
+"brand": "Contrastech",
+"logo": "media/logo-contrastech.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-14b9ca82.webp",
+"source": "https://shop.contrastech.com/products/2mp-22fps-gige-vision-area-scan-camera",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 88,
+"resolution": 2.07,
+"fps": 22,
+"shutter": "rolling",
+"sensor": "Sony IMX290",
+"url": "https://www.contrastech.com/en/productview/1728.html"
+},
+{
+"id": "contrastech-mars2000s-60gc",
+"model": "MARS2000S-60GC",
+"brand": "Contrastech",
+"logo": "media/logo-contrastech.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-14b9ca82.webp",
+"source": "https://shop.contrastech.com/products/2mp-60fps-gige-vision-area-scan-camera",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 88,
+"resolution": 2.01,
+"fps": 60,
+"shutter": "global",
+"sensor": "Sony IMX430",
+"url": "https://www.contrastech.com/en/productview/2310.html"
+},
+{
+"id": "contrastech-mars2300s-40gc",
+"model": "MARS2300S-40GC",
+"brand": "Contrastech",
+"logo": "media/logo-contrastech.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-5aebbbcb.webp",
+"source": "https://shop.contrastech.com/products/2-3mp-40fps-gige-area-scan-camera",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 88,
+"resolution": 2.3,
+"fps": 40,
+"shutter": "global",
+"sensor": "Sony IMX249",
+"url": "https://www.contrastech.com/en/productview/1019.html"
+},
+{
+"id": "contrastech-mars3000s-35gc",
+"model": "MARS3000S-35GC",
+"brand": "Contrastech",
+"logo": "media/logo-contrastech.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-b7d89804.webp",
+"source": "https://shop.contrastech.com/products/3-2mp-35fps-gige-vision-area-scan-camera",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 88,
+"resolution": 3.15,
+"fps": 35,
+"shutter": "global",
+"sensor": "Sony IMX265",
+"url": "https://www.contrastech.com/en/productview/1021.html"
+},
+{
+"id": "contrastech-mars5300x-20gc",
+"model": "MARS5300X-20GC",
+"brand": "Contrastech",
+"logo": "media/logo-contrastech.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-b7d89804.webp",
+"source": "https://shop.contrastech.com/products/gige-vision-camera-5mp-xgs5000-vision-inspection-machine",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 88,
+"resolution": 5.31,
+"fps": 21,
+"shutter": "global",
+"sensor": "onsemi XGS5000",
+"url": "https://www.contrastech.com/en/productview/2312.html"
+},
+{
+"id": "jai-ap-1600t-pge-1",
+"model": "AP-1600T-PGE-1",
+"brand": "JAI",
+"logo": "media/logo-jai.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-c7fbd33f.webp",
+"source": "https://www.edmundoptics.eu/p/jai-apex-1600t-pge-129-16mp-gige-color-camera/52922/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 170.0,
+"resolution": 1.58,
+"fps": 24.0,
+"shutter": "global",
+"sensor": "Sony IMX273",
+"url": "https://www.edmundoptics.eu/p/jai-apex-1600t-pge-129-16mp-gige-color-camera/52922/"
+},
+{
+"id": "jai-gox-2402c-pge",
+"model": "GOX-2402C-PGE",
+"brand": "JAI",
+"logo": "media/logo-jai.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-a752c76e.webp",
+"source": "https://www.edmundoptics.eu/p/jai-go-x-2402c-pge-123-23mp-gige-color-camera/52906/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 65.0,
+"resolution": 2.3,
+"fps": 50.0,
+"shutter": "global",
+"sensor": "Sony IMX392",
+"url": "https://www.edmundoptics.eu/p/jai-go-x-2402c-pge-123-23mp-gige-color-camera/52906/"
+},
+{
+"id": "jai-gox-2402c-usb",
+"model": "GOX-2402C-USB",
+"brand": "JAI",
+"logo": "media/logo-jai.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-8e7b43d6.webp",
+"source": "https://www.edmundoptics.eu/p/jai-go-x-2402c-usb-123-23mp-usb-color-camera/52914/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 65.0,
+"resolution": 2.3,
+"fps": 162.0,
+"shutter": "global",
+"sensor": "Sony IMX392",
+"url": "https://www.edmundoptics.eu/p/jai-go-x-2402c-usb-123-23mp-usb-color-camera/52914/"
+},
+{
+"id": "jai-gox-5103c-pge",
+"model": "GOX-5103C-PGE",
+"brand": "JAI",
+"logo": "media/logo-jai.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-8e7b43d6.webp",
+"source": "https://www.edmundoptics.eu/p/jai-go-x-5103c-pge-23-501-mp-gige-color-camera/52908/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 65.0,
+"resolution": 5.01,
+"fps": 22.0,
+"shutter": "global",
+"sensor": "Sony IMX264",
+"url": "https://www.edmundoptics.eu/p/jai-go-x-5103c-pge-23-501-mp-gige-color-camera/52908/"
+},
+{
+"id": "jai-gox-8901c-pge",
+"model": "GOX-8901C-PGE",
+"brand": "JAI",
+"logo": "media/logo-jai.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-8e7b43d6.webp",
+"source": "https://www.edmundoptics.eu/p/jai-go-x-8901c-pge-1-89mp-gige-color-camera/52910/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 65.0,
+"resolution": 8.85,
+"fps": 12.0,
+"shutter": "global",
+"sensor": "Sony IMX267",
+"url": "https://www.edmundoptics.eu/p/jai-go-x-8901c-pge-1-89mp-gige-color-camera/52910/"
+},
+{
+"id": "jai-sw-4000t-10ge-f",
+"model": "SW-4000T-10GE-F",
+"brand": "JAI",
+"logo": "media/logo-jai.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-dd515c88.webp",
+"source": "https://machinevisiondirect.com/products/jai-sw-4000t-10ge-f",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 830,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.jai.com/products/sw-4000t-10ge"
+},
+{
+"id": "specim-fx10e",
+"model": "FX10e",
+"brand": "Specim",
+"logo": "media/logo-specim.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-91d60f73.webp",
+"source": "https://www.specim.com/products/specim-fx10/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1300,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.specim.com/products/specim-fx10/"
+},
+{
+"id": "specim-fx17",
+"model": "FX17",
+"brand": "Specim",
+"logo": "media/logo-specim.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-1981e6ab.webp",
+"source": "https://www.specim.com/products/specim-fx17/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1560,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.specim.com/products/specim-fx17/"
+},
+{
+"id": "specim-fx17e",
+"model": "FX17e",
+"brand": "Specim",
+"logo": "media/logo-specim.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-1981e6ab.webp",
+"source": "https://www.specim.com/products/specim-fx17/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1560,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.specim.com/products/specim-fx17/"
+},
+{
+"id": "specim-fx50",
+"model": "FX50",
+"brand": "Specim",
+"logo": "media/logo-specim.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-848a80b4.webp",
+"source": "https://www.specim.com/products/specim-fx50/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 7000,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.specim.com/products/specim-fx50/"
+},
+{
+"id": "specim-gx17",
+"model": "GX17",
+"brand": "Specim",
+"logo": "media/logo-specim.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-60a9a62b.webp",
+"source": "https://www.specim.com/products/specim-gx17/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1900,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.specim.com/products/specim-gx17/"
+},
+{
+"id": "specim-iq",
+"model": "IQ",
+"brand": "Specim",
+"logo": "media/logo-specim.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-03e6a3ac.webp",
+"source": "https://sensing.konicaminolta.us/us/products/specim-iq/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1300,
+"resolution": 0.26,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://sensing.konicaminolta.us/us/products/specim-iq/"
+},
+{
+"id": "leopard-imaging-li-imx568-mipi-fkr-ipx-105h",
+"model": "LI-IMX568-MIPI-FKR-IPX-105H",
+"brand": "Leopard Imaging",
+"logo": "media/logo-leopard_imaging.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-3ac68ba8.webp",
+"source": "https://leopardimaging.com/product/robotics-cameras/cis-2-mipi-modules/i-pex-mipi-camera-modules/global-shutter-mipi-cameras/5-1mp-imx568/li-imx568-mipi-fkr-ipx-105h/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": null,
+"resolution": 5.1,
+"fps": null,
+"shutter": "global",
+"sensor": "Sony IMX568",
+"url": "https://leopardimaging.com/product/robotics-cameras/cis-2-mipi-modules/i-pex-mipi-camera-modules/global-shutter-mipi-cameras/5-1mp-imx568/li-imx568-mipi-fkr-ipx-105h/"
+},
+{
+"id": "leopard-imaging-li-imx900c-gm2b-078h",
+"model": "LI-IMX900C-GM2B-078H",
+"brand": "Leopard Imaging",
+"logo": "media/logo-leopard_imaging.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-45368190.webp",
+"source": "https://leopardimaging.com/product/automotive-cameras/cameras-by-interface/adi-gmsl2-cameras/li-imx900-gm2b/li-imx900c-gm2b-078h/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": null,
+"resolution": 3.2,
+"fps": 121,
+"shutter": "global",
+"sensor": "Sony IMX900",
+"url": "https://leopardimaging.com/product/automotive-cameras/cameras-by-interface/adi-gmsl2-cameras/li-imx900-gm2b/li-imx900c-gm2b-078h/"
+},
+{
+"id": "leopard-imaging-li-imx900c-mipi-078h",
+"model": "LI-IMX900C-MIPI-078H",
+"brand": "Leopard Imaging",
+"logo": "media/logo-leopard_imaging.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-2924283f.webp",
+"source": "https://leopardimaging.com/product/robotics-cameras/cis-2-mipi-modules/i-pex-mipi-camera-modules/global-shutter-mipi-cameras/3-2mp-imx900/li-imx900c-mipi-078h/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": null,
+"resolution": 3.2,
+"fps": null,
+"shutter": "global",
+"sensor": "Sony IMX900",
+"url": "https://leopardimaging.com/product/robotics-cameras/cis-2-mipi-modules/i-pex-mipi-camera-modules/global-shutter-mipi-cameras/3-2mp-imx900/li-imx900c-mipi-078h/"
+},
+{
+"id": "leopard-imaging-li-og05b20-yuv-gm2b-090h",
+"model": "LI-OG05B20-YUV-GM2B-090H",
+"brand": "Leopard Imaging",
+"logo": "media/logo-leopard_imaging.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-392eaf00.webp",
+"source": "https://leopardimaging.com/product/automotive-cameras/cameras-by-interface/adi-gmsl2-cameras/li-og05b20-yuv-gm2b/li-og05b20-yuv-gm2b-090h/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": null,
+"resolution": 5.04,
+"fps": null,
+"shutter": "global",
+"sensor": "OmniVision OG05B20",
+"url": "https://leopardimaging.com/product/automotive-cameras/cameras-by-interface/adi-gmsl2-cameras/li-og05b20-yuv-gm2b/li-og05b20-yuv-gm2b-090h/"
+},
+{
+"id": "leopard-imaging-li-usb30-og05b20-yuv-gm2b-090h",
+"model": "LI-USB30-OG05B20-YUV-GM2B-090H",
+"brand": "Leopard Imaging",
+"logo": "media/logo-leopard_imaging.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-7c039c1a.webp",
+"source": "https://leopardimaging.com/product/automation-cameras/usb-3-0-cameras/usb-3-0-fakra-cameras/li-usb30-og05b20-yuv-gm2b/li-usb30-og05b20-yuv-gm2b-090h/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": null,
+"resolution": 5.04,
+"fps": null,
+"shutter": "global",
+"sensor": "OmniVision OG05B20",
+"url": "https://leopardimaging.com/product/automation-cameras/usb-3-0-cameras/usb-3-0-fakra-cameras/li-usb30-og05b20-yuv-gm2b/li-usb30-og05b20-yuv-gm2b-090h/"
+},
+{
+"id": "framos-fsm-imx296c-01s-v1a",
+"model": "FSM-IMX296C-01S-V1A",
+"brand": "FRAMOS",
+"logo": "media/logo-framos.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-22278183.webp",
+"source": "https://framos.com/products/modules/framos-sensor-modules/fsm-imx296c-01s-v1a-23731/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": null,
+"resolution": 1.58,
+"fps": 60,
+"shutter": "global",
+"sensor": "Sony IMX296",
+"url": "https://framos.com/products/modules/framos-sensor-modules/fsm-imx296c-01s-v1a-23731/"
+},
+{
+"id": "framos-fsm-imx568c-01s-v1a",
+"model": "FSM-IMX568C-01S-V1A",
+"brand": "FRAMOS",
+"logo": "media/logo-framos.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-25539a8d.webp",
+"source": "https://framos.com/products/modules/framos-sensor-modules/fsm-imx568c-01s-v1a-26568/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": null,
+"resolution": 5.1,
+"fps": 96.2,
+"shutter": "global",
+"sensor": "Sony IMX568",
+"url": "https://framos.com/products/modules/framos-sensor-modules/fsm-imx568c-01s-v1a-26568/"
+},
+{
+"id": "framos-fsm-go-imx900c-gmsl3-102",
+"model": "FSM:GO-IMX900C-GMSL3-102",
+"brand": "FRAMOS",
+"logo": "media/logo-framos.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-d7d80ba6.webp",
+"source": "https://framos.com/products/modules/fsmgo-modules/fsmgo-imx900c-gmsl3-camera-module-with-102-hfov-lens-29418/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": null,
+"resolution": 3.2,
+"fps": 125,
+"shutter": "global",
+"sensor": "Sony IMX900",
+"url": "https://framos.com/products/modules/fsmgo-modules/fsmgo-imx900c-gmsl3-camera-module-with-102-hfov-lens-29418/"
+},
+{
+"id": "framos-fsm-go-imx900c-m12-l76a-pm-a1q1",
+"model": "FSM:GO-IMX900C-M12-L76A-PM-A1Q1",
+"brand": "FRAMOS",
+"logo": "media/logo-framos.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-8e341493.webp",
+"source": "https://framos.com/products/modules/fsmgo-modules/fsmgo-imx900c-camera-module-with-76-hfov-lens-29189/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": null,
+"resolution": 3.2,
+"fps": 125,
+"shutter": "global",
+"sensor": "Sony IMX900",
+"url": "https://framos.com/products/modules/fsmgo-modules/fsmgo-imx900c-camera-module-with-76-hfov-lens-29189/"
+},
+{
+"id": "d3-embedded-ar0234-ip69k",
+"model": "AR0234 IP69K",
+"brand": "D3 Embedded",
+"logo": "media/logo-d3_embedded.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-30c78ee2.webp",
+"source": "https://www.d3embedded.com/product/ar0234-ip69k/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": null,
+"resolution": 2.07,
+"fps": 60,
+"shutter": "global",
+"sensor": "onsemi AR0234",
+"url": "https://www.d3embedded.com/product/ar0234-ip69k/"
+},
+{
+"id": "d3-embedded-d3cmc74n-089-084-s",
+"model": "D3CMC74N-089-084-S",
+"brand": "D3 Embedded",
+"logo": "media/logo-d3_embedded.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-96d46dc4.webp",
+"source": "https://www.d3embedded.com/product/ar0234-medium-fov-gmsl2-sealed/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": null,
+"resolution": 2.07,
+"fps": 60,
+"shutter": "global",
+"sensor": "onsemi AR0234",
+"url": "https://www.d3embedded.com/product/ar0234-medium-fov-gmsl2-sealed/"
+},
+{
+"id": "d3-embedded-d3cmc74n-089-085-s",
+"model": "D3CMC74N-089-085-S",
+"brand": "D3 Embedded",
+"logo": "media/logo-d3_embedded.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-96d46dc4.webp",
+"source": "https://www.d3embedded.com/product/ar0234-medium-fov-fpd-link-iii-sealed/",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": null,
+"resolution": 2.07,
+"fps": 60,
+"shutter": "global",
+"sensor": "onsemi AR0234",
+"url": "https://www.d3embedded.com/product/ar0234-medium-fov-fpd-link-iii-sealed/"
+},
+{
+"id": "wenglor-mlwl105",
+"model": "MLWL105",
+"brand": "wenglor",
+"logo": "media/logo-wenglor.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-2849d5c5.webp",
+"source": "https://www.wenglor.com/en/p/MLWL105",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 3110,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.wenglor.com/en/p/MLWL105"
+},
+{
+"id": "wenglor-mlwl233",
+"model": "MLWL233",
+"brand": "wenglor",
+"logo": "media/logo-wenglor.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-ff7b774c.webp",
+"source": "https://www.wenglor.com/en/p/MLWL233",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1410,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.wenglor.com/en/p/MLWL233"
+},
+{
+"id": "wenglor-mlwl244",
+"model": "MLWL244",
+"brand": "wenglor",
+"logo": "media/logo-wenglor.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-173416aa.webp",
+"source": "https://www.wenglor.com/en/p/MLWL244",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 2942,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.wenglor.com/en/p/MLWL244"
+},
+{
+"id": "zivid-2-lr110",
+"model": "2+ LR110",
+"brand": "Zivid",
+"logo": "media/logo-zivid.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-4cce65c1.webp",
+"source": "https://www.zivid.com/ja/zivid-2-plus-lr110",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1000,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.zivid.com/ja/zivid-2-plus-lr110"
+},
+{
+"id": "zivid-2-mr130",
+"model": "2+ MR130",
+"brand": "Zivid",
+"logo": "media/logo-zivid.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-45c8ba24.webp",
+"source": "https://www.zivid.com/zivid-2-plus-mr130",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1000,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.zivid.com/zivid-2-plus-mr130"
+},
+{
+"id": "zivid-2-mr60",
+"model": "2+ MR60",
+"brand": "Zivid",
+"logo": "media/logo-zivid.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-b3d8551f.webp",
+"source": "https://www.zivid.com/zivid-2-plus-mr60",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1000,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.zivid.com/zivid-2-plus-mr60"
+},
+{
+"id": "innodisk-ev2m-oom1-uhca-e1",
+"model": "EV2M-OOM1-UHCA-E1",
+"brand": "Innodisk",
+"logo": "media/logo-innodisk.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-a54f1f1e.webp",
+"source": "https://www.innodisk.com/en/products/camera/mipi-csi-2/ev2m-oom1-uhca",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": null,
+"resolution": null,
+"fps": 60,
+"shutter": "global",
+"sensor": "onsemi AR0234",
+"url": "https://www.innodisk.com/en/products/camera/mipi-csi-2/ev2m-oom1-uhca"
+},
+{
+"id": "innodisk-ev2u-lom2-gscf-11",
+"model": "EV2U-LOM2-GSCF-11",
+"brand": "Innodisk",
+"logo": "media/logo-innodisk.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-a54f1f1e.webp",
+"source": "https://www.innodisk.com/en/products/camera/usb-20/ev2u-lom2-gscf",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": null,
+"resolution": 2.07,
+"fps": 5,
+"shutter": "global",
+"sensor": "onsemi AR0234",
+"url": "https://www.innodisk.com/en/products/camera/usb-20/ev2u-lom2-gscf"
+},
+{
+"id": "keyence-lj-x8400",
+"model": "LJ-X8400",
+"brand": "Keyence",
+"logo": "media/logo-keyence.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-6f2d4ce3.webp",
+"source": "https://www.keyence.com/products/measure/laser-2d/lj-x8000/models/lj-x8400/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1300,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.keyence.com/products/measure/laser-2d/lj-x8000/models/lj-x8400/"
+},
+{
+"id": "keyence-lj-x8900",
+"model": "LJ-X8900",
+"brand": "Keyence",
+"logo": "media/logo-keyence.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-4b70a717.webp",
+"source": "https://www.keyence.com/products/measure/laser-2d/lj-x8000/models/lj-x8900/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1600,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.keyence.com/products/measure/laser-2d/lj-x8000/models/lj-x8900/"
+},
+{
+"id": "photoneo-motioncam-3d-color-m-3s-mcmp-3af0f",
+"model": "MotionCam-3D Color M+ 3S-MCMP-3AF0F",
+"brand": "Photoneo",
+"logo": "media/logo-photoneo.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-bd881167.webp",
+"source": "https://graftek.com/?p=17322",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1050,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://graftek.com/?p=17322"
+},
+{
+"id": "photoneo-motioncam-3d-m",
+"model": "MotionCam-3D M+",
+"brand": "Photoneo",
+"logo": "media/logo-photoneo.webp",
+"category": "Camera",
+"photo": {
+"value": "media/p-6114033b.webp",
+"source": "https://www.photoneo.com/products/motioncam-3d-m-plus/",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": 1050,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.photoneo.com/products/motioncam-3d-m-plus/"
+},
+{
+"id": "automation-technology-c6-4090cs30-288",
+"model": "C6-4090CS30-288",
+"brand": "Automation Technology",
+"logo": "media/logo-automation_technology.svg",
+"category": "Camera",
+"photo": {
+"value": "media/p-6efa13d9.webp",
+"source": "https://graftek.com/?p=18126",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": null,
+"resolution": null,
+"fps": null,
+"shutter": null,
+"sensor": null,
+"url": "https://www.automationtechnology.de/cms/en/3d-sensors/"
+},
+{
+"id": "hikrobot-mv-ca013-a0gc",
+"model": "MV-CA013-A0GC",
+"brand": "Hikrobot",
+"logo": null,
+"category": "Camera",
+"photo": {
+"value": "media/p-7f66516f.webp",
+"source": "https://www.ztec.dk/shop/machine-vision-industrial-camera-ca-area-scan-camera-1455/hikrobot-306301487-hikrobot-mv-ca013-a0gc-41554",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 100,
+"resolution": 1.31,
+"fps": 92.8,
+"shutter": "global",
+"sensor": null,
+"url": "https://www.hikrobotics.com/en/machinevision/productdetail?id=5867"
+},
+{
+"id": "hikrobot-mv-ca020-10gc",
+"model": "MV-CA020-10GC",
+"brand": "Hikrobot",
+"logo": null,
+"category": "Camera",
+"photo": {
+"value": "media/p-cf434c16.webp",
+"source": "https://www.ztec.dk/shop/machine-vision-industrial-camera-ca-area-scan-camera-1455/hikrobot-306301026-hikrobot-mv-ca020-10gc-v3-0-41562",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 68,
+"resolution": 2.01,
+"fps": 60,
+"shutter": "global",
+"sensor": "Sony IMX430",
+"url": "https://www.hikrobotics.com/en/machinevision/productdetail?id=3895"
+},
+{
+"id": "hikrobot-mv-ca050-12gc",
+"model": "MV-CA050-12GC",
+"brand": "Hikrobot",
+"logo": null,
+"category": "Camera",
+"photo": {
+"value": "media/p-a27675cd.webp",
+"source": "https://www.ztec.dk/shop/machine-vision-industrial-camera-ca-area-scan-camera-1455/hikrobot-306301351-hikrobot-mv-ca050-12gc-41569",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 88,
+"resolution": 5.01,
+"fps": 24.1,
+"shutter": "global",
+"sensor": "Sony IMX264",
+"url": "https://www.hikrobotics.com/en/machinevision/productdetail?id=7231"
+},
+{
+"id": "hikrobot-mv-cb004-10gc-s",
+"model": "MV-CB004-10GC-S",
+"brand": "Hikrobot",
+"logo": null,
+"category": "Camera",
+"photo": {
+"value": "media/p-0bb9af80.webp",
+"source": "https://www.ztec.dk/shop/machine-vision-industrial-camera-cb-board-level-camera-1457/hikrobot-306301610-hikrobot-mv-cb004-10gc-s-41316",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 45,
+"resolution": 0.39,
+"fps": 125.2,
+"shutter": "global",
+"sensor": "Sony IMX297",
+"url": "https://www.hikrobotics.com/en/machinevision/productdetail?id=5898"
+},
+{
+"id": "teledyne-flir-bfs-pge-120s6c-c",
+"model": "BFS-PGE-120S6C-C",
+"brand": "Teledyne FLIR",
+"logo": null,
+"category": "Camera",
+"photo": {
+"value": "media/p-a5337323.webp",
+"source": "https://www.teledynevisionsolutions.com/products/blackfly-s-gige/?model=BFS-PGE-120S6C-C",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 53.0,
+"resolution": 12.29,
+"fps": 10.0,
+"shutter": "global",
+"sensor": "Sony IMX545",
+"url": "https://www.teledynevisionsolutions.com/products/blackfly-s-gige/?model=BFS-PGE-120S6C-C"
+},
+{
+"id": "teledyne-flir-bfs-pge-16s2c-cs",
+"model": "BFS-PGE-16S2C-CS",
+"brand": "Teledyne FLIR",
+"logo": null,
+"category": "Camera",
+"photo": {
+"value": "media/p-24106b8e.webp",
+"source": "https://www.teledynevisionsolutions.com/products/blackfly-s-gige/?model=BFS-PGE-16S2C-CS",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 36.0,
+"resolution": 1.56,
+"fps": 78.0,
+"shutter": "global",
+"sensor": "Sony IMX273",
+"url": "https://www.teledynevisionsolutions.com/products/blackfly-s-gige/?model=BFS-PGE-16S2C-CS"
+},
+{
+"id": "teledyne-flir-bfs-pge-19s4c-c",
+"model": "BFS-PGE-19S4C-C",
+"brand": "Teledyne FLIR",
+"logo": null,
+"category": "Camera",
+"photo": {
+"value": "media/p-a5337323.webp",
+"source": "https://www.teledynevisionsolutions.com/products/blackfly-s-gige/?model=BFS-PGE-19S4C-C",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 53.0,
+"resolution": 2.0,
+"fps": 60.0,
+"shutter": "global",
+"sensor": "Sony IMX430",
+"url": "https://www.teledynevisionsolutions.com/products/blackfly-s-gige/?model=BFS-PGE-19S4C-C"
+},
+{
+"id": "teledyne-flir-bfs-pge-23s3c-c",
+"model": "BFS-PGE-23S3C-C",
+"brand": "Teledyne FLIR",
+"logo": null,
+"category": "Camera",
+"photo": {
+"value": "media/p-24106b8e.webp",
+"source": "https://www.teledynevisionsolutions.com/products/blackfly-s-gige/?model=BFS-PGE-23S3C-C",
+"asOf": "2026-10-26"
+},
+"level": 2,
+"peak_torque": null,
+"mass": 36.0,
+"resolution": 2.3,
+"fps": 53.0,
+"shutter": "global",
+"sensor": "Sony IMX392",
+"url": "https://www.teledynevisionsolutions.com/products/blackfly-s-gige/?model=BFS-PGE-23S3C-C"
+},
+{
+"id": "arducam-b0322",
+"model": "B0322",
+"brand": "Arducam",
+"logo": null,
+"category": "Camera",
+"photo": {
+"value": "media/p-a18eb705.webp",
+"source": "https://www.uctronics.com/usb-uvc-camera-modules/usb-2-0-camera/arducam-2mp-global-shutter-usb-camera-board-for-computer-50fps-ov2311.html",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": null,
+"resolution": 1.92,
+"fps": 5,
+"shutter": "global",
+"sensor": "OmniVision OV2311",
+"url": "https://www.uctronics.com/usb-uvc-camera-modules/usb-2-0-camera/arducam-2mp-global-shutter-usb-camera-board-for-computer-50fps-ov2311.html"
+},
+{
+"id": "arducam-b0332",
+"model": "B0332",
+"brand": "Arducam",
+"logo": null,
+"category": "Camera",
+"photo": {
+"value": "media/p-bddf07da.webp",
+"source": "https://www.uctronics.com/usb-uvc-camera-modules/usb-2-0-camera/arducam-120fps-global-shutter-usb-camera-board-1mp-720p-ov9281-uvc-webcam-module-with-low-distortion-m12-lens.html",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": null,
+"resolution": 1.02,
+"fps": 10,
+"shutter": "global",
+"sensor": "OmniVision OV9281",
+"url": "https://www.uctronics.com/usb-uvc-camera-modules/usb-2-0-camera/arducam-120fps-global-shutter-usb-camera-board-1mp-720p-ov9281-uvc-webcam-module-with-low-distortion-m12-lens.html"
+},
+{
+"id": "arducam-b0348",
+"model": "B0348",
+"brand": "Arducam",
+"logo": null,
+"category": "Camera",
+"photo": {
+"value": "media/p-0e189efb.webp",
+"source": "https://www.uctronics.com/camera-modules/pivariety-cameras-for-pi/arducam-2mp-global-shutter-og02b10-color-camera-modules-pivariety.html",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": null,
+"resolution": 2.08,
+"fps": 60,
+"shutter": "global",
+"sensor": "OmniVision OG02B10",
+"url": "https://www.uctronics.com/camera-modules/pivariety-cameras-for-pi/arducam-2mp-global-shutter-og02b10-color-camera-modules-pivariety.html"
+},
+{
+"id": "arducam-b0353",
+"model": "B0353",
+"brand": "Arducam",
+"logo": null,
+"category": "Camera",
+"photo": {
+"value": "media/p-4dec9b63.webp",
+"source": "https://www.uctronics.com/camera-modules/pivariety-cameras-for-pi/arducam-full-hd-color-global-shutter-camera-for-raspberry-pi-2-3mp-ar0234-wide-angle-pivariety-camera-module.html",
+"asOf": "2026-10-26"
+},
+"level": 1,
+"peak_torque": null,
+"mass": null,
+"resolution": 2.3,
+"fps": 60,
+"shutter": "global",
+"sensor": "onsemi AR0234",
+"url": "https://www.uctronics.com/camera-modules/pivariety-cameras-for-pi/arducam-full-hd-color-global-shutter-camera-for-raspberry-pi-2-3mp-ar0234-wide-angle-pivariety-camera-module.html"
+}
+]
+}

@@ -1,0 +1,428 @@
+{
+ "id": "robotparts-timeline",
+ "title": "robotparts releases and lanes",
+ "titleProperty": "title",
+ "source": "git -C ~/robotparts log --merges main + release/* tags, 2026-10-21 to 2026-10-26 (metadata only)",
+ "properties": {
+  "title": {
+   "type": "text",
+   "label": "Branch or release",
+   "width": 200
+  },
+  "kind": {
+   "type": "text",
+   "label": "Kind",
+   "display": "badge",
+   "colors": {
+    "release": 8,
+    "integration": 7,
+    "lane": 1,
+    "contract": 4,
+    "main": 3
+   }
+  },
+  "start": {
+   "type": "date",
+   "label": "Start",
+   "readOnly": true
+  },
+  "end": {
+   "type": "date",
+   "label": "Merged",
+   "readOnly": true
+  },
+  "release": {
+   "type": "text",
+   "label": "Shipped in",
+   "display": "badge",
+   "colors": {
+    "2026.10.22.1": 1,
+    "2026.10.22.2": 2,
+    "2026.10.22.3": 3,
+    "2026.10.22.4": 4,
+    "2026.10.25": 5,
+    "2026.10.25.1": 6
+   }
+  },
+  "branch": {
+   "type": "text",
+   "label": "Branch",
+   "hidden": true
+  },
+  "commits": {
+   "type": "number",
+   "label": "Commits"
+  },
+  "commit": {
+   "type": "text",
+   "label": "Commit"
+  },
+  "subject": {
+   "type": "text",
+   "label": "Subject",
+   "width": 420
+  }
+ },
+ "rows": [
+  {
+   "id": "f8e359fd3",
+   "title": "integration/v2",
+   "kind": "integration",
+   "start": "2026-10-22T09:13:55-07:00",
+   "end": "2026-10-22T14:31:20-07:00",
+   "release": "2026.10.22.1",
+   "branch": "integration/v2",
+   "commits": 32,
+   "commit": "f8e359fd3",
+   "subject": "Merge integration/v2: robotparts/2 — Core, Measured, Ingestor, In-CAD, Part Picker (market layer)"
+  },
+  {
+   "id": "a971af78a",
+   "title": "lane/incad",
+   "kind": "lane",
+   "start": "2026-10-22T09:13:55-07:00",
+   "end": "2026-10-22T11:31:27-07:00",
+   "release": "2026.10.22.1",
+   "branch": "lane/incad",
+   "commits": 3,
+   "commit": "a971af78a",
+   "subject": "integrate robotparts/2: lane/incad @ 1c2fd68 (RobotParts Fusion add-in; NOT VERIFIED IN-APP)"
+  },
+  {
+   "id": "6a222e12a",
+   "title": "lane/measured",
+   "kind": "lane",
+   "start": "2026-10-22T09:37:28-07:00",
+   "end": "2026-10-22T11:30:34-07:00",
+   "release": "2026.10.22.1",
+   "branch": "lane/measured",
+   "commits": 3,
+   "commit": "6a222e12a",
+   "subject": "integrate robotparts/2: lane/measured @ d9fd15a (GIM4305-10 level 4, moteus-c1 folder, makers.toml)"
+  },
+  {
+   "id": "eca6c79aa",
+   "title": "lane/core",
+   "kind": "lane",
+   "start": "2026-10-22T09:51:29-07:00",
+   "end": "2026-10-22T11:30:31-07:00",
+   "release": "2026.10.22.1",
+   "branch": "lane/core",
+   "commits": 8,
+   "commit": "eca6c79aa",
+   "subject": "integrate robotparts/2: lane/core @ 5135e53 (RobotPart package v2, build v2, release rule)"
+  },
+  {
+   "id": "f807c4d89",
+   "title": "lane/ingestor",
+   "kind": "lane",
+   "start": "2026-10-22T09:51:51-07:00",
+   "end": "2026-10-22T11:31:24-07:00",
+   "release": "2026.10.22.1",
+   "branch": "lane/ingestor",
+   "commits": 6,
+   "commit": "f807c4d89",
+   "subject": "integrate robotparts/2: lane/ingestor @ 209eb75 (robotparts-ingest tool 0.3.0 + 20 maker-cited actuators)"
+  },
+  {
+   "id": "4ebeb4819",
+   "title": "lane/picker",
+   "kind": "lane",
+   "start": "2026-10-22T11:08:33-07:00",
+   "end": "2026-10-22T11:31:30-07:00",
+   "release": "2026.10.22.1",
+   "branch": "lane/picker",
+   "commits": 3,
+   "commit": "4ebeb4819",
+   "subject": "integrate robotparts/2: lane/picker @ 1f0de72 (quotes market layer, one seller rule, link-health) — held c0a0f3a NOT merged"
+  },
+  {
+   "id": "release-2026.10.22.1",
+   "title": "2026.10.22.1",
+   "kind": "release",
+   "start": "2026-10-22T14:32:56-07:00",
+   "end": null,
+   "release": "2026.10.22.1",
+   "branch": null,
+   "commits": null,
+   "commit": "65897fdac",
+   "subject": "robotparts 2026.10.22.1 — robotparts/2: part folders, levels, measured, ingestor, in-CAD, market layer"
+  },
+  {
+   "id": "3c0e8ae65",
+   "title": "integration/round3",
+   "kind": "integration",
+   "start": "2026-10-22T18:04:27-07:00",
+   "end": "2026-10-22T22:11:23-07:00",
+   "release": "2026.10.22.3",
+   "branch": "integration/round3",
+   "commits": 24,
+   "commit": "3c0e8ae65",
+   "subject": "Merge integration/round3: robotparts/2.1 (owner-hosted files, software stars/downloads/in-use), live data on demand, measurement bundles and statistics, the unstyled pages for people; release 2026.10.22.3"
+  },
+  {
+   "id": "ea570e9af",
+   "title": "contract/v2.1",
+   "kind": "contract",
+   "start": "2026-10-22T18:04:27-07:00",
+   "end": "2026-10-22T20:28:24-07:00",
+   "release": "2026.10.22.3",
+   "branch": "contract/v2.1",
+   "commits": 2,
+   "commit": "ea570e9af",
+   "subject": "Merge contract/v2.1: robotparts/2.1 amendment (owner-hosted files, driver stars and usage, browser hosts; review fixes F1-F3)"
+  },
+  {
+   "id": "fd34f7f0b",
+   "title": "main",
+   "kind": "main",
+   "start": "2026-10-22T18:06:45-07:00",
+   "end": "2026-10-22T22:03:10-07:00",
+   "release": "2026.10.22.3",
+   "branch": "main",
+   "commits": 20,
+   "commit": "fd34f7f0b",
+   "subject": "Merge main (the 1-DOF rack, release 2026.10.22.2) into round 3; this tree becomes release 2026.10.22.3"
+  },
+  {
+   "id": "bdf136ac5",
+   "title": "integration/rack",
+   "kind": "integration",
+   "start": "2026-10-22T18:06:45-07:00",
+   "end": "2026-10-22T21:40:58-07:00",
+   "release": "2026.10.22.2",
+   "branch": "integration/rack",
+   "commits": 17,
+   "commit": "bdf136ac5",
+   "subject": "Merge integration/rack: the 1-DOF rack parts with ports, diagnostics and the Splice power-path proof"
+  },
+  {
+   "id": "e78820dbf",
+   "title": "lane/rack-power",
+   "kind": "lane",
+   "start": "2026-10-22T18:06:45-07:00",
+   "end": "2026-10-22T20:01:25-07:00",
+   "release": "2026.10.22.2",
+   "branch": "lane/rack-power",
+   "commits": 2,
+   "commit": "e78820dbf",
+   "subject": "Merge lane/rack-power: the rack PSU overlay (acaproto-cnctopbaos-36v-600w-adj) and the ODrive Regen Clamp, tests/rack_power"
+  },
+  {
+   "id": "246e3fec9",
+   "title": "lane/rack",
+   "kind": "lane",
+   "start": "2026-10-22T18:47:58-07:00",
+   "end": "2026-10-22T20:00:39-07:00",
+   "release": "2026.10.22.2",
+   "branch": "lane/rack",
+   "commits": 3,
+   "commit": "246e3fec9",
+   "subject": "Merge lane/rack: the One Dof Test Rack's parts with ports and diagnostics (jmc-60asm400/200-5-1024c, mjbots-moteus-r4-11, moteus-c1 overlay, fdcanusb, XT30 and PH-3 junctions, realsense-d405 overlay), tests/rack, the Splice proof"
+  },
+  {
+   "id": "7f2c348b8",
+   "title": "lane/screens-v2.1",
+   "kind": "lane",
+   "start": "2026-10-22T19:16:38-07:00",
+   "end": "2026-10-22T20:29:44-07:00",
+   "release": "2026.10.22.3",
+   "branch": "lane/screens-v2.1",
+   "commits": 3,
+   "commit": "7f2c348b8",
+   "subject": "Merge lane/screens-v2.1: the robotparts.dev pages, unstyled, from /v2/ (build/site_pages.py), tests/site"
+  },
+  {
+   "id": "13f21b03c",
+   "title": "lane/live-2.1",
+   "kind": "lane",
+   "start": "2026-10-22T19:17:27-07:00",
+   "end": "2026-10-22T20:28:28-07:00",
+   "release": "2026.10.22.3",
+   "branch": "lane/live-2.1",
+   "commits": 10,
+   "commit": "13f21b03c",
+   "subject": "Merge lane/live-2.1: on-demand refresh/cad/offers (robotparts.live), owner-hosted GIM4305-10 STEP, software views with stars/downloads/in_use, held picker observations published"
+  },
+  {
+   "id": "c6fde44a2",
+   "title": "lane/measure-v2.1",
+   "kind": "lane",
+   "start": "2026-10-22T19:36:01-07:00",
+   "end": "2026-10-22T20:29:23-07:00",
+   "release": "2026.10.22.3",
+   "branch": "lane/measure-v2.1",
+   "commits": 1,
+   "commit": "c6fde44a2",
+   "subject": "Merge lane/measure-v2.1: measurement submission bundles, robotparts measure submit/check/stats/new, per-key statistics across units, /measure/ checker page"
+  },
+  {
+   "id": "release-2026.10.22.2",
+   "title": "2026.10.22.2",
+   "kind": "release",
+   "start": "2026-10-22T21:40:58-07:00",
+   "end": null,
+   "release": "2026.10.22.2",
+   "branch": null,
+   "commits": null,
+   "commit": "bdf136ac5",
+   "subject": "robotparts 2026.10.22.2 — the 1-DOF rack parts"
+  },
+  {
+   "id": "release-2026.10.22.3",
+   "title": "2026.10.22.3",
+   "kind": "release",
+   "start": "2026-10-22T22:11:23-07:00",
+   "end": null,
+   "release": "2026.10.22.3",
+   "branch": null,
+   "commits": null,
+   "commit": "3c0e8ae65",
+   "subject": "robotparts 2026.10.22.3: robotparts/2.1, live data on demand, measurements, the pages for people"
+  },
+  {
+   "id": "a3b6226a6",
+   "title": "integration/round3",
+   "kind": "integration",
+   "start": "2026-10-22T22:12:50-07:00",
+   "end": "2026-10-22T22:23:47-07:00",
+   "release": "2026.10.22.4",
+   "branch": "integration/round3",
+   "commits": 2,
+   "commit": "a3b6226a6",
+   "subject": "Merge integration/round3: release 2026.10.22.4 (the pages name the rack's categories; round-3 report tools)"
+  },
+  {
+   "id": "release-2026.10.22.4",
+   "title": "2026.10.22.4",
+   "kind": "release",
+   "start": "2026-10-22T22:23:47-07:00",
+   "end": null,
+   "release": "2026.10.22.4",
+   "branch": null,
+   "commits": null,
+   "commit": "a3b6226a6",
+   "subject": "robotparts 2026.10.22.4: 2026.10.22.3 with the pages naming the power and adapter categories"
+  },
+  {
+   "id": "e7ccd8594",
+   "title": "lane/sps",
+   "kind": "lane",
+   "start": "2026-10-25T13:58:23-07:00",
+   "end": "2026-10-25T14:13:21-07:00",
+   "release": "2026.10.25",
+   "branch": "lane/sps",
+   "commits": 1,
+   "commit": "e7ccd8594",
+   "subject": "Merge lane/sps: robotparts on Zach's Stable/Preview switcher (Stable 4471, Preview 4470)"
+  },
+  {
+   "id": "a0aa5c478",
+   "title": "integration/media-sources",
+   "kind": "integration",
+   "start": "2026-10-25T14:01:26-07:00",
+   "end": "2026-10-25T21:34:02-07:00",
+   "release": "2026.10.25.1",
+   "branch": "integration/media-sources",
+   "commits": 21,
+   "commit": "a0aa5c478",
+   "subject": "Merge integration/media-sources: release 2026.10.25.1 (real photos and brand logos, the sources pipeline and freshness, CAN 14's corrected friction/ripple, the stud-brick logo)"
+  },
+  {
+   "id": "894b8111e",
+   "title": "lane/logos",
+   "kind": "lane",
+   "start": "2026-10-25T14:01:26-07:00",
+   "end": "2026-10-25T20:59:56-07:00",
+   "release": "2026.10.25.1",
+   "branch": "lane/logos",
+   "commits": 6,
+   "commit": "894b8111e",
+   "subject": "Merge lane/logos: the logo rounds 1-6 (design/logos-2026-10-25*/); Zach's pick: round 5's 03 mark, R2-10 lockup"
+  },
+  {
+   "id": "154b295c4",
+   "title": "integration/site-v3",
+   "kind": "integration",
+   "start": "2026-10-25T14:26:00-07:00",
+   "end": "2026-10-25T15:02:18-07:00",
+   "release": "2026.10.25",
+   "branch": "integration/site-v3",
+   "commits": 5,
+   "commit": "154b295c4",
+   "subject": "Merge integration/site-v3: release 2026.10.25, the round-3 pages (McMaster shell, Rows/Gallery/Chart, tabbed part pages)"
+  },
+  {
+   "id": "57b4ff8ce",
+   "title": "lane/site-v3",
+   "kind": "lane",
+   "start": "2026-10-25T14:26:00-07:00",
+   "end": "2026-10-25T14:46:48-07:00",
+   "release": "2026.10.25",
+   "branch": "lane/site-v3",
+   "commits": 3,
+   "commit": "57b4ff8ce",
+   "subject": "Merge lane/site-v3: the McMaster shell, two-pane lists with Rows/Gallery/Chart, tabbed part pages"
+  },
+  {
+   "id": "release-2026.10.25",
+   "title": "2026.10.25",
+   "kind": "release",
+   "start": "2026-10-25T15:02:18-07:00",
+   "end": null,
+   "release": "2026.10.25",
+   "branch": null,
+   "commits": null,
+   "commit": "154b295c4",
+   "subject": "robotparts 2026.10.25: the round-3 pages"
+  },
+  {
+   "id": "688bbd8d4",
+   "title": "lane/sources",
+   "kind": "lane",
+   "start": "2026-10-25T19:25:44-07:00",
+   "end": "2026-10-25T20:59:44-07:00",
+   "release": "2026.10.25.1",
+   "branch": "lane/sources",
+   "commits": 4,
+   "commit": "688bbd8d4",
+   "subject": "Merge lane/sources: the sources model, /v2/sources.json, /sources/ pages and per-part provenance"
+  },
+  {
+   "id": "7ad022114",
+   "title": "lane/can14-kt-fix",
+   "kind": "lane",
+   "start": "2026-10-25T19:35:14-07:00",
+   "end": "2026-10-25T20:34:51-07:00",
+   "release": "2026.10.25.1",
+   "branch": "lane/can14-kt-fix",
+   "commits": 1,
+   "commit": "7ad022114",
+   "subject": "Merge lane/can14-kt-fix: CAN 14's friction and ripple corrected x1.229 (stale board Kv)"
+  },
+  {
+   "id": "5f6ff263a",
+   "title": "lane/photos",
+   "kind": "lane",
+   "start": "2026-10-25T20:07:17-07:00",
+   "end": "2026-10-25T20:34:51-07:00",
+   "release": "2026.10.25.1",
+   "branch": "lane/photos",
+   "commits": 4,
+   "commit": "5f6ff263a",
+   "subject": "Merge lane/photos: the robotparts/2.4 hosted media store (real photos and brand logos)"
+  },
+  {
+   "id": "release-2026.10.25.1",
+   "title": "2026.10.25.1",
+   "kind": "release",
+   "start": "2026-10-25T21:34:02-07:00",
+   "end": null,
+   "release": "2026.10.25.1",
+   "branch": null,
+   "commits": null,
+   "commit": "a0aa5c478",
+   "subject": "robotparts 2026.10.25.1: photos, logos, sources, CAN 14 correction, logo"
+  }
+ ]
+}

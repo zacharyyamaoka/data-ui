@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lifecycle fixture</title>
+<!-- tests/browser/lifecycle_checks.py: an empty page the checks fill with <data-views> and <data-facets>, then remove
+     and re-add. The script below runs before the kit, so it counts every listener the kit puts on the document.
+     Served from the repo root (dist/ and gallery/). -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: var(--data-bg, #fff); }
+  data-views { height: 520px; }
+</style>
+<script>
+  // document listeners, live: added minus removed, by type (a listener added twice with the same function counts once,
+  // as the DOM does)
+  window.docListeners = new Map();
+  const add = Document.prototype.addEventListener, remove = Document.prototype.removeEventListener;
+  Document.prototype.addEventListener = function (type, fn, opts) {
+    if (!docListeners.has(type)) docListeners.set(type, new Set());
+    docListeners.get(type).add(fn);
+    return add.call(this, type, fn, opts);
+  };
+  Document.prototype.removeEventListener = function (type, fn, opts) {
+    if (docListeners.has(type)) docListeners.get(type).delete(fn);
+    return remove.call(this, type, fn, opts);
+  };
+  window.liveDocListeners = () => Object.fromEntries([...docListeners].map(([t, s]) => [t, s.size]).filter(([, n]) => n));
+</script>
+<script type="module">
+  import * as kit from '/dist/data-ui.js';
+  window.kit = kit;
+  window.kitReady = true;
+</script>
+</head>
+<body>
+</body>
+</html>

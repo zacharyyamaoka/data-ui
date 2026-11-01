@@ -1,0 +1,21 @@
+/* <data-mesh>: a poster, then live frames from the page's one 3D renderer (docs/CONTRACT.md §23). The element fills
+   the box it is given (a card's image well, the peek's viewer); the poster and the canvas stack in it. */
+data-mesh, .dv-mesh { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; touch-action: pan-y; }
+.dv-mesh-poster, .dv-mesh-canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.dv-mesh-canvas { opacity: 0; pointer-events: none; }
+.dv-mesh-live .dv-mesh-canvas { opacity: 1; }
+.dv-mesh-live .dv-mesh-poster { visibility: hidden; }
+.dv-mesh:not(.dv-mesh-none):not([interact="click"]) { cursor: grab; }
+.dv-mesh[interact="orbit"] { touch-action: none; }
+.dv-mesh-badge { position: absolute; right: 6px; bottom: 6px; padding: 0 5px; border-radius: 4px; font: 600 10px/16px var(--dv-font);
+  letter-spacing: .04em; color: var(--dv-muted); background: color-mix(in srgb, var(--dv-bg) 80%, transparent); border: 1px solid var(--dv-border);
+  pointer-events: none; opacity: .85; }
+.dv-mesh-none .dv-mesh-badge { display: none; }
+.dv-mesh-live .dv-mesh-badge { color: var(--dv-accent); border-color: color-mix(in srgb, var(--dv-accent) 50%, var(--dv-border)); }
+.dv-mesh-loading .dv-mesh-badge { animation: dv-mesh-pulse 0.9s ease-in-out infinite alternate; }
+.dv-mesh-failed .dv-mesh-badge { color: var(--dv-warn); }
+@keyframes dv-mesh-pulse { from { opacity: .35; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .dv-mesh-loading .dv-mesh-badge { animation: none; } }
+/* the peek's viewer: above the fields, as tall as a third of the panel */
+.dv-peek-mesh { height: clamp(220px, 34vh, 380px); margin: 0 0 12px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); background: var(--dv-subtle); }
+.dv-peek-mesh-hint { margin: -8px 0 12px; color: var(--dv-muted); font-size: 12px; }

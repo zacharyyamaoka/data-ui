@@ -1,0 +1,10 @@
+# tests/browser/lineage_links_checks.py: the model ladder with NO `extinct:` key, so the view's own default shows
+# (Zach, 2026-10-28: extinct branches are collapsed by default). `kept` makes some rows extinct.
+data: ../../../gallery/examples/model-lineage/ladder.json
+views:
+  - type: lineage
+    name: Default
+    lineage: { parents: parents, x: rung, xLabel: rung_name, label: variant, focus: m4-ripple-c1, kept: { status: [measured] } }
+  - type: lineage
+    name: Default radial
+    lineage: { parents: parents, x: rung, xLabel: rung_name, label: variant, focus: m4-ripple-c1, kept: { status: [measured] }, layout: radial }

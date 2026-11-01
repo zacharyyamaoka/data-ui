@@ -1,0 +1,68 @@
+# A live dashboard on a SIMULATED robot arm (docs/peps/0012-live-data.md): simulate.js, loaded by this case's page,
+# pushes rows into the four live datasets below; nothing here talks to a robot.
+data: joints.json
+retention: { bytes: 128MB }
+datasets:
+  joints:
+    data: joints.json
+    live: { time: t, stream: joint, retention: { age: 15m } }
+  thermal:
+    data: thermal.json
+    live: { time: t, stream: joint }
+  checks:
+    data: checks.json
+    live: { time: t, stream: name }
+  log:
+    data: log.json
+    live: { time: t }
+style:
+  numbers: { digits: 3 }
+  palette: { shoulder: "#2a78d6", elbow: "#e8833a", wrist: "#3a9a6e" }
+layout:
+  columns: 12
+  rowHeight: 104
+  panels:
+    - text: "**Simulated data.** This page runs a made-up three-joint arm in the browser (`simulate.js`): 500 samples a second per joint, motor temperatures and five health checks twice a second, and a fault about every 30 s. **Drag the time bar back to rewind** while it keeps streaming; **● LIVE** (or End) comes back."
+      w: 12
+      h: 1
+    - { view: Motor temperature, w: 12, h: 2 }
+    - { view: Joint position, w: 8, h: 3 }
+    - { view: Health, w: 4, h: 3 }
+    - { view: Motor current, w: 12, h: 3 }
+    - { view: Timeline, w: 12, h: 1 }
+    - { view: Log, w: 12, h: 4 }
+views:
+  - type: plot
+    name: Joint position
+    from: joints
+    at: 30s
+    plot: { y: [position], series: joint, unit: rad }
+  - type: plot
+    name: Motor current
+    from: joints
+    at: 30s
+    plot:
+      y: [current]
+      series: joint
+      unit: A
+      rules: [{ y: 4, label: current limit, tone: bad }]
+  - type: kpi
+    name: Motor temperature
+    from: thermal
+    at: 60s
+    groupBy: { property: joint }
+    kpi: { value: { property: temp_c }, spark: { x: t, y: temp_c } }
+  - type: levels
+    name: Health
+    from: checks
+    at: 60s
+    levels: { state: level, label: message }
+  - type: playback
+    name: Timeline
+  - type: table
+    name: Log
+    from: log
+    order: [t, source, severity, message]
+    sort: [{ property: t, direction: DESC }]
+    limit: 500
+    display: { severity: badge }

@@ -1,0 +1,106 @@
+# Arm + gripper: the robotics playback template for an arm with a gripper (docs/peps/0010-robotics-playback.md §6, the
+# arm-gripper.png mock), on STAND-INS, labelled so wherever they are read: the arm is sim2real's MuJoCo UR5e (its "real"
+# a synthetic plant, never measured) and the gripper is ILLUSTRATIVE, made by source/build.py from a stated rule on that
+# arm's path, until a real gripper is logged. The rail shows or hides situations in every panel at once; the playback
+# panels share one clock; the grasp, contact and release marks are read from events.json (annotations from a dataset,
+# CONTRACT §25), so a run with other events marks those. Tables: gallery/robotics/CONTRACT.md.
+data: runs.json
+style:
+  chrome: minimal
+  numbers: { digits: 4, compact: true }
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: poses, time: t }
+datasets:
+  runs:
+    data: runs.json
+    label: Runs
+  poses:
+    data: poses.json
+    label: Tool path
+    facets:
+      - { property: situation, label: Show (situation) }
+  samples:
+    data: samples.json
+    label: Gripper
+  events:
+    data: events.json
+    label: Events
+  # WHY unlinked: the grasps are the deployment's (illustrative) coverage, not this run's
+  coverage:
+    data: coverage_samples.json
+    label: Grasps
+links:
+  - { from: poses.run, to: runs.run }
+  - { from: samples.run, to: poses.run }
+  - { from: samples.situation, to: poses.situation }
+  - { from: events.run, to: runs.run }
+layout:
+  panels:
+    # WHY a runs table on top, which the mock leaves out: PEP 0010 §6's template rule ("the runs table on top"); it says
+    # what the run is (a stand-in) before anything is drawn
+    - { view: Runs, w: 12, h: 2 }
+    - { view: Playback, w: 12 }
+    - { view: EEF z, key: eef, title: 'EEF z (mm) · the arm, condensed · stand-in', w: 6, h: 4 }
+    - { view: Gripper width, key: width, title: 'Gripper width (mm) · ILLUSTRATIVE', w: 6, h: 4 }
+    - { view: Grip width at grasp, key: width-at-grasp, title: 'Grip width at grasp · coverage · ILLUSTRATIVE', w: 6, h: 4 }
+    - { view: Grip force, key: force, title: 'Grip force (N) · ILLUSTRATIVE', w: 6, h: 4 }
+    - { view: Tool path 3D, key: path-3d, title: 'Tool path 3D · the arm''s trajectory3d at full size · stand-in', w: 12, h: 5 }
+properties:
+  when: { displayName: Started }
+  duration_s: { displayName: Duration }
+  basis: { displayName: Basis }
+  note: { displayName: Note }
+views:
+  - type: table
+    name: Runs
+    from: runs
+    order: [when, run, kind, duration_s, basis, note]
+  - type: playback
+    name: Playback
+    playback: { readout: true }
+  - type: timeseries
+    name: EEF z
+    from: poses
+    timeseries:
+      x: t
+      'y': z_mm
+      series: situation
+      dash: [target]
+      legend: top
+      unit: mm
+      annotations: [{ data: events, x: t, label: label }]
+  - type: timeseries
+    name: Gripper width
+    from: samples
+    timeseries:
+      x: t
+      'y': width_mm
+      series: situation
+      dash: [target]
+      legend: top
+      unit: mm
+      annotations: [{ data: events, x: t, label: label }]
+  - type: chart
+    name: Grip width at grasp
+    from: coverage
+    controls: false
+    chart:
+      mark: { type: bar }
+      encoding:
+        x: { field: width_mm, bin: { step: 1 }, title: width at grasp (mm) }
+        'y': { aggregate: sum, field: w, title: grasps }
+  - type: timeseries
+    name: Grip force
+    from: samples
+    timeseries:
+      x: t
+      'y': force_n
+      series: situation
+      dash: [target]
+      legend: top
+      unit: N
+      annotations: [{ data: events, x: t, label: label }]
+  - type: trajectory3d
+    name: Tool path 3D
+    from: poses
+    trajectory3d: {}

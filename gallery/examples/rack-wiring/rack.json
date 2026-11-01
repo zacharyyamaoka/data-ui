@@ -1,0 +1,433 @@
+{
+ "id": "rack-wiring",
+ "title": "1-DOF rack wiring",
+ "titleProperty": "name",
+ "linkProperty": "url",
+ "source": "robotparts reports/media/rack/rack.splice.json + rack-analysis.json (release 2026.10.22.2, Splice engine @ 93b27023 (rack-analysis.json))",
+ "properties": {
+  "name": {
+   "type": "text",
+   "label": "Part",
+   "width": 240
+  },
+  "role": {
+   "type": "text",
+   "label": "Role",
+   "display": "badge",
+   "colors": {
+    "Power": 8,
+    "CAN": 1,
+    "Boards": 7,
+    "Motors": 4,
+    "Sensing": 3
+   }
+  },
+  "kind": {
+   "type": "text",
+   "label": "Kind"
+  },
+  "maker": {
+   "type": "text",
+   "label": "Maker"
+  },
+  "model": {
+   "type": "text",
+   "label": "Model"
+  },
+  "category": {
+   "type": "text",
+   "label": "Category",
+   "hidden": true
+  },
+  "part": {
+   "type": "text",
+   "label": "robotparts id",
+   "hidden": true
+  },
+  "url": {
+   "type": "text",
+   "label": "robotparts.dev",
+   "hidden": true
+  },
+  "ports": {
+   "type": "list",
+   "label": "Ports"
+  },
+  "v_load": {
+   "type": "number",
+   "label": "V at load",
+   "unitText": "V",
+   "decimals": 2
+  },
+  "current": {
+   "type": "number",
+   "label": "Current",
+   "unitText": "A",
+   "decimals": 2
+  },
+  "findings": {
+   "type": "list",
+   "label": "Splice findings"
+  },
+  "feeds": {
+   "type": "list",
+   "label": "Wires to",
+   "readOnly": true
+  },
+  "wire": {
+   "type": "list",
+   "label": "Carries",
+   "colors": {
+    "power": 8,
+    "CAN": 1,
+    "phases": 4
+   },
+   "readOnly": true
+  },
+  "cables": {
+   "type": "list",
+   "label": "Cables"
+  }
+ },
+ "rows": [
+  {
+   "id": "psu",
+   "name": "CNCTOPBAOS 600 W 36 V supply",
+   "role": "Power",
+   "kind": "psu",
+   "part": "acaproto-cnctopbaos-36v-600w-adj",
+   "maker": "CNCTOPBAOS",
+   "model": "CNCTOPBAOS 600W 36V",
+   "category": "psu",
+   "url": "https://robotparts.dev/psu/acaproto-cnctopbaos-36v-600w-adj/",
+   "ports": [
+    "dc_out (power, screw-terminal)"
+   ],
+   "v_load": {
+    "value": 36.0,
+    "basis": "derived",
+    "source": "Splice engine @ 93b27023 (rack-analysis.json)",
+    "note": "continuous scenario"
+   },
+   "current": {
+    "value": 12.31,
+    "basis": "derived",
+    "source": "Splice engine @ 93b27023 (rack-analysis.json)",
+    "note": "continuous scenario: load, pass-through or supply current"
+   },
+   "findings": [
+    "warning: psu supplies 22.8 A in Peak (half the loads at peak at once) — rated 16.6 A (137.5 %).",
+    "info: psu publishes no over-voltage trip window, so its fail-high ceiling over the boards' maximum is unknown."
+   ],
+   "feeds": [
+    "clamp"
+   ],
+   "wire": [
+    "power"
+   ],
+   "cables": [
+    "p_psu: dc_out -> clamp.dc_in, 16 AWG, 1 m (assumed)"
+   ]
+  },
+  {
+   "id": "clamp",
+   "name": "ODrive Regen Clamp",
+   "role": "Power",
+   "kind": "clamp",
+   "part": "odrive-regen-clamp",
+   "maker": "ODrive Robotics",
+   "model": "Regen Clamp",
+   "category": "power",
+   "url": "https://robotparts.dev/power/odrive-regen-clamp/",
+   "ports": [
+    "dc_in (power, screw-terminal)",
+    "dc_out (power, screw-terminal)"
+   ],
+   "v_load": {
+    "value": 35.65,
+    "basis": "derived",
+    "source": "Splice engine @ 93b27023 (rack-analysis.json)",
+    "note": "continuous scenario"
+   },
+   "current": {
+    "value": 12.31,
+    "basis": "derived",
+    "source": "Splice engine @ 93b27023 (rack-analysis.json)",
+    "note": "continuous scenario: load, pass-through or supply current"
+   },
+   "findings": [
+    "warning: 22.8 A passes through clamp — its pass-through is rated 20 A in Peak (half the loads at peak at once)."
+   ],
+   "feeds": [
+    "xt30_junction"
+   ],
+   "wire": [
+    "power"
+   ],
+   "cables": [
+    "p_clamp: dc_out -> xt30_junction.xt30_a, 16 AWG, 0.3 m (assumed)"
+   ]
+  },
+  {
+   "id": "xt30_junction",
+   "name": "mjbots XT30 junction",
+   "role": "Power",
+   "kind": "splice",
+   "part": "mjbots-xt30-junction",
+   "maker": "mjbots",
+   "model": "XT30 Junction PCB",
+   "category": "connector",
+   "url": "https://robotparts.dev/connector/mjbots-xt30-junction/",
+   "ports": [
+    "xt30_a (power, xt30)",
+    "xt30_b (power, xt30)",
+    "xt30_c (power, xt30)"
+   ],
+   "v_load": {
+    "value": 35.48,
+    "basis": "derived",
+    "source": "Splice engine @ 93b27023 (rack-analysis.json)",
+    "note": "continuous scenario"
+   },
+   "current": {
+    "value": 12.31,
+    "basis": "derived",
+    "source": "Splice engine @ 93b27023 (rack-analysis.json)",
+    "note": "continuous scenario: load, pass-through or supply current"
+   },
+   "findings": [
+    "warning: 12.3 A through the XT30 on xt30_junction.xt30_a — rated 15 A continuous in Continuous.",
+    "warning: 22.8 A passes through xt30_junction — its pass-through is rated 15 A in Peak (half the loads at peak at once)."
+   ],
+   "feeds": [
+    "r4_11",
+    "c1"
+   ],
+   "wire": [
+    "power",
+    "power"
+   ],
+   "cables": [
+    "p_r4: xt30_b -> r4_11.power_a, 16 AWG, 0.5 m (assumed)",
+    "p_c1: xt30_c -> c1.power, 18 AWG, 0.5 m (assumed)"
+   ]
+  },
+  {
+   "id": "r4_11",
+   "name": "moteus r4.11 + JMC 60ASM400",
+   "role": "Boards",
+   "kind": "controller",
+   "part": "mjbots-moteus-r4-11",
+   "maker": "mjbots",
+   "model": "moteus-r4.11",
+   "category": "driver",
+   "url": "https://robotparts.dev/driver/mjbots-moteus-r4-11/",
+   "ports": [
+    "power_a (power, xt30)",
+    "power_b (power, xt30)",
+    "can_a (can, jst-ph-3)",
+    "can_b (can, jst-ph-3)"
+   ],
+   "v_load": {
+    "value": 35.25,
+    "basis": "derived",
+    "source": "Splice engine @ 93b27023 (rack-analysis.json)",
+    "note": "continuous scenario"
+   },
+   "current": {
+    "value": 11.35,
+    "basis": "derived",
+    "source": "Splice engine @ 93b27023 (rack-analysis.json)",
+    "note": "continuous scenario: load, pass-through or supply current"
+   },
+   "findings": [],
+   "feeds": [
+    "motor_r4_11"
+   ],
+   "wire": [
+    "phases"
+   ],
+   "cables": [
+    "phases -> motor_r4_11 (rack-analysis.json rack.motors)"
+   ]
+  },
+  {
+   "id": "c1",
+   "name": "moteus-c1 + SteadyWin GIM4305-10",
+   "role": "Boards",
+   "kind": "controller",
+   "part": "mjbots-moteus-c1",
+   "maker": "mjbots",
+   "model": "moteus-c1",
+   "category": "driver",
+   "url": "https://robotparts.dev/driver/mjbots-moteus-c1/",
+   "ports": [
+    "power (power, xt30)",
+    "can (can, jst-ph-3)"
+   ],
+   "v_load": {
+    "value": 35.46,
+    "basis": "derived",
+    "source": "Splice engine @ 93b27023 (rack-analysis.json)",
+    "note": "continuous scenario"
+   },
+   "current": {
+    "value": 0.97,
+    "basis": "derived",
+    "source": "Splice engine @ 93b27023 (rack-analysis.json)",
+    "note": "continuous scenario: load, pass-through or supply current"
+   },
+   "findings": [],
+   "feeds": [
+    "motor_c1"
+   ],
+   "wire": [
+    "phases"
+   ],
+   "cables": [
+    "phases -> motor_c1 (rack-analysis.json rack.motors)"
+   ]
+  },
+  {
+   "id": "fdcanusb",
+   "name": "mjbots fdcanusb",
+   "role": "CAN",
+   "kind": "can-adapter",
+   "part": "mjbots-fdcanusb",
+   "maker": "mjbots",
+   "model": "fdcanusb",
+   "category": "adapter",
+   "url": "https://robotparts.dev/adapter/mjbots-fdcanusb/",
+   "ports": [
+    "can (can, unknown-can)"
+   ],
+   "v_load": {
+    "value": null,
+    "why": "not on the power path"
+   },
+   "current": {
+    "value": null,
+    "why": "carries no supply current"
+   },
+   "findings": [],
+   "feeds": [
+    "ph3_junction"
+   ],
+   "wire": [
+    "CAN"
+   ],
+   "cables": [
+    "c_usb: can -> ph3_junction.ph3_a, 26 AWG, 1 m twisted (assumed)"
+   ]
+  },
+  {
+   "id": "ph3_junction",
+   "name": "JST PH-3 junction",
+   "role": "CAN",
+   "kind": "splice",
+   "part": "jst-ph3-can-junction",
+   "maker": "mjbots",
+   "model": "JST PH3 Junction PCB",
+   "category": "connector",
+   "url": "https://robotparts.dev/connector/jst-ph3-can-junction/",
+   "ports": [
+    "ph3_a (can, jst-ph-3)",
+    "ph3_b (can, jst-ph-3)",
+    "ph3_c (can, jst-ph-3)"
+   ],
+   "v_load": {
+    "value": null,
+    "why": "not on the power path"
+   },
+   "current": {
+    "value": null,
+    "why": "carries no supply current"
+   },
+   "findings": [],
+   "feeds": [
+    "r4_11",
+    "c1"
+   ],
+   "wire": [
+    "CAN",
+    "CAN"
+   ],
+   "cables": [
+    "c_r4: ph3_b -> r4_11.can_a, 26 AWG, 0.3 m twisted (assumed)",
+    "c_c1: ph3_c -> c1.can, 26 AWG, 0.3 m twisted (assumed)"
+   ]
+  },
+  {
+   "id": "motor_r4_11",
+   "name": "JMC 60ASM400-5-1024C",
+   "role": "Motors",
+   "kind": "motor",
+   "part": "jmc-60asm400-5-1024c",
+   "maker": "JMC",
+   "model": "60ASM400-5-1024C",
+   "category": "actuator",
+   "url": "https://robotparts.dev/actuator/jmc-60asm400-5-1024c/",
+   "ports": [],
+   "v_load": {
+    "value": null,
+    "why": "after the board"
+   },
+   "current": {
+    "value": null,
+    "why": "not in Splice's model"
+   },
+   "findings": [],
+   "feeds": [],
+   "wire": [],
+   "cables": []
+  },
+  {
+   "id": "motor_c1",
+   "name": "Steadywin GIM4305-10",
+   "role": "Motors",
+   "kind": "motor",
+   "part": "aifitlab-8541438771336",
+   "maker": "Steadywin",
+   "model": "GIM4305-10",
+   "category": "actuator",
+   "url": "https://robotparts.dev/actuator/aifitlab-8541438771336/",
+   "ports": [],
+   "v_load": {
+    "value": null,
+    "why": "after the board"
+   },
+   "current": {
+    "value": null,
+    "why": "not in Splice's model"
+   },
+   "findings": [],
+   "feeds": [],
+   "wire": [],
+   "cables": []
+  },
+  {
+   "id": "d405",
+   "name": "RealSense D405",
+   "role": "Sensing",
+   "kind": "camera",
+   "part": "realsense-d405",
+   "maker": "RealSense",
+   "model": "D405",
+   "category": "camera",
+   "url": "https://robotparts.dev/camera/realsense-d405/",
+   "ports": [],
+   "v_load": {
+    "value": null,
+    "why": "USB powered; no cable recorded"
+   },
+   "current": {
+    "value": null,
+    "why": "not in Splice's model"
+   },
+   "findings": [],
+   "feeds": [],
+   "wire": [],
+   "cables": []
+  }
+ ]
+}

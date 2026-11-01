@@ -1,0 +1,155 @@
+# Servo: one actuator and its encoder, the robotics playback template (docs/peps/0010-robotics-playback.md §6, the
+# servo.png mock). 40 real runs of the 1-DOF rack's CAN 12 and CAN 14 (Oct 24-25 2026), each replayed through its
+# motor's twin (source/build.py: sim2real's rack_replays.py over bam_rack_twin). The rail picks a run, the newest when
+# the page opens; every playback panel follows it on one clock. Real is the strong blue, the twin (family sim) orange,
+# the target dashed and muted: style.families (docs/CONTRACT.md §32) maps each row's `source` to a hue.
+# The tables are the trajectory contract's (gallery/robotics/CONTRACT.md): runs, samples, devices.
+# The runs table picks a run (CONTRACT §33): a click moves the rail's Run pick, and the table lists every run the rest of
+# the rail leaves; `selected: first` picks its first row, the newest, when the page opens.
+# Coverage (PEP 0010 P2, the mock's bottom row): every rack run of the rail's coverage servo, Oct 23-25, from
+# coverage_samples.csv (source/build_coverage.py: 1 Hz plus each run's extreme rows at w = 0), unlinked, so a run pick
+# never empties it.
+data: runs.json
+style:
+  chrome: minimal
+  numbers: { digits: 4, compact: true }
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: samples, time: t }
+datasets:
+  runs:
+    data: runs.json
+    label: Runs
+    facets:
+      # newest first (the rail's order is the facet's order: runs.json by started, latest first). WHY parent: a run is one
+      # servo's, so the Servo facet lists both while a run is picked, and picking the other moves the run to its newest
+      # (CONTRACT §7, kit gap 8)
+      - property: run
+        as: select
+        label: Run
+        parent: devices
+        order: [
+          10-25/dataset_rotor/can12_rest2/s03, 10-25/dataset_rotor/can12_rest2/s01, 10-25/dataset_rotor/can12_rest/s05, 10-25/dataset_rotor/can12_rest/s03,
+          10-25/dataset_rotor/can12_rest/s01, 10-25/dataset_rotor/can12/s11, 10-25/dataset_rotor/can12/s09, 10-25/dataset_rotor/can12/s07,
+          10-25/dataset_rotor/can12/s05, 10-25/dataset_rotor/can12/s03, 10-25/dataset_rotor/can12/s01, 10-25/cogging_phase/can12_b/s01,
+          10-25/cogging_phase/can12_a/s01, 10-24/floors/can14/s09, 10-24/floors/can14/s07, 10-24/floors/can14/s05,
+          10-24/floors/can14/s03, 10-24/floors/can14/s01, 10-24/dataset/can14/s23, 10-24/dataset/can14/s21,
+          10-24/dataset/can14/s19, 10-24/dataset/can14/s17, 10-24/dataset/can14/s15, 10-24/dataset/can14/s13,
+          10-24/dataset/can14/s11, 10-24/dataset/can14/s09, 10-24/dataset/can14/s07, 10-24/dataset/can14/s05,
+          10-24/dataset/can14/s03, 10-24/dataset/can14/s01, 10-24/session_11/s03, 10-24/session_11/s01,
+          10-24/session_10/s13, 10-24/session_10/s11, 10-24/session_10/s09, 10-24/session_10/s07,
+          10-24/session_09/s15, 10-24/session_09/s13, 10-24/session_09/s11, 10-24/session_09/s09]
+      - { property: devices, as: select, label: Servo }
+      - { property: kind, label: Run kind }
+  samples:
+    data: samples.json
+    label: Samples
+    facets:
+      - { property: situation, label: Show }
+  # difference(a, b) of samples.json (source/build_diff.py, gallery/robotics/difference.py): each situation against the
+  # target, the twin against real
+  diff:
+    data: diff_samples.json
+    label: Difference
+  # every rack run of CAN 12 and CAN 14 (278), decimated for coverage (source/build_coverage.py). WHY no link: a run pick
+  # must never empty the coverage panels (PEP 0010 §6); its own servo pick opens on the newest run's servo
+  coverage:
+    data: coverage_samples.csv
+    label: Coverage
+    facets:
+      - { property: device, as: select, label: Coverage · servo }
+    filters: 'device == "CAN 12"'
+links:
+  # WHY one-way (CONTRACT §33, sim2real gap #8): the runs' picks narrow the samples; the samples' Show never narrows the runs
+  - { from: runs.run, to: samples.run, direction: one-way }
+  # WHY three links: the rail's Servo and Show reach the difference rows on device and situation, not just the run
+  # (CONTRACT §32: every direct link filters)
+  - { from: diff.run, to: samples.run }
+  - { from: diff.device, to: samples.device }
+  - { from: diff.situation, to: samples.situation }
+layout:
+  panels:
+    - { view: Runs, w: 12, h: 3 }
+    - { view: Playback, w: 12 }
+    - { view: Angle, w: 8, h: 3 }
+    - { view: Angle error, w: 4, h: 3 }
+    - { view: Velocity, w: 6, h: 3 }
+    - { view: Torque, w: 6, h: 3 }
+    - text: "**Coverage** · every rack run of the servo picked under *Coverage · servo* (Oct 23-25), from `coverage_samples.csv`: 1 Hz plus each run's min and max rows (w = 0), so the whiskers are the full-rate extremes. Unlinked: a run pick never empties it."
+      w: 12
+    - { view: Angle coverage, w: 4, h: 3 }
+    - { view: Velocity coverage, w: 4, h: 3 }
+    - { view: Phase space, w: 4, h: 3 }
+properties:
+  when: { displayName: Started }
+  duration_s: { displayName: Duration }
+  q_rms_mrad: { displayName: Twin q RMS }
+views:
+  # the runs table picks a run on the rail (a picker, CONTRACT §33); the newest, its first row, when the page opens
+  # (PEP 0010 §6: "defaulting to the newest run")
+  - type: table
+    name: Runs
+    from: runs
+    select: run
+    selected: first
+    order: [when, run, devices, kind, duration_s, q_rms_mrad, held_out, twin]
+    sort:
+      - { property: started, direction: DESC }
+  - type: playback
+    name: Playback
+    playback: { readout: true }
+  - type: timeseries
+    name: Angle
+    from: samples
+    timeseries: { x: t, 'y': q_deg, series: situation, dash: [target], legend: top, unit: '°' }
+  # e_q = target − x (b − a, CONTRACT §5): where the angle should have been
+  - type: timeseries
+    name: Angle error
+    from: diff
+    filters: 'reference == "target"'
+    timeseries: { x: t, 'y': e_q_mrad, series: situation, legend: top, unit: mrad, rules: [{ 'y': 0 }] }
+  - type: timeseries
+    name: Velocity
+    from: samples
+    timeseries: { x: t, 'y': qd_deg_s, series: situation, dash: [target], legend: top, unit: '°/s' }
+  - type: timeseries
+    name: Torque
+    from: samples
+    timeseries: { x: t, 'y': tau_nm, series: situation, legend: top, unit: 'N·m' }
+  # COVERAGE (PEP 0010 §5.4 and §6): Vega-Lite over coverage_samples.csv. Σ w at 1 Hz is seconds; the extremes' rows
+  # (w = 0) add no time and make min and max exact
+  - type: chart
+    name: Angle coverage
+    from: coverage
+    chart:
+      layer:
+        - mark: { type: bar, binSpacing: 1 }
+          encoding:
+            x: { field: q_deg, bin: { maxbins: 60 }, title: 'q (deg)' }
+            'y': { aggregate: sum, field: w, title: time at angle (s) }
+        # the full-rate min and max (exact: every run's extreme rows are in the file)
+        # WHY each layer titles x as the bars do: Vega-Lite joins the layers' axis titles into one
+        - mark: { type: rule, strokeDash: [3, 3] }
+          encoding: { x: { aggregate: min, field: q_deg, title: 'q (deg)' } }
+        - mark: { type: rule, strokeDash: [3, 3] }
+          encoding: { x: { aggregate: max, field: q_deg, title: 'q (deg)' } }
+        - mark: { type: text, align: left, baseline: top, dx: 3, 'y': 2, fontSize: 10 }
+          encoding: { x: { aggregate: min, field: q_deg, title: 'q (deg)' }, text: { aggregate: min, field: q_deg, format: '.1f' } }
+        - mark: { type: text, align: right, baseline: top, dx: -3, 'y': 2, fontSize: 10 }
+          encoding: { x: { aggregate: max, field: q_deg, title: 'q (deg)' }, text: { aggregate: max, field: q_deg, format: '.1f' } }
+  - type: chart
+    name: Velocity coverage
+    from: coverage
+    chart:
+      mark: { type: boxplot, extent: min-max }
+      encoding:
+        x: { field: kind, type: nominal, title: run kind }
+        'y': { field: qd_deg_s, type: quantitative, title: 'qd (deg/s)' }
+  - type: chart
+    name: Phase space
+    from: coverage
+    chart:
+      mark: rect
+      encoding:
+        x: { field: q_deg, bin: { maxbins: 40 }, title: 'q (deg)' }
+        'y': { field: qd_deg_s, bin: { maxbins: 40 }, title: 'qd (deg/s)' }
+        color: { aggregate: sum, field: w, title: s, scale: { range: ['var(--data-subtle)', 'var(--data-series-1)'] } }

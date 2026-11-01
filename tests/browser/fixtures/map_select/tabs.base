@@ -1,0 +1,18 @@
+# tests/browser/map_select_checks.py: one pick across a map tab and a table tab; selected: marks on opening
+data: places.json
+layout:
+  panels:
+    - { views: [Map, Table], title: Places, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    select: name
+    selected: first
+    coordinates: at
+    layers:
+      - { type: regions, geometry: zones.geojson, key: id, join: zone, title: Zones }
+      - { type: points, radius: 7, title: Places }
+  - type: table
+    name: Table
+    select: name
+    order: [name, kind, zone]

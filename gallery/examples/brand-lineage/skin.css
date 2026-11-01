@@ -1,0 +1,5 @@
+/* The marks are one dark ink drawn for paper (Brandbook's thumbs: the light mark on transparent), so a node's image
+   well stays paper-white in both themes, as the logo-rounds case keeps its wells; in a dark theme a dark well would
+   make the marks vanish. */
+.data-ui-skin .dv-lineage-well { fill: #ffffff; }
+.data-ui-skin .dv-lineage-step img { background: #ffffff; }

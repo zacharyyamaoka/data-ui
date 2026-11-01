@@ -1,0 +1,164 @@
+# Filters: every standard rail filter kind (docs/CONTRACT.md §7) on robotparts' 1,149 actuators, one .base file.
+# The top-level `facets:` is the full rail, one entry per kind; the four recipe views carry their own `facets:`
+# (McMaster, Amazon, Digi-Key, Obsidian), so switching tab switches the rail. Every kind edits the ONE all-views
+# filter, so a tick shows in the table, the cards and the chart alike. kinds.html lists each kind with its snippet.
+# Check it: node bin/data-ui.mjs check <this file>
+data: actuators.json
+facets:
+  - { as: current, label: Current filters }
+  - { property: model, as: search, properties: [model, name], label: Search, placeholder: "Model or name, e.g. AK80" }
+  - property: price
+    as: popular
+    label: Popular filters
+    options:
+      - { label: In stock, filter: 'in_stock == "yes"' }
+      - { label: CAN bus, filter: 'buses.contains("can")' }
+      - { label: Under $100, filter: 'price < 100' }
+      - { label: Has a photo, filter: '!photo.isEmpty()' }
+  - { property: form, as: tree, levels: [form, brand], label: Form › brand }
+  - property: form
+    as: gallery
+    label: Form
+    columns: 2
+    info: "How the actuator is built: a hobby servo's case and horn, an integrated joint with its driver inside, a frameless direct-drive ring, a motor with a separate gearbox, or a motor inside a wheel."
+    images:
+      hobby servo: icons/form-hobby_servo.svg
+      integrated actuator: icons/form-integrated_actuator.svg
+      direct drive: icons/form-direct_drive.svg
+      bare gearmotor: icons/form-bare_gearmotor.svg
+      wheel hub: icons/form-wheel_hub.svg
+  - property: drivetrain
+    as: picture-list
+    label: Drivetrain
+    images:
+      geared: icons/drivetrain-geared.svg
+      direct_drive: icons/drivetrain-direct_drive.svg
+      motor: icons/drivetrain-motor.svg
+  - property: brand
+    as: swatch
+    label: Brand (logos)
+    limit: 12
+    images:
+      Steadywin: logos/steadywin.webp
+      Damiao: logos/damiao.webp
+      JMC: logos/jmc.webp
+  - { property: brand, as: values, exclude: true, label: Brand, searchable: true }
+  - { property: in_stock, as: toggle, value: "yes", text: In stock only }
+  - { property: in_stock, as: select, label: Stock }
+  - { property: checks, as: toggle, value: cad, text: Has CAD, label: CAD }
+  - { property: photo, as: has, properties: [photo, torque_density, price], label: Has data, match: all }
+  - { property: price, as: buckets, buckets: [50, 100, 250, 500], unit: USD, label: Price }
+  - { property: price, as: range, choices: [25, 50, 100, 250, 500, 1000, 2500], label: Price (min / max) }
+  - { property: peak_torque, as: slider-histogram, log: true, label: Peak torque }
+  - { property: mass, as: slider, log: true, label: Mass }
+  - { property: od, as: range, diagram: diagrams/od.svg, label: Outer diameter, info: "Across the actuator's face, housing to housing; not the output flange." }
+  - { property: length, as: range, diagram: diagrams/length.svg, label: Axial length, collapsed: true }
+  - { property: torque_density, as: buckets, label: Peak N·m/kg }
+  - { property: level, as: rating, max: 5, label: robotparts level }
+  - { property: level, as: min-level, max: 5, label: Level }
+  - { property: listed, as: date, presets: [7d, 30d, year], older: [14d, 90d], label: First listed }
+  - { property: buses, as: chips, label: Bus }
+  - { property: gear_ratio, as: grid, columns: 3, sort: value, limit: 15, label: Gear ratio, info: "Output turns per motor turn; 1 is direct drive." }
+  - { property: voltage, as: listbox, sort: value, label: Voltage }
+properties:
+  name: { displayName: Name }
+  model: { displayName: Model }
+  brand: { displayName: Brand }
+  form: { displayName: Form }
+  drivetrain: { displayName: Drivetrain }
+  peak_torque: { displayName: Peak torque }
+  rated_torque: { displayName: Rated torque }
+  mass: { displayName: Mass }
+  gear_ratio: { displayName: Ratio }
+  voltage: { displayName: Voltage }
+  od: { displayName: OD, description: "Outer diameter of the housing" }
+  length: { displayName: Length, description: "Axial length, mounting face to back face" }
+  buses: { displayName: Bus }
+  torque_density: { displayName: Peak N·m/kg }
+  price: { displayName: Price from }
+  level: { displayName: Level }
+  in_stock: { displayName: In stock }
+  checks: { displayName: Checks }
+  listed: { displayName: First listed }
+  photo: { displayName: Photo }
+views:
+  - type: table
+    name: Every kind
+    order: [model, brand, form, drivetrain, peak_torque, mass, od, price, in_stock, listed, level]
+    sort:
+      - { property: peak_torque, direction: DESC }
+  - type: cards
+    name: Cards
+    order: [model, brand, peak_torque, price]
+    image: photo
+    imageFit: contain
+    imageAspectRatio: 0.8
+    cardSize: 170
+    sort:
+      - { property: photo, direction: DESC }
+      - { property: peak_torque, direction: DESC }
+  - type: chart
+    name: Chart
+    chart:
+      mark: { type: point, filled: true }
+      encoding:
+        x: { field: mass, scale: { type: log } }
+        y: { field: peak_torque, scale: { type: log } }
+        color: { field: form }
+    hover: { image: photo, title: name, fields: [peak_torque, mass, price, form] }
+  - type: table
+    name: McMaster-style
+    order: [model, brand, form, od, length, gear_ratio, peak_torque, price]
+    facets:
+      - property: form
+        as: gallery
+        label: Form
+        columns: 2
+        images:
+          hobby servo: icons/form-hobby_servo.svg
+          integrated actuator: icons/form-integrated_actuator.svg
+          direct drive: icons/form-direct_drive.svg
+          bare gearmotor: icons/form-bare_gearmotor.svg
+          wheel hub: icons/form-wheel_hub.svg
+      - property: drivetrain
+        as: picture-list
+        label: Drivetrain
+        images:
+          geared: icons/drivetrain-geared.svg
+          direct_drive: icons/drivetrain-direct_drive.svg
+          motor: icons/drivetrain-motor.svg
+      - { property: brand, as: values, searchable: true, limit: 10, label: Brand }
+      - { property: od, as: grid, columns: 3, sort: value, limit: 18, diagram: diagrams/od.svg, label: Outer diameter, info: "Across the actuator's face, housing to housing." }
+      - { property: length, as: range, diagram: diagrams/length.svg, label: Axial length }
+      - { property: gear_ratio, as: grid, columns: 3, sort: value, limit: 18, label: Gear ratio }
+      - { property: peak_torque, as: range, label: Peak torque }
+  - type: table
+    name: Amazon-style
+    order: [model, brand, price, level, in_stock, peak_torque]
+    sort:
+      - { property: price, direction: ASC }
+    facets:
+      - { as: current, label: Your filters }
+      - { property: in_stock, as: toggle, value: "yes", text: In stock only, label: Availability }
+      - { property: level, as: rating, max: 5, label: robotparts level }
+      - { property: price, as: buckets, buckets: [25, 50, 100, 250], unit: USD, label: Price }
+      - { property: brand, as: values, limit: 6, label: Brand }
+  - type: table
+    name: Digi-Key-style
+    order: [model, brand, form, drivetrain, voltage, gear_ratio, buses, in_stock, price]
+    facets:
+      - { property: in_stock, as: toggle, value: "yes", text: In stock, label: Stocking options }
+      - { property: brand, as: listbox, sort: alpha, label: Manufacturer }
+      - { property: form, as: listbox, label: Form }
+      - { property: drivetrain, as: listbox, label: Drivetrain }
+      - { property: voltage, as: listbox, sort: value, label: Voltage - rated }
+      - { property: gear_ratio, as: listbox, sort: value, label: Gear ratio }
+      - { property: buses, as: listbox, label: Interface }
+  - type: table
+    name: Obsidian-style
+    order: [model, brand, peak_torque, mass, price]
+    filters:
+      and:
+        - 'peak_torque > 10 || mass < 100'
+        - 'brand != "KST"'
+    facets: []

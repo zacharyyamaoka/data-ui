@@ -1,0 +1,188 @@
+# BLDC driver: one moteus board's driver channels, the robotics playback template (docs/peps/0010-robotics-playback.md
+# §6, the bldc-driver.png mock). Real runs of the 1-DOF rack's CAN 12, 13 and 14, Oct 23-25 2026, as the boards logged
+# them (source/build.py). The rail picks a run (the newest when the page opens), a driver and run kinds; the playback
+# panels follow the picked run on one clock; the coverage panels read every run of the picked run's board (an unlinked
+# copy joined on the board only, so a run pick never empties them). Tables: gallery/robotics/CONTRACT.md.
+# The runs table picks a run (CONTRACT §33): a click moves the rail's Run pick, and the table lists every run the rest of
+# the rail leaves; `selected: first` picks its first row, the newest, when the page opens.
+data: runs.json
+style:
+  chrome: minimal
+  numbers: { digits: 4, compact: true }
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: samples, time: t }
+datasets:
+  runs:
+    data: runs.json
+    label: Runs
+    facets:
+      # newest first (the rail's order is the facet's order: runs.json by started, latest first)
+      # WHY parent: a run is one board's, so the Driver facet lists every board while a run is picked, and picking
+      # another board moves the run to that board's newest (CONTRACT §7, kit gap 8)
+      - property: run
+        as: select
+        label: Run
+        parent: device
+        order: [
+          10-25/pid_autotune/can13/sessions/session_016/s16, 10-25/pid_autotune/can13/sessions/session_016/s14,
+          10-25/pid_autotune/can13/sessions/session_016/s12, 10-25/pid_autotune/can13/sessions/session_003/s06,
+          10-25/batch2/reid_can12/s06, 10-25/batch2/reid_can12/s04, 10-25/batch2/reid_can12/s02,
+          10-25/warm/can14_warm_floor/s09, 10-25/warm/can14_warm_floor/s07, 10-25/dataset_rotor/can13_rest2/s05,
+          10-25/dataset_rotor/can12_rest2/s03, 10-25/dataset_rotor/can12_rest2/s01, 10-24/session_30/s03,
+          10-24/dataset/can14/s03, 10-24/session_27/s09, 10-24/session_24/s03, 10-24/session_21/s07,
+          10-24/session_21/s05, 10-24/session_11/s09, 10-24/session_11/s07, 10-24/session_11/s05,
+          10-23/session_09/s27_tape_fast, 10-23/session_09/s23, 10-23/session_09/s20_tape_fast, 10-23/session_09/s16,
+          10-23/session_01c/s05_tape_fast, 10-23/session_01c/s01]
+      - { property: device, as: select, label: Driver }
+      - { property: kind, label: Run kind }
+  samples:
+    data: samples.json
+    label: Samples
+  # events.json is each run's mode and fault-register changes at full rate. The strips below draw the same changes from
+  # the samples' own rows (the producer keeps every change row), as spans; a time series can mark them as annotations
+  # read from this dataset ({data: events, x: t, label: label}, CONTRACT §25)
+  events:
+    data: events.json
+    label: Events
+  # WHY joined on the board, not the run: the coverage panels show every run of the picked run's board ("all CAN 12
+  # runs"), so a run pick keeps them full; picking a driver on the rail moves them with it
+  # the sidecar names its CSV rows (`path`): the page and the checkers read the same typed columns
+  coverage:
+    data: coverage_samples.schema.json
+    label: Coverage
+links:
+  # WHY one-way (CONTRACT §33, sim2real gap #8): the runs' picks narrow the samples, the events and the coverage; none of
+  # them ever narrows the runs
+  - { from: runs.run, to: samples.run, direction: one-way }
+  - { from: runs.run, to: events.run, direction: one-way }
+  - { from: runs.device, to: coverage.device, direction: one-way }
+layout:
+  panels:
+    # WHY a runs table on top, which the mock leaves out: PEP 0010 §6's template rule ("the runs table on top"), as the
+    # Servo and Robot arm templates have it; it lists every run with its limiter note, newest first
+    - { view: Runs, w: 12, h: 2 }
+    - { view: Playback, w: 12 }
+    - { view: q-axis current i_q, key: iq, title: 'q-axis current i_q (A) · real only (the twin has no current)', w: 6, h: 3 }
+    - { view: d-axis current i_d, key: id, title: d-axis current i_d (A), w: 6, h: 3 }
+    - { view: Bus voltage v_bus, key: vbus, title: Bus voltage v_bus (V), w: 6, h: 3 }
+    - { view: Board temperature, key: temp, title: Board temperature (°C), w: 6, h: 3 }
+    - { view: Mode, key: mode, title: 'Mode · the mode register', w: 6, h: 2 }
+    - { view: Fault, key: fault, title: 'Fault · limiters and faults the board reported', w: 6, h: 2 }
+    - { view: i_q coverage, key: iq-coverage, title: "i_q coverage · every run of this board", w: 4, h: 4 }
+    - { view: Operating map, key: operating-map, title: Operating map i_q × qd, w: 4, h: 4 }
+    - { view: Temperature by run kind, key: temp-by-kind, title: Board temperature by run kind, w: 4, h: 4 }
+properties:
+  when: { displayName: Started }
+  duration_s: { displayName: Duration }
+  device: { displayName: Driver }
+  kind: { displayName: Kind }
+  note: { displayName: Fault register }
+views:
+  # the runs table picks a run on the rail (a picker, CONTRACT §33); the newest, its first row, when the page opens
+  # (PEP 0010 §6: "defaulting to the newest run")
+  - type: table
+    name: Runs
+    from: runs
+    select: run
+    selected: first
+    order: [when, run, device, kind, duration_s, note]
+    sort:
+      - { property: started, direction: DESC }
+  - type: playback
+    name: Playback
+    playback: { readout: true }
+  - type: timeseries
+    name: q-axis current i_q
+    from: samples
+    timeseries: { x: t, 'y': i_q_a, series: situation, legend: none, unit: A }
+  - type: timeseries
+    name: d-axis current i_d
+    from: samples
+    timeseries: { x: t, 'y': i_d_a, series: situation, legend: none, unit: A }
+  - type: timeseries
+    name: Bus voltage v_bus
+    from: samples
+    timeseries: { x: t, 'y': v_bus_v, series: situation, legend: none, unit: V }
+  - type: timeseries
+    name: Board temperature
+    from: samples
+    timeseries: { x: t, 'y': temp_c, series: situation, legend: none, unit: '°C' }
+  # The mode and fault registers as state strips (Grafana's state timeline): one span per state, from the row where it
+  # began to the row where the next began (the last to the run's last row). WHY two charts: a chart colours by one
+  # column, and each register keeps its own colours (samples.json's `colors`; a null cell, the register at 0, is muted
+  # by the kit itself). WHY a chart, not `levels` (lane/live's strip, the mock's word): a state strip names each state,
+  # where levels ranks them worst-first. A chart whose x is a time in seconds follows the clock: its x is the run's
+  # span, its playhead the clock's t, its time axis lined up with the time series above it (CONTRACT §25).
+  - type: chart
+    name: Mode
+    from: samples
+    controls: false
+    chart:
+      transform:
+        - joinaggregate: [{ op: max, field: t, as: run_end }]
+        - window: [{ op: lag, field: mode, as: before }]
+          sort: [{ field: t, order: ascending }]
+        - filter: 'datum.before === null || datum.mode !== datum.before'
+        - window: [{ op: lead, field: t, as: next_start }]
+          sort: [{ field: t, order: ascending }]
+        - calculate: 'datum.next_start === null ? datum.run_end : datum.next_start'
+          as: t_end
+      mark: { type: rect, strokeWidth: 0, cornerRadius: 0 }
+      encoding:
+        x: { field: t, type: quantitative, title: t (s) }
+        x2: { field: t_end }
+        color: { field: mode, type: nominal, title: Mode }
+  - type: chart
+    name: Fault
+    from: samples
+    controls: false
+    chart:
+      transform:
+        - joinaggregate: [{ op: max, field: t, as: run_end }]
+        - window: [{ op: lag, field: fault, as: before }]
+          sort: [{ field: t, order: ascending }]
+        - filter: 'datum.before === null || datum.fault !== datum.before'
+        - window: [{ op: lead, field: t, as: next_start }]
+          sort: [{ field: t, order: ascending }]
+        - calculate: 'datum.next_start === null ? datum.run_end : datum.next_start'
+          as: t_end
+      mark: { type: rect, strokeWidth: 0, cornerRadius: 0 }
+      encoding:
+        x: { field: t, type: quantitative, title: t (s) }
+        x2: { field: t_end }
+        color: { field: fault, type: nominal, title: Limiter or fault }
+        # WHY faint: "No fault" (the register read 0; a null cell's label) is the background the limiters stand on
+        opacity: { condition: { test: "datum.fault === 'No fault'", value: 0.35 }, value: 1 }
+  - type: chart
+    name: i_q coverage
+    from: coverage
+    controls: false
+    chart:
+      mark: { type: bar }
+      encoding:
+        x: { field: i_q_a, bin: { maxbins: 60 }, title: i_q (A) }
+        'y': { aggregate: sum, field: w, title: samples at 4 Hz }
+  - type: chart
+    name: Operating map
+    from: coverage
+    controls: false
+    chart:
+      # WHY no cell outline: 60 × 40 cells are a few pixels each, and the theme's 1.5 px heatmap gap would eat them
+      mark: { type: rect, strokeWidth: 0, cornerRadius: 0 }
+      encoding:
+        x: { field: qd_deg_s, bin: { maxbins: 60 }, title: qd (deg/s) }
+        'y': { field: i_q_a, bin: { maxbins: 40 }, title: i_q (A) }
+        # WHY symlog: a few cells near qd = 0 hold most of the time; the mock's log density shows the rest of the map
+        color: { aggregate: sum, field: w, title: samples at 4 Hz, scale: { type: symlog } }
+  # The box per run kind (PEP 0010 §5.4's key): min-max whiskers, the q1-q3 box, the median. A pick swaps the rows in
+  # place; every cell is then built from the new rows (CONTRACT §25: a boxplot's whiskers once stayed CAN 13's on CAN 12's
+  # page, Vega's memo of an extent)
+  - type: chart
+    name: Temperature by run kind
+    from: coverage
+    controls: false
+    chart:
+      mark: { type: boxplot, extent: min-max, size: 16 }
+      encoding:
+        x: { field: kind, type: nominal, title: null }
+        'y': { field: temp_c, type: quantitative, title: board temperature (°C), scale: { zero: false } }

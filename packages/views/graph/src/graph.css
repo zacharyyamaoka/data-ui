@@ -1,0 +1,76 @@
+/* type: graph. React Flow's own stylesheet comes first (index.js); these map its --xy-* properties onto the private
+   --dv-* tokens, so the canvas follows the host's theme. Colours only from tokens. */
+
+.dv-view-graph {
+  position: relative; flex: 1 1 auto; min-height: 0;
+  --xy-background-color: var(--dv-bg);
+  --xy-node-color: var(--dv-fg);
+  --xy-node-background-color: var(--dv-bg);
+  --xy-node-border: 1px solid var(--dv-border);
+  --xy-edge-label-color: var(--dv-fg);
+  --xy-edge-label-background-color: var(--dv-bg);
+  --xy-handle-background-color: var(--dv-muted);
+  --xy-handle-border-color: var(--dv-bg);
+  --xy-controls-button-background-color: var(--dv-bg);
+  --xy-controls-button-background-color-hover: var(--dv-hover);
+  --xy-controls-button-color: var(--dv-fg);
+  --xy-controls-button-color-hover: var(--dv-fg);
+  --xy-controls-button-border-color: var(--dv-border);
+  --xy-controls-box-shadow: 0 1px 3px rgba(0, 0, 0, .12);
+  --xy-minimap-background-color: var(--dv-subtle);
+  --xy-minimap-mask-background-color: color-mix(in srgb, var(--dv-bg) 62%, transparent);
+  --xy-minimap-mask-stroke-color: var(--dv-border);
+  --xy-attribution-background-color: transparent;
+}
+.dv-view-graph .react-flow { background: var(--dv-bg); font: inherit; }
+.dv-view-graph .react-flow__attribution a { color: var(--dv-muted); }
+/* WHY: React Flow's panels carry bare position classes (top, left, bottom, right); a host's own `.top` (the docs
+   site's sticky header is one) must not restyle them */
+.dv-view-graph .react-flow__panel { position: absolute; z-index: 5; padding: 0; gap: 0; background: none; backdrop-filter: none; border: 0; }
+.dv-view-graph .react-flow__controls { border: 1px solid var(--dv-border); border-radius: var(--dv-radius); overflow: hidden; }
+.dv-view-graph .react-flow__minimap { border: 1px solid var(--dv-border); border-radius: var(--dv-radius); }
+
+/* a row: its title, then the view's `order` fields */
+.dv-graph-node {
+  box-sizing: border-box; background: var(--dv-bg); color: var(--dv-fg); border: 1px solid var(--dv-border);
+  border-left: 4px solid var(--dv-node); border-radius: var(--dv-radius); cursor: pointer; overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .06);
+}
+.dv-graph-node:hover { background: var(--dv-hover); }
+.dv-graph-node.dv-active { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+.dv-graph-title { display: flex; align-items: center; gap: 7px; height: 34px; padding: 0 10px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dv-graph-dot { flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: var(--dv-node); }
+.dv-graph-fields { margin: 0; padding: 0 10px 8px; font-size: 11.5px; }
+.dv-graph-fields div { display: flex; gap: 8px; height: 18px; align-items: center; }
+.dv-graph-fields dt { color: var(--dv-muted); flex: 0 0 auto; }
+.dv-graph-fields dd { margin: 0 0 0 auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: right; }
+.dv-view-graph .react-flow__handle { width: 6px; height: 6px; min-width: 0; min-height: 0; }
+
+/* a subflow: one group of groupBy */
+.dv-graph-group {
+  box-sizing: border-box; width: 100%; height: 100%; border: 1px dashed color-mix(in srgb, var(--dv-node) 70%, var(--dv-border));
+  border-radius: calc(var(--dv-radius) + 4px); background: color-mix(in srgb, var(--dv-node) 7%, transparent);
+}
+.dv-view-graph .react-flow__node-dvgroup { background: none; border: 0; padding: 0; }
+.dv-graph-grouplabel {
+  all: unset; display: inline-flex; align-items: center; gap: 6px; margin: 5px 0 0 10px; padding: 1px 8px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 600; color: var(--dv-fg); background: color-mix(in srgb, var(--dv-node) 18%, var(--dv-bg)); cursor: pointer;
+}
+.dv-graph-grouplabel span { color: var(--dv-muted); font-weight: 400; }
+.dv-graph-grouplabel:hover, .dv-graph-grouplabel:focus-visible { outline: 1px solid var(--dv-node); }
+
+/* an edge label */
+.dv-graph-elabel {
+  position: absolute; pointer-events: none; padding: 0 5px; border-radius: 4px; font-size: 10.5px; line-height: 15px; white-space: nowrap;
+  color: var(--dv-fg); background: var(--dv-bg); border: 1px solid color-mix(in srgb, var(--dv-edge) 55%, var(--dv-border));
+}
+
+/* layout.engine: mermaid (src/mermaid-draw.js): one static SVG. It fits the view's width down to 45% of its own size,
+   then scrolls inside the view (never the page); colours come from the tokens through Mermaid's themeVariables. */
+.dv-graph-mermaid { position: absolute; inset: 0; overflow: auto; box-sizing: border-box; padding: 12px; background: var(--dv-bg); color: var(--dv-fg); font-family: inherit; }
+.dv-graph-mermaid svg { display: block; margin: 0 auto; height: auto; font-family: inherit; }
+.dv-graph-mermaid g.node[data-row] { cursor: pointer; }
+.dv-graph-mermaid g.node[data-row]:hover > :is(rect, path, polygon, circle) { fill: var(--dv-hover) !important; }
+.dv-graph-mermaid g.node[data-row]:focus { outline: none; }
+.dv-graph-mermaid g.node[data-row]:is(:focus-visible, .dv-active) > :is(rect, path, polygon, circle) { stroke: var(--dv-accent) !important; stroke-width: 2px !important; }
+.dv-graph-mermaid .dv-err { margin: 0; color: var(--dv-warn); }

@@ -1,0 +1,38 @@
+{
+  "app": "data-ui",
+  "name": "data-ui",
+  "icon": "site/icon.svg",
+  "stable": {
+    "port": 4610,
+    "build": [
+      ["sh", "-c", "if [ -d '{root}/site/.thumbs' ]; then cp -r '{root}/site/.thumbs' site/.thumbs; fi"],
+      ["node", "build.mjs"]
+    ],
+    "output": "dist/site",
+    "spa": false
+  },
+  "preview": {
+    "port": 4611,
+    "static": {"directory": "dist/site"},
+    "command": ["node", "build.mjs"],
+    "health": "/",
+    "watch": [
+      "/build.mjs",
+      "/package.json",
+      "/packages/",
+      "/site/",
+      "!/site/.thumbs/",
+      "/gallery/examples/",
+      "/docs/VIEWS.md",
+      "/schemas/"
+    ]
+  },
+  "keepReleases": 3,
+  "snapshot": {
+    "exclude": [
+      "/reports/",
+      "/tests/",
+      "/.wt/"
+    ]
+  }
+}

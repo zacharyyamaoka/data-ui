@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin (Shopify-like) · data-ui examples</title>
+<!-- Tycoon's S6 shell rebuilt on data-ui (docs/CONTRACT.md §43): a <data-rail> with a dark
+     nav, then per page a title, the summary card (<data-summary for>) and the table card (<data-views frame="card">).
+     Everything is the kit plus the two .base files beside this folder; the only script is the hash router below, which
+     swaps the page's .base file when the rail moves between Customers and Deals. Invented data only. -->
+<link rel="stylesheet" href="../../../kit/data-ui.css">
+<link rel="stylesheet" href="../skin.css">
+<script>
+  // ?theme=light|dark pins the theme (the captures use it); otherwise the page follows the system
+  try { const t = new URLSearchParams(location.search).get('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}
+</script>
+<style>
+  html, body { height: 100%; margin: 0; }
+  body { display: flex; background: var(--p-bg); color: var(--p-text); font: 450 13px/20px var(--p-font); }
+  :root { color-scheme: light dark; }
+  :root[data-theme="light"] { color-scheme: light; }
+  :root[data-theme="dark"] { color-scheme: dark; }
+  /* the nav is dark in both themes, as Shopify's 2025 admin draws it (Polaris' inverse colours) */
+  data-rail { --data-rail-bg: rgb(26, 26, 26); --data-fg: rgb(227, 227, 227); --data-muted: rgb(181, 181, 181); --data-bg: rgb(48, 48, 48);
+    --data-border: rgb(48, 48, 48); --data-rule: rgb(48, 48, 48); --data-hover: rgba(255, 255, 255, .08); --data-accent: rgb(227, 227, 227);
+    position: sticky; top: 0; height: 100vh; font-size: 14px; }
+  data-rail .dv-rail-dest { font-weight: 550; }
+  main { flex: 1 1 auto; min-width: 0; padding: 20px 24px 64px; display: flex; flex-direction: column; gap: 16px; }
+  main > * { flex: none; }
+  .page-head { display: flex; align-items: center; gap: 8px; min-height: 36px; margin: 0; font-size: 14px; font-weight: 650; line-height: 24px; }
+  .page-head svg { width: 20px; height: 20px; }
+  data-views { --data-height: none; }
+  .soon { padding: 24px; border-radius: 12px; background: var(--p-surface); box-shadow: 0 0 0 1px var(--p-border); color: var(--p-text-2); }
+  @media (max-width: 700px) { main { padding: 12px 16px 48px; } }
+</style>
+<script type="module">
+  import '../../../kit/data-ui.js';
+  import '../../../kit/views/summary.js';
+  const { svg, NAV } = window.ADMIN;
+  // the route: which file, which of its views, the page's title and icon, the rail's current destination
+  const ROUTES = {
+    organizations: { base: '../views.base', view: 'All', title: 'Organizations', icon: 'customers', current: 'organizations' },
+    pipeline: { base: '../deals.base', view: 'Pipeline', title: 'Deals', icon: 'deals', current: 'pipeline' },
+    won: { base: '../deals.base', view: 'Won', title: 'Deals', icon: 'deals', current: 'won' },
+    lost: { base: '../deals.base', view: 'Lost', title: 'Deals', icon: 'deals', current: 'lost' },
+  };
+  const rail = document.getElementById('nav');
+  const main = document.querySelector('main');
+
+  function show() {
+    const key = (location.hash || '#organizations').slice(1);
+    const route = ROUTES[key];
+    rail.current = route ? route.current : key;
+    if (!route) {
+      const label = (NAV.find(([id]) => id === key) || [, key])[1];
+      main.innerHTML = `<h1 class="page-head">${esc(label)}</h1><p class="soon">${esc(label)} is not part of this demo: it rebuilds Tycoon's Organizations and Deals screens. Pick Customers › Organizations or Deals in the sidebar.</p>`;
+      return;
+    }
+    // WHY a fresh pair per page: a page is another .base file; swapping elements is the whole router
+    main.innerHTML = `<h1 class="page-head">${svg(route.icon)}${esc(route.title)}</h1>
+      <data-summary for="list"></data-summary>
+      <data-views id="list" src="${route.base}" view="${route.view}" toolbar="bar" views="dropdown" promote="" frame="card" search="expand" selectable status="off" no-url aria-label="${esc(route.title)}"></data-views>`;
+    const views = main.querySelector('data-views');
+    // the chip's Pipeline / Won / Lost are the rail's Deals sub-destinations: the rail follows the chip
+    views.addEventListener('data-views-change', (e) => {
+      const id = String(e.detail.name || '').toLowerCase();
+      if (ROUTES[id] && ROUTES[id].base === route.base && rail.current !== ROUTES[id].current) { rail.current = ROUTES[id].current; history.replaceState(null, '', `#${id}`); }
+    });
+  }
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  addEventListener('hashchange', show);
+  show();
+  // the Deals count is the open deals in the data, never typed in
+  fetch('../deals.json').then((r) => r.json()).then((d) => {
+    const open = d.rows.filter((r) => r.stage !== 'Won' && r.stage !== 'Lost').length;
+    customElements.whenDefined('data-rail').then(() => { rail.destinations = rail.destinations.map((x) => (x.id === 'deals' ? { ...x, badge: String(open) } : x)); });
+  });
+</script>
+</head>
+<body class="data-ui-skin">
+<data-rail id="nav" mode="wide" theme="dark" brand="WasteTycoon" search="Search" search-keys="Ctrl K" storage-key="admin-shopify" label="Admin"></data-rail>
+<script>
+  // the rail's destinations as light DOM before the kit loads (a classic script runs before the module above), so
+  // <data-rail> reads them as a server would have written them (CONTRACT §27)
+  const ICON = {
+    home: '<path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"/>',
+    deals: '<path d="M4 7h16v10H4z"/><path d="M4 12h5l1.5 2h3L15 12h5"/>',
+    customers: '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6"/>',
+    facilities: '<path d="M4 20V9l5 3V9l5 3V6h6v14z"/>',
+    places: '<circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16"/>',
+    model: '<path d="M5 19V9M10 19V5M15 19v-7M20 19v-4"/>',
+    evidence: '<path d="M7 4h7l4 4v12H7z"/><path d="M14 4v4h4"/>',
+    finance: '<path d="M4 9l8-5 8 5M5 9v9M9 9v9M15 9v9M19 9v9M3 20h18"/>',
+    world: '<circle cx="12" cy="12" r="8"/><path d="M8 7c2 2 1 4-1 5M14 5c-1 3 2 4 4 4M10 20c0-3 3-3 3-6"/>',
+    canvas: '<circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/><path d="M9 9l6 6"/>',
+    map: '<path d="M4 6l5-2 6 2 5-2v14l-5 2-6-2-5 2z"/><path d="M9 4v14M15 6v14"/>',
+    brand: '<path d="M8 4l-4 7h6l-2 9 10-12h-6l2-4z"/>',
+  };
+  const svg = (name) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[name]}</svg>`;
+  // [id, label, icon, href, extra attributes]; a sub-destination names its parent, as Shopify's Customers › Segments
+  const NAV = [
+    ['home', 'Home', 'home', '#home'],
+    ['deals', 'Deals', 'deals', '#pipeline'],
+    ['pipeline', 'Pipeline', null, '#pipeline', 'data-parent="deals"'],
+    ['won', 'Won', null, '#won', 'data-parent="deals"'],
+    ['lost', 'Lost', null, '#lost', 'data-parent="deals"'],
+    ['customers', 'Customers', 'customers', '#organizations'],
+    ['organizations', 'Organizations', null, '#organizations', 'data-parent="customers"'],
+    ['people', 'People', null, '#people', 'data-parent="customers"'],
+    ['activities', 'Activities', null, '#activities', 'data-parent="customers"'],
+    ['facilities', 'Facilities', 'facilities', '#facilities'],
+    ['places', 'Places', 'places', '#places'],
+    ['model', 'Model', 'model', '#model'],
+    ['evidence', 'Evidence', 'evidence', '#evidence'],
+    ['finance', 'Finance', 'finance', '#finance'],
+    ['world', 'World', 'world', '#world', 'data-group="Views"'],
+    ['canvas', 'Canvas', 'canvas', '#canvas', 'data-group="Views"'],
+    ['map', 'Map', 'map', '#map', 'data-group="Views"'],
+  ];
+  const rail = document.getElementById('nav');
+  rail.innerHTML = `<span data-brand-icon>${svg('brand')}</span>` + NAV.map(([id, label, icon, href, extra = '']) =>
+    `<a href="${href}" data-id="${id}" ${extra}>${icon ? svg(icon) : ''}${label}</a>`).join('');
+  window.ADMIN = { svg, NAV };
+</script>
+<main><h1 class="page-head">Organizations</h1></main>
+</body>
+</html>

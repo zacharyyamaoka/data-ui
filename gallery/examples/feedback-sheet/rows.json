@@ -1,0 +1,137 @@
+{
+ "id": "feedback-sheet",
+ "title": "Feedback sheet",
+ "titleProperty": "observed",
+ "properties": {
+  "polarity": {
+   "type": "text",
+   "cycle": true,
+   "constraints": {
+    "enum": [
+     "−",
+     "+"
+    ]
+   },
+   "colors": {
+    "−": 8,
+    "+": 3
+   },
+   "display": "badge"
+  },
+  "observed": {
+   "type": "text",
+   "display": "media"
+  },
+  "desired": {
+   "type": "text",
+   "display": "media"
+  },
+  "status": {
+   "type": "text",
+   "constraints": {
+    "enum": [
+     "open",
+     "fixed",
+     "wontfix"
+    ]
+   },
+   "display": "badge"
+  },
+  "owner": {
+   "type": "text"
+  },
+  "filed": {
+   "type": "date",
+   "readOnly": true
+  }
+ },
+ "rows": [
+  {
+   "id": "f1",
+   "polarity": "−",
+   "observed": {
+    "value": "The Save button sits under the fold on a phone.",
+    "attachments": [
+     {
+      "url": "swatch-a.png",
+      "kind": "image",
+      "name": "swatch-a.png"
+     }
+    ]
+   },
+   "desired": {
+    "value": "Save stays in view while the form scrolls.",
+    "attachments": []
+   },
+   "status": "open",
+   "owner": "Mei",
+   "filed": "2026-10-21"
+  },
+  {
+   "id": "f2",
+   "polarity": "+",
+   "observed": {
+    "value": "Pasting a screenshot straight into a cell.",
+    "attachments": []
+   },
+   "desired": {
+    "value": "",
+    "attachments": [
+     {
+      "url": "swatch-b.png",
+      "kind": "image",
+      "name": "swatch-b.png"
+     }
+    ]
+   },
+   "status": "open",
+   "owner": "Noor",
+   "filed": "2026-10-23"
+  },
+  {
+   "id": "f3",
+   "polarity": "−",
+   "observed": {
+    "value": "Long notes were cut off with an ellipsis.\nThe second line never showed.",
+    "attachments": []
+   },
+   "desired": {
+    "value": "Words wrap; the row grows.",
+    "attachments": []
+   },
+   "status": "fixed",
+   "owner": "Mei",
+   "filed": "2026-10-24"
+  },
+  {
+   "id": "f4",
+   "polarity": "−",
+   "observed": {
+    "value": "Column widths reset on reload.",
+    "attachments": []
+   },
+   "desired": {
+    "value": "The sheet comes back as I left it.",
+    "attachments": []
+   },
+   "status": "open",
+   "owner": "Ana",
+   "filed": "2026-10-27"
+  },
+  {
+   "id": "f5",
+   "polarity": "+",
+   "observed": {
+    "value": "One click between views.",
+    "attachments": []
+   },
+   "desired": {
+    "value": "",
+    "attachments": []
+   },
+   "status": "fixed",
+   "owner": "Ana",
+   "filed": "2026-10-28"
+  }
+ ]
+}

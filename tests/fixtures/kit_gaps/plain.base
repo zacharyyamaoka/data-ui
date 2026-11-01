@@ -1,0 +1,51 @@
+# Kit gaps: the same keys in a plain file (no datasets:), checked against --data samples.json. A timeseries' annotations
+# from its own rows (gap 2) and chart fields that transforms create (gap 5).
+views:
+  - type: timeseries
+    name: Current
+    timeseries:
+      x: t
+      'y': i_q_a
+      annotations:
+        - { x: 0.25, label: fixed }
+        - { x: t, label: event }
+  - type: chart
+    name: Created fields
+    chart:
+      transform:
+        - calculate: 'datum.i_q_a * 2'
+          as: doubled
+        - timeUnit: seconds
+          field: t
+          as: sec
+        - aggregate: [{ op: sum, field: w, as: weight }]
+          groupby: [doubled, sec, mode]
+        - stack: weight
+          groupby: [sec]
+          as: [lo, hi]
+        - density: doubled
+          groupby: [mode]
+        - quantile: weight
+          as: [p, q]
+      mark: { type: rule }
+      encoding:
+        x: { field: doubled, type: quantitative }
+        'y': { field: lo, type: quantitative }
+        y2: { field: hi }
+        color: { field: density, type: quantitative }
+        size: { field: q, type: quantitative }
+        detail: { field: value, type: quantitative }
+  - type: chart
+    name: Pivoted
+    chart:
+      transform:
+        - pivot: mode
+          value: i_q_a
+          groupby: [run]
+      mark: { type: point }
+      encoding:
+        x: { field: position, type: quantitative }
+        'y': { field: stopped, type: quantitative }
+  - type: video
+    name: Depth
+    empty: No depth captured yet.

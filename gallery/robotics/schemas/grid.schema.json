@@ -1,0 +1,45 @@
+{
+ "name": "grid",
+ "title": "Grid",
+ "description": "One row per voxel cell, pre-gridded (BAM Reach's reach map as rows). The producer's sidecar carries cell_mm (the cell's edge) and frame at its top level.",
+ "rowsPer": [
+  "x_mm",
+  "y_mm",
+  "z_mm"
+ ],
+ "required": [
+  "x_mm",
+  "y_mm",
+  "z_mm",
+  "value"
+ ],
+ "sidecar": {
+  "cell_mm": "the cell's edge, in mm",
+  "frame": "the frame of the cells' centres"
+ },
+ "schema": {
+  "fields": [
+   {
+    "name": "x_mm",
+    "type": "number",
+    "unit": "mm",
+    "description": "the cell's centre"
+   },
+   {
+    "name": "y_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "z_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "value",
+    "type": "number",
+    "description": "the cell's value (e.g. the fraction of orientations reachable)"
+   }
+  ]
+ }
+}

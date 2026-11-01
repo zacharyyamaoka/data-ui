@@ -1,0 +1,42 @@
+# The P3 checker fixture (tests/unit/check-p3.test.mjs, tools/test_check_p3.py): every key PEP 0010 P3 adds (a link's
+# direction, a per-pick dataset, a view's selected:), its datasets beside it, so the Node CLI checks each column against
+# the dataset that holds it (the per-pick dataset's against the first file its data: names). A refused variant is a copy
+# of this folder with one line swapped.
+data: runs.json
+clock: { data: samples, time: t }
+datasets:
+  deployments: deployments.json
+  runs:
+    data: runs.json
+    facets:
+      - { property: run, as: select, label: Run }
+      - { property: station, label: Station }
+  samples:
+    data: 'runs/{run}.json'
+    facets:
+      - { property: situation, label: Show }
+links:
+  - { from: deployments.deployment, to: runs.deployment, direction: one-way }
+  - { from: runs.run, to: samples.run, direction: one-way }
+layout:
+  panels:
+    - { view: Deployments, w: 12 }
+    - { view: Runs, w: 12 }
+    - { view: Angle, w: 12 }
+views:
+  - type: table
+    name: Deployments
+    from: deployments
+    select: deployment
+    selected: first
+  - type: table
+    name: Runs
+    from: runs
+    select: run
+    order: [run, station, started]
+    sort:
+      - { property: started, direction: DESC }
+  - type: timeseries
+    name: Angle
+    from: samples
+    timeseries: { x: t, 'y': q_deg, series: situation }

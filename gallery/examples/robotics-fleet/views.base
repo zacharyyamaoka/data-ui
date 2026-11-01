@@ -1,0 +1,82 @@
+# The fleet: every deployment in one list, and the global view of that list a tab away (Zach, 2026-10-30: "basically just
+# like a table, and one view of that data is the global view that lets me visualize the data on a map"). One panel,
+# three views of one dataset: Map, Table, Cards. A click on a robot picks it in any of them (select: deployment); its
+# runs list below, newest first, and its newest run plays, read from runs/<run>.json only when one run is picked.
+# Only the One Dof Test Rack is real. Every other row is SYNTHETIC (source/build.py, seeded). docs/CONTRACT.md §33, §39.
+data: deployments.json
+style:
+  chrome: minimal
+  numbers: { digits: 4, compact: true }
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: samples, time: t }
+datasets:
+  deployments:
+    data: deployments.json
+    label: Deployments
+  runs:
+    data: runs.json
+    label: Runs
+  # the per-run dataset: the file the run pick names, read when exactly one run is picked (none or two: "Pick one run")
+  samples:
+    data: 'runs/{run}.json'
+    label: Samples
+links:
+  - { from: deployments.deployment, to: runs.deployment, direction: one-way }
+  - { from: runs.run, to: samples.run, direction: one-way }
+layout:
+  panels:
+    - text: >-
+        **Synthetic fleet, one real rack.** Only the One Dof Test Rack is real (its logged runs). Every other robot, site
+        and run is made up for this example and marked synthetic. Click a robot for its runs; a counted marker lists the
+        robots at that point.
+      w: 12
+    - { views: [Map, Table, Cards], title: Deployments, w: 12, h: 5 }
+    - { view: Runs, w: 12, h: 3 }
+    - { view: Playback, w: 12 }
+    - { view: Angle, w: 6, h: 3 }
+    - { view: Velocity, w: 6, h: 3 }
+properties:
+  started: { displayName: Started }
+  duration_s: { displayName: Duration }
+  device: { displayName: Station }
+  kind: { displayName: Kind }
+views:
+  # level 1: the fleet, three ways. Its first row (the rack) is picked when the page opens
+  - type: map
+    name: Map
+    from: deployments
+    select: deployment
+    selected: first
+    coordinates: coordinates
+    markerColor: status
+  - type: table
+    name: Table
+    from: deployments
+    select: deployment
+    order: [name, robot_model, site, city, status, last_run, runs, basis]
+  - type: cards
+    name: Cards
+    from: deployments
+    select: deployment
+    order: [name, robot_model, site, city, status, last_run, runs, basis]
+  # level 2: the picked robot's runs, newest first; a click picks a run, a ctrl / cmd-click a second (then "Pick one run")
+  - type: table
+    name: Runs
+    from: runs
+    select: run
+    selected: first
+    order: [label, started, device, kind, duration_s, basis]
+    sort:
+      - { property: started, direction: DESC }
+  # level 3: the picked run, on one clock spanning its t
+  - type: playback
+    name: Playback
+    playback: { readout: true }
+  - type: timeseries
+    name: Angle
+    from: samples
+    timeseries: { x: t, 'y': q_deg, series: situation, dash: [target], legend: top, unit: '°' }
+  - type: timeseries
+    name: Velocity
+    from: samples
+    timeseries: { x: t, 'y': qd_deg_s, series: situation, dash: [target], legend: top, unit: '°/s' }

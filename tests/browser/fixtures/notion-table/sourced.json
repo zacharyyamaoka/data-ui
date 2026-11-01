@@ -1,0 +1,23 @@
+{
+  "id": "notion-table-sourced",
+  "title": "Sourced parts (made-up data)",
+  "titleProperty": "part",
+  "sources": {
+    "bench": { "name": "Bench test", "kind": "A made-up measurement", "rung": "measured" },
+    "sheet": { "name": "Datasheet", "kind": "A made-up datasheet", "rung": "maker" }
+  },
+  "ladder": [{ "id": "measured", "label": "Measured" }, { "id": "maker", "label": "A maker's sheet" }],
+  "properties": {
+    "part": { "type": "text", "label": "Part" },
+    "torque": { "type": "number", "label": "Torque" },
+    "maker": { "type": "text", "label": "Maker" },
+    "mass": { "type": "number", "label": "Mass" },
+    "owner": { "type": "text", "label": "Owner" },
+    "note": { "type": "text", "label": "Note", "long": true }
+  },
+  "rows": [
+    { "id": "p1", "part": "Made-up gear A", "torque": { "sources": [{ "source": "sheet", "value": 12 }, { "source": "bench", "value": 10 }] }, "maker": { "value": "Acme (made up)", "source": "sheet" }, "mass": { "value": 3.5, "unit": "kg", "basis": "measured" }, "owner": "Ana", "note": { "sources": [{ "source": "sheet", "value": "What the sheet says." }, { "source": "bench", "value": "What the bench says." }] } },
+    { "id": "p2", "part": "Made-up gear B", "torque": { "sources": [{ "source": "sheet", "value": 20 }] }, "maker": "Plain maker", "mass": 4.25, "owner": "Bo", "note": null },
+    { "id": "p3", "part": "Made-up gear C", "torque": 30, "maker": "Other maker", "mass": 7, "owner": "Lee", "note": null }
+  ]
+}

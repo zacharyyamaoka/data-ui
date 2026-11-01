@@ -1,0 +1,44 @@
+# The source dashboard (tests/browser/add_to_dashboard_checks.py): a panel of every kind a reader adds from, over two
+# linked datasets and a clock. A click on a run in the Runs table selects its robot for every other panel.
+datasets:
+  runs:
+    data: runs.json
+    label: Runs
+    facets: [robot, kind]
+  samples: samples.json
+links:
+  - { from: runs.run, to: samples.run }
+clock: { data: samples, time: t }
+views:
+  - type: kpi
+    name: Success
+    from: runs
+    groupBy: { property: robot }
+    kpi: { value: { property: success, summary: Average } }
+  - type: table
+    name: Runs
+    from: runs
+    select: robot
+    order: [run, robot, kind, started, success]
+    sort:
+      - { property: started, direction: DESC }
+  - type: chart
+    name: Success by run
+    from: runs
+    chart: { mark: point, encoding: { x: { field: started, type: temporal }, y: { field: success, type: quantitative }, color: { field: robot, type: nominal } } }
+  - type: timeseries
+    name: Error by joint
+    from: samples
+    filters: 'run == "r02"'
+    timeseries: { x: t, y: err_mm, series: joint }
+  - type: scene3d
+    name: Tool paths
+    from: samples
+    scene3d: { x: x, y: y, z: z, series: joint, t: t }
+layout:
+  panels:
+    - { view: Success, w: 12 }
+    - { view: Runs, w: 6, h: 3 }
+    - { view: Success by run, w: 6, h: 3 }
+    - { view: Error by joint, w: 6, h: 3 }
+    - { view: Tool paths, w: 6, h: 3 }

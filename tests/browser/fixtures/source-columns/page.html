@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source columns fixture</title>
+<!-- tests/browser/source_columns_checks.py (docs/CONTRACT.md §36, docs/peps/0021-source-columns.md). Served from the repo root, so
+     the kit is /dist/. ?src= the .base file, relative to this page (default: the source-precedence part, unchanged); ?data= its rows,
+     the way RobotParts points one .base at one part's rows; ?toolbar, ?views; ?no-url ?editable ?edit-toggle ?add-row ?hook (a
+     persistView that records what it is handed in window.saved); ?persist=local. sources.js is loaded, as RobotParts loads it. -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: var(--data-bg, #fff); color: var(--data-fg, #111); }
+  :root[data-theme="dark"] body { background: #111; color: #eee; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) body { background: #111; color: #eee; } }
+  data-views { height: 760px; }
+</style>
+<script type="module">
+  import * as kit from '/dist/data-ui.js';
+  await import('/dist/sources.js');
+  window.kit = kit;
+  const q = new URLSearchParams(location.search);
+  const v = document.createElement('data-views');
+  v.id = 'v';
+  v.setAttribute('toolbar', q.get('toolbar') || 'bar');
+  v.setAttribute('views', q.get('views') || 'tabs');
+  for (const a of ['no-url', 'editable', 'edit-toggle', 'add-row']) if (q.has(a)) v.setAttribute(a, '');
+  if (q.get('persist')) v.setAttribute('persist', q.get('persist'));
+  window.saved = [];
+  window.edits = [];
+  if (q.has('hook')) v.persistView = async (p) => { window.saved.push(JSON.parse(JSON.stringify(p))); return { ok: true }; };
+  if (q.has('accept')) v.acceptEdit = async ({ id, set, row }) => { window.edits.push(JSON.parse(JSON.stringify({ id, set }))); Object.assign(row, set); return { ok: true }; };
+  if (q.get('data')) v.setAttribute('data', q.get('data'));
+  v.setAttribute('src', q.get('src') || '../source-precedence/part.base');
+  document.body.append(v);
+  window.v = v;
+  window.kitReady = true;
+</script>
+</head>
+<body>
+</body>
+</html>

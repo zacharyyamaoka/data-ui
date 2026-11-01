@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#0E100E" role="img" aria-label="Port grid mark">
+<title>Port grid mark</title>
+<path d="M2.84 0H61.16A2.84 2.84 0 0 1 64 2.84V61.16A2.84 2.84 0 0 1 61.16 64H2.84A2.84 2.84 0 0 1 0 61.16V2.84A2.84 2.84 0 0 1 2.84 0ZM12 12h4v4h-4zM12 16h4v4h-4zM16 12h4v4h-4zM16 16h4v4h-4zM28 12h4v4h-4zM28 16h4v4h-4zM32 12h4v4h-4zM32 16h4v4h-4zM12 28h4v4h-4zM12 32h4v4h-4zM16 28h4v4h-4zM16 32h4v4h-4zM28 28h4v4h-4zM28 32h4v4h-4zM32 28h4v4h-4zM32 32h4v4h-4zM44 28h4v4h-4zM44 32h4v4h-4zM48 28h4v4h-4zM48 32h4v4h-4zM12 44h4v4h-4zM12 48h4v4h-4zM16 44h4v4h-4zM16 48h4v4h-4zM28 44h4v4h-4zM28 48h4v4h-4zM32 44h4v4h-4zM32 48h4v4h-4zM44 44h4v4h-4zM44 48h4v4h-4zM48 44h4v4h-4zM48 48h4v4h-4z" fill="currentColor" fill-rule="evenodd"/>
+<path d="M44 12h4v4h-4zM44 16h4v4h-4zM48 12h4v4h-4zM48 16h4v4h-4z" style="fill:var(--a,#2F6F4F)"/>
+</svg>

@@ -1,0 +1,29 @@
+# Where robotparts' sellers are based and where they ship, from the sellers' own listings (seller_country,
+# ships_to). Obsidian Bases grammar plus the Maps plugin's keys (docs/CONTRACT.md §5).
+data: sellers.json
+properties:
+  country_name: { displayName: Country }
+  seller: { displayName: Seller }
+  relation: { displayName: Relation }
+views:
+  - type: map
+    name: Where sellers ship
+    filters: 'relation == "ships to"'
+    coordinates: coordinates
+    markerColor: seller
+  - type: map
+    name: Where sellers are based
+    filters: 'relation == "based in"'
+    coordinates: coordinates
+    markerColor: seller
+  - type: map
+    name: Ships to, one colour
+    filters: 'relation == "ships to"'
+    coordinates: coordinates
+    markerColor: var(--data-series-3)
+    center: [50, 10]
+    defaultZoom: 2.5
+  - type: table
+    name: By country
+    order: [country_name, country, relation, seller, seller_name, listings, coordinates]
+    groupBy: { property: country_name, direction: ASC }

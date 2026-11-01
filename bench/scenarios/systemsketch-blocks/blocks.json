@@ -1,0 +1,228 @@
+{
+ "id": "systemsketch-blocks",
+ "title": "SystemSketch blocks",
+ "titleProperty": "block",
+ "source": "systemsketch sketches/review/communication-projection-prototype.systemsketch (Block-Ports-Edges)",
+ "properties": {
+  "block": {
+   "type": "text",
+   "label": "Block",
+   "width": 200
+  },
+  "kind": {
+   "type": "text",
+   "label": "Block type",
+   "display": "badge"
+  },
+  "inputs": {
+   "type": "list",
+   "label": "Inputs"
+  },
+  "outputs": {
+   "type": "list",
+   "label": "Outputs"
+  },
+  "n_in": {
+   "type": "number",
+   "label": "In ports"
+  },
+  "n_out": {
+   "type": "number",
+   "label": "Out ports"
+  },
+  "definition": {
+   "type": "text",
+   "label": "Definition"
+  },
+  "sends_to": {
+   "type": "list",
+   "label": "Sends to",
+   "readOnly": true
+  },
+  "via": {
+   "type": "list",
+   "label": "Via port",
+   "readOnly": true
+  }
+ },
+ "rows": [
+  {
+   "id": "telemetry",
+   "block": "Telemetry UI",
+   "kind": "component",
+   "inputs": [
+    "preview: Chunk[Image]",
+    "status: Status"
+   ],
+   "outputs": [],
+   "n_in": 2,
+   "n_out": 0,
+   "definition": "Telemetry_UI",
+   "sends_to": [],
+   "via": []
+  },
+  {
+   "id": "threshold_value",
+   "block": "threshold (value)",
+   "kind": "value",
+   "inputs": [
+    "threshold: float"
+   ],
+   "outputs": [
+    "threshold: float"
+   ],
+   "n_in": 1,
+   "n_out": 1,
+   "definition": null,
+   "sends_to": [
+    "perception"
+   ],
+   "via": [
+    "threshold"
+   ]
+  },
+  {
+   "id": "mission_value",
+   "block": "mission_id (value)",
+   "kind": "value",
+   "inputs": [
+    "mission_id: str"
+   ],
+   "outputs": [
+    "mission_id: str"
+   ],
+   "n_in": 1,
+   "n_out": 1,
+   "definition": null,
+   "sends_to": [
+    "mission"
+   ],
+   "via": [
+    "mission_id"
+   ]
+  },
+  {
+   "id": "motion",
+   "block": "Motion Controller",
+   "kind": "service + action server",
+   "inputs": [
+    "pose.query: PoseQuery",
+    "move.goal: MoveGoal",
+    "move.cancel: GoalId"
+   ],
+   "outputs": [
+    "pose.reply: Pose",
+    "move.feedback: Progress",
+    "move.result: MoveResult",
+    "status: Status"
+   ],
+   "n_in": 3,
+   "n_out": 4,
+   "definition": "Motion_Controller",
+   "sends_to": [
+    "mission",
+    "mission",
+    "mission",
+    "telemetry"
+   ],
+   "via": [
+    "move.feedback",
+    "move.result",
+    "pose.reply",
+    "status"
+   ]
+  },
+  {
+   "id": "mission",
+   "block": "Mission BT",
+   "kind": "action client",
+   "inputs": [
+    "mission_id: str",
+    "plan: Plan",
+    "pose.reply: Pose",
+    "move.feedback: Progress",
+    "move.result: MoveResult"
+   ],
+   "outputs": [
+    "pose.query: PoseQuery",
+    "move.goal: MoveGoal",
+    "move.cancel: GoalId"
+   ],
+   "n_in": 5,
+   "n_out": 3,
+   "definition": "Mission_BT",
+   "sends_to": [
+    "motion",
+    "motion",
+    "motion"
+   ],
+   "via": [
+    "move.cancel",
+    "move.goal",
+    "pose.query"
+   ]
+  },
+  {
+   "id": "planner",
+   "block": "Planner",
+   "kind": "component",
+   "inputs": [
+    "detections: Detections"
+   ],
+   "outputs": [
+    "plan: Plan"
+   ],
+   "n_in": 1,
+   "n_out": 1,
+   "definition": "Planner",
+   "sends_to": [
+    "mission"
+   ],
+   "via": [
+    "plan"
+   ]
+  },
+  {
+   "id": "camera",
+   "block": "Camera",
+   "kind": "component",
+   "inputs": [],
+   "outputs": [
+    "frame: Image",
+    "preview: Chunk[Image]"
+   ],
+   "n_in": 0,
+   "n_out": 2,
+   "definition": "Camera",
+   "sends_to": [
+    "perception",
+    "telemetry"
+   ],
+   "via": [
+    "frame",
+    "preview"
+   ]
+  },
+  {
+   "id": "perception",
+   "block": "Perception",
+   "kind": "component",
+   "inputs": [
+    "image: Image",
+    "threshold: float"
+   ],
+   "outputs": [
+    "detections: Detections"
+   ],
+   "n_in": 2,
+   "n_out": 1,
+   "definition": "Perception",
+   "sends_to": [
+    "planner"
+   ],
+   "via": [
+    "detections"
+   ]
+  }
+ ]
+}

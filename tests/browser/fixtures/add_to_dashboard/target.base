@@ -1,0 +1,29 @@
+# The target dashboard (tests/browser/add_to_dashboard_checks.py, tests/unit/add-to-dashboard.test.mjs): the file a
+# reader adds a panel to. Every line of it, comments and blank lines and the order of its blocks, must come back as
+# written, with the added lines in between.
+
+datasets:
+  fleet: runs.json            # the source's runs, under another name: an added panel on runs.json reads fleet
+  samples: other-samples.json # another file under the source's name: added samples get a name of their own
+
+properties:
+  robot: { displayName: Robot }
+
+views:
+  # the source has a view called Runs too: the added one is named "Runs (2)"
+  - type: table
+    name: Runs
+    from: fleet
+    order: [run, robot]
+
+  - type: table
+    name: Other samples
+    from: samples
+
+layout:
+  columns: 12
+  panels:
+    - { view: Runs, w: 6, h: 3 }
+    - { view: Other samples, w: 6, h: 3 }
+    # an added panel goes after the last one
+# the end of the file

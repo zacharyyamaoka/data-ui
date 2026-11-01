@@ -1,0 +1,42 @@
+# BAM's object library, public sample: 366 of its 2,196 instances (open-licence scans and generated primitives) with their axes (material, form,
+# colour, grade, damage, rigidity) and geometry, plus each one's 256 px thumbnail. Obsidian Bases grammar plus
+# data-ui's keys (docs/CONTRACT.md §5).
+# Check it: node bin/data-ui.mjs check <this file> --data objects.json
+data: objects.json
+facets:
+  - type
+  - material
+  - form
+  - grade
+  - source
+  - { property: mass_g, as: range }
+properties:
+  name: { displayName: Name }
+  material: { displayName: Material }
+  form: { displayName: Form }
+  size_class: { displayName: Size class }
+  geometry_class: { displayName: Geometry }
+  mass_g: { displayName: Mass (g) }
+  length_mm: { displayName: Length (mm) }
+views:
+  - type: table
+    name: Table
+    order: [name, type, material, form, colour, grade, size_class, geometry_class, length_mm, mass_g, source]
+    sort:
+      - { property: name, direction: ASC }
+  - type: cards
+    name: Cards
+    order: [name, material, form, mass_g]
+    image: thumbnail
+    imageFit: contain
+    cardSize: 170
+    groupBy: { property: type, direction: ASC }
+    sort:
+      - { property: name, direction: ASC }
+  - type: table
+    name: By class
+    order: [name, material, form, colour, size_class, geometry_class, mass_g]
+    groupBy: { property: type, direction: ASC }
+    sort:
+      - { property: name, direction: ASC }
+    summaries: { mass_g: Median }

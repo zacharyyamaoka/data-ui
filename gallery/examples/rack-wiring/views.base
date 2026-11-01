@@ -1,0 +1,32 @@
+# The 1-DOF rack's wiring: robotparts' Splice proof as rows (parts) plus edges (wires). Obsidian Bases grammar plus
+# data-ui's graph keys (docs/CONTRACT.md §5). Check it: node bin/data-ui.mjs check <this file>
+data: rack.json
+properties:
+  name: { displayName: Part }
+  role: { displayName: Role }
+  feeds: { displayName: Wires to }
+  wire: { displayName: Carries }
+views:
+  - type: graph
+    name: Wiring
+    edges: { property: feeds, label: wire }
+    layout: { algorithm: dagre, direction: LR }
+    groupBy: { property: role, direction: ASC }
+    groupOrder: [Power, CAN, Boards, Motors, Sensing]
+    order: [model, v_load, current]
+  - type: graph
+    name: Power path
+    filters: 'role != "CAN"'
+    edges: { property: feeds, label: wire }
+    layout: { algorithm: dagre, direction: TB }
+    order: [v_load, current]
+  - type: graph
+    name: Flat
+    edges: { property: feeds, label: wire }
+    layout: { algorithm: dagre, direction: LR }
+    order: [maker, model]
+  - type: table
+    name: Parts
+    order: [name, role, kind, maker, model, v_load, current, feeds, wire, findings]
+    groupBy: { property: role, direction: ASC }
+    groupOrder: [Power, CAN, Boards, Motors, Sensing]

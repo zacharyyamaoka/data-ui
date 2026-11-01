@@ -1,0 +1,25 @@
+# P3 fixture (tests/browser/p3_checks.py): oneway.base with the link two-way, as every link was before P3: the samples'
+# rail (Show) narrows the runs too. It proves the fixture tells the two apart (a "target" pick leaves r5 and r6 out).
+data: runs.json
+datasets:
+  runs:
+    data: runs.json
+    facets: [{ property: station, label: Station }]
+  samples:
+    data: samples.json
+    facets: [{ property: situation, label: Show }]
+links:
+  - { from: runs.run, to: samples.run }
+layout:
+  panels:
+    - { view: Runs, w: 6, h: 3 }
+    - { view: Samples, w: 6, h: 3 }
+views:
+  - type: table
+    name: Runs
+    from: runs
+    order: [run, station, kind, started]
+  - type: table
+    name: Samples
+    from: samples
+    order: [run, situation, t, q_deg]

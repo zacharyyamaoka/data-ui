@@ -1,0 +1,91 @@
+# kit gap 1 (tests/browser/kit_gaps_checks.py): aggregates that must be recomputed whenever a pick swaps a chart's rows
+# in place. The BLDC driver case's coverage file (every run of CAN 12, 13 and 14), its Driver picked on the rail; each
+# panel aggregates per run kind. Oracle: numpy over the same CSV, per device and kind.
+data: ../../../../gallery/examples/robotics-driver/coverage_samples.schema.json
+datasets:
+  coverage:
+    data: ../../../../gallery/examples/robotics-driver/coverage_samples.schema.json
+    label: Coverage
+    facets:
+      - { property: device, as: select, label: Driver }
+    filters: 'device == "CAN 13"'
+layout:
+  panels:
+    - { view: Box min-max, key: box, w: 6, h: 4 }
+    - { view: Box 1.5 IQR, key: box15, w: 6, h: 4 }
+    - { view: Median to max, key: medmax, w: 6, h: 4 }
+    - { view: Extremes, key: argext, w: 6, h: 4 }
+    - { view: Error bar, key: errbar, w: 6, h: 4 }
+    - { view: Product, key: product, w: 6, h: 4 }
+views:
+  - type: chart
+    name: Box min-max
+    from: coverage
+    controls: false
+    chart:
+      mark: { type: boxplot, extent: min-max }
+      encoding:
+        x: { field: kind, type: nominal }
+        'y': { field: temp_c, type: quantitative, scale: { zero: false } }
+  - type: chart
+    name: Box 1.5 IQR
+    from: coverage
+    controls: false
+    chart:
+      mark: { type: boxplot }
+      encoding:
+        x: { field: kind, type: nominal }
+        'y': { field: i_q_a, type: quantitative }
+  # one aggregate with a median and a max over one field: the two statistics share Vega's per-cell value store
+  - type: chart
+    name: Median to max
+    from: coverage
+    controls: false
+    chart:
+      mark: { type: rule, strokeWidth: 3 }
+      encoding:
+        x: { field: kind, type: nominal }
+        'y': { field: v_bus_v, aggregate: median, type: quantitative, scale: { zero: false } }
+        y2: { field: v_bus_v, aggregate: max }
+  # argmin and argmax beside a median, in one aggregate transform
+  - type: chart
+    name: Extremes
+    from: coverage
+    controls: false
+    chart:
+      transform:
+        - aggregate: [{ op: median, field: qd_deg_s, as: q_med }, { op: argmin, field: qd_deg_s, as: lo_row }, { op: argmax, field: qd_deg_s, as: hi_row }]
+          groupby: [kind]
+        - calculate: datum.lo_row.qd_deg_s
+          as: q_lo
+        - calculate: datum.hi_row.qd_deg_s
+          as: q_hi
+      mark: { type: rule }
+      encoding:
+        x: { field: kind, type: nominal }
+        'y': { field: q_lo, type: quantitative }
+        y2: { field: q_hi }
+  - type: chart
+    name: Error bar
+    from: coverage
+    controls: false
+    chart:
+      mark: { type: errorbar, extent: iqr }
+      encoding:
+        x: { field: kind, type: nominal }
+        'y': { field: temp_c, type: quantitative, scale: { zero: false } }
+  # a product beside a median: Vega updates a product by dividing out what leaves, which a 0 cannot undo
+  - type: chart
+    name: Product
+    from: coverage
+    controls: false
+    chart:
+      layer:
+        - mark: { type: bar }
+          encoding:
+            x: { field: kind, type: nominal }
+            'y': { field: w, aggregate: product, type: quantitative }
+        - mark: { type: tick }
+          encoding:
+            x: { field: kind, type: nominal }
+            'y': { field: w, aggregate: median, type: quantitative }

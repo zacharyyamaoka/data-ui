@@ -1,0 +1,45 @@
+# Proposal 4, panel 2: the objects sampled for the stream picked on views.base (the prototype page sets the filter
+# `mixes.contains("<mix>")`). Cards turn in 3D on click (a dense board: a hover turntable would fire as the pointer
+# crosses it); the chart is the stream's mass distribution, the min/max the toolbar's summaries.
+data: ../object-db-shelf/objects.json
+properties:
+  name: { displayName: Name }
+  mass_g: { displayName: Mass }
+  type: { displayName: Type }
+  material: { displayName: Material }
+  size_class: { displayName: Size class }
+views:
+  - type: cards
+    name: Sampled objects
+    order: [name, type, mass_g]
+    image: thumbnail
+    mesh: mesh
+    meshView: mesh_view
+    meshInteract: click
+    imageFit: contain
+    cardSize: 132
+    sort:
+      - { property: mass_g, direction: DESC }
+  - type: chart
+    name: Mass distribution
+    chart:
+      mark: { type: bar }
+      encoding:
+        x: { field: mass_g, bin: { maxbins: 24 }, title: "Mass (g)" }
+        y: { aggregate: count, title: Objects }
+        color: { field: material }
+  - type: chart
+    name: Mass vs size
+    chart:
+      mark: { type: point, filled: true }
+      encoding:
+        x: { field: bbox_volume_ml, scale: { type: log }, title: "Bounding-box volume (mL)" }
+        y: { field: mass_g, scale: { type: log }, title: "Mass (g)" }
+        color: { field: type }
+    hover: { image: thumbnail, title: name, fields: [type, material, mass_g, size_class] }
+  - type: table
+    name: Objects
+    order: [name, type, material, mass_g, length_mm, width_mm, height_mm, size_class, geometry]
+    summaries: { mass_g: Max, length_mm: Max }
+    sort:
+      - { property: mass_g, direction: DESC }

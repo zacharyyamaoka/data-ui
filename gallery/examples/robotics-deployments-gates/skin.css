@@ -1,0 +1,8 @@
+/* The gates overlay's status colours (docs/CONTRACT.md §35, docs/peps/0010-robotics-playback.md §7): a fail is crimson,
+   not the default red, because the sim family is orange (data-ui's slot 2) and a red sits too close to it (normal-vision
+   ΔE 9.3, measured for PEP 0010); the glyph and the word carry the status either way. Pass and warn are data-ui's own. */
+.data-ui-skin { --data-bad: #c2185b; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .data-ui-skin { --data-bad: #f0609a; }
+}
+:root[data-theme="dark"] .data-ui-skin { --data-bad: #f0609a; }

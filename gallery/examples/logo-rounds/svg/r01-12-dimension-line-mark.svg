@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Dimension line mark">
+<title>Dimension line mark</title>
+<rect x="6" y="6" width="36" height="36" rx="2" fill="none" stroke="currentColor" stroke-width="5"/>
+<path d="M24 54L14 54" fill="none" style="stroke:var(--a,#e4572e)" stroke-width="3.4"/><polygon points="6,54 14,50 14,58" style="fill:var(--a,#e4572e)"/>
+<path d="M24 54L34 54" fill="none" style="stroke:var(--a,#e4572e)" stroke-width="3.4"/><polygon points="42,54 34,58 34,50" style="fill:var(--a,#e4572e)"/>
+<path d="M54 24L54 14" fill="none" style="stroke:var(--a,#e4572e)" stroke-width="3.4"/><polygon points="54,6 58,14 50,14" style="fill:var(--a,#e4572e)"/>
+<path d="M54 24L54 34" fill="none" style="stroke:var(--a,#e4572e)" stroke-width="3.4"/><polygon points="54,42 50,34 58,34" style="fill:var(--a,#e4572e)"/>
+<path d="M6 46V60M42 46V60M46 6H60M46 42H60" fill="none" stroke="currentColor" stroke-width="2.4"/>
+</svg>

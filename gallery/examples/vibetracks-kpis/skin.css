@@ -1,0 +1,25 @@
+/* Vibe Tracks' skin: its own tokens (vibetracks/home/static/tokens.css, Claude Desktop's, read 2026-10-25), then the
+   one block that maps them onto data-ui's --data-* (docs/SPEC.md §10). good / bad are its success and danger inks,
+   so a KPI delta reads green or red outside its neutral band, as Vibe Tracks' tiles do. */
+.data-ui-skin {
+  --surface: #ffffff; --ink: #0b0b0b; --ink-2: #52514e; --alpha-1: rgba(11, 11, 11, .05); --line: rgba(11, 11, 11, .10);
+  --hover: rgba(11, 11, 11, .05); --accent: #2a78d6; --warn-ink: #734500; --success-ink: #2f7a4a; --danger-ink: #8e2626;
+  --font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace; --radius: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .data-ui-skin {
+    --surface: #1a1a1a; --ink: #f0efec; --ink-2: #c3c2b7; --alpha-1: rgba(255, 255, 255, .05); --line: #252525;
+    --hover: rgba(255, 255, 255, .06); --accent: #2a78d6; --warn-ink: #db9300; --success-ink: #6fbf8b; --danger-ink: #ec7e7e;
+  }
+}
+:root[data-theme="dark"] .data-ui-skin {
+  --surface: #1a1a1a; --ink: #f0efec; --ink-2: #c3c2b7; --alpha-1: rgba(255, 255, 255, .05); --line: #252525;
+  --hover: rgba(255, 255, 255, .06); --accent: #2a78d6; --warn-ink: #db9300; --success-ink: #6fbf8b; --danger-ink: #ec7e7e;
+}
+/* the mapping (SPEC §10's Vibe Tracks block, plus the KPI inks) */
+.data-ui-skin {
+  --data-bg: var(--surface); --data-fg: var(--ink); --data-muted: var(--ink-2); --data-subtle: var(--alpha-1);
+  --data-border: var(--line); --data-rule: var(--alpha-1); --data-hover: var(--hover); --data-accent: var(--accent);
+  --data-warn: var(--warn-ink); --data-font: var(--font); --data-mono: var(--mono); --data-radius: var(--radius);
+  --data-good: var(--success-ink); --data-bad: var(--danger-ink);
+}

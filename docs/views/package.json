@@ -1,0 +1,19 @@
+{
+  "name": "data-ui-views-demo",
+  "private": true,
+  "description": "The libraries docs/VIEWS.md selects, pinned, for the report's live demo (docs/views/build.py). Nothing here ships.",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "@tanstack/table-core": "9.3.1",
+    "@tanstack/virtual-core": "3.19.7",
+    "@atlaskit/pragmatic-drag-and-drop": "4.0.0",
+    "@atlaskit/pragmatic-drag-and-drop-hitbox": "3.0.0",
+    "vega": "6.4.0",
+    "vega-lite": "6.5.0",
+    "vega-embed": "7.3.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}

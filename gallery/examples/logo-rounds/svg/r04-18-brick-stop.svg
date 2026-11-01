@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 64" width="196" height="64" color="#0E100E" role="img" aria-label="robotparts, A 1x1 brick as the full stop">
+<title>robotparts, A 1x1 brick as the full stop</title>
+<g fill="currentColor"><rect x="182" y="32" width="13" height="12" rx="1"/><path d="M185.5 32.5V29.5A2 2 0 0 1 187.5 27.5H189.5A2 2 0 0 1 191.5 29.5V32.5Z"/></g>
+<g fill="currentColor"><text x="0" y="44.24" font-family="'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif" font-size="34" textLength="176" lengthAdjust="spacingAndGlyphs"><tspan font-weight="400">robot</tspan><tspan font-weight="700">parts</tspan></text></g>
+</svg>

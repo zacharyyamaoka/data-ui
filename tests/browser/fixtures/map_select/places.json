@@ -1,0 +1,203 @@
+{
+ "id": "map-select-places",
+ "title": "Places (synthetic, for the map select checks)",
+ "titleProperty": "name",
+ "source": "synthetic: written by hand for tests/browser/map_select_checks.py",
+ "properties": {
+  "name": {
+   "type": "text",
+   "label": "Name"
+  },
+  "kind": {
+   "type": "text",
+   "label": "Kind"
+  },
+  "zone": {
+   "type": "text",
+   "label": "Zone"
+  },
+  "at": {
+   "type": "list",
+   "label": "At",
+   "hidden": true
+  },
+  "to": {
+   "type": "list",
+   "label": "To",
+   "hidden": true
+  },
+  "route": {
+   "type": "list",
+   "label": "Route",
+   "hidden": true
+  },
+  "tonnes": {
+   "type": "number",
+   "label": "Tonnes",
+   "unit": "t"
+  }
+ },
+ "rows": [
+  {
+   "id": "site-north",
+   "name": "Site North",
+   "kind": "site",
+   "zone": "A",
+   "at": [
+    49.8,
+    -122.5
+   ]
+  },
+  {
+   "id": "site-east",
+   "name": "Site East",
+   "kind": "site",
+   "zone": "C",
+   "at": [
+    49.5,
+    -120.5
+   ]
+  },
+  {
+   "id": "site-south",
+   "name": "Site South",
+   "kind": "site",
+   "zone": "A",
+   "at": [
+    49.2,
+    -122.0
+   ]
+  },
+  {
+   "id": "alder",
+   "name": "Alder",
+   "kind": "demand",
+   "zone": "A",
+   "at": [
+    49.75,
+    -122.3
+   ],
+   "to": [
+    49.8,
+    -122.5
+   ],
+   "tonnes": 40,
+   "route": [
+    [
+     49.75,
+     -122.3
+    ],
+    [
+     49.6,
+     -122.6
+    ],
+    [
+     49.45,
+     -122.8
+    ]
+   ]
+  },
+  {
+   "id": "birch",
+   "name": "Birch",
+   "kind": "demand",
+   "zone": "A",
+   "at": [
+    49.3,
+    -122.7
+   ],
+   "to": [
+    49.2,
+    -122.0
+   ],
+   "tonnes": 25,
+   "route": [
+    [
+     49.3,
+     -122.7
+    ],
+    [
+     49.1,
+     -122.6
+    ],
+    [
+     49.15,
+     -122.2
+    ]
+   ]
+  },
+  {
+   "id": "cedar",
+   "name": "Cedar",
+   "kind": "demand",
+   "zone": "B",
+   "at": [
+    49.6,
+    -121.5
+   ],
+   "to": [
+    49.5,
+    -120.5
+   ],
+   "tonnes": 60,
+   "route": [
+    [
+     49.6,
+     -121.5
+    ],
+    [
+     49.8,
+     -121.2
+    ],
+    [
+     49.85,
+     -120.9
+    ]
+   ]
+  },
+  {
+   "id": "dogwood",
+   "name": "Dogwood",
+   "kind": "demand",
+   "zone": "C",
+   "at": [
+    49.25,
+    -120.6
+   ],
+   "to": [
+    49.5,
+    -120.5
+   ],
+   "tonnes": 15,
+   "route": [
+    [
+     49.25,
+     -120.6
+    ],
+    [
+     49.1,
+     -120.4
+    ],
+    [
+     49.12,
+     -120.15
+    ]
+   ]
+  },
+  {
+   "id": "elm",
+   "name": "Elm",
+   "kind": "demand",
+   "zone": "C",
+   "at": [
+    49.252,
+    -120.584
+   ],
+   "to": [
+    49.2,
+    -122.0
+   ],
+   "tonnes": 10
+  }
+ ]
+}

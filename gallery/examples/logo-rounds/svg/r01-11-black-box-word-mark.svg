@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="parts in a black box mark">
+<title>parts in a black box mark</title>
+<defs><mask id="m11" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64"><rect width="64" height="64" fill="#fff"/><text x="32" y="42" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="46" font-weight="700" fill="#000" text-anchor="middle" textLength="28" lengthAdjust="spacing">p</text></mask></defs>
+<rect x="4" y="4" width="56" height="56" rx="7" fill="currentColor" mask="url(#m11)"/>
+</svg>

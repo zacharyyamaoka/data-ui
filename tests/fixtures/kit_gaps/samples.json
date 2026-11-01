@@ -1,0 +1,80 @@
+{
+ "title": "kit gaps checker fixture: samples",
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "run",
+    "type": "string"
+   },
+   {
+    "name": "device",
+    "type": "string"
+   },
+   {
+    "name": "situation",
+    "type": "string"
+   },
+   {
+    "name": "mode",
+    "type": "string"
+   },
+   {
+    "name": "event",
+    "type": "string"
+   },
+   {
+    "name": "i_q_a",
+    "type": "number",
+    "unit": "A"
+   },
+   {
+    "name": "w",
+    "type": "integer"
+   },
+   {
+    "name": "kind",
+    "type": "string"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "t": 0.0,
+   "run": "r1",
+   "device": "A",
+   "situation": "real",
+   "mode": "stopped",
+   "event": null,
+   "i_q_a": 0.1,
+   "w": 1,
+   "kind": "sine"
+  },
+  {
+   "t": 0.5,
+   "run": "r1",
+   "device": "A",
+   "situation": "real",
+   "mode": "position",
+   "event": "start",
+   "i_q_a": 1.2,
+   "w": 1,
+   "kind": "sine"
+  },
+  {
+   "t": 1.0,
+   "run": "r2",
+   "device": "B",
+   "situation": "real",
+   "mode": "position",
+   "event": null,
+   "i_q_a": -0.4,
+   "w": 0,
+   "kind": "chirp"
+  }
+ ]
+}

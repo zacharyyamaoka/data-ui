@@ -1,0 +1,18 @@
+# tests/browser/map_select_checks.py: a map's time: bar on a dashboard that declares clock: follows that clock
+data: stops.json
+clock: { data: stops, time: t }
+datasets:
+  stops:
+    data: stops.json
+    label: Stops
+layout:
+  panels:
+    - { view: Map, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    from: stops
+    coordinates: at
+    time: { property: when, format: date }
+    layers:
+      - { type: points, radius: 7, title: Stops }

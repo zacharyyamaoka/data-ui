@@ -1,0 +1,236 @@
+/* The playback proposals (docs/peps/0005-dashboard-cards.md §4b) and their switcher; tokens only, light and dark.
+   Every moving part reads --dv-pb-f (0..1, the clock's t over its span), set once per tick on the variant's root. */
+
+/* WHY no text selection: a scrub drag that strays over the page must not select it (seen in the recorded clips) */
+.dv-pbv { user-select: none; -webkit-user-select: none; position: relative; display: flex; flex-direction: column; align-self: stretch; width: 100%; flex: 1 1 auto; min-height: 0; font-variant-numeric: tabular-nums; }
+.dv-pbv-slot { position: relative; display: flex; flex-direction: column; justify-content: center; flex: 1 1 auto; min-height: 0; min-width: 0; --dv-pb-f: 0; }
+.dv-pbv-foot { display: flex; justify-content: flex-end; padding-top: 6px; }
+/* the clock's quiet note (judge r3 #4): e.g. its driving video is on a tab that is not open */
+.dv-pbv-note { margin: 6px 0 0; color: var(--dv-muted, #6b7280); font-size: 12px; line-height: 1.4; }
+.dv-pbv-note[hidden] { display: none; }
+.dv-pbv-switch { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--dv-muted); }
+.dv-pbv-switch select { font: inherit; font-size: 12px; color: var(--dv-fg); background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 6px; padding: 2px 6px; max-width: 46vw; }
+/* WHY: several parts set their own display; the hidden attribute must still win */
+.dv-pbv [hidden] { display: none !important; }
+.dv-pbv-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.dv-pbv-slot svg { display: block; }
+.dv-pbv-slot button { font: inherit; }
+.dv-pbv-slot button:focus-visible, .dv-pbv-slot input:focus-visible, .dv-pbv-slot select:focus-visible, .dv-pbv-slot [role="slider"]:focus-visible, .dv-pbv-switch select:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+.dv-pbv-slot[data-empty] [data-scrub] { opacity: .5; }
+
+/* a menu (step, loop mode, gear, speed, time format) */
+.dv-pbv-menu { position: absolute; z-index: 30; min-width: 190px; max-width: min(320px, 100%); background: var(--dv-bg); color: var(--dv-fg); border: 1px solid var(--dv-border); border-radius: 8px; box-shadow: 0 10px 28px rgba(0, 0, 0, .22); padding: 4px; }
+.dv-pbv-menu button { display: flex; align-items: center; gap: 6px; width: 100%; border: 0; background: none; color: inherit; font-size: 12.5px; padding: 6px 8px; border-radius: 5px; text-align: left; cursor: pointer; white-space: nowrap; }
+.dv-pbv-menu button:hover, .dv-pbv-menu button:focus-visible { background: var(--dv-hover); outline: none; }
+.dv-pbv-mk { width: 12px; flex: none; color: var(--dv-accent); font-size: 11px; }
+.dv-pbv-ml { flex: 1 1 auto; }
+.dv-pbv-menu kbd, .dv-pbv-sub { font: inherit; font-size: 12px; color: var(--dv-muted); margin-left: 22px; }
+.dv-pbv-sep { height: 1px; background: var(--dv-border); margin: 4px 4px; }
+
+/* ------------------------------------------------------------------ P1 rerun: the toolbar (Rerun 0.2x) */
+.dv-rr { --dv-rr-blue: var(--dv-series-1); display: flex; flex-direction: column; gap: 8px; min-height: 0; flex: 1 1 auto; }
+.dv-rr-bar { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; row-gap: 6px; font-size: 13px; }
+.dv-rr-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0; height: 26px; min-width: 28px; padding: 0 5px; border: 1px solid var(--dv-border); border-radius: 6px; background: color-mix(in srgb, var(--dv-subtle) 70%, transparent); color: var(--dv-fg); cursor: pointer; }
+.dv-rr-btn svg { width: 15px; height: 15px; }
+.dv-rr-btn:hover { background: var(--dv-hover); }
+.dv-rr-chev svg + svg { width: 11px; height: 11px; margin-left: 1px; color: var(--dv-muted); }
+/* WHY blue only while playing: Rerun's play button fills blue when it plays (Zach's reference 101.png) */
+.dv-rr-play.dv-on { background: var(--dv-rr-blue); border-color: var(--dv-rr-blue); color: #fff; }
+.dv-rr-loop.dv-on { color: var(--dv-rr-blue); border-color: color-mix(in srgb, var(--dv-rr-blue) 50%, var(--dv-border)); }
+.dv-rr-loop[data-mode="selection"] { background: color-mix(in srgb, var(--dv-rr-blue) 16%, transparent); }
+.dv-rr-timeline { position: relative; display: inline-flex; align-items: center; margin-left: 10px; color: var(--dv-fg); }
+.dv-rr-timeline select { appearance: none; -webkit-appearance: none; font: inherit; color: inherit; background: none; border: 0; padding: 3px 18px 3px 4px; border-radius: 5px; cursor: pointer; }
+.dv-rr-timeline select:hover { background: var(--dv-hover); }
+.dv-rr-timeline svg { position: absolute; right: 3px; width: 11px; height: 11px; pointer-events: none; color: var(--dv-muted); }
+.dv-rr-speed { width: 6.2ch; margin-left: 8px; font: inherit; color: var(--dv-fg); background: none; border: 1px solid transparent; border-radius: 6px; padding: 3px 4px; text-align: center; }
+.dv-rr-speed:hover { border-color: var(--dv-border); }
+.dv-rr-speed:focus { border-color: var(--dv-rr-blue); outline: none; }
+.dv-rr-time { width: 15ch; font: inherit; color: var(--dv-fg); background: none; border: 1px solid var(--dv-border); border-radius: 7px; padding: 3px 9px; }
+.dv-rr-time:focus { border-color: var(--dv-rr-blue); outline: none; }
+.dv-rr-flex { flex: 1 1 auto; }
+/* the collapsed time panel's one-line scrubber */
+.dv-rr-mini { position: relative; height: 22px; cursor: pointer; touch-action: none; }
+.dv-rr-mini::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px; background: var(--dv-border); border-radius: 1px; }
+.dv-rr-mini-fill { position: absolute; left: 0; top: 50%; height: 2px; margin-top: -1px; width: 100%; background: color-mix(in srgb, var(--dv-fg) 45%, transparent); transform-origin: left; transform: scaleX(var(--dv-pb-f)); }
+.dv-rr-mini-sel { position: absolute; top: 3px; bottom: 3px; background: color-mix(in srgb, var(--dv-rr-blue) 25%, transparent); border-radius: 3px; }
+.dv-rr-mini-head { position: absolute; top: 2px; bottom: 2px; left: calc(var(--dv-pb-f) * 100%); width: 2px; margin-left: -1px; background: var(--dv-fg); pointer-events: none; }
+.dv-rr-mini-head::before { content: ""; position: absolute; top: -2px; left: -4px; border: 5px solid transparent; border-top: 6px solid var(--dv-fg); border-bottom: 0; }
+/* the bar first, then the scrubber, on one line when there is room */
+.dv-rr-collapsed { flex-direction: row; align-items: center; gap: 14px; flex-wrap: wrap; }
+.dv-rr-collapsed > .dv-rr-mini { flex: 1 1 200px; min-width: 160px; }
+
+/* ------------------------------------------------------------------ P1 rerun-streams: the expanded time panel */
+.dv-rrs { position: relative; display: flex; flex-direction: column; flex: 1 1 auto; min-height: 200px; border: 1px solid var(--dv-border); border-radius: 8px; overflow: clip; background: color-mix(in srgb, var(--dv-subtle) 35%, var(--dv-bg)); --dv-rrs-tree: 220px; --dv-rrs-sb: 0px; --dv-rrs-end: 12px; --dv-rrs-ev: color-mix(in srgb, var(--dv-series-1) 55%, var(--dv-muted)); }
+.dv-rrs-head { display: flex; flex: none; height: 34px; border-bottom: 1px solid var(--dv-border); }
+.dv-rrs-title { display: flex; align-items: center; justify-content: space-between; flex: none; width: var(--dv-rrs-tree); padding: 0 6px 0 12px; box-sizing: border-box; font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--dv-fg); border-right: 1px solid var(--dv-border); }
+.dv-rrs-find { border: 0; background: none; min-width: 24px; height: 24px; color: var(--dv-muted); }
+.dv-rrs-ruler { position: relative; flex: 1 1 auto; margin-right: calc(var(--dv-rrs-sb) + var(--dv-rrs-end)); cursor: pointer; touch-action: none; overflow: visible; }
+.dv-rrs-ticks i { position: absolute; bottom: 0; width: 1px; height: 4px; background: color-mix(in srgb, var(--dv-muted) 60%, transparent); }
+.dv-rrs-ticks i.dv-major { height: 9px; background: var(--dv-muted); }
+.dv-rrs-ticks span { position: absolute; top: 5px; padding-left: 4px; font-size: 11px; color: var(--dv-muted); white-space: nowrap; border-left: 1px solid color-mix(in srgb, var(--dv-muted) 60%, transparent); line-height: 12px; }
+.dv-rrs-tri { position: absolute; bottom: -1px; left: calc(var(--dv-pb-f) * 100%); width: 0; height: 0; margin-left: -6px; border: 6px solid transparent; border-top: 9px solid var(--dv-fg); border-bottom: 0; pointer-events: none; z-index: 3; }
+.dv-rrs-q { margin: 6px; font: inherit; font-size: 12.5px; color: var(--dv-fg); background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 6px; padding: 4px 8px; width: calc(var(--dv-rrs-tree) - 12px); box-sizing: border-box; }
+.dv-rrs-body { position: relative; display: flex; flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; }
+.dv-rrs-tree { flex: none; width: var(--data-panel-width, 220px); min-width: 0; border-right: 1px solid var(--dv-border); padding: 4px 0; box-sizing: border-box; align-self: flex-start; min-height: 100%; }
+.dv-rrs-lanes { position: relative; flex: 1 1 auto; min-width: 0; padding: 4px 0; margin-right: var(--dv-rrs-end); }
+.dv-rrs-row, .dv-rrs-lane { height: 26px; box-sizing: border-box; }
+.dv-rrs-row { display: flex; align-items: center; gap: 4px; padding-left: calc(6px + var(--d) * 16px); padding-right: 8px; font-size: 13px; color: var(--dv-fg); cursor: pointer; white-space: nowrap; }
+.dv-rrs-row:hover { background: var(--dv-hover); }
+.dv-rrs-row.dv-sel { background: var(--dv-series-1); color: #fff; }
+.dv-rrs-row.dv-sel .dv-rrs-ic, .dv-rrs-row.dv-sel .dv-rrs-tw { color: inherit; }
+.dv-rrs-tw { display: inline-grid; place-items: center; width: 14px; flex: none; color: var(--dv-muted); }
+.dv-rrs-tw svg { width: 11px; height: 11px; transition: transform .12s; }
+.dv-rrs-row[aria-expanded="true"] .dv-rrs-tw svg { transform: rotate(90deg); }
+.dv-rrs-ic { display: inline-grid; place-items: center; width: 16px; flex: none; color: var(--dv-muted); }
+.dv-rrs-ic svg { width: 13px; height: 13px; }
+.dv-rrs-name { overflow: hidden; text-overflow: ellipsis; }
+.dv-rrs-none { margin: 10px 12px; font-size: 12.5px; color: var(--dv-muted); }
+.dv-rrs-lane { position: relative; }
+.dv-rrs-lane.dv-sel { background: color-mix(in srgb, var(--dv-series-1) 30%, transparent); }
+.dv-rrs-ev { position: absolute; top: 7px; height: 12px; border-radius: 3px; background: var(--dv-rrs-ev); overflow: hidden; }
+.dv-rrs-lane[data-lane*="/"] .dv-rrs-ev { top: 9px; height: 8px; opacity: .85; }
+.dv-rrs-ev i { position: absolute; top: 2px; bottom: 2px; width: 2px; margin-left: -1px; border-radius: 1px; background: color-mix(in srgb, var(--dv-fg) 55%, transparent); }
+.dv-rrs-line { position: absolute; top: 34px; bottom: 0; width: 1px; left: calc(var(--dv-rrs-tree) + var(--dv-pb-f) * (100% - var(--dv-rrs-tree) - var(--dv-rrs-sb) - var(--dv-rrs-end))); background: var(--dv-fg); pointer-events: none; z-index: 2; }
+.dv-rrs-sel { position: absolute; top: 0; bottom: 0; --a: 0; --b: 0; left: calc(var(--dv-rrs-tree) + var(--a) * (100% - var(--dv-rrs-tree) - var(--dv-rrs-sb) - var(--dv-rrs-end))); width: calc((var(--b) - var(--a)) * (100% - var(--dv-rrs-tree) - var(--dv-rrs-sb) - var(--dv-rrs-end))); background: color-mix(in srgb, var(--dv-series-1) 12%, transparent); border-left: 1px solid color-mix(in srgb, var(--dv-series-1) 60%, transparent); border-right: 1px solid color-mix(in srgb, var(--dv-series-1) 60%, transparent); pointer-events: none; z-index: 1; }
+.dv-rrs .dv-splitter { z-index: 4; }
+
+/* ------------------------------------------------------------------ P2 youtube */
+/* WHY YouTube's red: the proposal copies its player; the series token keeps it theme-safe */
+.dv-yt { --dv-yt-red: var(--dv-series-8); display: flex; flex-direction: column; gap: 2px; padding-top: 8px; }
+.dv-yt-bar { position: relative; height: 16px; cursor: pointer; touch-action: none; outline-offset: 3px; }
+.dv-yt-chaps { position: absolute; left: 0; right: 0; top: 50%; height: 3px; margin-top: -1.5px; transition: height .1s, margin .1s; }
+/* WHY thicker on hover: YouTube's bar grows from 3 to 5 px under the pointer, so it is easy to aim and quiet otherwise */
+.dv-yt-bar.dv-hover .dv-yt-chaps, .dv-yt-bar:focus-visible .dv-yt-chaps { height: 5px; margin-top: -2.5px; }
+.dv-yt-seg { position: absolute; top: 0; bottom: 0; padding-right: 2px; box-sizing: border-box; background-clip: content-box; background-color: color-mix(in srgb, var(--dv-muted) 35%, transparent); --l: 0; --w: 1; }
+.dv-yt-seg:last-child { padding-right: 0; }
+.dv-yt-buf, .dv-yt-play { position: absolute; left: 0; top: 0; bottom: 0; right: 2px; transform-origin: left; }
+.dv-yt-seg:last-child .dv-yt-buf, .dv-yt-seg:last-child .dv-yt-play { right: 0; }
+.dv-yt-buf { background: color-mix(in srgb, var(--dv-muted) 45%, transparent); transform: scaleX(clamp(0, (var(--dv-yt-buf, 0) - var(--l)) / var(--w), 1)); }
+.dv-yt-play { background: var(--dv-yt-red); transform: scaleX(clamp(0, (var(--dv-pb-f) - var(--l)) / var(--w), 1)); }
+.dv-yt-thumb { position: absolute; top: 50%; left: calc(var(--dv-pb-f) * 100%); width: 13px; height: 13px; margin: -6.5px 0 0 -6.5px; border-radius: 999px; background: var(--dv-yt-red); transform: scale(0); transition: transform .1s; pointer-events: none; }
+.dv-yt-bar.dv-hover .dv-yt-thumb, .dv-yt-bar:focus-visible .dv-yt-thumb, .dv-pbv-slot[data-variant-hover] .dv-yt-thumb { transform: scale(1); }
+.dv-yt-tip { position: absolute; left: 0; bottom: 22px; z-index: 20; display: flex; flex-direction: column; align-items: center; gap: 3px; pointer-events: none; }
+.dv-yt-frame { width: 160px; height: 90px; border-radius: 8px; border: 2px solid var(--dv-bg); box-shadow: 0 2px 10px rgba(0, 0, 0, .35); background: #000; }
+.dv-yt-frame.dv-none { display: none; }
+.dv-yt-tip-ch { font-size: 12px; font-weight: 600; color: var(--dv-fg); text-shadow: 0 0 3px var(--dv-bg), 0 0 6px var(--dv-bg); }
+.dv-yt-tip-t { font-size: 12px; color: var(--dv-fg); background: color-mix(in srgb, var(--dv-bg) 80%, transparent); border-radius: 4px; padding: 0 5px; }
+.dv-yt-row { display: flex; align-items: center; gap: 2px; min-height: 36px; font-size: 13px; color: var(--dv-fg); }
+.dv-yt-btn { display: inline-grid; place-items: center; width: 34px; height: 34px; border: 0; border-radius: 999px; background: none; color: var(--dv-fg); cursor: pointer; }
+.dv-yt-btn svg { width: 18px; height: 18px; }
+.dv-yt-btn:hover { background: var(--dv-hover); }
+.dv-yt-time { margin: 0 8px; white-space: nowrap; color: var(--dv-fg); }
+.dv-yt-dur { color: var(--dv-muted); }
+.dv-yt-chap { display: inline-flex; align-items: center; gap: 4px; border: 0; background: none; color: var(--dv-fg); font-size: 13px; padding: 4px 6px; border-radius: 6px; cursor: pointer; min-width: 0; }
+.dv-yt-chap:hover { background: var(--dv-hover); }
+.dv-yt-chap svg { width: 12px; height: 12px; color: var(--dv-muted); }
+.dv-yt-dot { color: var(--dv-muted); }
+.dv-yt-flex { flex: 1 1 auto; }
+.dv-yt-src { font-size: 11.5px; color: var(--dv-muted); margin-right: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+
+/* ------------------------------------------------------------------ P3 tracks: an editor's timeline */
+.dv-tk { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; border: 1px solid var(--dv-border); border-radius: 8px; overflow: clip; background: color-mix(in srgb, var(--dv-subtle) 30%, var(--dv-bg)); }
+.dv-tk-bar { display: flex; align-items: center; gap: 2px; padding: 4px 8px; border-bottom: 1px solid var(--dv-border); flex-wrap: wrap; }
+.dv-tk-btn { display: inline-grid; place-items: center; width: 28px; height: 28px; border: 0; border-radius: 6px; background: none; color: var(--dv-muted); cursor: pointer; }
+.dv-tk-btn svg { width: 14px; height: 14px; }
+.dv-tk-btn:hover { background: var(--dv-hover); color: var(--dv-fg); }
+.dv-tk-play { color: var(--dv-fg); }
+.dv-tk-play.dv-on, .dv-tk-loop.dv-on { color: var(--dv-accent); }
+.dv-tk-tc { margin-left: 10px; font-family: var(--dv-mono); font-size: 13px; color: var(--dv-accent); letter-spacing: .02em; }
+.dv-tk-flex { flex: 1 1 auto; }
+.dv-tk-io { font-family: var(--dv-mono); font-size: 11px; color: var(--dv-muted); margin-right: 6px; }
+.dv-tk-main { position: relative; display: flex; flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; }
+.dv-tk-heads { flex: none; width: var(--data-panel-width, 168px); border-right: 1px solid var(--dv-border); align-self: flex-start; min-height: 100%; box-sizing: border-box; }
+.dv-tk-corner { height: 36px; border-bottom: 1px solid var(--dv-border); }
+.dv-tk-head { display: flex; align-items: center; gap: 6px; height: 46px; padding: 0 8px; border-bottom: 1px solid color-mix(in srgb, var(--dv-border) 60%, transparent); box-sizing: border-box; font-size: 12.5px; color: var(--dv-fg); min-width: 0; }
+.dv-tk-head svg { width: 14px; height: 14px; flex: none; color: var(--dv-muted); }
+.dv-tk-tag { font-family: var(--dv-mono); font-size: 10.5px; font-weight: 600; color: var(--dv-muted); border: 1px solid var(--dv-border); border-radius: 4px; padding: 0 4px; flex: none; }
+.dv-tk-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.dv-tk-basis { margin-left: auto; font-size: 10.5px; color: var(--dv-muted); white-space: nowrap; }
+.dv-tk-none { margin: 10px; font-size: 12.5px; color: var(--dv-muted); }
+.dv-tk-time { position: relative; flex: 1 1 auto; min-width: 0; margin-right: 12px; }
+.dv-tk-work { position: relative; height: 12px; cursor: crosshair; touch-action: none; background: color-mix(in srgb, var(--dv-subtle) 60%, transparent); }
+.dv-tk-wa { position: absolute; top: 2px; bottom: 2px; background: color-mix(in srgb, var(--dv-accent) 45%, transparent); border-radius: 2px; }
+.dv-tk-h { position: absolute; top: -2px; bottom: -2px; width: 5px; background: var(--dv-accent); border-radius: 2px; cursor: ew-resize; }
+.dv-tk-h[data-h="0"] { left: -2px; } .dv-tk-h[data-h="1"] { right: -2px; }
+.dv-tk-ruler { position: relative; height: 24px; border-bottom: 1px solid var(--dv-border); cursor: pointer; touch-action: none; }
+.dv-tk-ticks span { position: absolute; top: 0; bottom: 0; padding: 3px 0 0 4px; font-family: var(--dv-mono); font-size: 10.5px; color: var(--dv-muted); white-space: nowrap; border-left: 1px solid color-mix(in srgb, var(--dv-muted) 50%, transparent); }
+.dv-tk-tracks { position: relative; touch-action: none; cursor: pointer; }
+.dv-tk-track { position: relative; height: 46px; border-bottom: 1px solid color-mix(in srgb, var(--dv-border) 60%, transparent); box-sizing: border-box; }
+.dv-tk-clip { position: absolute; top: 3px; bottom: 3px; left: 0; width: 100%; border-radius: 5px; overflow: hidden; box-sizing: border-box; }
+.dv-tk-v .dv-tk-clip { background: color-mix(in srgb, var(--dv-series-7) 30%, var(--dv-bg)); border: 1px solid color-mix(in srgb, var(--dv-series-7) 60%, transparent); }
+.dv-tk-d .dv-tk-clip { background: color-mix(in srgb, var(--dv-series-3) 14%, var(--dv-bg)); border: 1px solid color-mix(in srgb, var(--dv-series-3) 45%, transparent); }
+.dv-tk-strip { display: flex; height: 100%; overflow: hidden; }
+.dv-tk-strip canvas { flex: none; height: 100%; border-right: 1px solid color-mix(in srgb, #000 35%, transparent); background: color-mix(in srgb, var(--dv-series-7) 20%, var(--dv-bg)); }
+.dv-tk-spark { position: absolute; inset: 4px 0 4px 0; width: 100%; height: calc(100% - 8px); }
+.dv-tk-clipname { position: absolute; left: 6px; top: 3px; font-size: 10.5px; font-weight: 600; color: #fff; text-shadow: 0 1px 2px rgba(0, 0, 0, .8); pointer-events: none; }
+.dv-tk-d .dv-tk-clipname { color: var(--dv-muted); text-shadow: none; font-weight: 500; }
+.dv-tk-ph { position: absolute; top: 12px; bottom: 0; left: calc(var(--dv-pb-f) * 100%); width: 2px; margin-left: -1px; background: var(--dv-accent); pointer-events: none; z-index: 3; }
+.dv-tk-ph span { position: absolute; top: 0; left: -5px; width: 12px; height: 14px; background: var(--dv-accent); clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); }
+.dv-tk .dv-splitter { z-index: 4; }
+
+/* ------------------------------------------------------------------ P4 foxglove */
+/* WHY Foxglove's purple: the proposal copies its bar; a series token, so light and dark both hold */
+.dv-fx { --dv-fx-purple: var(--dv-series-7); display: flex; flex-direction: column; gap: 2px; }
+.dv-fx-scrub { position: relative; height: 18px; cursor: pointer; touch-action: none; }
+.dv-fx-track { position: absolute; left: 0; right: 0; top: 50%; height: 6px; margin-top: -3px; border-radius: 3px; background: color-mix(in srgb, var(--dv-muted) 18%, transparent); overflow: hidden; }
+.dv-fx-loaded i { position: absolute; top: 0; bottom: 0; background: color-mix(in srgb, var(--dv-muted) 32%, transparent); }
+.dv-fx-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: color-mix(in srgb, var(--dv-fx-purple) 70%, transparent); transform-origin: left; transform: scaleX(var(--dv-pb-f)); }
+.dv-fx-thumb { position: absolute; top: 1px; bottom: 1px; left: calc(var(--dv-pb-f) * 100%); width: 4px; margin-left: -2px; border-radius: 2px; background: var(--dv-fx-purple); pointer-events: none; }
+.dv-fx-hover { position: absolute; top: 1px; bottom: 1px; width: 1px; background: var(--dv-fg); opacity: .6; pointer-events: none; }
+.dv-fx-hover span { position: absolute; bottom: 18px; left: 0; transform: translateX(-50%); font-size: 11px; color: var(--dv-fg); background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 4px; padding: 1px 5px; white-space: nowrap; font-family: var(--dv-mono); }
+.dv-fx-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px; }
+.dv-fx-left { display: flex; min-width: 0; }
+.dv-fx-mid { display: flex; align-items: center; gap: 2px; }
+.dv-fx-right { display: flex; justify-content: flex-end; align-items: center; gap: 4px; }
+.dv-fx-time { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--dv-border); background: none; border-radius: 6px; padding: 3px 6px 3px 8px; color: var(--dv-fg); font-family: var(--dv-mono); font-size: 12.5px; cursor: pointer; min-width: 0; }
+.dv-fx-fmt { font-family: var(--dv-font); font-size: 10px; font-weight: 600; letter-spacing: .05em; color: var(--dv-muted); }
+.dv-fx-time svg, .dv-fx-speed svg { width: 11px; height: 11px; color: var(--dv-muted); }
+.dv-fx-btn { display: inline-grid; place-items: center; width: 30px; height: 30px; border: 0; border-radius: 6px; background: none; color: var(--dv-fg); cursor: pointer; }
+.dv-fx-btn svg { width: 15px; height: 15px; }
+.dv-fx-btn:hover, .dv-fx-time:hover, .dv-fx-speed:hover { background: var(--dv-hover); }
+.dv-fx-play svg { width: 17px; height: 17px; }
+.dv-fx-speed { display: inline-flex; align-items: center; gap: 3px; border: 0; background: none; color: var(--dv-fg); font-size: 12.5px; padding: 4px 6px; border-radius: 6px; cursor: pointer; }
+.dv-fx-loop { color: var(--dv-muted); }
+.dv-fx-loop.dv-on { color: var(--dv-fx-purple); }
+
+/* ------------------------------------------------------------------ P5 range: an overview with a brushed window */
+.dv-rg { display: flex; flex-direction: column; gap: 6px; }
+.dv-rg-row { display: flex; align-items: center; gap: 8px; font-size: 12.5px; flex-wrap: wrap; }
+.dv-rg-btn { display: inline-grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--dv-border); border-radius: 999px; background: none; color: var(--dv-fg); cursor: pointer; }
+.dv-rg-btn svg { width: 13px; height: 13px; }
+.dv-rg-btn.dv-on { background: var(--dv-accent); border-color: var(--dv-accent); color: var(--dv-on-accent); }
+.dv-rg-now { font-weight: 600; color: var(--dv-fg); min-width: 7ch; }
+.dv-rg-flex { flex: 1 1 auto; }
+.dv-rg-win { color: var(--dv-muted); white-space: nowrap; }
+.dv-rg-zoom { font-size: 12px; color: var(--dv-fg); background: none; border: 1px solid var(--dv-border); border-radius: 6px; padding: 3px 8px; cursor: pointer; }
+.dv-rg-zoom:disabled { opacity: .45; cursor: default; }
+.dv-rg-map { position: relative; height: 64px; margin-bottom: 14px; border: 1px solid var(--dv-border); border-radius: 6px; background: color-mix(in srgb, var(--dv-subtle) 45%, transparent); cursor: crosshair; touch-action: none; }
+.dv-rg-spark { position: absolute; inset: 4px 0; width: 100%; height: calc(100% - 8px); }
+.dv-rg-shade { position: absolute; top: 0; bottom: 0; background: color-mix(in srgb, var(--dv-bg) 62%, transparent); pointer-events: none; }
+.dv-rg-l { left: 0; border-radius: 5px 0 0 5px; } .dv-rg-r { right: 0; border-radius: 0 5px 5px 0; }
+.dv-rg-brush { position: absolute; top: -1px; bottom: -1px; border: 1.5px solid var(--dv-accent); border-radius: 4px; background: color-mix(in srgb, var(--dv-accent) 8%, transparent); cursor: grab; box-sizing: border-box; }
+.dv-rg-h { position: absolute; top: 50%; width: 8px; height: 22px; margin-top: -11px; border-radius: 3px; background: var(--dv-bg); border: 1.5px solid var(--dv-accent); cursor: ew-resize; box-sizing: border-box; }
+.dv-rg-h[data-h="0"] { left: -5px; } .dv-rg-h[data-h="1"] { right: -5px; }
+.dv-rg-ph { position: absolute; top: 0; bottom: 0; left: calc(var(--dv-pb-f) * 100%); width: 2px; margin-left: -1px; background: var(--dv-fg); pointer-events: none; }
+.dv-rg-axis { position: absolute; left: 0; right: 0; top: 100%; height: 14px; }
+.dv-rg-axis span { position: absolute; top: 2px; transform: translateX(-50%); font-size: 10.5px; color: var(--dv-muted); white-space: nowrap; }
+.dv-rg-axis span:first-child { transform: none; }
+.dv-rg-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 11.5px; color: var(--dv-muted); }
+.dv-rg-src { color: var(--dv-fg); font-weight: 500; }
+.dv-rg-key { display: inline-flex; align-items: center; gap: 5px; }
+.dv-rg-key i { width: 10px; height: 2px; border-radius: 1px; }
+.dv-rg-legend { align-items: center; }
+.dv-rg-legend .dv-legend-title { color: var(--dv-fg); font-weight: 500; }
+.dv-rg-key[aria-pressed="false"] i { opacity: .4; }
+
+@media (max-width: 640px) {
+  .dv-rr-timeline { margin-left: 4px; }
+  .dv-rr-time { width: 11ch; }
+  .dv-rrs { --dv-rrs-tree: 140px; }
+  .dv-rrs-tree { width: var(--data-panel-width, 140px); }
+  .dv-tk-heads { width: var(--data-panel-width, 104px); }
+  .dv-tk-basis, .dv-tk-io, .dv-yt-src { display: none; }
+  .dv-fx-row { grid-template-columns: auto auto; }
+  .dv-fx-mid { grid-column: 1 / -1; grid-row: 1; justify-content: center; }
+  .dv-rg-win { white-space: normal; }
+}

@@ -1,0 +1,349 @@
+{
+ "id": "property-types",
+ "title": "Projects",
+ "titleProperty": "name",
+ "properties": {
+  "number": {
+   "type": "number"
+  },
+  "name": {
+   "type": "text",
+   "width": 270
+  },
+  "status": {
+   "type": "text",
+   "width": 150
+  },
+  "owner": {
+   "type": "text",
+   "width": 170
+  },
+  "priority": {
+   "type": "text",
+   "width": 110
+  },
+  "completion": {
+   "type": "number",
+   "width": 170
+  },
+  "budget": {
+   "type": "number",
+   "width": 120
+  },
+  "spent": {
+   "type": "number",
+   "width": 120,
+   "derived": "budget × completion, by source/build.py"
+  },
+  "due": {
+   "type": "date",
+   "width": 130
+  },
+  "edited": {
+   "type": "date",
+   "width": 130
+  },
+  "tags": {
+   "type": "list",
+   "width": 170
+  },
+  "rating": {
+   "type": "number",
+   "width": 110
+  },
+  "shipped": {
+   "type": "boolean",
+   "width": 90
+  },
+  "url": {
+   "type": "text",
+   "width": 190
+  },
+  "email": {
+   "type": "text",
+   "width": 200
+  },
+  "phone": {
+   "type": "text",
+   "width": 160
+  },
+  "files": {
+   "type": "list",
+   "width": 150
+  },
+  "effort": {
+   "type": "number",
+   "width": 110
+  },
+  "depends_on": {
+   "type": "list",
+   "width": 220,
+   "relation": true
+  }
+ },
+ "rows": [
+  {
+   "id": "p1",
+   "number": 1,
+   "name": "New Database View Types",
+   "status": "In Progress",
+   "owner": "Ava Nguyen",
+   "priority": "High",
+   "completion": 0.25,
+   "budget": 12000,
+   "spent": 3000.0,
+   "due": "2026-11-14",
+   "edited": "2026-10-21T10:15:00",
+   "tags": [
+    "views",
+    "tables"
+   ],
+   "rating": 4,
+   "shipped": false,
+   "url": "https://www.notion.so/templates/projects",
+   "email": "ava@example.com",
+   "phone": "+1 604 555 0101",
+   "files": [
+    "../robotparts-actuators/photos/aifitlab-8541438771336.webp"
+   ],
+   "effort": 5400,
+   "depends_on": []
+  },
+  {
+   "id": "p2",
+   "number": 2,
+   "name": "AI-Powered Search Overhaul",
+   "status": "In Progress",
+   "owner": "Stephanie Lee",
+   "priority": "Low",
+   "completion": 0.4,
+   "budget": 30500,
+   "spent": 12200.0,
+   "due": "2026-12-01",
+   "edited": "2026-10-22T11:15:00",
+   "tags": [
+    "search",
+    "ai"
+   ],
+   "rating": 3,
+   "shipped": false,
+   "url": "https://example.com/search",
+   "email": "stephanie@example.com",
+   "phone": "+1 604 555 0102",
+   "files": [],
+   "effort": 12600,
+   "depends_on": [
+    "p1"
+   ]
+  },
+  {
+   "id": "p3",
+   "number": 3,
+   "name": "Mobile App Offline Mode Redesign",
+   "status": "Planning",
+   "owner": "Florence Rossi",
+   "priority": "Medium",
+   "completion": 0.0,
+   "budget": 8000,
+   "spent": 0.0,
+   "due": "2027-01-20",
+   "edited": "2026-10-23T12:15:00",
+   "tags": [
+    "mobile"
+   ],
+   "rating": 2,
+   "shipped": false,
+   "url": "https://example.com/offline",
+   "email": "florence@example.com",
+   "phone": "+44 20 7946 0103",
+   "files": [
+    "specs/offline-mode.pdf"
+   ],
+   "effort": 1800,
+   "depends_on": []
+  },
+  {
+   "id": "p4",
+   "number": 4,
+   "name": "AI Meeting Notes Feature Expansion",
+   "status": "In Progress",
+   "owner": "Katsu Hamaoka",
+   "priority": "High",
+   "completion": 0.2,
+   "budget": 15250,
+   "spent": 3050.0,
+   "due": "2026-11-30",
+   "edited": "2026-10-24T13:15:00",
+   "tags": [
+    "ai",
+    "notes"
+   ],
+   "rating": 5,
+   "shipped": false,
+   "url": "https://example.com/notes",
+   "email": "katsu@example.com",
+   "phone": "+81 3 5555 0104",
+   "files": [],
+   "effort": 7200,
+   "depends_on": [
+    "p2",
+    "p1"
+   ]
+  },
+  {
+   "id": "p5",
+   "number": 5,
+   "name": "Billing Page Refresh",
+   "status": "Done",
+   "owner": "Ava Nguyen",
+   "priority": "Medium",
+   "completion": 1.0,
+   "budget": 4200,
+   "spent": 4200.0,
+   "due": "2026-10-02",
+   "edited": "2026-10-25T14:15:00",
+   "tags": [
+    "web"
+   ],
+   "rating": 4,
+   "shipped": true,
+   "url": "https://example.com/billing",
+   "email": "ava@example.com",
+   "phone": "+1 604 555 0101",
+   "files": [
+    "../robotparts-actuators/photos/aifitlab-8542347853960.webp"
+   ],
+   "effort": 3600,
+   "depends_on": []
+  },
+  {
+   "id": "p6",
+   "number": 6,
+   "name": "Onboarding Checklist",
+   "status": "Not started",
+   "owner": "Marcus Bell",
+   "priority": "Low",
+   "completion": 0.0,
+   "budget": 2500,
+   "spent": 0.0,
+   "due": "2027-02-10",
+   "edited": "2026-10-20T15:15:00",
+   "tags": [
+    "growth"
+   ],
+   "rating": 1,
+   "shipped": false,
+   "url": "https://example.com/onboarding",
+   "email": "marcus@example.com",
+   "phone": "+1 416 555 0106",
+   "files": [],
+   "effort": 900,
+   "depends_on": []
+  },
+  {
+   "id": "p7",
+   "number": 7,
+   "name": "Data Export API",
+   "status": "In Progress",
+   "owner": "Stephanie Lee",
+   "priority": "High",
+   "completion": 0.65,
+   "budget": 22000,
+   "spent": 14300.0,
+   "due": "2026-11-05",
+   "edited": "2026-10-21T16:15:00",
+   "tags": [
+    "api",
+    "tables"
+   ],
+   "rating": 5,
+   "shipped": false,
+   "url": "https://example.com/export",
+   "email": "stephanie@example.com",
+   "phone": "+1 604 555 0102",
+   "files": [],
+   "effort": 16200,
+   "depends_on": [
+    "p1"
+   ]
+  },
+  {
+   "id": "p8",
+   "number": 8,
+   "name": "Accessibility Audit",
+   "status": "Done",
+   "owner": "Florence Rossi",
+   "priority": "High",
+   "completion": 1.0,
+   "budget": 6000,
+   "spent": 6000.0,
+   "due": "2026-09-18",
+   "edited": "2026-10-22T17:15:00",
+   "tags": [
+    "a11y",
+    "web"
+   ],
+   "rating": 5,
+   "shipped": true,
+   "url": "https://example.com/a11y",
+   "email": "florence@example.com",
+   "phone": "+44 20 7946 0103",
+   "files": [
+    "reports/a11y-audit.pdf"
+   ],
+   "effort": 10800,
+   "depends_on": []
+  },
+  {
+   "id": "p9",
+   "number": 9,
+   "name": "Team Calendar Sync",
+   "status": "Planning",
+   "owner": "Marcus Bell",
+   "priority": "Medium",
+   "completion": 0.1,
+   "budget": 9800,
+   "spent": 980.0,
+   "due": "2027-01-05",
+   "edited": "2026-10-23T18:15:00",
+   "tags": [
+    "calendar"
+   ],
+   "rating": 3,
+   "shipped": false,
+   "url": "https://example.com/calendar",
+   "email": "marcus@example.com",
+   "phone": "+1 416 555 0106",
+   "files": [],
+   "effort": 4500,
+   "depends_on": [
+    "p7"
+   ]
+  },
+  {
+   "id": "p10",
+   "number": 10,
+   "name": "Dark Mode Polish",
+   "status": "In Progress",
+   "owner": "Katsu Hamaoka",
+   "priority": "Low",
+   "completion": 0.8,
+   "budget": 3100,
+   "spent": 2480.0,
+   "due": "2026-10-30",
+   "edited": "2026-10-24T19:15:00",
+   "tags": [
+    "web",
+    "design"
+   ],
+   "rating": 4,
+   "shipped": false,
+   "url": "https://example.com/dark",
+   "email": "katsu@example.com",
+   "phone": "+81 3 5555 0104",
+   "files": [],
+   "effort": 2700,
+   "depends_on": []
+  }
+ ]
+}

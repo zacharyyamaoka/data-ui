@@ -1,0 +1,22 @@
+# Hospitals within a chosen distance of a waste facility (docs/CONTRACT.md §42: within).
+data: ../map-catchments/sites.json
+properties:
+  name: { displayName: Name }
+  kind: { displayName: Kind }
+  role: { displayName: Role }
+views:
+  - type: map
+    name: Within 15 km
+    coordinates: location
+    layers:
+      - { type: within, of: 'role == "facility"', count: 'role == "hospital"', km: 15, max: 80, ofLabel: facilities, countLabel: hospitals }
+  - type: map
+    name: Within 5 km of a transfer station
+    coordinates: location
+    mapTiles: ../map-food-heatmap/metro-vancouver.pmtiles
+    layers:
+      - { type: within, of: 'kind == "transfer station"', count: 'role == "hospital"', km: 5, max: 40, ofLabel: transfer stations, countLabel: hospitals }
+  - type: table
+    name: Sites
+    groupBy: { property: role, direction: ASC }
+    order: [name, kind, role]

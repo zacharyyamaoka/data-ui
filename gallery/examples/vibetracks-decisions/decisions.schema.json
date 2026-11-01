@@ -1,0 +1,24 @@
+{
+ "name": "decisions",
+ "title": "Decisions (Vibe Tracks)",
+ "titleProperty": "title",
+ "primaryKey": "id",
+ "path": "decisions.json",
+ "schema": {
+  "fields": [
+   { "name": "id", "type": "string", "title": "Id", "hidden": true },
+   { "name": "ref", "type": "string", "title": "Ref", "width": 70 },
+   { "name": "title", "type": "string", "title": "Decision", "width": 420 },
+   { "name": "date", "type": "date", "title": "Date" },
+   { "name": "status", "type": "string", "title": "Status", "display": "badge" },
+   { "name": "status_text", "type": "string", "title": "Status, as written" },
+   { "name": "depends_on", "type": "array", "title": "Depends on", "relation": true, "description": "every record this one builds on, amends or supersedes" },
+   { "name": "builds_on", "type": "array", "title": "Builds on", "relation": true },
+   { "name": "amends", "type": "array", "title": "Amends", "relation": true },
+   { "name": "supersedes", "type": "array", "title": "Supersedes", "relation": true },
+   { "name": "kind", "type": "string", "title": "Kind" },
+   { "name": "track", "type": "string", "title": "Track" },
+   { "name": "source", "type": "string", "title": "Source" }
+  ]
+ }
+}

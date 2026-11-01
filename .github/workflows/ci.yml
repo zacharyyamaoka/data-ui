@@ -1,0 +1,145 @@
+# The full suite on every push to main and every night (docs/CI.md). A red run opens one issue, which stays until a green
+# run closes it, so a failure nobody was watching for still shows.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  suite:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      DATA_UI_KPI_PUBLISH: '0'
+      DATA_UI_TEST_SUMMARY: test-summary.json
+      # WHY not UTC: a calendar case's check finds an event by the local time it draws (docs/CI.md)
+      TZ: America/Vancouver
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Read the pinned versions
+        run: cat tools/ci/versions.env >> "$GITHUB_ENV"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: ${{ env.UV_VERSION }}
+      - name: Install the kit's packages
+        run: npm ci --no-fund --no-audit
+      - name: Install the checks' Python packages
+        run: python -m pip install --no-input -r tools/ci/requirements.txt
+      - name: Cache Playwright's browsers
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ env.PLAYWRIGHT_VERSION }}
+      - name: Install Chromium, its system libraries and the fonts the layout checks expect
+        run: |
+          python -m playwright install --with-deps chromium
+          sudo apt-get install -y --no-install-recommends fonts-noto-core fonts-dejavu-core
+          echo "FONTCONFIG_FILE=$PWD/tools/ci/fonts.conf" >> "$GITHUB_ENV"
+      - name: Cache the gallery's thumbnails
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: site/.thumbs
+          key: thumbs-${{ hashFiles('gallery/examples/**') }}
+          restore-keys: thumbs-
+      - name: The full suite
+        run: |
+          export DATA_UI_PYTHON="$(command -v python)"
+          node tools/test-all.mjs --strict 2>&1 | tee test-all.log
+          exit "${PIPESTATUS[0]}"
+      - name: Write the run into the job's summary
+        if: always()
+        run: node tools/ci-summary.mjs test-summary.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Keep the evidence of a red run
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: red-run
+          path: |
+            test-all.log
+            test-summary.json
+            reports/media/**/*.json
+          retention-days: 14
+
+  # WHY its own job, and never a gate for the suite: it lists what the other two engines do differently (docs/CI.md). A red
+  # here is a finding to read, not a broken main.
+  browsers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [firefox, webkit]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Read the pinned versions
+        run: cat tools/ci/versions.env >> "$GITHUB_ENV"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - run: npm ci --no-fund --no-audit
+      - run: python -m pip install --no-input -r tools/ci/requirements.txt
+      - name: Cache Playwright's browsers
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ matrix.browser }}-${{ env.PLAYWRIGHT_VERSION }}
+      - run: python -m playwright install --with-deps ${{ matrix.browser }}
+      - run: node build.mjs
+      - name: Smoke in ${{ matrix.browser }}
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        # WHY Xvfb and --headed: headless Firefox has no WebGL, so it cannot draw the map (docs/CI.md)
+        run: xvfb-run -a -s '-screen 0 1440x900x24 +extension GLX' python tools/cross-browser-smoke.py --browser ${{ matrix.browser }} ${{ matrix.browser == 'firefox' && '--headed' || '' }} --json smoke.json
+      - if: always()
+        run: python tools/cross-browser-smoke.py --summary smoke.json >> "$GITHUB_STEP_SUMMARY"
+
+  red-flag:
+    runs-on: ubuntu-24.04
+    needs: suite
+    if: always() && github.ref == 'refs/heads/main'
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - name: Open or update the issue on red
+        if: needs.suite.result == 'failure'
+        run: |
+          open=$(gh issue list --label ci-red --state open --json number --jq '.[0].number // empty')
+          if [ -n "$open" ]; then
+            gh issue comment "$open" --body "Still red: $RUN"
+          else
+            gh label create ci-red --color B60205 --force
+            gh issue create --title "CI is red on main" --label ci-red --body "The suite failed: $RUN"
+          fi
+      - name: Close it on green
+        if: needs.suite.result == 'success'
+        run: |
+          for number in $(gh issue list --label ci-red --state open --json number --jq '.[].number'); do
+            gh issue close "$number" --comment "Green again: $RUN"
+          done

@@ -1,0 +1,10 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1.",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [
+    { "type": "table", "name": "Table", "icon": "table", "summary": "Rows under a sticky header: two group levels with fold and summaries, multi-sort, a display per column, units in the header or inline." },
+    { "type": "pivot", "name": "Pivot", "icon": "grid-3x3", "summary": "Groups x split columns, one summarised value per cell; a cell opens the records behind it." }
+  ],
+  "npm": ["@tanstack/table-core@9.3.1", "@tanstack/virtual-core@3.19.7"]
+}

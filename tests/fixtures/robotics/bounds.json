@@ -1,0 +1,41 @@
+{
+ "schema": {
+  "fields": [
+   {
+    "name": "label",
+    "type": "string"
+   },
+   {
+    "name": "x0_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "y0_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "z0_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "x1_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "y1_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "z1_mm",
+    "type": "number",
+    "unit": "mm"
+   }
+  ]
+ },
+ "rows": []
+}

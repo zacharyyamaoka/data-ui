@@ -1,0 +1,9 @@
+# A made-up servo's datasheet whose every value has one source (or none), declaring sourceColumn: true, so its Nominal
+# source column is drawn though no value has several sources (tests/browser/source_column_checks.py, CONTRACT §36). The
+# Section column comes before Nominal on purpose: the source column follows the first column whose values name a source.
+data: servo.json
+views:
+  - type: table
+    name: Datasheet
+    order: [field, section, nominal]
+    units: inline

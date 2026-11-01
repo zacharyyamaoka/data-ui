@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>app rail fixture</title>
+<!-- tests/browser/rail_checks.py: a host shaped like an app (a left rail beside a page, a settings select in the page),
+     so the rail's checks measure a real layout. Served from the repo root; it loads the BUILT kit (dist/), never src. -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; height: 100vh; display: flex; font: 14px system-ui, sans-serif; background: var(--data-bg, #fff); color: var(--data-fg, #18181b); }
+  body[data-theme="dark"] { --data-bg: #111113; --data-fg: #ececef; }
+  data-rail { flex: none; height: 100%; }
+  main { flex: 1 1 auto; min-width: 0; padding: 16px 20px; }
+  label { display: block; margin-bottom: 12px; }
+  #outside { margin-left: 8px; }
+</style>
+<script type="module">
+  import { bindRailSelect } from '/dist/data-ui.js';
+  await customElements.whenDefined('data-rail');
+  window.__searches = 0; window.__navigates = []; window.__changes = [];
+  const rail = document.getElementById('rail');
+  document.addEventListener('data-rail-search', () => { window.__searches += 1; });
+  document.addEventListener('data-rail-navigate', (e) => {
+    window.__navigates.push(e.detail.id);
+    if (e.detail.id === 'dashboards') e.preventDefault();
+  });
+  document.addEventListener('data-rail-mode-change', (e) => { window.__changes.push(e.detail); });
+  bindRailSelect(document.getElementById('style'), rail);
+  if (new URLSearchParams(location.search).has('dark')) document.body.dataset.theme = 'dark';
+  window.__ready = true;
+</script>
+</head>
+<body>
+<data-rail id="rail" storage-key="fixture" brand="RobotDx" search="Search" search-keys="Ctrl K" current="fleet">
+  <span data-brand-icon><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="6" width="16" height="12" rx="3"/><circle cx="9" cy="12" r="1.2"/><circle cx="15" cy="12" r="1.2"/></svg></span>
+  <a href="#fleet" data-id="fleet" data-group="Monitor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/></svg>Fleet</a>
+  <a href="#dashboards" data-id="dashboards" data-group="Monitor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="16" height="7"/></svg>Dashboards</a>
+  <a href="#runs" data-id="runs" data-group="Data"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 7-14 7z"/></svg>Runs</a>
+  <a href="#calibration-runs" data-id="calibration-runs" data-group="Data"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18L12 5l8 13z"/></svg>CalibrationRuns</a>
+  <a href="#hardware" data-id="hardware" data-group="Data"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>Hardware compatibility matrix and wiring</a>
+  <a href="#settings" data-id="settings" data-end><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>Settings</a>
+  <a href="#help" data-id="help" data-end><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7"/></svg>Help</a>
+</data-rail>
+<main>
+  <h1>Settings</h1>
+  <label>Sidebar <select id="style"></select><input id="outside" placeholder="focus parking"></label>
+</main>
+</body>
+</html>

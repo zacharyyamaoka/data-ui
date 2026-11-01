@@ -1,0 +1,5463 @@
+{
+ "id": "bc-waste-facilities",
+ "title": "Waste facilities in British Columbia (OpenStreetMap)",
+ "titleProperty": "name",
+ "source": "© OpenStreetMap contributors, ODbL; Overpass API, OSM data as of 2026-10-28T15:10:09Z",
+ "attribution": {
+  "text": "© OpenStreetMap contributors",
+  "url": "https://www.openstreetmap.org/copyright"
+ },
+ "properties": {
+  "name": {
+   "type": "text",
+   "label": "Facility"
+  },
+  "kind": {
+   "type": "text",
+   "label": "Kind"
+  },
+  "location": {
+   "type": "list",
+   "label": "Point (lat, lng)"
+  },
+  "in_metro_vancouver": {
+   "type": "boolean",
+   "label": "In Metro Vancouver bbox"
+  }
+ },
+ "rows": [
+  {
+   "id": "osm-n1044190752",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.14515,
+    -122.01458
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n1044303984",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    48.84834,
+    -123.50054
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n11156736398",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.16239,
+    -122.85889
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n11208733248",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.20447,
+    -123.08189
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n11212042637",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.13991,
+    -121.95706
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n11895205662",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.2089,
+    -123.10635
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n11933916254",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.86321,
+    -119.57254
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n12134853101",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.90023,
+    -119.4057
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n12306482773",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.49356,
+    -120.81564
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n12336208401",
+   "name": "Richmond Recycling Depot",
+   "kind": "recycling centre",
+   "location": [
+    49.17249,
+    -123.16511
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n12495363710",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.20376,
+    -122.88154
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n12517163398",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.23133,
+    -122.87891
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n12574672472",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.17314,
+    -123.14268
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n12832644706",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.71717,
+    -123.156
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n12854456371",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.15409,
+    -123.15673
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n13007308120",
+   "name": "Sun Peaks Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    50.87693,
+    -119.91561
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n13021868105",
+   "name": "Lions Bay Community Recycling Depot",
+   "kind": "recycling centre",
+   "location": [
+    49.45374,
+    -123.23768
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n13089405810",
+   "name": "Waste Transfer",
+   "kind": "transfer station",
+   "location": [
+    49.04777,
+    -116.50365
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n13147690528",
+   "name": "Recycling Depot",
+   "kind": "recycling centre",
+   "location": [
+    49.0483,
+    -116.50236
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n13158630000",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.26976,
+    -123.09429
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n1329106462",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    48.88914,
+    -123.34197
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n13384507489",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.71117,
+    -121.92478
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n13443906646",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.25796,
+    -123.04531
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n13547317501",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.52625,
+    -115.76756
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n13626565876",
+   "name": "Regional Recycling Facility",
+   "kind": "recycling centre",
+   "location": [
+    54.31476,
+    -130.26822
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n1387742985",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.67277,
+    -120.30737
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n13992441623",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.22175,
+    -122.99641
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n14140538019",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    53.03022,
+    -119.2357
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n14319766601",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    54.77613,
+    -127.14619
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n1741290853",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.23607,
+    -122.86699
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n1859172275",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.66258,
+    -120.36095
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n1887576030",
+   "name": "BBK Recycling Centre",
+   "kind": "recycling centre",
+   "location": [
+    53.88066,
+    -122.77222
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n1913335507",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    48.46791,
+    -123.36257
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n1989108209",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.81814,
+    -119.6933
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n2021170793",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.25856,
+    -119.29389
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n2394169617",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.9141,
+    -119.45801
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n2396834027",
+   "name": "CSRD Refuse Disposal Site",
+   "kind": "transfer station",
+   "location": [
+    50.92327,
+    -119.48071
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n2674311738",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.14186,
+    -123.05655
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n2771150530",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.63832,
+    -115.63635
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n2811743208",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.19357,
+    -122.94101
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n3181244360",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "transfer station",
+   "location": [
+    48.43601,
+    -123.37216
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n3559302596",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.31395,
+    -122.72996
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n3609146199",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.03954,
+    -122.27887
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n3638082680",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    48.85226,
+    -123.51655
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n3791874758",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.04455,
+    -122.34902
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n3890653263",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.04435,
+    -122.2839
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n3992983163",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.13097,
+    -122.32014
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n4172597689",
+   "name": "RDKB Waste Transfer Station & Recycling Depot",
+   "kind": "recycling centre",
+   "location": [
+    49.71264,
+    -118.96282
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n4486015466",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.30817,
+    -124.32574
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n4518459246",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.19945,
+    -122.81457
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n4731543522",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.22709,
+    -122.83927
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n4749934944",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.21481,
+    -122.9402
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n4899710952",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.04808,
+    -122.28555
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n5005564642",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.23916,
+    -123.05146
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n501591224",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.49032,
+    -117.30633
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n5231755540",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.31438,
+    -123.07851
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n5235526456",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.27611,
+    -123.07304
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n5239167341",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.23275,
+    -123.01976
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n5327736686",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.47163,
+    -123.76178
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n539125227",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.1446,
+    -121.98614
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n539125256",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.16264,
+    -121.95391
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n5405295463",
+   "name": "Agate Bay Solid Waste Facility",
+   "kind": "recycling centre",
+   "location": [
+    51.07923,
+    -119.7768
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n5536942127",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.27959,
+    -122.96902
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n5642902121",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.11166,
+    -122.67882
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n5880295397",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.21644,
+    -122.97798
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n6211138616",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.0606,
+    -122.83484
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n6347239410",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.55081,
+    -119.13877
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n6670505619",
+   "name": "Puntzi Lake Landfill",
+   "kind": "landfill",
+   "location": [
+    52.1072,
+    -124.06978
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n7196556956",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.30847,
+    -123.03994
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n7205125749",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.10886,
+    -122.66477
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n7205129255",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.10839,
+    -122.67531
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n7339632605",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.13527,
+    -122.85455
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n7473571690",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.26502,
+    -123.10455
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n7797604057",
+   "name": "Westside Transfer Station",
+   "kind": "recycling centre",
+   "location": [
+    49.85189,
+    -119.62301
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n7885035493",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.69455,
+    -120.35666
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n7920761901",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.9187,
+    -120.62541
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n8568183003",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.27757,
+    -122.8204
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n8826939133",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.28054,
+    -122.96164
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n9065844152",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.27414,
+    -123.1272
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n9089846183",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.83666,
+    -124.51537
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n9156344987",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.24806,
+    -122.91847
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n9159095645",
+   "name": "RecycleBC Depot",
+   "kind": "recycling centre",
+   "location": [
+    49.12555,
+    -119.55414
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n9169371583",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    55.76166,
+    -120.22751
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n9171500826",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    54.3101,
+    -130.332
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n9276562280",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.24809,
+    -122.89109
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n9295027821",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.04728,
+    -122.7928
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-n9503452323",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.04125,
+    -117.60537
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-n9930775161",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    51.29531,
+    -116.96091
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-r11042510",
+   "name": "Meade Creek Recycling Centre",
+   "kind": "recycling centre",
+   "location": [
+    48.83838,
+    -124.09084
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-r12800963",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.87888,
+    -119.99796
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-r14118449",
+   "name": "Vancouver Landfill",
+   "kind": "landfill",
+   "location": [
+    49.09801,
+    -123.00459
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-r1443479",
+   "name": "Goodlow Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    56.28125,
+    -120.0625
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-r14762342",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    51.30899,
+    -116.95149
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-r14929712",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.46872,
+    -121.04226
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-r15553702",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.59108,
+    -127.46715
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-r2577356",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    48.43739,
+    -123.37694
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1007107730",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.1917,
+    -120.88459
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w101802167",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.25087,
+    -122.7598
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w1021492687",
+   "name": "Armstrong Spallumcheen Land Fill Site",
+   "kind": "landfill",
+   "location": [
+    50.44742,
+    -119.16792
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w102235549",
+   "name": "Barnhartvale Landfill",
+   "kind": "landfill",
+   "location": [
+    50.65709,
+    -120.15854
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1022455113",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.01556,
+    -122.27028
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w102351124",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.71905,
+    -120.44476
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w102691490",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.26557,
+    -121.82657
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w102867780",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.49465,
+    -122.69245
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w103249418",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.07081,
+    -122.44814
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1035810836",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.39517,
+    -123.47512
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w103619507",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.99045,
+    -122.82544
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w103626667",
+   "name": "Keremeos Transfer Station",
+   "kind": "landfill",
+   "location": [
+    49.22003,
+    -119.83237
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w103739511",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.05029,
+    -119.70164
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1039989305",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.28262,
+    -123.07964
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w104223004",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.00514,
+    -123.9873
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w104223157",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.01173,
+    -123.9527
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w104418168",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.84863,
+    -122.98314
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w104451157",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.92641,
+    -122.67891
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w104451303",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.91735,
+    -122.67925
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w104451827",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.92566,
+    -122.66879
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w104531572",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.97067,
+    -122.66969
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w104560633",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.84843,
+    -122.56808
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w105558276",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.89438,
+    -123.51187
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1058393798",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.71451,
+    -124.91025
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1058420331",
+   "name": "District of Hope Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    49.41516,
+    -121.43696
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1060172482",
+   "name": "Cortes Recycling Centre",
+   "kind": "transfer station",
+   "location": [
+    50.09555,
+    -124.91316
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1063417941",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    56.89131,
+    -124.99824
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w106974832",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.62059,
+    -122.64687
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w106975132",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.6764,
+    -122.70798
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1074012820",
+   "name": "Sechelt Landfill",
+   "kind": "landfill",
+   "location": [
+    49.48772,
+    -123.71593
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w107485309",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.43464,
+    -122.57384
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w107896804",
+   "name": "Hope Landfill",
+   "kind": "landfill",
+   "location": [
+    49.41616,
+    -121.43566
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w109277999",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.27699,
+    -122.46997
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1095699496",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    48.46782,
+    -123.35988
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1097161719",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "landfill",
+   "location": [
+    50.70863,
+    -120.4409
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1102690665",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.63747,
+    -125.0493
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w110486271",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.20627,
+    -120.92158
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1116395565",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.74832,
+    -114.87538
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1116982782",
+   "name": "Resource Recovery Centre",
+   "kind": "landfill",
+   "location": [
+    50.66732,
+    -120.27216
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1116982783",
+   "name": "Heffley Creek Eco-Depot",
+   "kind": "landfill",
+   "location": [
+    50.87376,
+    -120.21765
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w112475056",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.36071,
+    -120.52494
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w112639945",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.00222,
+    -122.48323
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w112641370",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.00078,
+    -122.48377
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w112641554",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.0021,
+    -122.4721
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w112747522",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.42135,
+    -120.52062
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w112747523",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.42219,
+    -120.52667
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w112747541",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.42182,
+    -120.53308
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1135801021",
+   "name": "Bowen Island Recycling Depot",
+   "kind": "recycling centre",
+   "location": [
+    49.38339,
+    -123.35074
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w114694362",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.50891,
+    -121.10439
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w114694379",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.50093,
+    -121.00486
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w114694453",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.51558,
+    -121.00902
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1149019012",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.91166,
+    -119.40331
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w115228726",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.49412,
+    -121.00486
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1170428006",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.30172,
+    -123.019
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w1170428007",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.30094,
+    -123.01894
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w1185121920",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    48.65829,
+    -123.43139
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1194091592",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.22239,
+    -122.88822
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w1197233364",
+   "name": "Vancouver Zero Waste Centre",
+   "kind": "recycling centre",
+   "location": [
+    49.2085,
+    -123.11484
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w1207315845",
+   "name": "Vancouver South Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    49.20734,
+    -123.11393
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w1226383819",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.94575,
+    -119.41522
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1231283834",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    55.01016,
+    -126.23829
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1231786198",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.93481,
+    -126.15825
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1231786269",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.90094,
+    -126.2333
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1231786361",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.98483,
+    -126.22743
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1233092810",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.87446,
+    -128.82943
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1240322218",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "transfer station",
+   "location": [
+    50.71548,
+    -120.31575
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1241131997",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.48262,
+    -123.74777
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w124128632",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.20913,
+    -119.48325
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1243380092",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.13824,
+    -123.75063
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1244516612",
+   "name": "Alberni-Clayoquot Recycling Depot",
+   "kind": "recycling centre",
+   "location": [
+    49.24212,
+    -124.80806
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1244516647",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.243,
+    -124.80644
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1244522452",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.22676,
+    -124.81214
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1245739498",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    59.62421,
+    -133.40626
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1245739538",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    59.62854,
+    -133.41258
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1245739651",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    59.59954,
+    -133.4962
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1245939182",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.18599,
+    -123.84985
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1245956055",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    59.59962,
+    -133.50005
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1246177770",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.18354,
+    -126.27304
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1246178291",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.1875,
+    -126.26605
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1246707355",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.52972,
+    -123.38874
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1246707356",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.52923,
+    -123.38802
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w124801980",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.23615,
+    -119.23884
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1253456006",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.56841,
+    -122.27427
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1253457176",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.56058,
+    -122.27513
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1253457364",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.64105,
+    -122.45328
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1253472247",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.43842,
+    -122.26399
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1254222236",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.15231,
+    -122.18033
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1254222561",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.2137,
+    -122.06256
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1255029511",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    51.31871,
+    -122.49773
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w125556531",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.677,
+    -120.29081
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1257252592",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    51.08563,
+    -121.6035
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1257316307",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.13624,
+    -121.9338
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1257620918",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    51.76587,
+    -124.44611
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1258926465",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.49083,
+    -128.48508
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1259563856",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    55.22978,
+    -129.0507
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1262022376",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.19851,
+    -131.78454
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1263625641",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.56166,
+    -130.4165
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1263625674",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.5629,
+    -130.41658
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1268055206",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    54.31005,
+    -130.33202
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1268276247",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.43809,
+    -119.0968
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1268276367",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.43547,
+    -119.09825
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1268277246",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.42367,
+    -119.09284
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1268277525",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.43996,
+    -119.07276
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1286904936",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.79803,
+    -123.15951
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1286904937",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.79764,
+    -123.1602
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1287964906",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "transfer station",
+   "location": [
+    48.44417,
+    -123.51451
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1292432311",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.10473,
+    -120.78369
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1300726093",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.27251,
+    -123.13622
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w1303336941",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.58002,
+    -119.64856
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w130739837",
+   "name": "Recycling Centre",
+   "kind": "recycling centre",
+   "location": [
+    48.79263,
+    -123.1802
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w132580246",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.722,
+    -121.27981
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1327650683",
+   "name": "Lil'wat Nation Xet̓ólacw Transfer Station and Eco Depot",
+   "kind": "transfer station",
+   "location": [
+    50.33047,
+    -122.66835
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1327655269",
+   "name": "Lil'wat Nation Sewage Disposal Facility",
+   "kind": "landfill",
+   "location": [
+    50.34805,
+    -122.7051
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1327655270",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.3363,
+    -122.68279
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1341001897",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    52.97413,
+    -122.49178
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1342574501",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    54.44523,
+    -124.25707
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1343917964",
+   "name": "Paul Lake Dump",
+   "kind": "transfer station",
+   "location": [
+    50.75693,
+    -120.13413
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1347484756",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    54.42384,
+    -124.23971
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1347484757",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    54.42374,
+    -124.23858
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1347485311",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.42364,
+    -124.2409
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1349426204",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    52.174,
+    -128.14627
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1357909367",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.1929,
+    -122.95817
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w1358253040",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.06839,
+    -122.29373
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1365591684",
+   "name": "Leq'a:mel Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    49.17826,
+    -122.07416
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w136695815",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.2707,
+    -123.08264
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w137777490",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    58.77633,
+    -122.70008
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w138877864",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    48.43794,
+    -123.37493
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1390248191",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.0245,
+    -123.06762
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w1393990085",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    53.90257,
+    -125.87727
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1394424974",
+   "name": "Jane Basin Disposal Facility",
+   "kind": "landfill",
+   "location": [
+    49.61223,
+    -123.14265
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1395084337",
+   "name": "Gibsons Recycling Depot",
+   "kind": "recycling centre",
+   "location": [
+    49.40908,
+    -123.52657
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1418179695",
+   "name": "Central Surrey Recycling and Waste Centre",
+   "kind": "recycling centre",
+   "location": [
+    49.12497,
+    -122.79693
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w1425090710",
+   "name": "Creston Landfill",
+   "kind": "landfill",
+   "location": [
+    49.04807,
+    -116.50272
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1431043666",
+   "name": "Helen Street Recycling Depot",
+   "kind": "recycling centre",
+   "location": [
+    49.11798,
+    -116.52113
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1434937794",
+   "name": "Creston Composting Facility",
+   "kind": "landfill",
+   "location": [
+    49.04403,
+    -116.50737
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w143798504",
+   "name": "Glenemma Transfer Station",
+   "kind": "landfill",
+   "location": [
+    50.47063,
+    -119.37074
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1446654895",
+   "name": "Prince Rupert Landfill",
+   "kind": "landfill",
+   "location": [
+    54.26348,
+    -130.29261
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w145498532",
+   "name": "Glenmore Landfill",
+   "kind": "landfill",
+   "location": [
+    49.95433,
+    -119.41793
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1464258039",
+   "name": "Interlakes Landfill",
+   "kind": "landfill",
+   "location": [
+    51.56004,
+    -120.91283
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w146505937",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.45542,
+    -120.48594
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w146505941",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.47213,
+    -120.49601
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w146505942",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.44628,
+    -120.50073
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w146693324",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.36182,
+    -120.07089
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w146693325",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.3524,
+    -120.07799
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w146693326",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.34637,
+    -120.07589
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1473770465",
+   "name": "Logan Lake Eco-Depot",
+   "kind": "transfer station",
+   "location": [
+    50.48686,
+    -120.87486
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1474069520",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.18038,
+    -122.53626
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w1492332232",
+   "name": "Buick Creek Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    56.75299,
+    -121.30163
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1492335053",
+   "name": "Cecil Lake Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    56.33413,
+    -120.51512
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1492344909",
+   "name": "East Pine Waste Transfer",
+   "kind": "transfer station",
+   "location": [
+    55.72774,
+    -121.19422
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1492349394",
+   "name": "Fellers Heights",
+   "kind": "transfer station",
+   "location": [
+    55.63578,
+    -120.5623
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1497083324",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    56.23949,
+    -120.84938
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1512381503",
+   "name": "Fraser Lake Landfill",
+   "kind": "landfill",
+   "location": [
+    54.02487,
+    -124.82409
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1513717413",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    56.2315,
+    -120.85091
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1517890786",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.89973,
+    -119.48172
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1521687571",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.0361,
+    -128.70587
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1528674029",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.94839,
+    -119.41312
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1530865185",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.66931,
+    -128.01019
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w153301195",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    57.03323,
+    -122.53198
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w155095285",
+   "name": "Hartland Landfill",
+   "kind": "landfill",
+   "location": [
+    48.53702,
+    -123.46313
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w155099136",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    48.62285,
+    -123.45618
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w155459795",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    58.93375,
+    -125.77021
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1557475902",
+   "name": "Lower Nicola Eco-Depot",
+   "kind": "transfer station",
+   "location": [
+    50.1527,
+    -120.90477
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1561006814",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    48.8543,
+    -123.28157
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1561458057",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    50.88581,
+    -121.83456
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1568000259",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.0785,
+    -122.31562
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1568467111",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.0697,
+    -122.29304
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w1568522750",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.09395,
+    -122.31216
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w156874424",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    59.64091,
+    -127.14107
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159577776",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    55.1439,
+    -127.77111
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159588055",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    55.01246,
+    -127.3142
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159610007",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.08326,
+    -125.04744
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159616973",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.06563,
+    -124.56311
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159721334",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.37124,
+    -125.91967
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159733252",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.01569,
+    -125.74884
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159733376",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.26451,
+    -125.75312
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159743512",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.55656,
+    -115.77242
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159743518",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.55355,
+    -115.77172
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159743545",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.52867,
+    -115.75853
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756233",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.66817,
+    -115.95405
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756234",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.6639,
+    -115.93057
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756236",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.6553,
+    -115.93826
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756246",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.66594,
+    -115.96228
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756247",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.66359,
+    -115.94046
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756252",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.66021,
+    -115.91424
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756265",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.66662,
+    -115.94712
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756271",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.64765,
+    -115.93343
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756278",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.6593,
+    -115.95436
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756279",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.66745,
+    -115.92942
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756280",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.63671,
+    -115.94228
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756281",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.65049,
+    -115.9264
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756284",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.66373,
+    -115.93748
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756287",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.66586,
+    -115.92943
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756288",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.65743,
+    -115.95392
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756291",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.65682,
+    -115.92781
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756293",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.65795,
+    -115.91928
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756294",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.66078,
+    -115.92393
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756296",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.66312,
+    -115.94079
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159756298",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.64962,
+    -115.95741
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159790520",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.7985,
+    -119.2427
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w159790538",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.79846,
+    -119.23572
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w161389417",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.78765,
+    -123.14779
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w161531387",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.16005,
+    -122.88762
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w161712868",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.19174,
+    -122.83881
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w175672963",
+   "name": "Comox Valley Waste Management Centre",
+   "kind": "landfill",
+   "location": [
+    49.63872,
+    -125.05133
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w183679290",
+   "name": "Highwest Landfill",
+   "kind": "landfill",
+   "location": [
+    48.48243,
+    -123.50382
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w184816956",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.51379,
+    -125.71532
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w184828719",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    54.65886,
+    -124.72886
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w192015541",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.08467,
+    -121.61326
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w192231657",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    54.51492,
+    -128.58616
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w204958575",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.99321,
+    -122.48945
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w204958579",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.99374,
+    -122.49208
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w204958581",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.98834,
+    -122.48479
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w204958584",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.99178,
+    -122.48764
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w204958585",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.99637,
+    -122.46584
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w205000564",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.6953,
+    -124.98887
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w208021657",
+   "name": "Mission Landfill",
+   "kind": "landfill",
+   "location": [
+    49.22703,
+    -122.34131
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w225341180",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.10314,
+    -122.73416
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w239631262",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.72068,
+    -120.48672
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w241204160",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.65466,
+    -124.00483
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w25884140",
+   "name": "Bailey Sanitary Landfill",
+   "kind": "landfill",
+   "location": [
+    49.11037,
+    -121.92619
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w25884148",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.15347,
+    -121.97519
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w272179780",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.58815,
+    -115.66136
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w291704325",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.46809,
+    -125.27979
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w292209761",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.30892,
+    -125.1265
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w292459147",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.26275,
+    -123.0928
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w296127813",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.50865,
+    -115.05338
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w299353558",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.04924,
+    -122.30364
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w299760001",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    53.26109,
+    -132.14116
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w302360289",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    48.43392,
+    -123.36555
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w310173660",
+   "name": "Vanderhoof Transfer Station",
+   "kind": "recycling centre",
+   "location": [
+    54.00447,
+    -123.98976
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w312109777",
+   "name": "Burnaby Eco-Centre",
+   "kind": "recycling centre",
+   "location": [
+    49.26139,
+    -122.9957
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w313906400",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.20437,
+    -124.78905
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w313910122",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.20943,
+    -124.80289
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w314022507",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.06536,
+    -123.11203
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w315414441",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.10473,
+    -117.69379
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w339072329",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "landfill",
+   "location": [
+    49.1606,
+    -123.03678
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w360210450",
+   "name": "Port Renfrew Recycling Drop Box",
+   "kind": "recycling centre",
+   "location": [
+    48.55525,
+    -124.40791
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w372332499",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.27099,
+    -122.86217
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w388818504",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.05727,
+    -122.42651
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w389680403",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.01637,
+    -122.27131
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w391082843",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.19736,
+    -122.84658
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w391123529",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.21592,
+    -122.93057
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w393147076",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.13293,
+    -122.30482
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w398466321",
+   "name": "North Vancouver Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    49.30112,
+    -123.01797
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w411233965",
+   "name": "Regional Landfill",
+   "kind": "landfill",
+   "location": [
+    49.11885,
+    -123.9013
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w419815096",
+   "name": "Stewart Landfill",
+   "kind": "landfill",
+   "location": [
+    55.95205,
+    -129.96772
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w420081458",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.00308,
+    -122.25903
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w42258680",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.85367,
+    -119.62282
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w423449334",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.14554,
+    -123.93703
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w423969631",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.95063,
+    -126.655
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w423969632",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.94936,
+    -126.6558
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w426950270",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.01601,
+    -122.27464
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w441540304",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "landfill",
+   "location": [
+    49.05283,
+    -125.67946
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w448237621",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    48.48445,
+    -123.38802
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w448908717",
+   "name": "Surrey Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    49.18052,
+    -122.68688
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w452596785",
+   "name": "Knockholt Landfill",
+   "kind": "landfill",
+   "location": [
+    54.44114,
+    -126.52623
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w463177625",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.75485,
+    -114.87382
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w479657063",
+   "name": "Summerland Landfill",
+   "kind": "landfill",
+   "location": [
+    49.59269,
+    -119.73246
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w481119622",
+   "name": "Eco Depot",
+   "kind": "transfer station",
+   "location": [
+    49.75434,
+    -122.19637
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w493372158",
+   "name": "Ootischenia Landfill",
+   "kind": "landfill",
+   "location": [
+    49.2609,
+    -117.63349
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w501539590",
+   "name": "Alberni Valley Landfill",
+   "kind": "landfill",
+   "location": [
+    49.25481,
+    -124.85863
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w516839536",
+   "name": "Clearwater Landfill",
+   "kind": "landfill",
+   "location": [
+    51.70828,
+    -120.02268
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w518034711",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.69636,
+    -114.8952
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w525506459",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.24585,
+    -123.1007
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w530456142",
+   "name": "Kaslo Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    49.90373,
+    -116.95751
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w531850593",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.92532,
+    -123.57898
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w551563666",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.25839,
+    -122.9781
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w558969739",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.69025,
+    -119.3179
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w558970441",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.68997,
+    -119.31789
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w564470226",
+   "name": "Langley Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    49.022,
+    -122.46927
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w570133485",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    51.34703,
+    -116.5487
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w584772006",
+   "name": "Baynes Lake Dump",
+   "kind": "transfer station",
+   "location": [
+    49.23616,
+    -115.19933
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w584786218",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    54.0546,
+    -124.85705
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w585031799",
+   "name": "United Boulevard Recycling and Waste Centre",
+   "kind": "recycling centre",
+   "location": [
+    49.23003,
+    -122.87202
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w599514441",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.24265,
+    -115.85061
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w601905168",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.08051,
+    -116.0807
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w608480158",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.54151,
+    -120.74448
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w608828078",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.85908,
+    -122.851
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w611080770",
+   "name": "Campbell Mountain Landfill",
+   "kind": "landfill",
+   "location": [
+    49.52297,
+    -119.54798
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w611843767",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.75859,
+    -119.80952
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w611844185",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.86511,
+    -119.94356
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w61756688",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.09244,
+    -123.08466
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w619949364",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.40793,
+    -123.52699
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w628049542",
+   "name": "Green Lake Landfill",
+   "kind": "landfill",
+   "location": [
+    51.3253,
+    -121.34599
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w630260817",
+   "name": "Watch Lake Landfill",
+   "kind": "landfill",
+   "location": [
+    51.47312,
+    -121.11005
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w655126944",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    49.2098,
+    -124.80575
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w661902852",
+   "name": "Tie Lake Dump",
+   "kind": "transfer station",
+   "location": [
+    49.39958,
+    -115.29409
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w671573026",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.20332,
+    -124.00505
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w671606513",
+   "name": "Recycling Depot",
+   "kind": "recycling centre",
+   "location": [
+    50.13005,
+    -122.95562
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w671606515",
+   "name": "Recycling Depot",
+   "kind": "recycling centre",
+   "location": [
+    50.13001,
+    -122.95522
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w682044334",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.0926,
+    -118.67952
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w68525939",
+   "name": "Mackenzie Regional Landfill",
+   "kind": "landfill",
+   "location": [
+    55.30512,
+    -123.09594
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w685972664",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    48.43692,
+    -123.40153
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w687711309",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    48.69282,
+    -123.594
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w689053128",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.13404,
+    -122.32
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w689173257",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.28119,
+    -119.27136
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w690011036",
+   "name": "Lumby Dump",
+   "kind": "landfill",
+   "location": [
+    50.29754,
+    -118.95014
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w691530648",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.24869,
+    -118.96279
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w69488701",
+   "name": "Cheam Band Landfill",
+   "kind": "landfill",
+   "location": [
+    49.19269,
+    -121.7795
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w700015516",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    50.22053,
+    -119.3035
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w715063101",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    52.0053,
+    -123.14041
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w724192405",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.19433,
+    -122.96663
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w731249047",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.1018,
+    -122.68669
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w764079970",
+   "name": "Salmon Arm Landfill",
+   "kind": "landfill",
+   "location": [
+    50.6809,
+    -119.23339
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w773653359",
+   "name": "Sinclair Regional Landfill",
+   "kind": "landfill",
+   "location": [
+    54.06606,
+    -121.75722
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w782180705",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    56.89069,
+    -125.00038
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w783217971",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.11853,
+    -122.8108
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w788077522",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.17758,
+    -123.83134
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w813328261",
+   "name": "Seven Mile Landfill",
+   "kind": "landfill",
+   "location": [
+    50.61064,
+    -127.23629
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w813475614",
+   "name": "Mission Flats Landfill",
+   "kind": "landfill",
+   "location": [
+    50.68811,
+    -120.4389
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w813475615",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "landfill",
+   "location": [
+    50.68695,
+    -120.45082
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w821515526",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    50.08735,
+    -123.03718
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w826335014",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.20244,
+    -123.1333
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w838420349",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.53497,
+    -124.67746
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w838420354",
+   "name": {
+    "value": null,
+    "why": "privately operated: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.53508,
+    -124.67694
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w851948600",
+   "name": "Cranbrook Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    49.53351,
+    -115.74674
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w879884610",
+   "name": "Langley Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    49.0219,
+    -122.46792
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w892091092",
+   "name": "Cache Creek Landfill",
+   "kind": "landfill",
+   "location": [
+    50.79132,
+    -121.32254
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w892091093",
+   "name": "Campbell Hill Landfill",
+   "kind": "landfill",
+   "location": [
+    50.79279,
+    -121.33124
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w895768212",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.52011,
+    -119.54635
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w915038325",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.22434,
+    -122.8831
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w917624818",
+   "name": "Bessborough Landfill",
+   "kind": "landfill",
+   "location": [
+    55.82193,
+    -120.4733
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w923241221",
+   "name": "Heffley Creek Eco-Depot",
+   "kind": "recycling centre",
+   "location": [
+    50.87105,
+    -120.21451
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w93175989",
+   "name": "The Dump",
+   "kind": "landfill",
+   "location": [
+    54.56271,
+    -128.65403
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w935569729",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "landfill",
+   "location": [
+    49.09935,
+    -123.00527
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w937903262",
+   "name": "Zero Waste Centre",
+   "kind": "recycling centre",
+   "location": [
+    49.09825,
+    -123.01994
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w955925351",
+   "name": {
+    "value": null,
+    "why": "a business name: withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.21478,
+    -122.94036
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w95752211",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "landfill",
+   "location": [
+    54.08288,
+    -128.60943
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w965684962",
+   "name": "Westside Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    49.85198,
+    -119.6225
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w97904448",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    55.83611,
+    -121.59934
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w98048209",
+   "name": "Chetwynd Landfill",
+   "kind": "landfill",
+   "location": [
+    55.72388,
+    -121.57784
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w981191328",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "transfer station",
+   "location": [
+    49.2613,
+    -122.9947
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w983519798",
+   "name": {
+    "value": null,
+    "why": "not clearly public infrastructure: name withheld from the public dataset"
+   },
+   "kind": "recycling centre",
+   "location": [
+    49.20646,
+    -122.88528
+   ],
+   "in_metro_vancouver": true
+  },
+  {
+   "id": "osm-w98392505",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    55.80112,
+    -120.92262
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w98401933",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    55.76379,
+    -120.69348
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w98634087",
+   "name": "Dawson Creek Transfer Station",
+   "kind": "transfer station",
+   "location": [
+    55.75119,
+    -120.17663
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w98634145",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    55.73807,
+    -120.13295
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w98967281",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    55.25054,
+    -120.06474
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w991304489",
+   "name": "Oliver Landfill",
+   "kind": "landfill",
+   "location": [
+    49.1269,
+    -119.55163
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w992502945",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    58.77528,
+    -122.71035
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w99445303",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    55.13626,
+    -121.47633
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w99449197",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "kind": "landfill",
+   "location": [
+    56.0283,
+    -121.94773
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w99812026",
+   "name": "Old Powder King Landfill (Abandoned)",
+   "kind": "landfill",
+   "location": [
+    55.35789,
+    -122.60255
+   ],
+   "in_metro_vancouver": false
+  },
+  {
+   "id": "osm-w99974289",
+   "name": "North Peace Regional Landfill",
+   "kind": "landfill",
+   "location": [
+    56.21404,
+    -120.90649
+   ],
+   "in_metro_vancouver": false
+  }
+ ]
+}

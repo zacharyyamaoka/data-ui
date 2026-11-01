@@ -1,0 +1,40 @@
+# Pivots over robotparts' 1,149 actuators: brand rows by form columns, with a max, a median and a count. Obsidian Bases
+# grammar plus data-ui's keys (docs/CONTRACT.md §5). Check it: node bin/data-ui.mjs check <this file>
+data: actuators.json
+facets:
+  - brand
+  - form
+  - drivetrain
+  - { property: peak_torque, as: range }
+properties:
+  brand: { displayName: Brand }
+  form: { displayName: Form }
+  drivetrain: { displayName: Drivetrain }
+  peak_torque: { displayName: Peak torque }
+  mass: { displayName: Mass }
+  price: { displayName: Price from }
+views:
+  - type: pivot
+    name: Peak torque, brand × form
+    order: [brand]
+    splitBy: [form]
+    value: { property: peak_torque, summary: Max }
+    sort:
+      - { property: brand, direction: ASC }
+  - type: pivot
+    name: Brand × form
+    order: [brand]
+    splitBy: [form]
+    value: { property: null, summary: Count }
+    sort:
+      - { property: brand, direction: ASC }
+  - type: pivot
+    name: Torque by drivetrain × form
+    order: [drivetrain]
+    splitBy: [form]
+    value: { property: peak_torque, summary: Median, display: dist }
+  - type: pivot
+    name: Price, brand × drivetrain
+    order: [brand]
+    splitBy: [drivetrain]
+    value: { property: price, summary: Median, display: bar }

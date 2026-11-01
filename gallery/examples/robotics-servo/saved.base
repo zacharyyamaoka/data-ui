@@ -1,0 +1,28 @@
+# Saved for later: what a reader kept from other dashboards, waiting to be placed on this one. The page's host lists it
+# with queue: true (host.js), Add to dashboard… adds to it as to any dashboard (CONTRACT §34), and the editor's "To place"
+# reads it.
+data: runs.json
+datasets:
+  runs:
+    data: runs.json
+    label: Runs
+layout:
+  panels:
+    - { view: Twin q RMS by run, h: 3 }
+    - { view: Held-out runs }
+views:
+  - type: chart
+    name: Twin q RMS by run
+    from: runs
+    chart:
+      mark: bar
+      encoding:
+        x: { field: label, type: nominal, sort: '-y', title: run }
+        'y': { field: q_rms_mrad, type: quantitative, title: Twin q RMS (mrad) }
+  - type: kpi
+    name: Held-out runs
+    from: runs
+    filters: 'held_out == true'
+    kpi:
+      label: Held-out runs
+      value: { property: run, summary: Count }

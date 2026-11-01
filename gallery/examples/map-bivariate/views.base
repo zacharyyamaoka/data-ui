@@ -1,0 +1,21 @@
+# Diversion rate in 2022 against its change since 2002, by province (docs/CONTRACT.md §42: bivariate regions).
+data: provinces.json
+properties:
+  province: { displayName: Province }
+  diversion_2002: { displayName: Diversion 2002 }
+  diversion_2022: { displayName: Diversion 2022 }
+  change_pts: { displayName: Change since 2002 }
+views:
+  - type: map
+    name: Diversion × change
+    layers:
+      - { type: regions, geometry: provinces.geojson, key: code, join: code, bivariate: { x: diversion_2022, y: change_pts, count: 3 }, label: code }
+  - type: map
+    name: Diversion 2022
+    layers:
+      - { type: regions, geometry: provinces.geojson, key: code, join: code, value: diversion_2022, classes: { method: equal, count: 4 }, label: code }
+  - type: table
+    name: Provinces
+    order: [province, diversion_2002, diversion_2022, change_pts]
+    sort:
+      - { property: diversion_2022, direction: DESC }

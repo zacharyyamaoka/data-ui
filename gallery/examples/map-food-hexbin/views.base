@@ -1,0 +1,23 @@
+# Food places counted per H3 hexagon (docs/CONTRACT.md §42: hexbin).
+data: ../map-food-heatmap/food.json
+properties:
+  kind: { displayName: Kind }
+  seats: { displayName: Seats }
+views:
+  - type: map
+    name: H3 resolution 8
+    coordinates: location
+    mapTiles: ../map-food-heatmap/metro-vancouver.pmtiles
+    layers:
+      - { type: hexbin, resolution: 8, classes: { method: quantile, count: 5 } }
+  - type: map
+    name: H3 resolution 7, food courts and fast food
+    coordinates: location
+    mapTiles: ../map-food-heatmap/metro-vancouver.pmtiles
+    filters: 'kind == "fast food" || kind == "food court"'
+    layers:
+      - { type: hexbin, resolution: 7, classes: { method: jenks, count: 4 }, ink: 3 }
+  - type: table
+    name: Places
+    groupBy: { property: kind, direction: ASC }
+    order: [kind, seats, location]

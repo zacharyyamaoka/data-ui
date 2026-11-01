@@ -1,0 +1,28 @@
+# Three synthetic collection routes over real food courts (docs/CONTRACT.md §42: lines).
+data: day.json
+properties:
+  name: { displayName: Name }
+  truck: { displayName: Truck }
+  kind: { displayName: Kind }
+  km: { displayName: Length }
+  kg: { displayName: Collected }
+  at: { displayName: Time }
+views:
+  - type: map
+    name: Routes and stops
+    coordinates: location
+    mapTiles: ../map-food-heatmap/metro-vancouver.pmtiles
+    layers:
+      - { type: lines, path: path, color: truck, filter: 'kind == "route"', title: Routes, note: Synthetic routes. }
+      - { type: points, filter: 'kind == "pickup"', color: truck, radius: 5, title: Stops }
+  - type: table
+    name: Stops
+    filters: 'kind != "route"'
+    groupBy: { property: truck, direction: ASC }
+    order: [name, at, kg, kind]
+    sort:
+      - { property: seq, direction: ASC }
+  - type: table
+    name: Routes
+    filters: 'kind == "route"'
+    order: [truck, km, stops, kg]

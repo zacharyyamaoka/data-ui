@@ -1,0 +1,88 @@
+# Experiment tracking: one row per run (model, params, metrics), the views Vibe Tracks' Results tab and its
+# leaderboards draw by hand. ILLUSTRATIVE data: Vibe Tracks' synthetic grasp bench (made-up models).
+# Check it: node bin/data-ui.mjs check <this file>
+data: runs.json
+facets:
+  - model
+  - env
+  - lane
+  - bench
+  - { property: round, as: range }
+properties:
+  run: { displayName: Run }
+  round: { displayName: Round }
+  started: { displayName: Started }
+  model: { displayName: Model }
+  family: { displayName: Family }
+  env: { displayName: Environment }
+  tier: { displayName: Tier }
+  lane: { displayName: Lane }
+  bench: { displayName: Bench }
+  attempts: { displayName: Attempts }
+  successes: { displayName: Successes }
+  compute_s: { displayName: Compute }
+  success_rate: { displayName: Success rate }
+  compute_mean_s: { displayName: Compute per grasp }
+  sppm: { displayName: Picks per minute }
+views:
+  - type: pivot
+    name: Leaderboard
+    order: [model]
+    splitBy: [env]
+    value: { property: success_rate, summary: Median, display: bar }
+    sort:
+      - { property: model, direction: ASC }
+  - type: chart
+    name: Success rate by round
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: round, title: Round (step) }
+        y: { field: success_rate, axis: { format: '%' }, scale: { zero: false } }
+        color: { field: model }
+        facet: { field: env, columns: 3 }
+    guides:
+      - { rule: { y: 0.55 }, label: "gate 55 %" }
+    hover: { title: run, fields: [success_rate, model, env, round, attempts, compute_mean_s] }
+  - type: kpi
+    name: Pooled success by model
+    groupBy: { property: model, direction: ASC }
+    sort:
+      - { property: round, direction: ASC }
+    kpi:
+      value: { property: successes, summary: Ratio, per: attempts }
+      spark: { x: round, y: success_rate }
+      gate: { min: 0.55 }
+  - type: chart
+    name: Compute vs success
+    chart:
+      mark: { type: point, filled: true }
+      encoding:
+        x: { field: compute_mean_s }
+        y: { field: success_rate, axis: { format: '%' } }
+        color: { field: model }
+        size: { field: attempts }
+    hover: { title: run, fields: [success_rate, compute_mean_s, model, env, round] }
+  - type: table
+    name: Runs
+    order: [run, round, model, env, lane, bench, attempts, successes, success_rate, compute_mean_s, sppm]
+    groupBy: { property: model, direction: ASC }
+    sort:
+      - { property: success_rate, direction: DESC }
+    display: { success_rate: bar }
+    fold: closed
+  - type: table
+    name: Runs by week
+    order: [run, started, model, env, attempts, successes, success_rate]
+    groupBy: { property: started, by: week }
+    sort:
+      - { property: started, direction: ASC }
+    display: { success_rate: bar }
+  - type: chart
+    name: Runs per week
+    # no mark: a count over weeks is a line by default (Zach, 2026-10-26: change over time is a line; docs/SPEC.md §8.5)
+    chart:
+      encoding:
+        x: { field: started, by: week, title: Week }
+        y: { aggregate: count, title: Runs }
+    hover: { title: run, fields: [started, model, env, success_rate] }

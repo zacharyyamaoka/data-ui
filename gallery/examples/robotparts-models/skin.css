@@ -1,0 +1,37 @@
+/* robotparts' next skin: "Catalog" in light and "Signal" in dark (robotparts lane/colors @ 2b5bf9f,
+   site/static/colors/1-catalog.css and 4-signal.css, read 2026-10-26; a prototype, not released). Their own tokens,
+   then the one block that maps them onto data-ui's --data-* (docs/SPEC.md §10). The gallery scopes a skin to
+   .data-ui-skin; on robotparts.dev the same block sits at :root. */
+.data-ui-skin {
+  --bg: #ffffff; --bg2: #eeeeee; --hover: #edf4f9; --ink: #222222; --ink2: #555555; --rule: #c4c4c4; --rule2: #dddddd;
+  --accent: #006699; --on-accent: #ffffff; --warn: #a8320c; --good: #0b8c6d; --bad: #a8320c;
+  --s1: #006699; --s2: #7b3c62; --s3: #0b8c6d; --s4: #a08718; --s5: #904714; --s6: #4f8952; --s7: #8d73b8; --s8: #c14f4b;
+  --b-measured: #006699; --b-other: #555555;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", "DejaVu Sans Mono", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .data-ui-skin {
+    --bg: #08090a; --bg2: #111214; --hover: #16171b; --ink: #f7f8f8; --ink2: #a6a8b0; --rule: #26282d; --rule2: #1a1b1f;
+    --accent: #8e95ff; --on-accent: #08090a; --warn: #ff9e66; --good: #26aa87; --bad: #ff9e66;
+    --s1: #727afc; --s2: #26aa87; --s3: #9a3d67; --s4: #b78a00; --s5: #2293d3; --s6: #3fa423; --s7: #bd67e0; --s8: #b61b2e;
+    --b-measured: #8e95ff; --b-other: #a6a8b0;
+  }
+}
+:root[data-theme="dark"] .data-ui-skin {
+  --bg: #08090a; --bg2: #111214; --hover: #16171b; --ink: #f7f8f8; --ink2: #a6a8b0; --rule: #26282d; --rule2: #1a1b1f;
+  --accent: #8e95ff; --on-accent: #08090a; --warn: #ff9e66; --good: #26aa87; --bad: #ff9e66;
+  --s1: #727afc; --s2: #26aa87; --s3: #9a3d67; --s4: #b78a00; --s5: #2293d3; --s6: #3fa423; --s7: #bd67e0; --s8: #b61b2e;
+  --b-measured: #8e95ff; --b-other: #a6a8b0;
+}
+/* the mapping: this is all a vanilla app writes */
+.data-ui-skin {
+  --data-bg: var(--bg); --data-fg: var(--ink); --data-muted: var(--ink2); --data-subtle: var(--bg2);
+  --data-border: var(--rule); --data-rule: var(--rule2); --data-hover: var(--hover); --data-accent: var(--accent);
+  --data-on-accent: var(--on-accent); --data-warn: var(--warn); --data-good: var(--good); --data-bad: var(--bad);
+  --data-font: var(--sans); --data-mono: var(--mono); --data-radius: 4px;
+  --data-series-1: var(--s1); --data-series-2: var(--s2); --data-series-3: var(--s3); --data-series-4: var(--s4);
+  --data-series-5: var(--s5); --data-series-6: var(--s6); --data-series-7: var(--s7); --data-series-8: var(--s8);
+  --data-basis-measured: var(--b-measured); --data-basis-datasheet: var(--b-other); --data-basis-derived: var(--b-other);
+  --data-basis-estimate: var(--b-other); --data-basis-chosen: var(--b-other);
+}

@@ -1,0 +1,13 @@
+# tests/browser/map_select_checks.py: marks reach every small map
+data: places.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    select: name
+    coordinates: at
+    multiples: { by: zone, columns: 3 }
+    layers:
+      - { type: points, radius: 7, title: Places }

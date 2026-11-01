@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 262 64" width="262" height="64" role="img" aria-label="robotparts, Part-number tag">
+<title>robotparts, Part-number tag</title>
+<g>
+<path d="M22 12H54a5 5 0 0 1 5 5V47a5 5 0 0 1-5 5H22L5 32Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="19" cy="32" r="3.6" style="fill:var(--a,#e4572e)"/>
+<text x="42" y="40.5" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="24" font-weight="700" fill="currentColor" text-anchor="middle" textLength="28" lengthAdjust="spacing">rp</text>
+</g>
+<text x="80" y="42.8" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="30" font-weight="700" fill="currentColor" textLength="180" lengthAdjust="spacing">robotparts</text>
+</svg>

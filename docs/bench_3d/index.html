@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>3D thumbnail bench</title>
+<script>
+  // count WebGL contexts and losses, whatever creates them
+  window.__gl = { made: 0, lost: 0 };
+  const orig = HTMLCanvasElement.prototype.getContext;
+  HTMLCanvasElement.prototype.getContext = function (kind, ...rest) {
+    const known = this.__counted;
+    const ctx = orig.call(this, kind, ...rest);
+    if (ctx && /webgl/.test(String(kind)) && !known) { this.__counted = true; window.__gl.made++; this.addEventListener('webglcontextlost', () => window.__gl.lost++); }
+    return ctx;
+  };
+</script>
+<script type="importmap">{ "imports": { "three": "./three/build/three.module.js", "three/addons/": "./three/examples/jsm/" } }</script>
+<style>
+  body { margin: 0; font: 12px system-ui; }
+  #grid { display: grid; grid-template-columns: repeat(auto-fill, 160px); gap: 8px; padding: 8px; }
+  .cell { width: 160px; height: 160px; background: #f2f2f2; position: relative; }
+  .cell canvas, .cell model-viewer, .cell img, .cell .sprite { width: 160px; height: 160px; display: block; }
+  .sprite { background-repeat: no-repeat; background-size: 2400% 100%; }
+</style>
+</head>
+<body>
+<div id="grid"></div>
+<script type="module" src="./bench.js"></script>
+</body>
+</html>

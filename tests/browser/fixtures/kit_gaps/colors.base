@@ -1,0 +1,20 @@
+# kit gap 6 (tests/browser/kit_gaps_checks.py): a chart coloured by a column whose `colors` map names a slot, muted, 0, a
+# token and a CSS colour, with null cells; and by a column with no map and null cells. One bar per row.
+data: colors.json
+views:
+  - type: chart
+    name: Mapped
+    chart:
+      mark: { type: bar }
+      encoding:
+        x: { field: v, type: ordinal }
+        'y': { field: v, type: quantitative }
+        color: { field: state }
+  - type: chart
+    name: Palette
+    chart:
+      mark: { type: bar }
+      encoding:
+        x: { field: v, type: ordinal }
+        'y': { field: v, type: quantitative }
+        color: { field: other }

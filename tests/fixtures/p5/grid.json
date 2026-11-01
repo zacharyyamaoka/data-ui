@@ -1,0 +1,60 @@
+{
+ "title": "grid",
+ "cell_mm": 25,
+ "frame": "base",
+ "schema": {
+  "fields": [
+   {
+    "name": "x_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "y_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "z_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "value",
+    "type": "number"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "x_mm": 12.5,
+   "y_mm": 12.5,
+   "z_mm": 12.5,
+   "value": 0.0
+  },
+  {
+   "x_mm": 37.5,
+   "y_mm": 12.5,
+   "z_mm": 12.5,
+   "value": 0.25
+  },
+  {
+   "x_mm": 62.5,
+   "y_mm": 12.5,
+   "z_mm": 12.5,
+   "value": 0.5
+  },
+  {
+   "x_mm": 87.5,
+   "y_mm": 12.5,
+   "z_mm": 12.5,
+   "value": 0.75
+  },
+  {
+   "x_mm": 112.5,
+   "y_mm": 12.5,
+   "z_mm": 12.5,
+   "value": 1.0
+  }
+ ]
+}

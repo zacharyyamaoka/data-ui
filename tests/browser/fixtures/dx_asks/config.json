@@ -1,0 +1,58 @@
+{
+ "id": "dx-config",
+ "title": "Configuration",
+ "titleProperty": "key",
+ "source": "synthetic: tests/browser/fixtures/dx_asks/make_fixture.py (illustrative numbers)",
+ "properties": {
+  "path": {
+   "type": "text",
+   "label": "Entity"
+  },
+  "key": {
+   "type": "text",
+   "label": "Setting"
+  },
+  "value": {
+   "type": "number",
+   "label": "Value"
+  }
+ },
+ "rows": [
+  {
+   "id": "a.kp",
+   "path": "a",
+   "key": "kp",
+   "value": 1.5
+  },
+  {
+   "id": "a.ki",
+   "path": "a",
+   "key": "ki",
+   "value": 0.15
+  },
+  {
+   "id": "a.limit",
+   "path": "a",
+   "key": "limit",
+   "value": 6.0
+  },
+  {
+   "id": "b.kp",
+   "path": "b",
+   "key": "kp",
+   "value": 2.5
+  },
+  {
+   "id": "b.ki",
+   "path": "b",
+   "key": "ki",
+   "value": 0.25
+  },
+  {
+   "id": "b.limit",
+   "path": "b",
+   "key": "limit",
+   "value": 10.0
+  }
+ ]
+}

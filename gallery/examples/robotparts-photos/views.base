@@ -1,0 +1,56 @@
+# robotparts photos: actuators and cameras as cards with their real hosted photos and their brands' logos, and the
+# media grid (cards + lightbox: true) over the same rows. Obsidian Bases grammar plus data-ui's keys
+# (docs/CONTRACT.md §5). Check it: node bin/data-ui.mjs check <this file> --data photos.json
+data: photos.json
+facets:
+  - category
+  - brand
+properties:
+  model: { displayName: Model }
+  logo: { displayName: Logo }
+  peak_torque: { displayName: Peak torque }
+  resolution: { displayName: Resolution }
+views:
+  - type: cards
+    name: Actuators
+    filters: 'category == "Actuator"'
+    order: [model, logo, brand, peak_torque, mass]
+    image: photo
+    imageFit: contain
+    imageAspectRatio: 0.8
+    cardSize: 190
+    lightbox: true
+    caption: [brand, peak_torque]
+    groupBy: { property: brand, direction: ASC }
+    sort:
+      - { property: peak_torque, direction: DESC }
+  - type: cards
+    name: Cameras
+    filters: 'category == "Camera"'
+    order: [model, logo, brand, resolution, fps, shutter]
+    image: photo
+    imageFit: contain
+    imageAspectRatio: 0.8
+    cardSize: 190
+    lightbox: true
+    caption: [brand, sensor]
+    groupBy: { property: brand, direction: ASC }
+    sort:
+      - { property: resolution, direction: DESC }
+  - type: cards
+    name: Photo wall
+    order: [model]
+    image: photo
+    imageFit: cover
+    imageAspectRatio: 1
+    cardSize: 140
+    lightbox: true
+    caption: [brand, category]
+    sort:
+      - { property: brand, direction: ASC }
+  - type: table
+    name: Table
+    order: [model, brand, category, peak_torque, mass, resolution, fps, shutter, level, url]
+    groupBy: { property: category, direction: ASC }
+    sort:
+      - { property: brand, direction: ASC }

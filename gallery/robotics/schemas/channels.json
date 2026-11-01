@@ -1,0 +1,63 @@
+{
+ "description": "PEP 0010 §4.3, settled in P1a: the channels each device type writes in samples.json, by name and unit; the unit each name's suffix stands for (the longest suffix that matches); and the names that end in a suffix without meaning it.",
+ "types": {
+  "servo": {
+   "q_deg": "deg",
+   "qd_deg_s": "deg/s",
+   "qdd_deg_s2": "deg/s²",
+   "tau_nm": "N·m",
+   "q_mm": "mm",
+   "qd_mm_s": "mm/s",
+   "qdd_mm_s2": "mm/s²"
+  },
+  "driver": {
+   "i_q_a": "A",
+   "i_d_a": "A",
+   "v_bus_v": "V",
+   "temp_c": "°C",
+   "power_w": "W",
+   "mode": null,
+   "fault": null
+  },
+  "gripper": {
+   "width_mm": "mm",
+   "force_n": "N",
+   "grip": null
+  },
+  "camera": {
+   "frame_dt_ms": "ms"
+  }
+ },
+ "suffixes": {
+  "_s": "s",
+  "_ms": "ms",
+  "_hz": "Hz",
+  "_m": "m",
+  "_mm": "mm",
+  "_deg": "deg",
+  "_rad": "rad",
+  "_mrad": "mrad",
+  "_deg_s": "deg/s",
+  "_deg_s2": "deg/s²",
+  "_mm_s": "mm/s",
+  "_mm_s2": "mm/s²",
+  "_rad_s": "rad/s",
+  "_nm": "N·m",
+  "_n": "N",
+  "_a": "A",
+  "_v": "V",
+  "_w": "W",
+  "_c": "°C"
+ },
+ "exceptions": [
+  "quat_w",
+  "ref_quat_w",
+  "band_nm"
+ ],
+ "why": {
+  "quat_w": "a quaternion's w component, unitless (not watts)",
+  "ref_quat_w": "b's quaternion's w component, unitless",
+  "band_nm": "a wavelength in nanometres (not newton-metres)",
+  "unsuffixed": "t (seconds), the link pose columns <link>_x (the scene's unit, declared in the sidecar) and PEP 0005's clip columns (t0, fps, duration) carry their unit in the sidecar only"
+ }
+}

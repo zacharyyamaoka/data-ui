@@ -1,0 +1,62 @@
+{
+ "id": "deployments",
+ "title": "Deployments",
+ "titleProperty": "title",
+ "properties": {
+  "deployment": {
+   "type": "text",
+   "label": "Deployment"
+  },
+  "title": {
+   "type": "text",
+   "label": "Name"
+  },
+  "kind": {
+   "type": "text",
+   "label": "Kind"
+  },
+  "where": {
+   "type": "text",
+   "label": "Where"
+  },
+  "stations": {
+   "type": "number",
+   "label": "Stations"
+  },
+  "runs": {
+   "type": "number",
+   "label": "Runs here"
+  },
+  "first_run": {
+   "type": "date",
+   "label": "First run"
+  },
+  "last_run": {
+   "type": "date",
+   "label": "Last run"
+  },
+  "summary": {
+   "type": "text",
+   "label": "What it is"
+  },
+  "basis": {
+   "type": "text",
+   "label": "Basis"
+  }
+ },
+ "rows": [
+  {
+   "id": "one-dof-test-rack",
+   "deployment": "one-dof-test-rack",
+   "title": "One Dof Test Rack",
+   "kind": "1-DOF rack",
+   "where": "Zach's bench at home",
+   "stations": 8,
+   "runs": 24,
+   "first_run": "2026-10-28T11:30:34-07:00",
+   "last_run": "2026-10-29T05:37:34-07:00",
+   "summary": "Eight moteus servo stations on three plates (GIM43, JMC60), each a 1-DOF joint run against its own bam_rack_twin.",
+   "basis": "measured"
+  }
+ ]
+}

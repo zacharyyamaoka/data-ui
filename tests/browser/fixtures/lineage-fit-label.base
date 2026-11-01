@@ -1,0 +1,7 @@
+# tests/browser/lineage_fit_checks.py: the same 18 rounds with label marks, whose columns can be no closer than 96 px, so on
+# a ~680 px stage the whole tree would need about 0.34x: under the first view's 0.5x floor.
+data: lineage-fit.json
+views:
+  - type: lineage
+    name: Tree
+    lineage: { parents: parents, x: round_n, xLabel: round, label: name, focus: c18 }

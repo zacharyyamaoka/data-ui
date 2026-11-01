@@ -1,0 +1,2349 @@
+{
+ "from": "lane/datasheet @ ec9a13c: docs/proposals/build_datasheet_report.py build_rows()",
+ "part": "aifitlab-8541438771336",
+ "kinds": {
+  "datasheet": {
+   "required": [],
+   "optional": [
+    "output_inertia",
+    "rotor_inertia",
+    "gearbox_input_inertia",
+    "gear_ratio",
+    "kt",
+    "coulomb_friction",
+    "viscous_friction"
+   ]
+  },
+  "coulomb_viscous": {
+   "required": [
+    "coulomb_friction",
+    "viscous_friction"
+   ],
+   "optional": [
+    "output_inertia"
+   ]
+  },
+  "stribeck": {
+   "required": [
+    "coulomb_friction",
+    "viscous_friction",
+    "breakaway_torque",
+    "stribeck_velocity"
+   ],
+   "optional": [
+    "stribeck_exponent",
+    "output_inertia"
+   ]
+  },
+  "load_dependent": {
+   "required": [
+    "coulomb_friction",
+    "viscous_friction",
+    "friction_load_coefficient"
+   ],
+   "optional": [
+    "output_inertia"
+   ]
+  },
+  "ripple_map": {
+   "required": [
+    "harmonics"
+   ],
+   "optional": [
+    "coulomb_friction",
+    "viscous_friction",
+    "output_inertia"
+   ]
+  },
+  "lugre": {
+   "required": [
+    "coulomb_friction",
+    "breakaway_torque",
+    "stribeck_velocity",
+    "sigma0",
+    "sigma1",
+    "sigma2"
+   ],
+   "optional": [
+    "stribeck_exponent",
+    "output_inertia"
+   ]
+  },
+  "mujoco_dcmotor": {
+   "required": [
+    "motorconst",
+    "resistance"
+   ],
+   "optional": [
+    "nominal",
+    "saturation",
+    "inductance",
+    "cogging",
+    "controller",
+    "thermal",
+    "lugre"
+   ]
+  }
+ },
+ "rows": [
+  {
+   "key": "mass",
+   "label": "Mass",
+   "unit": "g",
+   "sec": "Mechanical",
+   "bench": "weigh it",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "140.0 g",
+     "n": 140.0,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "without the driver (the gearmotor); 150 g with SteadyWin's driver",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "datasheet",
+   "sources": [
+    "datasheet"
+   ],
+   "stats": null
+  },
+  {
+   "key": "outer_diameter",
+   "label": "Outer diameter",
+   "unit": "mm",
+   "sec": "Mechanical",
+   "bench": "the maker's drawing, or calipers",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "53.0 mm",
+     "n": 53.0,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "row 电机尺寸带驱动(Size with Driver), mm; Ø53*26 without the driver",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "datasheet",
+   "sources": [
+    "datasheet"
+   ],
+   "stats": null
+  },
+  {
+   "key": "axial_length",
+   "label": "Length",
+   "unit": "mm",
+   "sec": "Mechanical",
+   "bench": "the maker's drawing, or calipers",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "26.0 mm",
+     "n": 26.0,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "without the driver; 32 mm with it (the atlas's 26 mm “with driver” is a conflict)",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "datasheet",
+   "sources": [
+    "datasheet"
+   ],
+   "stats": null
+  },
+  {
+   "key": "dimensions",
+   "label": "Dimensions",
+   "unit": "mm",
+   "sec": "Mechanical",
+   "bench": "the maker's drawing",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "output_flange",
+   "label": "Output flange / shaft",
+   "unit": "",
+   "sec": "Mechanical",
+   "bench": "the maker's drawing",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "3 × M3 on Ø27 mm, 4 mm deep (output)",
+     "n": 27.0,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · 14180476.s21i.faiusr.com",
+     "url": "https://14180476.s21i.faiusr.com/61/ABUIABA9GAAg1rfAxQYo4P63Xg.pdf",
+     "how": "the Ø37 output boss: three M3 holes, effective thread depth 4 mm, on Ø27",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "datasheet",
+   "sources": [
+    "datasheet"
+   ],
+   "stats": null
+  },
+  {
+   "key": "mounting",
+   "label": "Mounting pattern",
+   "unit": "",
+   "sec": "Mechanical",
+   "bench": "the maker's drawing",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "6 × M2.5 on Ø47.5 mm, 3 mm deep (mount)",
+     "n": 47.5,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · 14180476.s21i.faiusr.com",
+     "url": "https://14180476.s21i.faiusr.com/61/ABUIABA9GAAg1rfAxQYo4P63Xg.pdf",
+     "how": "the drawing's back views: six M2.5 holes, thread depth 3 mm",
+     "ci": null,
+     "can": null,
+     "kind": null
+    },
+    {
+     "status": "datasheet",
+     "text": "3 × M2.5 on Ø47.5 mm, 5 mm deep (front_mount)",
+     "n": 47.5,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · 14180476.s21i.faiusr.com",
+     "url": "https://14180476.s21i.faiusr.com/61/ABUIABA9GAAg1rfAxQYo4P63Xg.pdf",
+     "how": "an alternative mount on the front cover, around the output (the drawing's upper views)",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "datasheet",
+   "sources": [
+    "datasheet"
+   ],
+   "stats": null
+  },
+  {
+   "key": "rated_torque",
+   "label": "Rated torque",
+   "unit": "N·m",
+   "sec": "Output performance",
+   "bench": "thermal run at constant torque to the winding limit (T8)",
+   "note": "the stated value is SteadyWin's GDZ34 driver column",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "1.05 N·m",
+     "n": 1.05,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "row 额定扭矩(Nominal Torque), N.M, GDZ34 driver column; the GDS34 column states 1",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [
+    {
+     "status": "derived",
+     "text": "1.214 continuous",
+     "n": 1.21430310511246,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 1 thermal × board Kt_out",
+     "url": "",
+     "how": "2.386 A to 80 °C × 0.5089 N·m/A",
+     "ci": null,
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "derived",
+     "text": "1.356 continuous",
+     "n": 1.3557601512346835,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 14 thermal × board Kt_out",
+     "url": "",
+     "how": "2.665 A to 80 °C × 0.5087 N·m/A",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "status": "datasheet",
+   "sources": [
+    "datasheet",
+    "derived"
+   ],
+   "stats": null
+  },
+  {
+   "key": "peak_torque",
+   "label": "Peak torque",
+   "unit": "N·m",
+   "sec": "Output performance",
+   "bench": "stall at the driver's peak current, kt × I (T6)",
+   "note": "GDZ34 column; the GDS34 column states 3.47 N·m",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "3.82 N·m",
+     "n": 3.82,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "row 堵转扭矩(Stall Torque), N.M, GDZ34 driver column; the GDS34 column states 3.47",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "datasheet",
+   "sources": [
+    "datasheet"
+   ],
+   "stats": null
+  },
+  {
+   "key": "rated_speed",
+   "label": "Rated speed",
+   "unit": "rpm",
+   "sec": "Output performance",
+   "bench": "torque–speed ladder (T7)",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "312.0 rpm",
+     "n": 312.0,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "row 减速后额定转速(Nominal Speed after Reduce), RPM, GDZ34 driver column; the GDS34 column states 300",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "datasheet",
+   "sources": [
+    "datasheet"
+   ],
+   "stats": null
+  },
+  {
+   "key": "max_output_speed",
+   "label": "Max (no-load) speed",
+   "unit": "rpm",
+   "sec": "Output performance",
+   "bench": "no-load speed ladder at a stated bus voltage (T7)",
+   "note": "measured at another bus voltage: needs conditions.bus_voltage (F6)",
+   "feeds": [],
+   "req": [],
+   "comparable": false,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "402.0 rpm",
+     "n": 402.0,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "row 减速后最大转速(Max Speed after Reduce), RPM, GDZ34 driver column; the GDS34 column states 366",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [
+    {
+     "status": "measured",
+     "text": "505.2 at 36.5 V (52.9 rad/s)",
+     "n": 505.1577893736758,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "the fastest |qd| any ladder run reached, with moteus' voltage limiter (98) engaged, bus 36.5 V",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [
+    {
+     "status": "derived",
+     "text": "390.1 at 24 V",
+     "n": 390.14639999999997,
+     "unit": "",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "Kv × V / ratio",
+     "url": "",
+     "how": "162.6 rpm/V (CAN 14 board) × 24 V / 10",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "status": "measured",
+   "sources": [
+    "datasheet",
+    "measured",
+    "derived"
+   ],
+   "stats": null
+  },
+  {
+   "key": "torque_speed_envelope",
+   "label": "Torque–speed envelope",
+   "unit": "",
+   "sec": "Output performance",
+   "bench": "speed ladder × torque caps (T7)",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "gear_ratio",
+   "label": "Gear ratio",
+   "unit": ":1",
+   "sec": "Drivetrain",
+   "bench": "camera vs encoder angle ratio (T5)",
+   "note": "",
+   "feeds": [
+    "datasheet"
+   ],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "10.0:1",
+     "n": 10.0,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "row 减速比(Gear Rate), both driver columns",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [
+    {
+     "status": "measured",
+     "text": "9.615 [9.469, 9.757]",
+     "n": 9.615,
+     "unit": "unit …145a",
+     "origin": "robotparts",
+     "date": "2026-10-21",
+     "src": "robotparts record (as_mounted)",
+     "url": "https://github.com/zacharyyamaoka/bam_ws/blob/7157b86a342917bdcc7915113eb906bba12f294f/src/dev/bam_rack_twin/records/one-dof-test-rack/deployment.json#L216-L221",
+     "how": "Camera ground truth: an ArUco tag on the output, posed by solvePnP (IPPE_SQUARE) in RealSense D405 colour frames while the board turned the rotor; the camera/encoder angle ratio about the tag's own axis, 95% CI by block bootstrap (bam_rack_twin README lines 35-40). The source states output turns per rotor turn; inverted here to rotor turns per output turn.",
+     "ci": [
+      9.469,
+      9.757
+     ],
+     "can": "1",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "measured",
+   "sources": [
+    "datasheet",
+    "measured"
+   ],
+   "stats": {
+    "n": 1,
+    "min": 9.615,
+    "max": 9.615,
+    "avg": 9.615,
+    "median": 9.615,
+    "values": [
+     9.615
+    ]
+   }
+  },
+  {
+   "key": "backlash",
+   "label": "Backlash",
+   "unit": "arcmin",
+   "sec": "Drivetrain",
+   "bench": "staircase holds, camera vs encoder (T5)",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "15.0 arcmin",
+     "n": 15.0,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "row 减速器齿轮背隙(Reducer Gear Backlash), arcmin, both driver columns",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [
+    {
+     "status": "refused",
+     "text": "5.673 [-7.571, 20.08]",
+     "n": null,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "camera tag (output) vs encoder (rotor / N) at settled staircase holds, differenced per level (up vs down)",
+     "ci": [
+      -7.570820544078907,
+      20.077104080795127
+     ],
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "measured",
+     "text": "12.21 [8.131, 15.92]",
+     "n": 12.213364857312035,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "camera tag (output) vs encoder (rotor / N) at settled staircase holds, differenced per level (up vs down)",
+     "ci": [
+      8.131257153395078,
+      15.919932466450108
+     ],
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "measured",
+   "sources": [
+    "datasheet",
+    "measured"
+   ],
+   "stats": {
+    "n": 1,
+    "min": 12.213364857312035,
+    "max": 12.213364857312035,
+    "avg": 12.213364857312035,
+    "median": 12.213364857312035,
+    "values": [
+     12.213364857312035
+    ]
+   }
+  },
+  {
+   "key": "torsional_stiffness",
+   "label": "Torsional stiffness",
+   "unit": "N·m/rad",
+   "sec": "Drivetrain",
+   "bench": "clamp the output, ramp the torque (T5)",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "partial",
+     "text": "≥ 460.8 (gear + stop in series)",
+     "n": null,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "a bound, not a value; a clamp at the output would separate them",
+     "ci": [
+      435.1,
+      486.4
+     ],
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "pending",
+     "text": "pending",
+     "n": null,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "needs the output held still under torque (a hard stop or a clamp); CAN 14 turns freely",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "partial",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "efficiency",
+   "label": "Efficiency",
+   "unit": "%",
+   "sec": "Drivetrain",
+   "bench": "input vs output power on a dyno",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "gearbox_input_inertia",
+   "label": "Input inertia",
+   "unit": "kg·m²",
+   "sec": "Drivetrain",
+   "bench": "chirp with nothing on the output, minus the rotor",
+   "note": "",
+   "feeds": [
+    "datasheet"
+   ],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "bearing_radial_load",
+   "label": "Bearing radial load",
+   "unit": "N",
+   "sec": "Drivetrain",
+   "bench": "the maker only",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "500.0 N",
+     "n": 500.0,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "row 径向最大负载(Max Radial Load), N, both driver columns",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "datasheet",
+   "sources": [
+    "datasheet"
+   ],
+   "stats": null
+  },
+  {
+   "key": "bearing_axial_load",
+   "label": "Bearing axial load",
+   "unit": "N",
+   "sec": "Drivetrain",
+   "bench": "the maker only",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "125.0 N",
+     "n": 125.0,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "row 轴向最大负载(Max Axial Load), N, both driver columns",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "datasheet",
+   "sources": [
+    "datasheet"
+   ],
+   "stats": null
+  },
+  {
+   "key": "pole_pairs",
+   "label": "Pole pairs",
+   "unit": "",
+   "sec": "Motor electrical",
+   "bench": "driver calibration",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "14",
+     "n": 14.0,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "row 极对数(Number of Pole Pairs), Pairs, both driver columns",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [
+    {
+     "status": "board",
+     "text": "14",
+     "n": 14,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "conf get motor.poles / 2",
+     "ci": null,
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "board",
+     "text": "14",
+     "n": 14,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "conf get motor.poles / 2",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "meas": [],
+   "der": [],
+   "status": "board",
+   "sources": [
+    "datasheet",
+    "board"
+   ],
+   "stats": null
+  },
+  {
+   "key": "kv",
+   "label": "Kv",
+   "unit": "rpm/V",
+   "sec": "Motor electrical",
+   "bench": "driver calibration or a back-EMF spin",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "152.5–167.5",
+     "n": 160.0,
+     "unit": "",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "SteadyWin page, as the rack card read it",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [
+    {
+     "status": "board",
+     "text": "162.5",
+     "n": 162.497,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "conf get motor.Kv",
+     "ci": null,
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "board",
+     "text": "162.6",
+     "n": 162.561,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "conf get motor.Kv",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "meas": [],
+   "der": [],
+   "status": "board",
+   "sources": [
+    "datasheet",
+    "board"
+   ],
+   "stats": null
+  },
+  {
+   "key": "kt",
+   "label": "Kt (rotor, peak A)",
+   "unit": "N·m/A",
+   "sec": "Motor electrical",
+   "bench": "drive-gain test with a known mass (T6)",
+   "note": "before 2026-10-23 CAN 14's board read 1/1.229 of true: a stale Kv, now fixed (F5)",
+   "feeds": [
+    "datasheet",
+    "mujoco_dcmotor"
+   ],
+   "req": [
+    "mujoco_dcmotor"
+   ],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [
+    {
+     "status": "board",
+     "text": "0.05089 (0.5089 at the output)",
+     "n": 0.050892837599013405,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "moteus: 8.27 / Kv x i_q; output x the gear ratio",
+     "ci": null,
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "board",
+     "text": "0.05087 (0.5087 at the output)",
+     "n": 0.050872801172033154,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "moteus: 8.27 / Kv x i_q; output x the gear ratio",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "meas": [],
+   "der": [],
+   "status": "board",
+   "sources": [
+    "board"
+   ],
+   "stats": null
+  },
+  {
+   "key": "resistance_line_to_line",
+   "label": "Resistance, line to line",
+   "unit": "Ω",
+   "sec": "Motor electrical",
+   "bench": "driver calibration",
+   "note": "",
+   "feeds": [
+    "mujoco_dcmotor"
+   ],
+   "req": [
+    "mujoco_dcmotor"
+   ],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "1.11–1.15",
+     "n": 1.13,
+     "unit": "",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "SteadyWin page, as the rack card read it",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [
+    {
+     "status": "board",
+     "text": "1.264 (2 × 0.6319 phase)",
+     "n": 1.263714,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "moteus_tool calibration (conf get motor.resistance_ohm)",
+     "ci": null,
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "board",
+     "text": "1.302 (2 × 0.651 phase)",
+     "n": 1.302044,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "moteus_tool calibration (conf get motor.resistance_ohm)",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "meas": [],
+   "der": [],
+   "status": "board",
+   "sources": [
+    "datasheet",
+    "board"
+   ],
+   "stats": null
+  },
+  {
+   "key": "inductance_line_to_line",
+   "label": "Inductance, line to line (d / q)",
+   "unit": "mH",
+   "sec": "Motor electrical",
+   "bench": "driver calibration",
+   "note": "",
+   "feeds": [
+    "mujoco_dcmotor"
+   ],
+   "req": [],
+   "comparable": false,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "0.28–0.41",
+     "n": null,
+     "unit": "",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "SteadyWin page, as the rack card read it",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [
+    {
+     "status": "board",
+     "text": "d 0.2659, q 0.4494",
+     "n": null,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "conf get motor.inductance_d_H",
+     "ci": null,
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "board",
+     "text": "d 0.2714, q 0.4611",
+     "n": null,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "conf get motor.inductance_d_H",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "meas": [],
+   "der": [],
+   "status": "board",
+   "sources": [
+    "datasheet",
+    "board"
+   ],
+   "stats": null
+  },
+  {
+   "key": "nominal_voltage",
+   "label": "Nominal voltage",
+   "unit": "V",
+   "sec": "Motor electrical",
+   "bench": "the maker only",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "24.0 V",
+     "n": 24.0,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-22",
+     "src": "manufacturer · steadywin.cn",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "row 额定电压(Nominal Voltage), V, both driver columns; range 12~40 V (GDZ34) or 12~36 V (GDS34)",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "datasheet",
+   "sources": [
+    "datasheet"
+   ],
+   "stats": null
+  },
+  {
+   "key": "continuous_current",
+   "label": "Rated (continuous) current",
+   "unit": "A",
+   "sec": "Motor electrical",
+   "bench": "thermal run to the winding limit (T8)",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "2.18 rated",
+     "n": 2.18,
+     "unit": "",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "SteadyWin page, as the rack card read it",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [
+    {
+     "status": "measured",
+     "text": "2.386 A to 80 °C",
+     "n": 2.386,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "winding rise from copper resistance (alpha 0.00393) by fixed 1.5/0.75 A d-axis probe windows; 2-pole Foster network fitted to the rise (residual 1.4 degC)",
+     "ci": null,
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "measured",
+     "text": "2.665 A to 80 °C",
+     "n": 2.665,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "winding rise from copper resistance (alpha 0.00393) by fixed 1.5/0.75 A d-axis probe windows; 1-pole Foster network fitted to the rise (residual 3.5 degC)",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "measured",
+   "sources": [
+    "datasheet",
+    "measured"
+   ],
+   "stats": {
+    "n": 2,
+    "min": 2.386,
+    "max": 2.665,
+    "avg": 2.5255,
+    "median": 2.5255,
+    "values": [
+     2.386,
+     2.665
+    ]
+   }
+  },
+  {
+   "key": "peak_current",
+   "label": "Peak current",
+   "unit": "A",
+   "sec": "Motor electrical",
+   "bench": "the maker only",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "rotor_inertia",
+   "label": "Rotor inertia",
+   "unit": "kg·m²",
+   "sec": "Motor electrical",
+   "bench": "chirp with nothing on the output (scope part)",
+   "note": "SteadyWin publishes none",
+   "feeds": [
+    "datasheet"
+   ],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "partial",
+     "text": "≤ 6.8e-06 (a bound)",
+     "n": null,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "upper bound from the axis-inertia CI: J_rotor <= 6.8e-06 kg.m^2 (68 g.cm^2), so an older note's 100 g.cm^2 is impossible on this joint",
+     "ci": null,
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "partial",
+     "text": "≤ 2.36e-06 (a bound)",
+     "n": null,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "upper bound from the axis-inertia CI: J_rotor <= 2.36e-06 kg.m^2 (23.6 g.cm^2), so an older note's 100 g.cm^2 is impossible on this joint",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "partial",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "thermal_resistance",
+   "label": "Thermal resistance, winding",
+   "unit": "K/W",
+   "sec": "Thermal",
+   "bench": "winding-R rise under a fixed d-axis current (T8)",
+   "note": "",
+   "feeds": [
+    "mujoco_dcmotor"
+   ],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "measured",
+     "text": "4.747 + 3.865 (2-pole)",
+     "n": 8.612,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "winding rise from copper resistance (alpha 0.00393) by fixed 1.5/0.75 A d-axis probe windows; 2-pole Foster network fitted to the rise (residual 1.4 degC)",
+     "ci": null,
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "measured",
+     "text": "6.716",
+     "n": 6.716,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "winding rise from copper resistance (alpha 0.00393) by fixed 1.5/0.75 A d-axis probe windows; 1-pole Foster network fitted to the rise (residual 3.5 degC)",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "measured",
+   "sources": [
+    "measured"
+   ],
+   "stats": {
+    "n": 2,
+    "min": 6.716,
+    "max": 8.612,
+    "avg": 7.664,
+    "median": 7.664,
+    "values": [
+     6.716,
+     8.612
+    ]
+   }
+  },
+  {
+   "key": "thermal_time_constant",
+   "label": "Thermal time constant",
+   "unit": "s",
+   "sec": "Thermal",
+   "bench": "winding-R rise under a fixed d-axis current (T8)",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "measured",
+     "text": "41.1 / 556.6",
+     "n": 41.1,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "winding rise from copper resistance (alpha 0.00393) by fixed 1.5/0.75 A d-axis probe windows; 2-pole Foster network fitted to the rise (residual 1.4 degC)",
+     "ci": null,
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "measured",
+     "text": "69.4",
+     "n": 69.4,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "winding rise from copper resistance (alpha 0.00393) by fixed 1.5/0.75 A d-axis probe windows; 1-pole Foster network fitted to the rise (residual 3.5 degC)",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "measured",
+   "sources": [
+    "measured"
+   ],
+   "stats": {
+    "n": 2,
+    "min": 41.1,
+    "max": 69.4,
+    "avg": 55.25,
+    "median": 55.25,
+    "values": [
+     41.1,
+     69.4
+    ]
+   }
+  },
+  {
+   "key": "max_winding_temperature",
+   "label": "Max winding temperature",
+   "unit": "°C",
+   "sec": "Thermal",
+   "bench": "the maker only",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "80",
+     "n": 80.0,
+     "unit": "",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "SteadyWin page, as the rack card read it",
+     "url": "https://www.steadywin.cn/en/h-pd-9.html",
+     "how": "",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "datasheet",
+   "sources": [
+    "datasheet"
+   ],
+   "stats": null
+  },
+  {
+   "key": "insulation_class",
+   "label": "Insulation class",
+   "unit": "",
+   "sec": "Thermal",
+   "bench": "the maker only",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "temperature_range",
+   "label": "Operating temperature",
+   "unit": "°C",
+   "sec": "Thermal",
+   "bench": "the maker only",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "encoder_type",
+   "label": "Encoder type",
+   "unit": "",
+   "sec": "Sensing",
+   "bench": "the maker, or the driver's config",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "encoder_resolution",
+   "label": "Encoder resolution",
+   "unit": "counts/rev",
+   "sec": "Sensing",
+   "bench": "driver calibration (cpr)",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [
+    {
+     "status": "board",
+     "text": "16,384",
+     "n": 16384,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "conf get motor_position.sources.0.cpr; output quantum = 2 pi / cpr / N",
+     "ci": null,
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "board",
+     "text": "16,384",
+     "n": 16384,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "conf get motor_position.sources.0.cpr; output quantum = 2 pi / cpr / N",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "meas": [],
+   "der": [
+    {
+     "status": "derived",
+     "text": "16,384",
+     "n": 16384,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "2026-10-08",
+     "src": "2^bits (the atlas's 14 bit)",
+     "url": "",
+     "how": "",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "status": "board",
+   "sources": [
+    "board",
+    "derived"
+   ],
+   "stats": null
+  },
+  {
+   "key": "breakaway_torque",
+   "label": "Breakaway torque",
+   "unit": "N·m",
+   "sec": "Friction",
+   "bench": "slow torque ramp from rest",
+   "note": "",
+   "feeds": [
+    "stribeck",
+    "lugre"
+   ],
+   "req": [
+    "stribeck",
+    "lugre"
+   ],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "coulomb_friction",
+   "label": "Coulomb friction",
+   "unit": "N·m",
+   "sec": "Friction",
+   "bench": "velocity plateaus (identify)",
+   "note": "not yet comparable: CAN 14 refitted for the Kt fix, CAN 1's Kt check is pending; robotparts' record predates the fix (F5)",
+   "feeds": [
+    "datasheet",
+    "coulomb_viscous",
+    "stribeck",
+    "load_dependent",
+    "ripple_map",
+    "lugre"
+   ],
+   "req": [
+    "coulomb_viscous",
+    "stribeck",
+    "load_dependent",
+    "lugre"
+   ],
+   "comparable": false,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "measured",
+     "text": "0.0448",
+     "n": 0.0448,
+     "unit": "unit …4184",
+     "origin": "robotparts",
+     "date": "2026-10-21",
+     "src": "robotparts record (as_mounted)",
+     "url": "https://github.com/zacharyyamaoka/bam_ws/blob/7157b86a342917bdcc7915113eb906bba12f294f/src/dev/bam_rack_twin/bam_rack_twin/twin.py#L63-L65",
+     "how": "Coulomb plus viscous fit on settled velocity plateaus, tau = Fc*sgn(v) + b*v + tau0 (bam_rack_twin identify.py lines 5-10; its moving-block-bootstrap CI is not quoted in the source), used as the identified twin's MuJoCo frictionloss.",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    },
+    {
+     "status": "measured",
+     "text": "0.06721 [0.05349, 0.08276]",
+     "n": 0.06720834217799476,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "tau = Fc*sgn(v_cmd) + b*v_cmd + tau0 on plateau rows >= 0.5 s after each speed change, block bootstrap",
+     "ci": [
+      0.053493297125557636,
+      0.08275880238479862
+     ],
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "measured",
+     "text": "0.0508 true (0.04133 board × 1.229)",
+     "n": 0.05079994902282301,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "tau = Fc*sgn(v_cmd) + b*v_cmd + tau0 on plateau rows >= 0.5 s after each speed change, block bootstrap",
+     "ci": [
+      0.03967716627822669,
+      0.04354372908224075
+     ],
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "measured",
+   "sources": [
+    "measured"
+   ],
+   "stats": null
+  },
+  {
+   "key": "viscous_friction",
+   "label": "Viscous friction",
+   "unit": "N·m·s/rad",
+   "sec": "Friction",
+   "bench": "velocity plateaus (identify)",
+   "note": "",
+   "feeds": [
+    "datasheet",
+    "coulomb_viscous",
+    "stribeck",
+    "load_dependent",
+    "ripple_map"
+   ],
+   "req": [
+    "coulomb_viscous",
+    "stribeck",
+    "load_dependent"
+   ],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "refused",
+     "text": "-0.361 (negative)",
+     "n": null,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "tau = Fc*sgn(v_cmd) + b*v_cmd + tau0 on plateau rows >= 0.5 s after each speed change, block bootstrap",
+     "ci": [
+      -0.7923129196540782,
+      0.023319652437782213
+     ],
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "refused",
+     "text": "-0.00656 (negative)",
+     "n": null,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "tau = Fc*sgn(v_cmd) + b*v_cmd + tau0 on plateau rows >= 0.5 s after each speed change, block bootstrap",
+     "ci": [
+      -0.009949451937309103,
+      -0.00393923307347696
+     ],
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "refused",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "stribeck_velocity",
+   "label": "Stribeck velocity",
+   "unit": "rad/s",
+   "sec": "Friction",
+   "bench": "plateaus below 1 rad/s",
+   "note": "CAN 14 holds a linear weakening slope, not Fs and vs (F6)",
+   "feeds": [
+    "stribeck",
+    "lugre"
+   ],
+   "req": [
+    "stribeck",
+    "lugre"
+   ],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "partial",
+     "text": "slope 0.00656 N·m·s/rad, not vs",
+     "n": null,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "minus the plateaus' viscous slope b (tau = Fc*sgn(v) + b*v + tau0), applied up to the fastest plateau speed",
+     "ci": [
+      0.00393923307347696,
+      0.009949451937309103
+     ],
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "partial",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "friction_load_coefficient",
+   "label": "Load-dependent friction",
+   "unit": "",
+   "sec": "Friction",
+   "bench": "plateaus under a load or gravity sweep",
+   "note": "",
+   "feeds": [
+    "load_dependent"
+   ],
+   "req": [
+    "load_dependent"
+   ],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "friction_radial_coefficient",
+   "label": "Radial-load friction (new)",
+   "unit": "N·m/N",
+   "sec": "Friction",
+   "bench": "arm length vs mass sweep",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "torque_ripple",
+   "label": "Torque ripple per rotor harmonic",
+   "unit": "mN·m",
+   "sec": "Friction",
+   "bench": "settled plateaus, rotor-harmonic fit",
+   "note": "amplitudes only, no phase: not a map",
+   "feeds": [],
+   "req": [],
+   "comparable": false,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "measured",
+     "text": "k14: 21",
+     "n": 21,
+     "unit": "unit …4184",
+     "origin": "robotparts",
+     "date": "2026-10-21",
+     "src": "robotparts record (as_mounted)",
+     "url": "https://github.com/zacharyyamaoka/bam_ws/blob/7157b86a342917bdcc7915113eb906bba12f294f/src/dev/bam_rack_twin/bam_rack_twin/twin.py#L84-L85",
+     "how": "Rotor-harmonic fit on the same velocity plateaus, tau = c_plateau + sum_k a_k cos(k r q) + b_k sin(k r q) (bam_rack_twin identify.py lines 5-10, identified+ twin); the amplitude at one harmonic.",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    },
+    {
+     "status": "measured",
+     "text": "k28: 10",
+     "n": 10,
+     "unit": "unit …4184",
+     "origin": "robotparts",
+     "date": "2026-10-21",
+     "src": "robotparts record (as_mounted)",
+     "url": "https://github.com/zacharyyamaoka/bam_ws/blob/7157b86a342917bdcc7915113eb906bba12f294f/src/dev/bam_rack_twin/bam_rack_twin/twin.py#L84-L85",
+     "how": "Rotor-harmonic fit on the same velocity plateaus, tau = c_plateau + sum_k a_k cos(k r q) + b_k sin(k r q) (bam_rack_twin identify.py lines 5-10, identified+ twin); the amplitude at one harmonic.",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    },
+    {
+     "status": "measured",
+     "text": "k24: 9",
+     "n": 9,
+     "unit": "unit …4184",
+     "origin": "robotparts",
+     "date": "2026-10-21",
+     "src": "robotparts record (as_mounted)",
+     "url": "https://github.com/zacharyyamaoka/bam_ws/blob/7157b86a342917bdcc7915113eb906bba12f294f/src/dev/bam_rack_twin/bam_rack_twin/twin.py#L84-L85",
+     "how": "Rotor-harmonic fit on the same velocity plateaus, tau = c_plateau + sum_k a_k cos(k r q) + b_k sin(k r q) (bam_rack_twin identify.py lines 5-10, identified+ twin); the amplitude at one harmonic.",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "measured",
+   "sources": [
+    "measured"
+   ],
+   "stats": null
+  },
+  {
+   "key": "ripple_map",
+   "label": "Ripple map (rotor angle, RMS)",
+   "unit": "mN·m",
+   "sec": "Friction",
+   "bench": "settled plateaus, rotor-harmonic fit with phase",
+   "note": "96 harmonics with phase in CAN 14's identified+ twin",
+   "feeds": [
+    "ripple_map",
+    "mujoco_dcmotor"
+   ],
+   "req": [
+    "ripple_map"
+   ],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "measured",
+     "text": "RMS 21.63 [19.78, 22.14]",
+     "n": 21.628663281743428,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "tau = c_plateau + sum_k a_k cos(k*10*q) + b_k sin, k = 1..32 per rotor revolution, on settled plateaus with k_max*r*|v|/2pi <= 0.7 x the reply Nyquist rate; block bootstrap of the map RMS; tiers [64, 128] only if every leave-one-run-out fold gains >= 0.02 R2",
+     "ci": [
+      0.01978032316117158,
+      0.02213662494370413
+     ],
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "measured",
+     "text": "RMS 18.63 [17.97, 19.27]",
+     "n": 18.62968902532038,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-23",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "tau = c_plateau + sum_k a_k cos(k*10*q) + b_k sin, k = 1..32 per rotor revolution, on settled plateaus with k_max*r*|v|/2pi <= 0.7 x the reply Nyquist rate; block bootstrap of the map RMS; tiers [64, 128] only if every leave-one-run-out fold gains >= 0.02 R2",
+     "ci": [
+      0.017969420514344338,
+      0.019267187243076415
+     ],
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "measured",
+   "sources": [
+    "measured"
+   ],
+   "stats": {
+    "n": 2,
+    "min": 18.62968902532038,
+    "max": 21.628663281743428,
+    "avg": 20.129176153531905,
+    "median": 20.129176153531905,
+    "values": [
+     18.62968902532038,
+     21.628663281743428
+    ]
+   }
+  },
+  {
+   "key": "capture_friction_torque",
+   "label": "Capture friction (candidate key)",
+   "unit": "N·m",
+   "sec": "Friction",
+   "bench": "stop-and-hold tapes, fitted in the twin",
+   "note": "candidate key, added to §1 as a candidate, not agreed; not fitted on either GIM (CAN 11–13: 0.42–0.68 N·m, twin_round7)",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": true,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "candidate",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "position_repeatability",
+   "label": "Position repeatability (floor)",
+   "unit": "mrad",
+   "sec": "Servo-level measured",
+   "bench": "5 identical repeats of one tape (T1)",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "measured",
+     "text": "0.897",
+     "n": 0.8968246573548182,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "floors.json",
+     "url": "",
+     "how": "median pairwise RMS(e_a - e_b), e = q - q_target, identical repeats of one tape; 5 repeats",
+     "ci": null,
+     "can": "1",
+     "kind": "suite"
+    },
+    {
+     "status": "measured",
+     "text": "1.08",
+     "n": 1.0818021601625174,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "floors.json",
+     "url": "",
+     "how": "median pairwise RMS(e_a - e_b), e = q - q_target, identical repeats of one tape; 5 repeats",
+     "ci": null,
+     "can": "14",
+     "kind": "suite"
+    }
+   ],
+   "der": [],
+   "status": "measured",
+   "sources": [
+    "measured"
+   ],
+   "stats": {
+    "n": 2,
+    "min": 0.8968246573548182,
+    "max": 1.0818021601625174,
+    "avg": 0.9893134087586678,
+    "median": 0.9893134087586678,
+    "values": [
+     0.8968246573548182,
+     1.0818021601625174
+    ]
+   }
+  },
+  {
+   "key": "stop_accuracy",
+   "label": "Stop accuracy, p90",
+   "unit": "mrad",
+   "sec": "Servo-level measured",
+   "bench": "waypoint stops, camera at the output (T4)",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "measured",
+     "text": "4.02",
+     "n": 4.019260646514411,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "stop_accuracy.json",
+     "url": "",
+     "how": "15 stops, encoder side, plain PD",
+     "ci": null,
+     "can": "1",
+     "kind": "suite"
+    },
+    {
+     "status": "measured",
+     "text": "3.38",
+     "n": 3.375112899980093,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "stop_accuracy.json",
+     "url": "",
+     "how": "16 stops, encoder side, plain PD",
+     "ci": null,
+     "can": "14",
+     "kind": "suite"
+    }
+   ],
+   "der": [],
+   "status": "measured",
+   "sources": [
+    "measured"
+   ],
+   "stats": {
+    "n": 2,
+    "min": 3.375112899980093,
+    "max": 4.019260646514411,
+    "avg": 3.697186773247252,
+    "median": 3.697186773247252,
+    "values": [
+     3.375112899980093,
+     4.019260646514411
+    ]
+   }
+  },
+  {
+   "key": "twin_tracking_error",
+   "label": "Twin tracking error, held out",
+   "unit": "mrad",
+   "sec": "Servo-level measured",
+   "bench": "held-out tapes vs the twin (T2)",
+   "note": "twin-grade needs ≤ 1.5 × floor: 1.35 mrad (unit …145a), 1.62 mrad (unit …4184)",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "measured",
+     "text": "2.76 (3.08× floor)",
+     "n": 2.758796,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-26",
+     "src": "acceptance.json",
+     "url": "",
+     "how": "held-out tapes; no sim_model_sha256 pinned in robotparts yet",
+     "ci": null,
+     "can": "1",
+     "kind": "suite"
+    },
+    {
+     "status": "measured",
+     "text": "4.09 (3.78× floor)",
+     "n": 4.085806,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-26",
+     "src": "acceptance.json",
+     "url": "",
+     "how": "held-out tapes; no sim_model_sha256 pinned in robotparts yet",
+     "ci": null,
+     "can": "14",
+     "kind": "suite"
+    }
+   ],
+   "der": [],
+   "status": "measured",
+   "sources": [
+    "measured"
+   ],
+   "stats": {
+    "n": 2,
+    "min": 2.758796,
+    "max": 4.085806,
+    "avg": 3.422301,
+    "median": 3.422301,
+    "values": [
+     2.758796,
+     4.085806
+    ]
+   }
+  },
+  {
+   "key": "thermal_envelope",
+   "label": "Continuous thermal envelope",
+   "unit": "A",
+   "sec": "Servo-level measured",
+   "bench": "continuous-current runs to the limit (T8)",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [
+    {
+     "status": "measured",
+     "text": "2.386 A to 80 °C",
+     "n": 2.386,
+     "unit": "unit …145a",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 1 model card",
+     "url": "",
+     "how": "winding rise from copper resistance (alpha 0.00393) by fixed 1.5/0.75 A d-axis probe windows; 2-pole Foster network fitted to the rise (residual 1.4 degC)",
+     "ci": null,
+     "can": "1",
+     "kind": null
+    },
+    {
+     "status": "measured",
+     "text": "2.665 A to 80 °C",
+     "n": 2.665,
+     "unit": "unit …4184",
+     "origin": "rack",
+     "date": "2026-10-24",
+     "src": "CAN 14 model card",
+     "url": "",
+     "how": "winding rise from copper resistance (alpha 0.00393) by fixed 1.5/0.75 A d-axis probe windows; 1-pole Foster network fitted to the rise (residual 3.5 degC)",
+     "ci": null,
+     "can": "14",
+     "kind": null
+    }
+   ],
+   "der": [],
+   "status": "measured",
+   "sources": [
+    "measured"
+   ],
+   "stats": {
+    "n": 2,
+    "min": 2.386,
+    "max": 2.665,
+    "avg": 2.5255,
+    "median": 2.5255,
+    "values": [
+     2.386,
+     2.665
+    ]
+   }
+  },
+  {
+   "key": "ports",
+   "label": "Ports",
+   "unit": "",
+   "sec": "Ports, diagnostics & environment",
+   "bench": "the part folder's ports",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [
+    {
+     "status": "datasheet",
+     "text": "mount (mechanical.mount); front_mount (mechanical.mount); output (mechanical.output)",
+     "n": null,
+     "unit": "",
+     "origin": "robotparts",
+     "date": "",
+     "src": "part folder · ports",
+     "url": "",
+     "how": "",
+     "ci": null,
+     "can": null,
+     "kind": null
+    }
+   ],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "datasheet",
+   "sources": [
+    "datasheet"
+   ],
+   "stats": null
+  },
+  {
+   "key": "diagnostics",
+   "label": "Diagnostics",
+   "unit": "",
+   "sec": "Ports, diagnostics & environment",
+   "bench": "the part folder's diagnostics",
+   "note": "",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  },
+  {
+   "key": "ip_rating",
+   "label": "IP rating",
+   "unit": "",
+   "sec": "Ports, diagnostics & environment",
+   "bench": "the maker only",
+   "note": "not stated",
+   "feeds": [],
+   "req": [],
+   "comparable": true,
+   "candidate": false,
+   "ds": [],
+   "board": [],
+   "meas": [],
+   "der": [],
+   "status": "missing",
+   "sources": [],
+   "stats": null
+  }
+ ]
+}

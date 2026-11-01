@@ -1,0 +1,123 @@
+{
+ "id": "checks",
+ "title": "Checks",
+ "titleProperty": "name",
+ "source": "synthetic: tests/browser/fixtures/dx_asks_2/make_fixture.py (illustrative numbers)",
+ "properties": {
+  "id": {
+   "type": "text"
+  },
+  "t": {
+   "type": "number",
+   "unit": "s"
+  },
+  "name": {
+   "type": "text",
+   "label": "Check"
+  },
+  "level": {
+   "type": "text",
+   "label": "Level"
+  },
+  "message": {
+   "type": "text",
+   "label": "Message"
+  },
+  "metric": {
+   "type": "text",
+   "label": "Metric"
+  },
+  "value": {
+   "type": "number",
+   "label": "Value"
+  },
+  "unit": {
+   "type": "text",
+   "label": "Unit"
+  },
+  "t0": {
+   "type": "number",
+   "label": "From"
+  },
+  "t1": {
+   "type": "number",
+   "label": "To"
+  },
+  "run": {
+   "type": "text",
+   "label": "Run"
+  },
+  "diagnostic": {
+   "type": "text",
+   "label": "Diagnostic"
+  },
+  "hint": {
+   "type": "text",
+   "label": "View"
+  },
+  "role": {
+   "type": "text",
+   "label": "Role"
+  },
+  "note": {
+   "type": "text",
+   "label": "Note"
+  }
+ },
+ "rows": [
+  {
+   "id": "stock",
+   "t": 1792631001.0,
+   "name": "Board temperature",
+   "level": "warn",
+   "message": "above its warn limit",
+   "metric": "board_temp",
+   "value": 61.2,
+   "unit": "Cel",
+   "t0": 1792630990.0,
+   "t1": 1792631000.0,
+   "run": "r1",
+   "diagnostic": "driver.board_temp",
+   "hint": "threshold_band",
+   "role": "health",
+   "note": "reviewed"
+  },
+  {
+   "id": "plain",
+   "t": 1792631001.0,
+   "name": "Heartbeat",
+   "level": "ok",
+   "message": "alive",
+   "metric": null,
+   "value": null,
+   "unit": null,
+   "t0": null,
+   "t1": null,
+   "run": null,
+   "diagnostic": null,
+   "hint": null,
+   "role": null,
+   "note": {
+    "value": null,
+    "why": "not measured on this host"
+   }
+  },
+  {
+   "id": "evidence",
+   "t": 1792631001.0,
+   "name": "Stop error",
+   "level": "ok",
+   "message": "within tolerance",
+   "metric": null,
+   "value": null,
+   "unit": null,
+   "t0": null,
+   "t1": null,
+   "run": null,
+   "diagnostic": null,
+   "hint": null,
+   "role": null,
+   "note": null
+  }
+ ]
+}

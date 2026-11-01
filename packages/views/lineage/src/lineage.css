@@ -1,0 +1,82 @@
+/* type: lineage. Colours only from the private --dv-* tokens (docs/CONTRACT.md §4), so light and dark follow the host.
+   The trunk is the accent and the widest line; a living branch is the muted rule; an extinct line is a hairline stub;
+   a splice is dashed (dashed is data: a second parent; every link is the one curve, layout.js). WHY these widths: the trunk must read at a glance against ~200 branches (Brandbook's donor drew
+   it the same way), and an extinct stub must recede without vanishing. */
+
+.dv-view-lineage { position: relative; flex: 1 1 auto; min-height: 0; display: flex; }
+.dv-lineage { position: relative; flex: 1 1 auto; min-width: 0; min-height: 320px; display: flex; background: var(--dv-bg); color: var(--dv-fg); }
+.dv-lineage-stage { position: relative; flex: 1 1 auto; min-width: 0; overflow: hidden; }
+.dv-lineage-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; user-select: none; }
+.dv-lineage-svg:active { cursor: grabbing; }
+
+.dv-lineage-bar { position: absolute; z-index: 2; top: 8px; left: 8px; right: 8px; display: flex; flex-wrap: wrap; gap: 6px; pointer-events: none; }
+.dv-lineage-bar > * { pointer-events: auto; }
+.dv-lineage-bar .dv-btn { background: var(--dv-bg); }
+.dv-lineage-bar .dv-btn[aria-pressed="true"] { background: var(--dv-subtle); color: var(--dv-fg); border-color: var(--dv-muted); }
+.dv-lineage-bar .dv-btn:disabled { opacity: .5; cursor: default; }
+.dv-lineage-seg { display: inline-flex; }
+.dv-lineage-seg .dv-btn:first-child { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.dv-lineage-seg .dv-btn:last-child { border-top-left-radius: 0; border-bottom-left-radius: 0; margin-left: -1px; }
+
+.dv-lineage-guide { fill: none; stroke: var(--dv-rule); stroke-width: 1; stroke-dasharray: 2 4; }
+.dv-lineage-tick { fill: var(--dv-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+
+.dv-lineage-edge, .dv-lineage-splice, .dv-lineage-stub { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.dv-lineage-edge.dv-branch { stroke: var(--dv-muted); stroke-width: 1.4; }
+.dv-lineage-edge.dv-golden { stroke: var(--dv-accent); stroke-width: 3.4; }
+.dv-lineage-edge.dv-extinct, .dv-lineage-stub { stroke: var(--dv-border); stroke-width: .6; }
+.dv-lineage-splice { stroke: var(--dv-muted); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.dv-lineage-splice.dv-golden { stroke: var(--dv-accent); stroke-width: 2; }
+.dv-lineage-splice.dv-extinct { stroke: var(--dv-border); stroke-width: .6; }
+
+.dv-lineage-node { cursor: pointer; outline: none; }
+.dv-lineage-node .dv-lineage-dot { fill: var(--dv-bg); stroke: var(--dv-muted); stroke-width: 1.2; }
+.dv-lineage-node .dv-lineage-frame { fill: none; stroke: var(--dv-border); stroke-width: 1; }
+.dv-lineage-well { fill: var(--dv-bg); }
+.dv-lineage-label { fill: currentColor; font-size: 11px; }
+.dv-lineage-node.dv-extinct { opacity: .5; }
+.dv-lineage-node.dv-group { opacity: 1; }
+.dv-lineage-node.dv-group .dv-lineage-dot { fill: var(--dv-subtle); stroke: var(--dv-border); stroke-dasharray: 2 2; }
+.dv-lineage-node.dv-group .dv-lineage-label { fill: var(--dv-muted); }
+.dv-lineage-node.dv-golden .dv-lineage-dot { stroke: var(--dv-accent); stroke-width: 2; }
+.dv-lineage-node.dv-golden circle.dv-lineage-dot { fill: var(--dv-accent); }
+.dv-lineage-node.dv-focus .dv-lineage-dot { stroke: var(--dv-accent); stroke-width: 3.5; }
+.dv-lineage-node.dv-selected .dv-lineage-dot { stroke: var(--dv-fg); stroke-width: 2.5; }
+.dv-lineage-node:hover .dv-lineage-dot, .dv-lineage-node:focus-visible .dv-lineage-dot { stroke: var(--dv-fg); }
+.dv-lineage-node:hover .dv-lineage-label { font-weight: 600; }
+.dv-lineage-root .dv-lineage-dot { fill: var(--dv-muted); }
+
+/* the path panel: right of the tree, resizable (§11: the host's panel reads --data-panel-width), folds to a strip */
+.dv-lineage-panel { flex: 0 0 auto; width: var(--data-panel-width, 260px); min-width: 0; display: flex; flex-direction: column; border-left: 1px solid var(--dv-border); background: var(--dv-bg); overflow: hidden; }
+.dv-lineage-panel.dv-folded { width: 32px; }
+.dv-lineage-panelhead { display: flex; align-items: center; gap: 6px; padding: 6px 6px 6px 10px; border-bottom: 1px solid var(--dv-rule); font-weight: 600; font-size: 12px; }
+.dv-lineage-paneltitle { flex: 1 1 auto; min-width: 0; }
+.dv-lineage-fold { flex: 0 0 auto; width: 22px; height: 22px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); background: var(--dv-bg); color: var(--dv-fg); cursor: pointer; font: inherit; line-height: 1; padding: 0; }
+.dv-lineage-fold:hover { background: var(--dv-hover); }
+.dv-lineage-panel.dv-folded .dv-lineage-panelhead { flex-direction: column; padding: 6px 4px; border-bottom: 0; }
+.dv-lineage-panel.dv-folded .dv-lineage-paneltitle { writing-mode: vertical-rl; order: 2; flex: 0 0 auto; }
+.dv-lineage-panel.dv-folded .dv-lineage-panelbody { display: none; }
+.dv-lineage-panelbody { flex: 1 1 auto; overflow: auto; padding: 8px 10px 12px; font-size: 12px; }
+.dv-lineage-pathtitle, .dv-lineage-hint { margin: 0 0 8px; color: var(--dv-muted); }
+.dv-lineage-pathtitle b { color: var(--dv-fg); }
+.dv-lineage-steps { list-style: none; margin: 0; padding: 0; }
+.dv-lineage-step { position: relative; padding-left: 14px; }
+.dv-lineage-step::before { content: ''; position: absolute; left: 4px; top: 0; bottom: 0; width: 2px; background: var(--dv-accent); }
+.dv-lineage-step:first-child::before { top: 50%; }
+.dv-lineage-step:last-child::before { bottom: 50%; }
+.dv-lineage-step button { display: flex; align-items: center; gap: 8px; width: 100%; padding: 4px 6px; border: 0; border-radius: var(--dv-radius); background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.dv-lineage-step button:hover { background: var(--dv-hover); }
+.dv-lineage-step img { flex: 0 0 auto; width: 32px; height: 32px; object-fit: contain; border: 1px solid var(--dv-border); border-radius: 3px; background: var(--dv-bg); }
+.dv-lineage-stepdot { flex: 0 0 auto; width: 9px; height: 9px; border-radius: 50%; background: var(--dv-accent); }
+.dv-lineage-steptext { display: flex; flex-direction: column; min-width: 0; }
+.dv-lineage-stepname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-lineage-stepsub { color: var(--dv-muted); font-size: 11px; }
+.dv-lineage-step.dv-focus .dv-lineage-stepname { font-weight: 600; }
+
+/* narrow (the view under 700 px): the panel stacks under the tree, full width; folded it is its header */
+.dv-lineage.dv-narrow { flex-direction: column; }
+.dv-lineage.dv-narrow .dv-lineage-stage { min-height: 260px; }
+.dv-lineage.dv-narrow .dv-lineage-panel { width: auto; max-height: 40%; border-left: 0; border-top: 1px solid var(--dv-border); }
+.dv-lineage.dv-narrow .dv-lineage-panel.dv-folded { width: auto; max-height: none; }
+.dv-lineage.dv-narrow .dv-lineage-panel.dv-folded .dv-lineage-panelhead { flex-direction: row; padding: 6px 6px 6px 10px; }
+.dv-lineage.dv-narrow .dv-lineage-panel.dv-folded .dv-lineage-paneltitle { writing-mode: horizontal-tb; order: 0; flex: 1 1 auto; }

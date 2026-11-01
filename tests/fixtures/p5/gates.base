@@ -1,0 +1,86 @@
+# PEP 0010 P5's checker fixture (docs/CONTRACT.md §35): every key the diagnostics and gates overlay adds, over small
+# files beside it. tests/unit/check-p5.test.mjs and tools/test_check_p5.py swap one line at a time.
+data: runs.json
+clock: { data: samples, time: t }
+datasets:
+  runs:
+    data: runs.json
+    facets:
+      - { property: run, as: select, label: Run }
+  samples: samples.json
+  checks: checks.json
+  windows: windows.json
+  components:
+    data: components.json
+    tree: { parent: parent }
+    rollup: { from: checks, values: { worst: { property: rank, summary: Max } } }
+  poses: poses.json
+  grid: grid.json
+links:
+  - { from: runs.run, to: samples.run, direction: one-way }
+  - { from: runs.run, to: windows.run, direction: one-way }
+  - { from: checks.device, to: components.id }
+layout:
+  panels:
+    - { view: Gate matrix, w: 12, h: 3 }
+    - { view: Check rows, w: 12, h: 3 }
+    - { view: Limits, w: 6, h: 3 }
+    - { view: Live limits, w: 6, h: 3 }
+    - { view: Trend, w: 6, h: 3 }
+    - { view: History, w: 6, h: 3 }
+    - { view: Tree, w: 6, h: 3 }
+    - { view: Path, w: 6, h: 3 }
+    - { view: Reach, w: 6, h: 3 }
+views:
+  - type: tracker
+    name: Gate matrix
+    from: checks
+    groupBy: { property: device }
+    sort:
+      - { property: order, direction: ASC }
+    tracker: { state: verdict, label: title, column: title, columns: [tracking, temperature], order: [pass, warn, not_run, fail], tones: { not_run: muted } }
+    display: { verdict: status, evidence: link }
+    record:
+      sections:
+        - { name: Verdict, properties: [verdict, value, warn_hi, error_hi, message] }
+        - name: Evidence
+          properties: [evidence, t0, t1]
+          view: { type: timeseries, name: Evidence, from: samples, filters: 'run == this.run && t >= this.t0 && t <= this.t1', timeseries: { x: t, 'y': q_deg, series: situation } }
+        - name: The window
+          view: { type: table, name: Window, from: windows, filters: 'run == this.run && title == this.title', order: [t, value, verdict] }
+  - type: table
+    name: Check rows
+    from: checks
+    order: [device, title, verdict, value]
+    display: { verdict: status }
+  - type: timeseries
+    name: Limits
+    from: windows
+    timeseries: { x: t, 'y': value, series: device, limits: { warn: [warn_lo, warn_hi], error: [null, error_hi] } }
+  - type: plot
+    name: Live limits
+    from: windows
+    plot: { x: t, 'y': value, series: device, limits: { error: [error_lo, error_hi] } }
+  - type: kpi
+    name: Trend
+    from: checks
+    filters: 'title == "tracking"'
+    kpi: { value: { property: value }, spark: { x: started, 'y': value }, target: target, compare: { against: target, better: lower } }
+  - type: levels
+    name: History
+    from: windows
+    levels: { state: verdict, by: title }
+  - type: table
+    name: Tree
+    from: components
+    tree: { parent: parent }
+    order: [label, worst]
+    display: { worst: status }
+  - type: trajectory3d
+    name: Path
+    from: poses
+    trajectory3d: { color: err_mm, tolerance: 5 }
+  - type: voxels
+    name: Reach
+    from: grid
+    voxels: { x: x_mm, 'y': y_mm, z: z_mm, cell: 25, value: value, scale: verdict, better: higher }

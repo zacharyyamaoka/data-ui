@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lineage links fixture</title>
+<!-- tests/browser/lineage_links_checks.py (CONTRACT §21, one link shape): one <data-views> over a base file chosen by
+     ?src=<root-relative path>, ?view=<name> picks the view. Served from the repo root (dist/). -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: var(--data-bg, #fff); }
+  data-views { display: block; width: 1100px; height: 640px; }
+</style>
+<script type="module" src="/dist/data-ui.js"></script>
+</head>
+<body>
+<data-views id="v" no-url toolbar="none" status="off"></data-views>
+<script>
+  // before the module runs (it is deferred), so the element starts with the file the test chose
+  const q = new URLSearchParams(location.search);
+  const v = document.getElementById('v');
+  v.setAttribute('src', q.get('src'));
+  if (q.has('view')) v.setAttribute('view', q.get('view'));
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+{
+"title": "kit gaps fixture: a recorded level history",
+"schema": {
+"fields": [
+{
+"name": "t",
+"type": "number",
+"unit": "s"
+},
+{
+"name": "stream",
+"type": "string"
+},
+{
+"name": "level",
+"type": "string"
+}
+]
+},
+"rows": [
+{
+"t": 0.0,
+"stream": "pump",
+"level": "ok"
+},
+{
+"t": 0.4,
+"stream": "fan",
+"level": "ok"
+},
+{
+"t": 11.3,
+"stream": "pump",
+"level": "warn"
+},
+{
+"t": 12.1,
+"stream": "pump",
+"level": "ok"
+},
+{
+"t": 30.05,
+"stream": "fan",
+"level": "warn"
+},
+{
+"t": 30.1,
+"stream": "fan",
+"level": "error"
+},
+{
+"t": 31.0,
+"stream": "fan",
+"level": "ok"
+},
+{
+"t": 47.9,
+"stream": "pump",
+"level": "error"
+},
+{
+"t": 48.2,
+"stream": "pump",
+"level": "warn"
+},
+{
+"t": 63.0,
+"stream": "pump",
+"level": "ok"
+},
+{
+"t": 88.8,
+"stream": "fan",
+"level": "warn"
+},
+{
+"t": 99.7,
+"stream": "pump",
+"level": "warn"
+},
+{
+"t": 119.5,
+"stream": "fan",
+"level": "ok"
+},
+{
+"t": 120.0,
+"stream": "pump",
+"level": "ok"
+}
+]
+}

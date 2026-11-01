@@ -1,0 +1,35 @@
+{
+  "$comment": "The input contract for one dataset (docs/SPEC.md §4): a sidecar in Frictionless Table Schema vocabulary (name, type, format, title, constraints) plus data-ui's six extra field keys: unit, display, facet, media, basis, derived. Rows live in actuators.json, built by robotparts (build/site_pages.py), never committed here: datasets stay out of git history.",
+  "name": "actuators",
+  "title": "Actuators",
+  "path": "actuators.json",
+  "primaryKey": "id",
+  "titleProperty": "name",
+  "linkProperty": "url",
+  "imageProperty": "photo",
+  "schema": {
+    "fields": [
+      { "name": "id", "type": "string" },
+      { "name": "name", "type": "string", "title": "Name" },
+      { "name": "model", "type": "string", "title": "Model" },
+      { "name": "brand", "type": "string", "title": "Brand", "facet": "values" },
+      { "name": "form", "type": "string", "title": "Form", "facet": "values", "display": "badge" },
+      { "name": "drivetrain", "type": "string", "title": "Drivetrain", "facet": "values" },
+      { "name": "buses", "type": "array", "title": "Bus", "facet": "values", "description": "A list: the rail matches it with .contains()." },
+      { "name": "level", "type": "integer", "title": "Level", "facet": "values", "constraints": { "minimum": 1, "maximum": 5 } },
+      { "name": "url", "type": "string", "format": "uri", "description": "The part's page on robotparts.dev: where a chart dot or a card opens." },
+      { "name": "photo", "type": "string", "format": "uri", "media": "image", "title": "Photo", "description": "Relative to this file, or an absolute URL. Missing for most parts; the drawing from spec dimensions stands in." },
+      { "name": "peak_torque", "type": "number", "title": "Peak torque", "unit": "N·m", "facet": "range", "description": "Cells are rich: {value, basis, source, asOf}, basis from robotparts' source_kind (SPEC §4.3)." },
+      { "name": "rated_torque", "type": "number", "title": "Rated torque", "unit": "N·m" },
+      { "name": "max_speed", "type": "number", "title": "Max speed", "unit": "rpm" },
+      { "name": "mass", "type": "number", "title": "Mass", "unit": "g", "facet": "range" },
+      { "name": "gear_ratio", "type": "number", "title": "Ratio", "unit": ":1" },
+      { "name": "voltage", "type": "number", "title": "Voltage", "unit": "V" },
+      { "name": "od", "type": "number", "title": "OD", "unit": "mm" },
+      { "name": "length", "type": "number", "title": "Length", "unit": "mm" },
+      { "name": "torque_density", "type": "number", "title": "Peak N·m/kg", "unit": "N·m/kg", "basis": "derived", "derived": "peak_torque / (mass / 1000)" },
+      { "name": "price", "type": "number", "title": "Price from", "unit": "USD", "facet": "range", "display": "number" },
+      { "name": "sellers", "type": "integer", "title": "Sellers" }
+    ]
+  }
+}

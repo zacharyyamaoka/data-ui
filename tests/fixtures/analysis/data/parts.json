@@ -1,0 +1,7 @@
+{"properties": {"name": {"type": "text"}, "price": {"type": "number"}, "mass": {"type": "number"}, "peak_torque": {"type": "number"}},
+ "rows": [
+  {"id": "p1", "name": "Alpha", "price": 70, "mass": 0.15, "peak_torque": 3.82},
+  {"id": "p2", "name": "Beta", "price": 82, "mass": 0.227, "peak_torque": 5.6},
+  {"id": "p3", "name": "Gamma", "price": 125, "mass": 0.325, "peak_torque": 12.5},
+  {"id": "p4", "name": "Delta", "price": 300, "mass": 0.9, "peak_torque": 40}
+ ]}

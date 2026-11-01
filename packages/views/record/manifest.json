@@ -1,0 +1,10 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1. With edit: true the record is a form (the core's form.js, which the side peek draws too).",
+  "entry": "src/index.js",
+  "status": "built",
+  "covers": ["Form / editor"],
+  "views": [
+    { "type": "record", "name": "Record", "icon": "file-text", "summary": "One row as a property sheet in sections: values with unit, basis and source, every value behind it; with edit: true, a form that proposes edits." }
+  ],
+  "npm": []
+}

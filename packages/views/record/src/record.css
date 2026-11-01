@@ -1,0 +1,46 @@
+/* type: record. The sheet reuses the peek's .dv-fields and .dv-entries (core.css); colours are the private --dv-*
+   tokens. WHY a container query: the view's own width decides the layout, so a narrow pane gets the phone layout too. */
+
+.dv-view-record { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; container-type: inline-size; }
+.dv-record { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: minmax(180px, 260px) minmax(0, 1fr); }
+.dv-record.dv-record-one { grid-template-columns: minmax(0, 1fr); }
+.dv-record.dv-record-one .dv-record-list, .dv-record.dv-record-one .dv-record-pick { display: none; }
+.dv-record-list { overflow: auto; min-height: 0; border-right: 1px solid var(--dv-border); padding: 6px 0; }
+.dv-record-list ol { list-style: none; margin: 0; padding: 0; }
+.dv-record-item { display: block; width: 100%; text-align: left; font: inherit; color: var(--dv-fg); background: none; border: 0; padding: 5px 12px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dv-record-item:hover { background: var(--dv-hover); }
+.dv-record-item.dv-on { background: var(--dv-accent-bg); font-weight: 600; }
+.dv-record-item:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.dv-record-group { padding: 10px 12px 4px; font-size: 11.5px; font-weight: 600; color: var(--dv-muted); }
+.dv-record-group .dv-count { font-weight: 400; }
+.dv-record-main { overflow: auto; min-height: 0; padding: 0 18px 18px; }
+.dv-record-pick { display: none; margin: 10px 0 0; }
+.dv-record-pick select { font: inherit; width: 100%; padding: 5px 8px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); background: var(--dv-bg); color: var(--dv-fg); }
+.dv-record-sheet { max-width: 860px; }
+.dv-record-head { position: sticky; top: 0; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 14px 0 10px; background: var(--dv-bg); border-bottom: 1px solid var(--dv-border); }
+.dv-record-head h2 { font-size: 17px; margin: 0; flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+.dv-record-steps { display: inline-flex; align-items: center; gap: 2px; }
+.dv-record-steps .dv-count { color: var(--dv-muted); font-size: 12px; padding: 0 4px; font-variant-numeric: tabular-nums; }
+.dv-record-image { margin: 12px 0 0; }
+.dv-record-image img { display: block; max-width: 100%; max-height: 220px; object-fit: contain; border-radius: var(--dv-radius); background: var(--dv-subtle); }
+.dv-record-thumb { max-height: 64px; max-width: 120px; object-fit: contain; border-radius: 3px; }
+.dv-record-section h3 { font-size: 12px; font-weight: 600; color: var(--dv-muted); margin: 18px 0 2px; text-transform: none; }
+.dv-record .dv-fields th { width: 34%; }
+.dv-record-field { cursor: pointer; }
+.dv-record-field:hover th, .dv-record-field:hover td { background: var(--dv-hover); }
+/* a field whose value two or more sources state is a tab stop (CONTRACT §36: the menu key lists its sources) */
+.dv-record-field[data-src-row]:focus { outline: none; }
+.dv-record-field[data-src-row]:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.dv-form .dv-record-field { cursor: default; }
+.dv-form .dv-record-field:hover th, .dv-form .dv-record-field:hover td { background: none; }
+.dv-record-meta { display: flex; flex-wrap: wrap; gap: 0 10px; margin-top: 2px; color: var(--dv-muted); font-size: 11.5px; line-height: 1.35; }
+.dv-record-meta span { overflow-wrap: anywhere; }
+.dv-record-empty { padding: 28px 12px; text-align: center; }
+
+@container (max-width: 640px) {
+  .dv-record { grid-template-columns: minmax(0, 1fr); }
+  .dv-record-list { display: none; }
+  .dv-record-pick { display: block; }
+  .dv-record-main { padding: 0 12px 14px; }
+  .dv-record .dv-fields th { width: 40%; }
+}

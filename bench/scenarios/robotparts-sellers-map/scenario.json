@@ -1,0 +1,33 @@
+{
+  "id": "robotparts-sellers-map",
+  "title": "robotparts sellers map (322 rows, map)",
+  "app": "robotparts",
+  "base": "views.base",
+  "view": null,
+  "rows": 322,
+  "synthetic": false,
+  "provenance": {
+    "from": "~/data-ui/gallery/examples/robotparts-sellers-map/sellers.json @ main 0dbc3d4",
+    "sha256": "613a36566e13ebdb0dcfdbe4bd3607ec2bd451cc8206d7e579ae0b3fd658d177",
+    "copied": "2026-10-26",
+    "note": "Where robotparts' sellers are based and ship to, from their own listings; coordinates are Natural Earth label points."
+  },
+  "interactions": {
+    "filter": {
+      "property": "seller",
+      "value": "aifitlab.com"
+    },
+    "sort": {
+      "property": "listings",
+      "direction": "DESC"
+    },
+    "search": "united",
+    "presets": [
+      "Where sellers ship",
+      "Where sellers are based",
+      "By country"
+    ],
+    "scroll": false,
+    "peek": false
+  }
+}

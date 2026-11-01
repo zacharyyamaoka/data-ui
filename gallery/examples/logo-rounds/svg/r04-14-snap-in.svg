@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 258 64" width="258" height="64" color="#0E100E" role="img" aria-label="robotparts, Peg over socket">
+<title>robotparts, Peg over socket</title>
+<g transform="scale(4)"><defs><mask id="km14" maskUnits="userSpaceOnUse" x="-2" y="-2" width="20" height="20"><rect x="-2" y="-2" width="20" height="20" fill="#fff"/><g fill="#000"><rect x="5" y="10" width="6" height="3"/></g><g fill="#fff"></g></mask></defs><g fill="currentColor" mask="url(#km14)"><rect x="0" y="1" width="16" height="5" rx="0.7"/><path d="M5 5.5V7A1.5 1.5 0 0 0 6.5 8.5H9.5A1.5 1.5 0 0 0 11 7V5.5Z"/><rect x="0" y="10" width="16" height="6" rx="0.7"/></g></g>
+<g fill="currentColor"><text x="80" y="44.24" font-family="'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif" font-size="34" textLength="176" lengthAdjust="spacingAndGlyphs"><tspan font-weight="400">robot</tspan><tspan font-weight="700">parts</tspan></text></g>
+</svg>

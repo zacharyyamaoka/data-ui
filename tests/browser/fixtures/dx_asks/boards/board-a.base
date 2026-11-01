@@ -1,0 +1,14 @@
+# Board A of tests/browser/dx_asks_checks.py, drawn by the page's own load() (no src) as RobotDx's /dx/ draws its
+# dashboards: the page hands one config dataset to every board, and this board declares its own file, path a.
+datasets:
+  config:
+    data: ../config.json?path=a
+views:
+  - type: table
+    name: Settings
+    from: config
+    filters: 'path == "a"'
+    order: [key, value]
+layout:
+  panels:
+    - { view: Settings, w: 12, h: 3 }

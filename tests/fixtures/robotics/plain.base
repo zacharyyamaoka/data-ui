@@ -1,0 +1,18 @@
+# PEP 0010 P1a (docs/CONTRACT.md §32): the 3D keys in a plain .base (no datasets:). Checked against --data poses.json,
+# both checkers name every column a layer, the trajectory binding (given or by default) and voxels read.
+data: poses.json
+views:
+  - type: scene3d
+    name: Paths
+    scene3d:
+      unit: mm
+      projection: top
+      layers:
+        - { primitive: lines, x: x_mm, y: y_mm, z: z_mm, by: [run, situation], color: situation }
+        - { primitive: frames, x: x_mm, y: y_mm, z: z_mm, quat: [quat_w, quat_x, quat_y, quat_z], axes: xyz }
+  - type: trajectory3d
+    name: Trajectory
+    trajectory3d: { modes: { real: [line, points] }, decay: 1.5 }
+  - type: voxels
+    name: Visits
+    voxels: { x: x_mm, y: y_mm, z: z_mm, unit: mm, cell: 50, value: count }

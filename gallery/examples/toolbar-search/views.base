@@ -1,0 +1,61 @@
+# The bar, Notion's pattern for a part page (docs/CONTRACT.md §15): the views visible as tabs, so the filters fold
+# (no `filters` attribute: tabs => one Filter button; when auto turns the views into the chip, Sort · Group · Filter ·
+# Properties come back as words), and the search is an icon until it is wanted (search="icon"). Four of the
+# toolbar-bar case's views over robotparts' 1,149 actuators. Check it: node bin/data-ui.mjs check <this file>
+data: ../robotparts-actuators/actuators.json
+facets:
+  - brand
+  - form
+  - drivetrain
+  - buses
+  - level
+  - { property: peak_torque, as: range }
+  - { property: mass, as: range }
+  - { property: price, as: range }
+  - { property: torque_density, as: has }
+properties:
+  model: { displayName: Model }
+  brand: { displayName: Brand }
+  form: { displayName: Form }
+  drivetrain: { displayName: Drivetrain }
+  peak_torque: { displayName: Peak torque }
+  rated_torque: { displayName: Rated torque }
+  max_speed: { displayName: Max speed }
+  mass: { displayName: Mass }
+  gear_ratio: { displayName: Ratio }
+  voltage: { displayName: Voltage }
+  od: { displayName: OD }
+  length: { displayName: Length }
+  buses: { displayName: Bus }
+  torque_density: { displayName: Peak N·m/kg }
+  price: { displayName: Price from }
+  sellers: { displayName: Sellers }
+  level: { displayName: Level }
+views:
+  - type: table
+    name: Rows
+    order: [model, brand, form, drivetrain, peak_torque, rated_torque, mass, price, buses]
+    sort:
+      - { property: peak_torque, direction: DESC }
+  - type: cards
+    name: Gallery
+    order: [model, brand, peak_torque, mass, price]
+    image: photo
+    imageFit: contain
+    imageAspectRatio: 0.8
+    cardSize: 190
+  - type: chart
+    name: Torque vs mass
+    chart:
+      mark: point
+      encoding:
+        x: { field: mass, type: quantitative }
+        y: { field: peak_torque, type: quantitative }
+        color: { field: brand, type: nominal }
+  - type: table
+    name: By brand
+    order: [model, form, peak_torque, rated_torque, max_speed, mass, gear_ratio, voltage, od, length, buses, price]
+    groupBy: { property: brand, direction: ASC }
+    sort:
+      - { property: peak_torque, direction: DESC }
+    summaries: { peak_torque: Max, mass: Min, price: Min }

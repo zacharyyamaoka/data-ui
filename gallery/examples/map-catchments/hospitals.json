@@ -1,0 +1,1421 @@
+{
+ "id": "bc-hospitals",
+ "title": "Hospitals in British Columbia (OpenStreetMap)",
+ "titleProperty": "name",
+ "source": "© OpenStreetMap contributors, ODbL; Overpass API, OSM data as of 2026-10-28T15:20:19Z",
+ "attribution": {
+  "text": "© OpenStreetMap contributors",
+  "url": "https://www.openstreetmap.org/copyright"
+ },
+ "properties": {
+  "name": {
+   "type": "text",
+   "label": "Hospital"
+  },
+  "location": {
+   "type": "list",
+   "label": "Point (lat, lng)"
+  },
+  "emergency": {
+   "type": "text",
+   "label": "Emergency department (OSM)"
+  },
+  "beds": {
+   "type": "number",
+   "label": "Beds (OSM)",
+   "unitText": "beds",
+   "decimals": 0
+  }
+ },
+ "rows": [
+  {
+   "id": "osm-n1188860843",
+   "name": "First Aid",
+   "location": [
+    50.0228,
+    -114.95499
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-n2923666090",
+   "name": "Chetwynd Hospital",
+   "location": [
+    55.69634,
+    -121.64421
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-n2972398342",
+   "name": "Northern Haida Gwaii Hospital and Health Centre",
+   "location": [
+    54.0204,
+    -132.15739
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-n3155946154",
+   "name": "Pemberton Health Centre",
+   "location": [
+    50.32112,
+    -122.80435
+   ],
+   "emergency": "no",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-n4858168655",
+   "name": "Arrow Lakes Hospital",
+   "location": [
+    50.23875,
+    -117.79498
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-n5718035521",
+   "name": "British Columbia Children's Emergency",
+   "location": [
+    49.24554,
+    -123.1236
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-n631341165",
+   "name": "Bulkley Valley District Hospital",
+   "location": [
+    54.78504,
+    -127.16318
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-n6388426551",
+   "name": "Ashnola at the Crossing",
+   "location": [
+    49.22054,
+    -119.95597
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-n7477517094",
+   "name": "Emergency",
+   "location": [
+    49.18605,
+    -123.9705
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-n8508184533",
+   "name": "UBC Hospital",
+   "location": [
+    49.26419,
+    -123.24575
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-n8766450032",
+   "name": "Emergency",
+   "location": [
+    49.25826,
+    -123.0957
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-n9115152224",
+   "name": "Emergency",
+   "location": [
+    49.17595,
+    -122.84416
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-n9448651084",
+   "name": "Emergency",
+   "location": [
+    49.22749,
+    -122.8912
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-r1280789",
+   "name": "Surrey Memorial Hospital",
+   "location": [
+    49.17625,
+    -122.84283
+   ],
+   "emergency": "yes",
+   "beds": 650
+  },
+  {
+   "id": "osm-r17286359",
+   "name": "Vancouver General Hospital",
+   "location": [
+    49.26124,
+    -123.12211
+   ],
+   "emergency": "yes",
+   "beds": 1900
+  },
+  {
+   "id": "osm-r1731032",
+   "name": "Richmond Hospital",
+   "location": [
+    49.16887,
+    -123.14633
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-r2694349",
+   "name": "Nanaimo Regional General Hospital",
+   "location": [
+    49.18486,
+    -123.96965
+   ],
+   "emergency": "yes",
+   "beds": 345
+  },
+  {
+   "id": "osm-r5851879",
+   "name": "Lady Minto Hospital",
+   "location": [
+    48.86241,
+    -123.5082
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-r721783",
+   "name": "Cowichan Lodge",
+   "location": [
+    48.78178,
+    -123.67013
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-r8091300",
+   "name": "Base Hospital",
+   "location": [
+    48.43828,
+    -123.41576
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-r9631895",
+   "name": "North Island Hospital - Comox Valley (Emergency)",
+   "location": [
+    49.71212,
+    -124.9691
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-r9631896",
+   "name": "North Island Hospital - Comox Valley",
+   "location": [
+    49.71232,
+    -124.96999
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w100584338",
+   "name": "Kelowna General Hospital",
+   "location": [
+    49.87387,
+    -119.49349
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w102179690",
+   "name": "Elk Valley Hospital",
+   "location": [
+    49.51366,
+    -115.0561
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1097128940",
+   "name": "Overlander Extended Care Hospital",
+   "location": [
+    50.70335,
+    -120.39522
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1126960983",
+   "name": "Cowichan District Hospital",
+   "location": [
+    48.78619,
+    -123.72255
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1160911664",
+   "name": "Tofino General Hospital",
+   "location": [
+    49.15117,
+    -125.90885
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1190276710",
+   "name": "Squamish General Hospital",
+   "location": [
+    49.69844,
+    -123.1406
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w125811044",
+   "name": "Overlander Hospital",
+   "location": [
+    50.70318,
+    -120.39557
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1278591971",
+   "name": "South Similkameen Health Centre",
+   "location": [
+    49.20456,
+    -119.83267
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1282727286",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "location": [
+    55.70022,
+    -121.63225
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1290124439",
+   "name": "McBride and District Hospital",
+   "location": [
+    53.30103,
+    -120.16139
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1415671343",
+   "name": "Ksyen Regional Hospital",
+   "location": [
+    54.51188,
+    -128.59648
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1435555664",
+   "name": "Queen Victoria Hospital and Health Centre",
+   "location": [
+    50.97763,
+    -118.19074
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1442213136",
+   "name": "Kootenay Boundary Regional Hospital",
+   "location": [
+    49.10343,
+    -117.70188
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w144825870",
+   "name": "Shuswap Lake General Hospital",
+   "location": [
+    50.70423,
+    -119.27443
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1469034158",
+   "name": "100 Mile District general hospital",
+   "location": [
+    51.63826,
+    -121.29142
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1471108233",
+   "name": "Nicola Valley Hospital and Health Centre",
+   "location": [
+    50.12151,
+    -120.77311
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1472560623",
+   "name": "Stikine Regional Health Centre",
+   "location": [
+    58.44183,
+    -129.99187
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1472772876",
+   "name": "Fort Nelson General Hospital",
+   "location": [
+    58.8089,
+    -122.70462
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1473199836",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "location": [
+    48.87148,
+    -123.32029
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1478447653",
+   "name": "Port Hardy Hospital",
+   "location": [
+    50.72039,
+    -127.50285
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1521939470",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "location": [
+    49.16957,
+    -123.14863
+   ],
+   "emergency": "no",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1521939471",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "location": [
+    49.17068,
+    -123.14722
+   ],
+   "emergency": "no",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w1551634481",
+   "name": {
+    "value": null,
+    "why": "no name tagged in OSM"
+   },
+   "location": [
+    48.41985,
+    -123.3615
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w160634366",
+   "name": "Hudson's Hope Health Centre",
+   "location": [
+    56.02636,
+    -121.91575
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w184193563",
+   "name": "Dawson Creek and District Hospital",
+   "location": [
+    55.7497,
+    -120.2356
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w188008270",
+   "name": "Haida Gwaii Hospital and Health Centre",
+   "location": [
+    53.25492,
+    -132.07029
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w222375116",
+   "name": "Golden and District Hospital",
+   "location": [
+    51.29701,
+    -116.9671
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w222534272",
+   "name": "Royal Inland Hospital",
+   "location": [
+    50.6695,
+    -120.33435
+   ],
+   "emergency": "yes",
+   "beds": 224
+  },
+  {
+   "id": "osm-w222828095",
+   "name": "Invermere and District Hospital",
+   "location": [
+    50.50653,
+    -116.03333
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w233309999",
+   "name": "Langley Memorial Hospital",
+   "location": [
+    49.09428,
+    -122.61195
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w23811142",
+   "name": "Lions Gate Hospital",
+   "location": [
+    49.32098,
+    -123.06767
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w25207131",
+   "name": "Chilliwack General Hospital",
+   "location": [
+    49.16686,
+    -121.96386
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w258499176",
+   "name": "Fort St. John Hospital",
+   "location": [
+    56.25558,
+    -120.81568
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w259652372",
+   "name": "Children's & Women's Health Centre of British Columbia",
+   "location": [
+    49.24424,
+    -123.12412
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w278139080",
+   "name": "Kootenay Lake Hospital",
+   "location": [
+    49.49502,
+    -117.28512
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w292380824",
+   "name": "Mount Saint Joseph Hospital",
+   "location": [
+    49.25829,
+    -123.09497
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w293945054",
+   "name": "Abbotsford Regional Hospital & Cancer Centre",
+   "location": [
+    49.03684,
+    -122.31342
+   ],
+   "emergency": "yes",
+   "beds": 300
+  },
+  {
+   "id": "osm-w298029407",
+   "name": "Sechelt Hospital",
+   "location": [
+    49.47546,
+    -123.74934
+   ],
+   "emergency": "yes",
+   "beds": 63
+  },
+  {
+   "id": "osm-w318779187",
+   "name": "West Coast General Hospital",
+   "location": [
+    49.24842,
+    -124.78209
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w330174593",
+   "name": "Boundary Hospital",
+   "location": [
+    49.02997,
+    -118.46867
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w351679605",
+   "name": "Chemainus Health Care Centre",
+   "location": [
+    48.92728,
+    -123.71586
+   ],
+   "emergency": "no",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w354698177",
+   "name": "G.R. Baker Memorial Hospital",
+   "location": [
+    52.9811,
+    -122.49964
+   ],
+   "emergency": "yes",
+   "beds": 38
+  },
+  {
+   "id": "osm-w363169810",
+   "name": "Penticton Regional Hospital",
+   "location": [
+    49.4817,
+    -119.57772
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w368030604",
+   "name": "Princeton General Hospital",
+   "location": [
+    49.45435,
+    -120.5265
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w396326194",
+   "name": "Mission Memorial Hospital",
+   "location": [
+    49.13519,
+    -122.33106
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w406228670",
+   "name": "Dr. Helmcken Memorial Hospital",
+   "location": [
+    51.64536,
+    -120.01768
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w41770711",
+   "name": "Eagle Ridge Hospital",
+   "location": [
+    49.28518,
+    -122.82437
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w41839791",
+   "name": "Burnaby Hospital",
+   "location": [
+    49.24968,
+    -123.01546
+   ],
+   "emergency": "yes",
+   "beds": 286
+  },
+  {
+   "id": "osm-w41879302",
+   "name": "Royal Columbian Hospital",
+   "location": [
+    49.22664,
+    -122.89066
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w419181918",
+   "name": "Silver Kettle Village",
+   "location": [
+    49.02414,
+    -118.46485
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w420654453",
+   "name": "Bella Coola General Hospital",
+   "location": [
+    52.3735,
+    -126.75727
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w42504921",
+   "name": "Forensic Psychiatric Hospital",
+   "location": [
+    49.22838,
+    -122.81121
+   ],
+   "emergency": "no",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w445255625",
+   "name": "University Hospital of Northern British Columbia",
+   "location": [
+    53.913,
+    -122.76446
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w476150022",
+   "name": "Peace Arch Hospital",
+   "location": [
+    49.03017,
+    -122.79232
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w4766901",
+   "name": "Royal Jubilee Hospital",
+   "location": [
+    48.43245,
+    -123.32695
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w480751591",
+   "name": "Saint John Hospital",
+   "location": [
+    54.02894,
+    -124.01067
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w51185697",
+   "name": "St. Paul's Hospital",
+   "location": [
+    49.28062,
+    -123.12892
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w534618461",
+   "name": "Nats’oojeh Hospital and Health Centre",
+   "location": [
+    54.44005,
+    -124.24203
+   ],
+   "emergency": "no",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w545093167",
+   "name": "Castlegar and District Community Health Centre",
+   "location": [
+    49.31498,
+    -117.66149
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w545720213",
+   "name": "Lillooet Hospital and Health Centre",
+   "location": [
+    50.6893,
+    -121.9393
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w558116033",
+   "name": "Alexis Creek Health Centre",
+   "location": [
+    52.08391,
+    -123.27982
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w565659424",
+   "name": "Victoria General Hospital",
+   "location": [
+    48.46657,
+    -123.43231
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w571903758",
+   "name": "North Island Hospital - Campbell River & District",
+   "location": [
+    50.00933,
+    -125.24329
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w579986274",
+   "name": "qathet General Hospital",
+   "location": [
+    49.85097,
+    -124.51823
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w595793357",
+   "name": "Port McNeill Hospital",
+   "location": [
+    50.58122,
+    -127.06693
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w598178730",
+   "name": "Stewart Health Centre",
+   "location": [
+    55.93996,
+    -129.98996
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w606031382",
+   "name": "Bulkley Valley District Hospital",
+   "location": [
+    54.78489,
+    -127.16306
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w611078054",
+   "name": "Summerland Community Health Centre",
+   "location": [
+    49.60132,
+    -119.66886
+   ],
+   "emergency": "no",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w696495495",
+   "name": "Vernon Jubilee Hospital",
+   "location": [
+    50.25669,
+    -119.27115
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w739179535",
+   "name": "Redfish Healing Centre for Mental Health and Addiction",
+   "location": [
+    49.25862,
+    -122.79943
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w744734229",
+   "name": "ƛ̓uxválásu̓ilas (kwil-valas-iwaylas) Heiltsuk Hospital",
+   "location": [
+    52.16121,
+    -128.14332
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w778708617",
+   "name": "Terraceview Lodge",
+   "location": [
+    54.53282,
+    -128.59393
+   ],
+   "emergency": "no",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w800032613",
+   "name": "Saanich Peninsula Hospital",
+   "location": [
+    48.59633,
+    -123.40968
+   ],
+   "emergency": "yes",
+   "beds": 143
+  },
+  {
+   "id": "osm-w819314272",
+   "name": "South Okanagan General Hospital",
+   "location": [
+    49.18335,
+    -119.53908
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w851965703",
+   "name": "East Kootenay Regional Hospital",
+   "location": [
+    49.51255,
+    -115.75019
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w888625615",
+   "name": "Creston Valley Hospital & Health Centre",
+   "location": [
+    49.09837,
+    -116.50762
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w902053499",
+   "name": "Ridge Meadows Hospital",
+   "location": [
+    49.21539,
+    -122.63001
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w902487947",
+   "name": "Fraser Canyon Hospital",
+   "location": [
+    49.37696,
+    -121.4247
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w902491360",
+   "name": "Delta Hospital",
+   "location": [
+    49.08618,
+    -123.06191
+   ],
+   "emergency": "yes",
+   "beds": 64
+  },
+  {
+   "id": "osm-w93844827",
+   "name": "Kitimat General Hospital and Health Centre",
+   "location": [
+    54.05045,
+    -128.64713
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w958336156",
+   "name": "First Aid Station",
+   "location": [
+    49.38102,
+    -121.93616
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w961058486",
+   "name": "Cariboo Memorial Hospital",
+   "location": [
+    52.1374,
+    -122.14428
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w970434087",
+   "name": "Cormorant Island Health Centre",
+   "location": [
+    50.59375,
+    -126.9428
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w991903216",
+   "name": "Lakes District Hospital and Health Centre",
+   "location": [
+    54.23559,
+    -125.76122
+   ],
+   "emergency": "yes",
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w992113143",
+   "name": "Wrinch Memorial Hospital",
+   "location": [
+    55.25966,
+    -127.65118
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  },
+  {
+   "id": "osm-w992672370",
+   "name": "Prince Rupert Regional Hospital",
+   "location": [
+    54.30477,
+    -130.32998
+   ],
+   "emergency": null,
+   "beds": {
+    "value": null,
+    "why": "not tagged in OSM"
+   }
+  }
+ ]
+}

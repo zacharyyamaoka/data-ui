@@ -1,0 +1,59 @@
+/* data-ui: sheet.css (docs/CONTRACT.md §40): the Edit / View switch, and what Edit adds to a table. Prefixed, and colours only
+   from the --dv-* tokens, so light and dark both follow the host (tests/unit/sheet-css.test.mjs holds both). */
+
+/* the switch: quiet at rest; its word and its knob say the state, the knob in the accent when on. The word takes the text colour
+   because a muted word beside a knob read as a disabled control */
+.dv-editsw, .dv-bar-edit { display: inline-flex; align-items: center; gap: 6px; color: var(--dv-fg); }
+data-views[toolbar="compact"] .dv-tools > .dv-btn.dv-editsw { display: inline-flex; }
+[data-edit-switch][aria-checked="true"] .dv-switch { background: var(--dv-accent); }
+[data-edit-switch][aria-checked="true"] .dv-switch::after { transform: translateX(12px); }
+.dv-editsw:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+/* with room, the word and the knob; folded to an icon (bar.js' DEGRADE), the pencil alone, its fill saying it is on */
+data-views > .dv-bar > .dv-bar-tools .dv-bar-edit:not(.dv-iconic) > span.dv-i { display: none; }
+.dv-bar-edit.dv-iconic > .dv-switch { display: none; }
+.dv-bar-edit.dv-on:not(.dv-iconic) { background: none; }
+/* the switch in the … menu: its check at the end of the row */
+.dv-overflow-item[role="menuitemcheckbox"] > .dv-i:last-child { margin-left: auto; color: var(--dv-accent); }
+
+/* the toast: what just happened and Undo, instead of a dialog (Notion's way). Fixed to the window: under frame="page" the element is
+   as tall as its rows, so its own foot can be a screen away */
+.dv-toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 1000; box-sizing: border-box; max-width: calc(100vw - 32px); display: flex; align-items: center; gap: 12px;
+  padding: 8px 12px; background: var(--dv-fg); color: var(--dv-bg); border-radius: calc(var(--dv-radius) + 2px); box-shadow: 0 6px 22px color-mix(in srgb, var(--dv-fg) 26%, transparent); font-size: 13px; line-height: 1.35; }
+.dv-toast[hidden] { display: none; }
+.dv-toast-text { min-width: 0; overflow-wrap: anywhere; }
+.dv-toast-undo { flex: 0 0 auto; font: inherit; font-weight: 600; color: inherit; background: none; border: 0; border-radius: var(--dv-radius); padding: 2px 6px; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.dv-toast-undo:hover { background: color-mix(in srgb, var(--dv-bg) 18%, transparent); }
+.dv-toast-undo:focus-visible { outline: 2px solid var(--dv-bg); outline-offset: 1px; }
+
+/* the column's menu: a quiet mark at the header's right, in Edit; shown on hover or focus, always where nothing hovers */
+.dv-th-menu { position: absolute; top: 50%; right: 8px; transform: translateY(-50%); padding: 0 4px; font: inherit; font-size: 11px; line-height: 16px; color: var(--dv-muted); background: var(--dv-subtle); border: 1px solid var(--dv-border); border-radius: 4px; cursor: pointer; opacity: 0; transition: opacity .1s; }
+.dv-table thead th:hover .dv-th-menu, .dv-th-menu:focus-visible, .dv-th-menu[aria-expanded="true"] { opacity: 1; }
+.dv-th-menu:hover { color: var(--dv-fg); }
+.dv-th-menu:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+@media (hover: none) { .dv-th-menu { opacity: .8; } }
+
+/* the menu: the kit's own popover */
+.dv-pop.dv-colmenu { width: min(260px, calc(100% - 16px)); }
+.dv-col-form { margin: 0; }
+.dv-pop.dv-colmenu .dv-col-form input:not([type="checkbox"]), .dv-pop.dv-colmenu .dv-col-form select { flex: 1 1 auto; width: 0; }
+.dv-col-msg { margin: 6px 0 0; font-size: 12px; color: var(--dv-warn); }
+.dv-col-msg:empty { display: none; }
+.dv-col-acts { display: flex; flex-direction: column; align-items: stretch; gap: 1px; margin-top: 8px; padding-top: 6px; border-top: 1px solid var(--dv-rule); }
+.dv-col-act { font: inherit; font-size: 13px; color: var(--dv-fg); background: none; border: 0; border-radius: var(--dv-radius); padding: 5px 8px; text-align: left; cursor: pointer; }
+.dv-col-act:hover:not([disabled]) { background: var(--dv-hover); }
+.dv-col-act:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.dv-col-act[disabled] { color: var(--dv-muted); cursor: default; }
+
+/* display: checkbox: a real box; its fill says it is on */
+.dv-check { display: inline-block; box-sizing: border-box; width: 15px; height: 15px; vertical-align: middle; border: 1.5px solid var(--dv-muted); border-radius: 3px; position: relative; }
+.dv-check.dv-on { background: var(--dv-accent); border-color: var(--dv-accent); }
+.dv-check.dv-on::after { content: ''; position: absolute; left: 3.5px; top: .5px; width: 4px; height: 8px; border: solid var(--dv-on-accent); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.dv-table td.dv-ed.dv-d-checkbox { cursor: pointer; }
+
+/* a column's filter by hand: the column menu's own box, a choice list that scrolls when a column has many values */
+.dv-colfilter h4 { margin: 0 0 6px; }
+.dv-pop.dv-colfilter .dv-filter-values { display: flex; flex-direction: column; gap: 2px; max-height: 220px; overflow: auto; }
+.dv-pop.dv-colfilter .dv-filter-values label, .dv-pop.dv-colfilter label.dv-filter-empty { justify-content: flex-start; margin: 3px 0; gap: 7px; }
+.dv-pop.dv-colfilter .dv-filter-values input, .dv-pop.dv-colfilter .dv-filter-empty input { accent-color: var(--dv-accent); }
+.dv-pop.dv-colfilter label.dv-filter-empty { margin-top: 8px; }
+.dv-kept { color: var(--dv-fg); }

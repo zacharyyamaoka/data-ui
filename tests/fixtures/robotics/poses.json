@@ -1,0 +1,63 @@
+{
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "run",
+    "type": "string"
+   },
+   {
+    "name": "situation",
+    "type": "string"
+   },
+   {
+    "name": "source",
+    "type": "string"
+   },
+   {
+    "name": "body",
+    "type": "string"
+   },
+   {
+    "name": "frame",
+    "type": "string"
+   },
+   {
+    "name": "x_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "y_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "z_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "quat_w",
+    "type": "number"
+   },
+   {
+    "name": "quat_x",
+    "type": "number"
+   },
+   {
+    "name": "quat_y",
+    "type": "number"
+   },
+   {
+    "name": "quat_z",
+    "type": "number"
+   }
+  ]
+ },
+ "rows": []
+}

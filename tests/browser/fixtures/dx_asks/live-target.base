@@ -1,0 +1,23 @@
+# A dashboard of tests/browser/dx_asks_checks.py that already reads the live samples (the same file, live), so a panel
+# added to it from live.base reuses that dataset and is live here too: "At this moment" must still stand at its t.
+# the file's own data: is the samples, so the playback card (a view with no from:) is on their clock
+data: samples.json
+datasets:
+  samples:
+    data: samples.json
+    live: { time: t, stream: joint }
+layout:
+  columns: 12
+  rowHeight: 56
+  panels:
+    - { view: Timeline, w: 12, h: 2 }
+    - { view: Latest, w: 12, h: 3 }
+views:
+  - type: playback
+    name: Timeline
+  - type: table
+    name: Latest
+    from: samples
+    order: [t, joint, position]
+    sort: [{ property: t, direction: DESC }]
+    limit: 20

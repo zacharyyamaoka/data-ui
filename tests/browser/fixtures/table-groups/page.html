@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Table groups fixture</title>
+<!-- tests/browser/table_groups_checks.py: column resize and nested groups. Served from the repo root, so the kit is /dist/.
+     ?view= a preset; ?selectable=1; a script may set window.v.data instead. sources.js is loaded, as RobotParts loads it. -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: var(--data-bg, #fff); color: var(--data-fg, #111); }
+  data-views { display: flex; height: 640px; }
+</style>
+<script type="module">
+  import * as kit from '/dist/data-ui.js';
+  await import('/dist/sources.js');
+  window.kit = kit;
+  const q = new URLSearchParams(location.search);
+  const v = document.createElement('data-views');
+  v.id = 'groups';
+  v.setAttribute('toolbar', 'bar');
+  if (q.get('selectable')) v.setAttribute('selectable', '');
+  v.setAttribute('src', 'views.base');
+  if (q.get('view')) v.setAttribute('view', q.get('view'));
+  document.body.append(v);
+  window.v = v;
+</script>
+</head>
+<body></body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1. The record's provenance (input.dataset.raw, originOf, origin) is the core's: docs/CONTRACT.md §24.",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [
+    { "type": "source", "name": "Raw source", "icon": "file-code", "summary": "The data behind the views as a plain grid: every key of every row, each value exactly as stored, and a row's record as it sits in its file." }
+  ],
+  "npm": ["@tanstack/virtual-core@3.19.7"]
+}

@@ -1,0 +1,65 @@
+{
+ "name": "frames",
+ "title": "Frames",
+ "description": "One row per frame (P3 and later): its pose in its parent, so the viewer can switch its display frame (Foxglove's Display frame).",
+ "rowsPer": [
+  "frame"
+ ],
+ "required": [
+  "frame",
+  "parent",
+  "x_mm",
+  "y_mm",
+  "z_mm",
+  "quat_w",
+  "quat_x",
+  "quat_y",
+  "quat_z"
+ ],
+ "schema": {
+  "fields": [
+   {
+    "name": "frame",
+    "type": "string"
+   },
+   {
+    "name": "parent",
+    "type": "string",
+    "description": "the frame this one is placed in; null at the root"
+   },
+   {
+    "name": "x_mm",
+    "type": "number",
+    "unit": "mm",
+    "description": "position, in the row's frame"
+   },
+   {
+    "name": "y_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "z_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "quat_w",
+    "type": "number",
+    "description": "orientation, unitless, w x y z (needed for frames and Z-arcs)"
+   },
+   {
+    "name": "quat_x",
+    "type": "number"
+   },
+   {
+    "name": "quat_y",
+    "type": "number"
+   },
+   {
+    "name": "quat_z",
+    "type": "number"
+   }
+  ]
+ }
+}

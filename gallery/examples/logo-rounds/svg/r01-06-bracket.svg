@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 64" width="252" height="64" role="img" aria-label="robotparts, L-bracket with slots">
+<title>robotparts, L-bracket with slots</title>
+<g>
+<polygon points="8,6 24,6 24,42 58,42 58,58 8,58" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+<path d="M16 14V28M30 50H48" fill="none" stroke-width="6" stroke-linecap="round" style="stroke:var(--a,#e4572e)"/>
+<circle cx="16" cy="50" r="3.2" style="fill:var(--a,#e4572e)"/>
+</g>
+<text x="80" y="44.24" font-family="'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif" font-size="34" font-weight="600" fill="currentColor" textLength="170" lengthAdjust="spacingAndGlyphs">robotparts</text>
+</svg>

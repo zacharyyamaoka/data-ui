@@ -1,0 +1,471 @@
+{
+ "id": "collection-stops",
+ "title": "Food-court collection stops, 14 Oct 2026 (synthetic)",
+ "titleProperty": "stop",
+ "source": "synthetic routes over real places: OSM food courts and the Vancouver South Transfer Station (\u00a9 OpenStreetMap contributors, ODbL)",
+ "attribution": {
+  "text": "© OpenStreetMap contributors",
+  "url": "https://www.openstreetmap.org/copyright"
+ },
+ "properties": {
+  "stop": {
+   "type": "text",
+   "label": "Stop"
+  },
+  "truck": {
+   "type": "text",
+   "label": "Truck"
+  },
+  "seq": {
+   "type": "number",
+   "label": "Sequence",
+   "decimals": 0
+  },
+  "kind": {
+   "type": "text",
+   "label": "Kind"
+  },
+  "at": {
+   "type": "date",
+   "label": "Arrives"
+  },
+  "location": {
+   "type": "list",
+   "label": "Point (lat, lng)"
+  },
+  "kg": {
+   "type": "number",
+   "label": "Collected",
+   "unitText": "kg",
+   "decimals": 0
+  },
+  "osm_id": {
+   "type": "text",
+   "label": "OSM id"
+  }
+ },
+ "rows": [
+  {
+   "id": "truck-a-depart",
+   "truck": "Truck A",
+   "seq": 0,
+   "kind": "depot",
+   "stop": "Depot (leave)",
+   "at": "2026-10-14T06:00:00-07:00",
+   "location": [
+    49.20734,
+    -123.11393
+   ]
+  },
+  {
+   "id": "truck-a-01",
+   "truck": "Truck A",
+   "seq": 1,
+   "kind": "pickup",
+   "stop": "Stop 1",
+   "at": "2026-10-14T06:07:56-07:00",
+   "location": [
+    49.18095,
+    -123.13502
+   ],
+   "kg": 143,
+   "osm_id": "osm-n12821280670"
+  },
+  {
+   "id": "truck-a-02",
+   "truck": "Truck A",
+   "seq": 2,
+   "kind": "pickup",
+   "stop": "Stop 2",
+   "at": "2026-10-14T06:15:24-07:00",
+   "location": [
+    49.1758,
+    -123.13207
+   ],
+   "kg": 133,
+   "osm_id": "osm-n8726673523"
+  },
+  {
+   "id": "truck-a-03",
+   "truck": "Truck A",
+   "seq": 3,
+   "kind": "pickup",
+   "stop": "Stop 3",
+   "at": "2026-10-14T06:23:02-07:00",
+   "location": [
+    49.16972,
+    -123.13326
+   ],
+   "kg": 159,
+   "osm_id": "osm-n12774467792"
+  },
+  {
+   "id": "truck-a-04",
+   "truck": "Truck A",
+   "seq": 4,
+   "kind": "pickup",
+   "stop": "Stop 4",
+   "at": "2026-10-14T06:56:24-07:00",
+   "location": [
+    49.2287,
+    -123.00498
+   ],
+   "kg": 35,
+   "osm_id": "osm-w1087626345"
+  },
+  {
+   "id": "truck-a-05",
+   "truck": "Truck A",
+   "seq": 5,
+   "kind": "pickup",
+   "stop": "Stop 5",
+   "at": "2026-10-14T07:20:24-07:00",
+   "location": [
+    49.20008,
+    -122.9114
+   ],
+   "kg": 104,
+   "osm_id": "osm-n2184644002"
+  },
+  {
+   "id": "truck-a-06",
+   "truck": "Truck A",
+   "seq": 6,
+   "kind": "pickup",
+   "stop": "Stop 6",
+   "at": "2026-10-14T07:46:27-07:00",
+   "location": [
+    49.18472,
+    -122.79888
+   ],
+   "kg": 58,
+   "osm_id": "osm-n5254530627"
+  },
+  {
+   "id": "truck-a-07",
+   "truck": "Truck A",
+   "seq": 7,
+   "kind": "pickup",
+   "stop": "Stop 7",
+   "at": "2026-10-14T08:33:13-07:00",
+   "location": [
+    49.03197,
+    -122.80171
+   ],
+   "kg": 171,
+   "osm_id": "osm-n12849619157"
+  },
+  {
+   "id": "truck-a-08",
+   "truck": "Truck A",
+   "seq": 8,
+   "kind": "pickup",
+   "stop": "Stop 8",
+   "at": "2026-10-14T09:29:00-07:00",
+   "location": [
+    49.03813,
+    -123.08606
+   ],
+   "kg": 134,
+   "osm_id": "osm-w1413615761"
+  },
+  {
+   "id": "truck-a-09",
+   "truck": "Truck A",
+   "seq": 9,
+   "kind": "pickup",
+   "stop": "Stop 9",
+   "at": "2026-10-14T09:35:48-07:00",
+   "location": [
+    49.03562,
+    -123.08868
+   ],
+   "kg": 150,
+   "osm_id": "osm-n13018347017"
+  },
+  {
+   "id": "truck-a-return",
+   "truck": "Truck A",
+   "seq": 10,
+   "kind": "depot",
+   "stop": "Depot (return)",
+   "at": "2026-10-14T10:27:51-07:00",
+   "location": [
+    49.20734,
+    -123.11393
+   ]
+  },
+  {
+   "id": "truck-b-depart",
+   "truck": "Truck B",
+   "seq": 0,
+   "kind": "depot",
+   "stop": "Depot (leave)",
+   "at": "2026-10-14T06:00:00-07:00",
+   "location": [
+    49.20734,
+    -123.11393
+   ]
+  },
+  {
+   "id": "truck-b-01",
+   "truck": "Truck B",
+   "seq": 1,
+   "kind": "pickup",
+   "stop": "Stop 1",
+   "at": "2026-10-14T06:03:56-07:00",
+   "location": [
+    49.19592,
+    -123.12828
+   ],
+   "kg": 89,
+   "osm_id": "osm-n9830151760"
+  },
+  {
+   "id": "truck-b-02",
+   "truck": "Truck B",
+   "seq": 2,
+   "kind": "pickup",
+   "stop": "Stop 2",
+   "at": "2026-10-14T06:11:58-07:00",
+   "location": [
+    49.19673,
+    -123.13989
+   ],
+   "kg": 110,
+   "osm_id": "osm-n4819568134"
+  },
+  {
+   "id": "truck-b-03",
+   "truck": "Truck B",
+   "seq": 3,
+   "kind": "pickup",
+   "stop": "Stop 3",
+   "at": "2026-10-14T06:21:02-07:00",
+   "location": [
+    49.18597,
+    -123.13372
+   ],
+   "kg": 100,
+   "osm_id": "osm-w1416459056"
+  },
+  {
+   "id": "truck-b-04",
+   "truck": "Truck B",
+   "seq": 4,
+   "kind": "pickup",
+   "stop": "Stop 4",
+   "at": "2026-10-14T06:27:15-07:00",
+   "location": [
+    49.18536,
+    -123.13451
+   ],
+   "kg": 64,
+   "osm_id": "osm-n12821280668"
+  },
+  {
+   "id": "truck-b-05",
+   "truck": "Truck B",
+   "seq": 5,
+   "kind": "pickup",
+   "stop": "Stop 5",
+   "at": "2026-10-14T06:33:37-07:00",
+   "location": [
+    49.18435,
+    -123.13316
+   ],
+   "kg": 148,
+   "osm_id": "osm-w1527674253"
+  },
+  {
+   "id": "truck-b-06",
+   "truck": "Truck B",
+   "seq": 6,
+   "kind": "pickup",
+   "stop": "Stop 6",
+   "at": "2026-10-14T06:40:24-07:00",
+   "location": [
+    49.18164,
+    -123.13507
+   ],
+   "kg": 58,
+   "osm_id": "osm-n12821280669"
+  },
+  {
+   "id": "truck-b-07",
+   "truck": "Truck B",
+   "seq": 7,
+   "kind": "pickup",
+   "stop": "Stop 7",
+   "at": "2026-10-14T07:15:40-07:00",
+   "location": [
+    49.26063,
+    -123.25146
+   ],
+   "kg": 154,
+   "osm_id": "osm-n4509164649"
+  },
+  {
+   "id": "truck-b-08",
+   "truck": "Truck B",
+   "seq": 8,
+   "kind": "pickup",
+   "stop": "Stop 8",
+   "at": "2026-10-14T07:23:52-07:00",
+   "location": [
+    49.26659,
+    -123.24272
+   ],
+   "kg": 99,
+   "osm_id": "osm-n678999288"
+  },
+  {
+   "id": "truck-b-return",
+   "truck": "Truck B",
+   "seq": 9,
+   "kind": "depot",
+   "stop": "Depot (return)",
+   "at": "2026-10-14T07:57:19-07:00",
+   "location": [
+    49.20734,
+    -123.11393
+   ]
+  },
+  {
+   "id": "truck-c-depart",
+   "truck": "Truck C",
+   "seq": 0,
+   "kind": "depot",
+   "stop": "Depot (leave)",
+   "at": "2026-10-14T06:00:00-07:00",
+   "location": [
+    49.20734,
+    -123.11393
+   ]
+  },
+  {
+   "id": "truck-c-01",
+   "truck": "Truck C",
+   "seq": 1,
+   "kind": "pickup",
+   "stop": "Stop 1",
+   "at": "2026-10-14T06:06:37-07:00",
+   "location": [
+    49.23204,
+    -123.11782
+   ],
+   "kg": 180,
+   "osm_id": "osm-w1527718449"
+  },
+  {
+   "id": "truck-c-02",
+   "truck": "Truck C",
+   "seq": 2,
+   "kind": "pickup",
+   "stop": "Stop 2",
+   "at": "2026-10-14T06:23:41-07:00",
+   "location": [
+    49.27186,
+    -123.13559
+   ],
+   "kg": 130,
+   "osm_id": "osm-n8807849093"
+  },
+  {
+   "id": "truck-c-03",
+   "truck": "Truck C",
+   "seq": 3,
+   "kind": "pickup",
+   "stop": "Stop 3",
+   "at": "2026-10-14T06:34:24-07:00",
+   "location": [
+    49.28666,
+    -123.12079
+   ],
+   "kg": 159,
+   "osm_id": "osm-n6322544031"
+  },
+  {
+   "id": "truck-c-04",
+   "truck": "Truck C",
+   "seq": 4,
+   "kind": "pickup",
+   "stop": "Stop 4",
+   "at": "2026-10-14T06:40:45-07:00",
+   "location": [
+    49.2867,
+    -123.11876
+   ],
+   "kg": 131,
+   "osm_id": "osm-n6322544032"
+  },
+  {
+   "id": "truck-c-05",
+   "truck": "Truck C",
+   "seq": 5,
+   "kind": "pickup",
+   "stop": "Stop 5",
+   "at": "2026-10-14T06:47:11-07:00",
+   "location": [
+    49.28539,
+    -123.11732
+   ],
+   "kg": 111,
+   "osm_id": "osm-n2778056579"
+  },
+  {
+   "id": "truck-c-06",
+   "truck": "Truck C",
+   "seq": 6,
+   "kind": "pickup",
+   "stop": "Stop 6",
+   "at": "2026-10-14T06:54:06-07:00",
+   "location": [
+    49.28454,
+    -123.11227
+   ],
+   "kg": 80,
+   "osm_id": "osm-r13916133"
+  },
+  {
+   "id": "truck-c-07",
+   "truck": "Truck C",
+   "seq": 7,
+   "kind": "pickup",
+   "stop": "Stop 7",
+   "at": "2026-10-14T07:01:38-07:00",
+   "location": [
+    49.2802,
+    -123.10642
+   ],
+   "kg": 169,
+   "osm_id": "osm-w279010987"
+  },
+  {
+   "id": "truck-c-08",
+   "truck": "Truck C",
+   "seq": 8,
+   "kind": "pickup",
+   "stop": "Stop 8",
+   "at": "2026-10-14T07:20:42-07:00",
+   "location": [
+    49.32513,
+    -123.13632
+   ],
+   "kg": 101,
+   "osm_id": "osm-n4285278627"
+  },
+  {
+   "id": "truck-c-return",
+   "truck": "Truck C",
+   "seq": 9,
+   "kind": "depot",
+   "stop": "Depot (return)",
+   "at": "2026-10-14T07:58:23-07:00",
+   "location": [
+    49.20734,
+    -123.11393
+   ]
+  }
+ ]
+}

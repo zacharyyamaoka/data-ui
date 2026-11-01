@@ -1,0 +1,52 @@
+# robotparts' two design babbles (2026-10-22): ten proposals as cards with their stills, ranked by the babble's own
+# weighted score, and every still in a lightbox. Obsidian Bases grammar plus data-ui's keys (docs/CONTRACT.md §5).
+# Check it: node bin/data-ui.mjs check <this file> --data babble.json
+data: babble.json
+facets:
+  - round
+  - shot
+  - { property: score, as: range }
+views:
+  - type: cards
+    name: Proposals
+    filters: 'shot == "Landing"'
+    order: [variant, score, default, best_when]
+    image: still
+    imageFit: cover
+    imageAspectRatio: 0.625
+    cardSize: 280
+    lightbox: true
+    caption: [round, score, thesis]
+    groupBy: { property: round, direction: DESC }
+    sort:
+      - { property: score, direction: DESC }
+  - type: cards
+    name: Every still
+    order: [shot, score]
+    image: still
+    imageFit: contain
+    imageAspectRatio: 0.7
+    cardSize: 220
+    lightbox: true
+    caption: [variant, shot, score]
+    groupBy: { property: variant, direction: ASC }
+    sort:
+      - { property: order, direction: ASC }
+  - type: cards
+    name: Phones
+    filters: 'shot == "Phone"'
+    order: [variant, score]
+    image: still
+    imageFit: cover
+    imageAspectRatio: 1.8
+    cardSize: 150
+    lightbox: true
+    caption: [variant, score]
+    sort:
+      - { property: score, direction: DESC }
+  - type: table
+    name: Table
+    filters: 'shot == "Landing"'
+    order: [variant, round, score, default, thesis, best_when, loses_when]
+    sort:
+      - { property: score, direction: DESC }

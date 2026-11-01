@@ -1,0 +1,444 @@
+/* data-ui's own chrome: the <data-views> toolbar, status line, menus and peek; <data-facets>; <data-value>; badges.
+   Moved from the table lane's views.css (ab5ba92); the table's own rules are packages/views/table/src/table.css.
+   Classes are dv-* (private); colours are the private --dv-* tokens, resolved from --data-* in tokens.css. */
+
+/* WHY min-width: below 280 px no view is readable (the frozen name column and the checkboxes alone take 152 px); a host
+   that squeezes the element further overflows its own box, and the table scrolls sideways in its own, as always.
+   280 fits a 320 px phone with 16 px gutters. */
+data-views {
+  display: flex; flex-direction: column; position: relative; min-height: 0; min-width: 280px; height: var(--dv-height);
+  background: var(--dv-bg); color: var(--dv-fg); font: 13px/1.35 var(--dv-font);
+  border: 1px solid var(--dv-border); border-radius: var(--dv-radius);
+}
+data-views[toolbar="none"] .dv-head { display: none; }
+data-views *, data-facets *, data-value * { box-sizing: border-box; }
+.dv-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+data-views:not(.dv) > * { max-width: 100%; overflow: auto; }
+
+/* the bar: view tabs on the left, the view's controls on the right (Notion's database header) */
+.dv-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 6px 8px 0; border-bottom: 1px solid var(--dv-border); }
+.dv-tabs { display: flex; gap: 2px; overflow-x: auto; flex: 1 1 auto; min-width: 0; scrollbar-width: none; }
+.dv-tab { font: inherit; color: var(--dv-muted); background: none; border: 0; border-bottom: 2px solid transparent; padding: 6px 8px 7px; white-space: nowrap; cursor: pointer; }
+.dv-tab:hover { color: var(--dv-fg); }
+.dv-tab.dv-on { color: var(--dv-fg); border-bottom-color: var(--dv-fg); font-weight: 600; }
+.dv-tab-type { color: var(--dv-muted); font-weight: 400; font-size: 11px; margin-left: 4px; }
+.dv-mine { color: var(--dv-accent); margin-left: 3px; }
+.dv-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; padding-bottom: 6px; }
+data-views[toolbar="compact"] .dv-tools > .dv-btn:not(.dv-more) { display: none; }
+.dv-btn { font: inherit; font-size: 12.5px; color: var(--dv-muted); background: none; border: 1px solid transparent; border-radius: var(--dv-radius); padding: 3px 8px; cursor: pointer; white-space: nowrap; }
+.dv-btn:hover { background: var(--dv-hover); color: var(--dv-fg); }
+.dv-btn:focus-visible, .dv-tab:focus-visible, data-views tr:focus-visible, data-views th:focus-visible, data-facets :focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.dv-btn.dv-set { color: var(--dv-fg); font-weight: 600; }
+/* CONTRACT §36: the status line's precedence notes and their Reset / Clear */
+.dv-src-note { white-space: nowrap; }
+.dv-src-effect { color: var(--dv-muted); }
+.dv-btn.dv-on { background: var(--dv-subtle); color: var(--dv-fg); border-color: var(--dv-border); }
+.dv-btn.dv-primary { background: var(--dv-accent); color: var(--dv-on-accent); }
+.dv-btn.dv-primary:hover { filter: brightness(1.08); }
+.dv-btn[disabled] { opacity: .45; cursor: default; }
+.dv-dirty { display: inline-flex; gap: 4px; }
+.dv-dirty[hidden] { display: none; }
+.dv-search input { font: inherit; font-size: 12.5px; width: 150px; padding: 3px 8px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); background: var(--dv-bg); color: var(--dv-fg); }
+.dv-status { padding: 4px 10px; color: var(--dv-muted); font-size: 12px; border-bottom: 1px solid var(--dv-border); min-height: 25px; }
+/* CONTRACT §18: `status: off` hides the status line; !important because frame.css gives it a display under some frames */
+data-views > .dv-status[hidden] { display: none !important; }
+.dv-notice { padding: 6px 10px; font-size: 12px; color: var(--dv-fg); background: var(--dv-subtle); border-bottom: 1px solid var(--dv-border); }
+.dv-notice[hidden] { display: none; }
+.dv-link { font: inherit; color: var(--dv-accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.dv-err { color: var(--dv-warn); }
+.dv-stage { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; position: relative; }
+/* a host's own rows over a view that is still drawing (data-views.js _draw): on top, opaque, scrolling on their own */
+.dv-stage > .dv-served.dv-served-over { position: absolute; inset: 0; z-index: 1; overflow: auto; background: var(--dv-bg); }
+.dv-view { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+.dv-loading { padding: 16px; color: var(--dv-muted); }
+
+/* values, badges */
+.dv-none { color: var(--dv-muted); opacity: .6; }
+.dv-u { color: var(--dv-muted); font-size: .92em; }
+.dv-range { color: var(--dv-muted); font-size: .92em; }
+.dv-basis { display: inline-block; margin-left: 4px; min-width: 1em; font-size: 10px; line-height: 1; vertical-align: 1px; color: var(--dv-muted); }
+.dv-basis-measured { color: var(--dv-basis-measured); }
+.dv-basis-datasheet { color: var(--dv-basis-datasheet); }
+.dv-basis-seller { color: var(--dv-basis-seller); }
+.dv-basis-derived { color: var(--dv-basis-derived); }
+.dv-basis-estimate { color: var(--dv-basis-estimate); }
+.dv-basis-assumed { color: var(--dv-basis-assumed); }
+.dv-basis-chosen { color: var(--dv-basis-chosen); }
+.dv-basis-sampled { color: var(--dv-basis-sampled); }
+.dv-basis-stand-in { color: var(--dv-basis-stand-in); }
+.dv-basis-claimed { color: var(--dv-basis-claimed); font-style: italic; }
+/* display: status (docs/CONTRACT.md §35; sim2real gap #12): a badge with its glyph and its word, the glyph and the edge
+   in the status tone, the word in the text colour (a 12 px word in a pale green or red fails contrast); the glyph is
+   hidden from readers, so the word is what a screen reader says */
+.dv-state { display: inline-flex; align-items: center; gap: 4px; padding: 0 8px 0 6px; border-radius: 999px; font-size: 12px; line-height: 18px; white-space: nowrap;
+  --dv-st: var(--dv-muted); color: var(--dv-fg); background: color-mix(in srgb, var(--dv-st) 13%, var(--dv-bg)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--dv-st) 40%, transparent); }
+.dv-state.dv-tone-good { --dv-st: var(--dv-tone-good); }
+.dv-state.dv-tone-warn { --dv-st: var(--dv-tone-warn); }
+.dv-state.dv-tone-bad { --dv-st: var(--dv-tone-bad); }
+.dv-state.dv-tone-muted, .dv-state.dv-tone-neutral { --dv-st: var(--dv-muted); }
+.dv-state-glyph { color: var(--dv-st); font-weight: 700; }
+.dv-state + .dv-state { margin-left: 2px; }
+/* the side peek's embedded section view (docs/CONTRACT.md §35, evidence) and its links */
+.dv-peek-view { margin: 4px 0 14px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); padding: 4px 6px 2px; }
+.dv-peek-view > data-views { display: block; height: 240px; --data-height: 240px; }
+a.dv-peek-link { color: var(--dv-accent); overflow-wrap: anywhere; }
+.dv-badge { display: inline-block; padding: 0 7px; border-radius: 999px; font-size: 11.5px; line-height: 18px; font-weight: 500;
+  background: color-mix(in srgb, var(--dv-badge, var(--dv-series-1)) 14%, var(--dv-bg)); color: color-mix(in srgb, var(--dv-badge, var(--dv-series-1)) 72%, var(--dv-fg)); }
+.dv-h1 { --dv-badge: var(--dv-series-1); } .dv-h2 { --dv-badge: var(--dv-series-2); } .dv-h3 { --dv-badge: var(--dv-series-3); } .dv-h4 { --dv-badge: var(--dv-series-4); }
+.dv-h5 { --dv-badge: var(--dv-series-5); } .dv-h6 { --dv-badge: var(--dv-series-6); } .dv-h7 { --dv-badge: var(--dv-series-7); } .dv-h8 { --dv-badge: var(--dv-series-8); }
+.dv-h0 { --dv-badge: var(--dv-muted); }
+data-value { font-variant-numeric: tabular-nums; }
+
+/* menus */
+.dv-pop { position: absolute; z-index: 20; width: min(380px, calc(100% - 16px)); max-height: min(70vh, 560px); overflow: auto; background: var(--dv-bg); color: var(--dv-fg); border: 1px solid var(--dv-border); border-radius: calc(var(--dv-radius) + 2px); box-shadow: 0 8px 28px rgba(0,0,0,.16); padding: 10px 12px; }
+.dv-pop h4 { margin: 0 0 8px; font-size: 12px; font-weight: 600; color: var(--dv-muted); }
+.dv-pop h5 { margin: 12px 0 4px; font-size: 11.5px; font-weight: 600; color: var(--dv-muted); }
+.dv-pop label { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 6px 0; }
+.dv-pop label.dv-dir { justify-content: flex-end; margin-top: -2px; }
+.dv-pop select, .dv-pop input:not([type=checkbox]):not([type=range]) { font: inherit; font-size: 12.5px; padding: 3px 6px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); background: var(--dv-bg); color: var(--dv-fg); min-width: 0; }
+.dv-pop .dv-rule { display: flex; gap: 6px; align-items: center; margin: 6px 0; }
+.dv-pop .dv-rule select:first-child, .dv-pop .dv-rule input { flex: 1 1 auto; }
+.dv-pop code { flex: 1 1 auto; font: 12px var(--dv-mono); background: var(--dv-subtle); padding: 3px 6px; border-radius: 4px; overflow-wrap: anywhere; }
+.dv-hint { color: var(--dv-muted); font-size: 12px; margin: 6px 0; }
+.dv-seg { display: flex; gap: 4px; margin: 6px 0; flex-wrap: wrap; }
+.dv-x { padding: 2px 6px; }
+.dv-props { list-style: none; margin: 0; padding: 0; }
+.dv-prop { display: flex; align-items: center; gap: 6px; padding: 2px 0; border-radius: 4px; }
+.dv-prop label { flex: 1 1 auto; justify-content: flex-start; margin: 0; gap: 6px; }
+.dv-prop.dv-over { box-shadow: inset 0 2px 0 var(--dv-accent); }
+.dv-grip { color: var(--dv-muted); cursor: grab; font-size: 11px; letter-spacing: -2px; }
+.dv-prop[draggable=false] .dv-grip { visibility: hidden; }
+.dv-yaml { font: 12px/1.45 var(--dv-mono); background: var(--dv-subtle); padding: 8px 10px; border-radius: 6px; white-space: pre; overflow: auto; margin: 0 0 8px; max-height: 320px; }
+
+/* the side peek: one record surface every view opens (host.open); the view stays visible (Notion's side peek) */
+.dv-peek { position: absolute; z-index: 10; top: 0; right: 0; bottom: 0; width: min(540px, 100%); background: var(--dv-bg); border-left: 1px solid var(--dv-border); box-shadow: -8px 0 24px rgba(0,0,0,.10); overflow: auto; padding: 0 14px 16px; }
+.dv-peek header { position: sticky; top: 0; background: var(--dv-bg); display: flex; align-items: center; gap: 10px; padding: 12px 0 8px; border-bottom: 1px solid var(--dv-border); z-index: 1; }
+.dv-peek h2 { font-size: 15px; margin: 0; flex: 1 1 auto; }
+.dv-peek h3 { font-size: 12px; font-weight: 600; color: var(--dv-muted); margin: 16px 0 6px; }
+.dv-peeklink { color: var(--dv-accent); font-size: 12.5px; white-space: nowrap; }
+.dv-fields { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.dv-fields th, .dv-fields td { text-align: left; vertical-align: top; padding: 4px 0; border-bottom: 1px solid var(--dv-rule); font-size: 12.5px; }
+.dv-fields th { color: var(--dv-muted); font-weight: 400; width: 42%; padding-right: 10px; }
+/* WHY overflow-wrap:anywhere (not break-word) on a field value and an entry: only `anywhere` lowers min-content, so one long unbroken value (a URL) wraps in the 540 px peek instead of widening the auto-layout table (or the entry's flex line) past it and clipping text at the panel's edge */
+.dv-fields td { overflow-wrap: anywhere; }
+.dv-fields tr.dv-active td, .dv-fields tr.dv-active th { background: var(--dv-accent-bg); }
+/* a field whose value two or more sources state is a tab stop (CONTRACT §36: the menu key lists its sources) */
+.dv-fields tr[data-src-row]:focus { outline: none; }
+.dv-fields tr[data-src-row]:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.dv-peektable { overflow-x: auto; }
+.dv-peektable table { border-collapse: collapse; width: 100%; font-size: 12px; }
+.dv-peektable th, .dv-peektable td { text-align: left; vertical-align: top; padding: 4px 6px; border-bottom: 1px solid var(--dv-rule); }
+.dv-peektable th { color: var(--dv-muted); font-weight: 500; position: sticky; top: 0; background: var(--dv-bg); }
+.dv-peektable td.dv-num { text-align: right; font-variant-numeric: tabular-nums; }
+.dv-entries { list-style: none; margin: 0; padding: 0; }
+.dv-entry { overflow-wrap: anywhere; border-bottom: 1px solid var(--dv-rule); padding: 7px 6px; font-size: 12.5px; border-radius: 4px; }
+.dv-entry.dv-active { background: var(--dv-accent-bg); }
+.dv-entry-line { display: flex; flex-wrap: wrap; gap: 2px 12px; }
+.dv-entry-kind { font-weight: 600; min-width: 64px; }
+.dv-entry p { margin: 3px 0 0; color: var(--dv-muted); }
+.dv-entry-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: .03em; margin-right: 4px; }
+.dv-entry a, .dv-peek a { color: var(--dv-accent); }
+
+/* <data-facets>: the McMaster rail, and its standard kinds (docs/CONTRACT.md §7, amendment 2026-10-26 (filters)) */
+data-facets { display: block; color: var(--dv-fg); font: 13px/1.35 var(--dv-font); background: var(--dv-bg); min-width: 0; }
+.df-box > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 2px; font-weight: 600; font-size: 13px; }
+.df-box > summary::-webkit-details-marker { display: none; }
+.df-box > summary .df-n { font-weight: 400; color: var(--dv-muted); font-size: 12px; }
+.df-clear { font-size: 12px; }
+.df-group { border-top: 1px solid var(--dv-rule); padding: 8px 2px 10px; min-width: 0; }
+.df-group h4 { margin: 0 0 6px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.df-group h4 .dv-link { font-weight: 400; font-size: 11.5px; margin-left: auto; }
+.df-fold { font: inherit; font-weight: 600; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; min-width: 0; }
+.df-fold::before { content: ''; display: inline-block; width: 0; height: 0; margin: 0 6px 1px 1px; border: 4px solid transparent; border-left: 5px solid var(--dv-muted); border-right: 0; vertical-align: middle; }
+.df-fold[aria-expanded="true"]::before { transform: rotate(90deg); }
+.df-fold .dv-u { color: var(--dv-muted); font-weight: 400; }
+.df-info { font: inherit; font-size: 12px; line-height: 1; color: var(--dv-muted); background: none; border: 0; padding: 1px 2px; cursor: pointer; border-radius: 4px; }
+.df-info:hover, .df-info[aria-expanded="true"] { color: var(--dv-accent); }
+.df-help { margin: 0 0 8px; font-size: 12px; color: var(--dv-muted); background: var(--dv-subtle); border-radius: var(--dv-radius); padding: 6px 8px; }
+.df-warn { margin: 0 0 6px; font-size: 11.5px; color: var(--dv-warn); }
+.df-none { font-size: 12px; color: var(--dv-muted); border-top: 1px solid var(--dv-rule); padding: 8px 2px; margin: 0; }
+.df-find, .df-search, .df-dropdown, .df-listbox { width: 100%; font: inherit; font-size: 12px; padding: 3px 7px; margin: 0 0 6px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); background: var(--dv-bg); color: var(--dv-fg); }
+.df-search { margin: 0; padding: 5px 8px; }
+.df-listbox { padding: 2px; }
+.df-listbox option { padding: 2px 4px; border-radius: 3px; }
+.df-listbox option:checked { background: color-mix(in srgb, var(--dv-accent) 22%, var(--dv-bg)); color: var(--dv-fg); }
+.df-values { list-style: none; margin: 0; padding: 0; }
+.df-values li { display: flex; align-items: center; gap: 2px; }
+.df-values li label { display: flex; align-items: center; gap: 7px; padding: 2px 0; cursor: pointer; font-size: 12.5px; flex: 1 1 auto; min-width: 0; }
+.df-values li label:hover { color: var(--dv-fg); background: var(--dv-hover); border-radius: 4px; }
+.df-values .df-label, .df-tiles .df-label, .df-tree .df-label, .df-switch .df-label { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.df-count { color: var(--dv-muted); font-variant-numeric: tabular-nums; font-size: 11.5px; font-weight: 400; }
+.df-zero { opacity: .45; }
+.df-values input, .df-seg input { accent-color: var(--dv-accent); margin: 0; }
+.df-ex { font: inherit; font-size: 12px; line-height: 1; color: var(--dv-muted); background: none; border: 0; border-radius: 4px; padding: 2px 4px; cursor: pointer; opacity: .55; }
+.df-values li:hover .df-ex, .df-ex:focus-visible, .df-ex[aria-pressed="true"] { opacity: 1; }
+.df-ex:hover { color: var(--dv-warn); background: var(--dv-hover); }
+.df-excluded .df-label { text-decoration: line-through; color: var(--dv-warn); }
+.df-more { font-size: 12px; margin-top: 4px; }
+.df-range { display: flex; align-items: center; gap: 6px; }
+.df-range input, .df-range select { width: 0; flex: 1 1 0; min-width: 0; font: inherit; font-size: 12px; padding: 3px 6px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); background: var(--dv-bg); color: var(--dv-fg); }
+.df-range span { color: var(--dv-muted); }
+.df-dates { margin-top: 6px; }
+.df-dates input { padding: 2px 4px; }
+.df-span { color: var(--dv-muted); font-size: 11.5px; margin-top: 4px; }
+.df-custom { border-top: 1px solid var(--dv-rule); padding: 8px 2px; font-size: 12px; color: var(--dv-muted); }
+
+/* toggle: a switch (role=switch on a checkbox) */
+.df-switch { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 12.5px; }
+.df-switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.df-track { flex: 0 0 auto; width: 28px; height: 16px; border-radius: 999px; background: var(--dv-border); position: relative; transition: background .15s; }
+.df-track::after { content: ''; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--dv-bg); transition: transform .15s; }
+.df-switch input:checked + .df-track { background: var(--dv-accent); }
+.df-switch input:checked + .df-track::after { transform: translateX(12px); }
+.df-switch input:focus-visible + .df-track { outline: 2px solid var(--dv-accent); outline-offset: 2px; }
+.df-seg { display: inline-flex; gap: 10px; font-size: 11.5px; color: var(--dv-muted); margin: 0 0 6px; }
+.df-seg label { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; }
+
+/* sliders: two native range inputs over one rail; a histogram above (Airbnb) */
+.df-slider { padding: 2px 0 0; }
+.df-hist { display: block; width: 100%; height: 34px; }
+.df-bar-all { fill: var(--dv-border); opacity: .55; }
+.df-bar { fill: var(--dv-muted); opacity: .45; }
+.df-bar.df-in { fill: var(--dv-accent); opacity: 1; }
+.df-rail { position: relative; height: 18px; }
+.df-rail::before { content: ''; position: absolute; left: 0; right: 0; top: 8px; height: 3px; border-radius: 2px; background: var(--dv-border); }
+.df-fill { position: absolute; top: 8px; height: 3px; left: var(--lo); right: calc(100% - var(--hi)); background: var(--dv-accent); border-radius: 2px; }
+.df-rail input[type=range] { position: absolute; inset: 0; width: 100%; margin: 0; background: none; pointer-events: none; -webkit-appearance: none; appearance: none; height: 18px; }
+.df-rail input[type=range]::-webkit-slider-runnable-track { background: none; height: 18px; }
+.df-rail input[type=range]::-moz-range-track { background: none; }
+.df-rail input[type=range]::-webkit-slider-thumb { pointer-events: auto; -webkit-appearance: none; width: 16px; height: 16px; margin-top: 1px; border-radius: 50%; background: var(--dv-bg); border: 2px solid var(--dv-accent); cursor: grab; }
+.df-rail input[type=range]::-moz-range-thumb { pointer-events: auto; width: 12px; height: 12px; border-radius: 50%; background: var(--dv-bg); border: 2px solid var(--dv-accent); cursor: grab; }
+.df-rail input[type=range]:focus-visible { outline: none; }
+.df-rail input[type=range]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px color-mix(in srgb, var(--dv-accent) 35%, transparent); }
+.df-ends { display: flex; justify-content: space-between; gap: 6px; font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.df-ends span { color: var(--dv-muted); }
+
+/* chips, buckets, presets, the current refinements */
+.df-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.df-chip { font: inherit; font-size: 12px; color: var(--dv-fg); background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 999px; padding: 2px 9px; cursor: pointer; white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.df-chip:hover { background: var(--dv-hover); }
+.df-chip[aria-pressed="true"], .df-chip.df-on { background: color-mix(in srgb, var(--dv-accent) 14%, var(--dv-bg)); border-color: var(--dv-accent); }
+.df-chip .dv-u { color: var(--dv-muted); }
+.df-current + .df-clear { display: inline-block; margin-top: 6px; }
+
+/* rating / min-level */
+.df-rate { font: inherit; font-size: 12.5px; color: var(--dv-fg); background: none; border: 0; border-radius: 4px; padding: 2px 4px; width: 100%; display: flex; align-items: center; gap: 6px; cursor: pointer; text-align: left; }
+.df-rate:hover { background: var(--dv-hover); }
+.df-rate[aria-pressed="true"] { font-weight: 600; background: color-mix(in srgb, var(--dv-accent) 12%, var(--dv-bg)); }
+.df-rate .df-count { margin-left: auto; }
+.df-stars { color: var(--dv-series-4); letter-spacing: 1px; }
+
+/* tiles: chips of a list, swatches, McMaster's picture galleries, picture lists and compact grids */
+.df-tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--df-cols, 1), minmax(0, 1fr)); gap: 4px; }
+.df-tile { font: inherit; font-size: 12px; color: var(--dv-fg); background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: var(--dv-radius); padding: 4px; width: 100%; height: 100%; cursor: pointer; display: flex; align-items: center; gap: 6px; min-width: 0; text-align: left; }
+.df-tile:hover { background: var(--dv-hover); }
+.df-tile[aria-pressed="true"] { border-color: var(--dv-accent); background: color-mix(in srgb, var(--dv-accent) 12%, var(--dv-bg)); box-shadow: inset 0 0 0 1px var(--dv-accent); }
+.df-tiles-chips { display: flex; flex-wrap: wrap; }
+.df-tiles-chips .df-tile { border-radius: 999px; padding: 2px 9px; width: auto; }
+.df-tiles-grid .df-tile { justify-content: center; padding: 3px 2px; font-variant-numeric: tabular-nums; text-align: center; }
+.df-tiles-grid .df-label { text-align: center; }
+.df-tiles-gallery .df-tile, .df-tiles-swatch .df-tile { flex-direction: column; justify-content: flex-start; text-align: center; padding: 6px 4px 4px; gap: 3px; }
+.df-tiles-gallery .df-label, .df-tiles-swatch .df-label { width: 100%; text-align: center; line-height: 1.2; white-space: normal; overflow-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.df-tiles-swatch .df-label { font-size: 10.5px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; overflow-wrap: normal; }
+.df-tiles-gallery .df-count, .df-tiles-swatch .df-count { font-size: 10.5px; }
+.df-tile-img { display: block; width: 100%; height: 44px; object-fit: contain; flex: 0 0 auto; }
+.df-tiles-swatch .df-tile-img { width: 34px; height: 34px; border-radius: 6px; }
+.df-mono { display: grid; place-items: center; font-weight: 700; font-size: 12px; letter-spacing: .02em; border-radius: 6px; width: 34px; height: 34px; margin: 0 auto;
+  background: color-mix(in srgb, var(--dv-badge, var(--dv-series-1)) 16%, var(--dv-bg)); color: color-mix(in srgb, var(--dv-badge, var(--dv-series-1)) 75%, var(--dv-fg)); }
+.df-tiles-gallery .df-mono { width: 44px; height: 44px; }
+.df-color { border: 1px solid var(--dv-border); }
+.df-tiles-picture-list { gap: 1px; }
+.df-tiles-picture-list .df-tile { border-color: transparent; padding: 2px 4px; }
+.df-tiles-picture-list .df-tile[aria-pressed="true"] { border-color: var(--dv-accent); }
+.df-pic { flex: 0 0 auto; width: 34px; height: 24px; object-fit: contain; }
+.df-tiles-picture-list .df-mono { width: 24px; height: 24px; font-size: 10px; margin: 0; }
+/* a .svg drawing is ink: a mask filled with the text colour, so one file reads in light and dark */
+.df-ink { display: block; background: currentColor; -webkit-mask: var(--df-src) center / contain no-repeat; mask: var(--df-src) center / contain no-repeat; }
+.df-diagram { display: block; width: 100%; height: 86px; margin: 0 0 8px; color: var(--dv-fg); }
+img.df-diagram { object-fit: contain; }
+
+/* tree: Algolia's hierarchical menu */
+.df-tree { list-style: none; margin: 0; padding: 0; }
+.df-tree .df-tree { padding-left: 14px; }
+.df-node { font: inherit; font-size: 12.5px; color: var(--dv-fg); background: none; border: 0; border-radius: 4px; padding: 2px 4px 2px 0; width: 100%; display: flex; align-items: center; gap: 4px; cursor: pointer; text-align: left; }
+.df-node:hover { background: var(--dv-hover); }
+.df-node[aria-pressed="true"] > .df-label { font-weight: 600; }
+.df-caret { width: 12px; flex: 0 0 auto; color: var(--dv-muted); font-size: 10px; }
+
+@media (max-width: 700px) {
+  .dv-head { padding: 4px 6px 0; }
+  .dv-tools { width: 100%; }
+  .dv-search input { width: 110px; }
+  .dv-peek { width: 100%; box-shadow: none; }
+}
+
+/* the form (type: record + edit: true, and the side peek of a view with edit: true; src/form.js). */
+
+.dv-form input[type=text], .dv-form input[type=number], .dv-form input[type=date], .dv-form select, .dv-form textarea {
+  font: inherit; font-size: 12.5px; width: 100%; min-width: 0; padding: 3px 7px; color: var(--dv-fg); background: var(--dv-bg);
+  border: 1px solid var(--dv-border); border-radius: var(--dv-radius);
+}
+.dv-form textarea { resize: vertical; line-height: 1.4; }
+.dv-form input:focus-visible, .dv-form select:focus-visible, .dv-form textarea:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -1px; }
+.dv-form input:invalid { border-color: var(--dv-warn); }
+.dv-form input[type=checkbox] { accent-color: var(--dv-accent); margin: 3px 0; }
+.dv-form-num { display: flex; align-items: center; gap: 6px; }
+.dv-form-num input { flex: 1 1 auto; font-variant-numeric: tabular-nums; }
+.dv-form-num .dv-u { flex: 0 0 auto; }
+.dv-form-why { color: var(--dv-muted); font-size: 11.5px; }
+.dv-form td { padding-top: 3px; padding-bottom: 3px; }
+.dv-form tr.dv-changed th { color: var(--dv-fg); font-weight: 600; }
+.dv-form-bar { position: sticky; bottom: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 0 4px; background: var(--dv-bg); border-top: 1px solid var(--dv-border); margin-top: 12px; }
+.dv-form-msg { margin: 0; font-size: 12.5px; color: var(--dv-muted); }
+.dv-form-msg.dv-refused { color: var(--dv-warn); }
+.dv-form-range { color: var(--dv-muted); font-size: 11px; margin-top: 2px; }
+
+/* the view's answer first (CONTRACT §16 intro:): KPI cards, then a few lines of text, then the rows */
+.dv-intro { padding: 10px 12px 6px; border-bottom: 1px solid var(--dv-border); display: flex; flex-direction: column; gap: 6px; flex: 0 0 auto; }
+/* an intro adds height above the rows: the element grows by it, and the rows keep the height they had (less the band) */
+data-views.dv-has-intro:not([frame="page"]):not([frame="bleed"]) { height: auto; }
+data-views.dv-has-intro:not([frame="page"]):not([frame="bleed"]) > .dv-stage { flex: 0 0 auto; height: max(280px, calc(var(--dv-height) - 90px)); }
+.dv-intro-cards { padding: 0; }
+.dv-intro-cards .dv-kpi-wrap { padding: 0; }
+/* the intro's cards are an answer, not the page: compact, several to a row */
+.dv-intro-cards .dv-kpi-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+.dv-intro-cards data-kpi .dv-kpi-card { padding: 8px 10px; min-height: 0; }
+.dv-intro-cards data-kpi .dv-kpi-num { font-size: 20px; }
+.dv-intro-cards data-kpi .dv-kpi-spark, .dv-intro-cards data-kpi .dv-kpi-history { max-height: 22px; }
+.dv-intro-text { color: var(--dv-fg); font-size: 13.5px; line-height: 1.5; max-width: 110ch; }
+.dv-intro-text p { margin: 0 0 4px; }
+.dv-intro-text p:last-child { margin-bottom: 0; }
+.dv-intro-text h2, .dv-intro-text h3 { font-size: 15px; margin: 0 0 4px; }
+.dv-intro-kpi[hidden], .dv-intro[hidden] { display: none; }
+/* markdown in a cell, the peek or a record (display: markdown) */
+.dv-md { white-space: normal; }
+.dv-md :is(h2, h3, h4) { margin: 10px 0 4px; font-size: 1.05em; }
+.dv-md pre { background: var(--dv-subtle); padding: 6px 8px; border-radius: 4px; overflow: auto; white-space: pre; font-size: 12px; }
+.dv-md code { font-family: var(--dv-mono); font-size: .92em; }
+.dv-md table { border-collapse: collapse; font-size: 12.5px; margin: 6px 0; }
+.dv-md th, .dv-md td { border-bottom: 1px solid var(--dv-rule); padding: 3px 6px; text-align: left; vertical-align: top; white-space: normal; }
+.dv-md ul, .dv-md ol { padding-left: 20px; margin: 4px 0; }
+/* the roll-up menu */
+.dv-rollup-dims { list-style: none; padding: 0; margin: 4px 0 8px; columns: 2; }
+.dv-rollup-dims li { break-inside: avoid; padding: 2px 0; }
+.dv-rolled-note { color: var(--dv-accent); }
+
+/* nav: McMaster-Carr's "Choose a Category" (docs/CONTRACT.md §20): a link-styled name per group and its count; the
+   picked row is marked with a warm tint (the series' amber, mixed into the surface) and the text colour, so it reads
+   in light and dark */
+.df-nav { list-style: none; margin: 0; padding: 0; }
+.df-nav-row { font: inherit; font-size: 13px; line-height: 1.3; color: var(--dv-accent); background: none; border: 0; border-radius: 4px; display: flex; align-items: baseline;
+  gap: 4px; padding: 3px 6px; margin: 0 -6px; width: calc(100% + 12px); cursor: pointer; text-align: left; }
+.df-nav-row .df-label { min-width: 0; overflow-wrap: anywhere; }
+.df-nav-row .df-count { flex: 0 0 auto; font-size: 12px; }
+.df-nav-row:hover .df-label { text-decoration: underline; text-underline-offset: 2px; }
+.df-nav-row:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.df-nav-row[aria-current="true"] { color: var(--dv-fg); font-weight: 600; background: color-mix(in srgb, var(--dv-series-4) 26%, var(--dv-bg)); }
+.df-nav-row[aria-current="true"] .df-count { color: var(--dv-fg); }
+.df-nav-clear, .df-nav-clear[aria-current="true"] { color: var(--dv-fg); background: none; }
+/* the series legend every chart draws (src/legend.js, CONTRACT §31): each entry a button (pressed = shown); a hidden one
+   greyed and struck through; Reset quiet beside the entries while anything is hidden. A view's own CSS draws the swatch */
+.dv-legend-key { font: inherit; color: inherit; background: none; border: 0; padding: 2px 4px; margin: -2px -4px; border-radius: var(--dv-radius); cursor: pointer; user-select: none; }
+.dv-legend-key:hover { background: var(--dv-hover); color: var(--dv-fg); }
+.dv-legend-key:focus-visible, .dv-legend-reset:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+.dv-legend-key[aria-pressed="false"] { opacity: .55; text-decoration: line-through; text-decoration-color: color-mix(in srgb, currentColor 50%, transparent); }
+.dv-legend-reset { font: inherit; font-size: 11px; color: var(--dv-muted); background: none; border: 0; padding: 2px 4px; margin: -2px -4px; border-radius: var(--dv-radius); cursor: pointer; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); text-underline-offset: 2px; }
+.dv-legend-reset:hover { color: var(--dv-fg); background: var(--dv-hover); }
+.dv-legend-reset[hidden] { display: none; }
+.dv-legend-title { color: var(--dv-muted); }
+
+/* docs/CONTRACT.md §37: a view tab's count, the host's part of the peek, and a thumbnail large */
+.dv-tabn { color: var(--dv-muted); font-weight: 400; font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.dv-peek-extra { margin-top: 12px; }
+.dv-peek .dv-mc-text { display: block; white-space: pre-wrap; overflow-wrap: anywhere; }
+.dv-peek-media { display: block; }
+.dv-peek .dv-mc-thumbs { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.dv-peek .dv-mc-thumb { position: relative; display: block; width: 88px; height: 66px; padding: 0; border: 0; border-radius: 4px; overflow: hidden; background: var(--dv-subtle); cursor: zoom-in; }
+.dv-peek .dv-mc-thumb :is(img, video) { display: block; width: 100%; height: 100%; object-fit: cover; }
+.dv-peek .dv-mc-play { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; text-shadow: 0 0 3px #000; }
+.dv-peek .dv-mc-away { align-self: center; font-size: 11px; color: var(--dv-muted); }
+.dv-mediabox { width: min(92vw, 1200px); height: min(90vh, 900px); padding: 0; border: 0; border-radius: 8px; background: var(--dv-bg); color: var(--dv-fg); }
+.dv-mediabox[open] { display: flex; flex-direction: column; }
+.dv-mediabox::backdrop { background: rgb(0 0 0 / .6); }
+.dv-mb-bar { flex: none; display: flex; align-items: center; gap: 10px; padding: 6px 10px; font-size: 12px; color: var(--dv-muted); }
+.dv-mb-cap { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-mb-stage { flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 10px 10px; }
+.dv-mb-stage :is(img, video) { flex: 0 1 auto; min-width: 0; max-width: 100%; max-height: 100%; object-fit: contain; }
+
+/* a record as a page (docs/CONTRACT.md §38): short rows on top, long properties under them, each under a real heading */
+.dv-peek.dv-peek-page header h2 { font-size: 20px; line-height: 1.25; }
+/* WHY hidden: the page's rows and sections already say all of it; the key-spec chips would say it twice, the subtitle a third time */
+.dv-peek.dv-peek-page .dv-open-chips, .dv-peek.dv-peek-page .dv-open-sub { display: none; }
+.dv-page-sec { margin-top: 18px; }
+.dv-peek h2.dv-page-h { font-size: 17px; line-height: 1.3; font-weight: 600; color: var(--dv-fg); margin: 0 0 6px; flex: none; }
+.dv-page-text { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.5; }
+.dv-page-box { display: flex; flex-direction: column; gap: 4px; }
+.dv-page-box textarea { display: block; width: 100%; box-sizing: border-box; padding: 2px 0; border: 0; outline: 0; resize: none; overflow: hidden; background: none; color: var(--dv-fg); font: inherit; line-height: 1.5; }
+.dv-page-box textarea::placeholder { color: var(--dv-muted); }
+.dv-peek .dv-ed-thumbs { display: flex; flex-wrap: wrap; gap: 4px; }
+.dv-peek .dv-ed-thumbs:empty { display: none; }
+.dv-peek .dv-ed-thumb { position: relative; display: block; width: 120px; height: 90px; border-radius: 4px; overflow: hidden; background: var(--dv-subtle); }
+.dv-peek .dv-ed-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.dv-peek .dv-ed-video { display: grid; place-items: center; width: 100%; height: 100%; font-size: 11px; color: var(--dv-muted); }
+.dv-peek .dv-ed-x { position: absolute; top: 2px; right: 2px; width: 16px; height: 16px; padding: 0; border: 0; border-radius: 999px; background: var(--dv-bg); color: var(--dv-fg); font-size: 12px; line-height: 15px; cursor: pointer; }
+.dv-peek .dv-ed-foot { display: flex; align-items: center; justify-content: flex-end; gap: 8px; min-height: 16px; }
+.dv-peek .dv-ed-msg { flex: 1 1 auto; min-width: 0; font-size: 11.5px; color: var(--dv-warn); }
+.dv-peek .dv-ed-msg:empty { display: none; }
+.dv-peek .dv-mc-add { font: inherit; font-size: 11.5px; padding: 0; border: 0; background: none; color: var(--dv-muted); cursor: pointer; }
+.dv-peek .dv-mc-add:hover { color: var(--dv-fg); }
+
+
+/* a record's page under a layout (docs/CONTRACT.md §46): the property list, the blocks, the free text last; Notion's side page */
+.dv-page-props { display: flex; flex-direction: column; gap: 1px; margin: 4px 0 0; }
+.dv-page-prop { display: grid; grid-template-columns: 18px minmax(92px, 34%) minmax(0, 1fr); align-items: start; gap: 2px 6px; min-height: 28px; }
+.dv-page-grip { width: 18px; height: 26px; padding: 0; border: 0; border-radius: 3px; background: none; color: var(--dv-muted); cursor: grab; opacity: 0; touch-action: none; font-size: 12px; line-height: 1; user-select: none; }
+.dv-page-nogrip { cursor: default; }
+:is(.dv-page-prop, .dv-page-head):hover .dv-page-grip:not(.dv-page-nogrip), .dv-page-grip:focus-visible { opacity: 1; }
+@media (hover: none) { .dv-page-grip:not(.dv-page-nogrip) { opacity: .6; } }
+.dv-page-grip:hover, .dv-page-more:hover, .dv-page-name:hover { background: var(--dv-hover); }
+.dv-page-name { justify-self: start; max-width: 100%; padding: 3px 6px; border: 0; border-radius: 3px; background: none; color: var(--dv-muted); font: inherit; text-align: left; cursor: pointer; overflow-wrap: anywhere; }
+.dv-page-val { min-width: 0; padding: 3px 0; overflow-wrap: anywhere; }
+.dv-page-val :is(input:not([type=checkbox]), select, textarea) { width: 100%; box-sizing: border-box; padding: 2px 4px; border: 1px solid transparent; border-radius: 3px; background: none; color: inherit; font: inherit; }
+.dv-page-val :is(input, select, textarea):is(:hover, :focus) { border-color: var(--dv-border); outline: 0; }
+.dv-page-empty { color: var(--dv-muted); }
+.dv-page-toggle { justify-self: start; align-self: flex-start; margin: 4px 0 0 24px; padding: 2px 6px; border: 0; border-radius: 3px; background: none; color: var(--dv-muted); font: inherit; font-size: 12.5px; cursor: pointer; }
+.dv-page-toggle:hover { background: var(--dv-hover); }
+.dv-page-off { opacity: .75; }
+.dv-page-head { display: flex; align-items: center; gap: 2px; margin-left: -20px; }
+.dv-peek .dv-page-h { flex: 1 1 auto; min-width: 0; margin: 0; color: var(--dv-fg); font-size: 20px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+.dv-page-more { flex: none; width: 26px; height: 24px; padding: 0; border: 0; border-radius: 3px; background: none; color: var(--dv-muted); cursor: pointer; opacity: 0; }
+.dv-page-head:hover .dv-page-more, .dv-page-more:focus-visible { opacity: 1; }
+@media (hover: none) { .dv-page-more { opacity: .7; } }
+.dv-peek .dv-page-blocks { padding-left: 20px; }
+.dv-peek .dv-page-free { margin-top: 22px; padding: 14px 0 0 20px; border-top: 1px solid var(--dv-border); }
+.dv-page-md { margin-top: 4px; line-height: 1.5; overflow-wrap: anywhere; border-radius: 3px; min-height: 22px; }
+.dv-page-md[data-page-read] { cursor: text; }
+.dv-page-md[data-page-read]:hover { background: var(--dv-hover); }
+.dv-page-md > :first-child { margin-top: 0; }
+.dv-page-md > :last-child { margin-bottom: 0; }
+.dv-page-media { display: block; max-width: 100%; height: auto; margin: 6px 0; border-radius: 4px; }
+img.dv-page-media { cursor: zoom-in; }
+a.dv-page-link { color: var(--dv-accent); }
+.dv-page-nolink { color: var(--dv-muted); }
+a.dv-open-else { margin-left: auto; color: var(--dv-fg); text-decoration: none; font-size: 12.5px; }
+.dv-peek .dv-page-box textarea { padding: 4px 6px; border: 1px solid var(--dv-border); border-radius: 4px; }
+.dv-page-pop { width: min(260px, calc(100% - 16px)); padding: 6px; }
+.dv-page-item { display: block; width: 100%; padding: 5px 8px; border: 0; border-radius: 3px; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.dv-page-item:hover, .dv-page-item:focus-visible { background: var(--dv-hover); outline: 0; }
+.dv-page-item[aria-checked="true"]::after { content: "✓"; float: right; }
+.dv-page-pop hr { margin: 4px 0; border: 0; border-top: 1px solid var(--dv-border); }
+.dv-page-pop h4 { margin: 2px 8px 6px; }
+.dv-page-note { margin: 4px 8px 8px; line-height: 1.45; }
+.dv-page-note.dv-refused { color: var(--dv-warn); }
+.dv-page-actions { display: flex; gap: 6px; margin: 0 8px 4px; }
+.dv-page-dragging { opacity: .45; }
+.dv-page-dropline { position: absolute; z-index: 2; height: 2px; background: var(--dv-accent); pointer-events: none; }
+.dv-page-moving, .dv-page-moving * { cursor: grabbing !important; user-select: none; }
+.dv-page-live { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); }
+data-views.dv-page-full > .dv-peek.dv-peek, data-views.dv-page-full[data-scroll] > .dv-peek.dv-peek { position: fixed; inset: 0; z-index: 1000; width: auto; max-width: none; border: 0; box-shadow: none; padding: 0 max(20px, calc(50% - 380px)) 56px; }
+data-views.dv-page-full > .dv-peek + .dv-splitter { display: none; }
+data-views.dv-page-full > .dv-pop { position: fixed; z-index: 1001; }
+
+/* §46: a page the host draws (el.pageRenderer): the kit keeps the panel, its handle and its ‹ ›, and the host's page says the title */
+.dv-peek-hosted .dv-open-titles h2, .dv-peek-hosted > header > h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.dv-page-host { min-width: 0; }

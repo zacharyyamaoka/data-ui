@@ -1,0 +1,50 @@
+# Experiment tracking: one run table, the views Vibe Tracks' Results tab and KPI tiles draw by hand today
+# (docs/SPEC.md §5, §9). The atomic record is a run (project_vibetracks: "tables, pivot grids and leaderboards are
+# views over the same run dataset"). Every number here is a view summary of producer-written runs, labelled
+# "from rows"; a track's headline still comes from vt state, never from this file.
+#   Check it:  python3 tools/check_views.py examples/runs.base --data examples/runs.schema.json
+data: runs.schema.json
+facets: [family, model, env, tier, { property: started, as: range }]
+views:
+  - type: pivot
+    name: Leaderboard
+    order: [model]
+    groupBy: { property: family }
+    splitBy: [tier, env]
+    value: { property: successes, summary: Ratio, per: attempts, display: bar }
+  - type: kpi
+    name: Success rate by family
+    groupBy: { property: family }
+    kpi:
+      label: Success rate
+      value: { property: successes, summary: Ratio, per: attempts }
+      compare: { against: previous, better: higher, neutral: 0.02 }
+      spark: { x: started, y: success_rate, window: P30D }
+      gate: { min: 0.8 }
+  - type: chart
+    name: Success rate over time
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: started, type: temporal }
+        y: { field: success_rate, scale: { type: linear }, title: Success rate }
+        color: { field: model }
+    guides:
+      - { rule: { y: 0.8 }, label: "gate 0.8" }
+  - type: chart
+    name: Compute vs success
+    chart:
+      mark: point
+      encoding:
+        x: { field: compute_s, scale: { type: log }, title: Compute per pick (s) }
+        y: { field: success_rate }
+        color: { field: family }
+        size: { field: attempts }
+  - type: table
+    name: All runs
+    order: [run, model, env, tier, started, successes, attempts, success_rate, compute_s]
+    groupBy: { property: model }
+    sort:
+      - { property: started, direction: DESC }
+    display: { success_rate: bar }
+    fold: closed

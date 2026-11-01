@@ -1,0 +1,20 @@
+# A made-up launch checklist: what the Edit / View toggle, delete, undo, paste and the column menu run on (docs/CONTRACT.md §40).
+data: rows.json
+properties:
+  owner: { displayName: Owner }
+views:
+  - type: table
+    name: Table
+    order: [task, owner, ticket, points, due, status, shipped, link, notes, score]
+    columnSize: { task: 200, owner: 96, ticket: 96, points: 80, due: 110, status: 90, shipped: 76, link: 170, notes: 220, score: 70 }
+    addRow: true
+  - type: table
+    name: Todo
+    filters: status == "todo"
+    order: [task, owner, ticket, points, due, status, shipped, link, notes, score]
+    columnSize: { task: 200, owner: 96, ticket: 96, points: 80, due: 110, status: 90, shipped: 76, link: 170, notes: 220, score: 70 }
+    addRow: true
+  - type: table
+    name: Fixed size
+    order: [task, owner, ticket, points, due, status, shipped, link, notes, score]
+    addRow: false

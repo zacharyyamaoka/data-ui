@@ -1,0 +1,39 @@
+# Actuators side by side: robotparts' /search/compare/ page (site/static/site.js compare(), build/site_pages.py
+# compare_page) as a .base file. Six integrated actuators from the catalog, each with its robotparts photo; the
+# compare view opens on four. Obsidian Bases grammar plus data-ui's keys (docs/CONTRACT.md §5).
+data: compare.json
+properties:
+  name: { displayName: Part }
+  peak_torque: { displayName: Peak torque }
+  torque_density: { displayName: Peak torque / mass }
+views:
+  - type: compare
+    name: Side by side
+    order: [brand, level, drivetrain, buses, peak_torque, rated_torque, torque_density, max_speed, rated_speed, mass, gear_ratio, voltage, backlash, od, length, rated_power, price, sellers, measured, cited, cad, sim]
+    compare:
+      rows: [aifitlab-8541438771336, aifitlab-8542347853960, aifitlab-8682672160904, aifitlab-8649843966088]
+  - type: compare
+    name: Differences only
+    order: [brand, level, drivetrain, buses, peak_torque, rated_torque, torque_density, max_speed, rated_speed, mass, gear_ratio, voltage, backlash, od, length, rated_power, price, sellers, measured, cited, cad, sim]
+    compare:
+      rows: [aifitlab-8541438771336, aifitlab-8542347853960, aifitlab-8682672160904, aifitlab-8649843966088]
+      better: { price: lower, mass: lower }
+      diffOnly: true
+  - type: compare
+    name: Pick your own
+    order: [peak_torque, rated_torque, torque_density, max_speed, mass, gear_ratio, voltage, price]
+    compare:
+      rows: selection
+  - type: record
+    name: Part page
+    record:
+      sections:
+        - { name: Torque and speed, properties: [peak_torque, rated_torque, torque_density, max_speed, rated_speed, rated_power] }
+        - { name: Size, properties: [mass, od, length, gear_ratio, backlash] }
+        - { name: Electrical, properties: [voltage, buses] }
+        - { name: In the catalog, properties: [level, cited, cad, sim, measured, price, sellers] }
+  - type: table
+    name: All six
+    order: [name, level, peak_torque, rated_torque, mass, gear_ratio, voltage, price]
+    sort:
+      - { property: peak_torque, direction: DESC }

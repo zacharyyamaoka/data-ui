@@ -1,0 +1,33 @@
+/* The playback card (Rerun's time panel): controls on the left, the track filling the rest; tokens only. */
+.dv-view-playback { display: flex; align-items: center; min-height: 0; }
+.dv-pb { display: flex; align-items: center; gap: 14px; width: 100%; padding: 2px 4px; font-variant-numeric: tabular-nums; }
+.dv-pb-ctl { display: flex; align-items: center; gap: 2px; flex: none; }
+.dv-pb-btn { display: inline-grid; place-items: center; width: 30px; height: 30px; border: 0; border-radius: 8px; background: none; color: var(--dv-muted); cursor: pointer; }
+.dv-pb-btn svg { width: 15px; height: 15px; }
+.dv-pb-btn:hover { background: var(--dv-hover); color: var(--dv-fg); }
+.dv-pb-btn:focus-visible, .dv-pb-track:focus-visible, .dv-pb-speed:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+.dv-pb-play { width: 36px; height: 36px; border-radius: 999px; background: var(--dv-accent); color: var(--dv-on-accent); margin: 0 2px; }
+.dv-pb-play:hover { background: var(--dv-accent); color: var(--dv-on-accent); filter: brightness(1.1); }
+.dv-pb-loop.dv-on { color: var(--dv-accent); }
+.dv-pb-speed { font: inherit; font-size: 12px; color: var(--dv-fg); background: transparent; border: 1px solid var(--dv-border); border-radius: 6px; padding: 3px 4px; margin-left: 6px; }
+.dv-pb-time { margin-left: 10px; font-size: 12.5px; color: var(--dv-muted); white-space: nowrap; min-width: 9.5ch; }
+.dv-pb-time b { color: var(--dv-fg); font-weight: 600; }
+.dv-pb-trackbox { position: relative; flex: 1 1 auto; min-width: 120px; padding: 10px 0 16px; }
+.dv-pb-lane { position: absolute; left: 0; right: 0; top: 0; height: 9px; cursor: crosshair; z-index: 2; touch-action: none; }
+.dv-pb-range { position: absolute; top: 1px; height: 7px; border-radius: 3px; background: color-mix(in srgb, var(--dv-accent) 35%, transparent); }
+.dv-pb-h { position: absolute; top: -2px; width: 4px; height: 11px; border-radius: 2px; background: var(--dv-accent); cursor: ew-resize; }
+.dv-pb-h[data-h="0"] { left: -2px; } .dv-pb-h[data-h="1"] { right: -2px; }
+.dv-pb-track { position: relative; height: 6px; border-radius: 999px; background: var(--dv-border); cursor: pointer; touch-action: none; --dv-pb-f: 0; }
+.dv-pb-track::before { content: ""; position: absolute; inset: -4px 0 -9px; } /* a bigger hit area than the 6 px bar; the range lane above keeps its own */
+.dv-pb-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; border-radius: inherit; background: var(--dv-accent); transform-origin: left; transform: scaleX(var(--dv-pb-f)); }
+.dv-pb-win { position: absolute; top: -3px; bottom: -3px; border: 1px dashed var(--dv-muted); border-radius: 4px; pointer-events: none; }
+.dv-pb-thumb { position: absolute; top: 50%; left: calc(var(--dv-pb-f) * 100%); width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 999px; background: var(--dv-bg); border: 2px solid var(--dv-accent); box-shadow: 0 1px 3px rgba(0, 0, 0, .25); pointer-events: none; }
+.dv-pb-ticks { position: absolute; left: 0; right: 0; bottom: 0; height: 12px; font-size: 10.5px; color: var(--dv-muted); }
+.dv-pb-ticks span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+.dv-pb-ticks span:first-child { transform: none; }
+[data-empty] > .dv-pb .dv-pb-trackbox { opacity: .5; }
+@media (max-width: 640px) {
+  .dv-pb { flex-wrap: wrap; gap: 6px; }
+  .dv-pb-trackbox { flex-basis: 100%; }
+  .dv-pb-time { margin-left: auto; }
+}

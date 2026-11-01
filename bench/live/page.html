@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>live bench</title>
+<!-- bench/live.py: a bare host page; driver.js builds a live dashboard over synthetic streams and measures it. -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; padding: 12px; font: 14px system-ui, sans-serif; background: #fff; }
+  data-dashboard { display: block; }
+</style>
+<script type="module" src="/bench/live/driver.js"></script>
+</head>
+<body><data-dashboard id="dash" no-url></data-dashboard></body>
+</html>

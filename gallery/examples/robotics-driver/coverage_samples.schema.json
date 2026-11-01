@@ -1,0 +1,71 @@
+{
+ "title": "Coverage: all 532 rack runs of CAN 12, 13 and 14 (Oct 23-25), decimated",
+ "source": "/archive/datasets/bam_rig rack_2026-10-23, rack_2026-10-24, rack_2026-10-25: the rack's own run logs (moteus registers as logged), CAN 12, 13 and 14; written by gallery/examples/robotics-driver/source/build.py",
+ "path": "coverage_samples.csv",
+ "description": "Every kept run on a uniform 4 Hz time grid (w = 1: a count is time spent, count / 4 s) plus each run's argmin and argmax row of i_q, qd, temp_c and voltage (w = 0): sum w for a histogram; min and max over rows are exact.",
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "run",
+    "type": "string",
+    "title": "Run"
+   },
+   {
+    "name": "situation",
+    "type": "string"
+   },
+   {
+    "name": "source",
+    "type": "string",
+    "title": "Family"
+   },
+   {
+    "name": "device",
+    "type": "string",
+    "title": "Driver"
+   },
+   {
+    "name": "kind",
+    "type": "string",
+    "title": "Run kind",
+    "description": "the run's kind (runs.json's): a box per kind reads its own rows, never a join"
+   },
+   {
+    "name": "i_q_a",
+    "type": "number",
+    "unit": "A",
+    "title": "i_q"
+   },
+   {
+    "name": "qd_deg_s",
+    "type": "number",
+    "unit": "deg/s",
+    "title": "qd",
+    "description": "the board's velocity, its output frame"
+   },
+   {
+    "name": "temp_c",
+    "type": "number",
+    "unit": "°C",
+    "title": "Board temperature"
+   },
+   {
+    "name": "v_bus_v",
+    "type": "number",
+    "unit": "V",
+    "title": "Bus voltage"
+   },
+   {
+    "name": "w",
+    "type": "integer",
+    "title": "Weight",
+    "description": "1 on the time grid, 0 for a kept extreme"
+   }
+  ]
+ }
+}

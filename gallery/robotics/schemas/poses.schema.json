@@ -1,0 +1,97 @@
+{
+ "name": "poses",
+ "title": "Poses",
+ "description": "One row per t × run × situation × body: where a rigid body was, in its declared frame.",
+ "rowsPer": [
+  "t",
+  "run",
+  "situation",
+  "body"
+ ],
+ "required": [
+  "t",
+  "run",
+  "situation",
+  "source",
+  "body",
+  "frame",
+  "x_mm",
+  "y_mm",
+  "z_mm"
+ ],
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s",
+    "description": "seconds from the run's start (the target's start)"
+   },
+   {
+    "name": "run",
+    "type": "string",
+    "description": "the run's stable, unique id (runs.json)"
+   },
+   {
+    "name": "situation",
+    "type": "string",
+    "description": "one way of playing the run, one series on screen: real, real B, twin v7, model 2, target"
+   },
+   {
+    "name": "source",
+    "type": "string",
+    "description": "the situation's family: real, sim (every model, twin, replay or prediction) or target; it picks the hue",
+    "constraints": {
+     "enum": [
+      "real",
+      "sim",
+      "target"
+     ]
+    }
+   },
+   {
+    "name": "body",
+    "type": "string",
+    "description": "the rigid body the row tracks: tool0, lever_tip"
+   },
+   {
+    "name": "frame",
+    "type": "string",
+    "description": "the frame the coordinates are written in: base, belt (one body, one frame; never guessed)"
+   },
+   {
+    "name": "x_mm",
+    "type": "number",
+    "unit": "mm",
+    "description": "position, in the row's frame"
+   },
+   {
+    "name": "y_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "z_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "quat_w",
+    "type": "number",
+    "description": "orientation, unitless, w x y z (needed for frames and Z-arcs)"
+   },
+   {
+    "name": "quat_x",
+    "type": "number"
+   },
+   {
+    "name": "quat_y",
+    "type": "number"
+   },
+   {
+    "name": "quat_z",
+    "type": "number"
+   }
+  ]
+ }
+}

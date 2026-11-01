@@ -1,0 +1,13 @@
+# tests/browser/map_select_checks.py: marks reach both sides
+data: places.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    select: name
+    coordinates: at
+    swipe: { left: { filter: 'kind == "site"', label: Sites }, right: { filter: 'kind == "demand"', label: Demand } }
+    layers:
+      - { type: points, radius: 7, title: Places }

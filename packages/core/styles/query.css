@@ -1,0 +1,59 @@
+/* data-ui: query.css (docs/CONTRACT.md §15). Lane B owns this file. The query bar: one box of tokens and words, the
+   red underline under a clause that does not parse, and the suggestions under it (Shopify's query builder).
+   Colours only from the private --dv-* tokens, so light and dark both follow the page. */
+
+.dv-query { position: relative; flex: 1 1 260px; min-width: 0; }
+.dv-qbox { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; min-height: 30px; padding: 2px 8px; border: 1px solid var(--dv-border);
+  border-radius: calc(var(--dv-radius) + 2px); background: var(--dv-bg); cursor: text; }
+.dv-qbox:focus-within { border-color: var(--dv-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--dv-accent) 18%, transparent); }
+.dv-qicon { flex: 0 0 auto; fill: none; stroke: var(--dv-muted); stroke-width: 1.6; stroke-linecap: round; }
+.dv-qtokens { display: contents; }
+.dv-qfield { position: relative; flex: 1 1 140px; min-width: 100px; display: flex; }
+.dv-qinput, .dv-qmirror { font: inherit; font-size: 13px; letter-spacing: normal; padding: 4px 2px; margin: 0; border: 0; line-height: 18px; }
+.dv-qinput { position: relative; width: 100%; min-width: 0; background: transparent; color: var(--dv-fg); outline: none; }
+.dv-qinput::placeholder { color: var(--dv-muted); }
+/* the mirror holds the same text, transparent, so a bad clause can be underlined where it sits in the input */
+.dv-qmirror { position: absolute; inset: 0; color: transparent; white-space: pre; overflow: hidden; pointer-events: none; }
+.dv-qbad { text-decoration: underline wavy var(--dv-warn); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.dv-qerr { margin: 3px 2px 0; font-size: 12px; color: var(--dv-warn); overflow-wrap: anywhere; }
+.dv-qerr[hidden] { display: none; }
+
+/* a clause of the filter as a token inside the box (filters="query-tokens") */
+.dv-qtoken { display: inline-flex; align-items: center; max-width: 100%; min-width: 0; border-radius: 999px; background: var(--dv-subtle);
+  border: 1px solid var(--dv-border); font-size: 12px; line-height: 20px; }
+.dv-qtoken button { font: inherit; color: var(--dv-fg); background: none; border: 0; cursor: pointer; }
+.dv-qtoken-edit { padding: 0 2px 0 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.dv-qtoken-x { padding: 0 7px 0 4px; color: var(--dv-muted) !important; }
+.dv-qtoken-x:hover { color: var(--dv-fg) !important; }
+.dv-qtoken button:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; border-radius: 999px; }
+
+/* the suggestions: properties, then a property's operators and values with counts; the hint line at the foot.
+   WHY sized to its content, not to the box (robotparts 2026.10.26.12: the one-row bar left the box 235 px at 1280, so
+   names read "P…", "Price fr…"; Shopify's list is wider than its box): at least the box, at most 520 px and the window
+   (query.js place() keeps it inside); a name longer than that wraps, never cut, and each row's title holds it in full */
+.dv-suggest { position: absolute; left: 0; top: calc(100% + 4px); z-index: 30; width: max-content; min-width: 100%;
+  max-width: min(520px, calc(100vw - 16px)); box-sizing: border-box; max-height: min(360px, 60vh);
+  overflow: auto; padding: 4px; background: var(--dv-bg); color: var(--dv-fg); border: 1px solid var(--dv-border);
+  border-radius: calc(var(--dv-radius) + 4px); box-shadow: 0 8px 28px rgb(0 0 0 / .16); }
+.dv-suggest[hidden] { display: none; }
+.dv-suggest-list { list-style: none; margin: 0; padding: 0; }
+.dv-suggest-item { display: flex; align-items: center; gap: 8px; padding: 5px 8px; border-radius: var(--dv-radius); cursor: pointer; min-width: 0; }
+.dv-suggest-item:hover { background: var(--dv-hover); }
+.dv-suggest-item.dv-on { background: var(--dv-subtle); }
+.dv-s-icon { flex: 0 0 20px; text-align: center; color: var(--dv-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.dv-s-label { min-width: 0; overflow-wrap: anywhere; }
+.dv-s-operator .dv-s-label { font-family: var(--dv-mono); font-size: 12px; }
+.dv-s-id { color: var(--dv-muted); font: 11px var(--dv-mono); white-space: nowrap; }
+/* WHY the sample value gives way first (it ends in an ellipsis before the name wraps): the name is what is picked */
+.dv-s-detail { color: var(--dv-muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 0 9999 auto; }
+.dv-s-count { margin-left: auto; color: var(--dv-muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.dv-s-enter { flex: 0 0 auto; font: 11px var(--dv-font); color: var(--dv-muted); border: 1px solid var(--dv-border); border-radius: 5px; padding: 0 5px; background: var(--dv-bg); }
+.dv-s-count + .dv-s-enter { margin-left: 4px; }
+.dv-s-label + .dv-s-enter, .dv-s-detail + .dv-s-enter, .dv-s-id + .dv-s-enter { margin-left: auto; }
+.dv-suggest-hint { margin: 4px 0 0; padding: 6px 8px 3px; border-top: 1px solid var(--dv-rule); color: var(--dv-muted); font-size: 12px; overflow-wrap: anywhere; }
+.dv-suggest-hint[hidden] { display: none; }
+.dv-suggest-hint code { font: 11.5px var(--dv-mono); color: var(--dv-fg); white-space: nowrap; margin-right: 6px; }
+@media (max-width: 700px) {
+  .dv-query { flex-basis: 100%; }
+  .dv-suggest { max-height: min(320px, 50vh); }
+}

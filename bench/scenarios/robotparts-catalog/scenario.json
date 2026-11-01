@@ -1,0 +1,33 @@
+{
+  "id": "robotparts-catalog",
+  "title": "robotparts whole parts catalog (2,068 rows: actuators, cameras, power supplies)",
+  "app": "robotparts",
+  "base": "views.base",
+  "view": null,
+  "rows": 2068,
+  "synthetic": false,
+  "provenance": {
+    "from": "~/robotparts/dist/site/v2/catalog.json (robotparts/2 release 2026.10.26.5 @ robotparts c32ab1f), flattened by source/build.py",
+    "sha256": "9f27be296f3c165fe7b34e12a217e3c723bca41271f11074105dac9b8b9d9f48",
+    "copied": "2026-10-26",
+    "note": "Every part in robotparts' v2 catalog, one slim row each (peak torque, mass and rated power as rich cells); written by this scenario's source/build.py from robotparts' build output."
+  },
+  "interactions": {
+    "filter": {
+      "property": "brand",
+      "value": "Mean Well"
+    },
+    "sort": {
+      "property": "peak_torque",
+      "direction": "DESC"
+    },
+    "search": "servo",
+    "presets": [
+      "Table",
+      "By category",
+      "By brand"
+    ],
+    "scroll": true,
+    "peek": true
+  }
+}

@@ -1,0 +1,33 @@
+# robotparts.dev part pages: the Specs tab's datasheet as one data-ui table, one row per field (data-ui,
+# docs/CONTRACT.md §5). Each part page points <data-views> at this file with its own rows
+# (/search/views/datasheet/<id>.json, build/site_pages.py datasheet_dataset): what the source states (nominal), what
+# robotparts' measurements give (the median across units), what a board reports and what is derived, grouped by
+# section in the server table's order. Click a value for every value behind it. Verdict (Zach's pick, 2026-10-27, the
+# Measurements lane's M3 claim vs measured, build/measure_diag_lab.py claims_rows) sits beside a value only where it
+# was measured. The template is data-ui's gim4305-datasheet gallery case; the server-rendered table stays inside
+# <data-views> for readers without JavaScript. WHY units: inline and no Unit column (Zach, 2026-10-29: the unit sits
+# right beside the value, compact): each value column names the row's unit (datasheet_dataset). WHY no source column
+# here: every datasheet declares sourceColumn, and data-ui draws "Nominal source" after Nominal itself (its CONTRACT §36):
+# one link to the page each value was read from, opened in one click; a private source as a plain label; on a value
+# several sources state, a dropdown, the all-sources popover (right-click) and Manage sources (SCHEMA2.md 2.6 rule 5).
+views:
+  - type: table
+    name: Datasheet
+    order: [field, nominal, verdict, measured, board, derived, status, n]
+    groupBy: { property: section }
+    rowHeight: short
+    units: inline
+  - type: table
+    name: Datasheet only
+    filters: '!nominal.isEmpty()'
+    order: [field, nominal]
+    groupBy: { property: section }
+    rowHeight: short
+    units: inline
+  - type: table
+    name: Measured vs datasheet
+    filters: '!measured.isEmpty()'
+    order: [field, nominal, measured, verdict, delta, n, specimens, latest]
+    groupBy: { property: section }
+    rowHeight: short
+    units: inline

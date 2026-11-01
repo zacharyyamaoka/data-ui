@@ -1,0 +1,9 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1.",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [
+    { "type": "calendar", "name": "Calendar", "icon": "calendar", "summary": "Rows with a date (or a start and end) on month, week, day and list grids, coloured by group; an event opens its record; drag one to propose a new date." }
+  ],
+  "npm": ["@event-calendar/build@5.18.1"]
+}

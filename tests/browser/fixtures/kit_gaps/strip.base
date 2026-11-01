@@ -1,0 +1,23 @@
+# kit gaps 3 and 5 (tests/browser/kit_gaps_checks.py): a state strip whose end time its transforms make: the chart's own
+# transform (the run's end) reaches its layer, whose transforms make each span's end. Its x is a time in seconds.
+data: strip.json
+views:
+  - type: chart
+    name: Strip
+    chart:
+      transform:
+        - joinaggregate: [{ op: max, field: t, as: run_end }]
+      layer:
+        - transform:
+            - window: [{ op: lag, field: mode, as: before }]
+              sort: [{ field: t, order: ascending }]
+            - filter: 'datum.before === null || datum.mode !== datum.before'
+            - window: [{ op: lead, field: t, as: next_start }]
+              sort: [{ field: t, order: ascending }]
+            - calculate: 'datum.next_start === null ? datum.run_end : datum.next_start'
+              as: t_end
+          mark: { type: rect }
+          encoding:
+            x: { field: t, type: quantitative }
+            x2: { field: t_end }
+            color: { field: mode, type: nominal }

@@ -1,0 +1,172 @@
+# Deployments · Playback + Gates: the deployments template (gallery/examples/robotics-deployments) with the diagnostics
+# and gates overlay (docs/CONTRACT.md §35, docs/peps/0010-robotics-playback.md §10; the deployment.png mock's gate matrix).
+# Every dataset and view of the template is here as it is there (../robotics-deployments/); the overlay adds, all from
+# real rack data (source/build.py): the station gate matrix T1-T11 from bam_rack_twin's newest acceptance file, the rack
+# as a tree whose nodes take the worst gate under them, RobotDx's checks of the 24 runs and per 1 s window, and a keyed
+# feed of RobotDx's windowed checks (live_checks.json, which tests/browser/p5_checks.py pushes into this page's Run checks
+# as a live dataset). data-ui computes no gate.
+data: ../robotics-deployments/runs.json
+style:
+  chrome: minimal
+  numbers: { digits: 4, compact: true }
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: samples, time: t }
+datasets:
+  deployments:
+    data: ../robotics-deployments/deployments.json
+    label: Deployments
+  runs:
+    data: ../robotics-deployments/runs.json
+    label: Runs
+    facets:
+      - { property: device, label: Station }
+      - { property: kind, label: Run kind }
+  # the per-run dataset: the file the run pick names, read when exactly one run is picked (none or two: "Pick one run")
+  samples:
+    data: '../robotics-deployments/runs/{run}.json'
+    label: Samples
+    facets:
+      - { property: situation, label: Show }
+  # the gates overlay (CONTRACT §35): the stations' acceptance gates (bam_rack_twin), RobotDx's checks of every run and
+  # per 1 s window, and the rack as a tree. WHY the components roll up from the gates: a node's worst gate is the Max of
+  # the ranks under it (CONTRACT §17's roll-up; RobotDx's ranks: pass 0, warn 1, not run 2, fail 4)
+  gates:
+    data: gates.json
+    label: Station gates
+  checks:
+    data: checks.json
+    label: Run checks
+  windows:
+    data: windows.json
+    label: Check windows
+  components:
+    data: components.json
+    label: The rack
+    tree: { parent: parent }
+    rollup: { from: gates, values: { worst: { property: rank, summary: Max } } }
+links:
+  - { from: deployments.deployment, to: runs.deployment, direction: one-way }
+  - { from: runs.run, to: samples.run, direction: one-way }
+  # WHY one-way: the run pick narrows the windows; a window never narrows the runs
+  - { from: runs.run, to: windows.run, direction: one-way }
+  # the roll-up's one direct link: a station's gate rows reach its node of the tree
+  - { from: gates.device, to: components.id }
+layout:
+  panels:
+    - { view: Deployments, w: 12, h: 2 }
+    - { view: Runs, w: 12, h: 4 }
+    - text: "**Gates** · The stations' acceptance gates T1-T11 (bam_rack_twin's newest acceptance file), the rack as a tree whose nodes take the worst gate under them, and each run's checks: tracking, speed and angle against the station's own window, board temperature, faults and sample rate. Computed by `source/build.py` with RobotDx's diagnostics library (robotdx.diagnostics and bam_rack_twin's acceptance, the rack's archive read-only); the page computes none of it. A cell opens its check in the side peek, with the data in its window; the evidence link plays the run there."
+      w: 12
+    - { view: Stations × gates, w: 12, h: 3 }
+    - { view: The rack, w: 5, h: 4 }
+    - { view: Run checks, w: 7, h: 4 }
+    - { view: Playback, w: 12 }
+    - { view: Angle, w: 6, h: 3 }
+    - { view: Velocity, w: 6, h: 3 }
+    - { view: Torque, w: 6, h: 3 }
+    - { view: Current, w: 6, h: 3 }
+    - { view: Angle in the station window, w: 6, h: 3 }
+    - { view: Speed against its ceiling, w: 6, h: 3 }
+    - { view: Check history, w: 12, h: 3 }
+
+properties:
+  started: { displayName: Started }
+  duration_s: { displayName: Duration }
+  device: { displayName: Station }
+  kind: { displayName: Kind }
+views:
+  # level 1: the deployments registry (the host's; one today, the rack). Its first row is picked when the page opens
+  - type: table
+    name: Deployments
+    from: deployments
+    select: deployment
+    selected: first
+    order: [title, kind, where, stations, runs, last_run]
+  # level 2: the deployment's runs, newest first; a click picks a run, a ctrl / cmd-click a second (then "Pick one run")
+  - type: table
+    name: Runs
+    from: runs
+    select: run
+    selected: first
+    order: [label, started, device, kind, duration_s, rate_hz]
+    sort:
+      - { property: started, direction: DESC }
+  # level 3: the picked run, on one clock spanning its t
+  - type: playback
+    name: Playback
+    playback: { readout: true }
+  - type: timeseries
+    name: Angle
+    from: samples
+    timeseries: { x: t, 'y': q_deg, series: situation, dash: [target], legend: top, unit: '°' }
+  - type: timeseries
+    name: Velocity
+    from: samples
+    timeseries: { x: t, 'y': qd_deg_s, series: situation, dash: [target], legend: top, unit: '°/s' }
+  - type: timeseries
+    name: Torque
+    from: samples
+    filters: 'situation == "real"'
+    timeseries: { x: t, 'y': tau_nm, series: situation, legend: none, unit: 'N·m' }
+  - type: timeseries
+    name: Current
+    from: samples
+    filters: 'situation == "real"'
+    timeseries: { x: t, 'y': i_q_a, series: situation, legend: none, unit: A }
+  # ---- the gates overlay (CONTRACT §35; PEP 0010 §10's hints). Everything below reads rows source/build.py wrote
+  # gate_matrix, the mock's: stations × the acceptance gates, a cell its gate's verdict as bam_rack_twin judged it
+  - type: tracker
+    name: Stations × gates
+    from: gates
+    groupBy: { property: device }
+    groupOrder: [CAN 1, CAN 4, CAN 11, CAN 12, CAN 13, CAN 14, CAN 15, CAN 21]
+    sort:
+      - { property: order, direction: ASC }
+    tracker: { state: verdict, column: title, label: message }
+    display: { verdict: status }
+    record:
+      sections:
+        - { name: Verdict, properties: [verdict, value, target_text, message] }
+        - { name: Provenance, properties: [subject, diagnostic, basis, source] }
+  # rollup_tree: the rack, its plates and its stations, each node the worst acceptance gate under it
+  - type: table
+    name: The rack
+    from: components
+    tree: { parent: parent }
+    fold: open
+    order: [label, kind, worst]
+    columnSize: { label: 170, kind: 64, worst: 100 }
+    display: { worst: status }
+  # gate_matrix of the runs: one row per run (newest first), one column per check; a cell opens its evidence
+  - type: tracker
+    name: Run checks
+    from: checks
+    groupBy: { property: run, direction: DESC }
+    sort:
+      - { property: order, direction: ASC }
+    tracker: { state: verdict, column: title, label: message }
+    display: { verdict: status, evidence: link }
+    record:
+      sections:
+        - { name: Verdict, properties: [verdict, value, unit, error_lo, error_hi, message] }
+        - name: Evidence
+          properties: [evidence, t0, t1]
+          view: { type: table, name: The checks in the window, from: windows, filters: 'run == this.run && t >= this.t0 && t <= this.t1', order: [t, title, value, unit, verdict], display: { verdict: status } }
+        - { name: Provenance, properties: [subject, diagnostic, basis, source, record, started] }
+  # threshold_band: the angle per 1 s window against the station's own window (bam_rack_twin TAPE_STATIONS; stations
+  # with none have no rows), and the speed against its own ceiling
+  - type: timeseries
+    name: Angle in the station window
+    from: windows
+    filters: 'title == "Angle"'
+    timeseries: { x: t, 'y': value, series: device, limits: { warn: [warn_lo, warn_hi], error: [error_lo, error_hi] }, legend: top, unit: '°' }
+  - type: timeseries
+    name: Speed against its ceiling
+    from: windows
+    filters: 'title == "Speed"'
+    timeseries: { x: t, 'y': value, series: device, limits: { warn: [warn_lo, warn_hi], error: [error_lo, error_hi] }, legend: top, unit: '°/s' }
+  # level_history: each windowed check's verdict over the picked run
+  - type: levels
+    name: Check history
+    from: windows
+    levels: { state: verdict, by: title, label: message }

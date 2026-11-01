@@ -1,0 +1,28 @@
+{
+  "id": "inspector-parts",
+  "title": "A made-up servo's fields, one plain column per source",
+  "titleProperty": "field",
+  "properties": {
+    "field": { "type": "text" },
+    "section": { "type": "text" },
+    "nominal": { "type": "number" },
+    "datasheet": { "type": "number" },
+    "citation": { "type": "number" },
+    "chat": { "type": "number" },
+    "note": { "type": "text" },
+    "weight": { "type": "number" },
+    "order": { "type": "number", "hidden": true }
+  },
+  "detail": {
+    "property": "behind",
+    "kind": "kind",
+    "columnKinds": {},
+    "columns": [ { "id": "kind", "label": "Kind" }, { "id": "value", "label": "Value" }, { "id": "words", "label": "The source's words", "block": true } ]
+  },
+  "rows": [
+    { "id": "peak", "field": "Peak torque", "section": "Key specs", "nominal": 1.3, "datasheet": 1.3, "citation": 1.28, "chat": 1.3, "note": "At the shaft, 25 C", "weight": null, "order": 1,
+      "behind": [ { "kind": "datasheet", "value": "1.3 N·m", "words": "Selection list row 60ASM200, column Peak torque (Nm)" }, { "kind": "citation", "value": "1.28 N·m", "words": "Outline drawing specification block" } ] },
+    { "id": "rated", "field": "Rated torque", "section": "Key specs", "nominal": 0.64, "datasheet": 0.64, "citation": null, "chat": null, "note": null, "weight": 3, "order": 2 },
+    { "id": "speed", "field": "Rated speed", "section": "Performance", "nominal": 3000, "datasheet": 3000, "citation": 3000, "chat": null, "note": "", "weight": null, "order": 3 }
+  ]
+}

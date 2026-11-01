@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard with no editor</title>
+<!-- tests/browser/dash_editor_checks.py: the same .base with no `editor` attribute, plus the babble's old attributes, which
+     must do nothing now. reading.golden.json holds what this page drew before the editor existed. -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: #fff; color: #18181b; }
+  @media (prefers-color-scheme: dark) { body { background: #111113; color: #ececef; } }
+</style>
+<script type="module">
+  await import('/dist/dashboard.js');
+  window.kitReady = true;
+</script>
+</head>
+<body>
+<data-dashboard id="servo" src="servo.base" edit-variant="blueprint" edit-switcher></data-dashboard>
+</body>
+</html>

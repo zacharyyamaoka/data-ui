@@ -1,0 +1,32 @@
+# Proposal 5, panel 2: every material's measured reflectance, 350-2500 nm in 20 nm bins (spectra.json, long form:
+# one row per material, source and wavelength). Vega-Lite lines, one per spectrum; the rail picks families.
+data: ../object-db-shelf/spectra.json
+facets:
+  - { property: family, label: Family }
+  - { property: material, label: Material, limit: 12 }
+properties:
+  wavelength_nm: { displayName: Wavelength }
+  reflectance: { displayName: Reflectance }
+  spectrum: { displayName: Spectrum }
+views:
+  - type: chart
+    name: Spectra
+    chart:
+      mark: { type: line, strokeWidth: 1.4 }
+      encoding:
+        x: { field: wavelength_nm, title: "Wavelength (nm)" }
+        y: { field: reflectance, title: Reflectance }
+        color: { field: material, legend: { columns: 1 } }
+        # WHY colour by material and detail by spectrum: the chart view folds a 9th+ colour into "Other (n)" by
+        # rewriting that field, so a detail on the same field would join every folded spectrum into one line
+        detail: { field: spectrum }
+  - type: chart
+    name: Plastics, SWIR band
+    filters: 'family == "plastic" && wavelength_nm >= 900 && wavelength_nm <= 1800'
+    chart:
+      mark: { type: line, strokeWidth: 1.6 }
+      encoding:
+        x: { field: wavelength_nm, title: "Wavelength (nm), the NIR/SWIR band sorters use" }
+        y: { field: reflectance, title: Reflectance }
+        color: { field: material }
+        detail: { field: spectrum }

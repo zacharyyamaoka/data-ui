@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two editors on a page</title>
+<!-- tests/browser/dash_editor_more_checks.py: a key belongs to the dashboard the focus is in. -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<script type="module">
+  await import('/dist/dashboard.js');
+  window.kitReady = true;
+</script>
+</head>
+<body>
+<data-dashboard id="a" src="servo.base" editor no-url></data-dashboard>
+<data-dashboard id="b" src="saved.base" editor no-url></data-dashboard>
+</body>
+</html>

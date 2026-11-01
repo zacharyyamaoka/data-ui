@@ -1,0 +1,156 @@
+/* type: map. MapLibre's own stylesheet comes first (index.js); the map itself is coloured from tokens in JS (a WebGL
+   style cannot read var()); the markers, the legend panel and the controls here use the private --dv-* tokens. */
+
+.dv-view-map { position: relative; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: row; }
+.dv-map-stage { position: relative; flex: 1 1 auto; min-width: 0; min-height: 0; }
+.dv-map-mount { position: absolute; inset: 0; }
+.dv-map-mount[hidden] { display: none; }
+.dv-view-map .maplibregl-map { font: inherit; }
+/* WHY no `all: unset`: MapLibre positions a marker with its own .maplibregl-marker rules (absolute, transform) */
+.dv-map-marker {
+  appearance: none; margin: 0; padding: 0; box-sizing: border-box; display: grid; place-items: center; border-radius: 50%; cursor: pointer;
+  background: color-mix(in srgb, var(--dv-pin) 78%, transparent); border: 1.5px solid var(--dv-bg);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--dv-pin) 60%, var(--dv-fg)); color: var(--dv-on-accent);
+  font: 600 10.5px/1 var(--dv-font); font-variant-numeric: tabular-nums;
+}
+.dv-map-marker:hover, .dv-map-marker:focus-visible { background: var(--dv-pin); outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+.dv-map-marker.dv-active { outline: 2px solid var(--dv-accent); outline-offset: 2px; }
+/* a pick: a ring, not a colour (the colour is the row's status), over its neighbours */
+.dv-map-marker.dv-sel { outline: 3px solid var(--dv-accent); outline-offset: 2px; z-index: 1; }
+/* a counted marker's chooser (CONTRACT §39): MapLibre's popup on the kit's surface, its tip left out (a tip has one colour per anchor) */
+.dv-map-chooser { z-index: 2; }
+.dv-map-chooser .maplibregl-popup-tip { display: none; }
+.dv-map-chooser .maplibregl-popup-content { padding: 4px; background: var(--dv-bg); color: var(--dv-fg); border: 1px solid var(--dv-border); border-radius: var(--dv-radius, 6px); box-shadow: 0 2px 10px color-mix(in srgb, var(--dv-fg) 18%, transparent); }
+.dv-map-choose { display: grid; max-width: min(280px, 70vw); max-height: 220px; overflow-y: auto; outline: none; }
+.dv-map-choose-row {
+  appearance: none; margin: 0; padding: 6px 10px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; min-height: 32px; width: 100%; border: 0; border-radius: 4px;
+  background: none; color: inherit; font: inherit; text-align: left; cursor: pointer;
+}
+.dv-map-choose-row:hover, .dv-map-choose-row:focus-visible { background: var(--dv-hover); }
+.dv-map-choose-row:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.dv-map-choose-row[aria-pressed="true"] { font-weight: 600; }
+.dv-map-choose-dot { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--dv-pin); }
+.dv-map-choose-row[aria-pressed="true"] .dv-map-choose-dot { box-shadow: 0 0 0 2px var(--dv-bg), 0 0 0 4px var(--dv-accent); }
+.dv-map-choose-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-view-map .maplibregl-ctrl-group { background: var(--dv-bg); border: 1px solid var(--dv-border); box-shadow: none; }
+.dv-view-map .maplibregl-ctrl-group button + button { border-top-color: var(--dv-border); }
+.dv-view-map .maplibregl-ctrl-group button:hover { background: var(--dv-hover); }
+.dv-view-map .maplibregl-ctrl button .maplibregl-ctrl-icon { filter: var(--dv-map-icon, none); }
+.dv-view-map.dv-dark { --dv-map-icon: invert(1); }
+/* WHY 11px: the credit stays open (index.js setCredit), so it must fit one line on a phone's map */
+.dv-view-map .maplibregl-ctrl-attrib { background: color-mix(in srgb, var(--dv-bg) 80%, transparent); color: var(--dv-muted); font-size: 11px; }
+.dv-view-map .maplibregl-ctrl-attrib a { color: var(--dv-muted); }
+.dv-view-map .maplibregl-ctrl-attrib-button { filter: var(--dv-map-icon, none); }
+.dv-view-map .maplibregl-ctrl-scale { background: color-mix(in srgb, var(--dv-bg) 80%, transparent); border-color: var(--dv-muted); color: var(--dv-fg); font-size: 10.5px; }
+
+/* ---------------------------------------------------------------- the legend panel: one answer, then the legend */
+.dv-map-panel {
+  position: relative; flex: 0 0 auto; width: var(--data-panel-width, 264px); box-sizing: border-box; overflow: auto;
+  border-left: 1px solid var(--dv-border); background: var(--dv-bg); color: var(--dv-fg); padding: 10px 12px 14px;
+  font: 12.5px/1.45 var(--dv-font);
+}
+.dv-map-folded .dv-map-panel, .dv-map-folded .dv-map-panel + .dv-splitter { display: none; }
+.dv-map-panel-head { display: flex; align-items: flex-start; gap: 8px; }
+.dv-map-answer { margin: 0 0 8px; font-weight: 600; font-size: 13.5px; line-height: 1.35; flex: 1 1 auto; }
+.dv-map-fold, .dv-map-unfold { appearance: none; border: 1px solid var(--dv-border); background: var(--dv-bg); color: var(--dv-fg); border-radius: var(--dv-radius, 6px); cursor: pointer; font: inherit; }
+.dv-map-fold { flex: 0 0 auto; width: 24px; height: 24px; padding: 0; line-height: 1; }
+.dv-map-unfold { position: absolute; top: 10px; left: 10px; z-index: 2; padding: 3px 9px; font-size: 12px; display: none; }
+.dv-map-folded .dv-map-unfold { display: block; }
+.dv-map-fold:hover, .dv-map-unfold:hover { background: var(--dv-hover); }
+.dv-map-panel section { border-top: 1px solid var(--dv-rule, var(--dv-border)); padding-top: 8px; margin-top: 8px; }
+.dv-map-panel h4 { margin: 0 0 6px; font-size: 12px; font-weight: 600; }
+.dv-map-unit, .dv-map-method, .dv-map-note-text, .dv-map-n, .dv-map-cum { color: var(--dv-muted); font-weight: 400; }
+.dv-map-derived { color: var(--dv-muted); font-weight: 400; font-size: 11px; white-space: nowrap; }
+.dv-map-method, .dv-map-note-text { margin: 6px 0 0; font-size: 11.5px; }
+.dv-map-classes { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+.dv-map-classes li { display: grid; grid-template-columns: 14px minmax(0, 1fr) auto; gap: 7px; align-items: center; }
+.dv-map-classes li > span:nth-child(2) { overflow-wrap: anywhere; }
+.dv-map-pick { cursor: pointer; border-radius: 4px; }
+.dv-map-pick:hover, .dv-map-pick:focus-visible { background: var(--dv-hover); outline: none; }
+/* a legend entry whose rows are picked: a ring, as a marker's */
+.dv-map-pick.dv-sel, .dv-map-bands tr.dv-sel { outline: 2px solid var(--dv-accent); outline-offset: -1px; }
+.dv-map-n { font-variant-numeric: tabular-nums; text-align: right; }
+.dv-map-sw { display: inline-block; width: 14px; height: 12px; border-radius: 3px; background: var(--sw); border: 1px solid color-mix(in srgb, var(--dv-fg) 18%, transparent); box-sizing: border-box; }
+.dv-map-none .dv-map-sw { background: repeating-linear-gradient(135deg, var(--dv-muted) 0 1.5px, transparent 1.5px 5px); }
+.dv-map-ramp { height: 10px; border-radius: 3px; border: 1px solid var(--dv-border); }
+.dv-map-ramp-ends { display: flex; justify-content: space-between; color: var(--dv-muted); font-size: 11px; }
+.dv-map-bands { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+.dv-map-bands td { padding: 2px 4px 2px 0; }
+.dv-map-bands td .dv-map-sw { margin-right: 6px; vertical-align: -1px; }
+.dv-map-bands tr { cursor: pointer; }
+.dv-map-bands tr:hover td, .dv-map-bands tr:focus-visible td { background: var(--dv-hover); }
+.dv-map-bands tr:focus-visible { outline: none; }
+.dv-map-bi { display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto; gap: 4px; align-items: center; justify-content: start; }
+.dv-map-bi-y { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 11px; color: var(--dv-muted); }
+.dv-map-bi-grid { display: grid; grid-template-columns: repeat(var(--n), 22px); grid-auto-rows: 22px; gap: 1px; }
+.dv-map-bi-grid i { display: block; border-radius: 2px; }
+.dv-map-bi-x { grid-column: 2; font-size: 11px; color: var(--dv-muted); }
+.dv-map-size { display: flex; gap: 8px; align-items: center; margin-top: 6px; color: var(--dv-muted); font-size: 11.5px; }
+.dv-map-size svg { flex: 0 0 auto; }
+.dv-map-layers { margin-top: 10px; border-top: 1px solid var(--dv-border); padding-top: 6px; }
+.dv-map-layers summary { cursor: pointer; color: var(--dv-muted); }
+.dv-map-layers label { display: block; padding: 2px 0; }
+.dv-map-within { display: grid; grid-template-columns: auto; gap: 2px; margin: 4px 0 6px; font-weight: 600; }
+.dv-map-within input { width: 100%; accent-color: var(--dv-accent); }
+.dv-map-drawn button, .dv-map-drawbar button {
+  appearance: none; border: 1px solid var(--dv-border); background: var(--dv-bg); color: var(--dv-fg); border-radius: var(--dv-radius, 6px);
+  padding: 4px 10px; font: inherit; font-size: 12px; cursor: pointer;
+}
+.dv-map-drawn button:hover:not(:disabled), .dv-map-drawbar button:hover { background: var(--dv-hover); }
+.dv-map-drawbar button[aria-pressed="true"] { background: var(--dv-accent); color: var(--dv-on-accent); border-color: var(--dv-accent); }
+.dv-map-drawbar { position: absolute; top: 10px; left: 10px; z-index: 2; display: flex; gap: 6px; }
+.dv-map-folded .dv-map-drawbar { top: 42px; }
+
+/* ---------------------------------------------------------------- callouts: a leader line, a dot and a label */
+.dv-map-callout { position: relative; width: 0; height: 0; pointer-events: none; }
+.dv-map-dot { position: absolute; left: -4px; top: -4px; width: 8px; height: 8px; border-radius: 50%; background: var(--dv-fg); box-shadow: 0 0 0 2px var(--dv-bg); }
+.dv-map-leader { position: absolute; left: 0; top: 0; height: 1.5px; background: var(--dv-fg); transform-origin: 0 50%; opacity: 0.7; }
+.dv-map-bubble {
+  position: absolute; left: var(--dx); top: var(--dy); transform: translate(-50%, -100%); pointer-events: auto; text-align: left;
+  appearance: none; font: 11.5px/1.35 var(--dv-font); color: var(--dv-fg); background: var(--dv-bg); border: 1px solid var(--dv-border);
+  border-radius: var(--dv-radius, 6px); padding: 4px 7px; width: max-content; max-width: 200px; cursor: pointer;
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--dv-fg) 14%, transparent);
+}
+.dv-map-bubble.dv-sel { outline: 3px solid var(--dv-accent); outline-offset: 1px; }
+.dv-map-bubble b { display: block; font-weight: 600; }
+.dv-map-bubble span { display: block; color: var(--dv-muted); }
+.dv-map-note .dv-map-bubble { border-style: dashed; cursor: default; }
+
+/* ---------------------------------------------------------------- the time bar */
+.dv-map-time {
+  position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 2; display: flex; align-items: center; gap: 8px;
+  width: min(520px, calc(100% - 24px)); box-sizing: border-box; padding: 5px 10px; background: color-mix(in srgb, var(--dv-bg) 92%, transparent);
+  border: 1px solid var(--dv-border); border-radius: 999px; font: 12px var(--dv-font); font-variant-numeric: tabular-nums;
+}
+.dv-map-time input { flex: 1 1 auto; min-width: 0; accent-color: var(--dv-accent); }
+.dv-map-time output { flex: 0 0 auto; min-width: 44px; text-align: right; }
+.dv-map-play { appearance: none; border: 0; background: var(--dv-accent); color: var(--dv-on-accent); width: 26px; height: 26px; border-radius: 50%; cursor: pointer; font-size: 11px; }
+
+/* ---------------------------------------------------------------- small multiples and swipe */
+.dv-map-grid { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); grid-auto-rows: minmax(140px, 1fr); gap: 6px; padding: 6px; overflow: auto; box-sizing: border-box; }
+.dv-map-cell { position: relative; margin: 0; border: 1px solid var(--dv-border); border-radius: var(--dv-radius, 6px); overflow: hidden; min-height: 140px; }
+.dv-map-cell figcaption { position: absolute; top: 6px; left: 6px; z-index: 2; background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 4px; padding: 1px 6px; font: 600 11.5px var(--dv-font); }
+.dv-map-cell-mount { position: absolute; inset: 0; }
+
+.dv-map-swipe { position: absolute; inset: 0; display: block; --divider-color: var(--dv-accent); --default-handle-color: var(--dv-accent); --divider-width: 2px; }
+.dv-map-swipe-side { position: relative; display: block; width: 100%; height: 100%; }
+/* WHY container units: in the slider's shadow DOM slot "first" is an absolute, clipped overlay and slot "second" is in
+   flow with no height of its own, so the second side takes the slider's size from the container */
+.dv-map-swipe { container-type: size; }
+.dv-map-swipe-side[slot="second"] { width: 100cqw; height: 100cqh; }
+.dv-view-map .maplibregl-compare { z-index: 3; background: var(--dv-accent); width: 2px; }
+.dv-view-map .maplibregl-compare .compare-swiper-vertical { background-color: var(--dv-accent); box-shadow: 0 0 0 2px var(--dv-bg); }
+.dv-map-side { position: absolute; top: 10px; z-index: 4; background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 4px; padding: 2px 8px; font: 600 12px var(--dv-font); }
+.dv-map-side-l { left: 10px; }
+.dv-map-side-r { right: 52px; }
+
+/* ---------------------------------------------------------------- a phone: the legend under the map */
+@media (max-width: 700px) {
+  .dv-view-map { flex-direction: column; }
+  .dv-map-stage { flex: 1 1 62%; min-height: 260px; }
+  .dv-map-panel { width: auto; flex: 0 1 38%; max-height: 40%; border-left: 0; border-top: 1px solid var(--dv-border); }
+  .dv-map-grid { grid-template-columns: repeat(min(var(--cols, 3), 2), minmax(0, 1fr)); }
+  /* bottom up, none over another: the credit, then the scale bar, then the time bar */
+  .dv-view-map .maplibregl-ctrl-bottom-left { bottom: 16px; }
+  .dv-map-time { bottom: 46px; }
+}

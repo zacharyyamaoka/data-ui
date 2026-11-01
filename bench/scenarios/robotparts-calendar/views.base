@@ -1,0 +1,31 @@
+# robotparts' releases and the dates of Zach's daily notes (file names and frontmatter dates only). Obsidian Bases
+# grammar plus data-ui's calendar keys (docs/CONTRACT.md §5).
+data: calendar.json
+properties:
+  title: { displayName: Title }
+  kind: { displayName: Kind }
+  date: { displayName: Date }
+views:
+  - type: calendar
+    name: Month
+    start: date
+    title: title
+    calendarView: month
+    groupBy: { property: kind, direction: ASC }
+  - type: calendar
+    name: List
+    start: date
+    title: title
+    calendarView: list
+    groupBy: { property: kind, direction: ASC }
+  - type: calendar
+    name: Release week
+    filters: 'kind == "release"'
+    start: date
+    title: title
+    calendarView: week
+  - type: table
+    name: All
+    order: [title, kind, date, created, modified, commit]
+    sort:
+      - { property: date, direction: DESC }

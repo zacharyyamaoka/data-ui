@@ -1,0 +1,25 @@
+# Click a district on the map; the table shows that district's history (docs/peps/0004-dashboards.md; CONTRACT §42).
+data: ../map-bc-disposal/disposal.json
+properties:
+  district: { displayName: District }
+  year: { displayName: Year }
+  kg_per_capita: { displayName: Disposal per person }
+  disposal_t: { displayName: Disposal }
+  population: { displayName: Population }
+layout:
+  panels:
+    - { view: Per person 2024, w: 7, h: 6 }
+    - { view: District history, w: 5, h: 6, toolbar: compact }
+views:
+  - type: map
+    name: Per person 2024
+    filters: 'year == 2024'
+    select: rd
+    layers:
+      - { type: regions, geometry: ../map-bc-disposal/districts.geojson, key: rd, join: rd, value: kg_per_capita, label: name }
+  - type: table
+    name: District history
+    order: [district, year, kg_per_capita, disposal_t, population]
+    sort:
+      - { property: district, direction: ASC }
+      - { property: year, direction: DESC }

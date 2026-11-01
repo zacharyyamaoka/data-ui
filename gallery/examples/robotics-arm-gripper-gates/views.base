@@ -1,0 +1,149 @@
+# Arm + gripper · Playback + Gates: the Arm + gripper template (gallery/examples/robotics-arm-gripper) with the
+# diagnostics and gates overlay (docs/CONTRACT.md §35, docs/peps/0010-robotics-playback.md §10). Every dataset and view of
+# the template is here as it is there (../robotics-arm-gripper/); the overlay adds STAND-IN gate rows (the arm is a
+# simulated UR5e and the gripper illustrative, as in the template) that source/build.py writes: the grip force and the
+# width at the grasp against stand-in tolerances, the tool's path error, and the grip force per 0.5 s window.
+data: ../robotics-arm-gripper/runs.json
+style:
+  chrome: minimal
+  numbers: { digits: 4, compact: true }
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: poses, time: t }
+datasets:
+  runs:
+    data: ../robotics-arm-gripper/runs.json
+    label: Runs
+  poses:
+    data: ../robotics-arm-gripper/poses.json
+    label: Tool path
+    facets:
+      - { property: situation, label: Show (situation) }
+  samples:
+    data: ../robotics-arm-gripper/samples.json
+    label: Gripper
+  events:
+    data: ../robotics-arm-gripper/events.json
+    label: Events
+  # WHY unlinked: the grasps are the deployment's (illustrative) coverage, not this run's
+  coverage:
+    data: ../robotics-arm-gripper/coverage_samples.json
+    label: Grasps
+  # the gates overlay (CONTRACT §35): STAND-IN checks of the run, and the grip force per 0.5 s window
+  checks:
+    data: checks.json
+    label: Run checks
+  windows:
+    data: windows.json
+    label: Check windows
+links:
+  - { from: poses.run, to: runs.run }
+  - { from: samples.run, to: poses.run }
+  - { from: samples.situation, to: poses.situation }
+  - { from: events.run, to: runs.run }
+  - { from: windows.run, to: runs.run }
+layout:
+  panels:
+    # WHY a runs table on top, which the mock leaves out: PEP 0010 §6's template rule ("the runs table on top"); it says
+    # what the run is (a stand-in) before anything is drawn
+    - { view: Runs, w: 12, h: 2 }
+    - text: "**Gates** · STAND-IN (as the template's gripper is illustrative): the grip force and width at the grasp against stand-in tolerances and the tool's path error, and the grip force per 0.5 s window. Computed by `source/build.py` with RobotDx's diagnostics library (from the template's rows, never recomputed in the page); the page computes none of it. A cell opens its check in the side peek, with the data in its window; the evidence link plays the run there."
+      w: 12
+    - { view: Run checks, w: 12, h: 2 }
+    - { view: Playback, w: 12 }
+    - { view: EEF z, key: eef, title: 'EEF z (mm) · the arm, condensed · stand-in', w: 6, h: 4 }
+    - { view: Gripper width, key: width, title: 'Gripper width (mm) · ILLUSTRATIVE', w: 6, h: 4 }
+    - { view: Grip width at grasp, key: width-at-grasp, title: 'Grip width at grasp · coverage · ILLUSTRATIVE', w: 6, h: 4 }
+    - { view: Grip force, key: force, title: 'Grip force (N) · ILLUSTRATIVE', w: 6, h: 4 }
+    - { view: Grip force against its limits, w: 6, h: 3 }
+    - { view: Check history, w: 6, h: 3 }
+    - { view: Tool path 3D, key: path-3d, title: 'Tool path 3D · the arm''s trajectory3d at full size · stand-in', w: 12, h: 5 }
+    - { view: Check rows, w: 12, h: 3 }
+properties:
+  when: { displayName: Started }
+  duration_s: { displayName: Duration }
+  basis: { displayName: Basis }
+  note: { displayName: Note }
+views:
+  - type: table
+    name: Runs
+    from: runs
+    order: [when, run, kind, duration_s, basis, note]
+  - type: playback
+    name: Playback
+    playback: { readout: true }
+  - type: timeseries
+    name: EEF z
+    from: poses
+    timeseries:
+      x: t
+      'y': z_mm
+      series: situation
+      dash: [target]
+      legend: top
+      unit: mm
+      annotations: [{ data: events, x: t, label: label }]
+  - type: timeseries
+    name: Gripper width
+    from: samples
+    timeseries:
+      x: t
+      'y': width_mm
+      series: situation
+      dash: [target]
+      legend: top
+      unit: mm
+      annotations: [{ data: events, x: t, label: label }]
+  - type: chart
+    name: Grip width at grasp
+    from: coverage
+    controls: false
+    chart:
+      mark: { type: bar }
+      encoding:
+        x: { field: width_mm, bin: { step: 1 }, title: width at grasp (mm) }
+        'y': { aggregate: sum, field: w, title: grasps }
+  - type: timeseries
+    name: Grip force
+    from: samples
+    timeseries:
+      x: t
+      'y': force_n
+      series: situation
+      dash: [target]
+      legend: top
+      unit: N
+      annotations: [{ data: events, x: t, label: label }]
+  - type: trajectory3d
+    name: Tool path 3D
+    from: poses
+    trajectory3d: {}
+  # ---- the gates overlay (CONTRACT §35; PEP 0010 §10's hints). Everything below reads rows source/build.py wrote
+  - type: tracker
+    name: Run checks
+    from: checks
+    groupBy: { property: run }
+    sort:
+      - { property: order, direction: ASC }
+    tracker: { state: verdict, column: title, label: message }
+    display: { verdict: status, evidence: link }
+    record:
+      sections:
+        - { name: Verdict, properties: [verdict, value, unit, target, warn_hi, error_hi, message] }
+        - name: Evidence
+          properties: [evidence, t0, t1]
+          view: { type: table, name: Grip force in the window, from: windows, filters: 'run == this.run && t >= this.t0 && t <= this.t1', order: [t, value, verdict], display: { verdict: status } }
+        - { name: Provenance, properties: [subject, diagnostic, basis, source, record] }
+  - type: timeseries
+    name: Grip force against its limits
+    from: windows
+    filters: 'title == "Grip force"'
+    timeseries: { x: t, 'y': value, series: device, limits: { warn: [warn_lo, warn_hi], error: [error_lo, error_hi] }, legend: top, unit: N }
+  - type: levels
+    name: Check history
+    from: windows
+    levels: { state: verdict, by: title, label: message }
+  - type: table
+    name: Check rows
+    from: checks
+    order: [title, device, verdict, value, unit, target, message]
+    display: { verdict: status }

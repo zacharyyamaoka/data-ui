@@ -1,0 +1,14 @@
+data: data/parts.json
+filters: 'this.parts.contains(id)'
+layout:
+  panels:
+    - { text: "## The panel grid", w: 12 }
+    - { view: Torque, w: 12, h: 3 }
+views:
+  - type: chart
+    name: Torque
+    chart:
+      mark: { type: bar }
+      encoding:
+        x: { field: name }
+        y: { field: peak_torque }

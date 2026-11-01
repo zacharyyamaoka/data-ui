@@ -1,0 +1,294 @@
+[
+ {
+  "id": "vibetracks:0001",
+  "kind": "record",
+  "ref": "0001",
+  "title": "The home is a page beside Clank, over a derived-state document",
+  "date": "2026-10-09",
+  "status": "accepted",
+  "status_text": "accepted for slice B1 (branch `claude/vibetracks-home`); recorded at merge",
+  "track": "vibetracks",
+  "builds_on": [],
+  "amends": [],
+  "supersedes": [],
+  "depends_on": [],
+  "source": "docs/peps/0001-home-surface-and-derived-state.md"
+ },
+ {
+  "id": "vibetracks:0002",
+  "kind": "record",
+  "ref": "0002",
+  "title": "Claude Code's sidebar language over Codex-model projects (B2)",
+  "date": "2026-10-09",
+  "status": "built",
+  "status_text": "built on `claude/vibetracks-home` (slice B2), not merged",
+  "track": "vibetracks",
+  "builds_on": [],
+  "amends": [],
+  "supersedes": [],
+  "depends_on": [],
+  "source": "docs/peps/0002-claude-sidebar-codex-projects.md"
+ },
+ {
+  "id": "vibetracks:0003",
+  "kind": "record",
+  "ref": "0003",
+  "title": "The home across machines: remote sessions are \"current as of\", never live; the hub serves the home",
+  "date": "2026-10-09",
+  "status": "built",
+  "status_text": "built on `claude/vibetracks-home-r3` (round 3), not merged",
+  "track": "vibetracks",
+  "builds_on": [],
+  "amends": [],
+  "supersedes": [],
+  "depends_on": [],
+  "source": "docs/peps/0003-home-across-machines.md"
+ },
+ {
+  "id": "vibetracks:0004",
+  "kind": "record",
+  "ref": "0004",
+  "title": "The Stable/Preview chip on the home comes from the switcher runtime, not from the home",
+  "date": "2026-10-10",
+  "status": "built",
+  "status_text": "built on `claude/vibetracks-sps` (this repo) and `claude/sps-proxied-pages` (`~/stable_preview_switcher`); not merged",
+  "track": "vibetracks",
+  "builds_on": [],
+  "amends": [],
+  "supersedes": [],
+  "depends_on": [],
+  "source": "docs/peps/0004-sps-chip-on-the-home.md"
+ },
+ {
+  "id": "vibetracks:0005",
+  "kind": "record",
+  "ref": "0005",
+  "title": "Runs in, KPIs out: computed KPIs, a progress chart that drills down to the evidence, nested tracks",
+  "date": "2026-10-14",
+  "status": "accepted",
+  "status_text": "accepted for the Oct 14 build, on branch `claude/vibetracks-stable-preview-merge-c152e8`, not merged.",
+  "track": "vibetracks",
+  "builds_on": [],
+  "amends": [],
+  "supersedes": [],
+  "depends_on": [],
+  "source": "docs/peps/0005-runs-in-kpis-out.md"
+ },
+ {
+  "id": "vibetracks:0006",
+  "kind": "record",
+  "ref": "0006",
+  "title": "Side peek and breadcrumb, standard and custom tabs, the README, the oracle ceiling, a stock pivot, hover cards",
+  "date": "2026-10-14",
+  "status": "accepted",
+  "status_text": "accepted for the Oct 14 build, on branch `claude/vibetracks-stable-preview-merge-c152e8`, not merged.",
+  "track": "vibetracks",
+  "builds_on": [
+   "vibetracks:0005"
+  ],
+  "amends": [],
+  "supersedes": [],
+  "depends_on": [
+   "vibetracks:0005"
+  ],
+  "source": "docs/peps/0006-peek-tabs-readme-pivot.md"
+ },
+ {
+  "id": "vibetracks:0007",
+  "kind": "record",
+  "ref": "0007",
+  "title": "The feature tree: features beside the tests that prove them, results computed, one-click re-run",
+  "date": "2026-10-16",
+  "status": "proposed",
+  "status_text": "proposed with the Oct 16 build, on lane `worktree-agent-a1ff18353bea7de4e` (the \"feature tree\" lane), not merged.",
+  "track": "vibetracks",
+  "builds_on": [
+   "vibetracks:0005",
+   "vibetracks:0006"
+  ],
+  "amends": [],
+  "supersedes": [],
+  "depends_on": [
+   "vibetracks:0005",
+   "vibetracks:0006"
+  ],
+  "source": "docs/peps/0007-feature-tree-computed-spec.md"
+ },
+ {
+  "id": "vibetracks:0008",
+  "kind": "record",
+  "ref": "0008",
+  "title": "The sidebar is a Notion-style tree, and a project is its top-level row",
+  "date": "2026-10-16",
+  "status": "accepted",
+  "status_text": "accepted 2026-10-16. Zach: \"yes let's start with v1 for now\", merging with the feature tree (0007).",
+  "track": "vibetracks",
+  "builds_on": [
+   "vibetracks:0002",
+   "vibetracks:0005"
+  ],
+  "amends": [],
+  "supersedes": [],
+  "depends_on": [
+   "vibetracks:0002",
+   "vibetracks:0005"
+  ],
+  "source": "docs/peps/0008-sidebar-projects-are-top-level-rows.md"
+ },
+ {
+  "id": "vibetracks:0009",
+  "kind": "record",
+  "ref": "0009",
+  "title": "Process: the tree is the spec; intake fills it",
+  "date": "2026-10-16",
+  "status": "accepted",
+  "status_text": "accepted 2026-10-16. Zach: \"ok let's start with that for now\".",
+  "track": "vibetracks",
+  "builds_on": [
+   "vibetracks:0007"
+  ],
+  "amends": [],
+  "supersedes": [],
+  "depends_on": [
+   "vibetracks:0007"
+  ],
+  "source": "docs/peps/0009-process-the-tree-is-the-spec.md"
+ },
+ {
+  "id": "vibetracks:0010",
+  "kind": "record",
+  "ref": "0010",
+  "title": "Scope: Vibe Tracks defines the file contracts, everything else implements them",
+  "date": "2026-10-20",
+  "status": "accepted",
+  "status_text": "accepted 2026-10-20.",
+  "track": "vibetracks",
+  "builds_on": [
+   "vibetracks:0001",
+   "vibetracks:0005",
+   "vibetracks:0007",
+   "vibetracks:0009"
+  ],
+  "amends": [],
+  "supersedes": [],
+  "depends_on": [
+   "vibetracks:0001",
+   "vibetracks:0005",
+   "vibetracks:0007",
+   "vibetracks:0009"
+  ],
+  "source": "docs/peps/0010-scope-files-in-state-out.md"
+ },
+ {
+  "id": "vibetracks:0011",
+  "kind": "record",
+  "ref": "0011",
+  "title": "The file contracts: track, event, state; sharing, briefs and memory",
+  "date": "2026-10-20",
+  "status": "proposed",
+  "status_text": "proposed 2026-10-20 (final after the verify pass). It fills in PEP 0010's interface table and corrects one row of it (§3).",
+  "track": "vibetracks",
+  "builds_on": [
+   "vibetracks:0010",
+   "vibetracks:0005",
+   "vibetracks:0006",
+   "vibetracks:0007",
+   "vibetracks:0009",
+   "vibetracks:0008",
+   "vibetracks:0003"
+  ],
+  "amends": [],
+  "supersedes": [
+   "vibetracks:0008"
+  ],
+  "depends_on": [
+   "vibetracks:0010",
+   "vibetracks:0005",
+   "vibetracks:0006",
+   "vibetracks:0007",
+   "vibetracks:0009",
+   "vibetracks:0008",
+   "vibetracks:0003"
+  ],
+  "source": "docs/peps/0011-file-contracts.md"
+ },
+ {
+  "id": "vibetracks:0011a",
+  "kind": "record",
+  "ref": "0011a",
+  "title": "Accounts: each person signs in with Google and sees only what their own machines published",
+  "date": "2026-10-25",
+  "status": "superseded",
+  "status_text": "superseded 2026-10-25 by 0011b; was proposed 2026-10-25, built as a tracer bullet on",
+  "track": "vibetracks",
+  "builds_on": [],
+  "amends": [
+   "vibetracks:0011"
+  ],
+  "supersedes": [],
+  "depends_on": [
+   "vibetracks:0011"
+  ],
+  "source": "docs/peps/0011a-accounts.md"
+ },
+ {
+  "id": "vibetracks:0011b",
+  "kind": "record",
+  "ref": "0011b",
+  "title": "Sync is built in: sign in once, and your machines sync",
+  "date": "2026-10-25",
+  "status": "proposed",
+  "status_text": "proposed 2026-10-25, built as a tracer bullet on `claude/vibetracks-0011-sync` (this repo) and",
+  "track": "vibetracks",
+  "builds_on": [],
+  "amends": [
+   "vibetracks:0011"
+  ],
+  "supersedes": [
+   "vibetracks:0011a"
+  ],
+  "depends_on": [
+   "vibetracks:0011",
+   "vibetracks:0011a"
+  ],
+  "source": "docs/peps/0011b-sync.md"
+ },
+ {
+  "id": "vibetracks:0012",
+  "kind": "record",
+  "ref": "0012",
+  "title": "Test history: a History view on the Spec tab, a Commits tab on parent tracks, main-green as the headline",
+  "date": "2026-10-25",
+  "status": "proposed",
+  "status_text": "proposed 2026-10-25, built on lanes `vt/vibetracks-test-history-producer` and `-views`; final at merge.",
+  "track": "vibetracks",
+  "builds_on": [],
+  "amends": [],
+  "supersedes": [],
+  "depends_on": [],
+  "source": "docs/peps/0012-test-history.md"
+ },
+ {
+  "id": "vibetracks:0013",
+  "kind": "record",
+  "ref": "0013",
+  "title": "Vibe Tracks on data-ui: the dataset and the .base are the contract, the kit is vendored",
+  "date": "2026-10-26",
+  "status": "proposed",
+  "status_text": "proposed 2026-10-26; stage 1 built on lane `claude/vibetracks-dataui` (not merged). Stages 2-4 are plans.",
+  "track": "vibetracks",
+  "builds_on": [
+   "vibetracks:0006",
+   "vibetracks:0011",
+   "vibetracks:0012"
+  ],
+  "amends": [],
+  "supersedes": [],
+  "depends_on": [
+   "vibetracks:0006",
+   "vibetracks:0011",
+   "vibetracks:0012"
+  ],
+  "source": "docs/peps/0013-vibetracks-on-data-ui.md"
+ }
+]

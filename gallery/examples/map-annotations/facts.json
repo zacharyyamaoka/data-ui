@@ -1,0 +1,158 @@
+{
+ "id": "metro-vancouver-facility-facts",
+ "title": "Published 2024 figures for Metro Vancouver waste facilities",
+ "titleProperty": "facility",
+ "source": "Metro Vancouver 2024 Solid Waste System fact sheets; City of Vancouver 2024 Annual Report for the Vancouver Landfill; facility points © OpenStreetMap contributors, ODbL",
+ "attribution": {
+  "text": "© OpenStreetMap contributors",
+  "url": "https://www.openstreetmap.org/copyright"
+ },
+ "properties": {
+  "facility": {
+   "type": "text",
+   "label": "Facility"
+  },
+  "location": {
+   "type": "list",
+   "label": "Point (lat, lng)"
+  },
+  "figure": {
+   "type": "number",
+   "label": "Figure",
+   "decimals": 0
+  },
+  "unit": {
+   "type": "text",
+   "label": "Unit"
+  },
+  "what": {
+   "type": "text",
+   "label": "What"
+  },
+  "year": {
+   "type": "number",
+   "label": "Year",
+   "decimals": 0
+  },
+  "source": {
+   "type": "text",
+   "label": "Source"
+  },
+  "page": {
+   "type": "number",
+   "label": "PDF page",
+   "decimals": 0
+  },
+  "osm_id": {
+   "type": "text",
+   "label": "OSM element"
+  }
+ },
+ "rows": [
+  {
+   "id": "landfill-disposed",
+   "facility": "Vancouver Landfill",
+   "location": [
+    49.09801,
+    -123.00459
+   ],
+   "figure": 733196,
+   "unit": "t",
+   "what": "waste disposed in 2024 (municipal solid waste, bottom ash and demolition material)",
+   "year": 2024,
+   "source": "https://vancouver.ca/files/cov/2024-annual-report-vancouver-landfill.pdf",
+   "page": 3,
+   "osm_id": "relation/14118449"
+  },
+  {
+   "id": "landfill-cap",
+   "facility": "Vancouver Landfill",
+   "location": [
+    49.09801,
+    -123.00459
+   ],
+   "figure": 750000,
+   "unit": "t/yr",
+   "what": "most municipal solid waste the landfill is authorized to accept in a year",
+   "year": 2024,
+   "source": "https://vancouver.ca/files/cov/2024-annual-report-vancouver-landfill.pdf",
+   "page": 3,
+   "osm_id": "relation/14118449"
+  },
+  {
+   "id": "vsts-transferred",
+   "facility": "Vancouver South Transfer Station",
+   "location": [
+    49.20734,
+    -123.11393
+   ],
+   "figure": 140013,
+   "unit": "t",
+   "what": "waste transferred through the station to the Vancouver Landfill in 2024",
+   "year": 2024,
+   "source": "https://vancouver.ca/files/cov/2024-annual-report-vancouver-landfill.pdf",
+   "page": 17,
+   "osm_id": "way/1207315845"
+  },
+  {
+   "id": "wte-processed",
+   "facility": "Metro Vancouver Waste-to-Energy Facility",
+   "location": [
+    49.18635,
+    -122.97776
+   ],
+   "figure": 243169,
+   "unit": "t",
+   "what": "garbage and residuals processed in 2024",
+   "year": 2024,
+   "source": "https://metrovancouver.org/services/solid-waste/Documents/solid-waste-system-fact-sheet.pdf",
+   "page": 8,
+   "osm_id": "way/418204624"
+  },
+  {
+   "id": "wte-electricity",
+   "facility": "Metro Vancouver Waste-to-Energy Facility",
+   "location": [
+    49.18635,
+    -122.97776
+   ],
+   "figure": 180000,
+   "unit": "MWh/yr",
+   "what": "electricity generated from the steam, approximately, per year",
+   "year": 2024,
+   "source": "https://metrovancouver.org/services/solid-waste/Documents/solid-waste-system-fact-sheet.pdf",
+   "page": 8,
+   "osm_id": "way/418204624"
+  },
+  {
+   "id": "united-boulevard-garbage",
+   "facility": "United Boulevard Recycling and Waste Centre",
+   "location": [
+    49.23003,
+    -122.87202
+   ],
+   "figure": 263736,
+   "unit": "t",
+   "what": "garbage received in 2024",
+   "year": 2024,
+   "source": "https://metrovancouver.org/services/solid-waste/Documents/solid-waste-system-fact-sheet.pdf",
+   "page": 3,
+   "osm_id": "way/585031799"
+  },
+  {
+   "id": "north-surrey-garbage",
+   "facility": "North Surrey Recycling and Waste Centre",
+   "location": [
+    49.18052,
+    -122.68688
+   ],
+   "figure": 235338,
+   "unit": "t",
+   "what": "garbage received in 2024",
+   "year": 2024,
+   "source": "https://metrovancouver.org/services/solid-waste/Documents/solid-waste-system-fact-sheet.pdf",
+   "page": 4,
+   "osm_id": "way/448908717"
+  }
+ ]
+}

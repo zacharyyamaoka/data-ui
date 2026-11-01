@@ -1,0 +1,1074 @@
+{
+ "_": "written by table_oracle_checks.py --write from the build before the change; never from the code under test",
+ "_redact_dataclass_viewer": "A data change, no code change (2026-10-27): the dataclass-viewer case now holds SYNTHETIC values (DEMO_FACILITY). Its two entries are rewritten from 9bb1818's build (the build before the speed work) with the new case files copied in; 283145c's build writes the same two, and the other 51 views unchanged.",
+ "_merge_toolbar_mix": "A deliberate output change (merge of lane/toolbar-mix @ 18c5638 onto main 1e73a7a, 2026-10-27): toolbar-mix changes the table's drawn HTML (selection, CONTRACT §15) and branched before this oracle existed. Rewritten from 18c5638's own build (before the table speed work 6265d06) over the merged gallery, now all 106 table and pivot views (was 53); the merged build draws all 106 byte for byte the same.",
+ "_p0_blockers": "lane/p0-blockers (PEP 0010 P0, 2026-10-28): a deliberate output change of the table, two parts. (1) The spacer below the drawn rows counts the scroll margin once (getTotalSize() - (end - margin)), so it is taller by the margin (the header, 30 px here) in every table with rows below the window, and the mid capture's scroll position moves with the longer box. (2) A table with no column to draw (a dashboard view opened over the file's top-level data) draws one cell naming the columns its data lacks instead of 0 px rows. 79 entries changed, 31 unchanged. Written from integrate/packet 8eb8480's build (the code before) with the change applied by its spec, never from the code under test: the spacer is the sum of the planned sizes of the rows after the last one drawn (the virtualiser's own plan, read in the old page), the empty state is the spec's sentence; the old build was captured at the scroll position the new build's mid capture reached (the two map a scrollTop to the same rows). The code under test then matched all 122 views byte for byte (top and mid).",
+ "_public_export_paths": "A gallery data change, no code change (lane/home-paths, 2026-10-30): robotparts-sources' sources.json shows ~/ instead of ~/ in its 'How it refreshes' column (the redaction tools/publish-site.mjs and tools/public-export.mjs apply), so the public snapshot draws the same as this tree. Two entries moved: robotparts-sources :: By kind and :: Needs refresh (top and mid; status and row count unchanged, bytes 41986 -> 41730 and 14530 -> 14466); the other 108 entries are unchanged. Written by table_oracle_checks.py --write from main d662f09's build (the code before) over the new gallery, never from the code under test. Measured: d662f09's build over d662f09's gallery equals this golden on every entry; d662f09's build and the lane's build (which changes nothing under packages/) write identical digests over the new gallery on all 170 views.",
+ "_dashboard_cards": "lane/dashboard-cards (CONTRACT §25): the round-2 rebuilds changed three existing tables' .base (pid-tuning 'Every joint', vibetracks-runs 'Runs' and 'By track': declared rounding and plain-text labels) and added 4 tables. Those entries are written by table_oracle_checks.py --write from main 5472d02's build (the code before) over the new gallery, never from the code under test; every other entry is unchanged.",
+ "_table_digits": "lane/table-digits (CONTRACT §17 declared rounding, 2026-10-29): a table cell, its summary row, its stats parts and its range now write a property's declared digits/compact like the KPI cards and list/cards/board cells already did. Two entries moved, both vibetracks-runs (its pass_rate declares digits: 3): Runs and By track (every pass_rate cell and the By track Average summary: 0.7091 -> 0.709, 0.9898 -> 0.99, 0.6182 -> 0.618). Derived from integrate/packet 6adff6c's build (the code before) with the change applied by spec, never from the code under test: that build's captured HTML had every pass_rate cell and summary number rewritten to 3 significant figures (integer part never cut, trailing zeros dropped, thousands separators) by an independent Decimal implementation, then digested; the fixed build draws those two byte for byte the same (top e2e4b55f7a38b1c7 / mid b9b1d82fc3a670a6; top 67b4812c3e02f332). The other 109 entries are unchanged.",
+ "_types": "EXCEPTION to the rule above, recorded and reviewed (lane/types, CONTRACT §28; Zach, 2026-10-28: \"This looks great merge it\"): written from the merged build, because the drawing is the deliberate change (the table's lines, header cells, typed cells, a header tab stop) and the commit before cannot draw types. Every view drawn is pinned (the check asserts the golden's keys equal the views drawn; main's golden pinned 110 of them). Before accepting it, docs/review_table_oracle.py drew every table and pivot view with main 54580f2's build and this one, and compared rows by identity and order, columns, header labels, units, group labels, untyped cell text and typed cell text against an independent formatter: 175 views, 162 declared changes only, 3 new (property-types), 10 flagged, every one the same in both builds: 9 draw no <table> row in either (dashboard panels the review's table probe cannot read), and map-annotations has two views named Figures, so the review mounts its map in both. Per-view results: reports/media/types/oracle-review.json in the main checkout.",
+ "views": {
+  "actuator-charts :: Rows": {
+   "top": "2e9e61f100a48d7e",
+   "mid": "e558fae98c94a4b2",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 39707
+  },
+  "admin-shopify :: All": {
+   "top": "880898eb8a2128be",
+   "mid": "880898eb8a2128be",
+   "status": "14 of 14 rows",
+   "bytes": 24876
+  },
+  "admin-shopify :: Customers": {
+   "top": "2f190ab4be7fc890",
+   "mid": "e3b0c44298fc1c14",
+   "status": "3 of 14 rows",
+   "bytes": 9034
+  },
+  "admin-shopify :: Prospects": {
+   "top": "c4950e9f55b032e5",
+   "mid": "e3b0c44298fc1c14",
+   "status": "6 of 14 rows",
+   "bytes": 13554
+  },
+  "admin-shopify :: Competitors": {
+   "top": "78496748cac4b60c",
+   "mid": "e3b0c44298fc1c14",
+   "status": "5 of 14 rows",
+   "bytes": 12288
+  },
+  "analyses :: Table": {
+   "top": "f07222fdb946825a",
+   "mid": "e3b0c44298fc1c14",
+   "status": "3 of 3 rows",
+   "bytes": 7742
+  },
+  "brand-lineage :: Table": {
+   "top": "4c00b84d3f900cda",
+   "mid": "0fbdab8ecbb3d6fc",
+   "status": "319 of 319 rows",
+   "bytes": 38804
+  },
+  "dashboard-cards :: Joint metrics": {
+   "top": "8b7dd04520d5f84f",
+   "mid": "05c6adb25b79e128",
+   "status": "2,376 of 2,376 rows",
+   "bytes": 8415
+  },
+  "dataclass-viewer :: Rows": {
+   "top": "ef60af4c4f4b795f",
+   "mid": "ef60af4c4f4b795f",
+   "status": "13 of 16 rows · 3 groups",
+   "bytes": 14112
+  },
+  "dataclass-viewer :: Outline table": {
+   "top": "44e10138a7d65b67",
+   "mid": "44e10138a7d65b67",
+   "status": "16 of 16 rows",
+   "bytes": 19227
+  },
+  "design-babble :: Table": {
+   "top": "c1ffacc7cf63589e",
+   "mid": "e3b0c44298fc1c14",
+   "status": "10 of 30 rows",
+   "bytes": 17065
+  },
+  "feedback-sheet :: Table": {
+   "top": "edc2cb36a0ed0e34",
+   "mid": "e3b0c44298fc1c14",
+   "status": "5 of 5 rows",
+   "bytes": 7339
+  },
+  "feedback-sheet :: Negative": {
+   "top": "eacc48506b5c9283",
+   "mid": "e3b0c44298fc1c14",
+   "status": "3 of 5 rows",
+   "bytes": 5805
+  },
+  "feedback-sheet :: Open": {
+   "top": "7694f594b9245da9",
+   "mid": "e3b0c44298fc1c14",
+   "status": "3 of 5 rows",
+   "bytes": 6011
+  },
+  "feedback-sheet :: By owner": {
+   "top": "1a7e3bd01243e515",
+   "mid": "e3b0c44298fc1c14",
+   "status": "5 of 5 rows · 3 groups",
+   "bytes": 8354
+  },
+  "filters-gallery :: Every kind": {
+   "top": "b9e6825401ddbfb9",
+   "mid": "d3481f647719fcf1",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 47688
+  },
+  "filters-gallery :: McMaster-style": {
+   "top": "233986f3c62482c2",
+   "mid": "80422ec61337e9f2",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 34794
+  },
+  "filters-gallery :: Amazon-style": {
+   "top": "0f66be83bf2f48bd",
+   "mid": "eddefe16f8d34538",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 25552
+  },
+  "filters-gallery :: Digi-Key-style": {
+   "top": "a0db95484440b5a6",
+   "mid": "61def867f1228688",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 28440
+  },
+  "filters-gallery :: Obsidian-style": {
+   "top": "0e8e7f90e37139f5",
+   "mid": "0fd8caa398cd8871",
+   "status": "762 of 1,149 rows",
+   "bytes": 30464
+  },
+  "gim4305-datasheet :: Datasheet": {
+   "top": "2ff311d72205b2be",
+   "mid": "786af8bb0e7dd144",
+   "status": "50 of 50 rows · 9 groups",
+   "bytes": 25098
+  },
+  "gim4305-datasheet :: Datasheet only": {
+   "top": "cb009795647a96d7",
+   "mid": "a6b99962086317fd",
+   "status": "21 of 50 rows · 6 groups",
+   "bytes": 11289
+  },
+  "gim4305-datasheet :: Measured vs datasheet": {
+   "top": "740ef072798b6793",
+   "mid": "740ef072798b6793",
+   "status": "17 of 50 rows · 6 groups",
+   "bytes": 27824
+  },
+  "gim4305-datasheet :: Twin-ready for M2": {
+   "top": "81034a57d9af5d55",
+   "mid": "e3b0c44298fc1c14",
+   "status": "2 of 50 rows · 1 groups",
+   "bytes": 6269
+  },
+  "gim4305-datasheet :: To measure next": {
+   "top": "6dad1d3e89d00c4f",
+   "mid": "6dad1d3e89d00c4f",
+   "status": "17 of 50 rows · 8 groups",
+   "bytes": 13667
+  },
+  "live-robot :: Log": {
+   "top": "e80e028207d06109",
+   "mid": "e3b0c44298fc1c14",
+   "status": "0 of 0 rows",
+   "bytes": 865
+  },
+  "logo-rounds :: Table": {
+   "top": "a891df226c06d83f",
+   "mid": "a909a5db5b26b6b7",
+   "status": "203 of 203 rows · 11 groups",
+   "bytes": 31333
+  },
+  "map-3d-columns :: Places": {
+   "top": "bd69ecdfeb4a0fb9",
+   "mid": "9a414f95c00c9b99",
+   "status": "6,933 of 6,933 rows · 4 groups",
+   "bytes": 8879
+  },
+  "map-annotations :: Figures": {
+   "top": "7955789e2ec6c5ab",
+   "mid": "e3b0c44298fc1c14",
+   "status": "7 of 7 rows",
+   "bytes": 5869
+  },
+  "map-bc-disposal :: 2024": {
+   "top": "8ba8ccce343bbc0f",
+   "mid": "8ba8ccce343bbc0f",
+   "status": "27 of 945 rows",
+   "bytes": 14175
+  },
+  "map-bivariate :: Provinces": {
+   "top": "d10177dbe193274c",
+   "mid": "e3b0c44298fc1c14",
+   "status": "13 of 13 rows",
+   "bytes": 12880
+  },
+  "map-bubbles :: Provinces": {
+   "top": "56c2f86cf8409857",
+   "mid": "e3b0c44298fc1c14",
+   "status": "13 of 13 rows",
+   "bytes": 14108
+  },
+  "map-catchments :: Sites": {
+   "top": "22609a37e1c3949c",
+   "mid": "d2740c9a45fd2379",
+   "status": "549 of 549 rows · 2 groups",
+   "bytes": 12476
+  },
+  "map-collection-routes :: Stops": {
+   "top": "021c6120c0382a1f",
+   "mid": "2b2b147a7807594f",
+   "status": "31 of 34 rows · 3 groups",
+   "bytes": 14395
+  },
+  "map-collection-routes :: Routes": {
+   "top": "8d85c8c9cf6ce29a",
+   "mid": "e3b0c44298fc1c14",
+   "status": "3 of 34 rows",
+   "bytes": 4599
+  },
+  "map-draw-select :: Places": {
+   "top": "40aa744789697429",
+   "mid": "d80c9fb1a8072e8a",
+   "status": "6,933 of 6,933 rows · 4 groups",
+   "bytes": 14841
+  },
+  "map-food-heatmap :: Places": {
+   "top": "40aa744789697429",
+   "mid": "d80c9fb1a8072e8a",
+   "status": "6,933 of 6,933 rows · 4 groups",
+   "bytes": 14841
+  },
+  "map-food-hexbin :: Places": {
+   "top": "40aa744789697429",
+   "mid": "d80c9fb1a8072e8a",
+   "status": "6,933 of 6,933 rows · 4 groups",
+   "bytes": 14841
+  },
+  "map-playback :: Pickups in order": {
+   "top": "e17f63d972af0ccf",
+   "mid": "0889773e944e0ab7",
+   "status": "31 of 34 rows",
+   "bytes": 14219
+  },
+  "map-recycling-clusters :: Points": {
+   "top": "62fa71d861da52ca",
+   "mid": "3ac0aff1c49986b8",
+   "status": "805 of 805 rows",
+   "bytes": 19454
+  },
+  "map-region-filter :: District history": {
+   "top": "2b5b546688ac96e5",
+   "mid": "5fc7fe2ccc52deee",
+   "status": "945 of 945 rows",
+   "bytes": 18116
+  },
+  "map-service-rings :: Sites": {
+   "top": "e82aacb2f1dbdb13",
+   "mid": "2657635b19be6a4b",
+   "status": "549 of 549 rows · 4 groups",
+   "bytes": 14477
+  },
+  "map-small-multiples :: By year": {
+   "top": "b64e7fc7d7d29218",
+   "mid": "88d81a11e1918352",
+   "status": "27 rows × 6 columns · from 162 of 945 records · 27 groups",
+   "bytes": 15395
+  },
+  "map-sorting-line :: Equipment": {
+   "top": "1f997b9e526bf1c2",
+   "mid": "1f997b9e526bf1c2",
+   "status": "14 of 14 rows · 6 groups",
+   "bytes": 15361
+  },
+  "map-swipe :: Both years": {
+   "top": "c529c69e15846934",
+   "mid": "ed556b4539812890",
+   "status": "54 of 945 rows · 27 groups",
+   "bytes": 11223
+  },
+  "map-waste-flows :: Flows": {
+   "top": "5f1400d4bb29b0b6",
+   "mid": "5f1400d4bb29b0b6",
+   "status": "17 of 17 rows",
+   "bytes": 14294
+  },
+  "map-within-distance :: Sites": {
+   "top": "22609a37e1c3949c",
+   "mid": "d2740c9a45fd2379",
+   "status": "549 of 549 rows · 2 groups",
+   "bytes": 12476
+  },
+  "ml-experiments :: Leaderboard": {
+   "top": "8d43d36ae687574d",
+   "mid": "e3b0c44298fc1c14",
+   "status": "4 rows × 3 columns · from 120 of 120 records",
+   "bytes": 5868
+  },
+  "ml-experiments :: Runs": {
+   "top": "f3db1cc38b79533c",
+   "mid": "e3b0c44298fc1c14",
+   "status": "120 of 120 rows · 4 groups",
+   "bytes": 8153
+  },
+  "ml-experiments :: Runs by week": {
+   "top": "88119d1f3a9bdf8a",
+   "mid": "e0ee45b87909b74a",
+   "status": "120 of 120 rows · 4 groups",
+   "bytes": 24185
+  },
+  "model-lineage :: Table": {
+   "top": "125aa04993aba7e5",
+   "mid": "e3b0c44298fc1c14",
+   "status": "11 of 11 rows",
+   "bytes": 15407
+  },
+  "models-benches :: Benchmarks": {
+   "top": "9f0291be546cda3b",
+   "mid": "9f0291be546cda3b",
+   "status": "11 rows × 10 columns · from 100 of 100 records · 7 groups",
+   "bytes": 68199
+  },
+  "models-benches :: All runs": {
+   "top": "d03e07539e8523b5",
+   "mid": "e3b0c44298fc1c14",
+   "status": "100 of 100 rows · 11 groups",
+   "bytes": 7282
+  },
+  "money-transactions :: By category": {
+   "top": "a9007bf3b9fb4a59",
+   "mid": "acddf99733631bd0",
+   "status": "19 of 19 rows · 14 groups",
+   "bytes": 19643
+  },
+  "notion-table :: All": {
+   "top": "90df5533714bc62d",
+   "mid": "e3b0c44298fc1c14",
+   "status": "8 of 8 rows",
+   "bytes": 9931
+  },
+  "notion-table :: Not done": {
+   "top": "62e961ce64ca41d9",
+   "mid": "e3b0c44298fc1c14",
+   "status": "7 of 8 rows",
+   "bytes": 9219
+  },
+  "object-collection :: Objects": {
+   "top": "8d71ecf623634af5",
+   "mid": "e3b0c44298fc1c14",
+   "status": "366 of 366 rows · 12 groups",
+   "bytes": 10197
+  },
+  "object-db-ledger :: Table": {
+   "top": "4053ab015f64ca3b",
+   "mid": "8c5e7b0a5e8e97ad",
+   "status": "366 of 366 rows",
+   "bytes": 35905
+  },
+  "object-db-materials :: Materials": {
+   "top": "fa5badce438cfcb1",
+   "mid": "455a9a29de92f8e6",
+   "status": "26 of 26 rows · 12 groups",
+   "bytes": 30308
+  },
+  "object-db-shelf :: Same rows · table": {
+   "top": "e8249a9010d59ccc",
+   "mid": "b88b48e6f093449a",
+   "status": "366 of 366 rows",
+   "bytes": 38588
+  },
+  "object-db-streams :: Shares": {
+   "top": "c915035c3ea537b9",
+   "mid": "691f83ca851e1d83",
+   "status": "31 of 31 rows · 1 groups",
+   "bytes": 25788
+  },
+  "object-db-streams :: Streams × types": {
+   "top": "42e484b42c4981c9",
+   "mid": "66b3f54a460b012a",
+   "status": "31 rows × 1 columns · from 31 of 31 records · 31 groups",
+   "bytes": 7991
+  },
+  "object-db-taxonomy :: Outline": {
+   "top": "a31142c057d3e9bd",
+   "mid": "ea62e4cbbc4d298f",
+   "status": "110 of 110 rows",
+   "bytes": 26700
+  },
+  "pid-tuning :: UR5e gains per joint": {
+   "top": "7c308dd0e567e81e",
+   "mid": "d1d09f29a1380687",
+   "status": "132 of 132 rows",
+   "bytes": 15181
+  },
+  "pid-tuning :: Every joint": {
+   "top": "19c3b78d58e1fef8",
+   "mid": "08eb5191444a94cb",
+   "status": "132 of 132 rows",
+   "bytes": 73106
+  },
+  "pid-tuning :: Robot × rung": {
+   "top": "b63c67606fab1c38",
+   "mid": "b63c67606fab1c38",
+   "status": "9 rows × 4 columns · from 132 of 132 records · 9 groups",
+   "bytes": 14497
+  },
+  "pid-tuning :: Fidelity by servo": {
+   "top": "cd2c3377c0a8dacc",
+   "mid": "e3b0c44298fc1c14",
+   "status": "132 of 132 rows",
+   "bytes": 417
+  },
+  "property-types :: All": {
+   "top": "5155114c5155fcc8",
+   "mid": "5155114c5155fcc8",
+   "status": "10 of 10 rows",
+   "bytes": 13499
+  },
+  "property-types :: Every type": {
+   "top": "5ae7314ee8731b41",
+   "mid": "5ae7314ee8731b41",
+   "status": "10 of 10 rows",
+   "bytes": 67094
+  },
+  "property-types :: By status": {
+   "top": "b2b656c05f415102",
+   "mid": "b2b656c05f415102",
+   "status": "10 rows from 10 of 10 · 4 groups",
+   "bytes": 22293
+  },
+  "rack-wiring :: Parts": {
+   "top": "c9572b953221b3ba",
+   "mid": "c9572b953221b3ba",
+   "status": "10 of 10 rows · 5 groups",
+   "bytes": 24484
+  },
+  "raw-source :: Table": {
+   "top": "7cb19a412f35a7da",
+   "mid": "e3b0c44298fc1c14",
+   "status": "5 of 5 rows",
+   "bytes": 4178
+  },
+  "robotics-arm :: Runs": {
+   "top": "8053b0086a9fe89a",
+   "mid": "e3b0c44298fc1c14",
+   "status": "2 of 2 rows",
+   "bytes": 5479
+  },
+  "robotics-arm-gates :: Runs": {
+   "top": "8053b0086a9fe89a",
+   "mid": "e3b0c44298fc1c14",
+   "status": "2 of 2 rows",
+   "bytes": 5479
+  },
+  "robotics-arm-gates :: Check rows": {
+   "top": "fcc744b842c56a78",
+   "mid": "e3b0c44298fc1c14",
+   "status": "2 of 2 rows",
+   "bytes": 1030
+  },
+  "robotics-arm-gripper :: Runs": {
+   "top": "714bb9be703e0bdb",
+   "mid": "e3b0c44298fc1c14",
+   "status": "1 of 1 rows",
+   "bytes": 4294
+  },
+  "robotics-arm-gripper-gates :: Runs": {
+   "top": "714bb9be703e0bdb",
+   "mid": "e3b0c44298fc1c14",
+   "status": "1 of 1 rows",
+   "bytes": 4294
+  },
+  "robotics-arm-gripper-gates :: Check rows": {
+   "top": "7f8a9043bf7444d0",
+   "mid": "e3b0c44298fc1c14",
+   "status": "1 of 1 rows",
+   "bytes": 373
+  },
+  "robotics-camera :: Sessions": {
+   "top": "f70e08665fcf7faa",
+   "mid": "e3b0c44298fc1c14",
+   "status": "3 of 3 rows",
+   "bytes": 5569
+  },
+  "robotics-camera-gates :: Sessions": {
+   "top": "f70e08665fcf7faa",
+   "mid": "e3b0c44298fc1c14",
+   "status": "3 of 3 rows",
+   "bytes": 5569
+  },
+  "robotics-camera-gates :: Check rows": {
+   "top": "877357de338e8737",
+   "mid": "e3b0c44298fc1c14",
+   "status": "3 of 3 rows",
+   "bytes": 1231
+  },
+  "robotics-deployments :: Deployments": {
+   "top": "36710b08f7e4c553",
+   "mid": "36710b08f7e4c553",
+   "status": "24 of 24 rows",
+   "bytes": 4827
+  },
+  "robotics-deployments :: Runs": {
+   "top": "6b4732380b7d56ed",
+   "mid": "6b4732380b7d56ed",
+   "status": "24 of 24 rows",
+   "bytes": 18101
+  },
+  "robotics-deployments-gates :: Deployments": {
+   "top": "36710b08f7e4c553",
+   "mid": "36710b08f7e4c553",
+   "status": "24 of 24 rows",
+   "bytes": 4827
+  },
+  "robotics-deployments-gates :: Runs": {
+   "top": "6b4732380b7d56ed",
+   "mid": "6b4732380b7d56ed",
+   "status": "24 of 24 rows",
+   "bytes": 18101
+  },
+  "robotics-deployments-gates :: The rack": {
+   "top": "c11540a72cccf312",
+   "mid": "c11540a72cccf312",
+   "status": "24 of 24 rows",
+   "bytes": 7789
+  },
+  "robotics-driver :: Runs": {
+   "top": "ec394a95d48eb9fc",
+   "mid": "d12a79d806e70d6b",
+   "status": "27 of 27 rows",
+   "bytes": 19317
+  },
+  "robotics-driver-gates :: Runs": {
+   "top": "ec394a95d48eb9fc",
+   "mid": "d12a79d806e70d6b",
+   "status": "27 of 27 rows",
+   "bytes": 19317
+  },
+  "robotics-driver-gates :: Check rows": {
+   "top": "b8232cac91b75e2c",
+   "mid": "e0580a21d00bca5d",
+   "status": "27 of 27 rows",
+   "bytes": 5780
+  },
+  "robotics-fleet :: Table": {
+   "top": "cecb4d42ce782492",
+   "mid": "e3b0c44298fc1c14",
+   "status": "12 of 12 rows",
+   "bytes": 13697
+  },
+  "robotics-fleet :: Runs": {
+   "top": "f935c20051b79566",
+   "mid": "e3b0c44298fc1c14",
+   "status": "12 of 12 rows",
+   "bytes": 2990
+  },
+  "robotics-servo :: Runs": {
+   "top": "adeb640c09c43bd1",
+   "mid": "c3c9abc351914b70",
+   "status": "40 of 40 rows",
+   "bytes": 23011
+  },
+  "robotics-servo-gates :: Runs": {
+   "top": "adeb640c09c43bd1",
+   "mid": "c3c9abc351914b70",
+   "status": "40 of 40 rows",
+   "bytes": 23011
+  },
+  "robotics-servo-gates :: Check rows": {
+   "top": "f14062801a8bd6b6",
+   "mid": "61c1522ed6876b28",
+   "status": "40 of 40 rows",
+   "bytes": 5560
+  },
+  "robotparts-actuators :: By brand": {
+   "top": "9b20046e77f0bc77",
+   "mid": "f8ca0df238ea459d",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 54310
+  },
+  "robotparts-actuators :: Brand › form": {
+   "top": "2cf9ea353afa87fa",
+   "mid": "29e20a0e74ab7d51",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 17409
+  },
+  "robotparts-actuators :: Torque density": {
+   "top": "5573eb9d29df18c8",
+   "mid": "228b628a6cfe7695",
+   "status": "1,020 of 1,149 rows",
+   "bytes": 35921
+  },
+  "robotparts-actuators :: Geared CAN under $150": {
+   "top": "6f901d305906f085",
+   "mid": "aa23664e15a3a1b0",
+   "status": "36 of 1,149 rows",
+   "bytes": 38024
+  },
+  "robotparts-actuators :: All, flat": {
+   "top": "0ea1a413fc942bf3",
+   "mid": "bca6bf691bddafdc",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 105285
+  },
+  "robotparts-actuators :: Expand in place": {
+   "top": "37a8b601db13c794",
+   "mid": "ca93d581adc1c07b",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 37776
+  },
+  "robotparts-actuators :: Row links": {
+   "top": "8c28e8b21b9d60cf",
+   "mid": "083022b9441bfb2e",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 36888
+  },
+  "robotparts-actuators :: Brand × form": {
+   "top": "2cf9ea353afa87fa",
+   "mid": "29e20a0e74ab7d51",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 17409
+  },
+  "robotparts-actuators :: Torque by drivetrain × form": {
+   "top": "8321db8696e68606",
+   "mid": "e3b0c44298fc1c14",
+   "status": "4 rows × 5 columns · from 1,149 of 1,149 records",
+   "bytes": 81166
+  },
+  "robotparts-calendar :: All": {
+   "top": "3b38f9c204ffa9fe",
+   "mid": "ac2825400805329e",
+   "status": "172 of 172 rows",
+   "bytes": 21716
+  },
+  "robotparts-compare :: All six": {
+   "top": "fa0b6cd0df6a9974",
+   "mid": "e3b0c44298fc1c14",
+   "status": "6 of 6 rows",
+   "bytes": 19141
+  },
+  "robotparts-model :: Actuators it ran on": {
+   "top": "8317a453e917b2da",
+   "mid": "07b25451b540abe0",
+   "status": "67 of 623 rows",
+   "bytes": 44697
+  },
+  "robotparts-models :: Benches": {
+   "top": "b9cfa4a203a43945",
+   "mid": "e3b0c44298fc1c14",
+   "status": "12 rows × 14 columns · from 457 of 623 records · rolled up across Actuator · 3 groups",
+   "bytes": 135749
+  },
+  "robotparts-models :: Benches · every actuator": {
+   "top": "e58d62ec18affb74",
+   "mid": "7c5ea5f09c6cb9c6",
+   "status": "67 rows × 4 columns · from 489 of 623 records · 8 groups",
+   "bytes": 43196
+  },
+  "robotparts-models :: Leaderboard": {
+   "top": "e4f0d348247573d0",
+   "mid": "e3b0c44298fc1c14",
+   "status": "11 rows from 32 of 623 · rolled up across Actuator",
+   "bytes": 41801
+  },
+  "robotparts-models :: Parameters": {
+   "top": "5117376919d0f3c2",
+   "mid": "f31a3545a98b308a",
+   "status": "67 of 623 rows · 6 groups",
+   "bytes": 158694
+  },
+  "robotparts-models :: Parameters · with CI": {
+   "top": "a9ffec935a45546b",
+   "mid": "92efc44fd48508ae",
+   "status": "43 of 623 rows · 3 groups",
+   "bytes": 70642
+  },
+  "robotparts-models :: What each rung adds": {
+   "top": "6be797e1120e2802",
+   "mid": "4614ee1e11d1ceb8",
+   "status": "67 of 623 rows · 4 groups",
+   "bytes": 62662
+  },
+  "robotparts-models :: What each rung adds · columns": {
+   "top": "78033138715d36ae",
+   "mid": "c7299da4cc6848f6",
+   "status": "67 of 623 rows · 4 groups",
+   "bytes": 59762
+  },
+  "robotparts-models :: Runs": {
+   "top": "cc05d4b34b25a22d",
+   "mid": "e3b0c44298fc1c14",
+   "status": "489 of 623 rows · 8 groups",
+   "bytes": 8418
+  },
+  "robotparts-photos :: Table": {
+   "top": "4bbe4afd8c0ac472",
+   "mid": "2a922f59bb286ab0",
+   "status": "175 of 175 rows · 2 groups",
+   "bytes": 42391
+  },
+  "robotparts-sellers-map :: By country": {
+   "top": "3e46f22847bccad9",
+   "mid": "45510ff73b1275d6",
+   "status": "322 of 322 rows · 222 groups",
+   "bytes": 22740
+  },
+  "robotparts-sources :: By kind": {
+   "top": "ade0b68188765309",
+   "mid": "59da3c03a04bfd6a",
+   "status": "43 of 43 rows · 9 groups",
+   "bytes": 43236
+  },
+  "robotparts-sources :: Needs refresh": {
+   "top": "bfa990ed2d08c9ff",
+   "mid": "bfa990ed2d08c9ff",
+   "status": "15 of 43 rows · 5 groups",
+   "bytes": 16912
+  },
+  "robotparts-timeline :: All": {
+   "top": "808942be365391d3",
+   "mid": "3b7814caeb1e83b4",
+   "status": "30 of 30 rows",
+   "bytes": 32962
+  },
+  "sim-to-real :: Model cards": {
+   "top": "a25ee24540d5988e",
+   "mid": "e3b0c44298fc1c14",
+   "status": "8 of 8 rows · 8 groups",
+   "bytes": 377
+  },
+  "sim-to-real :: Motors": {
+   "top": "101689fbbb72872c",
+   "mid": "e3b0c44298fc1c14",
+   "status": "8 of 8 rows",
+   "bytes": 31203
+  },
+  "systemsketch-blocks :: Blocks": {
+   "top": "7a457b5603bfc394",
+   "mid": "e3b0c44298fc1c14",
+   "status": "8 of 8 rows",
+   "bytes": 10850
+  },
+  "toolbar-bar :: Rows": {
+   "top": "23963718d7caf23c",
+   "mid": "59823a08c2a05a00",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 42437
+  },
+  "toolbar-bar :: By brand": {
+   "top": "0533a5da2cda0b00",
+   "mid": "7889738e95729e6d",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 51905
+  },
+  "toolbar-bar :: Brand › form": {
+   "top": "78f5a19e153ee58d",
+   "mid": "8370f6c3234a71ba",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 17302
+  },
+  "toolbar-bar :: Torque density": {
+   "top": "0006b046bfd48fbe",
+   "mid": "4e27f3f4d6b5c3ee",
+   "status": "1,020 of 1,149 rows",
+   "bytes": 35748
+  },
+  "toolbar-bar :: Geared CAN under $150": {
+   "top": "c8d429a12e2df734",
+   "mid": "5f38a93c04e0293e",
+   "status": "36 of 1,149 rows",
+   "bytes": 37916
+  },
+  "toolbar-bar :: All, flat": {
+   "top": "d30571853fefdd18",
+   "mid": "b70537358f1248a4",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 66125
+  },
+  "toolbar-bar :: Brand × form": {
+   "top": "78f5a19e153ee58d",
+   "mid": "8370f6c3234a71ba",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 17302
+  },
+  "toolbar-bar :: Torque by drivetrain × form": {
+   "top": "46f6dec3764d1d94",
+   "mid": "e3b0c44298fc1c14",
+   "status": "4 rows × 5 columns · from 1,149 of 1,149 records",
+   "bytes": 80864
+  },
+  "toolbar-notion :: Rows": {
+   "top": "23963718d7caf23c",
+   "mid": "59823a08c2a05a00",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 42437
+  },
+  "toolbar-notion :: By brand": {
+   "top": "0533a5da2cda0b00",
+   "mid": "7889738e95729e6d",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 51905
+  },
+  "toolbar-notion :: Brand › form": {
+   "top": "78f5a19e153ee58d",
+   "mid": "8370f6c3234a71ba",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 17302
+  },
+  "toolbar-notion :: Torque density": {
+   "top": "0006b046bfd48fbe",
+   "mid": "4e27f3f4d6b5c3ee",
+   "status": "1,020 of 1,149 rows",
+   "bytes": 35748
+  },
+  "toolbar-notion :: Geared CAN under $150": {
+   "top": "c8d429a12e2df734",
+   "mid": "5f38a93c04e0293e",
+   "status": "36 of 1,149 rows",
+   "bytes": 37916
+  },
+  "toolbar-notion :: All, flat": {
+   "top": "d30571853fefdd18",
+   "mid": "b70537358f1248a4",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 66125
+  },
+  "toolbar-notion :: Brand × form": {
+   "top": "78f5a19e153ee58d",
+   "mid": "8370f6c3234a71ba",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 17302
+  },
+  "toolbar-notion :: Torque by drivetrain × form": {
+   "top": "46f6dec3764d1d94",
+   "mid": "e3b0c44298fc1c14",
+   "status": "4 rows × 5 columns · from 1,149 of 1,149 records",
+   "bytes": 80864
+  },
+  "toolbar-obsidian :: Rows": {
+   "top": "23963718d7caf23c",
+   "mid": "59823a08c2a05a00",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 42437
+  },
+  "toolbar-obsidian :: By brand": {
+   "top": "0533a5da2cda0b00",
+   "mid": "7889738e95729e6d",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 51905
+  },
+  "toolbar-obsidian :: Brand › form": {
+   "top": "78f5a19e153ee58d",
+   "mid": "8370f6c3234a71ba",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 17302
+  },
+  "toolbar-obsidian :: Torque density": {
+   "top": "0006b046bfd48fbe",
+   "mid": "4e27f3f4d6b5c3ee",
+   "status": "1,020 of 1,149 rows",
+   "bytes": 35748
+  },
+  "toolbar-obsidian :: Geared CAN under $150": {
+   "top": "c8d429a12e2df734",
+   "mid": "5f38a93c04e0293e",
+   "status": "36 of 1,149 rows",
+   "bytes": 37916
+  },
+  "toolbar-obsidian :: All, flat": {
+   "top": "d30571853fefdd18",
+   "mid": "b70537358f1248a4",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 66125
+  },
+  "toolbar-obsidian :: Brand × form": {
+   "top": "78f5a19e153ee58d",
+   "mid": "8370f6c3234a71ba",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 17302
+  },
+  "toolbar-obsidian :: Torque by drivetrain × form": {
+   "top": "46f6dec3764d1d94",
+   "mid": "e3b0c44298fc1c14",
+   "status": "4 rows × 5 columns · from 1,149 of 1,149 records",
+   "bytes": 80864
+  },
+  "toolbar-query :: Rows": {
+   "top": "23963718d7caf23c",
+   "mid": "59823a08c2a05a00",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 42437
+  },
+  "toolbar-query :: By brand": {
+   "top": "0533a5da2cda0b00",
+   "mid": "7889738e95729e6d",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 51905
+  },
+  "toolbar-query :: Brand › form": {
+   "top": "78f5a19e153ee58d",
+   "mid": "8370f6c3234a71ba",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 17302
+  },
+  "toolbar-query :: Torque density": {
+   "top": "0006b046bfd48fbe",
+   "mid": "4e27f3f4d6b5c3ee",
+   "status": "1,020 of 1,149 rows",
+   "bytes": 35748
+  },
+  "toolbar-query :: Geared CAN under $150": {
+   "top": "c8d429a12e2df734",
+   "mid": "5f38a93c04e0293e",
+   "status": "36 of 1,149 rows",
+   "bytes": 37916
+  },
+  "toolbar-query :: All, flat": {
+   "top": "d30571853fefdd18",
+   "mid": "b70537358f1248a4",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 66125
+  },
+  "toolbar-query :: Brand × form": {
+   "top": "78f5a19e153ee58d",
+   "mid": "8370f6c3234a71ba",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 17302
+  },
+  "toolbar-query :: Torque by drivetrain × form": {
+   "top": "46f6dec3764d1d94",
+   "mid": "e3b0c44298fc1c14",
+   "status": "4 rows × 5 columns · from 1,149 of 1,149 records",
+   "bytes": 80864
+  },
+  "toolbar-search :: Rows": {
+   "top": "ff4672d4f0a45e8b",
+   "mid": "53cb0767faa8109d",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 45325
+  },
+  "toolbar-search :: By brand": {
+   "top": "6c995e1a1ef73f4b",
+   "mid": "ffa1d3e54f110a33",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 55625
+  },
+  "toolbar-shopify :: Rows": {
+   "top": "ff4672d4f0a45e8b",
+   "mid": "53cb0767faa8109d",
+   "status": "1,149 of 1,149 rows",
+   "bytes": 45325
+  },
+  "toolbar-shopify :: By brand": {
+   "top": "6c995e1a1ef73f4b",
+   "mid": "ffa1d3e54f110a33",
+   "status": "1,149 of 1,149 rows · 48 groups",
+   "bytes": 55625
+  },
+  "trajectory-tracking :: Situations": {
+   "top": "729292e364159e2e",
+   "mid": "e3b0c44298fc1c14",
+   "status": "134 of 134 rows",
+   "bytes": 323
+  },
+  "trajectory-tracking :: Study cells": {
+   "top": "8abe932ebbc80a0a",
+   "mid": "ae772138ec34144c",
+   "status": "134 of 134 rows",
+   "bytes": 5439
+  },
+  "trajectory-tracking :: traj_compare reports": {
+   "top": "9c29ba2ddb05ced9",
+   "mid": "e3b0c44298fc1c14",
+   "status": "134 of 134 rows",
+   "bytes": 327
+  },
+  "vibetracks-board :: Table": {
+   "top": "87f8f2e5cd0fb446",
+   "mid": "f85721ba5565d5c2",
+   "status": "76 of 76 rows · 9 groups",
+   "bytes": 32766
+  },
+  "vibetracks-dashboard :: Tracks": {
+   "top": "977a252d8e3be73e",
+   "mid": "977a252d8e3be73e",
+   "status": "18 of 18 rows",
+   "bytes": 19914
+  },
+  "vibetracks-dashboard :: Latest runs": {
+   "top": "54b3eeda46ed51f5",
+   "mid": "e3b0c44298fc1c14",
+   "status": "18 of 18 rows",
+   "bytes": 373
+  },
+  "vibetracks-dashboard :: Pass rate by kind": {
+   "top": "b18d3fb4421b1d38",
+   "mid": "e3b0c44298fc1c14",
+   "status": "1 rows × 0 columns · from 18 of 18 records",
+   "bytes": 263
+  },
+  "vibetracks-decisions :: Newest first": {
+   "top": "968cbdbc93eb21f7",
+   "mid": "968cbdbc93eb21f7",
+   "status": "15 of 15 rows",
+   "bytes": 13130
+  },
+  "vibetracks-feature-tree :: Features": {
+   "top": "037f42f6a4133c77",
+   "mid": "ba66594d1ae83635",
+   "status": "45 of 133 rows · 6 groups",
+   "bytes": 20155
+  },
+  "vibetracks-kpis :: Readings": {
+   "top": "cc7df965fe0a87a8",
+   "mid": "e3b0c44298fc1c14",
+   "status": "161 of 161 rows · 5 groups",
+   "bytes": 6666
+  },
+  "vibetracks-runs :: Leaderboard": {
+   "top": "626ae33ac92c2fd7",
+   "mid": "e3b0c44298fc1c14",
+   "status": "0 of 86 rows",
+   "bytes": 871
+  },
+  "vibetracks-runs :: Runs": {
+   "top": "d132886a436dd4e8",
+   "mid": "734493eb588cb493",
+   "status": "86 of 86 rows",
+   "bytes": 40238
+  },
+  "vibetracks-runs :: Track × kind": {
+   "top": "34d080a0f6744acf",
+   "mid": "34d080a0f6744acf",
+   "status": "8 rows × 4 columns · from 86 of 86 records · 8 groups",
+   "bytes": 13861
+  },
+  "vibetracks-runs :: By track": {
+   "top": "6a5c51deb746a4ab",
+   "mid": "e3b0c44298fc1c14",
+   "status": "86 of 86 rows · 8 groups",
+   "bytes": 9620
+  },
+  "vibetracks-track :: The track": {
+   "top": "e8d2b2d04274e8e5",
+   "mid": "e3b0c44298fc1c14",
+   "status": "1 of 18 rows",
+   "bytes": 5723
+  },
+  "vibetracks-track :: Check runs": {
+   "top": "e99d2a7181efacaf",
+   "mid": "e3b0c44298fc1c14",
+   "status": "1 of 18 rows",
+   "bytes": 371
+  },
+  "vibetracks-track :: Every KPI point": {
+   "top": "77124e70c640a297",
+   "mid": "e3b0c44298fc1c14",
+   "status": "1 of 18 rows",
+   "bytes": 315
+  },
+  "synthetic 30000 flat": {
+   "top": "ae57c15578d1c974",
+   "mid": "580c413c9a5e6322",
+   "status": "30,000 of 30,000 rows",
+   "bytes": 19713
+  },
+  "synthetic 30000 grouped": {
+   "top": "ac590ad9072fa264",
+   "mid": "d4c299e431ae423f",
+   "status": "30,000 of 30,000 rows · 5 groups",
+   "bytes": 20164
+  }
+ }
+}

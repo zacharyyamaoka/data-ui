@@ -1,0 +1,47 @@
+/* The live cards. Colours from the tokens (CONTRACT §4); the levels card's colours are its own four host tokens,
+   --data-level-ok / warn / error / stale, defaulting to a calm green, an amber, a red and the muted grey (Zach's calm
+   UI rule: amber and red only for warnings and errors). */
+.dv-view-plot, .dv-view-levels { display: flex; flex-direction: column; min-height: 0; height: 100%; font: 12px/1.3 var(--dv-font); color: var(--dv-fg); }
+.dv-view-levels { position: relative; }
+.dv-plot-head { display: flex; align-items: center; gap: 12px; min-height: 20px; padding: 0 2px 4px; color: var(--dv-muted); font-size: 11.5px; }
+.dv-plot-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; flex: 1; min-width: 0; }
+.dv-plot-key { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.dv-plot-key i { width: 10px; height: 2px; border-radius: 1px; background: var(--dv-plot-c); }
+.dv-plot-key i.dv-plot-dash { background: repeating-linear-gradient(90deg, var(--dv-plot-c) 0 4px, transparent 4px 6px); }
+.dv-plot-unit { flex: none; }
+.dv-plot-box { position: relative; flex: 1 1 auto; min-height: 100px; }
+.dv-plot-canvas { position: absolute; inset: 0; }
+.dv-plot-box .uplot { font-family: var(--dv-font); }
+.dv-plot-box .u-legend { display: none; }
+.dv-plot-playhead, .dv-plot-hover { position: absolute; top: 0; left: 0; width: 1px; pointer-events: none; will-change: transform; }
+.dv-plot-playhead { background: var(--dv-accent); opacity: .9; }
+.dv-plot-hover { border-left: 1px dashed var(--dv-muted); }
+.dv-plot-read { position: absolute; top: 4px; left: 8px; padding: 6px 8px; border-radius: 6px; background: var(--dv-bg); border: 1px solid var(--dv-border);
+  box-shadow: 0 2px 8px rgb(0 0 0 / .08); font-variant-numeric: tabular-nums; white-space: nowrap; font-size: 11.5px; }
+.dv-plot-read.dv-plot-left { left: auto; right: 8px; }
+.dv-plot-line { display: flex; align-items: center; gap: 6px; }
+.dv-plot-line i { width: 8px; height: 8px; border-radius: 50%; background: var(--dv-plot-c); }
+.dv-plot-line b { margin-left: auto; padding-left: 12px; font-weight: 600; }
+.dv-plot-t { color: var(--dv-muted); margin-bottom: 2px; }
+.dv-plot-brush { position: absolute; top: 0; left: 0; background: var(--dv-accent); opacity: .12; pointer-events: none; }
+.dv-plot-empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--dv-muted); pointer-events: none; }
+.dv-plot-empty[hidden] { display: none; }
+
+.dv-levels { --dv-level-ok: var(--data-level-ok, #3a9a6e); --dv-level-warn: var(--data-level-warn, #d08a1e); --dv-level-error: var(--data-level-error, #d14343);
+  --dv-level-stale: var(--data-level-stale, var(--dv-muted)); display: flex; flex-direction: column; gap: 6px; overflow: auto; min-height: 0; padding: 2px 0; }
+.dv-levels-row { display: grid; grid-template-columns: minmax(64px, 22%) 1fr; align-items: center; gap: 10px; }
+.dv-levels-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--dv-fg); }
+.dv-levels-strip { display: flex; gap: var(--dv-levels-gap, 2px); height: 18px; overflow: hidden; }
+.dv-levels-strip i { flex: none; width: var(--dv-levels-bar, 3px); border-radius: 1px; background: var(--dv-subtle); }
+.dv-levels-strip i[data-level=""] { background: transparent; box-shadow: inset 0 0 0 1px var(--dv-rule); }
+.dv-levels-strip i.dv-tone-good { background: var(--dv-level-ok); }
+.dv-levels-strip i.dv-tone-warn { background: var(--dv-level-warn); }
+.dv-levels-strip i.dv-tone-bad { background: var(--dv-level-error); }
+.dv-levels-strip i.dv-tone-muted, .dv-levels-strip i.dv-tone-neutral { background: var(--dv-level-stale); }
+.dv-levels-axis { display: grid; grid-template-columns: minmax(64px, 22%) 1fr; gap: 10px; color: var(--dv-muted); font-size: 11px; }
+.dv-levels-axis span:last-child { display: flex; justify-content: space-between; }
+/* the clock's t over a whole recording (kit gap 4): the time series' playhead */
+.dv-levels-playhead { position: absolute; left: 0; top: 0; width: 1px; background: var(--dv-accent); pointer-events: none; z-index: 2; }
+.dv-levels-playhead::before { content: ''; position: absolute; left: -3px; top: -3px; width: 7px; height: 7px; border-radius: 50%; background: var(--dv-accent); }
+.dv-levels-playhead[hidden] { display: none; }
+.dv-levels-empty { color: var(--dv-muted); padding: 8px 0; }

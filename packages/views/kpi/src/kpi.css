@@ -1,0 +1,212 @@
+/* The stat cards of the kit: type: kpi (<data-kpi> and <data-sparkline>), gauge, bullet, barlist and tracker
+   (docs/peps/0005-dashboard-cards.md). Colours are the private --dv-* tokens.
+
+   Tones: good / bad are the host's --data-good / --data-bad. WHY a fallback here: the core's tokens leave them calm grey
+   when a host sets nothing (a delta that is only grey cannot say better from worse, and a tracker of grey cells says
+   nothing), so the stat cards read them as --dv-tone-good / --dv-tone-bad with a quiet green and red under them. A host
+   that sets --data-good / --data-bad (Vibe Tracks' skin) gets exactly its colours. warn is --data-warn with an amber
+   under it, not the core's --dv-warn (that falls back to shadcn's --destructive, a red: a tracker's "mixed" and "fail"
+   would be two reds). */
+
+:is(data-kpi, .dv-view-kpi, .dv-view-gauge, .dv-view-bullet, .dv-view-barlist, .dv-view-tracker) {
+  --dv-tone-good: var(--data-good, light-dark(#1a8a5a, #4cc38a));
+  --dv-tone-bad: var(--data-bad, light-dark(#d1453b, #f2736b));
+  --dv-tone-warn: var(--data-warn, light-dark(#c98a0c, #e5a93b));
+  --dv-tone-accent: var(--dv-accent);
+  --dv-tone-neutral: color-mix(in srgb, var(--dv-muted) 75%, var(--dv-bg));
+  --dv-tone-muted: color-mix(in srgb, var(--dv-muted) 30%, var(--dv-bg));
+}
+.dv-tone-good { --dv-t: var(--dv-tone-good); }
+.dv-tone-bad { --dv-t: var(--dv-tone-bad); }
+.dv-tone-warn { --dv-t: var(--dv-tone-warn); }
+.dv-tone-accent { --dv-t: var(--dv-tone-accent); }
+.dv-tone-neutral { --dv-t: var(--dv-tone-neutral); }
+.dv-tone-muted { --dv-t: var(--dv-tone-muted); }
+.dv-tone-text-good { color: var(--dv-tone-good); }
+.dv-tone-text-bad { color: var(--dv-tone-bad); }
+
+.dv-view-kpi, .dv-view-gauge, .dv-view-bullet, .dv-view-barlist, .dv-view-tracker { flex: 1 1 auto; min-height: 0; overflow: auto; color: var(--dv-fg); font: 13px/1.35 var(--dv-font); }
+.dv-stat-note { color: var(--dv-muted); margin: 8px 0; }
+
+/* ---- type: kpi */
+.dv-kpi-wrap { container-type: inline-size; padding: 12px; }
+.dv-kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; align-items: stretch; }
+/* inside a dashboard the card has no box of its own (it draws the surface); the gap still keeps the cards apart */
+data-dashboard .dv-kpi-wrap { padding: 0; }
+data-dashboard .dv-kpi-grid { gap: 14px 24px; }
+.dv-kpi-note { color: var(--dv-muted); margin: 8px 0; }
+.dv-kpi-note:empty { display: none; }
+
+data-kpi { display: block; min-width: 0; color: var(--dv-fg); font: 13px/1.35 var(--dv-font); }
+data-kpi[tabindex] { cursor: pointer; border-radius: calc(var(--dv-radius) + 2px); }
+data-kpi:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 2px; }
+/* WHY container-type here: the number is sized by the card's own width (cqi), not the page's */
+.dv-kpi-card { container-type: inline-size; height: 100%; display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; background: var(--dv-bg);
+  border: 1px solid var(--dv-border); border-radius: calc(var(--dv-radius) + 2px); }
+data-kpi[tabindex]:hover .dv-kpi-card { border-color: color-mix(in srgb, var(--dv-fg) 28%, var(--dv-border)); }
+data-dashboard .dv-kpi-card { background: transparent; border: 0; padding: 6px 4px; }
+data-dashboard data-kpi[tabindex]:hover .dv-kpi-card { background: color-mix(in srgb, var(--dv-fg) 4%, transparent); }
+.dv-kpi-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.dv-kpi-label { color: var(--dv-muted); font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.dv-kpi-tag { font-size: 10.5px; color: var(--dv-muted); border: 1px solid var(--dv-border); border-radius: 999px; padding: 0 6px; }
+.dv-kpi-value { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-variant-numeric: tabular-nums; min-width: 0; }
+.dv-kpi-num { font-size: 22px; font-weight: 650; letter-spacing: -0.01em; line-height: 1.1; font-variant-numeric: tabular-nums; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* in a view the number follows its card's width (a container query) */
+.dv-view-kpi .dv-kpi-num { font-size: clamp(20px, 12cqi, 44px); }
+.dv-kpi-unit { color: var(--dv-muted); font-size: 12.5px; margin-left: -4px; }
+.dv-kpi-none { font-size: 22px; color: var(--dv-muted); line-height: 1.15; }
+.dv-kpi-why { color: var(--dv-muted); font-size: 12px; font-style: italic; }
+.dv-kpi-badge { font-size: 11px; color: var(--dv-muted); border: 1px solid var(--dv-border); border-radius: 999px; padding: 0 6px; line-height: 17px; white-space: nowrap; }
+.dv-kpi-b-measured { color: var(--dv-basis-measured); }
+/* the delta: a small pill, its arrow always with its colour (WHY a pseudo-element: the text stays the producer's words) */
+.dv-kpi-delta { display: inline-block; max-width: 100%; padding: 1px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 600; line-height: 18px; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; color: var(--dv-muted); background: color-mix(in srgb, currentColor 13%, transparent); }
+.dv-kpi-delta::before { margin-right: 4px; font-size: 9px; vertical-align: 1px; }
+.dv-kpi-delta[data-dir="up"]::before { content: "▲"; }
+.dv-kpi-delta[data-dir="down"]::before { content: "▼"; }
+.dv-kpi-delta[data-dir="flat"]::before { content: "▬"; }
+.dv-kpi-good { color: var(--dv-tone-good); }
+.dv-kpi-bad { color: var(--dv-tone-bad); }
+.dv-kpi-sub, .dv-kpi-foot { color: var(--dv-muted); font-size: 11.5px; }
+.dv-kpi-range { font-variant-numeric: tabular-nums; }
+.dv-kpi-foot { margin-top: auto; padding-top: 2px; }
+.dv-kpi-gate.dv-kpi-missed { color: var(--dv-tone-bad); }
+.dv-kpi-gate.dv-kpi-held { color: var(--dv-tone-good); }
+.dv-kpi-spark { line-height: 0; margin-top: 2px; }
+.dv-kpi-spark svg { display: block; width: 100%; max-width: none; height: auto; overflow: visible; }
+data-sparkline svg { max-width: 100%; height: auto; overflow: visible; }
+
+/* the headline: spans the row, and its history is drawn by the chart view */
+data-kpi.dv-kpi-headline { grid-column: 1 / -1; }
+.dv-kpi-history { display: none; }
+.dv-kpi-has-history .dv-kpi-history { display: flex; flex-direction: column; height: 200px; margin: 4px -6px 0; }
+.dv-kpi-has-history .dv-kpi-spark-fallback { display: none; }
+/* the history could not load: the sparkline stays, and the reason shows under it */
+.dv-kpi-history-failed .dv-kpi-history { display: block; height: auto; }
+.dv-kpi-history .dv-view-chart { flex: 1 1 auto; }
+@container (min-width: 620px) {
+  data-kpi.dv-kpi-headline { grid-column: span 2; grid-row: span 2; }
+  .dv-kpi-has-history .dv-kpi-history { flex: 1 1 auto; min-height: 180px; height: auto; }
+}
+
+/* the sparkline: a line in the first series colour; filled marks measured, hollow ones estimates or stand-ins */
+data-sparkline { display: inline-block; line-height: 0; vertical-align: middle; }
+.dv-spark path { fill: none; stroke: var(--dv-series-1); stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.dv-spark circle, .dv-spark rect { fill: var(--dv-series-1); stroke: var(--dv-series-1); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.dv-spark .dv-spark-hollow { fill: var(--dv-bg); }
+.dv-spark .dv-spark-whisk, .dv-spark .dv-spark-med { stroke: var(--dv-muted); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.dv-spark .dv-spark-med { stroke: var(--dv-fg); stroke-width: 1.5; }
+
+/* ---- type: gauge (Tremor's ProgressBar / ProgressCircle) */
+.dv-gauge { container-type: size; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 8px 4px; overflow: hidden; cursor: pointer; border-radius: 8px; }
+.dv-gauge:focus-visible, .dv-bullet-row:focus-visible, .dv-barlist-row:focus-visible, .dv-tracker-label:focus-visible, .dv-barlist-more:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 2px; }
+.dv-gauge-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; min-width: 0; }
+.dv-gauge-num { font-size: clamp(22px, 14cqi, 40px); font-weight: 650; letter-spacing: -0.01em; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.dv-gauge-none { font-size: 28px; color: var(--dv-muted); line-height: 1.05; }
+.dv-gauge-unit { color: var(--dv-muted); font-size: 12.5px; }
+.dv-gauge-delta { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 600; line-height: 18px; white-space: nowrap; color: var(--dv-t, var(--dv-muted));
+  background: color-mix(in srgb, currentColor 13%, transparent); }
+.dv-gauge-delta > span { font-size: 9px; vertical-align: 1px; }
+div.dv-gauge-track { position: relative; height: 10px; border-radius: 999px; overflow: hidden; background: color-mix(in srgb, var(--dv-fg) 9%, var(--dv-bg)); }
+.dv-gauge-meter { position: relative; margin-top: 18px; }
+span.dv-gauge-band { position: absolute; top: 0; bottom: 0; background: var(--dv-t); opacity: .3; }
+span.dv-gauge-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px; background: var(--dv-t); }
+span.dv-gauge-target { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; border-radius: 1px; background: var(--dv-fg); }
+.dv-gauge-target-label { position: absolute; bottom: calc(100% + 2px); left: 50%; transform: translateX(-50%); font-size: 11px; line-height: 1.2; color: var(--dv-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dv-gauge-target-label.dv-gauge-end { transform: translateX(calc(-100% + 1px)); }
+.dv-gauge-target-label.dv-gauge-start { transform: translateX(-1px); }
+.dv-gauge-scale { display: flex; justify-content: space-between; font-size: 11px; color: var(--dv-muted); font-variant-numeric: tabular-nums; }
+.dv-gauge-caption { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.dv-gauge-caption:empty { display: none; }
+.dv-gauge-label { color: var(--dv-muted); font-size: 12.5px; }
+.dv-gauge-from { color: var(--dv-muted); font-size: 11.5px; }
+.dv-gauge-arc { position: relative; container-type: inline-size; width: min(100cqw, max(120px, calc((100cqh - 84px) * 1.7857))); aspect-ratio: 200 / 112; margin: 0 auto; }
+.dv-gauge-arc svg { display: block; width: 100%; height: 100%; overflow: visible; }
+path.dv-gauge-track, path.dv-gauge-band, path.dv-gauge-fill { fill: none; stroke-width: 16; stroke-linecap: butt; }
+path.dv-gauge-track { stroke: color-mix(in srgb, var(--dv-fg) 9%, var(--dv-bg)); }
+path.dv-gauge-band { stroke: var(--dv-t); opacity: .3; }
+path.dv-gauge-fill { stroke: var(--dv-t); }
+line.dv-gauge-target { stroke: var(--dv-fg); stroke-width: 2.5; stroke-linecap: round; }
+.dv-gauge-center { position: absolute; left: 0; right: 0; bottom: 6%; text-align: center; line-height: 1; }
+.dv-gauge-center .dv-gauge-num { font-size: clamp(18px, 15cqi, 40px); }
+.dv-gauge[data-shape="arc"] .dv-gauge-scale { padding: 0 1%; }
+.dv-gauge[data-shape="arc"] .dv-gauge-caption { text-align: center; }
+.dv-gauge-foot { display: flex; justify-content: center; }
+.dv-gauge-foot:empty { display: none; }
+
+/* ---- type: bullet (a row per record: label, bands, bar, target tick, value) */
+.dv-bullet { display: flex; flex-direction: column; gap: 10px; padding: 6px 2px; }
+.dv-bullet-row { display: grid; grid-template-columns: minmax(64px, 28%) minmax(0, 1fr) var(--dv-bullet-vw, 6ch); align-items: center; gap: 12px; cursor: pointer; border-radius: 6px; }
+.dv-bullet-row:hover { background: color-mix(in srgb, var(--dv-fg) 4%, transparent); }
+.dv-bullet-label { font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.dv-bullet-track { position: relative; height: 20px; border-radius: 3px; overflow: hidden; }
+.dv-bullet-band { position: absolute; top: 0; bottom: 0; background: color-mix(in srgb, var(--dv-fg) 7%, var(--dv-bg)); }
+.dv-bullet-band.dv-bullet-shade-1 { background: color-mix(in srgb, var(--dv-fg) 14%, var(--dv-bg)); }
+.dv-bullet-band.dv-bullet-shade-2 { background: color-mix(in srgb, var(--dv-fg) 24%, var(--dv-bg)); }
+.dv-bullet-bar { position: absolute; left: 0; top: 6px; bottom: 6px; border-radius: 2px; background: var(--dv-series-1); }
+.dv-bullet-clipped { border-radius: 2px 0 0 2px; }
+.dv-bullet-clipped::after { content: ""; position: absolute; right: 0; top: -3px; bottom: -3px; width: 7px; background: var(--dv-series-1);
+  clip-path: polygon(0 0, 100% 50%, 0 100%); }
+.dv-bullet-target { position: absolute; top: 3px; bottom: 3px; width: 2px; margin-left: -1px; border-radius: 1px; background: var(--dv-fg); }
+.dv-bullet-value { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dv-bullet-unit { color: var(--dv-muted); font-weight: 400; font-size: 11.5px; }
+.dv-bullet-foot { margin: 2px 0 0; color: var(--dv-muted); font-size: 11.5px; }
+
+/* ---- type: barlist (Tremor's BarList) */
+.dv-barlist { display: flex; flex-direction: column; gap: 6px; padding: 4px 2px; }
+.dv-barlist-list { display: flex; flex-direction: column; gap: 6px; }
+.dv-barlist-row { display: grid; grid-template-columns: minmax(0, 1fr) var(--dv-barlist-vw, 6ch); align-items: center; gap: 12px; cursor: pointer; }
+.dv-barlist-track { position: relative; height: 28px; border-radius: 6px; min-width: 0; }
+.dv-barlist-bar { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 6px; background: color-mix(in srgb, var(--dv-series-1) 22%, transparent); }
+.dv-barlist-row:hover .dv-barlist-bar { background: color-mix(in srgb, var(--dv-series-1) 32%, transparent); }
+.dv-barlist-label { position: relative; display: block; padding: 0 8px; line-height: 28px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dv-barlist-value { text-align: right; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dv-barlist-unit { color: var(--dv-muted); font-weight: 400; font-size: 11.5px; }
+.dv-barlist-more { appearance: none; border: 0; background: none; color: var(--dv-muted); font: inherit; font-size: 12px; text-align: left; padding: 2px 8px; cursor: pointer; border-radius: 4px; align-self: flex-start; }
+.dv-barlist-more:hover { color: var(--dv-fg); }
+.dv-barlist-from { margin: 0; color: var(--dv-muted); font-size: 11.5px; }
+
+/* ---- type: tracker (Tremor's Tracker) */
+.dv-tracker { display: flex; flex-direction: column; gap: 10px; padding: 4px 2px; }
+.dv-tracker-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 11.5px; color: var(--dv-muted); }
+.dv-tracker-key { display: inline-flex; align-items: center; gap: 5px; }
+.dv-tracker-swatch { display: inline-block; width: 13px; height: 13px; border-radius: 3px; background: var(--dv-t); font: 700 9.5px/13px var(--dv-font); font-style: normal; text-align: center; color: var(--dv-tracker-ink); }
+.dv-tracker-swatch::before { content: attr(data-glyph); }
+.dv-tracker-rows { display: flex; flex-direction: column; gap: 8px; }
+.dv-tracker-row { display: grid; grid-template-columns: minmax(70px, 26%) minmax(0, 1fr); align-items: center; gap: 12px; }
+.dv-tracker-row > .dv-tracker-blocks:only-child { grid-column: 1 / -1; }
+.dv-tracker-label { font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; cursor: pointer; }
+.dv-tracker-blocks { display: flex; gap: 2px; height: 22px; min-width: 0; }
+.dv-tracker-block { flex: 1 1 0; min-width: 2px; border-radius: 3px; background: var(--dv-t); cursor: pointer; overflow: hidden; container-type: inline-size; display: grid; place-items: center; }
+.dv-tracker-block:hover { outline: 2px solid color-mix(in srgb, var(--dv-fg) 40%, transparent); outline-offset: 1px; }
+/* every block and cell carries its state's glyph (docs/CONTRACT.md §35: colour is never alone): on the tone's fill in the
+   surface's colour, on a muted or neutral fill in the text's. A block narrower than a glyph keeps it hidden (its word is
+   in its hover), never squeezed */
+.dv-view-tracker { --dv-tracker-ink: var(--dv-bg); }
+.dv-tone-muted, .dv-tone-neutral { --dv-tracker-ink: color-mix(in srgb, var(--dv-fg) 70%, transparent); }
+.dv-tracker-glyph { font: 700 11px/1 var(--dv-font); color: var(--dv-tracker-ink); pointer-events: none; user-select: none; }
+@container (max-width: 11.9px) { .dv-tracker-block > .dv-tracker-glyph { display: none; } }
+
+/* the gate matrix (tracker.column; docs/CONTRACT.md §35, sim2real gap #11): one grid, each row a subgrid, so a column's
+   cells share one x and one width in every row; the row headers' column is at least 7.5em (28 % on a phone) and at most
+   its longest name (a name cut short ends in an ellipsis, whole in its hover); columns at least 18 px, past the card's
+   width the grid scrolls inside it */
+.dv-tracker-scroll { overflow-x: auto; overflow-y: hidden; padding-bottom: 2px; }
+/* WHY a minimum on the row headers' column: next to 1fr gate columns a content-sized column is starved to its ellipsis
+   (measured: "C…" for CAN 12 at 390 px) */
+.dv-tracker-grid { display: grid; grid-template-columns: minmax(min(7.5em, 28%), max-content) repeat(var(--dv-cols), minmax(18px, 1fr)); gap: 3px 3px; min-width: min-content; }
+.dv-tracker-head, .dv-tracker-mrow { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; align-items: center; }
+.dv-tracker-head { align-items: end; padding-bottom: 3px; }
+.dv-tracker-col { container-type: inline-size; min-width: 0; font-size: 11px; line-height: 1.25; color: var(--dv-muted); text-align: center; }
+.dv-tracker-col > span { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; overflow-wrap: anywhere; }
+/* WHY on their side when narrow (a phone, or many gates): a header wrapped to a letter a line reads as nothing; sideways it
+   reads bottom to top at full length, as a spreadsheet's rotated headers do */
+@container (max-width: 63.9px) {
+  .dv-tracker-col > span { display: block; writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-height: 9.5em; margin: 0 auto; }
+}
+.dv-tracker-mrow > .dv-tracker-label { padding-right: 8px; max-width: 100%; }
+.dv-tracker-cell { height: 24px; min-width: 0; border-radius: 4px; background: var(--dv-t); display: grid; place-items: center; cursor: pointer; }
+.dv-tracker-cell:hover { outline: 2px solid color-mix(in srgb, var(--dv-fg) 40%, transparent); outline-offset: 1px; }
+.dv-tracker-cell:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 2px; }
+/* n/a: no row reaches the cell, an empty outline (RobotDx's "no data is an empty outline, never a level") */
+.dv-tracker-cell.dv-tracker-na { background: transparent; box-shadow: inset 0 0 0 1px var(--dv-border); cursor: default; --dv-tracker-ink: var(--dv-muted); }

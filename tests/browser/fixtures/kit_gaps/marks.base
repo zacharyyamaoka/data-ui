@@ -1,0 +1,47 @@
+# kit gaps 2 and 7 (tests/browser/kit_gaps_checks.py): timeseries annotations from a dataset (events, read as a layer:
+# filtered as a panel there, so the run pick moves them), from the view's own rows (the samples' event column) and as
+# written; their labels staggered so none overlaps another. Run A holds the gripper's contact, grasp and release (0.3 s
+# apart); run B a dense run of 12 limiter events 40 ms apart.
+data: marks_runs.json
+style:
+  chrome: minimal
+  families: { property: source, colors: { real: 1 } }
+clock: { data: samples, time: t }
+datasets:
+  runs:
+    data: marks_runs.json
+    facets:
+      - { property: run, as: select, label: Run }
+    filters: 'run == "A"'
+  samples:
+    data: marks_samples.json
+  events:
+    data: marks_events.json
+links:
+  - { from: samples.run, to: runs.run }
+  - { from: events.run, to: runs.run }
+layout:
+  panels:
+    - { view: Playback, w: 12 }
+    - { view: From events, key: data, w: 6, h: 3 }
+    - { view: From own rows, key: own, w: 6, h: 3 }
+    - { view: Written, key: fixed, w: 6, h: 3 }
+    - { view: Mixed, key: mixed, w: 6, h: 3 }
+views:
+  - { type: playback, name: Playback }
+  - type: timeseries
+    name: From events
+    from: samples
+    timeseries: { x: t, 'y': v, series: situation, unit: mm, annotations: [{ data: events, x: t, label: label }] }
+  - type: timeseries
+    name: From own rows
+    from: samples
+    timeseries: { x: t, 'y': v, series: situation, unit: mm, annotations: [{ x: t, label: event }] }
+  - type: timeseries
+    name: Written
+    from: samples
+    timeseries: { x: t, 'y': v, series: situation, unit: mm, annotations: [{ x: 1.61, label: contact }, { x: 1.91, label: grasp }, { x: 4.97, label: release }] }
+  - type: timeseries
+    name: Mixed
+    from: samples
+    timeseries: { x: t, 'y': v, series: situation, unit: mm, annotations: [{ x: 0.5, label: start }, { data: events, x: t, label: label, tone: bad }] }

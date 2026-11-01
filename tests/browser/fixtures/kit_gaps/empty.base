@@ -1,0 +1,20 @@
+# kit gap 9 (tests/browser/kit_gaps_checks.py): media cards that have no row say the view's own `empty:` text; one without
+# it says the generic sentence.
+data: media.json
+views:
+  - type: video
+    name: Depth
+    filters: 'kind == "depth"'
+    empty: 'No depth captured yet: the rig records colour only.'
+  - type: image
+    name: Band
+    filters: 'kind == "band"'
+    image: poster
+    empty: No hyperspectral capture yet.
+  - type: video-compare
+    name: Pair
+    filters: 'kind == "depth"'
+    empty: Two clips are needed to compare.
+  - type: video
+    name: Generic
+    filters: 'kind == "depth"'

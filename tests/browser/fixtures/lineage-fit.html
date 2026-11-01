@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lineage fit fixture</title>
+<!-- tests/browser/lineage_fit_checks.py (CONTRACT §21, the lineage view's first view): one <data-views> 936 px wide and
+     640 px tall, as Brandbook embeds it. ?base=image|label picks the .base file, ?view=<name> the view, ?w=<px> the host's width. Served from the
+     repo root (dist/). -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; padding: 16px 0 16px 504px; font: 14px system-ui, sans-serif; background: var(--data-bg, #fff); }
+  data-views { display: block; width: 936px; height: 640px; }
+</style>
+<script type="module" src="/dist/data-ui.js"></script>
+</head>
+<body>
+<data-views id="v" no-url toolbar="none" status="off"></data-views>
+<script>
+  // before the module runs (it is deferred), so the element starts with the file the test chose
+  const q = new URLSearchParams(location.search);
+  const v = document.getElementById('v');
+  v.setAttribute('src', `/tests/browser/fixtures/lineage-fit-${q.get('base') || 'image'}.base`);
+  if (q.has('view')) v.setAttribute('view', q.get('view'));
+  if (q.has('w')) v.style.width = `${q.get('w')}px`; // the boundary checks size the host so the stage is an exact width
+</script>
+</body>
+</html>

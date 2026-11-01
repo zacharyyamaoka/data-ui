@@ -1,0 +1,42 @@
+# Vibe Tracks' 76 feature notes on a board: columns are vibe-status in Vibe Tracks' own order, dragging a card
+# proposes a new status, dragging a column rewrites groupOrder below. Obsidian Bases grammar (kanban since 1.14)
+# plus data-ui's keys (docs/CONTRACT.md §5). Check it: node bin/data-ui.mjs check <this file> --data features.json
+data: features.json
+facets:
+  - status
+  - priority
+  - areas
+  - proof
+views:
+  - type: kanban
+    name: By status
+    order: [title, id, priority, areas]
+    groupBy: { property: status }
+    groupOrder: [backlog, ready, running, waiting, review, frontier, done, archived]
+    columnWidth: 260
+    sort:
+      - { property: id, direction: ASC }
+  - type: kanban
+    name: By priority
+    order: [title, id, status, areas]
+    groupBy: { property: priority }
+    groupOrder: [high, medium, low]
+    columnWidth: 280
+    filters: 'status != "done" && status != "archived"'
+    sort:
+      - { property: id, direction: ASC }
+  - type: kanban
+    name: By proof (derived)
+    order: [title, id, status, commits, evidence]
+    groupBy: { property: proof }
+    groupOrder: [none, evidence, commits]
+    columnWidth: 300
+    sort:
+      - { property: commits, direction: DESC }
+  - type: table
+    name: Table
+    order: [id, title, status, priority, areas, proof, depends, evidence, commits, description]
+    groupBy: { property: status }
+    groupOrder: [backlog, ready, running, waiting, review, frontier, done, archived]
+    sort:
+      - { property: id, direction: ASC }

@@ -1,0 +1,58 @@
+# The landing page's hero: robotparts' actuators with a photo (150 of the 1,149 rows in the gallery's
+# robotparts-actuators case), the same rows through five views. Obsidian Bases grammar plus data-ui's keys
+# (docs/CONTRACT.md §5); the site copies it beside the gallery. Check it from the repo:
+#   node bin/data-ui.mjs check site/hero.base --data gallery/examples/robotparts-actuators/actuators.json
+data: gallery/robotparts-actuators/actuators.json
+filters: '!photo.isEmpty()'
+properties:
+  model: { displayName: Model }
+  brand: { displayName: Brand }
+  form: { displayName: Form }
+  peak_torque: { displayName: Peak torque }
+  mass: { displayName: Mass }
+  price: { displayName: Price from }
+views:
+  - type: table
+    name: Table
+    order: [model, brand, form, peak_torque, mass, price]
+    sort:
+      - { property: peak_torque, direction: DESC }
+  - type: cards
+    name: Cards
+    order: [model, brand, peak_torque, mass]
+    image: photo
+    imageFit: contain
+    imageAspectRatio: 0.75
+    cardSize: 190
+    sort:
+      - { property: peak_torque, direction: DESC }
+  - type: chart
+    name: Chart
+    chart:
+      mark: { type: point, filled: true }
+      encoding:
+        x: { field: mass, scale: { type: log }, title: Mass (g) }
+        y: { field: peak_torque, scale: { type: log }, title: Peak torque (N·m) }
+        color: { field: form }
+    hover: { image: photo, title: name }
+  - type: kanban
+    name: Kanban
+    groupBy: { property: form }
+    order: [model, brand, peak_torque]
+    image: photo
+    imageFit: contain
+    imageAspectRatio: 0.5
+    sort:
+      - { property: peak_torque, direction: DESC }
+  - type: graph
+    name: Graph
+    filters:
+      or:
+        - 'brand == "Steadywin"'
+        - 'brand == "CubeMars"'
+        - 'brand == "MyActuator"'
+        - 'brand == "Damiao"'
+    edges: { property: step_up }
+    groupBy: { property: brand }
+    layout: { algorithm: dagre, direction: LR }
+    order: [peak_torque, mass]

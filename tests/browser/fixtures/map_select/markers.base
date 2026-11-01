@@ -1,0 +1,11 @@
+# tests/browser/map_select_checks.py: a legend entry picks its rows; HTML markers as ever
+data: places.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    select: name
+    coordinates: at
+    markerColor: kind

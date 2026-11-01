@@ -1,0 +1,7 @@
+{"id": "r1", "title": "Samples of r1", "properties": {"t": {"type": "number", "unit": "s"}, "run": {"type": "text"}, "situation": {"type": "text"}, "q_deg": {"type": "number", "unit": "deg"}},
+ "rows": [
+  {"t": 0, "run": "r1", "situation": "real", "q_deg": 1.5},
+  {"t": 0.5, "run": "r1", "situation": "real", "q_deg": 2.5},
+  {"t": 0, "run": "r1", "situation": "target", "q_deg": 1},
+  {"t": 0.5, "run": "r1", "situation": "target", "q_deg": 2}
+ ]}

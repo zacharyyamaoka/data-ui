@@ -1,0 +1,55 @@
+# The Deals screen of Tycoon's S6 shell (Zach's screenshot 1, 2026-10-28), from this file and 4 invented deals: the
+# summary card's four counts and the Pipeline / Won / Lost table views. The app page (app/index.html) opens it from the
+# rail's Deals section. Keys as views.base says. Check it: node bin/data-ui.mjs check <this file>
+data: deals.json
+facets:
+  - organization
+  - stage
+summary:
+  cells:
+    - label: Open deals
+      filters: 'stage != "Won" && stage != "Lost"'
+      note: Deals that are neither won nor lost.
+    - label: Due this month
+      filters: 'stage != "Won" && stage != "Lost"'
+      when: { property: due, is: this-month }
+      note: Open deals whose due date falls in this calendar month.
+    - label: Next due
+      filters: 'stage != "Won" && stage != "Lost"'
+      when: { property: due, is: upcoming }
+      value: { property: due, summary: Earliest }
+      note: The earliest due date, today or later, among the open deals.
+    - label: Won
+      filters: 'stage == "Won"'
+      note: Deals marked Won.
+views:
+  - type: table
+    name: Pipeline
+    filters: 'stage != "Won" && stage != "Lost"'
+    order: [deal, organization, stage, facility, due, next_step, value]
+    sort:
+      - { property: due, direction: ASC }
+    display: { due: date }
+    pageSize: 50
+    rowHeight: medium
+    columnSize: { deal: 260, organization: 160, stage: 80, facility: 220, due: 80, next_step: 240, value: 110 }
+  - type: table
+    name: Won
+    filters: 'stage == "Won"'
+    order: [deal, organization, stage, facility, due, next_step, value]
+    sort:
+      - { property: due, direction: ASC }
+    display: { due: date }
+    pageSize: 50
+    rowHeight: medium
+    columnSize: { deal: 260, organization: 160, stage: 80, facility: 220, due: 80, next_step: 240, value: 110 }
+  - type: table
+    name: Lost
+    filters: 'stage == "Lost"'
+    order: [deal, organization, stage, facility, due, next_step, value]
+    sort:
+      - { property: due, direction: ASC }
+    display: { due: date }
+    pageSize: 50
+    rowHeight: medium
+    columnSize: { deal: 260, organization: 160, stage: 80, facility: 220, due: 80, next_step: 240, value: 110 }

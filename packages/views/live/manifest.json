@@ -1,0 +1,10 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/live.js): the live cards of docs/peps/0012-live-data.md. uPlot draws the plot (decided 2026-10-27: the live time series only; every other chart stays Vega-Lite). A page that shows only live plots never loads Vega.",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [
+    { "type": "plot", "name": "Live plot", "icon": "activity", "summary": "Dense signals over time, Foxglove's Plot panel and PlotJuggler's: uPlot, the minimum and maximum of every pixel column (a one-sample spike still shows), the window ending at the clock's t, following live at 60 frames a second, click to seek, drag to zoom." },
+    { "type": "levels", "name": "Level history", "icon": "align-justify", "summary": "One strip per stream, one bar per time bin, the worst level held in the bin (Grafana's Status history, RobotDx's health bar); a bin with no data is an empty outline, never a level." }
+  ],
+  "npm": ["uplot@1.6.32"]
+}

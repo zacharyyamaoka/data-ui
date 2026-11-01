@@ -1,0 +1,274 @@
+{
+ "1280": {
+  "actions": "<button type=\"button\" class=\"dd-act\" data-act=\"arrange\" aria-pressed=\"false\" title=\"Drag and resize the panels; your arrangement is kept in this browser and offered back as the .base's layout:\">Arrange</button>",
+  "bar": [
+   280,
+   28,
+   972,
+   28
+  ],
+  "grid": [
+   280,
+   66,
+   972,
+   979.5
+  ],
+  "rail": [
+   28,
+   28,
+   236,
+   279
+  ],
+  "children": [
+   "div.dd-body.dd-has-rail",
+   "data-dashboard-source"
+  ],
+  "attributes": [
+   "class",
+   "data-density",
+   "data-surface",
+   "data-title",
+   "data-view",
+   "style",
+   "tabindex"
+  ],
+  "classes": [
+   "data-ui"
+  ],
+  "panels": [
+   {
+    "key": "twin-q-rms",
+    "type": "kpi",
+    "cls": "dd-panel",
+    "label": "Twin q RMS",
+    "box": [
+     280,
+     66,
+     316,
+     153
+    ]
+   },
+   {
+    "key": "duration",
+    "type": "kpi",
+    "cls": "dd-panel",
+    "label": "Duration",
+    "box": [
+     608,
+     66,
+     316,
+     153
+    ]
+   },
+   {
+    "key": "logged-at",
+    "type": "kpi",
+    "cls": "dd-panel",
+    "label": "Logged at",
+    "box": [
+     936,
+     66,
+     316,
+     153
+    ]
+   },
+   {
+    "key": "runs",
+    "type": "table",
+    "cls": "dd-panel",
+    "label": "Runs",
+    "box": [
+     280,
+     231,
+     972,
+     330
+    ]
+   },
+   {
+    "key": "playback",
+    "type": "playback",
+    "cls": "dd-panel",
+    "label": "Playback",
+    "box": [
+     280,
+     573,
+     972,
+     72
+    ]
+   },
+   {
+    "key": "angle",
+    "type": "timeseries",
+    "cls": "dd-panel",
+    "label": "Angle",
+    "box": [
+     280,
+     657,
+     480,
+     330
+    ]
+   },
+   {
+    "key": "velocity",
+    "type": "timeseries",
+    "cls": "dd-panel",
+    "label": "Velocity",
+    "box": [
+     772,
+     657,
+     480,
+     330
+    ]
+   },
+   {
+    "key": "text-8",
+    "type": null,
+    "cls": "dd-panel dd-panel-text",
+    "label": null,
+    "box": [
+     280,
+     999,
+     972,
+     46.5
+    ]
+   }
+  ],
+  "styles": 0
+ },
+ "390": {
+  "actions": "<button type=\"button\" class=\"dd-act\" data-act=\"arrange\" aria-pressed=\"false\" title=\"Drag and resize the panels; your arrangement is kept in this browser and offered back as the .base's layout:\">Arrange</button>",
+  "bar": [
+   28,
+   73.5,
+   334,
+   33.5
+  ],
+  "grid": [
+   28,
+   117,
+   334,
+   1714.5
+  ],
+  "rail": [
+   28,
+   28,
+   334,
+   29.5
+  ],
+  "children": [
+   "div.dd-body.dd-has-rail",
+   "data-dashboard-source"
+  ],
+  "attributes": [
+   "class",
+   "data-density",
+   "data-surface",
+   "data-title",
+   "data-view",
+   "style",
+   "tabindex"
+  ],
+  "classes": [
+   "data-ui"
+  ],
+  "panels": [
+   {
+    "key": "twin-q-rms",
+    "type": "kpi",
+    "cls": "dd-panel",
+    "label": "Twin q RMS",
+    "box": [
+     28,
+     117,
+     334,
+     155.5
+    ]
+   },
+   {
+    "key": "duration",
+    "type": "kpi",
+    "cls": "dd-panel",
+    "label": "Duration",
+    "box": [
+     28,
+     284.5,
+     334,
+     155.5
+    ]
+   },
+   {
+    "key": "logged-at",
+    "type": "kpi",
+    "cls": "dd-panel",
+    "label": "Logged at",
+    "box": [
+     28,
+     452,
+     334,
+     155.5
+    ]
+   },
+   {
+    "key": "runs",
+    "type": "table",
+    "cls": "dd-panel",
+    "label": "Runs",
+    "box": [
+     28,
+     619.5,
+     334,
+     330
+    ]
+   },
+   {
+    "key": "playback",
+    "type": "playback",
+    "cls": "dd-panel",
+    "label": "Playback",
+    "box": [
+     28,
+     961.5,
+     334,
+     110
+    ]
+   },
+   {
+    "key": "angle",
+    "type": "timeseries",
+    "cls": "dd-panel",
+    "label": "Angle",
+    "box": [
+     28,
+     1083.5,
+     334,
+     330
+    ]
+   },
+   {
+    "key": "velocity",
+    "type": "timeseries",
+    "cls": "dd-panel",
+    "label": "Velocity",
+    "box": [
+     28,
+     1425.5,
+     334,
+     330
+    ]
+   },
+   {
+    "key": "text-8",
+    "type": null,
+    "cls": "dd-panel dd-panel-text",
+    "label": null,
+    "box": [
+     28,
+     1767.5,
+     334,
+     64.5
+    ]
+   }
+  ],
+  "styles": 0
+ }
+}

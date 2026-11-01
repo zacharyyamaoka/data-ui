@@ -1,0 +1,11 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/cards.js). The media grid is this view with `lightbox: true` (docs/VIEWS.md: 'Not a new view: the cards view plus a lightbox'), so it registers no type of its own and `covers` its docs/VIEWS.md row by name.",
+  "entry": "src/index.js",
+  "status": "built",
+  "split": true,
+  "covers": ["Image / media grid"],
+  "views": [
+    { "type": "cards", "name": "Cards", "icon": "layout-grid", "summary": "Bases' cards: an image, the title and the view's properties per card, group headings; lightbox: true opens each image full screen with its caption and source." }
+  ],
+  "npm": ["@tanstack/virtual-core@3.19.7", "photoswipe@5.4.4"]
+}

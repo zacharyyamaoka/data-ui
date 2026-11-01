@@ -1,0 +1,38 @@
+{
+ "title": "kit gaps checker fixture: events",
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "run",
+    "type": "string"
+   },
+   {
+    "name": "kind",
+    "type": "string"
+   },
+   {
+    "name": "label",
+    "type": "string"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "t": 0.5,
+   "run": "r1",
+   "kind": "mode",
+   "label": "position"
+  },
+  {
+   "t": 0.8,
+   "run": "r1",
+   "kind": "fault",
+   "label": "limiter 99"
+  }
+ ]
+}

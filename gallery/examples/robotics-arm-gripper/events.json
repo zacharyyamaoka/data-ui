@@ -1,0 +1,5 @@
+{"title":"Events: the illustrative gripper's contact, grasp and release","source":"~/sim2real/dashboards/source/arm_suite_sim.json (the stand-in arm, read-only) and this case's illustrative gripper; written by gallery/examples/robotics-arm-gripper/source/build.py","schema":{"fields":[{"name":"t","type":"number","unit":"s","description":"contact and release at the stand-in target path's two low points; grasp 0.3 s after contact"},{"name":"run","type":"string","title":"Run"},{"name":"device","type":"string"},{"name":"kind","type":"string","title":"Event"},{"name":"label","type":"string"}]},"rows":[
+{"t":1.61,"run":"ur5e-suite/coordinated","device":"gripper","kind":"contact","label":"contact"},
+{"t":1.91,"run":"ur5e-suite/coordinated","device":"gripper","kind":"grasp","label":"grasp"},
+{"t":4.97,"run":"ur5e-suite/coordinated","device":"gripper","kind":"release","label":"release"}
+]}

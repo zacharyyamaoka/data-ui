@@ -1,0 +1,25 @@
+# BC municipal solid waste disposal per person by regional district (docs/CONTRACT.md §42: regions).
+data: disposal.json
+properties:
+  district: { displayName: District }
+  year: { displayName: Year }
+  kg_per_capita: { displayName: Disposal per person }
+  disposal_t: { displayName: Disposal }
+  population: { displayName: Population }
+views:
+  - type: map
+    name: Per person, 2024
+    filters: 'year == 2024'
+    layers:
+      - { type: regions, geometry: districts.geojson, key: rd, join: rd, value: kg_per_capita, classes: { method: quantile, count: 5 }, label: name }
+  - type: map
+    name: Per person, 2024 (natural breaks)
+    filters: 'year == 2024'
+    layers:
+      - { type: regions, geometry: districts.geojson, key: rd, join: rd, value: kg_per_capita, classes: { method: jenks, count: 5 }, ink: 2 }
+  - type: table
+    name: '2024'
+    filters: 'year == 2024'
+    order: [district, kg_per_capita, disposal_t, population]
+    sort:
+      - { property: kg_per_capita, direction: DESC }

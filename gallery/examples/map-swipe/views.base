@@ -1,0 +1,20 @@
+# Swipe between 2000 and 2024 disposal per person (docs/CONTRACT.md §42: swipe).
+data: ../map-bc-disposal/disposal.json
+properties:
+  district: { displayName: District }
+  year: { displayName: Year }
+  kg_per_capita: { displayName: Disposal per person }
+views:
+  - type: map
+    name: 2000 | 2024
+    filters: 'year == 2000 || year == 2024'
+    swipe:
+      left: { filter: 'year == 2000', label: '2000' }
+      right: { filter: 'year == 2024', label: '2024' }
+    layers:
+      - { type: regions, geometry: ../map-bc-disposal/districts.geojson, key: rd, join: rd, value: kg_per_capita, classes: { method: quantile, count: 5 } }
+  - type: table
+    name: Both years
+    filters: 'year == 2000 || year == 2024'
+    groupBy: { property: district, direction: ASC }
+    order: [district, year, kg_per_capita]

@@ -1,0 +1,41 @@
+{
+  "id": "large-table",
+  "title": "SYNTHETIC large actuator table (1k / 10k / 100k rows, rich cells)",
+  "app": "robotparts",
+  "base": "views.base",
+  "view": null,
+  "rows": null,
+  "synthetic": true,
+  "rows_variants": [
+    1000,
+    10000,
+    100000,
+    150000
+  ],
+  "generate": "generate.py",
+  "provenance": {
+    "from": "generate.py: real rows from bench/scenarios/robotparts-actuators/actuators.json (~/data-ui/gallery/examples/robotparts-actuators/actuators.json @ main 0dbc3d4), bootstrapped and jittered +-10% with seed 20261026",
+    "sha256": "ab517f5788d67d114180a8be4833d31b2a578d2743a3e319caee872a63caa97b",
+    "copied": "2026-10-26",
+    "note": "SYNTHETIC, not stored: sha256 is of `python3 generate.py --rows 1000 --out DIR` (default seed); regenerate per variant, never commit the output."
+  },
+  "interactions": {
+    "filter": {
+      "property": "brand",
+      "value": "Feetech"
+    },
+    "sort": {
+      "property": "peak_torque",
+      "direction": "DESC"
+    },
+    "search": "gim",
+    "presets": [
+      "Table",
+      "Grouped",
+      "Pivot"
+    ],
+    "scroll": true,
+    "peek": true
+  },
+  "notes": "150,000 is past where Codex's review (2026-10-26) saw railCounts() overflow the stack (spread-based extrema); the bench records that as a failed load with its error, never 0."
+}

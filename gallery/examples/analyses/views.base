@@ -1,0 +1,27 @@
+# The analyses list (docs/peps/0007-analyses.md): one row per analysis, from its frontmatter (source/build.py writes
+# analyses.json with data_ui_analysis.build_index). <data-analyses> draws these presets; a click opens the analysis.
+data: analyses.json
+facets:
+  - { as: current, label: Current filters }
+  - { property: status, as: values, label: Status }
+  - { property: tags, as: values, label: Tags }
+views:
+  # WHY Table first: a card with no image puts its selection box over the title's first letters (a core cards
+  # issue, reported to the integrator); analyses have no picture of their own
+  - type: table
+    name: Table
+    order: [title, status, decision, parts, question, date, author]
+    rowHeight: short
+  - type: cards
+    name: Gallery
+    order: [title, question, status, decision, parts_count, date]
+    cardSize: 320
+    sort:
+      - { property: date, direction: DESC }
+      - { property: title, direction: ASC }
+  - type: kanban
+    name: Board by status
+    order: [title, decision, date]
+    groupBy: { property: status }
+    groupOrder: [draft, open, decided, superseded]
+open: { mode: link, url: url }

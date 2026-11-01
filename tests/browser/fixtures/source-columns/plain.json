@@ -1,0 +1,20 @@
+{
+ "id": "plain-columns",
+ "title": "A made-up actuator, one plain column per source",
+ "titleProperty": "field",
+ "properties": {
+  "field": { "type": "text", "label": "Field" },
+  "datasheet": { "type": "number", "label": "Datasheet" },
+  "citation": { "type": "number", "label": "Citation" },
+  "measured": { "type": "number", "label": "Measured" }
+ },
+ "rows": [
+  { "id": "all", "field": "All three", "datasheet": 3.8, "citation": 3.6, "measured": 3.1 },
+  { "id": "agree", "field": "Two agree", "datasheet": 12, "citation": 12 },
+  { "id": "later", "field": "Only a later column", "citation": 1.2 },
+  { "id": "zero", "field": "Zero is a value", "datasheet": 0, "citation": 5 },
+  { "id": "blank", "field": "An empty text is not", "datasheet": "", "citation": 7 },
+  { "id": "none", "field": "Nothing stated" },
+  { "id": "rich", "field": "A rich cell keeps its provenance", "datasheet": { "value": 2.5, "source": "Acme datasheet rev C", "sourceUrl": "https://example.com/acme.pdf", "basis": "datasheet", "note": "page 2" }, "measured": 2.4 }
+ ]
+}

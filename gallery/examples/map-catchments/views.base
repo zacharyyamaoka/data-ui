@@ -1,0 +1,23 @@
+# Nearest-facility catchments in BC, counting hospitals (docs/CONTRACT.md §42: catchments).
+data: sites.json
+properties:
+  name: { displayName: Name }
+  kind: { displayName: Kind }
+  role: { displayName: Role }
+views:
+  - type: map
+    name: Catchments
+    coordinates: location
+    layers:
+      - { type: catchments, of: 'kind == "landfill" || kind == "transfer station"', count: 'role == "hospital"', ofLabel: facilities, countLabel: hospitals }
+      - { type: points, filter: 'role == "hospital"', color: var(--data-series-1), radius: 3.5, title: Hospitals }
+  - type: map
+    name: Transfer stations only
+    coordinates: location
+    layers:
+      - { type: catchments, of: 'kind == "transfer station"', count: 'role == "hospital"', ofLabel: transfer stations, countLabel: hospitals, ink: 2 }
+      - { type: points, filter: 'role == "hospital"', color: var(--data-series-1), radius: 3.5, title: Hospitals }
+  - type: table
+    name: Sites
+    groupBy: { property: role, direction: ASC }
+    order: [name, kind, role]

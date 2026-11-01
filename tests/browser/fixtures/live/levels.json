@@ -1,0 +1,4 @@
+{"id": "levels", "title": "Check levels", "titleProperty": "name",
+ "properties": {"t": {"type": "number", "unit": "s", "label": "Time"}, "name": {"type": "text", "label": "Check"},
+  "level": {"type": "text", "label": "Level"}, "message": {"type": "text", "label": "Message"}},
+ "rows": []}

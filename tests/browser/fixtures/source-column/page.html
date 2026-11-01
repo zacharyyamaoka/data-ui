@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source column fixture</title>
+<!-- tests/browser/source_column_checks.py and source_derived_checks.py: the Nominal source column (docs/CONTRACT.md §36). Served
+     from the repo root, so the kit is /dist/. ?src=servo.base (one source per value) or derived.base;
+     ?toolbar=full|bar; ?id= the element's id. sources.js is loaded, as RobotParts loads it; a script may set
+     window.v.base and window.v.data instead. -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: var(--data-bg, #fff); color: var(--data-fg, #111); }
+  :root[data-theme="dark"] body { background: #111; color: #eee; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) body { background: #111; color: #eee; } }
+  /* WHY this tall: every card and row is drawn at 390 px too (the views virtualise what is off screen) */
+  data-views { height: 1600px; }
+</style>
+<script type="module">
+  import * as kit from '/dist/data-ui.js';
+  await import('/dist/sources.js');
+  window.kit = kit;
+  const q = new URLSearchParams(location.search);
+  const v = document.createElement('data-views');
+  v.id = q.get('id') || 'col';
+  v.setAttribute('toolbar', q.get('toolbar') || 'bar');
+  if (q.get('toolbar') !== 'full') { v.setAttribute('views', 'tabs'); v.setAttribute('filters', 'pills'); }
+  v.setAttribute('src', q.get('src') || 'servo.base');
+  document.body.append(v);
+  window.v = v;
+  window.kitReady = true;
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,153 @@
+{
+ "name": "diff_poses",
+ "title": "Pose differences",
+ "description": "difference(a, b) over poses (CONTRACT.md §5): one row per sample of a inside b's span, a's columns as written and b at a's t under ref_<column>.",
+ "rowsPer": [
+  "t",
+  "run",
+  "situation",
+  "reference",
+  "body"
+ ],
+ "required": [
+  "t",
+  "run",
+  "situation",
+  "source",
+  "reference",
+  "body",
+  "frame",
+  "x_mm",
+  "y_mm",
+  "z_mm",
+  "ref_x_mm",
+  "ref_y_mm",
+  "ref_z_mm",
+  "err_mm"
+ ],
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s",
+    "description": "a's sample time"
+   },
+   {
+    "name": "run",
+    "type": "string",
+    "description": "the run's stable, unique id (runs.json)"
+   },
+   {
+    "name": "situation",
+    "type": "string",
+    "description": "a: the compared situation"
+   },
+   {
+    "name": "source",
+    "type": "string",
+    "description": "a's family",
+    "constraints": {
+     "enum": [
+      "real",
+      "sim",
+      "target"
+     ]
+    }
+   },
+   {
+    "name": "reference",
+    "type": "string",
+    "description": "b: the reference situation"
+   },
+   {
+    "name": "body",
+    "type": "string",
+    "description": "the rigid body the row tracks: tool0, lever_tip"
+   },
+   {
+    "name": "frame",
+    "type": "string",
+    "description": "the frame the coordinates are written in: base, belt (one body, one frame; never guessed)"
+   },
+   {
+    "name": "x_mm",
+    "type": "number",
+    "unit": "mm",
+    "description": "position, in the row's frame"
+   },
+   {
+    "name": "y_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "z_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "ref_x_mm",
+    "type": "number",
+    "unit": "mm",
+    "description": "b at t, linear between b's two samples around t"
+   },
+   {
+    "name": "ref_y_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "ref_z_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "err_mm",
+    "type": "number",
+    "unit": "mm",
+    "description": "|b(t) − a(t)|, the arrow's length"
+   },
+   {
+    "name": "quat_w",
+    "type": "number",
+    "description": "orientation, unitless, w x y z (needed for frames and Z-arcs)"
+   },
+   {
+    "name": "quat_x",
+    "type": "number"
+   },
+   {
+    "name": "quat_y",
+    "type": "number"
+   },
+   {
+    "name": "quat_z",
+    "type": "number"
+   },
+   {
+    "name": "ref_quat_w",
+    "type": "number",
+    "description": "b at t by slerp (the short way), canonical: w ≥ 0"
+   },
+   {
+    "name": "ref_quat_x",
+    "type": "number"
+   },
+   {
+    "name": "ref_quat_y",
+    "type": "number"
+   },
+   {
+    "name": "ref_quat_z",
+    "type": "number"
+   },
+   {
+    "name": "err_rot_mrad",
+    "type": "number",
+    "unit": "mrad",
+    "description": "the angle of the rotation from a to b at t"
+   }
+  ]
+ }
+}

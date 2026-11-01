@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>chrome fixture</title>
+<!-- tests/browser/chrome_checks.py (CONTRACT §18, embedded chrome): a table and a chart embedded as parts of a host page.
+     ?status=<v> and ?controls=<v> set those attributes on both elements before the kit starts; ?frame=<name> too.
+     Served from the repo root (dist/ and gallery/). -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: var(--data-bg, #fff); }
+  data-views { display: block; height: 420px; margin-bottom: 24px; }
+</style>
+<script type="module" src="/dist/data-ui.js"></script>
+</head>
+<body>
+<h2>A table, embedded</h2>
+<data-views id="t" src="/gallery/examples/robotparts-actuators/views.base" view="By brand" no-url toolbar="none"></data-views>
+<h2>A chart, embedded</h2>
+<data-views id="c" src="/gallery/examples/actuator-charts/views.base" view="Torque vs mass" no-url toolbar="none"></data-views>
+<script>
+  // before the module runs (it is deferred), so the elements start with the host's choice
+  const q = new URLSearchParams(location.search);
+  for (const id of ['t', 'c']) {
+    const el = document.getElementById(id);
+    for (const k of ['status', 'controls', 'frame']) if (q.has(k)) el.setAttribute(k, q.get(k));
+  }
+</script>
+</body>
+</html>

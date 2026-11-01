@@ -1,0 +1,23 @@
+# Food-waste generators in Metro Vancouver as a density heatmap (docs/CONTRACT.md §42: heatmap, mapTiles).
+data: food.json
+properties:
+  kind: { displayName: Kind }
+  seats: { displayName: Seats }
+views:
+  - type: map
+    name: Density
+    coordinates: location
+    mapTiles: metro-vancouver.pmtiles
+    layers:
+      - { type: heatmap, radius: 16 }
+  - type: map
+    name: Food courts only
+    coordinates: location
+    mapTiles: metro-vancouver.pmtiles
+    filters: 'kind == "food court"'
+    layers:
+      - { type: points, color: var(--data-series-4), radius: 6 }
+  - type: table
+    name: Places
+    groupBy: { property: kind, direction: ASC }
+    order: [kind, seats, location]

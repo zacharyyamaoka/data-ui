@@ -1,0 +1,31 @@
+# tests/browser/settle_search_checks.py: rails over a preset panel. Typing in the runs' search is transient and moves no pick;
+# a tick on the deployments' rail that hides the picked run does (docs/CONTRACT.md §39).
+data: ../../../../gallery/examples/robotics-fleet/deployments.json
+datasets:
+  deployments:
+    data: ../../../../gallery/examples/robotics-fleet/deployments.json
+    facets:
+      - { property: status, label: Status }
+  runs:
+    data: ../../../../gallery/examples/robotics-fleet/runs.json
+    facets:
+      - { property: label, as: search, label: Search }
+links:
+  - { from: deployments.deployment, to: runs.deployment, direction: one-way }
+layout:
+  panels:
+    - { view: Deployments, w: 12, h: 3 }
+    - { view: Runs, w: 12, h: 4 }
+views:
+  - type: table
+    name: Deployments
+    from: deployments
+    order: [name, status]
+  - type: table
+    name: Runs
+    from: runs
+    select: run
+    selected: first
+    order: [label, started]
+    sort:
+      - { property: started, direction: DESC }

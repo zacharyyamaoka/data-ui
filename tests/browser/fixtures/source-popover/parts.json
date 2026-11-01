@@ -1,0 +1,134 @@
+{
+ "id": "actuators",
+ "title": "Made-up actuators (two values with several sources each)",
+ "titleProperty": "name",
+ "sources": {
+  "maker": {
+   "name": "Maker's page",
+   "kind": "The maker's own figures",
+   "rung": "datasheet",
+   "date": "2026-09-01",
+   "url": "https://example.com/maker/qdd"
+  },
+  "shop": {
+   "name": "Shop listing",
+   "kind": "A seller's listing",
+   "rung": "listing",
+   "date": "2026-09-20",
+   "url": "account:shop/orders"
+  },
+  "bench": {
+   "name": "Bench log",
+   "kind": "Measured on our bench",
+   "rung": "measured",
+   "date": "2026-10-20",
+   "url": "logs/bench-2026-10.html",
+   "basis": "measured"
+  }
+ },
+ "ladder": [
+  {
+   "id": "measured",
+   "label": "Measured on a bench"
+  },
+  {
+   "id": "datasheet",
+   "label": "The maker's own figures"
+  },
+  {
+   "id": "listing",
+   "label": "A seller's listing"
+  }
+ ],
+ "properties": {
+  "name": {
+   "type": "text",
+   "label": "Part"
+  },
+  "torque": {
+   "type": "number",
+   "label": "Peak torque",
+   "unitText": "N·m"
+  },
+  "mass": {
+   "type": "number",
+   "label": "Mass",
+   "unitText": "g"
+  }
+ },
+ "rows": [
+  {
+   "id": "qdd-a",
+   "name": "QDD A",
+   "torque": {
+    "sources": [
+     {
+      "source": "maker",
+      "value": 12,
+      "note": "table 3"
+     },
+     {
+      "source": "bench",
+      "value": 10.5,
+      "asOf": "2026-10-21"
+     }
+    ]
+   },
+   "mass": {
+    "sources": [
+     {
+      "source": "maker",
+      "value": 480
+     },
+     {
+      "source": "shop",
+      "value": 0.5,
+      "unit": "kg",
+      "sourceUrl": "https://example.com/shop/qdd-a"
+     },
+     {
+      "source": "bench",
+      "value": 492,
+      "basis": "measured"
+     }
+    ]
+   }
+  },
+  {
+   "id": "qdd-b",
+   "name": "QDD B",
+   "torque": {
+    "sources": [
+     {
+      "source": "maker",
+      "value": 20,
+      "text": "20.0"
+     },
+     {
+      "source": "memo",
+      "value": 18,
+      "note": "a colleague's note; no source declared"
+     }
+    ]
+   },
+   "mass": {
+    "sources": [
+     {
+      "source": "maker",
+      "value": 700
+     }
+    ]
+   }
+  },
+  {
+   "id": "qdd-c",
+   "name": "QDD C",
+   "torque": {
+    "value": 7,
+    "source": "Maker's page",
+    "sourceUrl": "https://example.com/maker/qdd-c"
+   },
+   "mass": 350
+  }
+ ]
+}

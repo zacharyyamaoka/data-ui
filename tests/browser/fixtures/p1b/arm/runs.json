@@ -1,0 +1,4 @@
+{"title":"Runs (P1b arm fixture, stand-in)","source":"synthetic or derived, tests/browser/fixtures/p1b/make_fixture.py","schema":{"fields":[{"name":"run","type":"string"},{"name":"deployment","type":"string"},{"name":"started","type":"datetime"},{"name":"duration_s","type":"number","unit":"s"},{"name":"kind","type":"string"},{"name":"devices","type":"array"},{"name":"situations","type":"array"},{"name":"rate_hz","type":"number","unit":"Hz"},{"name":"display_hz","type":"number","unit":"Hz"}]},"rows":[
+{"run":"arm/r1","deployment":"UR5e cell (stand-in)","started":"2026-10-28T10:00:00-07:00","duration_s":7.88,"kind":"coordinated","devices":["J3 elbow"],"situations":["target","real","twin","replay"],"rate_hz":25,"display_hz":25},
+{"run":"arm/r2","deployment":"UR5e cell (stand-in)","started":"2026-10-29T10:00:00-07:00","duration_s":6.0,"kind":"coordinated","devices":["J4 wrist 1"],"situations":["target","real","twin","replay"],"rate_hz":25,"display_hz":25}
+]}

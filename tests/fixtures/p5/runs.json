@@ -1,0 +1,31 @@
+{
+ "title": "runs",
+ "schema": {
+  "fields": [
+   {
+    "name": "run",
+    "type": "string"
+   },
+   {
+    "name": "device",
+    "type": "string"
+   },
+   {
+    "name": "started",
+    "type": "datetime"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "run": "r1",
+   "device": "A",
+   "started": "2026-10-28T10:00:00-07:00"
+  },
+  {
+   "run": "r2",
+   "device": "B",
+   "started": "2026-10-29T10:00:00-07:00"
+  }
+ ]
+}

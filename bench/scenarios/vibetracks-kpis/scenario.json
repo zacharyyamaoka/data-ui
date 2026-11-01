@@ -1,0 +1,33 @@
+{
+  "id": "vibetracks-kpis",
+  "title": "Vibe Tracks KPI readings (161 rows, KPI cards and history charts)",
+  "app": "vibetracks",
+  "base": "views.base",
+  "view": null,
+  "rows": 161,
+  "synthetic": false,
+  "provenance": {
+    "from": "~/data-ui/gallery/examples/vibetracks-kpis/kpis.json @ main 0dbc3d4",
+    "sha256": "6936abc0fe89251cef38a457805c36a28a0ba9e7a4a8aacba75f0ec3e75832e6",
+    "copied": "2026-10-26",
+    "note": "Vibe Tracks' KPI section: one row per reading from its synthetic grasp bench (committed fixture); values are rich cells with CI."
+  },
+  "interactions": {
+    "filter": {
+      "property": "model",
+      "value": "M4.dense-ft"
+    },
+    "sort": {
+      "property": "value",
+      "direction": "DESC"
+    },
+    "search": "dense",
+    "presets": [
+      "KPIs",
+      "SPPM history",
+      "Readings"
+    ],
+    "scroll": false,
+    "peek": false
+  }
+}

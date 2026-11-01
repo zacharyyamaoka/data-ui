@@ -1,0 +1,26 @@
+{
+ "schema": {
+  "fields": [
+   {
+    "name": "x_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "y_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "z_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "reach",
+    "type": "number"
+   }
+  ]
+ },
+ "rows": []
+}

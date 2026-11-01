@@ -1,0 +1,21 @@
+# Recycling drop-off points in BC, clustered (docs/CONTRACT.md §42: layers).
+data: recycling.json
+properties:
+  label: { displayName: Point }
+  type: { displayName: Type }
+  accepts: { displayName: Accepts }
+  n_materials: { displayName: Materials }
+views:
+  - type: map
+    name: Clustered
+    coordinates: location
+    layers:
+      - { type: points, cluster: true, color: type, title: Recycling points by type }
+  - type: map
+    name: Every point
+    coordinates: location
+    layers:
+      - { type: points, color: type, radius: 4 }
+  - type: table
+    name: Points
+    order: [label, type, n_materials, accepts, location]

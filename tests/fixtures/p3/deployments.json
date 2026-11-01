@@ -1,0 +1,2 @@
+{"id": "deployments", "title": "Deployments", "properties": {"deployment": {"type": "text"}, "title": {"type": "text"}},
+ "rows": [{"id": "rack", "deployment": "rack", "title": "The rack"}]}

@@ -1,0 +1,35 @@
+# P0 fixture (tests/browser/p0_checks.py): sim2real's run inspector (dashboards/rack/4-run-inspector.base) cut down to
+# what gap #1 needs: a runs table that selects a run, a device rail on the clock's own dataset, the clock on the samples.
+# A pick narrows the samples through the link; the clock must span what the filters leave.
+data: runs.json
+clock: { data: servo, time: t, loop: false, rate: 1 }
+datasets:
+  runs: runs.json
+  servo:
+    data: servo.json
+    facets: [{ property: device, as: select, label: Servo }]
+links:
+  - { from: servo.run, to: runs.run }
+layout:
+  panels:
+    - { view: Runs, w: 12, h: 3 }
+    - { view: Playback, w: 12 }
+    - { view: Angle, w: 6, h: 3 }
+    - { view: Samples, w: 6, h: 3 }
+views:
+  - type: table
+    name: Runs
+    from: runs
+    select: run
+    order: [run, run_set, device, duration_s]
+  - type: playback
+    name: Playback
+    playback: { readout: true, range: true }
+  - type: timeseries
+    name: Angle
+    from: servo
+    timeseries: { x: t, 'y': q_deg, series: situation, unit: '°' }
+  - type: table
+    name: Samples
+    from: servo
+    order: [t, run, device, situation, q_deg]

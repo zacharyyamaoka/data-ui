@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 204 64" width="204" height="64" color="#0E100E" role="img" aria-label="robotparts, Toolbox">
+<title>robotparts, Toolbox</title>
+<defs><mask id="m11" maskUnits="userSpaceOnUse" x="0" y="0" width="210" height="64"><rect width="210" height="64" fill="#fff"/><text x="148" y="45" font-family="'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif" font-size="30" font-weight="700" fill="#000" text-anchor="middle" textLength="84" lengthAdjust="spacingAndGlyphs">parts</text></mask></defs>
+<text x="0" y="45" font-family="'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif" font-size="32" font-weight="400" fill="currentColor" textLength="88" lengthAdjust="spacingAndGlyphs">robot</text>
+<path d="M132 6H164A4 4 0 0 1 168 10V18A4 4 0 0 1 164 22H132A4 4 0 0 1 128 18V10A4 4 0 0 1 132 6ZM135.5 11H160.5A1.5 1.5 0 0 1 162 12.5V20.5A1.5 1.5 0 0 1 160.5 22H135.5A1.5 1.5 0 0 1 134 20.5V12.5A1.5 1.5 0 0 1 135.5 11Z" style="fill:var(--a,#2F6F4F)" fill-rule="evenodd"/>
+<rect x="94" y="20" width="108" height="36" rx="3" fill="currentColor" mask="url(#m11)"/>
+</svg>

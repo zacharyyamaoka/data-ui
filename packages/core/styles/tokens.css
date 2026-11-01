@@ -1,0 +1,120 @@
+/* data-ui tokens (docs/CONTRACT.md §4).
+
+   The contract is --data-*. A host sets them (one block, at :root or on the element), or sets nothing:
+     - a shadcn app needs zero lines: each token falls back to shadcn's variable (--background, --foreground, ...);
+     - a page with neither gets the literal defaults below, light and dark.
+   Elements resolve the chain into private --dv-* properties, which may change without notice; never set --dv-*.
+   WHY a private layer instead of aliasing shadcn's names at :root: robotparts' and Vibe Tracks' --accent is a
+   strong blue, shadcn's --accent is a hover fill, so one alias would break one of them (docs/SPEC.md §10).
+   Series literals: the validated categorical palette (dataviz skill, references/palette.md), light and dark. */
+
+data-views, data-facets, data-value, data-kpi, data-sparkline, data-summary, .data-ui {
+  --dv-bg: var(--data-bg, var(--background, #ffffff));
+  --dv-fg: var(--data-fg, var(--foreground, #18181b));
+  --dv-muted: var(--data-muted, var(--muted-foreground, #71717a));
+  --dv-subtle: var(--data-subtle, var(--muted, #f4f4f5));
+  --dv-border: var(--data-border, var(--border, #e4e4e7));
+  --dv-rule: var(--data-rule, var(--border, #ececef));
+  --dv-hover: var(--data-hover, var(--accent, #f4f4f5));
+  --dv-accent: var(--data-accent, var(--primary, #2563eb));
+  --dv-on-accent: var(--data-on-accent, var(--primary-foreground, #ffffff));
+  --dv-warn: var(--data-warn, var(--destructive, #b45309));
+  --dv-good: var(--data-good, var(--dv-muted));
+  --dv-bad: var(--data-bad, var(--dv-muted));
+  --dv-radius: var(--data-radius, var(--radius, 6px));
+  --dv-font: var(--data-font, var(--font-sans, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif));
+  --dv-mono: var(--data-mono, var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace));
+  --dv-row: var(--data-row, 30px);
+  --dv-height: var(--data-height, 70vh);
+  --dv-series-1: var(--data-series-1, var(--chart-1, #2a78d6));
+  --dv-series-2: var(--data-series-2, var(--chart-2, #eb6834));
+  --dv-series-3: var(--data-series-3, var(--chart-3, #1baf7a));
+  --dv-series-4: var(--data-series-4, var(--chart-4, #eda100));
+  --dv-series-5: var(--data-series-5, var(--chart-5, #e87ba4));
+  --dv-series-6: var(--data-series-6, #008300);
+  --dv-series-7: var(--data-series-7, #6250d6);
+  --dv-series-8: var(--data-series-8, #e34948);
+  --dv-basis-measured: var(--data-basis-measured, var(--dv-fg));
+  --dv-basis-datasheet: var(--data-basis-datasheet, var(--dv-muted));
+  --dv-basis-seller: var(--data-basis-seller, var(--dv-muted));
+  --dv-basis-derived: var(--data-basis-derived, var(--dv-muted));
+  --dv-basis-estimate: var(--data-basis-estimate, var(--dv-muted));
+  --dv-basis-assumed: var(--data-basis-assumed, var(--dv-muted));
+  --dv-basis-chosen: var(--data-basis-chosen, var(--dv-muted));
+  --dv-basis-sampled: var(--data-basis-sampled, var(--dv-muted));
+  --dv-basis-stand-in: var(--data-basis-stand-in, var(--dv-muted));
+  --dv-basis-claimed: var(--data-basis-claimed, var(--dv-muted));
+  /* status tones (docs/CONTRACT.md §35): the gates' and RobotDx's words draw in these, always with a glyph and a word.
+     WHY a quiet green, amber and red under the host's --data-good / --data-warn / --data-bad, and not --dv-good / --dv-warn:
+     those default to muted (a KPI delta stays calm) and to shadcn's --destructive (a red), so a pass, a warn and a fail
+     would be one grey or two reds; the KPI bundle has used these same literals for its tracker since PEP 0005 */
+  --dv-tone-good: var(--data-good, #1a8a5a);
+  --dv-tone-warn: var(--data-warn, #c98a0c);
+  /* a source that differs from the value shown (CONTRACT §36): a translucent amber, so it lies over a zebra stripe, a
+     hover or a selected row instead of hiding them; a host sets --data-warn-tint */
+  --dv-tone-warn-tint: var(--data-warn-tint, rgb(201 138 12 / .16));
+  --dv-tone-bad: var(--data-bad, #d1453b);
+  --dv-tone-muted: color-mix(in srgb, var(--dv-muted) 30%, var(--dv-bg));
+  --dv-tone-neutral: color-mix(in srgb, var(--dv-muted) 75%, var(--dv-bg));
+  /* derived, private: the selected-row fill and the group-row fill */
+  --dv-accent-bg: color-mix(in srgb, var(--dv-accent) 12%, var(--dv-bg));
+  --dv-group: color-mix(in srgb, var(--dv-subtle) 55%, var(--dv-bg));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) :is(data-views, data-facets, data-value, data-kpi, data-sparkline, data-summary, .data-ui):not([theme="light"]) {
+    color-scheme: dark;
+    --dv-bg: var(--data-bg, var(--background, #111113));
+    --dv-fg: var(--data-fg, var(--foreground, #ececef));
+    --dv-muted: var(--data-muted, var(--muted-foreground, #9a9aa3));
+    --dv-subtle: var(--data-subtle, var(--muted, #1c1c20));
+    --dv-border: var(--data-border, var(--border, #2c2c31));
+    --dv-rule: var(--data-rule, var(--border, #222226));
+    --dv-hover: var(--data-hover, var(--accent, #1d1d22));
+    --dv-accent: var(--data-accent, var(--primary, #7aa7f2));
+    --dv-on-accent: var(--data-on-accent, var(--primary-foreground, #0b1220));
+    --dv-warn: var(--data-warn, var(--destructive, #f0a070));
+    --dv-series-1: var(--data-series-1, var(--chart-1, #3987e5));
+    --dv-series-2: var(--data-series-2, var(--chart-2, #d95926));
+    --dv-series-3: var(--data-series-3, var(--chart-3, #199e70));
+    --dv-series-4: var(--data-series-4, var(--chart-4, #c98500));
+    --dv-series-5: var(--data-series-5, var(--chart-5, #d55181));
+    --dv-series-6: var(--data-series-6, #008300);
+    --dv-series-7: var(--data-series-7, #9085e9);
+    --dv-series-8: var(--data-series-8, #e66767);
+    --dv-tone-good: var(--data-good, #4cc38a);
+    --dv-tone-warn: var(--data-warn, #e5a93b);
+    --dv-tone-warn-tint: var(--data-warn-tint, rgb(229 169 59 / .2));
+    --dv-tone-bad: var(--data-bad, #f2736b);
+    --dv-tone-muted: color-mix(in srgb, var(--dv-muted) 30%, var(--dv-bg));
+    --dv-tone-neutral: color-mix(in srgb, var(--dv-muted) 75%, var(--dv-bg));
+  }
+}
+:root[data-theme="dark"] :is(data-views, data-facets, data-value, data-kpi, data-sparkline, data-summary, .data-ui):not([theme="light"]),
+:is(data-views, data-facets, data-value, data-kpi, data-sparkline, data-summary, .data-ui)[theme="dark"] {
+  color-scheme: dark;
+  --dv-bg: var(--data-bg, var(--background, #111113));
+  --dv-fg: var(--data-fg, var(--foreground, #ececef));
+  --dv-muted: var(--data-muted, var(--muted-foreground, #9a9aa3));
+  --dv-subtle: var(--data-subtle, var(--muted, #1c1c20));
+  --dv-border: var(--data-border, var(--border, #2c2c31));
+  --dv-rule: var(--data-rule, var(--border, #222226));
+  --dv-hover: var(--data-hover, var(--accent, #1d1d22));
+  --dv-accent: var(--data-accent, var(--primary, #7aa7f2));
+  --dv-on-accent: var(--data-on-accent, var(--primary-foreground, #0b1220));
+  --dv-warn: var(--data-warn, var(--destructive, #f0a070));
+  --dv-series-1: var(--data-series-1, var(--chart-1, #3987e5));
+  --dv-series-2: var(--data-series-2, var(--chart-2, #d95926));
+  --dv-series-3: var(--data-series-3, var(--chart-3, #199e70));
+  --dv-series-4: var(--data-series-4, var(--chart-4, #c98500));
+  --dv-series-5: var(--data-series-5, var(--chart-5, #d55181));
+  --dv-series-6: var(--data-series-6, #008300);
+  --dv-series-7: var(--data-series-7, #9085e9);
+  --dv-series-8: var(--data-series-8, #e66767);
+  --dv-tone-good: var(--data-good, #4cc38a);
+  --dv-tone-warn: var(--data-warn, #e5a93b);
+  --dv-tone-warn-tint: var(--data-warn-tint, rgb(229 169 59 / .2));
+  --dv-tone-bad: var(--data-bad, #f2736b);
+  --dv-tone-muted: color-mix(in srgb, var(--dv-muted) 30%, var(--dv-bg));
+  --dv-tone-neutral: color-mix(in srgb, var(--dv-muted) 75%, var(--dv-bg));
+}

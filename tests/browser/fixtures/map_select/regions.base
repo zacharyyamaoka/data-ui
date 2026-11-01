@@ -1,0 +1,12 @@
+# tests/browser/map_select_checks.py: a region is the pick of its rows
+data: places.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    select: name
+    coordinates: at
+    layers:
+      - { type: regions, geometry: zones.geojson, key: id, join: zone, title: Zones }

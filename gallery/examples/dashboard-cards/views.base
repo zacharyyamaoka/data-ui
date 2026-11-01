@@ -1,0 +1,248 @@
+# Every dashboard card, on real rows (docs/peps/0005-dashboard-cards.md). The UR5e rows are pidtuna's simulated
+# replay (factory vs tuned gains); the tracker and bar list are Zach's Vibe Tracks runs. One clock drives every
+# time-aware card: press play on the Playback card, or scrub it.
+# Check it: node bin/data-ui.mjs check <this file>
+data: samples.json
+facets:
+  - joint
+properties:
+  situation: { displayName: Gains }
+  q_deg: { displayName: Angle }
+  q_target_deg: { displayName: Target }
+  err_mrad: { displayName: Error }
+  tracking_rms: { displayName: Tracking RMS, digits: 3 }
+  stop_p90: { displayName: Stop error p90, digits: 3 }
+  max_error: { displayName: Max error, digits: 3 }
+  tracking_rms_mrad: { displayName: Tracking RMS, digits: 3 }
+  track_title: { displayName: Track }
+  pass_rate: { displayName: Pass rate, digits: 2 }
+style:
+  chrome: minimal
+  numbers: { digits: 3, compact: true }
+  palette: { target: "#8b9099", factory: "#e8743b", tuned: "#2a78d6", oracle: "#19a979" }
+rerun:
+  rrd: rerun/dashboard-cards.rrd
+  sdk: 0.40.0
+clock:
+  data: samples
+  time: t
+  loop: true
+  fps: 30
+datasets:
+  samples:
+    data: samples.json
+    facets: [joint]
+  tool: tool.json
+  robot: robot.json
+  media: media.json
+  kpis: kpis.json
+  joints: joints.json
+  days: days.json
+  series: series.json
+layout:
+  panels:
+    - text: |
+        ## Card catalog
+        Every card type, on real rows: pidtuna's UR5e replay (simulation) and Zach's Vibe Tracks runs. Scrub the
+        playback bar: the videos, the time series playhead, the 2D path and the 3D marker all follow one clock.
+      w: 12
+    - { view: Stop error, w: 3 }
+    - { view: Tracking RMS by gains, w: 3 }
+    - { view: Pass rate, w: 3 }
+    - { view: Gate margin, w: 3 }
+    - { view: Playback, w: 12 }
+    - { view: Step response, w: 8, h: 3 }
+    - { view: Tuned video, w: 4, h: 3 }
+    - { view: Error over time, w: 8, h: 3 }
+    - { view: Overlay, w: 4, h: 3 }
+    - { view: Tool path (XZ), w: 6, h: 4 }
+    - { view: Tool path 3D, w: 6, h: 4 }
+    - { view: Runs per track, w: 4, h: 4 }
+    - { view: Daily verdicts, w: 8, h: 4 }
+    - { view: Tracking RMS per joint, w: 6, h: 4 }
+    - { view: Error histogram, w: 6, h: 4 }
+    - { view: Gains scatter, w: 6, h: 4 }
+    - { view: Error heatmap, w: 6, h: 4 }
+    - { view: KPI history, w: 8, h: 3 }
+    - { view: Poster, w: 4, h: 3 }
+    - { view: Joint metrics, w: 12, h: 4 }
+    - { view: Tool path 3D (paths), w: 6, h: 4 }
+    - { view: Step response (interactive), w: 12, h: 4 }
+views:
+  # ---- stat cards
+  - type: kpi
+    name: Stop error
+    from: kpis
+    filters: 'situation == "tuned"'
+    kpi:
+      label: Stop error p90 · tuned
+      value: { property: stop_p90 }
+      compare: { against: target, better: lower }
+      target: 5
+  - type: barlist
+    name: Tracking RMS by gains
+    from: kpis
+    sort:
+      - { property: order, direction: ASC }
+    barlist: { label: title, value: { property: tracking_rms }, better: lower }
+  - type: gauge
+    name: Pass rate
+    from: days
+    gauge:
+      value: { property: passed_runs, summary: Ratio, per: judged_runs }
+      min: 0
+      max: 1
+      target: 0.9
+      shape: arc
+      better: higher
+      label: Judged runs passing, last 21 days
+      bands: [{ to: 0.5, tone: bad }, { to: 0.9, tone: warn }, { tone: good }]
+  - type: bullet
+    name: Gate margin
+    from: kpis
+    sort:
+      - { property: order, direction: ASC }
+    bullet: { value: { property: stop_p90 }, target: 5, max: 60, label: title, better: lower, bands: [5, 20, 60] }
+  # ---- the clock
+  - type: playback
+    name: Playback
+    playback: { speeds: [0.25, 0.5, 1, 2], range: true, readout: true }
+  # ---- time series
+  - type: timeseries
+    name: Step response
+    filters: 'joint == "elbow_joint"'
+    timeseries:
+      x: t
+      y: q_deg
+      series: situation
+      unit: °
+      legend: top
+  - type: timeseries
+    name: Error over time
+    filters: 'joint == "elbow_joint" && situation != "target"'
+    timeseries:
+      x: t
+      y: err_mrad
+      series: situation
+      unit: mrad
+      rules: [{ y: 5, label: "gate 5 mrad", tone: bad }, { y: -5, tone: bad }]
+      bands: [{ y: [-5, 5], label: tolerance, tone: good }]
+  - type: timeseries
+    name: KPI history
+    from: series
+    filters: 'kpi == "p2p_calc_time_ratio" || kpi == "wp_calc_time_ratio"'
+    timeseries: { x: t, y: value, series: label, mark: line, legend: top }
+  # ---- media
+  - type: video
+    name: Tuned video
+    from: media
+    filters: 'situation == "tuned"'
+    video: { src: src, label: situation, primary: true }
+  - type: video-compare
+    name: Overlay
+    from: media
+    overlay: { by: situation, a: tuned, b: factory, mode: wipe, split: 0.5 }
+  - type: image
+    name: Poster
+    from: media
+    filters: 'situation == "factory"'
+    image: poster
+    caption: [note]
+  # ---- trajectories
+  - type: trajectory
+    name: Tool path (XZ)
+    from: tool
+    trajectory: { x: px, y: pz, series: situation, target: target, t: t, trail: true, tolerance: 0.005 }
+  - type: scene3d
+    name: Tool path 3D
+    from: tool
+    scene3d:
+      x: px
+      y: py
+      z: pz
+      series: situation
+      target: target
+      t: t
+      skeleton: [[s0x, s0y, s0z], [s1x, s1y, s1z], [s2x, s2y, s2z], [s3x, s3y, s3z], [s4x, s4y, s4z], [s5x, s5y, s5z], [s6x, s6y, s6z], [s7x, s7y, s7z]]
+  # ---- status
+  - type: barlist
+    name: Runs per track
+    from: days
+    barlist: { label: track_title, value: { property: runs, summary: Sum }, limit: 8 }
+  - type: tracker
+    name: Daily verdicts
+    from: days
+    groupBy: { property: track_title }
+    sort:
+      - { property: day, direction: ASC }
+    tracker: { state: verdict, label: day, tones: { pass: good, mixed: warn, fail: bad, none: muted } }
+  # ---- charts
+  - type: chart
+    name: Tracking RMS per joint
+    from: joints
+    chart:
+      mark: bar
+      encoding:
+        y: { field: joint, title: null }
+        x: { field: tracking_rms_mrad, title: Tracking RMS (mrad) }
+        color: { field: situation, title: Gains }
+        yOffset: { field: situation }
+  - type: chart
+    name: Error histogram
+    filters: 'situation != "target"'
+    chart:
+      mark: bar
+      encoding:
+        x: { field: err_mrad, bin: { maxbins: 40 }, title: Error (mrad) }
+        y: { aggregate: count, title: null }
+        color: { field: situation, title: Gains }
+  - type: chart
+    name: Gains scatter
+    from: joints
+    chart:
+      mark: { type: point, filled: true, size: 70 }
+      encoding:
+        x: { field: kp, scale: { type: log }, title: kp }
+        y: { field: tracking_rms_mrad, scale: { type: log }, title: Tracking RMS (mrad) }
+        color: { field: situation, title: Gains }
+  - type: chart
+    name: Error heatmap
+    from: joints
+    chart:
+      mark: rect
+      encoding:
+        x: { field: situation, title: null, sort: [factory, analytic, tuned, oracle] }
+        y: { field: joint, title: null }
+        color: { field: tracking_rms_mrad, scale: { type: log }, title: mrad }
+  - type: table
+    name: Joint metrics
+    from: joints
+    order: [situation, joint, kp, kd, stop_p90_mrad, tracking_rms_mrad, max_error_mrad, saturation]
+  # the meshed robot (scene3d.robot): every link's pose per row (robot.json, pid-tuning/source/build_robot.py) on
+  # Menagerie's UR5e meshes, one GLB for both cases; the stick (the link origins, then the tool) is the fallback
+  - type: scene3d
+    name: Tool path 3D (paths)
+    from: robot
+    scene3d:
+      x: px
+      y: py
+      z: pz
+      series: situation
+      target: target
+      t: t
+      skeleton: [[base_x, base_y, base_z], [shoulder_link_x, shoulder_link_y, shoulder_link_z], [upper_arm_link_x, upper_arm_link_y, upper_arm_link_z], [forearm_link_x, forearm_link_y, forearm_link_z], [wrist_1_link_x, wrist_1_link_y, wrist_1_link_z], [wrist_2_link_x, wrist_2_link_y, wrist_2_link_z], [wrist_3_link_x, wrist_3_link_y, wrist_3_link_z], [px, py, pz]]
+      robot:
+        model: ../pid-tuning/media/ur5e_links.glb
+        links: [base, shoulder_link, upper_arm_link, forearm_link, wrist_1_link, wrist_2_link, wrist_3_link]
+        ghost: target
+  # ---- the interactive plot (Foxglove/Rerun's): pan, zoom x/y/box, reset, cursor click, legend hide/isolate, ? help, maximise
+  - type: timeseries
+    name: Step response (interactive)
+    filters: 'joint == "elbow_joint"'
+    timeseries:
+      x: t
+      y: q_deg
+      series: situation
+      unit: °
+      legend: top
+      interactive: true

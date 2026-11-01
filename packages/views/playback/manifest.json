@@ -1,0 +1,14 @@
+{
+  "$comment": "The dashboard clock's control (docs/peps/0005-dashboard-cards.md §4, §4b): the default bar (Rerun's time panel) and five proposals by playback.variant, through one registry (src/registry.js).",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [
+    {
+      "type": "playback",
+      "name": "Playback",
+      "icon": "play",
+      "summary": "The clock's control: play/pause, step, speed, loop, scrub, a range selection; playback.variant picks a proposal (rerun, rerun-streams, youtube, tracks, foxglove, range) and switcher: true adds a live drop-down. Every time-aware card follows it."
+    }
+  ],
+  "npm": []
+}

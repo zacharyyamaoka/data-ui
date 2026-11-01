@@ -1,0 +1,25 @@
+# P1d fixture (tests/browser/p1d_checks.py): the difference(a, b) fixture (gallery/robotics/fixtures/difference/, read
+# where it lives) drawn as a trajectory3d with compare: a = real, b = target, run fixture/r1. Only tool0, whose rows are
+# all in the base frame: the fixture's lever_tip is written in two frames (a in belt, b in base) and frames are never
+# mixed, so the dataset's filter leaves it out, and camera_link with it. Every arrow must run from a(tᵢ) to b(tᵢ) of
+# diff_poses.json, every Z-arc from a's Z to b's.
+data: ../../../../gallery/robotics/fixtures/difference/poses.json
+clock: { data: poses, time: t }
+datasets:
+  poses:
+    data: ../../../../gallery/robotics/fixtures/difference/poses.json
+    filters: 'body == "tool0" && run == "fixture/r1"'
+  diff: ../../../../gallery/robotics/fixtures/difference/diff_poses.json
+links:
+  - { from: diff.run, to: poses.run }
+  - { from: diff.body, to: poses.body }
+layout:
+  panels:
+    - { view: Compare, w: 12, h: 6 }
+views:
+  - type: trajectory3d
+    name: Compare
+    from: poses
+    trajectory3d:
+      modes: { real: [line, frames-z], target: [line] }
+      compare: { data: diff, pairs: [[real, target]] }

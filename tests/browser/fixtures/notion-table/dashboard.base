@@ -1,0 +1,18 @@
+# One panel that asks for the Edit / View switch (docs/CONTRACT.md §40), and one that does not.
+datasets:
+  checklist: rows.json
+views:
+  - type: table
+    name: Checklist
+    from: checklist
+    order: [task, owner, points]
+  - type: table
+    name: Plain
+    from: checklist
+    order: [task, owner, points]
+layout:
+  columns: 12
+  rowHeight: 110
+  panels:
+    - { view: Checklist, w: 6, h: 3, editToggle: true }
+    - { view: Plain, w: 6, h: 3 }

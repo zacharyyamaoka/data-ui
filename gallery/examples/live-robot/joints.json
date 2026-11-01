@@ -1,0 +1,7 @@
+{"id": "joints", "title": "Joint samples", "titleProperty": "joint",
+ "properties": {
+  "t": {"type": "number", "unit": "s", "label": "Time", "note": "Unix seconds on the simulator's clock (the page's own)."},
+  "joint": {"type": "text", "label": "Joint"},
+  "position": {"type": "number", "unit": "rad", "label": "Position"},
+  "current": {"type": "number", "unit": "A", "label": "Current", "note": "Motor phase current, made up from the simulated motion."}},
+ "rows": []}

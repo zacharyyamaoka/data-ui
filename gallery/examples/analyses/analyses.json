@@ -1,0 +1,174 @@
+{
+ "id": "data-ui-analyses",
+ "title": "Analyses",
+ "titleProperty": "title",
+ "linkProperty": "url",
+ "properties": {
+  "title": {
+   "type": "text",
+   "label": "Analysis"
+  },
+  "question": {
+   "type": "text",
+   "label": "Question"
+  },
+  "status": {
+   "type": "text",
+   "label": "Status"
+  },
+  "parts": {
+   "type": "list",
+   "label": "Parts considered"
+  },
+  "part_ids": {
+   "type": "list",
+   "hidden": true
+  },
+  "parts_count": {
+   "type": "number",
+   "label": "Parts"
+  },
+  "decision": {
+   "type": "text",
+   "label": "Decision"
+  },
+  "decision_id": {
+   "type": "text",
+   "hidden": true
+  },
+  "date": {
+   "type": "date",
+   "label": "Date"
+  },
+  "author": {
+   "type": "text",
+   "label": "Author"
+  },
+  "tags": {
+   "type": "list",
+   "label": "Tags"
+  },
+  "visibility": {
+   "type": "text",
+   "label": "Visibility"
+  },
+  "url": {
+   "type": "text",
+   "hidden": true
+  },
+  "path": {
+   "type": "text",
+   "label": "File"
+  }
+ },
+ "rows": [
+  {
+   "id": "pid-gains",
+   "title": "Analytic or tuned gains, robot by robot",
+   "question": "Does the tuning rung beat the analytic rung on every robot, or should some ship with analytic gains?",
+   "status": "decided",
+   "parts": [
+    "conveyor",
+    "five_bar",
+    "gantry",
+    "hand_2",
+    "hand_3",
+    "hand_6",
+    "hand_9",
+    "lever",
+    "ur5e"
+   ],
+   "part_ids": [
+    "conveyor",
+    "five_bar",
+    "gantry",
+    "hand_2",
+    "hand_3",
+    "hand_6",
+    "hand_9",
+    "lever",
+    "ur5e"
+   ],
+   "parts_count": 9,
+   "decision": null,
+   "decision_id": null,
+   "date": "2026-10-26",
+   "author": "pidtuna (example)",
+   "tags": [
+    "pid",
+    "tuning"
+   ],
+   "visibility": "public",
+   "url": "pid-gains.html",
+   "path": "pid-gains.md"
+  },
+  {
+   "id": "shoulder-actuator",
+   "title": "Shoulder actuator for a 1-DOF arm",
+   "question": "Which actuator should drive the shoulder of a 1-DOF arm holding 0.3 kg at 0.25 m, under $150?",
+   "status": "decided",
+   "parts": [
+    "Steadywin GIM4305-10",
+    "Steadywin GIM6010-8",
+    "Damiao DM-J4310-2EC",
+    "JMC 60ASM400-5-1024C"
+   ],
+   "part_ids": [
+    "aifitlab-8541438771336",
+    "aifitlab-8542347853960",
+    "aifitlab-8565793194120",
+    "jmc-60asm400-5-1024c"
+   ],
+   "parts_count": 4,
+   "decision": "Steadywin GIM4305-10",
+   "decision_id": "aifitlab-8541438771336",
+   "date": "2026-10-26",
+   "author": "robotparts.dev (example)",
+   "tags": [
+    "actuator",
+    "arm"
+   ],
+   "visibility": "public",
+   "url": "shoulder-actuator.html",
+   "path": "shoulder-actuator.md"
+  },
+  {
+   "id": "sim-to-real-twin",
+   "title": "Which motor's twin to tune controllers on",
+   "question": "Of the rack's eight motor twins, which is close enough to its real motor to tune a controller in simulation first?",
+   "status": "decided",
+   "parts": [
+    "CAN 14",
+    "CAN 15",
+    "CAN 4",
+    "CAN 1",
+    "CAN 13",
+    "CAN 12",
+    "CAN 21",
+    "CAN 11"
+   ],
+   "part_ids": [
+    "CAN 14",
+    "CAN 15",
+    "CAN 4",
+    "CAN 1",
+    "CAN 13",
+    "CAN 12",
+    "CAN 21",
+    "CAN 11"
+   ],
+   "parts_count": 8,
+   "decision": "CAN 14",
+   "decision_id": "CAN 14",
+   "date": "2026-10-26",
+   "author": "BAM rig (example)",
+   "tags": [
+    "sim-to-real",
+    "rack"
+   ],
+   "visibility": "public",
+   "url": "sim-to-real-twin.html",
+   "path": "sim-to-real-twin.md"
+  }
+ ]
+}

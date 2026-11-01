@@ -1,0 +1,54 @@
+# One actuator model's page: what it is (contract kind and equation), what the twin runs, its error, its fitted terms,
+# the commit it was fitted with and the twin code's README at that commit. The rail picks the model; a link from the
+# models case opens it as ?variant=<model>. Configuration only over the models case's data file (CONTRACT §16).
+# Check it: node bin/data-ui.mjs check <this file>
+data: ../robotparts-models/models.json
+facets:
+  - { property: variant, as: select, label: Model }
+  - actuator
+properties:
+  variant: { displayName: Model }
+  actuator: { displayName: Actuator }
+  rung: { displayName: Rung }
+  family: { displayName: Family }
+  description: { displayName: What it is }
+  readme: { displayName: README (at the fit commit) }
+  code_commit: { displayName: Fitted with commit }
+  code_path: { displayName: Code (local) }
+  code_hosted: { displayName: Hosted }
+  code_url: { displayName: Code on GitHub }
+  headline_x: { displayName: Held-out error }
+  dataset_x: { displayName: Dataset }
+  worst_class_x: { displayName: Worst class }
+  floor_tape_x: { displayName: Floor tape }
+  twin_grade: { displayName: Twin-grade }
+  benches: { displayName: Benches }
+  n_runs: { displayName: Runs }
+  coulomb: { displayName: Coulomb }
+  viscous: { displayName: Viscous }
+  weakening: { displayName: Weakening }
+  ripple: { displayName: Ripple RMS }
+  backlash: { displayName: Backlash }
+  inertia: { displayName: Inertia }
+  kt: { displayName: Kt (output) }
+  current_loop: { displayName: Current loop }
+views:
+  - type: record
+    name: Model
+    filters: 'kind == "model"'
+    record:
+      sections:
+        - { name: Model, properties: [variant, actuator, rung, family, description] }
+        - { name: Error, properties: [headline_x, dataset_x, worst_class_x, floor_tape_x, twin_grade, benches, n_runs] }
+        - { name: Fitted terms, properties: [coulomb, viscous, weakening, ripple, backlash, inertia, kt, current_loop] }
+        - { name: Code, properties: [code_commit, code_hosted, code_url, code_path, readme] }
+  - type: table
+    name: Actuators it ran on
+    intro:
+      text: |
+        Every actuator this model is defined on, with its error on each bench (× that actuator's floor). "—" is a
+        bench it did not run.
+    filters: 'kind == "model"'
+    order: [actuator, headline_x, dataset_x, worst_class_x, floor_tape_x, twin_grade, n_runs, code_commit]
+    sort:
+      - { property: headline_x, direction: ASC }

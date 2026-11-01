@@ -1,0 +1,209 @@
+/* The Examples index (site/gallery.js): a picture per case, search and compact filters, a column slider, two groupings
+   and five layouts, each a UI or data-viz library's examples page. One DOM for all five; main.gallery[data-layout]
+   picks the CSS. --cols comes from the slider (clamped to what fits). */
+.gallery { --cols: 5; --gap: 14px; --aspect: 16 / 10; max-width: 1560px; }
+.gallery-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 0 0 10px; }
+.gallery-head h1 { font-size: 24px; margin: 0; }
+.gallery-head .lede { font-size: 13.5px; margin: 0; max-width: none; }
+
+/* the top row (every layout without a sidebar): search and the filters left, the count, grouping and slider right */
+.gallery-body { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 20px; align-items: start; }
+.gallery .g-main { display: contents; }
+.gallery .g-rail { grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: flex-start; }
+.gallery .g-bar { grid-column: 2; grid-row: 1; flex-direction: column; align-items: flex-end; gap: 6px; }
+.gallery .g-groups, .gallery .empty-note { grid-column: 1 / -1; }
+.gallery .panel-head, .gallery .toc { display: none; }
+.g-search { font: inherit; font-size: 13px; width: 230px; max-width: 100%; height: 30px; padding: 0 10px; border: 1px solid var(--border); border-radius: 7px; background: var(--background); color: var(--foreground); }
+.g-search:focus { outline: 2px solid var(--ring); outline-offset: 0; }
+.gallery .filters { gap: 6px; margin: 0; min-width: 0; flex: 1 1 400px; }
+.gallery .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; gap: 4px; padding-bottom: 2px; min-width: 0; }
+.gallery .chips-label { width: 36px; font-size: 12px; }
+.gallery .chip { font-size: 12px; padding: 2px 9px; white-space: nowrap; flex: 0 0 auto; }
+
+.g-bar { position: sticky; top: 49px; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 0; margin: 0 0 8px; background: color-mix(in srgb, var(--background) 94%, transparent); backdrop-filter: blur(6px); }
+.gallery .filter-count { margin: 0; }
+.cols { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted-foreground); }
+.cols label { display: flex; align-items: center; gap: 6px; }
+.cols-range { width: 140px; accent-color: var(--foreground); touch-action: pan-y; }
+.cols-step { font: inherit; width: 26px; height: 26px; border: 1px solid var(--border); background: var(--background); color: var(--foreground); border-radius: 6px; cursor: pointer; line-height: 1; }
+.cols-step:hover { background: var(--accent); }
+.cols-out { min-width: 3.2em; font-variant-numeric: tabular-nums; color: var(--foreground); }
+.group-by { display: inline-flex; align-items: center; gap: 2px; padding: 2px; background: var(--muted); border-radius: 8px; font-size: 12px; }
+.group-by .cols-label { color: var(--muted-foreground); padding: 0 6px; }
+.group-by button { font: inherit; border: 0; background: none; color: var(--muted-foreground); padding: 2px 9px; border-radius: 6px; cursor: pointer; }
+.group-by button[aria-pressed="true"] { background: var(--background); color: var(--foreground); box-shadow: 0 1px 2px rgba(0, 0, 0, .08); }
+
+/* the grid */
+.gallery .cards { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); gap: var(--gap); }
+.gallery .group { margin: 0 0 24px; scroll-margin-top: 100px; }
+.gallery .group h2 { font-size: 15px; margin: 0 0 8px; }
+.gallery .group[hidden], .gallery .card[hidden], .gallery .src-pane[hidden] { display: none !important; }
+.g-groups { touch-action: pan-x pan-y; }
+
+/* a card: the picture, then the caption (shadcn and Ant Design reorder it) */
+.gallery .card { display: flex; flex-direction: column; gap: 7px; padding: 0; border: 0; border-radius: 0; background: none; min-width: 0; position: relative; scroll-margin-top: 110px; }
+.gallery .card:hover { border-color: transparent; }
+.gallery .card .frame { order: 1; position: relative; min-width: 0; }
+.gallery .card .cap { order: 2; min-width: 0; }
+.gallery .card .meta { order: 3; display: none; margin: 0; flex-wrap: wrap; align-items: center; gap: 4px; font-size: 11.5px; color: var(--muted-foreground); }
+.gallery .card .pv-bar, .gallery .card .tabs { display: none; }
+.card-link { display: block; text-decoration: none; border-radius: 10px; }
+.card-link:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+.shot { position: relative; aspect-ratio: var(--aspect); overflow: hidden; border: 1px solid var(--border); border-radius: 9px; background: var(--muted); }
+.card-link:hover .shot { border-color: var(--ring); }
+.shot img.t { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block; }
+/* the picture in the page's theme: a lazy image that is display:none is never fetched */
+.shot img.t-dark, .insp-views img.t-dark { display: none; }
+:root[data-theme="dark"] .shot img.t-light, :root[data-theme="dark"] .insp-views img.t-light { display: none; }
+:root[data-theme="dark"] .shot img.t-dark, :root[data-theme="dark"] .insp-views img.t-dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .shot img.t-light, :root:not([data-theme="light"]) .insp-views img.t-light { display: none; }
+  :root:not([data-theme="light"]) .shot img.t-dark, :root:not([data-theme="light"]) .insp-views img.t-dark { display: block; }
+}
+.shot-live { position: absolute; inset: 0; overflow: hidden; background: var(--background); pointer-events: none; }
+.shot-live data-views { position: absolute; top: 0; left: 0; width: 200%; --data-height: 200%; height: 200%; transform: scale(.5); transform-origin: 0 0; border: 0; }
+.shot-live data-views .dv-status { display: none; }
+.live-slot { display: none; }
+/* hover flips through the case's views: one segment per view */
+.scrub { position: absolute; left: 8px; right: 8px; bottom: 6px; display: flex; gap: 3px; opacity: 0; transition: opacity .12s; pointer-events: none; }
+.scrub i { flex: 1; height: 3px; border-radius: 2px; background: rgba(127, 127, 127, .45); }
+.scrub i.on { background: var(--foreground); }
+.shot-view { position: absolute; left: 6px; top: 6px; max-width: calc(100% - 12px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; padding: 1px 7px; border-radius: 999px; background: color-mix(in srgb, var(--background) 88%, transparent); border: 1px solid var(--border); opacity: 0; transition: opacity .12s; pointer-events: none; }
+.card-link:hover .scrub, .card-link:hover .shot-view { opacity: 1; }
+.shot[data-n="1"] .scrub { display: none; }
+.cap h3 { font-size: 13.5px; margin: 0; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cap h3 a { text-decoration: none; }
+.cap h3 a:hover { text-decoration: underline; }
+.cap .line { margin: 2px 0 0; color: var(--muted-foreground); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.g-inspector { display: none; }
+
+/* side panels (ECharts' and Storybook's sidebar, Storybook's Docs): dragged, remembered, folded */
+.gallery[data-layout="echarts"] .gallery-body, .gallery[data-layout="storybook"] .gallery-body { grid-template-columns: auto minmax(0, 1fr); gap: 0 20px; }
+.gallery[data-layout="storybook"] .gallery-body { grid-template-columns: auto minmax(0, 1fr) auto; }
+.gallery[data-layout="echarts"] .g-main, .gallery[data-layout="storybook"] .g-main { display: block; grid-column: 2; grid-row: 1; min-width: 0; }
+.gallery[data-layout="echarts"] .g-bar, .gallery[data-layout="storybook"] .g-bar { flex-direction: row; flex-wrap: wrap; justify-content: flex-end; }
+.gallery[data-layout="echarts"] .g-bar .filter-count, .gallery[data-layout="storybook"] .g-bar .filter-count { margin-right: auto; }
+.gallery[data-layout="echarts"] .g-rail, .gallery[data-layout="storybook"] .g-rail { grid-column: 1; grid-row: 1; position: sticky; top: 60px; max-height: calc(100vh - 72px); overflow: auto; display: flex; flex-direction: column; flex-wrap: nowrap; gap: 10px; width: var(--data-panel-width, 210px); padding: 0 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); }
+.gallery[data-layout="storybook"] .g-rail { width: var(--data-panel-width, 250px); }
+.gallery[data-layout="echarts"] .panel-head, .gallery[data-layout="storybook"] .panel-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 0 0; font-size: 12px; color: var(--muted-foreground); position: sticky; top: 0; background: var(--card); z-index: 1; }
+.gallery[data-layout="echarts"] .g-search, .gallery[data-layout="storybook"] .g-search { width: 100%; }
+.gallery[data-layout="echarts"] .toc, .gallery[data-layout="storybook"] .toc { display: block; }
+.gallery[data-layout="echarts"] .filters, .gallery[data-layout="storybook"] .filters { flex: 0 0 auto; gap: 8px; border-top: 1px solid var(--border); padding-top: 10px; }
+.gallery[data-layout="echarts"] .chips, .gallery[data-layout="storybook"] .chips { flex-wrap: wrap; overflow: visible; }
+.gallery[data-layout="echarts"] .chips-label, .gallery[data-layout="storybook"] .chips-label { width: 100%; }
+.gallery[data-layout="storybook"] .g-inspector { display: block; grid-column: 3; grid-row: 1; position: sticky; top: 60px; max-height: calc(100vh - 72px); overflow: auto; width: var(--data-panel-width, 320px); border: 1px solid var(--border); border-radius: 10px; background: var(--card); }
+.gallery[data-layout="storybook"] .g-inspector .panel-head { padding: 8px 12px; }
+.fold { font: inherit; border: 1px solid var(--border); background: var(--background); color: var(--muted-foreground); border-radius: 6px; width: 24px; height: 22px; cursor: pointer; line-height: 1; }
+.fold:hover { color: var(--foreground); background: var(--accent); }
+.gallery.fold-rail .g-rail, .gallery.fold-inspector .g-inspector { width: 38px !important; padding: 0 6px; overflow: hidden; }
+.gallery.fold-rail .g-rail > :not(.panel-head), .gallery.fold-inspector .g-inspector > :not(.panel-head) { display: none !important; }
+.gallery.fold-rail .g-rail .panel-head span, .gallery.fold-inspector .g-inspector .panel-head span { display: none; }
+.gallery.fold-rail .g-rail .fold, .gallery.fold-inspector .g-inspector .fold { transform: scaleX(-1); }
+.gallery.fold-inspector .g-inspector .panel-head { padding: 8px 0; }
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc a { text-decoration: none; color: var(--muted-foreground); }
+.toc a:hover { color: var(--foreground); }
+.toc .n { font-size: 11px; opacity: .7; font-variant-numeric: tabular-nums; }
+
+/* 3. ECharts examples: a category sidebar beside a dense grid of pictures, the title under each */
+.gallery[data-layout="echarts"] { --gap: 16px; max-width: 1640px; }
+.gallery[data-layout="echarts"] .toc li a { display: flex; justify-content: space-between; padding: 4px 8px; border-radius: 6px; font-size: 13px; border-left: 2px solid transparent; }
+.gallery[data-layout="echarts"] .toc li a.on { color: var(--foreground); background: var(--muted); border-left-color: var(--foreground); font-weight: 600; }
+.gallery[data-layout="echarts"] .group h2 { font-size: 16px; border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 12px; }
+.gallery[data-layout="echarts"] .cap { text-align: center; }
+.gallery[data-layout="echarts"] .cap .line { display: none; }
+.gallery[data-layout="echarts"] .cap h3 { font-weight: 500; font-size: 13px; }
+
+/* 1. Index (the default): round one's Observable-style grid, a title and one line under each picture, with Vega-Lite's
+   nested contents by view type on top */
+.gallery[data-layout="index"] { --gap: 16px; }
+.gallery[data-layout="index"] .g-rail { margin-bottom: 16px; }
+.gallery[data-layout="index"] .toc { display: block; flex: 1 1 100%; min-width: 0; overflow: hidden; order: 3; border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; background: var(--card); }
+.gallery[data-layout="index"] .toc > ul { columns: 5 170px; column-gap: 22px; }
+.gallery[data-layout="index"] .toc > ul > li { break-inside: avoid; margin: 0 0 6px; }
+.gallery[data-layout="index"] .toc .toc-group { color: var(--foreground); font-weight: 600; font-size: 13px; }
+.gallery[data-layout="index"] .toc li li { font-size: 12px; line-height: 1.45; padding-left: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gallery[data-layout="index"] .group h2 { font-size: 16px; margin-bottom: 8px; }
+
+/* 2. shadcn/ui blocks and charts: few, large; Preview is the live kit, .base is the source, the views as tabs */
+.gallery[data-layout="shadcn"] { --gap: 20px; }
+.gallery[data-layout="shadcn"] .card { border: 1px solid var(--border); border-radius: 12px; background: var(--card); gap: 0; overflow: hidden; }
+.gallery[data-layout="shadcn"] .card .cap { order: 1; padding: 14px 16px 8px; }
+.gallery[data-layout="shadcn"] .cap h3 { font-size: 15px; }
+.gallery[data-layout="shadcn"] .cap .line { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.gallery[data-layout="shadcn"] .card .pv-bar { order: 2; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 16px 10px; }
+.pv-bar .seg { display: inline-flex; padding: 2px; gap: 2px; background: var(--muted); border-radius: 8px; }
+.pv-bar .seg button { font: inherit; font-size: 12px; border: 0; background: none; color: var(--muted-foreground); padding: 3px 10px; border-radius: 6px; cursor: pointer; }
+.pv-bar .seg button[aria-selected="true"] { background: var(--background); color: var(--foreground); box-shadow: 0 1px 2px rgba(0, 0, 0, .08); }
+.pv-bar .seg button:nth-child(2) { font-family: var(--font-mono); }
+.pv-bar .open { font-size: 12.5px; text-decoration: none; color: var(--muted-foreground); }
+.pv-bar .open:hover { color: var(--foreground); }
+.gallery[data-layout="shadcn"] .card .frame { order: 3; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.gallery[data-layout="shadcn"] .shot { border: 0; border-radius: 0; }
+.gallery[data-layout="shadcn"] .card.is-live .live-slot { display: block; position: absolute; inset: 0; background: var(--background); overflow: hidden; }
+.gallery[data-layout="shadcn"] .live-slot data-views { height: 100%; --data-height: 100%; border: 0; border-radius: 0; }
+.gallery[data-layout="shadcn"] .src-pane { position: absolute; inset: 0; z-index: 2; margin: 0; border: 0; border-radius: 0; }
+.gallery[data-layout="shadcn"] .src-pane pre { max-height: none; flex: 1 1 auto; overflow: auto; }
+.gallery[data-layout="shadcn"] .card .tabs { order: 4; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: thin; padding: 8px 12px; }
+.gallery[data-layout="shadcn"] .tabs button { font: inherit; font-size: 12px; border: 0; background: none; color: var(--muted-foreground); padding: 3px 9px; border-radius: 6px; cursor: pointer; white-space: nowrap; flex: 0 0 auto; }
+.gallery[data-layout="shadcn"] .tabs button:hover { color: var(--foreground); background: var(--accent); }
+.gallery[data-layout="shadcn"] .tabs button[aria-selected="true"] { background: var(--muted); color: var(--foreground); }
+.gallery[data-layout="shadcn"] .scrub, .gallery[data-layout="shadcn"] .shot-view { display: none; }
+
+/* 4. Ant Design's components overview: a search box, then bordered cards with the name on top and the picture inset */
+.gallery[data-layout="antd"] { --gap: 16px; }
+.gallery[data-layout="antd"] .g-search { width: 340px; height: 36px; font-size: 14px; }
+.gallery[data-layout="antd"] .group h2 { font-size: 16px; }
+.gallery[data-layout="antd"] .group h2 .n { font-size: 11.5px; background: var(--muted); border-radius: 999px; padding: 0 7px; color: var(--muted-foreground); font-weight: 500; }
+.gallery[data-layout="antd"] .card { border: 1px solid var(--border); border-radius: 8px; background: var(--card); gap: 0; overflow: hidden; transition: box-shadow .15s; }
+.gallery[data-layout="antd"] .card:hover { box-shadow: 0 4px 16px rgba(0, 0, 0, .12); }
+.gallery[data-layout="antd"] .card .cap { order: 1; padding: 9px 12px; border-bottom: 1px solid var(--border); }
+.gallery[data-layout="antd"] .cap h3 { font-weight: 500; font-size: 13px; }
+.gallery[data-layout="antd"] .cap .line { display: none; }
+.gallery[data-layout="antd"] .card .frame { order: 2; padding: 12px; background: var(--muted); }
+.gallery[data-layout="antd"] .shot { border-radius: 4px; }
+
+/* 5. Storybook: a tree sidebar (type, example, view), the canvas, and a Docs panel for the example under the pointer */
+.gallery[data-layout="storybook"] { max-width: none; --gap: 14px; }
+.gallery[data-layout="storybook"] .toc { font-size: 13px; }
+.gallery[data-layout="storybook"] .toc summary { cursor: pointer; padding: 3px 4px; border-radius: 5px; list-style-position: inside; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gallery[data-layout="storybook"] .toc summary:hover { background: var(--accent); }
+.gallery[data-layout="storybook"] .toc > details > summary { font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin-top: 6px; }
+.gallery[data-layout="storybook"] .toc > details > summary a { color: var(--muted-foreground); }
+.gallery[data-layout="storybook"] .toc ul ul { padding-left: 16px; }
+.gallery[data-layout="storybook"] .toc ul ul a { display: block; padding: 2px 4px; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gallery[data-layout="storybook"] .toc details details summary a { color: var(--foreground); }
+.gallery[data-layout="storybook"] .toc code { font-size: 10px; }
+.insp-body { padding: 0 14px 14px; }
+.insp-body h2 { font-size: 17px; margin: 4px 0 8px; }
+.insp-body h3 { font-size: 12.5px; margin: 14px 0 6px; color: var(--muted-foreground); font-weight: 600; }
+.insp-app { margin: 0; font-size: 12px; color: var(--muted-foreground); }
+.insp-summary { margin: 0; font-size: 13px; color: var(--muted-foreground); }
+.insp-views { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.insp-views a { display: flex; flex-direction: column; gap: 3px; text-decoration: none; font-size: 11.5px; position: relative; }
+.insp-views img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: left top; border: 1px solid var(--border); border-radius: 6px; background: var(--muted); }
+.insp-views code { font-size: 10px; }
+
+/* the temporary switcher between the five proposals (bottom right; remembered; never a URL flag) */
+.layout-switch { position: fixed; right: 14px; bottom: 14px; z-index: 50; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 6px 8px; box-shadow: 0 6px 24px rgba(0, 0, 0, .18); font-size: 12px; max-width: calc(100vw - 28px); }
+.layout-switch label { display: flex; align-items: center; gap: 6px; color: var(--muted-foreground); }
+.layout-switch select { font: inherit; color: var(--foreground); background: var(--background); border: 1px solid var(--border); border-radius: 6px; padding: 3px 6px; max-width: 100%; min-width: 0; }
+
+@media (max-width: 760px) {
+  .gallery .gallery-body, .gallery[data-layout] .gallery-body { grid-template-columns: minmax(0, 1fr); }
+  .gallery[data-layout] .g-rail { grid-column: 1; grid-row: 1; position: static; width: auto !important; max-height: none; border: 0; padding: 0; background: none; }
+  .gallery[data-layout] .g-main { display: contents; }
+  .gallery[data-layout] .g-bar { grid-column: 1; grid-row: 2; position: static; flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .gallery[data-layout] .g-groups { grid-row: 3; }
+  .gallery[data-layout] .empty-note { grid-row: 4; }
+  .gallery[data-layout] .panel-head, .gallery[data-layout="echarts"] .toc, .gallery[data-layout="storybook"] .toc, .gallery[data-layout] .g-inspector { display: none; }
+  .gallery[data-layout="index"] .toc > ul { columns: 2; }
+  .gallery[data-layout="index"] .toc li li { display: none; }
+  .gallery[data-layout] .chips { flex-wrap: nowrap; overflow-x: auto; }
+  .gallery[data-layout] .chips-label { width: 36px; }
+  .gallery[data-layout] .filters { border: 0; padding: 0; }
+  .g-search, .gallery[data-layout="antd"] .g-search { width: 100%; }
+  .cols-range { width: 100px; }
+  .layout-switch span { display: none; }
+  .gallery .cap h3 { font-size: 12.5px; }
+}

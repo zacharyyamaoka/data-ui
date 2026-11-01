@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 204 64" width="204" height="64" color="#0E100E" role="img" aria-label="robotparts, One stud">
+<title>robotparts, One stud</title>
+<defs><mask id="kl01" maskUnits="userSpaceOnUse" x="-10" y="-10" width="224" height="84"><rect x="-10" y="-10" width="224" height="84" fill="#fff"/><g fill="#000"><text x="148" y="45" font-family="'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif" font-size="30" font-weight="700" text-anchor="middle" textLength="84" lengthAdjust="spacingAndGlyphs">parts</text></g><g fill="#fff"></g></mask></defs><g fill="currentColor" mask="url(#kl01)"><rect x="94" y="20" width="108" height="36" rx="3"/><path d="M136 22V18A6 6 0 0 1 142 12H154A6 6 0 0 1 160 18V22Z"/></g>
+<g fill="currentColor"><text x="0" y="45" font-family="'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif" font-size="32" font-weight="400" text-anchor="start" textLength="88" lengthAdjust="spacingAndGlyphs">robot</text></g>
+</svg>

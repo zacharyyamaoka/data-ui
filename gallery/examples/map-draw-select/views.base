@@ -1,0 +1,18 @@
+# Draw a polygon to count food places inside it (docs/CONTRACT.md §42: draw).
+data: ../map-food-heatmap/food.json
+properties:
+  kind: { displayName: Kind }
+  seats: { displayName: Seats }
+views:
+  - type: map
+    name: Draw an area
+    coordinates: location
+    mapTiles: ../map-food-heatmap/metro-vancouver.pmtiles
+    draw: true
+    drawBy: kind
+    layers:
+      - { type: points, color: kind, radius: 2.5, title: Food places by kind }
+  - type: table
+    name: Places
+    groupBy: { property: kind, direction: ASC }
+    order: [kind, seats, location]

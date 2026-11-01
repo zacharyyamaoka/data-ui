@@ -1,0 +1,11 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1. WebGL goes through the page's one shared context (src/gl.js, globalThis.__dataUiGL). trajectory3d and voxels are registered from this bundle, as the chart bundle registers three types (docs/CONTRACT.md §32).",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [
+    { "type": "scene3d", "name": "3D scene", "icon": "box", "summary": "3D primitives from any columns (points, lines, frames, arrows, arcs, meshes, boxes; Rerun's archetypes) and PEP 0005's paths with a marker at the clock's t and a stick or meshed robot; a stage with perspective or a face (orthographic, equal scale, axes), three's view cube, the trail (decay in seconds) and the density dial; one WebGL context for the page, drawn on demand." },
+    { "type": "trajectory3d", "name": "Trajectory 3D", "icon": "route", "summary": "The trajectory contract's viewer: one path per situation in its family's hue, per-trajectory display modes (line, points, frames, Z only), compare arrows and Z-arcs from the difference rows, a robot per trajectory, decay, density, the view cube and the six faces, all written to the view entry." },
+    { "type": "voxels", "name": "Voxels", "icon": "grid-3x3", "summary": "The discretised space (Rerun's VoxelGridMap, BAM Reach's map): rows binned into cells (count, time, distinct runs, or a pre-gridded property's summary), as boxes at 0.8 × the cell in 3D with the slice solid and the rest faded, or from a face as an image heatmap of the slice (a DataTexture, crisp cells, axes in the scene's unit); one sequential ramp in the family's hue; the slice steps one cell at a time; scene3d's stage, cube and workspace." }
+  ],
+  "npm": ["three@0.186.1"]
+}

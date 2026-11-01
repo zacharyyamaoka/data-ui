@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arrange fixture</title>
+<!-- tests/browser/arrange_checks.py: a <data-dashboard> over views.base. Served from the repo root, so the kit is /dist/. -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: #fff; color: #111; }
+  @media (prefers-color-scheme: dark) { body { background: #111; color: #eee; } }
+</style>
+<script type="module">
+  import * as kit from '/dist/data-ui.js';
+  await import('/dist/dashboard.js');
+  window.kit = kit;
+  window.kitReady = true;
+</script>
+</head>
+<body>
+<data-dashboard id="example" src="views.base" no-url></data-dashboard>
+</body>
+</html>

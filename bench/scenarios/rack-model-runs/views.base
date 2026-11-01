@@ -1,0 +1,197 @@
+# Rack model runs: the 1-DOF test rack's actuator models, their runs and the terms each rung adds (robotparts
+# lane/models-views @ a163e1a): the leaderboard, pivot and parameters cases as one .base over one data file
+# (models.json: kind model | run | term); each view filters to its kind.
+data: models.json
+facets:
+  - actuator
+  - rung
+  - family
+  - { property: benches, label: Bench }
+  - twin_grade
+  - bench
+  - test
+properties:
+  actuator: { displayName: Actuator }
+  variant: { displayName: Model }
+  rung: { displayName: Rung }
+  family: { displayName: Family }
+  leader: { displayName: Best model }
+  headline_x: { displayName: Held-out error }
+  headline_mrad: { displayName: Held-out q RMS }
+  dataset_x: { displayName: Dataset }
+  worst_class_x: { displayName: Worst class }
+  worst_class: { displayName: Class }
+  floor_tape_x: { displayName: Floor tape }
+  oct25_x: { displayName: Oct 25 seeds }
+  twin_grade: { displayName: Twin-grade }
+  runner_up_x: { displayName: Runner-up }
+  n_runs: { displayName: Runs }
+  rank: { displayName: Rank }
+  rank_desc: { displayName: Models ranked }
+  ladder_step: { displayName: Ladder step }
+  bench: { displayName: Bench }
+  test: { displayName: Test }
+  run: { displayName: Run }
+  q_rms_mrad: { displayName: q RMS }
+  x_floor: { displayName: × floor }
+  benches: { displayName: Benches }
+  coulomb: { displayName: Coulomb }
+  viscous: { displayName: Viscous }
+  breakaway: { displayName: Breakaway }
+  stribeck_velocity: { displayName: Stribeck velocity }
+  weakening: { displayName: Weakening }
+  capture_fraction: { displayName: Capture fraction }
+  capture_speed: { displayName: Capture speed }
+  capture_dwell: { displayName: Capture dwell }
+  ripple: { displayName: Ripple RMS }
+  backlash: { displayName: Backlash }
+  gear_stiffness: { displayName: Gear stiffness }
+  inertia: { displayName: Inertia }
+  torque_scale: { displayName: Torque scale }
+  kt: { displayName: Kt (output) }
+  current_loop: { displayName: Current loop }
+  latency: { displayName: Latency }
+  resistance: { displayName: R (phase) }
+  inductance: { displayName: Lq }
+  kv: { displayName: Kv }
+  winding_rth: { displayName: Winding Rth }
+  term: { displayName: Term switched off }
+  delta_mrad: { displayName: Error added }
+  delta_x: { displayName: Added × floor }
+  term_note: { displayName: What it models }
+views:
+  - type: kpi
+    name: Best per actuator
+    filters:
+      and:
+        - 'kind == "model"'
+        - '!headline_x.isEmpty()'
+    groupBy: { property: leader }
+    kpi:
+      value: { property: headline_x }
+      compare: { against: runner_up_x, better: lower, neutral: 0.02 }
+      spark: { x: rank_desc, y: headline_x }
+      gate: { max: 1.5 }
+  - type: table
+    name: Ranked
+    filters:
+      and:
+        - 'kind == "model"'
+        - '!headline_x.isEmpty()'
+    order: [variant, actuator, rung, headline_x, headline_mrad, dataset_x, worst_class_x, floor_tape_x, twin_grade, n_runs]
+    sort:
+      - { property: headline_x, direction: ASC }
+    display: { headline_x: bar, headline_mrad: dist }
+  - type: chart
+    name: Rung ladder
+    filters:
+      and:
+        - 'kind == "model"'
+        - '!headline_x.isEmpty()'
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: ladder_step, title: "the model ladder, simplest first" }
+        y: { field: headline_x, scale: { type: log }, title: "held-out error (× floor)" }
+        color: { field: actuator }
+    guides:
+      - { rule: { y: 1.5 }, label: "twin-grade ≤ 1.5 × floor" }
+    hover: { title: variant, fields: [actuator, headline_x, headline_mrad, rank, twin_grade] }
+  - type: table
+    name: Runs behind it
+    filters: 'kind == "run"'
+    order: [variant, bench, test, run, q_rms_mrad, x_floor]
+    groupBy: { property: actuator }
+    subGroupBy: { property: variant }
+    sort:
+      - { property: x_floor, direction: ASC }
+    summaries: { q_rms_mrad: Median, x_floor: Median }
+    display: { x_floor: bar }
+    fold: closed
+  - type: pivot
+    name: By rung
+    filters:
+      and:
+        - 'kind == "run"'
+        - '!x_floor.isEmpty()'
+    order: [variant, actuator]
+    groupBy: { property: rung, direction: ASC }
+    splitBy: [bench, test]
+    value: { property: x_floor, summary: Median, display: dist }
+  - type: pivot
+    name: By family
+    filters:
+      and:
+        - 'kind == "run"'
+        - '!x_floor.isEmpty()'
+    order: [variant, actuator]
+    groupBy: { property: family, direction: ASC }
+    splitBy: [bench, test]
+    value: { property: x_floor, summary: Median, display: dist }
+  - type: pivot
+    name: Rung × family
+    filters: 'kind == "run"'
+    order: [variant, actuator]
+    groupBy: { property: rung, direction: ASC }
+    subGroupBy: { property: family }
+    splitBy: [bench]
+    value: { property: x_floor, summary: Median, display: bar }
+  - type: pivot
+    name: Actuator × rung
+    filters: 'kind == "run"'
+    order: [variant]
+    groupBy: { property: actuator }
+    subGroupBy: { property: rung, direction: ASC }
+    splitBy: [bench]
+    value: { property: x_floor, summary: Median, display: sparkline }
+  - type: pivot
+    name: q RMS in mrad
+    filters: 'kind == "run"'
+    order: [variant]
+    groupBy: { property: actuator }
+    splitBy: [bench, test]
+    value: { property: q_rms_mrad, summary: Median, display: number }
+  - type: table
+    name: Friction
+    filters: 'kind == "model"'
+    order: [variant, actuator, coulomb, viscous, breakaway, stribeck_velocity, weakening, capture_fraction, capture_speed, headline_x]
+    groupBy: { property: rung, direction: ASC }
+    units: column
+  - type: table
+    name: Drivetrain
+    filters: 'kind == "model"'
+    order: [variant, actuator, ripple, backlash, gear_stiffness, inertia, torque_scale, headline_x]
+    groupBy: { property: rung, direction: ASC }
+  - type: table
+    name: Electrics + driver
+    filters: 'kind == "model"'
+    order: [variant, actuator, kt, current_loop, latency, resistance, inductance, kv, winding_rth]
+    groupBy: { property: rung, direction: ASC }
+  - type: table
+    name: Datasheet vs fitted
+    filters:
+      and:
+        - 'kind == "model"'
+        - '!headline_x.isEmpty() || variant == "M1.datasheet"'
+    order: [variant, backlash, resistance, kv, coulomb, inertia, headline_x]
+    groupBy: { property: actuator }
+  - type: table
+    name: What each rung adds
+    filters: 'kind == "term"'
+    order: [term, actuator, delta_mrad, delta_x, term_note]
+    groupBy: { property: rung }
+    groupOrder: [M2, M3, M4, driver]
+    sort:
+      - { property: delta_x, direction: DESC }
+    summaries: { delta_x: Median }
+    display: { delta_mrad: dist, delta_x: bar }
+  - type: chart
+    name: What each term adds
+    filters: 'kind == "term"'
+    chart:
+      mark: bar
+      encoding:
+        y: { field: term, title: null }
+        x: { field: delta_x, aggregate: median, title: "error added with the term off (median × floor across actuators)" }
+        color: { field: rung }
+    hover: { title: term, fields: [actuator, delta_mrad, delta_x] }

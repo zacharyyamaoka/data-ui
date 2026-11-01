@@ -1,0 +1,33 @@
+{
+ "id": "gates",
+ "title": "Gates",
+ "titleProperty": "gate",
+ "source": "synthetic: tests/browser/fixtures/dx_asks_2/make_fixture.py (illustrative numbers)",
+ "properties": {
+  "id": {
+   "type": "text"
+  },
+  "t": {
+   "type": "number",
+   "unit": "s"
+  },
+  "device": {
+   "type": "text",
+   "label": "Device"
+  },
+  "gate": {
+   "type": "text",
+   "label": "Gate"
+  },
+  "rank": {
+   "type": "number",
+   "label": "Rank",
+   "labels": {
+    "0": "pass",
+    "1": "warn",
+    "4": "fail"
+   }
+  }
+ },
+ "rows": []
+}

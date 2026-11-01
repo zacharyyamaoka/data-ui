@@ -1,0 +1,90 @@
+/* type: video, video-compare, image. Colours are the private --dv-* tokens; the letterbox is --dv-media-ink, which the
+   view sets from the tokens (the page's ink in light, its background in dark), so a picture always sits on dark. */
+
+.dv-view-video, .dv-view-video-compare, .dv-view-image { --dv-media-ink: var(--dv-fg); --dv-media-on: var(--dv-bg); flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: hidden; background: transparent; }
+.dv-media-card { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 8px; color: var(--dv-fg); font: 13px/1.35 var(--dv-font); }
+.dv-media-none { margin: auto; padding: 16px; color: var(--dv-muted); text-align: center; }
+.dv-media-none b { display: block; font-size: 22px; font-weight: 500; color: var(--dv-muted); }
+.dv-media-none[hidden], .dv-media-bar[hidden], .dv-media-strip[hidden] { display: none; }
+
+/* the picture: a dark letterbox with rounded corners (style.radius), the clip contained in it */
+.dv-media-frame { position: relative; flex: 1 1 auto; min-height: 120px; overflow: hidden; border-radius: var(--dv-media-r, 10px);
+  background: var(--dv-media-ink); color: var(--dv-media-on); container-type: size; display: flex; align-items: center; justify-content: center; }
+.dv-media-frame[hidden] { display: none; }
+.dv-media-frame video { display: block; width: 100%; height: 100%; object-fit: contain; background: transparent; }
+.dv-view-video .dv-media-frame { cursor: pointer; }
+.dv-view-video .dv-media-frame:focus-visible, .dv-media-handle:focus-visible, .dv-media-modes button:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 2px; }
+
+/* the slim overlay: a play glyph while the clock is paused, and the clock's time */
+.dv-media-hud { position: absolute; left: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px 3px 7px;
+  border-radius: 999px; background: color-mix(in srgb, var(--dv-media-ink) 72%, transparent); color: var(--dv-media-on);
+  font: 500 11.5px/1.3 var(--dv-mono); font-variant-numeric: tabular-nums; pointer-events: none; backdrop-filter: blur(4px); }
+.dv-media-glyph { width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 8px; border-color: transparent transparent transparent currentColor; }
+.dv-media-card[data-playing] .dv-media-glyph { display: none; }
+.dv-media-card[data-playing] .dv-media-hud { padding-left: 9px; }
+
+/* illustrative media says so on the picture itself, not only in the caption */
+.dv-media-tag { position: absolute; left: 10px; top: 10px; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600;
+  color: var(--dv-warn); background: color-mix(in srgb, var(--dv-media-ink) 80%, transparent); border: 1px dashed var(--dv-warn); pointer-events: none; }
+.dv-media-tag:empty { display: none; }
+
+/* the caption: label, then what made the clip; the row's note on hover */
+.dv-media-cap { padding: 0 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-width: 0; color: var(--dv-muted); font-size: 12px; }
+.dv-media-cap:empty { display: none; }
+.dv-media-label { display: inline-flex; align-items: center; gap: 6px; color: var(--dv-fg); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.dv-media-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--dv-media-dot, var(--dv-muted)); flex: none; }
+.dv-media-basis { font-size: 11px; line-height: 17px; padding: 0 7px; border-radius: 999px; border: 1px solid var(--dv-border); color: var(--dv-muted); white-space: nowrap; }
+.dv-media-basis[data-basis="real-camera"] { color: var(--dv-fg); }
+.dv-media-basis[data-basis="illustrative"], .dv-media-basis[data-mixed] { color: var(--dv-warn); border-color: var(--dv-warn); border-style: dashed; }
+.dv-media-basis[title], .dv-media-label[title] { cursor: help; }
+
+/* ---- video-compare: the bar (caption + the mode switch), then the stage */
+.dv-media-bar { padding: 0 2px 0 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; min-width: 0; }
+.dv-media-modes { display: inline-flex; margin-left: auto; padding: 2px; gap: 2px; border-radius: 8px; background: var(--dv-subtle); }
+.dv-media-modes button { font: 500 11.5px/1 var(--dv-font); color: var(--dv-muted); background: transparent; border: 0; border-radius: 6px; padding: 5px 9px; cursor: pointer; }
+.dv-media-modes button:hover { color: var(--dv-fg); }
+.dv-media-modes button[aria-checked="true"] { background: var(--dv-bg); color: var(--dv-fg); box-shadow: 0 0 0 1px var(--dv-border); }
+
+.dv-media-stage { position: relative; isolation: isolate; width: min(100cqw, 100cqh * var(--dv-media-ar, 1.6)); aspect-ratio: var(--dv-media-ar, 1.6); max-height: 100%; }
+.dv-media-pane { position: absolute; inset: 0; }
+.dv-media-pane video { position: absolute; inset: 0; }
+.dv-media-corner { position: absolute; top: 8px; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; line-height: 16px;
+  color: var(--dv-media-on); background: color-mix(in srgb, var(--dv-media-ink) 66%, transparent); pointer-events: none; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 5px; z-index: 2; }
+.dv-media-pa .dv-media-corner { left: 8px; }
+.dv-media-pb .dv-media-corner { right: 8px; }
+
+/* the wipe handle: a line with a grip, centred on split */
+.dv-media-handle { position: absolute; top: 0; bottom: 0; width: 24px; margin-left: -12px; cursor: ew-resize; touch-action: none; z-index: 3; display: none; }
+.dv-media-handle::before { content: ""; position: absolute; left: 11px; top: 0; bottom: 0; width: 2px; background: var(--dv-media-on); opacity: .9; }
+.dv-media-grip { position: absolute; left: 50%; top: 50%; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%;
+  background: var(--dv-media-on); box-shadow: 0 1px 4px rgba(0,0,0,.35); }
+.dv-media-grip::before, .dv-media-grip::after { content: ""; position: absolute; top: 7px; border: 4px solid transparent; }
+.dv-media-grip::before { left: 1px; border-right-color: var(--dv-media-ink); }
+.dv-media-grip::after { right: 1px; border-left-color: var(--dv-media-ink); }
+.dv-media-compare[data-mode="wipe"] .dv-media-handle { display: block; }
+
+.dv-media-compare[data-mode="difference"] video.dv-media-a { mix-blend-mode: difference; }
+
+/* onion: the opacity slider sits on the letterbox, under the picture's bottom edge */
+.dv-media-onion { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); display: none; align-items: center; gap: 8px; z-index: 4;
+  padding: 4px 10px; border-radius: 999px; font-size: 11px; color: var(--dv-media-on); background: color-mix(in srgb, var(--dv-media-ink) 72%, transparent); }
+.dv-media-onion input { width: min(160px, 40cqw); accent-color: var(--dv-accent); }
+.dv-media-compare[data-mode="onion"] .dv-media-onion { display: inline-flex; }
+
+/* side by side: two equal columns, each labelled in its own corner */
+.dv-media-compare[data-mode="side"] .dv-media-stage { display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+  width: min(100cqw, 100cqh * var(--dv-media-ar, 1.6) * 2); aspect-ratio: calc(var(--dv-media-ar, 1.6) * 2); }
+.dv-media-compare[data-mode="side"] .dv-media-pane { position: relative; inset: auto; min-width: 0; }
+.dv-media-compare[data-mode="side"] .dv-media-pb { order: 2; }
+.dv-media-compare[data-mode="side"] .dv-media-pb .dv-media-corner { right: auto; left: 8px; }
+
+/* ---- image: one picture filling the card, or a horizontal strip of them */
+.dv-media-strip { flex: 1 1 auto; min-height: 0; display: flex; gap: 10px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
+.dv-media-fig { margin: 0; flex: 1 1 100%; min-width: 0; min-height: 0; display: flex; flex-direction: column; gap: 6px; scroll-snap-align: start; }
+.dv-media-strip[data-many] .dv-media-fig { flex: 0 0 min(78%, 300px); }
+.dv-media-imgbox { flex: 1 1 auto; min-height: 80px; position: relative; border-radius: var(--dv-media-r, 10px); overflow: hidden; background: var(--dv-subtle); }
+.dv-media-imgbox img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; margin: 0; }
+.dv-media-imgbox .dv-media-none { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; }
+.dv-media-fig figcaption { padding: 0 4px; color: var(--dv-muted); font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.dv-media-fig figcaption:empty { display: none; }

@@ -1,0 +1,35 @@
+# tests/browser/arrange_checks.py: a dashboard whose Playback panel and note are one grid row tall (no h:), beside
+# panels that are several rows tall. Pressing Arrange used to collapse the one-row panels to 0 px.
+data: samples.json
+style:
+  chrome: minimal
+clock:
+  data: samples
+  time: t
+  loop: true
+  fps: 10
+datasets:
+  samples: samples.json
+layout:
+  panels:
+    - text: "**A note** — one row tall."
+      w: 12
+    - { view: Samples, w: 8, h: 3 }
+    - { view: Angle, w: 4, h: 3 }
+    - { view: Playback, w: 12 }
+    - text: "A second note, half a row of text."
+      w: 6
+    - { view: Samples again, w: 6, h: 2 }
+views:
+  - type: table
+    name: Samples
+    order: [t, angle_deg, target_deg]
+  - type: table
+    name: Angle
+    order: [t, angle_deg]
+  - type: table
+    name: Samples again
+    order: [t, target_deg]
+  - type: playback
+    name: Playback
+    playback: { speeds: [0.5, 1, 2], range: true, readout: true }

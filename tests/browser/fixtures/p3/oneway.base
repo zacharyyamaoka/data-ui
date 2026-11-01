@@ -1,0 +1,25 @@
+# P3 fixture (tests/browser/p3_checks.py): a one-way link, sim2real gap #8. The runs' rail (Station) narrows the samples
+# through the link; the samples' rail (Show) never narrows the runs. twoway.base is this file with the link two-way.
+data: runs.json
+datasets:
+  runs:
+    data: runs.json
+    facets: [{ property: station, label: Station }]
+  samples:
+    data: samples.json
+    facets: [{ property: situation, label: Show }]
+links:
+  - { from: runs.run, to: samples.run, direction: one-way }
+layout:
+  panels:
+    - { view: Runs, w: 6, h: 3 }
+    - { view: Samples, w: 6, h: 3 }
+views:
+  - type: table
+    name: Runs
+    from: runs
+    order: [run, station, kind, started]
+  - type: table
+    name: Samples
+    from: samples
+    order: [run, situation, t, q_deg]

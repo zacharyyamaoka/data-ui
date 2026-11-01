@@ -1,0 +1,22 @@
+# H3 hexagon counts as 3D columns (docs/CONTRACT.md §42: extrude).
+data: ../map-food-heatmap/food.json
+properties:
+  kind: { displayName: Kind }
+views:
+  - type: map
+    name: Columns
+    coordinates: location
+    mapTiles: ../map-food-heatmap/metro-vancouver.pmtiles
+    pitch: 50
+    layers:
+      - { type: hexbin, resolution: 8, extrude: { max: 3000 }, classes: { method: quantile, count: 5 } }
+  - type: map
+    name: Flat
+    coordinates: location
+    mapTiles: ../map-food-heatmap/metro-vancouver.pmtiles
+    layers:
+      - { type: hexbin, resolution: 8, classes: { method: quantile, count: 5 } }
+  - type: table
+    name: Places
+    groupBy: { property: kind, direction: ASC }
+    order: [kind, location]

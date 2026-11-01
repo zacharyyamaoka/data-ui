@@ -1,0 +1,12 @@
+# tests/browser/map_select_checks.py: a route is its row
+data: places.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    select: name
+    coordinates: at
+    layers:
+      - { type: lines, path: route, width: 6, filter: 'kind == "demand"', title: Routes }

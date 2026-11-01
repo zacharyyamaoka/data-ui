@@ -1,0 +1,10 @@
+# tests/browser/fleet_map_checks.py: a dashboard's map panel with no select: behaves as it always did.
+data: ../../../../gallery/examples/robotics-fleet/deployments.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 5 }
+views:
+  - type: map
+    name: Map
+    coordinates: coordinates
+    markerColor: status

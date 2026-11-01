@@ -1,0 +1,72 @@
+# Every brand proposal Zach has been shown, as rows, and the lineage view's tree of life over them: x is the round,
+# each proposal hangs off the one it was derived from, a splice draws its extra parents dashed, the shipped pick's
+# ancestry is the bold trunk and the lines nobody kept fold into "+N".
+# Obsidian Bases grammar plus data-ui's keys (docs/CONTRACT.md §5, §21 for lineage:).
+# Check it: node bin/data-ui.mjs check <this file> --data proposals.json
+data: proposals.json
+facets:
+  - brand
+  - status
+  - round_kind
+  - { property: score, as: range }
+  - { property: name, as: search }
+views:
+  - type: lineage
+    name: robotparts
+    filters: 'brand == "robotparts"'
+    order: [name, round, status, score, note]
+    lineage:
+      parents: parents
+      x: round_n
+      xLabel: round
+      image: thumb
+      label: name
+      focus: robotparts/r16-02
+      kept: { status: [picked, liked] }
+      extinct: collapse
+      layout: rectangular
+  - type: lineage
+    name: robotparts radial
+    filters: 'brand == "robotparts"'
+    order: [name, round, status, score, note]
+    lineage:
+      parents: parents
+      x: round_n
+      xLabel: round
+      image: thumb
+      label: name
+      focus: robotparts/r16-02
+      kept: { status: [picked, liked] }
+      extinct: show
+      layout: radial
+  - type: lineage
+    name: BAM
+    filters: 'brand == "BAM"'
+    order: [name, round, status, note]
+    lineage:
+      parents: parents
+      x: round_n
+      xLabel: round
+      image: thumb
+      label: name
+      focus: bam/final-01
+      kept: { status: [picked, liked] }
+      extinct: collapse
+  - type: lineage
+    name: Every brand
+    order: [name, brand, round, status, score, note]
+    lineage:
+      parents: parents
+      x: round_n
+      image: thumb
+      label: name
+      focus: robotparts/r16-02
+      kept: { status: [picked, liked] }
+      extinct: show
+  - type: table
+    name: Table
+    order: [thumb, name, brand, round, status, score, parents, note, report_path]
+    display: { thumb: image }
+    sort:
+      - { property: brand, direction: ASC }
+      - { property: round_n, direction: ASC }

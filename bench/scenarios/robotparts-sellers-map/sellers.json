@@ -1,0 +1,5224 @@
+{
+ "id": "robotparts-sellers",
+ "title": "Sellers by country",
+ "titleProperty": "country_name",
+ "source": "robotparts parts/*/quotes.jsonl (seller_country, ships_to) + Natural Earth 1:110m label points",
+ "properties": {
+  "country_name": {
+   "type": "text",
+   "label": "Country",
+   "width": 180
+  },
+  "country": {
+   "type": "text",
+   "label": "ISO code"
+  },
+  "relation": {
+   "type": "text",
+   "label": "Relation",
+   "display": "badge",
+   "colors": {
+    "based in": 8,
+    "ships to": 1
+   }
+  },
+  "seller": {
+   "type": "text",
+   "label": "Seller",
+   "display": "badge",
+   "colors": {
+    "aifitlab.com": 1,
+    "www.bravoelectro.com": 2,
+    "www.trcelectronics.com": 3,
+    "www.ztec.dk": 4,
+    "www.omc-stepperonline.com": 5,
+    "thinklucid.com": 6,
+    "va-imaging.com": 7
+   }
+  },
+  "seller_name": {
+   "type": "text",
+   "label": "Seller name"
+  },
+  "coordinates": {
+   "type": "list",
+   "label": "Point (lat, lng)"
+  },
+  "listings": {
+   "type": "number",
+   "label": "Listings (seller)"
+  }
+ },
+ "rows": [
+  {
+   "id": "aifitlab.com-based-in-hk",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "based in",
+   "country": "HK",
+   "country_name": "Hong Kong",
+   "coordinates": {
+    "value": [
+     22.32,
+     114.17
+    ],
+    "basis": "assumed",
+    "note": "Hong Kong is not a polygon in Natural Earth 1:110m; its centre entered by hand"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "va-imaging.com-based-in-nl",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "based in",
+   "country": "NL",
+   "country_name": "Netherlands",
+   "coordinates": {
+    "value": [
+     52.422,
+     5.611
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "www.trcelectronics.com-based-in-us",
+   "seller": "www.trcelectronics.com",
+   "seller_name": "TRC Electronics",
+   "relation": "based in",
+   "country": "US",
+   "country_name": "United States of America",
+   "coordinates": {
+    "value": [
+     39.538,
+     -97.483
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 279
+  },
+  {
+   "id": "aifitlab.com-ships-to-ad",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "AD",
+   "country_name": "AD",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ae",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "AE",
+   "country_name": "United Arab Emirates",
+   "coordinates": {
+    "value": [
+     23.466,
+     54.547
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-al",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "AL",
+   "country_name": "Albania",
+   "coordinates": {
+    "value": [
+     40.655,
+     20.114
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ao",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "AO",
+   "country_name": "Angola",
+   "coordinates": {
+    "value": [
+     -12.183,
+     17.984
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ar",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "AR",
+   "country_name": "Argentina",
+   "coordinates": {
+    "value": [
+     -33.501,
+     -64.173
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-at",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "AT",
+   "country_name": "Austria",
+   "coordinates": {
+    "value": [
+     47.519,
+     14.131
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-au",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "AU",
+   "country_name": "Australia",
+   "coordinates": {
+    "value": [
+     -24.13,
+     134.05
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-az",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "AZ",
+   "country_name": "Azerbaijan",
+   "coordinates": {
+    "value": [
+     40.402,
+     47.211
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-bd",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "BD",
+   "country_name": "Bangladesh",
+   "coordinates": {
+    "value": [
+     24.215,
+     89.685
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-be",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "BE",
+   "country_name": "Belgium",
+   "coordinates": {
+    "value": [
+     50.785,
+     4.8
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-bg",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "BG",
+   "country_name": "Bulgaria",
+   "coordinates": {
+    "value": [
+     42.509,
+     25.157
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-bh",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "BH",
+   "country_name": "BH",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-bo",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "BO",
+   "country_name": "Bolivia",
+   "coordinates": {
+    "value": [
+     -16.666,
+     -64.593
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-br",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "BR",
+   "country_name": "Brazil",
+   "coordinates": {
+    "value": [
+     -12.099,
+     -49.559
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-bs",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "BS",
+   "country_name": "Bahamas",
+   "coordinates": {
+    "value": [
+     26.402,
+     -77.147
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-by",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "BY",
+   "country_name": "Belarus",
+   "coordinates": {
+    "value": [
+     53.822,
+     28.418
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ca",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "CA",
+   "country_name": "Canada",
+   "coordinates": {
+    "value": [
+     60.324,
+     -101.911
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ch",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "CH",
+   "country_name": "Switzerland",
+   "coordinates": {
+    "value": [
+     46.719,
+     7.464
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ci",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "CI",
+   "country_name": "Côte d'Ivoire",
+   "coordinates": {
+    "value": [
+     7.491,
+     -5.569
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-cl",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "CL",
+   "country_name": "Chile",
+   "coordinates": {
+    "value": [
+     -38.152,
+     -72.319
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-cm",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "CM",
+   "country_name": "Cameroon",
+   "coordinates": {
+    "value": [
+     4.585,
+     12.473
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-cn",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "CN",
+   "country_name": "China",
+   "coordinates": {
+    "value": [
+     32.498,
+     106.337
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-co",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "CO",
+   "country_name": "Colombia",
+   "coordinates": {
+    "value": [
+     3.373,
+     -73.174
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-cr",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "CR",
+   "country_name": "Costa Rica",
+   "coordinates": {
+    "value": [
+     10.065,
+     -84.078
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-cy",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "CY",
+   "country_name": "Cyprus",
+   "coordinates": {
+    "value": [
+     34.913,
+     33.084
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-cz",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "CZ",
+   "country_name": "Czechia",
+   "coordinates": {
+    "value": [
+     49.882,
+     15.378
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-de",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "DE",
+   "country_name": "Germany",
+   "coordinates": {
+    "value": [
+     50.962,
+     9.678
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-dk",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "DK",
+   "country_name": "Denmark",
+   "coordinates": {
+    "value": [
+     55.967,
+     9.018
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-dz",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "DZ",
+   "country_name": "Algeria",
+   "coordinates": {
+    "value": [
+     27.397,
+     2.808
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ec",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "EC",
+   "country_name": "Ecuador",
+   "coordinates": {
+    "value": [
+     -1.259,
+     -78.188
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ee",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "EE",
+   "country_name": "Estonia",
+   "coordinates": {
+    "value": [
+     58.725,
+     25.867
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-eg",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "EG",
+   "country_name": "Egypt",
+   "coordinates": {
+    "value": [
+     26.186,
+     29.446
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-es",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "ES",
+   "country_name": "Spain",
+   "coordinates": {
+    "value": [
+     40.091,
+     -3.465
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-et",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "ET",
+   "country_name": "Ethiopia",
+   "coordinates": {
+    "value": [
+     8.033,
+     39.089
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-fi",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "FI",
+   "country_name": "Finland",
+   "coordinates": {
+    "value": [
+     63.252,
+     27.276
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-fr",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "FR",
+   "country_name": "France",
+   "coordinates": {
+    "value": [
+     46.696,
+     2.552
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ga",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "GA",
+   "country_name": "Gabon",
+   "coordinates": {
+    "value": [
+     -0.438,
+     11.836
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-gb",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "GB",
+   "country_name": "United Kingdom",
+   "coordinates": {
+    "value": [
+     54.403,
+     -2.116
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-gh",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "GH",
+   "country_name": "Ghana",
+   "coordinates": {
+    "value": [
+     7.718,
+     -1.037
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-gl",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "GL",
+   "country_name": "Greenland",
+   "coordinates": {
+    "value": [
+     74.319,
+     -39.335
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-gr",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "GR",
+   "country_name": "Greece",
+   "coordinates": {
+    "value": [
+     39.493,
+     21.726
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-hk",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "HK",
+   "country_name": "Hong Kong",
+   "coordinates": {
+    "value": [
+     22.32,
+     114.17
+    ],
+    "basis": "assumed",
+    "note": "Hong Kong is not a polygon in Natural Earth 1:110m; its centre entered by hand"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-hn",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "HN",
+   "country_name": "Honduras",
+   "coordinates": {
+    "value": [
+     14.795,
+     -86.888
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-hr",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "HR",
+   "country_name": "Croatia",
+   "coordinates": {
+    "value": [
+     45.806,
+     16.372
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-hu",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "HU",
+   "country_name": "Hungary",
+   "coordinates": {
+    "value": [
+     47.087,
+     19.448
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-id",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "ID",
+   "country_name": "Indonesia",
+   "coordinates": {
+    "value": [
+     -0.954,
+     101.893
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ie",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "IE",
+   "country_name": "Ireland",
+   "coordinates": {
+    "value": [
+     53.079,
+     -7.799
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-il",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "IL",
+   "country_name": "Israel",
+   "coordinates": {
+    "value": [
+     30.911,
+     34.848
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-in",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "IN",
+   "country_name": "India",
+   "coordinates": {
+    "value": [
+     22.687,
+     79.358
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-is",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "IS",
+   "country_name": "Iceland",
+   "coordinates": {
+    "value": [
+     64.779,
+     -18.674
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-it",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "IT",
+   "country_name": "Italy",
+   "coordinates": {
+    "value": [
+     44.732,
+     11.077
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-jm",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "JM",
+   "country_name": "Jamaica",
+   "coordinates": {
+    "value": [
+     18.137,
+     -77.319
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-jo",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "JO",
+   "country_name": "Jordan",
+   "coordinates": {
+    "value": [
+     30.805,
+     36.376
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-jp",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "JP",
+   "country_name": "Japan",
+   "coordinates": {
+    "value": [
+     36.143,
+     138.442
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ke",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "KE",
+   "country_name": "Kenya",
+   "coordinates": {
+    "value": [
+     0.549,
+     37.908
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-kh",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "KH",
+   "country_name": "Cambodia",
+   "coordinates": {
+    "value": [
+     12.648,
+     104.505
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-kr",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "KR",
+   "country_name": "South Korea",
+   "coordinates": {
+    "value": [
+     36.385,
+     128.13
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-kw",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "KW",
+   "country_name": "Kuwait",
+   "coordinates": {
+    "value": [
+     29.414,
+     47.314
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-kz",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "KZ",
+   "country_name": "Kazakhstan",
+   "coordinates": {
+    "value": [
+     49.054,
+     68.686
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-lt",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "LT",
+   "country_name": "Lithuania",
+   "coordinates": {
+    "value": [
+     55.104,
+     24.09
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-lu",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "LU",
+   "country_name": "Luxembourg",
+   "coordinates": {
+    "value": [
+     49.734,
+     6.078
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-lv",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "LV",
+   "country_name": "Latvia",
+   "coordinates": {
+    "value": [
+     57.067,
+     25.459
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ma",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "MA",
+   "country_name": "Morocco",
+   "coordinates": {
+    "value": [
+     31.651,
+     -7.187
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-mc",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "MC",
+   "country_name": "MC",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-md",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "MD",
+   "country_name": "Moldova",
+   "coordinates": {
+    "value": [
+     47.435,
+     28.488
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-mm",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "MM",
+   "country_name": "Myanmar",
+   "coordinates": {
+    "value": [
+     21.574,
+     95.804
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-mo",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "MO",
+   "country_name": "MO",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-mt",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "MT",
+   "country_name": "MT",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-mx",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "MX",
+   "country_name": "Mexico",
+   "coordinates": {
+    "value": [
+     23.92,
+     -102.289
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-my",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "MY",
+   "country_name": "Malaysia",
+   "coordinates": {
+    "value": [
+     2.529,
+     113.837
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ng",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "NG",
+   "country_name": "Nigeria",
+   "coordinates": {
+    "value": [
+     9.44,
+     7.503
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-nl",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "NL",
+   "country_name": "Netherlands",
+   "coordinates": {
+    "value": [
+     52.422,
+     5.611
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-no",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "NO",
+   "country_name": "Norway",
+   "coordinates": {
+    "value": [
+     61.357,
+     9.68
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-nz",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "NZ",
+   "country_name": "New Zealand",
+   "coordinates": {
+    "value": [
+     -39.759,
+     172.787
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-pa",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "PA",
+   "country_name": "Panama",
+   "coordinates": {
+    "value": [
+     8.722,
+     -80.352
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-pe",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "PE",
+   "country_name": "Peru",
+   "coordinates": {
+    "value": [
+     -12.977,
+     -72.9
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ph",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "PH",
+   "country_name": "Philippines",
+   "coordinates": {
+    "value": [
+     11.198,
+     122.465
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-pk",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "PK",
+   "country_name": "Pakistan",
+   "coordinates": {
+    "value": [
+     29.328,
+     68.546
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-pl",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "PL",
+   "country_name": "Poland",
+   "coordinates": {
+    "value": [
+     51.99,
+     19.49
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-pt",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "PT",
+   "country_name": "Portugal",
+   "coordinates": {
+    "value": [
+     39.607,
+     -8.272
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-py",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "PY",
+   "country_name": "Paraguay",
+   "coordinates": {
+    "value": [
+     -21.675,
+     -60.146
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-qa",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "QA",
+   "country_name": "Qatar",
+   "coordinates": {
+    "value": [
+     25.237,
+     51.144
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ro",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "RO",
+   "country_name": "Romania",
+   "coordinates": {
+    "value": [
+     45.733,
+     24.973
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-rs",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "RS",
+   "country_name": "Serbia",
+   "coordinates": {
+    "value": [
+     44.19,
+     20.788
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ru",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "RU",
+   "country_name": "Russia",
+   "coordinates": {
+    "value": [
+     58.249,
+     44.686
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-sa",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "SA",
+   "country_name": "Saudi Arabia",
+   "coordinates": {
+    "value": [
+     23.807,
+     44.7
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-sc",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "SC",
+   "country_name": "SC",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-se",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "SE",
+   "country_name": "Sweden",
+   "coordinates": {
+    "value": [
+     65.859,
+     19.017
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-sg",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "SG",
+   "country_name": "SG",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-si",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "SI",
+   "country_name": "Slovenia",
+   "coordinates": {
+    "value": [
+     46.061,
+     14.915
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-sk",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "SK",
+   "country_name": "Slovakia",
+   "coordinates": {
+    "value": [
+     48.734,
+     19.05
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-sn",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "SN",
+   "country_name": "Senegal",
+   "coordinates": {
+    "value": [
+     15.138,
+     -14.779
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-th",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "TH",
+   "country_name": "Thailand",
+   "coordinates": {
+    "value": [
+     15.46,
+     101.073
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-tj",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "TJ",
+   "country_name": "Tajikistan",
+   "coordinates": {
+    "value": [
+     38.2,
+     72.587
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-tr",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "TR",
+   "country_name": "Turkey",
+   "coordinates": {
+    "value": [
+     39.345,
+     34.508
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-tw",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "TW",
+   "country_name": "Taiwan",
+   "coordinates": {
+    "value": [
+     23.652,
+     120.868
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-tz",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "TZ",
+   "country_name": "Tanzania",
+   "coordinates": {
+    "value": [
+     -6.052,
+     34.959
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-ua",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "UA",
+   "country_name": "Ukraine",
+   "coordinates": {
+    "value": [
+     49.725,
+     32.141
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-us",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "US",
+   "country_name": "United States of America",
+   "coordinates": {
+    "value": [
+     39.538,
+     -97.483
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-uy",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "UY",
+   "country_name": "Uruguay",
+   "coordinates": {
+    "value": [
+     -32.961,
+     -55.967
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-uz",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "UZ",
+   "country_name": "Uzbekistan",
+   "coordinates": {
+    "value": [
+     41.694,
+     64.005
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-vn",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "VN",
+   "country_name": "Vietnam",
+   "coordinates": {
+    "value": [
+     21.715,
+     105.387
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-za",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "ZA",
+   "country_name": "South Africa",
+   "coordinates": {
+    "value": [
+     -29.709,
+     23.666
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "aifitlab.com-ships-to-zm",
+   "seller": "aifitlab.com",
+   "seller_name": "aifitlab.com",
+   "relation": "ships to",
+   "country": "ZM",
+   "country_name": "Zambia",
+   "coordinates": {
+    "value": [
+     -14.661,
+     26.395
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 1230
+  },
+  {
+   "id": "va-imaging.com-ships-to-ac",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AC",
+   "country_name": "AC",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ad",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AD",
+   "country_name": "AD",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ae",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AE",
+   "country_name": "United Arab Emirates",
+   "coordinates": {
+    "value": [
+     23.466,
+     54.547
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ag",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AG",
+   "country_name": "AG",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ai",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AI",
+   "country_name": "AI",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-al",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AL",
+   "country_name": "Albania",
+   "coordinates": {
+    "value": [
+     40.655,
+     20.114
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-am",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AM",
+   "country_name": "Armenia",
+   "coordinates": {
+    "value": [
+     40.459,
+     44.801
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ao",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AO",
+   "country_name": "Angola",
+   "coordinates": {
+    "value": [
+     -12.183,
+     17.984
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ar",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AR",
+   "country_name": "Argentina",
+   "coordinates": {
+    "value": [
+     -33.501,
+     -64.173
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-at",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AT",
+   "country_name": "Austria",
+   "coordinates": {
+    "value": [
+     47.519,
+     14.131
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-au",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AU",
+   "country_name": "Australia",
+   "coordinates": {
+    "value": [
+     -24.13,
+     134.05
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-aw",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AW",
+   "country_name": "AW",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ax",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "AX",
+   "country_name": "AX",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ba",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BA",
+   "country_name": "Bosnia and Herz.",
+   "coordinates": {
+    "value": [
+     44.091,
+     18.068
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bb",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BB",
+   "country_name": "BB",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-be",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BE",
+   "country_name": "Belgium",
+   "coordinates": {
+    "value": [
+     50.785,
+     4.8
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bf",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BF",
+   "country_name": "Burkina Faso",
+   "coordinates": {
+    "value": [
+     12.673,
+     -1.364
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bg",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BG",
+   "country_name": "Bulgaria",
+   "coordinates": {
+    "value": [
+     42.509,
+     25.157
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bh",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BH",
+   "country_name": "BH",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bi",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BI",
+   "country_name": "Burundi",
+   "coordinates": {
+    "value": [
+     -3.333,
+     29.917
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bj",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BJ",
+   "country_name": "Benin",
+   "coordinates": {
+    "value": [
+     10.325,
+     2.352
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bl",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BL",
+   "country_name": "BL",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bm",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BM",
+   "country_name": "BM",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bo",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BO",
+   "country_name": "Bolivia",
+   "coordinates": {
+    "value": [
+     -16.666,
+     -64.593
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bq",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BQ",
+   "country_name": "BQ",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-br",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BR",
+   "country_name": "Brazil",
+   "coordinates": {
+    "value": [
+     -12.099,
+     -49.559
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bs",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BS",
+   "country_name": "Bahamas",
+   "coordinates": {
+    "value": [
+     26.402,
+     -77.147
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bw",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BW",
+   "country_name": "Botswana",
+   "coordinates": {
+    "value": [
+     -22.103,
+     24.179
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-by",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BY",
+   "country_name": "Belarus",
+   "coordinates": {
+    "value": [
+     53.822,
+     28.418
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-bz",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "BZ",
+   "country_name": "Belize",
+   "coordinates": {
+    "value": [
+     17.202,
+     -88.713
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ca",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CA",
+   "country_name": "Canada",
+   "coordinates": {
+    "value": [
+     60.324,
+     -101.911
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cc",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CC",
+   "country_name": "CC",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cd",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CD",
+   "country_name": "Dem. Rep. Congo",
+   "coordinates": {
+    "value": [
+     -1.858,
+     23.459
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cf",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CF",
+   "country_name": "Central African Rep.",
+   "coordinates": {
+    "value": [
+     6.99,
+     20.907
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cg",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CG",
+   "country_name": "Congo",
+   "coordinates": {
+    "value": [
+     0.142,
+     15.9
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ch",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CH",
+   "country_name": "Switzerland",
+   "coordinates": {
+    "value": [
+     46.719,
+     7.464
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ci",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CI",
+   "country_name": "Côte d'Ivoire",
+   "coordinates": {
+    "value": [
+     7.491,
+     -5.569
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ck",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CK",
+   "country_name": "CK",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cl",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CL",
+   "country_name": "Chile",
+   "coordinates": {
+    "value": [
+     -38.152,
+     -72.319
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cm",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CM",
+   "country_name": "Cameroon",
+   "coordinates": {
+    "value": [
+     4.585,
+     12.473
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cn",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CN",
+   "country_name": "China",
+   "coordinates": {
+    "value": [
+     32.498,
+     106.337
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-co",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CO",
+   "country_name": "Colombia",
+   "coordinates": {
+    "value": [
+     3.373,
+     -73.174
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cr",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CR",
+   "country_name": "Costa Rica",
+   "coordinates": {
+    "value": [
+     10.065,
+     -84.078
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cv",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CV",
+   "country_name": "CV",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cw",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CW",
+   "country_name": "CW",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cx",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CX",
+   "country_name": "CX",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cy",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CY",
+   "country_name": "Cyprus",
+   "coordinates": {
+    "value": [
+     34.913,
+     33.084
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-cz",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "CZ",
+   "country_name": "Czechia",
+   "coordinates": {
+    "value": [
+     49.882,
+     15.378
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-de",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "DE",
+   "country_name": "Germany",
+   "coordinates": {
+    "value": [
+     50.962,
+     9.678
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-dj",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "DJ",
+   "country_name": "Djibouti",
+   "coordinates": {
+    "value": [
+     11.976,
+     42.499
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-dk",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "DK",
+   "country_name": "Denmark",
+   "coordinates": {
+    "value": [
+     55.967,
+     9.018
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-dm",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "DM",
+   "country_name": "DM",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-do",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "DO",
+   "country_name": "Dominican Rep.",
+   "coordinates": {
+    "value": [
+     19.104,
+     -70.654
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-dz",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "DZ",
+   "country_name": "Algeria",
+   "coordinates": {
+    "value": [
+     27.397,
+     2.808
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ec",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "EC",
+   "country_name": "Ecuador",
+   "coordinates": {
+    "value": [
+     -1.259,
+     -78.188
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ee",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "EE",
+   "country_name": "Estonia",
+   "coordinates": {
+    "value": [
+     58.725,
+     25.867
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-eg",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "EG",
+   "country_name": "Egypt",
+   "coordinates": {
+    "value": [
+     26.186,
+     29.446
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-eh",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "EH",
+   "country_name": "W. Sahara",
+   "coordinates": {
+    "value": [
+     23.968,
+     -12.63
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-er",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "ER",
+   "country_name": "Eritrea",
+   "coordinates": {
+    "value": [
+     15.787,
+     38.286
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-es",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "ES",
+   "country_name": "Spain",
+   "coordinates": {
+    "value": [
+     40.091,
+     -3.465
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-et",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "ET",
+   "country_name": "Ethiopia",
+   "coordinates": {
+    "value": [
+     8.033,
+     39.089
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-fi",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "FI",
+   "country_name": "Finland",
+   "coordinates": {
+    "value": [
+     63.252,
+     27.276
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-fj",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "FJ",
+   "country_name": "Fiji",
+   "coordinates": {
+    "value": [
+     -17.826,
+     177.975
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-fk",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "FK",
+   "country_name": "Falkland Is.",
+   "coordinates": {
+    "value": [
+     -51.609,
+     -58.739
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-fo",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "FO",
+   "country_name": "FO",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-fr",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "FR",
+   "country_name": "France",
+   "coordinates": {
+    "value": [
+     46.696,
+     2.552
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ga",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GA",
+   "country_name": "Gabon",
+   "coordinates": {
+    "value": [
+     -0.438,
+     11.836
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gb",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GB",
+   "country_name": "United Kingdom",
+   "coordinates": {
+    "value": [
+     54.403,
+     -2.116
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gd",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GD",
+   "country_name": "GD",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gf",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GF",
+   "country_name": "GF",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gg",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GG",
+   "country_name": "GG",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gh",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GH",
+   "country_name": "Ghana",
+   "coordinates": {
+    "value": [
+     7.718,
+     -1.037
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gi",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GI",
+   "country_name": "GI",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gl",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GL",
+   "country_name": "Greenland",
+   "coordinates": {
+    "value": [
+     74.319,
+     -39.335
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gm",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GM",
+   "country_name": "Gambia",
+   "coordinates": {
+    "value": [
+     13.642,
+     -14.998
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gn",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GN",
+   "country_name": "Guinea",
+   "coordinates": {
+    "value": [
+     10.619,
+     -10.016
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gp",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GP",
+   "country_name": "GP",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gq",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GQ",
+   "country_name": "Eq. Guinea",
+   "coordinates": {
+    "value": [
+     2.333,
+     8.99
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gr",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GR",
+   "country_name": "Greece",
+   "coordinates": {
+    "value": [
+     39.493,
+     21.726
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gs",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GS",
+   "country_name": "GS",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gt",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GT",
+   "country_name": "Guatemala",
+   "coordinates": {
+    "value": [
+     14.982,
+     -90.497
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gw",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GW",
+   "country_name": "Guinea-Bissau",
+   "coordinates": {
+    "value": [
+     12.164,
+     -14.524
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-gy",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "GY",
+   "country_name": "Guyana",
+   "coordinates": {
+    "value": [
+     5.124,
+     -58.943
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-hk",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "HK",
+   "country_name": "Hong Kong",
+   "coordinates": {
+    "value": [
+     22.32,
+     114.17
+    ],
+    "basis": "assumed",
+    "note": "Hong Kong is not a polygon in Natural Earth 1:110m; its centre entered by hand"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-hn",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "HN",
+   "country_name": "Honduras",
+   "coordinates": {
+    "value": [
+     14.795,
+     -86.888
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-hr",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "HR",
+   "country_name": "Croatia",
+   "coordinates": {
+    "value": [
+     45.806,
+     16.372
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ht",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "HT",
+   "country_name": "Haiti",
+   "coordinates": {
+    "value": [
+     19.264,
+     -72.224
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-hu",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "HU",
+   "country_name": "Hungary",
+   "coordinates": {
+    "value": [
+     47.087,
+     19.448
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-id",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "ID",
+   "country_name": "Indonesia",
+   "coordinates": {
+    "value": [
+     -0.954,
+     101.893
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ie",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "IE",
+   "country_name": "Ireland",
+   "coordinates": {
+    "value": [
+     53.079,
+     -7.799
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-il",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "IL",
+   "country_name": "Israel",
+   "coordinates": {
+    "value": [
+     30.911,
+     34.848
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-im",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "IM",
+   "country_name": "IM",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-in",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "IN",
+   "country_name": "India",
+   "coordinates": {
+    "value": [
+     22.687,
+     79.358
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-io",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "IO",
+   "country_name": "IO",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-is",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "IS",
+   "country_name": "Iceland",
+   "coordinates": {
+    "value": [
+     64.779,
+     -18.674
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-it",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "IT",
+   "country_name": "Italy",
+   "coordinates": {
+    "value": [
+     44.732,
+     11.077
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-je",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "JE",
+   "country_name": "JE",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-jm",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "JM",
+   "country_name": "Jamaica",
+   "coordinates": {
+    "value": [
+     18.137,
+     -77.319
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-jo",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "JO",
+   "country_name": "Jordan",
+   "coordinates": {
+    "value": [
+     30.805,
+     36.376
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-jp",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "JP",
+   "country_name": "Japan",
+   "coordinates": {
+    "value": [
+     36.143,
+     138.442
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ke",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "KE",
+   "country_name": "Kenya",
+   "coordinates": {
+    "value": [
+     0.549,
+     37.908
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ki",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "KI",
+   "country_name": "KI",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-km",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "KM",
+   "country_name": "KM",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-kn",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "KN",
+   "country_name": "KN",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-kr",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "KR",
+   "country_name": "South Korea",
+   "coordinates": {
+    "value": [
+     36.385,
+     128.13
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-kw",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "KW",
+   "country_name": "Kuwait",
+   "coordinates": {
+    "value": [
+     29.414,
+     47.314
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ky",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "KY",
+   "country_name": "KY",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-lb",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "LB",
+   "country_name": "Lebanon",
+   "coordinates": {
+    "value": [
+     34.133,
+     35.993
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-lc",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "LC",
+   "country_name": "LC",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-li",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "LI",
+   "country_name": "LI",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-lr",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "LR",
+   "country_name": "Liberia",
+   "coordinates": {
+    "value": [
+     6.447,
+     -9.46
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ls",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "LS",
+   "country_name": "Lesotho",
+   "coordinates": {
+    "value": [
+     -29.48,
+     28.247
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-lt",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "LT",
+   "country_name": "Lithuania",
+   "coordinates": {
+    "value": [
+     55.104,
+     24.09
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-lu",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "LU",
+   "country_name": "Luxembourg",
+   "coordinates": {
+    "value": [
+     49.734,
+     6.078
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-lv",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "LV",
+   "country_name": "Latvia",
+   "coordinates": {
+    "value": [
+     57.067,
+     25.459
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ly",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "LY",
+   "country_name": "Libya",
+   "coordinates": {
+    "value": [
+     26.639,
+     18.011
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ma",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MA",
+   "country_name": "Morocco",
+   "coordinates": {
+    "value": [
+     31.651,
+     -7.187
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-mc",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MC",
+   "country_name": "MC",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-md",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MD",
+   "country_name": "Moldova",
+   "coordinates": {
+    "value": [
+     47.435,
+     28.488
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-me",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "ME",
+   "country_name": "Montenegro",
+   "coordinates": {
+    "value": [
+     42.803,
+     19.144
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-mf",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MF",
+   "country_name": "MF",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-mg",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MG",
+   "country_name": "Madagascar",
+   "coordinates": {
+    "value": [
+     -18.628,
+     46.704
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-mk",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MK",
+   "country_name": "North Macedonia",
+   "coordinates": {
+    "value": [
+     41.558,
+     21.556
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ml",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "ML",
+   "country_name": "Mali",
+   "coordinates": {
+    "value": [
+     18.693,
+     -2.038
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-mq",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MQ",
+   "country_name": "MQ",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-mr",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MR",
+   "country_name": "Mauritania",
+   "coordinates": {
+    "value": [
+     19.587,
+     -9.74
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ms",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MS",
+   "country_name": "MS",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-mt",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MT",
+   "country_name": "MT",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-mu",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MU",
+   "country_name": "MU",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-mw",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MW",
+   "country_name": "Malawi",
+   "coordinates": {
+    "value": [
+     -13.387,
+     33.608
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-mx",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MX",
+   "country_name": "Mexico",
+   "coordinates": {
+    "value": [
+     23.92,
+     -102.289
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-my",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MY",
+   "country_name": "Malaysia",
+   "coordinates": {
+    "value": [
+     2.529,
+     113.837
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-mz",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "MZ",
+   "country_name": "Mozambique",
+   "coordinates": {
+    "value": [
+     -13.943,
+     37.838
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-na",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "NA",
+   "country_name": "Namibia",
+   "coordinates": {
+    "value": [
+     -20.575,
+     17.108
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-nc",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "NC",
+   "country_name": "New Caledonia",
+   "coordinates": {
+    "value": [
+     -21.065,
+     165.084
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ne",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "NE",
+   "country_name": "Niger",
+   "coordinates": {
+    "value": [
+     17.446,
+     9.504
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-nf",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "NF",
+   "country_name": "NF",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ng",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "NG",
+   "country_name": "Nigeria",
+   "coordinates": {
+    "value": [
+     9.44,
+     7.503
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ni",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "NI",
+   "country_name": "Nicaragua",
+   "coordinates": {
+    "value": [
+     12.671,
+     -85.069
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-nl",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "NL",
+   "country_name": "Netherlands",
+   "coordinates": {
+    "value": [
+     52.422,
+     5.611
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-no",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "NO",
+   "country_name": "Norway",
+   "coordinates": {
+    "value": [
+     61.357,
+     9.68
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-nr",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "NR",
+   "country_name": "NR",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-nu",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "NU",
+   "country_name": "NU",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-nz",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "NZ",
+   "country_name": "New Zealand",
+   "coordinates": {
+    "value": [
+     -39.759,
+     172.787
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-pa",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "PA",
+   "country_name": "Panama",
+   "coordinates": {
+    "value": [
+     8.722,
+     -80.352
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-pe",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "PE",
+   "country_name": "Peru",
+   "coordinates": {
+    "value": [
+     -12.977,
+     -72.9
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-pf",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "PF",
+   "country_name": "PF",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-pg",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "PG",
+   "country_name": "Papua New Guinea",
+   "coordinates": {
+    "value": [
+     -5.695,
+     143.91
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-pl",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "PL",
+   "country_name": "Poland",
+   "coordinates": {
+    "value": [
+     51.99,
+     19.49
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-pm",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "PM",
+   "country_name": "PM",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-pn",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "PN",
+   "country_name": "PN",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-pt",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "PT",
+   "country_name": "Portugal",
+   "coordinates": {
+    "value": [
+     39.607,
+     -8.272
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-py",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "PY",
+   "country_name": "Paraguay",
+   "coordinates": {
+    "value": [
+     -21.675,
+     -60.146
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-qa",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "QA",
+   "country_name": "Qatar",
+   "coordinates": {
+    "value": [
+     25.237,
+     51.144
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-re",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "RE",
+   "country_name": "RE",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ro",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "RO",
+   "country_name": "Romania",
+   "coordinates": {
+    "value": [
+     45.733,
+     24.973
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-rs",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "RS",
+   "country_name": "Serbia",
+   "coordinates": {
+    "value": [
+     44.19,
+     20.788
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-rw",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "RW",
+   "country_name": "Rwanda",
+   "coordinates": {
+    "value": [
+     -1.897,
+     30.104
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sa",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SA",
+   "country_name": "Saudi Arabia",
+   "coordinates": {
+    "value": [
+     23.807,
+     44.7
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sb",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SB",
+   "country_name": "Solomon Is.",
+   "coordinates": {
+    "value": [
+     -8.03,
+     159.17
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sc",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SC",
+   "country_name": "SC",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sd",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SD",
+   "country_name": "Sudan",
+   "coordinates": {
+    "value": [
+     16.331,
+     29.261
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-se",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SE",
+   "country_name": "Sweden",
+   "coordinates": {
+    "value": [
+     65.859,
+     19.017
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sg",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SG",
+   "country_name": "SG",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sh",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SH",
+   "country_name": "SH",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-si",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SI",
+   "country_name": "Slovenia",
+   "coordinates": {
+    "value": [
+     46.061,
+     14.915
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sj",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SJ",
+   "country_name": "SJ",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sk",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SK",
+   "country_name": "Slovakia",
+   "coordinates": {
+    "value": [
+     48.734,
+     19.05
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sl",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SL",
+   "country_name": "Sierra Leone",
+   "coordinates": {
+    "value": [
+     8.617,
+     -11.764
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sm",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SM",
+   "country_name": "SM",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sn",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SN",
+   "country_name": "Senegal",
+   "coordinates": {
+    "value": [
+     15.138,
+     -14.779
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-so",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SO",
+   "country_name": "Somalia",
+   "coordinates": {
+    "value": [
+     3.569,
+     45.192
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sr",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SR",
+   "country_name": "Suriname",
+   "coordinates": {
+    "value": [
+     4.144,
+     -55.911
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ss",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SS",
+   "country_name": "S. Sudan",
+   "coordinates": {
+    "value": [
+     7.23,
+     30.39
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-st",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "ST",
+   "country_name": "ST",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sv",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SV",
+   "country_name": "El Salvador",
+   "coordinates": {
+    "value": [
+     13.685,
+     -88.89
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sx",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SX",
+   "country_name": "SX",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-sz",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "SZ",
+   "country_name": "eSwatini",
+   "coordinates": {
+    "value": [
+     -26.534,
+     31.467
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ta",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TA",
+   "country_name": "TA",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-tc",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TC",
+   "country_name": "TC",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-td",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TD",
+   "country_name": "Chad",
+   "coordinates": {
+    "value": [
+     15.143,
+     18.645
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-tf",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TF",
+   "country_name": "Fr. S. Antarctic Lands",
+   "coordinates": {
+    "value": [
+     -49.304,
+     69.122
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-tg",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TG",
+   "country_name": "Togo",
+   "coordinates": {
+    "value": [
+     8.807,
+     1.058
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-th",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TH",
+   "country_name": "Thailand",
+   "coordinates": {
+    "value": [
+     15.46,
+     101.073
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-tk",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TK",
+   "country_name": "TK",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-tn",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TN",
+   "country_name": "Tunisia",
+   "coordinates": {
+    "value": [
+     33.687,
+     9.008
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-to",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TO",
+   "country_name": "TO",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-tr",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TR",
+   "country_name": "Turkey",
+   "coordinates": {
+    "value": [
+     39.345,
+     34.508
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-tt",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TT",
+   "country_name": "Trinidad and Tobago",
+   "coordinates": {
+    "value": [
+     10.999,
+     -60.918
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-tv",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TV",
+   "country_name": "TV",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-tz",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "TZ",
+   "country_name": "Tanzania",
+   "coordinates": {
+    "value": [
+     -6.052,
+     34.959
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ua",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "UA",
+   "country_name": "Ukraine",
+   "coordinates": {
+    "value": [
+     49.725,
+     32.141
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ug",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "UG",
+   "country_name": "Uganda",
+   "coordinates": {
+    "value": [
+     1.973,
+     32.949
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-um",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "UM",
+   "country_name": "UM",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-us",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "US",
+   "country_name": "United States of America",
+   "coordinates": {
+    "value": [
+     39.538,
+     -97.483
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-uy",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "UY",
+   "country_name": "Uruguay",
+   "coordinates": {
+    "value": [
+     -32.961,
+     -55.967
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-va",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "VA",
+   "country_name": "VA",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-vc",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "VC",
+   "country_name": "VC",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ve",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "VE",
+   "country_name": "Venezuela",
+   "coordinates": {
+    "value": [
+     7.182,
+     -64.599
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-vg",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "VG",
+   "country_name": "VG",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-vn",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "VN",
+   "country_name": "Vietnam",
+   "coordinates": {
+    "value": [
+     21.715,
+     105.387
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-vu",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "VU",
+   "country_name": "Vanuatu",
+   "coordinates": {
+    "value": [
+     -15.372,
+     166.909
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-wf",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "WF",
+   "country_name": "WF",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-ws",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "WS",
+   "country_name": "WS",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-xk",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "XK",
+   "country_name": "Kosovo",
+   "coordinates": {
+    "value": [
+     42.594,
+     20.861
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-yt",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "YT",
+   "country_name": "YT",
+   "coordinates": {
+    "value": null,
+    "why": "too small for Natural Earth 1:110m"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-za",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "ZA",
+   "country_name": "South Africa",
+   "coordinates": {
+    "value": [
+     -29.709,
+     23.666
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-zm",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "ZM",
+   "country_name": "Zambia",
+   "coordinates": {
+    "value": [
+     -14.661,
+     26.395
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "va-imaging.com-ships-to-zw",
+   "seller": "va-imaging.com",
+   "seller_name": "VA Imaging (Netherlands, Daheng distributor)",
+   "relation": "ships to",
+   "country": "ZW",
+   "country_name": "Zimbabwe",
+   "coordinates": {
+    "value": [
+     -18.912,
+     29.925
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 8
+  },
+  {
+   "id": "www.trcelectronics.com-ships-to-ca",
+   "seller": "www.trcelectronics.com",
+   "seller_name": "TRC Electronics",
+   "relation": "ships to",
+   "country": "CA",
+   "country_name": "Canada",
+   "coordinates": {
+    "value": [
+     60.324,
+     -101.911
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 279
+  },
+  {
+   "id": "www.trcelectronics.com-ships-to-us",
+   "seller": "www.trcelectronics.com",
+   "seller_name": "TRC Electronics",
+   "relation": "ships to",
+   "country": "US",
+   "country_name": "United States of America",
+   "coordinates": {
+    "value": [
+     39.538,
+     -97.483
+    ],
+    "basis": "derived",
+    "source": "Natural Earth 1:110m label point"
+   },
+   "listings": 279
+  },
+  {
+   "id": "thinklucid.com-based-in-unknown",
+   "seller": "thinklucid.com",
+   "seller_name": "LUCID Vision Labs web shop (US)",
+   "relation": "based in",
+   "country": null,
+   "country_name": null,
+   "coordinates": {
+    "value": null,
+    "why": "the seller's listings publish no seller_country"
+   },
+   "listings": 23
+  },
+  {
+   "id": "www.bravoelectro.com-based-in-unknown",
+   "seller": "www.bravoelectro.com",
+   "seller_name": "Bravo Electro",
+   "relation": "based in",
+   "country": null,
+   "country_name": null,
+   "coordinates": {
+    "value": null,
+    "why": "the seller's listings publish no seller_country"
+   },
+   "listings": 307
+  },
+  {
+   "id": "www.omc-stepperonline.com-based-in-unknown",
+   "seller": "www.omc-stepperonline.com",
+   "seller_name": "StepperOnline",
+   "relation": "based in",
+   "country": null,
+   "country_name": null,
+   "coordinates": {
+    "value": null,
+    "why": "the seller's listings publish no seller_country"
+   },
+   "listings": 30
+  },
+  {
+   "id": "www.ztec.dk-based-in-unknown",
+   "seller": "www.ztec.dk",
+   "seller_name": "Ztec (Denmark, Hikrobot reseller)",
+   "relation": "based in",
+   "country": null,
+   "country_name": null,
+   "coordinates": {
+    "value": null,
+    "why": "the seller's listings publish no seller_country"
+   },
+   "listings": 32
+  }
+ ]
+}

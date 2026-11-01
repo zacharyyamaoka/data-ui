@@ -1,0 +1,18 @@
+# Vibe Tracks' decision records (docs/peps 0001-0013) as rows: a table, newest first, and the tree of what each
+# depends on, drawn twice: React Flow (interactive) and Mermaid (a static map). Obsidian Bases grammar plus data-ui's
+# graph keys (docs/CONTRACT.md §5). Check it: node bin/data-ui.mjs check <this file>
+data: decisions.schema.json
+views:
+  - type: table
+    name: Newest first
+    order: [date, ref, title, status, depends_on]
+    sort:
+      - { property: date, direction: DESC }
+  - type: graph
+    name: Tree
+    edges: { property: depends_on }
+    layout: { engine: flow, direction: BT }
+  - type: graph
+    name: Map
+    edges: { property: depends_on }
+    layout: { engine: mermaid, direction: BT }

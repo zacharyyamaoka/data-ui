@@ -1,0 +1,390 @@
+{
+ "id": "demo-facility",
+ "title": "A synthetic facility's inputs (example values)",
+ "titleProperty": "name",
+ "source": "SYNTHETIC: written by source/make.py for this example; not real facility data",
+ "properties": {
+  "name": {
+   "type": "text",
+   "label": "Field",
+   "readOnly": true
+  },
+  "path": {
+   "type": "text",
+   "label": "Path",
+   "readOnly": true,
+   "note": "the dotted name the viewer's edit API addresses"
+  },
+  "parent": {
+   "type": "text",
+   "label": "Parent",
+   "hidden": true,
+   "readOnly": true
+  },
+  "kind": {
+   "type": "text",
+   "label": "Kind",
+   "display": "badge",
+   "readOnly": true,
+   "colors": {
+    "instance": 7,
+    "reference": 1,
+    "nested": 3,
+    "value": 0
+   }
+  },
+  "class": {
+   "type": "text",
+   "label": "Class",
+   "readOnly": true
+  },
+  "type": {
+   "type": "text",
+   "label": "Type",
+   "readOnly": true
+  },
+  "value": {
+   "type": "number",
+   "label": "Value",
+   "note": "Value(value, unit, low=, high=, basis=, source=, notes=)"
+  },
+  "measured_by": {
+   "type": "text",
+   "label": "Measured by",
+   "note": "what would measure it (the Value's measured_by)"
+  },
+  "refers_to": {
+   "type": "text",
+   "label": "Refers to",
+   "readOnly": true
+  },
+  "file": {
+   "type": "text",
+   "label": "File",
+   "readOnly": true
+  },
+  "hidden": {
+   "type": "boolean",
+   "label": "Hidden in the view",
+   "readOnly": true,
+   "note": "the class's view_hidden"
+  }
+ },
+ "rows": [
+  {
+   "id": "DEMO_FACILITY",
+   "name": "DEMO_FACILITY",
+   "path": "DEMO_FACILITY",
+   "parent": null,
+   "kind": "instance",
+   "class": "Facility",
+   "type": "Facility",
+   "value": null,
+   "measured_by": null,
+   "file": "facility.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.belt",
+   "name": "belt",
+   "path": "DEMO_FACILITY.belt",
+   "parent": "DEMO_FACILITY",
+   "kind": "reference",
+   "class": "Belt",
+   "type": "Belt",
+   "value": null,
+   "measured_by": null,
+   "file": "belt.py",
+   "hidden": false,
+   "refers_to": "DEMO_BELT"
+  },
+  {
+   "id": "DEMO_FACILITY.belt.width_m",
+   "name": "width_m",
+   "path": "DEMO_FACILITY.belt.width_m",
+   "parent": "DEMO_FACILITY.belt",
+   "kind": "value",
+   "class": "Belt",
+   "type": "float",
+   "value": {
+    "value": 0.9,
+    "unit": "m",
+    "low": 0.5,
+    "high": 1.6,
+    "basis": "chosen",
+    "source": "SYNTHETIC example value, not real data: a mid-size conveyor",
+    "note": "A chosen design input (synthetic)"
+   },
+   "measured_by": "a layout drawing",
+   "file": "belt.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.belt.max_speed_m_s",
+   "name": "max_speed_m_s",
+   "path": "DEMO_FACILITY.belt.max_speed_m_s",
+   "parent": "DEMO_FACILITY.belt",
+   "kind": "value",
+   "class": "Belt",
+   "type": "float",
+   "value": {
+    "value": 0.4,
+    "unit": "m/s",
+    "low": 0.2,
+    "high": 1.2,
+    "basis": "assumed",
+    "source": "SYNTHETIC example value, not real data: a typical belt speed"
+   },
+   "measured_by": "a line simulation",
+   "file": "belt.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.belt.items_per_m2",
+   "name": "items_per_m2",
+   "path": "DEMO_FACILITY.belt.items_per_m2",
+   "parent": "DEMO_FACILITY.belt",
+   "kind": "value",
+   "class": "Belt",
+   "type": "float",
+   "value": {
+    "value": 20,
+    "unit": "items/m^2",
+    "low": 5,
+    "high": 40,
+    "basis": "assumed",
+    "source": "SYNTHETIC example value, not real data: one layer of small items"
+   },
+   "measured_by": "a line simulation",
+   "file": "belt.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.belt.infeed_length_m",
+   "name": "infeed_length_m",
+   "path": "DEMO_FACILITY.belt.infeed_length_m",
+   "parent": "DEMO_FACILITY.belt",
+   "kind": "value",
+   "class": "Belt",
+   "type": "float",
+   "value": {
+    "value": 6,
+    "unit": "m",
+    "low": 3,
+    "high": 12,
+    "basis": "assumed",
+    "source": "SYNTHETIC example value, not real data"
+   },
+   "measured_by": "a layout drawing",
+   "file": "belt.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.belt.cost_usd_per_m",
+   "name": "cost_usd_per_m",
+   "path": "DEMO_FACILITY.belt.cost_usd_per_m",
+   "parent": "DEMO_FACILITY.belt",
+   "kind": "value",
+   "class": "Belt",
+   "type": "float",
+   "value": {
+    "value": 1000,
+    "unit": "USD/m",
+    "low": 500,
+    "high": 3000,
+    "basis": "assumed",
+    "source": "SYNTHETIC example value, not real data"
+   },
+   "measured_by": "a vendor quote",
+   "file": "belt.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.belt.power_w_per_m",
+   "name": "power_w_per_m",
+   "path": "DEMO_FACILITY.belt.power_w_per_m",
+   "parent": "DEMO_FACILITY.belt",
+   "kind": "value",
+   "class": "Belt",
+   "type": "float",
+   "value": {
+    "value": 40,
+    "unit": "W/m",
+    "low": 10,
+    "high": 100,
+    "basis": "assumed",
+    "source": "SYNTHETIC example value, not real data"
+   },
+   "measured_by": "a vendor quote",
+   "file": "belt.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.belt.life_years",
+   "name": "life_years",
+   "path": "DEMO_FACILITY.belt.life_years",
+   "parent": "DEMO_FACILITY.belt",
+   "kind": "value",
+   "class": "Belt",
+   "type": "float",
+   "value": {
+    "value": 12,
+    "unit": "yr",
+    "low": 8,
+    "high": 20,
+    "basis": "assumed",
+    "source": "SYNTHETIC example value, not real data"
+   },
+   "measured_by": "a vendor quote",
+   "file": "belt.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.move",
+   "name": "move",
+   "path": "DEMO_FACILITY.move",
+   "parent": "DEMO_FACILITY",
+   "kind": "reference",
+   "class": "PickMove",
+   "type": "PickMove",
+   "value": null,
+   "measured_by": null,
+   "file": "pick.py",
+   "hidden": false,
+   "refers_to": "DEMO_MOVE"
+  },
+  {
+   "id": "DEMO_FACILITY.move.decision_latency_s",
+   "name": "decision_latency_s",
+   "path": "DEMO_FACILITY.move.decision_latency_s",
+   "parent": "DEMO_FACILITY.move",
+   "kind": "value",
+   "class": "PickMove",
+   "type": "float",
+   "value": {
+    "value": 0.3,
+    "unit": "s",
+    "low": 0.1,
+    "high": 1.0,
+    "basis": "assumed",
+    "source": "SYNTHETIC example value, not real data"
+   },
+   "measured_by": "profiling",
+   "file": "pick.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.move.travel_m",
+   "name": "travel_m",
+   "path": "DEMO_FACILITY.move.travel_m",
+   "parent": "DEMO_FACILITY.move",
+   "kind": "value",
+   "class": "PickMove",
+   "type": "float",
+   "value": {
+    "value": 0.6,
+    "unit": "m",
+    "low": 0.2,
+    "high": 1.0,
+    "basis": "assumed",
+    "source": "SYNTHETIC example value, not real data: pick point to bin, one way"
+   },
+   "measured_by": "a kinematic simulation",
+   "file": "pick.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.move.grasp_dwell_s",
+   "name": "grasp_dwell_s",
+   "path": "DEMO_FACILITY.move.grasp_dwell_s",
+   "parent": "DEMO_FACILITY.move",
+   "kind": "value",
+   "class": "PickMove",
+   "type": "float",
+   "value": {
+    "value": 0.3,
+    "unit": "s",
+    "low": 0.1,
+    "high": 0.8,
+    "basis": "assumed",
+    "source": "SYNTHETIC example value, not real data"
+   },
+   "measured_by": "a physics simulation",
+   "file": "pick.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.move.release_dwell_s",
+   "name": "release_dwell_s",
+   "path": "DEMO_FACILITY.move.release_dwell_s",
+   "parent": "DEMO_FACILITY.move",
+   "kind": "value",
+   "class": "PickMove",
+   "type": "float",
+   "value": {
+    "value": 0.2,
+    "unit": "s",
+    "low": 0.05,
+    "high": 0.5,
+    "basis": "assumed",
+    "source": "SYNTHETIC example value, not real data"
+   },
+   "measured_by": "a physics simulation",
+   "file": "pick.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.arms_per_belt",
+   "name": "arms_per_belt",
+   "path": "DEMO_FACILITY.arms_per_belt",
+   "parent": "DEMO_FACILITY",
+   "kind": "value",
+   "class": "Facility",
+   "type": "int",
+   "value": {
+    "value": 3,
+    "low": 1,
+    "high": 8,
+    "basis": "assumed",
+    "source": "SYNTHETIC example value, not real data"
+   },
+   "measured_by": "a line simulation",
+   "file": "facility.py",
+   "hidden": false,
+   "refers_to": null
+  },
+  {
+   "id": "DEMO_FACILITY.shift_hours",
+   "name": "shift_hours",
+   "path": "DEMO_FACILITY.shift_hours",
+   "parent": "DEMO_FACILITY",
+   "kind": "value",
+   "class": "Facility",
+   "type": "float",
+   "value": {
+    "value": 10,
+    "unit": "h",
+    "low": 6,
+    "high": 24,
+    "basis": "chosen",
+    "source": "SYNTHETIC example value, not real data"
+   },
+   "measured_by": null,
+   "file": "facility.py",
+   "hidden": false,
+   "refers_to": null
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+/* type: cards (and the media grid: cards + lightbox). Colours are the private --dv-* tokens (tokens.css); the
+   lightbox is PhotoSwipe's own stylesheet, re-pointed at the same tokens so it follows the page's theme. */
+
+.dv-view-cards { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+.dv-cards-scroll { flex: 1 1 auto; min-height: 0; overflow: auto; position: relative; outline: none; }
+.dv-cards-inner { position: relative; width: 100%; }
+.dv-cards-card, .dv-cards-head, .dv-cards-empty, .dv-cards-cell { position: absolute; top: 0; left: 0; }
+.dv-cards-card { display: flex; flex-direction: column; overflow: hidden; background: var(--dv-bg); border: 1px solid var(--dv-border);
+  border-radius: calc(var(--dv-radius) + 2px); cursor: pointer; }
+.dv-cards-card:hover { border-color: color-mix(in srgb, var(--dv-accent) 55%, var(--dv-border)); }
+.dv-cards-card:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+.dv-cards-card.dv-active { border-color: var(--dv-accent); box-shadow: 0 0 0 1px var(--dv-accent); }
+/* selection (§15): a check on each card, shown on hover and on every card once one is selected */
+.dv-cards-check { position: absolute; top: 6px; left: 6px; z-index: 2; display: flex; padding: 4px; border-radius: var(--dv-radius);
+  background: color-mix(in srgb, var(--dv-bg) 85%, transparent); opacity: 0; transition: opacity .12s; cursor: pointer; }
+.dv-cards-check input { margin: 0; width: 15px; height: 15px; accent-color: var(--dv-accent); cursor: pointer; }
+.dv-cards-card:hover .dv-cards-check, .dv-cards-card:focus-within .dv-cards-check, .dv-cards-selecting .dv-cards-check, .dv-cards-card.dv-sel .dv-cards-check { opacity: 1; }
+.dv-cards-card.dv-sel { border-color: var(--dv-accent); background: color-mix(in srgb, var(--dv-accent) 10%, var(--dv-bg)); }
+/* WHY: with no image block the check (6 px in, 23 px wide) sits in the title's row; the title starts after it, never
+   under it (it hid the title's first letters). 24 px = the check's right edge past the body's 10 px padding, plus 5 */
+.dv-cards-bare .dv-cards-title { padding-left: 24px; }
+.dv-cards-img { display: block; flex: 0 0 auto; width: 100%; padding: 0; margin: 0; border: 0; border-bottom: 1px solid var(--dv-rule);
+  background: var(--dv-subtle); overflow: hidden; }
+.dv-cards-img img, .dv-cards-img video { display: block; width: 100%; height: 100%; }
+.dv-cards-zoom { cursor: zoom-in; }
+.dv-cards-zoom:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.dv-cards-noimg { background: repeating-linear-gradient(135deg, var(--dv-subtle) 0 6px, var(--dv-bg) 6px 12px); opacity: .7; }
+.dv-cards-body { padding: 8px 10px; min-width: 0; }
+.dv-cards-title { font-weight: 600; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dv-cards-prop { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; line-height: 19px; height: 19px; min-width: 0; }
+.dv-cards-label { color: var(--dv-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 0 0 auto; max-width: 50%; }
+.dv-cards-value { font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: right; flex: 0 1 auto; min-width: 0; }
+.dv-cards-value .dv-badge { line-height: 16px; }
+.dv-cards-value a { color: var(--dv-accent); }
+.dv-cards-inline { height: 15px; max-width: 96px; object-fit: contain; vertical-align: middle; }
+.dv-cards-head { display: flex; align-items: flex-end; gap: 8px; padding: 0 2px 6px; border-bottom: 1px solid var(--dv-border); font-weight: 600; }
+.dv-cards-count { color: var(--dv-muted); font-weight: 400; font-size: 12px; }
+.dv-cards-empty { display: flex; align-items: center; color: var(--dv-muted); font-size: 12px; padding: 0 2px; }
+
+/* the grouped gallery (docs/CONTRACT.md §20). WHY catalogue-sized titles (Zach, 2026-10-27): "make the subheaders big
+   and the children gallery cards": a section title is McMaster's big bold category name (22 px, the text colour, a rule
+   under it), a sub-header 15 px bold, so a long page scans by its titles. */
+.dv-cards-sec { gap: 10px; padding: 0 2px 8px; font-size: 22px; line-height: 28px; font-weight: 700; letter-spacing: -0.01em; color: var(--dv-fg); }
+.dv-cards-sec .dv-cards-count { font-size: 13px; line-height: 22px; letter-spacing: 0; }
+.dv-cards-sub { padding: 0 2px 4px; border-bottom: 0; font-size: 15px; line-height: 20px; font-weight: 700; color: var(--dv-fg); }
+.dv-cards-sub .dv-cards-count { line-height: 18px; }
+.dv-cards-gname { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-cards-tile { display: flex; flex-direction: column; justify-content: flex-start; width: 100%; height: 100%; margin: 0; padding: 0; font: inherit; color: var(--dv-fg); white-space: normal;
+  text-align: center; text-decoration: none; background: none; border: 1px solid transparent; border-radius: calc(var(--dv-radius) + 2px); cursor: pointer;
+  touch-action: manipulation; }
+.dv-cards-tile:hover { border-color: var(--dv-border); background: var(--dv-hover); }
+.dv-cards-tile:hover .dv-cards-tlabel { text-decoration: underline; text-underline-offset: 2px; }
+.dv-cards-tile:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+/* WHY a calm well: the monogram stands in for a picture (the data has none), so it is quiet, not a colour per value */
+.dv-cards-twell { flex: 0 0 auto; display: flex; width: 100%; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--dv-radius); background: var(--dv-subtle); }
+.dv-cards-twell img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.dv-cards-mono { font-size: 18px; font-weight: 600; letter-spacing: .04em; color: var(--dv-muted); }
+.dv-cards-tbody { display: block; flex: 0 0 auto; width: 100%; min-width: 0; }
+.dv-cards-ttext { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 6px; padding: 0 3px; font-size: 12.5px; line-height: 16px; white-space: normal; overflow-wrap: anywhere; }
+.dv-cards-tlabel { color: var(--dv-fg); }
+.dv-cards-tcount { color: var(--dv-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dv-cards-all .dv-cards-tlabel, .dv-cards-every .dv-cards-tlabel { font-weight: 600; }
+.dv-cards-switch { flex: 0 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 8px 12px 2px; font-size: 12.5px; }
+.dv-cards-switch[hidden] { display: none; }
+.dv-cards-switch-label { color: var(--dv-muted); }
+.dv-cards-switch select { font: inherit; margin-left: 6px; padding: 2px 6px; color: var(--dv-fg); background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: var(--dv-radius); }
+.dv-cards-seg { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 2px; border: 1px solid var(--dv-border); border-radius: calc(var(--dv-radius) + 2px); }
+.dv-cards-seg button, .dv-cards-tabs button { font: inherit; color: var(--dv-fg); background: none; border: 0; cursor: pointer; padding: 3px 10px; border-radius: var(--dv-radius); }
+.dv-cards-seg button:hover, .dv-cards-tabs button:hover { background: var(--dv-hover); }
+.dv-cards-seg button[aria-pressed="true"] { color: var(--dv-bg); background: var(--dv-fg); }
+.dv-cards-tabs { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+.dv-cards-tabs button { border-radius: 0; border-bottom: 2px solid transparent; }
+.dv-cards-tabs button[aria-selected="true"] { border-bottom-color: var(--dv-accent); font-weight: 600; }
+.dv-cards-seg button:focus-visible, .dv-cards-tabs button:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+
+/* the lightbox (PhotoSwipe), appended inside <data-views> so it reads the same tokens */
+data-views .pswp {
+  --pswp-bg: var(--dv-bg);
+  --pswp-placeholder-bg: var(--dv-subtle);
+  --pswp-icon-color: var(--dv-fg);
+  --pswp-icon-color-secondary: var(--dv-bg);
+  --pswp-icon-stroke-color: var(--dv-bg);
+  --pswp-preloader-color: color-mix(in srgb, var(--dv-muted) 40%, transparent);
+  --pswp-preloader-color-secondary: var(--dv-fg);
+  font: 13px/1.4 var(--dv-font);
+}
+.dv-cards-caption { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); max-width: min(760px, calc(100% - 32px));
+  padding: 8px 12px; border-radius: var(--dv-radius); background: color-mix(in srgb, var(--dv-bg) 88%, transparent); color: var(--dv-fg);
+  border: 1px solid var(--dv-border); text-align: center; }
+.dv-cards-caption:empty { display: none; }
+.dv-cards-source { display: block; color: var(--dv-muted); font-size: 12px; margin-top: 2px; }
+.dv-cards-source a { color: var(--dv-muted); text-decoration: underline; text-underline-offset: 2px; }
+.dv-cards-video { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+.dv-cards-video video { max-width: 92%; max-height: 82%; }

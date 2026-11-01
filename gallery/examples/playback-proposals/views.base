@@ -1,0 +1,108 @@
+# Five proposals for the dashboard clock's control (docs/peps/0005-dashboard-cards.md §4b), plus today's bar, on one
+# clock: every card below drives the same t, and the videos, the time series and the tool path follow it. The card
+# under the video has the switcher (bottom-right) to try them in place. The rows are pidtuna's simulated UR5e replay.
+# Check it: node bin/data-ui.mjs check <this file>
+data: samples.json
+properties:
+  situation: { displayName: Gains }
+  q_deg: { displayName: Angle }
+  err_mrad: { displayName: Error }
+style:
+  chrome: minimal
+  numbers: { digits: 3, compact: true }
+  palette: { target: "#8b9099", factory: "#e8743b", tuned: "#2a78d6" }
+clock:
+  data: samples
+  time: t
+  loop: true
+  fps: 30
+datasets:
+  samples: samples.json
+  tool: tool.json
+  media: media.json
+layout:
+  panels:
+    - text: |
+        ## Playback proposals
+        Five takes on the clock's control, each a `playback.variant`, all on one clock. Use the switcher at the
+        bottom-right of the card under the video to try them in place, or scroll: each proposal has its own card below.
+      w: 12
+    - { view: Tuned video, w: 4, h: 3 }
+    - { view: Step response, w: 8, h: 3 }
+    - { view: Playback, w: 12 }
+    - text: "**P1 · rerun** — Rerun's toolbar over its collapsed time panel: step menu (←/→ 0.1 s, Shift 1 s, Ctrl the next event, Ctrl+Shift the ends), loop modes, the timeline, speed and time fields."
+      w: 12
+    - { view: Rerun, w: 12 }
+    - text: "**P1 · rerun-streams** — the same toolbar over Rerun's expanded time panel: the STREAMS tree, each stream's event bar on a time ruler, the playhead across them. Shift+drag on the ruler sets the loop selection."
+      w: 12
+    - { view: Rerun streams, w: 12 }
+    - text: "**P2 · youtube** — YouTube's bar: hover it for a real frame of the tuned video, chapters at the target's moves, the buffered range, the gear for speed and loop. Keys K, J/L, ←/→, and , / . for a frame."
+      w: 12
+    - { view: YouTube, w: 12 }
+    - text: "**P3 · tracks** — a video editor's timeline: one track per clip with a filmstrip of its frames, one per time series with its sparkline, a work area (the loop) above the ruler."
+      w: 12
+    - { view: Tracks, w: 12 }
+    - text: "**P4 · foxglove** — Foxglove's playback bar: the scrubber with the loaded ranges, the time display (seconds or elapsed), seek, speed, loop."
+      w: 12
+    - { view: Foxglove, w: 12 }
+    - text: "**P5 · range** — an overview: the step response as a minimap; drag across it to zoom every time series to a window."
+      w: 12
+    - { view: Range, w: 12 }
+    - { view: Error over time, w: 8, h: 3 }
+    - { view: Tool path (XZ), w: 4, h: 3 }
+    - text: "**Today's bar** (`variant: bar`, the default) — for comparison."
+      w: 12
+    - { view: Bar, w: 12 }
+views:
+  # ---- the proposals: one card each (the slug of the name is the panel key the checks use)
+  - type: playback
+    name: Playback
+    playback: { speeds: [0.25, 0.5, 1, 2], variant: bar, switcher: true }
+  - type: playback
+    name: Rerun
+    playback: { variant: rerun }
+  - type: playback
+    name: Rerun streams
+    playback: { variant: rerun-streams }
+  - type: playback
+    name: YouTube
+    playback: { variant: youtube, speeds: [0.25, 0.5, 1, 1.5, 2] }
+  - type: playback
+    name: Tracks
+    playback: { variant: tracks }
+  - type: playback
+    name: Foxglove
+    playback: { variant: foxglove }
+  - type: playback
+    name: Range
+    playback: { variant: range }
+  - type: playback
+    name: Bar
+    playback: { speeds: [0.25, 0.5, 1, 2], range: true, readout: true }
+  # ---- what follows the clock
+  - type: video
+    name: Tuned video
+    from: media
+    filters: 'situation == "tuned"'
+    video: { src: src, label: situation, primary: true }
+  - type: timeseries
+    name: Step response
+    timeseries:
+      x: t
+      y: q_deg
+      series: situation
+      unit: °
+      legend: top
+  - type: timeseries
+    name: Error over time
+    filters: 'situation != "target"'
+    timeseries:
+      x: t
+      y: err_mrad
+      series: situation
+      unit: mrad
+      rules: [{ y: 5, label: "gate 5 mrad", tone: bad }, { y: -5, tone: bad }]
+  - type: trajectory
+    name: Tool path (XZ)
+    from: tool
+    trajectory: { x: px, y: pz, series: situation, target: target, t: t, trail: true, tolerance: 0.005 }

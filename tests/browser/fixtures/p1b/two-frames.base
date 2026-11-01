@@ -1,0 +1,8 @@
+# P1b fixture (tests/browser/p1b_checks.py): one body written in two frames (two-frames.json: run r1 in base, run r2 in
+# belt). Frames are declared, never guessed (gallery/robotics/CONTRACT.md §4): the viewer names both and draws neither,
+# until a filter leaves one frame.
+data: two-frames.json
+views:
+  - type: trajectory3d
+    name: Path
+    trajectory3d: { projection: top }

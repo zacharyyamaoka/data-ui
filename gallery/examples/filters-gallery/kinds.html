@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filter kinds · data-ui gallery</title>
+<link rel="stylesheet" href="../../kit/data-ui.css">
+<link rel="stylesheet" href="../../site.css">
+<script>try { const t = localStorage.getItem('data-ui-site-theme'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+<style>
+  .kind { border-top: 1px solid var(--border, #e5e5e5); padding: 14px 0 6px; }
+  .kind h2 { font-size: 16px; margin: 0 0 4px; display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+  .kind .copies { font-size: 13px; font-weight: 400; color: var(--muted-foreground, #666); }
+  .kind p { margin: 0 0 8px; max-width: 80ch; }
+  .kind pre { margin: 0; overflow-x: auto; font-size: 12px; padding: 8px 10px; border-radius: 6px; background: var(--muted, #f4f4f5); }
+  .muted { color: var(--muted-foreground, #666); }
+  .try { white-space: nowrap; }
+  table.seen { border-collapse: collapse; font-size: 13px; width: 100%; }
+  table.seen td { border-top: 1px solid var(--border, #e5e5e5); padding: 6px 8px 6px 0; vertical-align: top; }
+</style>
+</head>
+<body>
+<main class="wrap">
+<p class="crumbs"><a href="../index.html">Gallery</a> › <a href="index.html">Filters</a> › Kinds</p>
+<h1>Filter kinds</h1>
+<p class="lede">Each kind is one <code>facets:</code> entry, <code>{property, as: &lt;kind&gt;, …options}</code>, and every kind edits the same Bases <code>filters</code> tree, so a pick shows in every view and what the rail cannot draw stays as a custom clause. An unknown kind draws as <code>values</code> with a warning. Options common to all: <code>label</code>, <code>info</code> (the ⓘ), <code>diagram</code>, <code>collapsed</code>. The snippets below are cut from this case's <code>views.base</code>. Sites accessed 2026-10-26.</p>
+<section class="kind" id="values">
+  <h2><code>values</code> <span class="copies">copies <a href="https://www.algolia.com/doc/api-reference/widgets/refinement-list/js/">Algolia refinementList</a></span></h2>
+  <p>checkboxes with counts, &quot;Show N more&quot;, a find box over a long list; counts are disjunctive. <span class="muted">Options: label, limit, sort (count | alpha | value), searchable, exclude.</span> <a class="try" href="index.html?brand=Steadywin,CubeMars">Try it: <code>?brand=Steadywin,CubeMars</code></a></p>
+  <pre><code>facets:
+  - { property: brand, as: values, exclude: true, label: Brand, searchable: true }</code></pre>
+</section>
+<section class="kind" id="values-exclude">
+  <h2><code>values + exclude</code> <span class="copies">copies <a href="https://www.elastic.co/docs/explore-analyze/query-filter/filtering">Kibana's filter pills, Exclude results</a></span></h2>
+  <p>a ⊘ beside each value writes {not: [p == v]}; the value is struck through. <span class="muted">Options: exclude: true.</span> <a class="try" href="index.html?brand!=KST,Feetech">Try it: <code>?brand!=KST,Feetech</code></a></p>
+  <pre><code>facets:
+  - { property: brand, as: values, exclude: true, label: Brand, searchable: true }</code></pre>
+</section>
+<section class="kind" id="select">
+  <h2><code>select</code> <span class="copies">copies <a href="https://www.algolia.com/doc/api-reference/widgets/menu/js/">Algolia menu / menuSelect</a></span></h2>
+  <p>one value or Any, as radio buttons or (dropdown: true) a select. <span class="muted">Options: any, dropdown, limit, sort.</span> <a class="try" href="index.html?in_stock=no">Try it: <code>?in_stock=no</code></a></p>
+  <pre><code>facets:
+  - { property: in_stock, as: select, label: Stock }</code></pre>
+</section>
+<section class="kind" id="toggle">
+  <h2><code>toggle</code> <span class="copies">copies <a href="https://www.algolia.com/doc/api-reference/widgets/toggle-refinement/js/">Algolia toggleRefinement</a></span></h2>
+  <p>a switch for one value (&quot;In stock only&quot;, &quot;Has CAD&quot;); Algolia's on is value: here. <span class="muted">Options: value (default true), text.</span> <a class="try" href="index.html?in_stock=yes">Try it: <code>?in_stock=yes</code></a></p>
+  <pre><code>facets:
+  - { property: in_stock, as: toggle, value: &quot;yes&quot;, text: In stock only }</code></pre>
+</section>
+<section class="kind" id="has">
+  <h2><code>has</code> <span class="copies">copies <a href="https://help.tableau.com/current/pro/desktop/en-us/filtering.htm">Tableau quick filters' Special (null / non-null)</a></span></h2>
+  <p>has a value, for one property or a group, matching all of or any of. <span class="muted">Options: properties, match (all | any).</span> <a class="try" href="index.html?hasany=photo,price">Try it: <code>?hasany=photo,price</code></a></p>
+  <pre><code>facets:
+  - { property: photo, as: has, properties: [photo, torque_density, price], label: Has data, match: all }</code></pre>
+</section>
+<section class="kind" id="range">
+  <h2><code>range</code> <span class="copies">copies <a href="https://www.algolia.com/doc/api-reference/widgets/range-input/js/">Algolia rangeInput; Zillow's min / max dropdowns (choices:)</a></span></h2>
+  <p>min and max boxes (dates on a date property), or dropdown pairs of round numbers. <span class="muted">Options: unit, choices, diagram.</span> <a class="try" href="index.html?price=100..500">Try it: <code>?price=100..500</code></a></p>
+  <pre><code>facets:
+  - { property: price, as: range, choices: [25, 50, 100, 250, 500, 1000, 2500], label: Price (min / max) }</code></pre>
+</section>
+<section class="kind" id="slider">
+  <h2><code>slider</code> <span class="copies">copies <a href="https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/">Algolia rangeSlider; WAI-ARIA multi-thumb slider</a></span></h2>
+  <p>two thumbs on one rail; arrows and Page Up / Down move a thumb, release applies. <span class="muted">Options: log, unit.</span> <a class="try" href="index.html?mass=..1800">Try it: <code>?mass=..1800</code></a></p>
+  <pre><code>facets:
+  - { property: mass, as: slider, log: true, label: Mass }</code></pre>
+</section>
+<section class="kind" id="slider-histogram">
+  <h2><code>slider-histogram</code> <span class="copies">copies <a href="https://baymard.com/ecommerce-design-examples/filtering-options/10346-airbnb">Airbnb's price filter</a></span></h2>
+  <p>the distribution above the slider; bars outside the range dim; a bar's count on hover. <span class="muted">Options: log, bins, unit.</span> <a class="try" href="index.html?peak_torque=10..">Try it: <code>?peak_torque=10..</code></a></p>
+  <pre><code>facets:
+  - { property: peak_torque, as: slider-histogram, log: true, label: Peak torque }</code></pre>
+</section>
+<section class="kind" id="buckets">
+  <h2><code>buckets</code> <span class="copies">copies <a href="https://www.algolia.com/doc/api-reference/widgets/numeric-menu/js/">Algolia numericMenu; Amazon's price bands</a></span></h2>
+  <p>preset ranges as chips, p &gt;= a and p &lt; b; edges given or nice ones from the data. <span class="muted">Options: buckets ([edges] or [{label, min, max}]), log, unit.</span> <a class="try" href="index.html?price=50..&lt;100">Try it: <code>?price=50..&lt;100</code></a></p>
+  <pre><code>facets:
+  - { property: price, as: buckets, buckets: [50, 100, 250, 500], unit: USD, label: Price }</code></pre>
+</section>
+<section class="kind" id="rating">
+  <h2><code>rating</code> <span class="copies">copies <a href="https://www.algolia.com/doc/api-reference/widgets/rating-menu/js/">Algolia ratingMenu (Amazon's &quot;&amp; Up&quot;)</a></span></h2>
+  <p>★★★☆☆ &amp; up, top level first, each with its count. <span class="muted">Options: max, min, style.</span> <a class="try" href="index.html?level=2..">Try it: <code>?level=2..</code></a></p>
+  <pre><code>facets:
+  - { property: level, as: rating, max: 5, label: robotparts level }</code></pre>
+</section>
+<section class="kind" id="min-level">
+  <h2><code>min-level</code> <span class="copies">copies <a href="https://www.algolia.com/doc/api-reference/widgets/rating-menu/js/">Algolia ratingMenu, drawn as steps</a></span></h2>
+  <p>&quot;Level ≥ N&quot; for robotparts' levels. <span class="muted">Options: max, min.</span> <a class="try" href="index.html?level=4..">Try it: <code>?level=4..</code></a></p>
+  <pre><code>facets:
+  - { property: level, as: min-level, max: 5, label: Level }</code></pre>
+</section>
+<section class="kind" id="date">
+  <h2><code>date</code> <span class="copies">copies <a href="https://help.tableau.com/current/pro/desktop/en-us/filtering.htm">Tableau relative date filters</a></span></h2>
+  <p>from / until boxes, &quot;Last 7 days&quot; presets and &quot;Older than&quot; for staleness (stored as ISO dates). <span class="muted">Options: presets, older.</span> <a class="try" href="index.html?listed=..&lt;2026-10-12">Try it: <code>?listed=..&lt;2026-10-12</code></a></p>
+  <pre><code>facets:
+  - { property: listed, as: date, presets: [7d, 30d, year], older: [14d, 90d], label: First listed }</code></pre>
+</section>
+<section class="kind" id="chips">
+  <h2><code>chips</code> <span class="copies">copies <a href="https://linear.app/docs/filters">Linear's label filter</a></span></h2>
+  <p>pressable chips for a list property's tags, any of them. <span class="muted">Options: limit, sort.</span> <a class="try" href="index.html?buses=can,ethercat">Try it: <code>?buses=can,ethercat</code></a></p>
+  <pre><code>facets:
+  - { property: buses, as: chips, label: Bus }</code></pre>
+</section>
+<section class="kind" id="swatch">
+  <h2><code>swatch</code> <span class="copies">copies <a href="https://shopify.dev/docs/api/storefront/latest/enums/FilterPresentation">Shopify filter presentation SWATCH / IMAGE</a></span></h2>
+  <p>a logo or colour per value with its count; a monogram where there is none. <span class="muted">Options: images, image, colors, columns.</span> <a class="try" href="index.html?brand=Steadywin">Try it: <code>?brand=Steadywin</code></a></p>
+  <pre><code>facets:
+  - property: brand
+    as: swatch
+    label: Brand (logos)
+    limit: 12
+    images:
+      Steadywin: logos/steadywin.webp
+      Damiao: logos/damiao.webp
+      JMC: logos/jmc.webp</code></pre>
+</section>
+<section class="kind" id="gallery">
+  <h2><code>gallery</code> <span class="copies">copies <a href="https://www.mcmaster.com/screws/">McMaster-Carr's &quot;Drive Style&quot; tiles</a></span></h2>
+  <p>picture tiles in N columns, multi-select; a .svg line drawing takes the text colour. <span class="muted">Options: images, image, columns.</span> <a class="try" href="index.html?form=hobby%20servo">Try it: <code>?form=hobby servo</code></a></p>
+  <pre><code>facets:
+  - property: form
+    as: gallery
+    label: Form
+    columns: 2
+    info: &quot;How the actuator is built: a hobby servo's case and horn, an integrated joint with its driver inside, a frameless direct-drive ring, a motor with a separate gearbox, or a motor inside a wheel.&quot;
+    images:
+      hobby servo: icons/form-hobby_servo.svg
+      integrated actuator: icons/form-integrated_actuator.svg
+      direct drive: icons/form-direct_drive.svg
+      bare gearmotor: icons/form-bare_gearmotor.svg
+      wheel hub: icons/form-wheel_hub.svg</code></pre>
+</section>
+<section class="kind" id="picture-list">
+  <h2><code>picture-list</code> <span class="copies">copies <a href="https://www.mcmaster.com/screws/">McMaster-Carr's &quot;Threading&quot; list</a></span></h2>
+  <p>a small drawing beside each value. <span class="muted">Options: images, image.</span> <a class="try" href="index.html?drivetrain=direct_drive">Try it: <code>?drivetrain=direct_drive</code></a></p>
+  <pre><code>facets:
+  - property: drivetrain
+    as: picture-list
+    label: Drivetrain
+    images:
+      geared: icons/drivetrain-geared.svg
+      direct_drive: icons/drivetrain-direct_drive.svg
+      motor: icons/drivetrain-motor.svg</code></pre>
+</section>
+<section class="kind" id="grid">
+  <h2><code>grid</code> <span class="copies">copies <a href="https://www.mcmaster.com/screws/">McMaster-Carr's &quot;Thread Pitch&quot; grid</a></span></h2>
+  <p>compact values in columns, no checkboxes, click to pick. <span class="muted">Options: columns, sort, limit, searchable.</span> <a class="try" href="index.html?gear_ratio=9,10">Try it: <code>?gear_ratio=9,10</code></a></p>
+  <pre><code>facets:
+  - { property: gear_ratio, as: grid, columns: 3, sort: value, limit: 15, label: Gear ratio, info: &quot;Output turns per motor turn; 1 is direct drive.&quot; }</code></pre>
+</section>
+<section class="kind" id="diagram-any-kind">
+  <h2><code>diagram (any kind)</code> <span class="copies">copies <a href="https://www.mcmaster.com/screws/">McMaster-Carr's dimension drawings (&quot;Head Diameter&quot;)</a></span></h2>
+  <p>a drawing at the top of a facet showing which dimension it filters. <span class="muted">Options: diagram.</span> <a class="try" href="index.html?od=50..100">Try it: <code>?od=50..100</code></a></p>
+  <pre><code>facets:
+  - { property: od, as: range, diagram: diagrams/od.svg, label: Outer diameter, info: &quot;Across the actuator's face, housing to housing; not the output flange.&quot; }</code></pre>
+</section>
+<section class="kind" id="listbox">
+  <h2><code>listbox</code> <span class="copies">copies <a href="https://www.digikey.ca/en/articles/how-to-use-digi-key-part-search">Digi-Key's parametric columns</a></span></h2>
+  <p>a native multi-select list: click, Ctrl-click, Shift-range; a stack of them is Digi-Key's grid. <span class="muted">Options: size, sort, searchable.</span> <a class="try" href="index.html?voltage=24,48">Try it: <code>?voltage=24,48</code></a></p>
+  <pre><code>facets:
+  - { property: voltage, as: listbox, sort: value, label: Voltage }</code></pre>
+</section>
+<section class="kind" id="tree">
+  <h2><code>tree</code> <span class="copies">copies <a href="https://www.algolia.com/doc/api-reference/widgets/hierarchical-menu/js/">Algolia hierarchicalMenu</a></span></h2>
+  <p>form › brand: a level opens under its pick; deeper counts apply the levels above. <span class="muted">Options: levels, limit, sort.</span> <a class="try" href="index.html?form=hobby%20servo&amp;brand=Feetech">Try it: <code>?form=hobby servo&amp;brand=Feetech</code></a></p>
+  <pre><code>facets:
+  - { property: form, as: tree, levels: [form, brand], label: Form › brand }</code></pre>
+</section>
+<section class="kind" id="search">
+  <h2><code>search</code> <span class="copies">copies <a href="https://www.algolia.com/doc/api-reference/widgets/search-box/js/">Algolia searchBox; Tableau's wildcard match</a></span></h2>
+  <p>a text box over chosen properties: contains, or starts with. <span class="muted">Options: properties, match (contains | startsWith), placeholder.</span> <a class="try" href="index.html?model~=gim">Try it: <code>?model~=gim</code></a></p>
+  <pre><code>facets:
+  - { property: model, as: search, properties: [model, name], label: Search, placeholder: &quot;Model or name, e.g. AK80&quot; }</code></pre>
+</section>
+<section class="kind" id="popular">
+  <h2><code>popular</code> <span class="copies">copies <a href="https://baymard.com/ecommerce-design-examples/filtering-options/10301-booking-com">Booking.com's &quot;Popular filters&quot;</a></span></h2>
+  <p>named shortcuts, each one filter expression, with what it would leave. <span class="muted">Options: options ([expr] or [{label, filter}]).</span> <a class="try" href="index.html?price=..&lt;100">Try it: <code>?price=..&lt;100</code></a></p>
+  <pre><code>facets:
+  - property: price
+    as: popular
+    label: Popular filters
+    options:
+      - { label: In stock, filter: 'in_stock == &quot;yes&quot;' }
+      - { label: CAN bus, filter: 'buses.contains(&quot;can&quot;)' }
+      - { label: Under $100, filter: 'price &lt; 100' }
+      - { label: Has a photo, filter: '!photo.isEmpty()' }</code></pre>
+</section>
+<section class="kind" id="current">
+  <h2><code>current</code> <span class="copies">copies <a href="https://www.algolia.com/doc/api-reference/widgets/current-refinements/js/">Algolia currentRefinements + clearRefinements</a></span></h2>
+  <p>every pick as a removable chip, &quot;+N custom&quot;, Clear all. <span class="muted">Options: label.</span> <a class="try" href="index.html?brand=Steadywin&amp;buses=can">Try it: <code>?brand=Steadywin&amp;buses=can</code></a></p>
+  <pre><code>facets:
+  - { as: current, label: Current filters }</code></pre>
+</section>
+<h2>Also looked at</h2>
+<table class="seen"><tbody><tr><td><a href="https://obsidian.md/help/bases/syntax">Obsidian Bases filters</a></td><td>the stored model: and / or / not over expressions; the rail edits its facet-shaped part (the Obsidian recipe)</td></tr><tr><td><a href="https://www.notion.com/help/views-filters-and-sorts">Notion filters</a></td><td>simple filters promote to an advanced group; data-ui's Filter menu is that builder</td></tr><tr><td><a href="https://docs.datasette.io/en/stable/facets.html">Datasette facets</a></td><td>the readable URL: col=value per pick</td></tr><tr><td><a href="https://shopify.dev/docs/storefronts/themes/navigation-search/filtering/storefront-filtering">Shopify storefront filtering</a></td><td>comma lists OR within a filter, filters AND together; .gte / .lte bounds (data-ui writes a..b)</td></tr><tr><td><a href="https://www.algolia.com/doc/guides/building-search-ui/going-further/routing-urls/js/">Algolia routing URLs</a></td><td>state -&gt; route -&gt; URL, flat keys rather than nested brackets</td></tr><tr><td><a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/">WAI-ARIA listbox</a></td><td>the listbox's keyboard: the native select multiple already does it</td></tr><tr><td><a href="https://resources.altium.com/p/parametric-search">Octopart parametric search</a></td><td>a numeric parameter opens a range slider; the URL is hand-editable (secondary source)</td></tr><tr><td><a href="https://www.kayak.com/news/?p=13084">Kayak time-of-day sliders</a></td><td>not built: no time-of-day column in the data; slider covers it when one exists</td></tr><tr><td><a href="https://pcpartpicker.com/products/cpu/">PCPartPicker</a></td><td>not reached (403); its sliders and &quot;show all&quot; lists are covered by slider and values</td></tr><tr><td>Zillow / Redfin</td><td>not reached (403); their min / max dropdown pairs are range with choices:, from memory</td></tr></tbody></table>
+</main>
+</body>
+</html>

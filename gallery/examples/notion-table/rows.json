@@ -1,0 +1,24 @@
+{
+  "id": "notion-table",
+  "title": "Team tracker (made-up data)",
+  "titleProperty": "task",
+  "properties": {
+    "task": { "type": "text", "label": "Task" },
+    "status": { "type": "text", "label": "Status", "display": "badge" },
+    "owner": { "type": "text", "label": "Owner" },
+    "points": { "type": "number", "label": "Points" },
+    "due": { "type": "date", "label": "Due" },
+    "done": { "type": "boolean", "label": "Done", "display": "checkbox" },
+    "link": { "type": "text", "label": "Link", "display": "link" }
+  },
+  "rows": [
+    { "id": "r1", "task": "Draft the launch note", "status": "doing", "owner": "Ana", "points": 3, "due": "2031-03-02", "done": false, "link": "https://example.com/note" },
+    { "id": "r2", "task": "Check the price table", "status": "todo", "owner": "Bo", "points": 1, "due": "2031-03-04", "done": false, "link": null },
+    { "id": "r3", "task": "Record the demo", "status": "todo", "owner": null, "points": 5, "due": null, "done": false, "link": null },
+    { "id": "r4", "task": "Book the room", "status": "done", "owner": "Noor", "points": 1, "due": "2031-02-20", "done": true, "link": "https://example.com/room" },
+    { "id": "r5", "task": "Print the labels", "status": null, "owner": null, "points": null, "due": null, "done": null, "link": null },
+    { "id": "r6", "task": "Send the invite", "status": "doing", "owner": "Bo", "points": 2, "due": "2031-03-11", "done": false, "link": null },
+    { "id": "r7", "task": "Order the cables", "status": "todo", "owner": "Lee", "points": null, "due": "2031-03-12", "done": false, "link": "https://example.com/cables" },
+    { "id": "r8", "task": "Tidy the checklist", "status": null, "owner": "Noor", "points": 1, "due": null, "done": false, "link": null }
+  ]
+}

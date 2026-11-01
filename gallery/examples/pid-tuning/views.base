@@ -1,0 +1,330 @@
+# PID tuning results as one dashboard. On top, the UR5e: pidtuna's four-rung ladder (factory → analytic → tuned →
+# oracle) replayed on one coordinated tape, as KPI tiles, joint angles and errors over time, MuJoCo replays and the tool
+# path, all on one clock. Below, all nine simulated robots, gains against the error they buy, and the one real
+# comparison (the sim plant vs the rack).
+# Data: source/build.py (round 1: pidtuna-website's exported JSON, sim and illustrative; sim_fidelity.json, real),
+# source/build_replay.py (round 2: the UR5e and lever replays and MuJoCo renders, all sim) and source/build_headline.py
+# (headline.json: kpis.json's cells copied beside each other for the tiles' deltas).
+# Grammar: docs/peps/0004-dashboards.md; cards and the clock: docs/peps/0005-dashboard-cards.md.
+data: gains.json
+facets:
+  - robot
+  - { property: rung, order: [factory, analytic, tuned, oracle] }
+  - { property: joint, searchable: true, limit: 6 }
+properties:
+  robot: { displayName: Robot }
+  rung: { displayName: Rung }
+  joint: { displayName: Joint }
+  # declared rounding for the tables: Kp to 0.1, Kd to 0.01 (Kp runs 9.86 to 100,000); gains.json and joints.json keep every digit
+  kp: { displayName: Kp, decimals: 1 }
+  kd: { displayName: Kd, decimals: 2 }
+  tracking_rms: { displayName: Tracking RMS }
+  stop_p90: { displayName: Stop p90 }
+  max_error: { displayName: Max error }
+  ringing: { displayName: Ringing }
+  improvement: { displayName: × better than factory }
+  tuned_tracking_rms: { displayName: Tuned tracking RMS }
+  oracle_tracking_rms: { displayName: Oracle }
+  tuned_vs_oracle: { displayName: Tuned ÷ oracle }
+  servo: { displayName: Servo }
+  ff_fraction: { displayName: Coulomb feed-forward }
+  situation: { displayName: Rung }
+  q_deg: { displayName: Angle }
+  q_target_deg: { displayName: Target angle }
+  err_mrad: { displayName: Error }
+  factory_stop_p90: { displayName: Factory }
+  vs_factory: { displayName: × better than factory }
+  stop_p90_mrad: { displayName: Stop p90 }
+  tracking_rms_mrad: { displayName: Tracking RMS }
+  max_error_mrad: { displayName: Max error }
+  ringing_mrad: { displayName: Ringing }
+  saturation: { displayName: Torque saturation }
+  admissible: { displayName: Passes the gates }
+  refused_for: { displayName: Refused for }
+  feedforward: { displayName: Feed-forward }
+style:
+  chrome: minimal
+  numbers: { digits: 3, compact: true }
+  # WHY one fixed colour per rung, the same in every panel (tiles, time series, paths, the nine robots' charts): Zach's
+  # "all of those things synced" reads only if tuned is the same blue everywhere; the target is the muted dashed ink
+  palette: { target: "#8b9099", factory: "#e8743b", analytic: "#9b6ad6", tuned: "#2a78d6", oracle: "#19a979" }
+rerun:
+  rrd: rerun/pid-tuning.rrd
+  sdk: 0.40.0
+clock:
+  data: samples
+  time: t
+  fps: 30
+datasets:
+  samples:
+    data: samples.json
+    label: UR5e replay
+    facets:
+      - { property: joint, as: select, label: Joint }
+    # the elbow to start: the tuned rung's worst joint on tracking RMS and stop p90 (kpis.json tracking_rms_joint)
+    filters: 'joint == "elbow_joint"'
+  lever: step.json
+  tool: tool.json
+  robot: robot.json
+  media: media.json
+  kpis: kpis.json
+  headline: headline.json
+  joints: joints.json
+  gains: gains.json
+  robots: robots.json
+  fidelity:
+    data: fidelity.json
+    label: The rack (real)
+    facets: [servo, ff_fraction]
+links:
+  - { from: gains.robot_id, to: robots.robot_id }
+layout:
+  panels:
+    - text: |
+        ## UR5e: factory gains to tuned, in simulation
+        pidtuna tunes the UR5e's six joints four ways: the **factory** gains, the **analytic** first guess, the
+        **tuned** result and the **oracle** (the best any gains can do against the hidden true plant), then replays one
+        coordinated tape with each. **Everything in this top half is simulation**: pidtuna's ArmSim against a plant with
+        illustrative parameters, and the videos are **MuJoCo renders (sim), not a camera**. **No real UR5e run
+        exists**, so there is no measured trace or camera clip to set beside them. The tiles are the worst of the six
+        joints; errors are mrad. Pick a joint in the rail, then press play or scrub: the videos, both time series, the
+        tool path and the 3D arm follow one clock. The export has no overshoot or settling time.
+      w: 12
+    # WHY title: none on the KPI tiles: the card's own label is the tile's title (Klipfolio's tiles), not a second one
+    - { view: Stop p90 · tuned, w: 3, style: { title: none } }
+    - { view: Tracking RMS · tuned, w: 3, style: { title: none } }
+    - { view: × better than factory, w: 3, style: { title: none } }
+    - { view: Tracking RMS by rung, w: 3 }
+    - { view: Playback, w: 12 }
+    - { view: Joint angle vs target, w: 8, h: 3 }
+    - { view: MuJoCo replay · tuned (sim), w: 4, h: 3 }
+    - { view: Error over time, w: 8, h: 3 }
+    - { view: Factory vs tuned (sim), w: 4, h: 3 }
+    - { view: Tool path 3D (sim FK), w: 6, h: 4 }
+    - { view: Tool path XZ (sim FK), w: 6, h: 4 }
+    - { view: Lever · pick-and-place (sim), w: 12, h: 3 }
+    - { view: Gates per joint · factory → oracle, w: 6 }
+    - { view: Torque saturation by rung, w: 6 }
+    - { view: UR5e gain vs error, w: 4, h: 4 }
+    - { view: UR5e gains per joint, w: 8, h: 4 }
+    - text: |
+        ## All nine robots: how close the tuner gets to the oracle
+        Each robot's joints are tuned the same four ways. These are pidtuna's **simulated** robots with illustrative
+        parameters (hollow marks: estimates), so read the ladder, not the absolute numbers. Errors are mrad for joints
+        and mm for the belt axes (conveyor, gantry). The data has no overshoot or settling time: pidtuna scores *stop
+        p90*, *tracking RMS*, *max error* and *ringing*.
+      w: 12
+    - { view: Tuned against the oracle, w: 12, h: 3 }
+    - { view: Gain vs error, w: 7, h: 5 }
+    - { view: Error by rung, w: 5, h: 5 }
+    - { views: [Every joint, Robot × rung], title: Per joint and motor, w: 12, h: 5 }
+    - text: |
+        ### Does the sim plant match the real rack?
+        The one **real** comparison: the tuner's sim plant against the rack's servos (CAN 4, 11-14), stop p90 with and
+        without Coulomb feed-forward. Points on the diagonal agree; this dataset has no link to the robots above, so
+        their rail leaves it alone.
+      w: 12
+    - { view: Sim vs real stop p90, w: 6, h: 4 }
+    - { view: Fidelity by servo, w: 6, h: 4 }
+views:
+  # ---- the UR5e's tiles (headline.json, kpis.json: the producer's worst-joint scores, sim)
+  - type: kpi
+    name: Stop p90 · tuned
+    from: headline
+    filters: 'situation == "tuned"'
+    kpi:
+      label: Stop p90 · tuned (worst joint)
+      value: { property: stop_p90 }
+      compare: { against: factory_stop_p90, better: lower }
+  - type: kpi
+    name: Tracking RMS · tuned
+    from: headline
+    filters: 'situation == "tuned"'
+    kpi:
+      label: Tracking RMS · tuned (worst joint)
+      value: { property: tracking_rms }
+      compare: { against: oracle_tracking_rms, better: lower }
+  - type: kpi
+    name: × better than factory
+    from: kpis
+    filters: 'situation == "tuned"'
+    kpi:
+      label: × better than factory · tuned
+      value: { property: vs_factory }
+  - type: barlist
+    name: Tracking RMS by rung
+    from: kpis
+    barlist: { label: situation, value: { property: tracking_rms }, better: lower }
+  # ---- the clock
+  - type: playback
+    name: Playback
+    playback: { speeds: [0.25, 0.5, 1, 2], range: true, readout: true }
+  # ---- the rail's joint, sample by sample (samples.json, sim)
+  - type: timeseries
+    name: Joint angle vs target
+    from: samples
+    timeseries:
+      x: t
+      y: q_deg
+      series: situation
+      unit: °
+      dash: [target]
+      legend: top
+  # WHY symlog: factory's error is ~100 mrad and the tuned and oracle rungs' under 1 mrad; a linear axis flattens the
+  # rungs the tuner is about into the zero line
+  - type: timeseries
+    name: Error over time
+    from: samples
+    filters: 'situation != "target"'
+    timeseries:
+      x: t
+      y: err_mrad
+      series: situation
+      unit: mrad
+      scale: symlog
+      legend: top
+      # the tuned rung's worst-joint tracking RMS, kpis.json tracking_rms (tuned, elbow_joint) = 0.4333 mrad; the
+      # export has no numeric gate to draw
+      rules: [{ y: 0.4333, label: "tuned RMS 0.433 (worst joint)" }, { y: -0.4333 }]
+  # ---- the MuJoCo renders (media.json: sim-render, t0 0)
+  - type: video
+    name: MuJoCo replay · tuned (sim)
+    from: media
+    filters: 'situation == "tuned"'
+    video: { src: src, label: situation, primary: true }
+  - type: video-compare
+    name: Factory vs tuned (sim)
+    from: media
+    overlay: { by: situation, a: factory, b: tuned, mode: wipe, split: 0.5 }
+  # ---- the tool (tool.json: MuJoCo forward kinematics of the replayed joint angles, sim)
+  # the 3D card reads robot.json (source/build_robot.py): the same FK as each link's pose at 25 Hz, so Menagerie's UR5e
+  # meshes (media/ur5e_links.glb) stand where the arm was; the stick (the link origins, then the tool) is the fallback
+  - type: scene3d
+    name: Tool path 3D (sim FK)
+    from: robot
+    scene3d:
+      x: px
+      y: py
+      z: pz
+      series: situation
+      target: target
+      t: t
+      skeleton: [[base_x, base_y, base_z], [shoulder_link_x, shoulder_link_y, shoulder_link_z], [upper_arm_link_x, upper_arm_link_y, upper_arm_link_z], [forearm_link_x, forearm_link_y, forearm_link_z], [wrist_1_link_x, wrist_1_link_y, wrist_1_link_z], [wrist_2_link_x, wrist_2_link_y, wrist_2_link_z], [wrist_3_link_x, wrist_3_link_y, wrist_3_link_z], [px, py, pz]]
+      robot:
+        model: media/ur5e_links.glb
+        links: [base, shoulder_link, upper_arm_link, forearm_link, wrist_1_link, wrist_2_link, wrist_3_link]
+        ghost: target
+  - type: trajectory
+    name: Tool path XZ (sim FK)
+    from: tool
+    trajectory: { x: px, y: pz, series: situation, target: target, t: t, trail: true }
+  # ---- the lever (step.json: 1 joint, pickplace tape, 100 Hz, sim; 8.67 s, longer than the UR5e's 7.9 s clock)
+  - type: timeseries
+    name: Lever · pick-and-place (sim)
+    from: lever
+    timeseries:
+      x: t
+      y: q_deg
+      series: situation
+      unit: °
+      dash: [target]
+      legend: top
+  # ---- the ladder per joint (joints.json, kpis.json)
+  - type: tracker
+    name: Gates per joint · factory → oracle
+    from: joints
+    groupBy: { property: joint }
+    sort:
+      - { property: order, direction: ASC }
+    tracker: { state: admissible, label: situation, tones: { "true": good, "false": bad } }
+  - type: bullet
+    name: Torque saturation by rung
+    from: kpis
+    sort:
+      - { property: order, direction: ASC }
+    bullet: { value: { property: saturation }, label: title, better: lower }
+  - type: chart
+    name: UR5e gain vs error
+    from: joints
+    chart:
+      mark: { type: point, filled: true, size: 70 }
+      encoding:
+        x: { field: kp, scale: { type: log }, title: Kp }
+        y: { field: tracking_rms_mrad, scale: { type: log }, title: Tracking RMS (mrad) }
+        color: { field: situation, title: Rung, sort: [factory, analytic, tuned, oracle] }
+    hover: { title: joint, fields: [situation, kp, kd, tracking_rms_mrad, stop_p90_mrad] }
+  - type: table
+    name: UR5e gains per joint
+    from: joints
+    order: [joint, situation, kp, kd, feedforward, tracking_rms_mrad, stop_p90_mrad, max_error_mrad, ringing_mrad, saturation, admissible, refused_for]
+    # WHY plain text: joints.json's badge slots colour the rungs unlike style.palette (factory would be green here)
+    display: { situation: text }
+    sort:
+      - { property: joint, direction: ASC }
+      - { property: order, direction: ASC }
+  # ---- all nine robots (round 1: gains.json, robots.json, fidelity.json)
+  - type: kpi
+    name: Tuned against the oracle
+    from: robots
+    select: robot_id
+    groupBy: { property: robot }
+    kpi:
+      value: { property: tuned_tracking_rms }
+      compare: { against: oracle_tracking_rms, better: lower, neutral: 0.05 }
+  - type: chart
+    name: Gain vs error
+    from: gains
+    select: robot_id
+    chart:
+      mark: { type: point, size: 70 }
+      encoding:
+        x: { field: kp, scale: { type: log }, title: Kp }
+        y: { field: tracking_rms, scale: { type: log }, title: Tracking RMS (mrad; mm for belt axes) }
+        color: { field: rung, title: Rung, sort: [factory, analytic, tuned, oracle] }
+        shape: { field: robot, title: Robot }
+    hover: { title: joint, fields: [robot, rung, kp, kd, tracking_rms, stop_p90, feedforward] }
+  - type: chart
+    name: Error by rung
+    from: gains
+    select: rung
+    chart:
+      mark: bar
+      encoding:
+        x: { field: rung, sort: [factory, analytic, tuned, oracle], title: null }
+        y: { field: tracking_rms, aggregate: median, scale: { type: log }, title: Median tracking RMS }
+        color: { field: rung, sort: [factory, analytic, tuned, oracle], legend: null }
+  - type: table
+    name: Every joint
+    from: gains
+    order: [robot, joint, rung, kp, kd, feedforward, tracking_rms, stop_p90, max_error, ringing, improvement]
+    # WHY plain text: gains.json's badge slots colour the rungs unlike style.palette (factory would be green here)
+    display: { rung: text }
+    sort:
+      - { property: robot_id, direction: ASC }
+      - { property: joint, direction: ASC }
+      - { property: rung_order, direction: ASC }
+  - type: pivot
+    name: Robot × rung
+    from: gains
+    groupBy: { property: robot }
+    splitBy: [rung]
+    value: { property: tracking_rms, summary: Median }
+  - type: chart
+    name: Sim vs real stop p90
+    from: fidelity
+    chart:
+      mark: { type: point, filled: true, size: 90 }
+      encoding:
+        x: { field: real_p90, title: Real stop p90 (mrad) }
+        y: { field: sim_p90, title: Sim stop p90 (mrad) }
+        color: { field: servo, title: Servo }
+        shape: { field: ff_fraction, type: nominal, title: Coulomb ff }
+    guides:
+      - { indexLine: { slope: 1, through: 1 }, label: "sim = real" }
+    hover: { title: servo, fields: [ff_fraction, real_p90, sim_p90, real_tracking_rms, sim_tracking_rms, gap_p90] }
+  - type: table
+    name: Fidelity by servo
+    from: fidelity
+    order: [servo, ff_fraction, real_p90, sim_p90, gap_p90, real_tracking_rms, sim_tracking_rms, real_coulomb_nm, truth_coulomb_nm]
+    sort:
+      - { property: can_id, direction: ASC }

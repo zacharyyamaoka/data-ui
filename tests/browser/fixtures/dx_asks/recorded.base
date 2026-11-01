@@ -1,0 +1,7 @@
+# A plain <data-views> of tests/browser/dx_asks_checks.py: the live plot card over a recording (a file, not a live
+# dataset; CONTRACT §26: plot works on plain datasets too), its legend's hidden set in the URL as l=.
+data: recorded.json
+views:
+  - type: plot
+    name: Recorded joints
+    plot: { y: [position], series: joint, unit: rad, height: 220 }

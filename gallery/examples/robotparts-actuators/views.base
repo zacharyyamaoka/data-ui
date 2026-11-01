@@ -1,0 +1,114 @@
+# Actuators: robotparts' 1,149 actuators, one .base file, many views. The five table views are the table lane's
+# presets (robotparts lane/tables @ ab5ba92, presets/actuators.base); the pivots are data-ui's, and so are the three
+# views that show how a record opens (`open:`, docs/CONTRACT.md amendment 2026-10-26 (open modes)). Obsidian Bases
+# grammar plus data-ui's keys (docs/CONTRACT.md §5). Check it: node bin/data-ui.mjs check <this file>
+data: actuators.json
+# how a record opens in every view that does not say: the side peek, docked as a split view from 1100 px of width
+open: { mode: side, splitAt: 1100 }
+facets:
+  - brand
+  - form
+  - drivetrain
+  - buses
+  - level
+  - { property: peak_torque, as: range }
+  - { property: mass, as: range }
+  - { property: price, as: range }
+  - { property: torque_density, as: has }
+properties:
+  model: { displayName: Model }
+  brand: { displayName: Brand }
+  form: { displayName: Form, type: select, options: { integrated actuator: blue, hobby servo: orange, direct drive: purple, bare gearmotor: brown, wheel hub: green } }
+  drivetrain: { displayName: Drivetrain, type: select, options: { geared: gray, direct_drive: purple, motor: brown } }
+  peak_torque: { displayName: Peak torque, icon: gauge }
+  rated_torque: { displayName: Rated torque }
+  max_speed: { displayName: Max speed }
+  mass: { displayName: Mass, icon: weight }
+  gear_ratio: { displayName: Ratio }
+  voltage: { displayName: Voltage }
+  od: { displayName: OD, icon: ruler, description: Outside diameter }
+  length: { displayName: Length, icon: ruler }
+  buses: { displayName: Bus, type: multi_select, options: { can: blue, rs485: orange, ttl: gray, pwm: pink, ethercat: green, uart: brown, i2c: purple } }
+  torque_density: { displayName: Peak N·m/kg, type: number, showAs: bar, color: blue, decimals: 1, description: Peak torque per kilogram (derived by robotparts); the bar is against the densest in view }
+  price: { displayName: Price from, type: currency, currency: USD, decimals: 0 }
+  sellers: { displayName: Sellers, icon: users }
+  photo: { displayName: Photo, type: files }
+  url: { type: url, urlDisplay: short }
+  level: { displayName: Level, type: rating, max: 5, ratingIcon: circle, color: blue, description: "robotparts' evidence ladder (robotparts/2 SCHEMA2 §3): 1 listed, 2 cited, 3 CAD, 4 sim, 5 measured; the highest level whose checks all pass" }
+views:
+  - type: table
+    name: By brand
+    order: [model, form, peak_torque, rated_torque, max_speed, mass, gear_ratio, voltage, od, length, buses, price]
+    groupBy: { property: brand, direction: ASC }
+    sort:
+      - { property: peak_torque, direction: DESC }
+    summaries: { peak_torque: Max, mass: Min, price: Min }
+  - type: table
+    name: Brand › form
+    order: [model, peak_torque, mass, gear_ratio, voltage, price]
+    groupBy: { property: brand, direction: ASC }
+    subGroupBy: { property: form, direction: ASC }
+    sort:
+      - { property: peak_torque, direction: DESC }
+    summaries: { peak_torque: Max, price: Min }
+    fold: closed
+  - type: table
+    name: Torque density
+    filters: '!torque_density.isEmpty()'
+    order: [model, brand, torque_density, peak_torque, mass, price]
+    sort:
+      - { property: torque_density, direction: DESC }
+    display: { torque_density: bar }
+  - type: table
+    name: Geared CAN under $150
+    filters:
+      and:
+        - 'drivetrain == "geared"'
+        - 'buses.contains("can")'
+        - 'price < 150'
+    order: [model, brand, price, peak_torque, mass, gear_ratio, voltage]
+    sort:
+      - { property: price, direction: ASC }
+    display: { price: bar }
+  - type: table
+    name: All, flat
+    order: [model, brand, form, drivetrain, peak_torque, rated_torque, max_speed, mass, gear_ratio, voltage, od, length, buses, torque_density, price, sellers, level]
+    sort:
+      - { property: brand, direction: ASC }
+      - { property: model, direction: ASC }
+  - type: table
+    name: Expand in place
+    open: expand
+    order: [model, brand, form, peak_torque, mass, gear_ratio, price]
+    sort:
+      - { property: peak_torque, direction: DESC }
+  - type: table
+    name: Row links
+    open: { mode: link, url: url }
+    order: [model, brand, form, peak_torque, mass, price]
+    sort:
+      - { property: brand, direction: ASC }
+      - { property: model, direction: ASC }
+  - type: cards
+    name: Gallery
+    open: expand
+    filters: '!photo.isEmpty()'
+    order: [model, brand, peak_torque, mass, price]
+    image: photo
+    imageFit: contain
+    imageAspectRatio: 0.75
+    cardSize: 180
+    sort:
+      - { property: peak_torque, direction: DESC }
+  - type: pivot
+    name: Brand × form
+    order: [brand]
+    splitBy: [form]
+    value: { property: null, summary: Count }
+    sort:
+      - { property: brand, direction: ASC }
+  - type: pivot
+    name: Torque by drivetrain × form
+    order: [drivetrain]
+    splitBy: [form]
+    value: { property: peak_torque, summary: Median, display: dist }

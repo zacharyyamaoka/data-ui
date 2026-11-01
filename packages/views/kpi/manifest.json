@@ -1,0 +1,13 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1. Loading this bundle also defines <data-kpi> and <data-sparkline>. The default export picks the class by the view's type (kpi, gauge, bullet, barlist, status).",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [
+    { "type": "kpi", "name": "KPI", "icon": "gauge", "summary": "One stat card, or one per group: the value with its unit and basis, a delta coloured by which way is better, an SVG sparkline, \"computed from N runs\"; the headline card draws its history as a chart." },
+    { "type": "gauge", "name": "Gauge", "icon": "circle-gauge", "summary": "One number against a scale: a rounded progress bar or a semicircle arc, a target tick, colour bands and over / under the target; the value is the producer's or a summary over the rows." },
+    { "type": "bullet", "name": "Bullet", "icon": "align-left", "summary": "One bullet chart per row or group, aligned: grey bands, the value bar, a target tick and the value at the right." },
+    { "type": "barlist", "name": "Bar list", "icon": "bar-chart-horizontal", "summary": "A ranked list (Tremor's BarList): one row per label with its value summarised, a bar behind the label, the rest as \"+N more\"." },
+    { "type": "tracker", "name": "Tracker", "icon": "layout-grid", "summary": "A tracker (Tremor's Tracker): one row per group, one small block per row coloured by its state, a legend of the states present." }
+  ],
+  "npm": []
+}

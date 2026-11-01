@@ -1,0 +1,260 @@
+{
+ "title": "checks",
+ "schema": {
+  "fields": [
+   {
+    "name": "id",
+    "type": "string"
+   },
+   {
+    "name": "subject",
+    "type": "string"
+   },
+   {
+    "name": "device",
+    "type": "string"
+   },
+   {
+    "name": "diagnostic",
+    "type": "string"
+   },
+   {
+    "name": "title",
+    "type": "string"
+   },
+   {
+    "name": "verdict",
+    "type": "string",
+    "display": "status",
+    "tones": {
+     "partial": "warn"
+    },
+    "labels": {
+     "not_run": "not run"
+    }
+   },
+   {
+    "name": "rank",
+    "type": "integer"
+   },
+   {
+    "name": "value",
+    "type": "number"
+   },
+   {
+    "name": "unit",
+    "type": "string"
+   },
+   {
+    "name": "warn_lo",
+    "type": "number"
+   },
+   {
+    "name": "warn_hi",
+    "type": "number"
+   },
+   {
+    "name": "error_lo",
+    "type": "number"
+   },
+   {
+    "name": "error_hi",
+    "type": "number"
+   },
+   {
+    "name": "target",
+    "type": "number"
+   },
+   {
+    "name": "better",
+    "type": "string"
+   },
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "t0",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "t1",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "run",
+    "type": "string"
+   },
+   {
+    "name": "started",
+    "type": "datetime"
+   },
+   {
+    "name": "message",
+    "type": "string"
+   },
+   {
+    "name": "why",
+    "type": "string"
+   },
+   {
+    "name": "evidence",
+    "type": "string",
+    "display": "link"
+   },
+   {
+    "name": "basis",
+    "type": "string"
+   },
+   {
+    "name": "source",
+    "type": "string"
+   },
+   {
+    "name": "record",
+    "type": "string"
+   },
+   {
+    "name": "parent",
+    "type": "string"
+   },
+   {
+    "name": "hint",
+    "type": "string"
+   },
+   {
+    "name": "order",
+    "type": "integer"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "id": "r1#tracking",
+   "subject": "rig/A",
+   "device": "A",
+   "diagnostic": "stock.tracking",
+   "title": "tracking",
+   "verdict": "pass",
+   "rank": 0,
+   "value": 3.1,
+   "unit": "mrad",
+   "warn_lo": null,
+   "warn_hi": null,
+   "error_lo": null,
+   "error_hi": 8.0,
+   "target": 5.0,
+   "better": "lower",
+   "t": 2.5,
+   "t0": 0.5,
+   "t1": 2.0,
+   "run": "r1",
+   "started": "2026-10-28T10:00:00-07:00",
+   "message": "tracking of r1",
+   "why": null,
+   "evidence": "index.html?run=r1#t=0.500&tr=0.500,2.000",
+   "basis": "derived",
+   "source": "robotdx.diagnostics \u00b7 stock.tracking",
+   "record": "r1 \u00b7 q",
+   "parent": "rig/A",
+   "hint": "gate_matrix",
+   "order": 0
+  },
+  {
+   "id": "r1#temperature",
+   "subject": "rig/A",
+   "device": "A",
+   "diagnostic": "stock.temperature",
+   "title": "temperature",
+   "verdict": "warn",
+   "rank": 1,
+   "value": 62.0,
+   "unit": "Cel",
+   "warn_lo": null,
+   "warn_hi": 60.0,
+   "error_lo": null,
+   "error_hi": 70.0,
+   "target": null,
+   "better": "lower",
+   "t": 2.5,
+   "t0": 0.5,
+   "t1": 2.0,
+   "run": "r1",
+   "started": "2026-10-28T10:00:00-07:00",
+   "message": "temperature of r1",
+   "why": null,
+   "evidence": "index.html?run=r1#t=0.500&tr=0.500,2.000",
+   "basis": "derived",
+   "source": "robotdx.diagnostics \u00b7 stock.temperature",
+   "record": "r1 \u00b7 q",
+   "parent": "rig/A",
+   "hint": "gate_matrix",
+   "order": 1
+  },
+  {
+   "id": "r2#tracking",
+   "subject": "rig/B",
+   "device": "B",
+   "diagnostic": "stock.tracking",
+   "title": "tracking",
+   "verdict": "fail",
+   "rank": 4,
+   "value": 9.5,
+   "unit": "mrad",
+   "warn_lo": null,
+   "warn_hi": null,
+   "error_lo": null,
+   "error_hi": 8.0,
+   "target": 5.0,
+   "better": "lower",
+   "t": 2.5,
+   "t0": 0.5,
+   "t1": 2.0,
+   "run": "r2",
+   "started": "2026-10-29T10:00:00-07:00",
+   "message": "tracking of r2",
+   "why": null,
+   "evidence": "index.html?run=r2#t=0.500&tr=0.500,2.000",
+   "basis": "derived",
+   "source": "robotdx.diagnostics \u00b7 stock.tracking",
+   "record": "r2 \u00b7 q",
+   "parent": "rig/B",
+   "hint": "gate_matrix",
+   "order": 0
+  },
+  {
+   "id": "r2#temperature",
+   "subject": "rig/B",
+   "device": "B",
+   "diagnostic": "stock.temperature",
+   "title": "temperature",
+   "verdict": "not_run",
+   "rank": 2,
+   "value": null,
+   "unit": "Cel",
+   "warn_lo": null,
+   "warn_hi": 60.0,
+   "error_lo": null,
+   "error_hi": 70.0,
+   "target": null,
+   "better": "lower",
+   "t": 2.5,
+   "t0": 0.5,
+   "t1": 2.0,
+   "run": "r2",
+   "started": "2026-10-29T10:00:00-07:00",
+   "message": "temperature of r2",
+   "why": null,
+   "evidence": "index.html?run=r2#t=0.500&tr=0.500,2.000",
+   "basis": "derived",
+   "source": "robotdx.diagnostics \u00b7 stock.temperature",
+   "record": "r2 \u00b7 q",
+   "parent": "rig/B",
+   "hint": "gate_matrix",
+   "order": 1
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "systemsketch-blocks",
+  "title": "SystemSketch blocks (8 rows, graph)",
+  "app": "systemsketch",
+  "base": "views.base",
+  "view": null,
+  "rows": 8,
+  "synthetic": false,
+  "provenance": {
+    "from": "~/data-ui/gallery/examples/systemsketch-blocks/blocks.json @ main 0dbc3d4",
+    "sha256": "700d6aaa1f03606fb0cef61f3168032f0a890aa437774b0bab714e6002cdea10",
+    "copied": "2026-10-26",
+    "note": "A SystemSketch example diagram's blocks and the ports that connect them, as nodes and edges."
+  },
+  "interactions": {
+    "filter": {
+      "property": "kind",
+      "value": "component"
+    },
+    "sort": {
+      "property": "n_in",
+      "direction": "DESC"
+    },
+    "search": "moti",
+    "presets": [
+      "Blocks and ports",
+      "By block type",
+      "Blocks"
+    ],
+    "scroll": false,
+    "peek": true
+  }
+}

@@ -1,0 +1,64 @@
+{
+ "id": "parts",
+ "title": "Parts",
+ "titleProperty": "check",
+ "source": "synthetic: tests/browser/fixtures/dx_asks_2/make_fixture.py (illustrative numbers)",
+ "properties": {
+  "id": {
+   "type": "text"
+  },
+  "t": {
+   "type": "number",
+   "unit": "s"
+  },
+  "check": {
+   "type": "text",
+   "label": "Check"
+  },
+  "x": {
+   "type": "number",
+   "label": "x"
+  },
+  "y": {
+   "type": "number",
+   "label": "y"
+  }
+ },
+ "rows": [
+  {
+   "id": "stock#0",
+   "t": 1792631001.0,
+   "check": "stock",
+   "x": 0,
+   "y": 58.0
+  },
+  {
+   "id": "stock#1",
+   "t": 1792631001.0,
+   "check": "stock",
+   "x": 1,
+   "y": 59.6
+  },
+  {
+   "id": "stock#2",
+   "t": 1792631001.0,
+   "check": "stock",
+   "x": 2,
+   "y": 61.2
+  },
+  {
+   "id": "evidence#0",
+   "t": 1792631001.0,
+   "check": "evidence",
+   "x": 0,
+   "y": 0.2
+  },
+  {
+   "id": "evidence#1",
+   "t": 1792631001.0,
+   "check": "evidence",
+   "x": 1,
+   "y": 0.3
+  }
+ ]
+}

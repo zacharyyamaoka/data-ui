@@ -1,0 +1,5 @@
+{"id": "dx-samples", "title": "Joint samples", "titleProperty": "joint",
+ "source": "synthetic: the rows are pushed by tests/browser/dx_asks_checks.py on the wall clock (illustrative numbers)",
+ "properties": {"t": {"type": "number", "unit": "s", "label": "Time"}, "joint": {"type": "text", "label": "Joint"},
+  "position": {"type": "number", "unit": "rad", "label": "Position"}},
+ "rows": []}

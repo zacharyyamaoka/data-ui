@@ -1,0 +1,35 @@
+# Vibe Tracks' feature tree: the Spec tab's tree (vibetracks/home/static/spec.js, VT.ui.specTree) over its own
+# computed spec, vt-spec-tree/1, as rows. Obsidian Bases grammar plus data-ui's keys (docs/CONTRACT.md §5).
+data: spec-tree.json
+facets:
+  - state
+  - kind
+  - status
+views:
+  - type: list
+    name: Spec tree
+    tree: { parent: parent }
+    order: [title, state, tests, status]
+    markers: none
+    separator: "  "
+  - type: list
+    name: Failing
+    filters: 'state == "fail"'
+    tree: { parent: parent }
+    order: [title, tests, message, file]
+    markers: none
+    indentProperties: true
+  - type: table
+    name: Features
+    filters: 'kind == "feature"'
+    order: [title, feature, state, tests, priority, also]
+    groupBy: { property: status }
+    sort:
+      - { property: feature, direction: ASC }
+  - type: record
+    name: Node
+    filters: 'kind != "check"'
+    record:
+      sections:
+        - { name: Intent, properties: [kind, feature, status, priority, description] }
+        - { name: Results, properties: [state, tests, last_run, sha, also] }

@@ -1,0 +1,166 @@
+/* type: chart. Colours are the private --dv-* tokens (resolved from --data-* by the core's tokens.css); the plot itself
+   takes the same tokens as values (input.tokens), because Vega draws on canvas. */
+
+.dv-view-chart { position: relative; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+.dv-chart-minimal > .dv-chart-bar { display: none; }
+.dv-chart-bar { display: flex; align-items: center; gap: 4px; padding: 4px 8px; border-bottom: 1px solid var(--dv-rule); min-height: 32px; }
+.dv-chart-hint { margin-left: auto; color: var(--dv-muted); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.dv-chart-plot { flex: 1 1 auto; min-height: 160px; position: relative; overflow: hidden; }
+.dv-view-chart[data-bare] .dv-chart-plot { min-height: 120px; }
+/* WHY a wrapper: vega-embed styles the element it draws into (.vega-embed is inline-block), so it gets its own box */
+.dv-view-chart .dv-chart-canvas { position: absolute; inset: 0; display: block; line-height: 0; }
+.dv-view-chart .dv-chart-canvas canvas { display: block; margin: 0; }
+.dv-chart-canvas .vega-bindings:empty { display: none; }
+.dv-chart-err { padding: 12px; line-height: 1.4; }
+/* a chart whose x is a time in seconds draws the clock's t, as the time series card does (kit gap 3) */
+.dv-chart-playhead { position: absolute; left: 0; top: 0; width: 1px; background: var(--dv-accent); pointer-events: none; z-index: 2; }
+.dv-chart-playhead::before { content: ''; position: absolute; left: -3px; top: -3px; width: 7px; height: 7px; border-radius: 50%; background: var(--dv-accent); }
+.dv-chart-playhead[hidden] { display: none; }
+.dv-chart-with-rows .dv-chart-plot { flex: 1 1 55%; }
+.dv-chart-rows { flex: 1 1 45%; min-height: 120px; display: flex; flex-direction: column; border-top: 1px solid var(--dv-border); }
+.dv-chart-rows[hidden] { display: none; }
+
+/* the hover card: photo, title, the values with their units and basis marks */
+.dv-chart-hover { position: absolute; z-index: 15; left: 0; top: 0; width: 248px; pointer-events: none; background: var(--dv-bg); color: var(--dv-fg);
+  border: 1px solid var(--dv-border); border-radius: calc(var(--dv-radius) + 2px); box-shadow: 0 8px 24px rgba(0,0,0,.16); overflow: hidden; font-size: 12px; }
+.dv-chart-hover[hidden] { display: none; }
+.dv-chart-img { background: var(--dv-subtle); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; }
+.dv-chart-img img { width: 100%; height: 100%; object-fit: contain; display: block; margin: 0; }
+.dv-chart-noimg { color: var(--dv-muted); font-size: 11px; padding: 5px 10px; background: var(--dv-subtle); }
+.dv-chart-card-body { padding: 8px 10px 8px; }
+.dv-chart-card-body b { display: block; font-size: 13px; margin-bottom: 4px; }
+.dv-chart-card-body table { width: 100%; border-collapse: collapse; }
+.dv-chart-card-body th, .dv-chart-card-body td { text-align: left; padding: 2px 0; vertical-align: top; border-top: 1px solid var(--dv-rule); }
+.dv-chart-card-body th { color: var(--dv-muted); font-weight: 400; padding-right: 8px; width: 46%; }
+.dv-chart-card-body td { font-variant-numeric: tabular-nums; }
+.dv-chart-cardhint { margin: 6px 0 0; color: var(--dv-muted); font-size: 11px; }
+
+/* the Encode menu: the host's menu look, its own element (the host owns .dv-pop) */
+.dv-chart-pop { position: absolute; z-index: 20; top: 36px; left: 8px; width: min(360px, calc(100% - 16px)); max-height: min(70vh, 560px); overflow: auto;
+  background: var(--dv-bg); color: var(--dv-fg); border: 1px solid var(--dv-border); border-radius: calc(var(--dv-radius) + 2px); box-shadow: 0 8px 28px rgba(0,0,0,.16); padding: 10px 12px; }
+.dv-chart-pop[hidden] { display: none; }
+.dv-chart-pop h4 { margin: 0 0 8px; font-size: 12px; font-weight: 600; color: var(--dv-muted); }
+.dv-chart-pop label { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 6px 0; }
+.dv-chart-pair { display: inline-flex; gap: 4px; min-width: 0; }
+.dv-chart-pop select { font: inherit; font-size: 12.5px; padding: 3px 6px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); background: var(--dv-bg); color: var(--dv-fg); min-width: 0; max-width: 170px; }
+.dv-chart-pop select[data-scale] { max-width: 108px; }
+.dv-chart-hoverset summary { cursor: pointer; font-size: 12.5px; margin: 8px 0 4px; }
+.dv-chart-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; }
+.dv-chart-pop label.dv-chart-check { justify-content: flex-start; gap: 6px; margin: 2px 0; font-size: 12px; }
+.dv-chart-check input { accent-color: var(--dv-accent); margin: 0; }
+.dv-chart-pop code { font: 11.5px var(--dv-mono); background: var(--dv-subtle); padding: 1px 4px; border-radius: 3px; }
+
+@media (max-width: 700px) {
+  .dv-chart-hint { display: none; }
+  .dv-chart-hover { width: 200px; }
+}
+@media (hover: none) {
+  .dv-chart-hint { display: none; }
+}
+
+/* type: timeseries and type: trajectory (PEP 0005). The card fills what it is given (the dashboard draws the surface);
+   Klipfolio/Tremor's look: a legend of small dots on top, the unit at its right, a frameless plot; the playhead,
+   crosshair and markers are positioned over the canvas (overlay.js), never drawn by Vega per tick */
+.dv-view-timeseries, .dv-view-trajectory { position: relative; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: hidden; background: transparent; }
+.dv-timeseries-head, .dv-trajectory-head { display: flex; align-items: center; gap: 12px; padding: 0 2px 6px; min-height: 18px; font-size: 11.5px; color: var(--dv-muted); }
+.dv-timeseries-head[hidden] { display: none; }
+.dv-timeseries-legend, .dv-trajectory-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; min-width: 0; }
+.dv-timeseries-key, .dv-trajectory-key { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.dv-timeseries-key i, .dv-trajectory-key i, .dv-timeseries-line i { width: 8px; height: 8px; border-radius: 50%; background: var(--dv-ts-c); flex: none; }
+.dv-timeseries-key i.dv-timeseries-dash, .dv-trajectory-key i.dv-trajectory-dash { width: 12px; height: 0; border-radius: 0; background: none; border-top: 2px dashed var(--dv-ts-c); }
+.dv-trajectory-key small { color: var(--dv-muted); font-size: 10.5px; }
+/* every chart's legend is buttons (the core's .dv-legend-key, src/legend.js): a hidden series' dot goes hollow */
+.dv-legend-key[aria-pressed="false"] i { background: none; box-shadow: inset 0 0 0 1.5px var(--dv-ts-c); }
+.dv-legend-key[aria-pressed="false"] i.dv-timeseries-dash, .dv-legend-key[aria-pressed="false"] i.dv-trajectory-dash { box-shadow: none; opacity: .6; }
+.dv-chart-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; min-width: 0; padding: 4px 8px 2px; font-size: 11.5px; color: var(--dv-muted); }
+.dv-chart-legend[hidden] { display: none; }
+.dv-chart-key { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.dv-chart-key i { width: 8px; height: 8px; border-radius: 50%; background: var(--dv-ts-c); flex: none; }
+.dv-timeseries-zoom { margin-left: auto; white-space: nowrap; font-size: 11px; }
+.dv-timeseries-zoom[hidden] { display: none; }
+.dv-timeseries-zoom:not([hidden]) + .dv-timeseries-unit { margin-left: 0; }
+.dv-timeseries-unit { margin-left: auto; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dv-timeseries-plot, .dv-trajectory-plot { flex: 1 1 auto; min-height: 120px; position: relative; overflow: hidden; touch-action: pan-y; }
+.dv-timeseries-plot { cursor: crosshair; user-select: none; -webkit-user-select: none; }
+.dv-timeseries-canvas, .dv-trajectory-canvas { position: absolute; inset: 0; display: block; line-height: 0; }
+.dv-timeseries-canvas canvas, .dv-trajectory-canvas canvas { display: block; margin: 0; }
+.dv-timeseries-canvas .vega-bindings:empty, .dv-trajectory-canvas .vega-bindings:empty { display: none; }
+.dv-timeseries-playhead, .dv-timeseries-hover, .dv-timeseries-brush { position: absolute; left: 0; top: 0; pointer-events: none; }
+.dv-timeseries-playhead { width: 1px; background: var(--dv-accent); }
+.dv-timeseries-playhead::before { content: ''; position: absolute; left: -3px; top: -3px; width: 7px; height: 7px; border-radius: 50%; background: var(--dv-accent); }
+.dv-timeseries-hover { width: 1px; background: var(--dv-muted); opacity: 0.85; }
+.dv-timeseries-playhead[hidden], .dv-timeseries-hover[hidden], .dv-timeseries-brush[hidden] { display: none; }
+.dv-timeseries-brush { background: var(--dv-accent); opacity: 0.12; border-radius: 2px; }
+.dv-timeseries-read { position: absolute; top: 0; left: 10px; z-index: 2; min-width: 120px; padding: 6px 8px; border-radius: calc(var(--dv-radius) + 2px);
+  background: var(--dv-bg); color: var(--dv-fg); border: 1px solid var(--dv-border); box-shadow: 0 4px 14px rgba(0,0,0,.12); font-size: 11.5px; line-height: 1.5; white-space: nowrap; }
+.dv-timeseries-read.dv-timeseries-left { left: auto; right: 10px; }
+.dv-timeseries-t { color: var(--dv-muted); font-variant-numeric: tabular-nums; margin-bottom: 2px; }
+.dv-timeseries-line { display: flex; align-items: center; gap: 6px; }
+.dv-timeseries-line span { color: var(--dv-muted); }
+.dv-timeseries-line b { margin-left: auto; padding-left: 12px; font-weight: 500; font-variant-numeric: tabular-nums; }
+/* an annotation at the pointer (kit gap 7): its label, so one with no room on the plot is a hover away */
+.dv-timeseries-mark { display: flex; align-items: center; gap: 6px; margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--dv-rule); }
+.dv-timeseries-mark + .dv-timeseries-mark { margin-top: 0; padding-top: 2px; border-top: 0; }
+.dv-timeseries-mark i { width: 2px; height: 10px; background: var(--dv-ts-c); flex: none; }
+.dv-timeseries-mark b { margin-left: auto; padding-left: 12px; font-weight: 400; color: var(--dv-muted); font-variant-numeric: tabular-nums; }
+.dv-trajectory-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.dv-trajectory-markers { position: absolute; inset: 0; pointer-events: none; }
+.dv-trajectory-marker { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--dv-ts-c); box-shadow: 0 0 0 2px var(--dv-bg); }
+.dv-trajectory-marker.dv-trajectory-ghost { background: var(--dv-bg); box-shadow: inset 0 0 0 2px var(--dv-ts-c); }
+.dv-trajectory-marker[hidden] { display: none; }
+
+/* timeseries.interactive: true (src/plot.js, uPlot): Rerun's plot in the card's look. The legend is buttons (a click
+   hides, a double-click or Alt + click isolates), "?" and maximise sit at the head's right, the playhead is Rerun's line with a
+   triangle; maximised, the card is in the top layer filling the viewport */
+.dv-plot { position: relative; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; background: transparent; color: inherit; }
+.dv-plot[popover] { position: fixed; inset: 0; width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; border: 0; padding: 16px 20px; overflow: hidden;
+  background: var(--dv-bg); color: var(--dv-fg); box-sizing: border-box; }
+.dv-plot[popover]::backdrop { background: var(--dv-bg); }
+.dv-plot-head { padding-bottom: 4px; }
+.dv-plot-btn:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+.dv-plot-head .dv-timeseries-unit { margin-left: auto; margin-right: 6px; }
+.dv-plot-tools { display: inline-flex; gap: 2px; flex: none; }
+.dv-plot-btn { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; padding: 0; border: 0; border-radius: var(--dv-radius);
+  background: none; color: var(--dv-muted); font: 600 12px/1 var(--dv-font, inherit); cursor: pointer; }
+.dv-plot-btn:hover, .dv-plot-btn[aria-expanded="true"], .dv-plot-btn[aria-pressed="true"] { background: var(--dv-hover); color: var(--dv-fg); }
+.dv-plot-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.dv-plot-area { flex: 1 1 auto; min-height: 120px; position: relative; overflow: hidden; user-select: none; -webkit-user-select: none; }
+.dv-plot-canvas { position: absolute; inset: 0; line-height: 0; }
+/* uPlot's own layout rules (uplot 1.6.32 dist/uPlot.min.css, MIT), the ones this card uses: it draws no uPlot legend,
+   title or cursor. WHY here and not imported: the chunk stays JavaScript only, and the rules are a few hundred bytes */
+.dv-plot-canvas .uplot, .dv-plot-canvas .uplot *, .dv-plot-canvas .uplot *::before, .dv-plot-canvas .uplot *::after { box-sizing: border-box; }
+.dv-plot-canvas .uplot { width: min-content; }
+.dv-plot-canvas .u-wrap { position: relative; user-select: none; }
+.dv-plot-canvas .u-over, .dv-plot-canvas .u-under { position: absolute; }
+.dv-plot-canvas .u-under { overflow: hidden; }
+.dv-plot-canvas .uplot canvas { display: block; position: relative; width: 100%; height: 100%; }
+.dv-plot-canvas .u-axis { position: absolute; }
+.dv-plot-canvas .u-select { position: absolute; pointer-events: none; }
+.dv-plot-canvas .u-axis.u-off, .dv-plot-canvas .u-select.u-off { display: none; }
+.dv-plot-canvas .uplot { font-family: inherit; line-height: 1.2; }
+.dv-plot-canvas .u-over { cursor: crosshair; touch-action: pan-y; }
+.dv-plot-canvas .u-over:active { cursor: grabbing; }
+.dv-plot-canvas .u-select { background: var(--dv-accent); opacity: .14; border-radius: 2px; }
+.dv-plot-area .dv-timeseries-hover { position: absolute; left: 0; top: 0; pointer-events: none; }
+.dv-plot-playhead { position: absolute; left: 0; top: 0; width: 1px; background: var(--dv-fg); opacity: .8; pointer-events: none; }
+.dv-plot-playhead::before { content: ''; position: absolute; left: -4px; top: -1px; border: 4.5px solid transparent; border-top: 6px solid var(--dv-fg); border-bottom: 0; }
+.dv-plot-playhead[hidden] { display: none; }
+/* the help: Rerun's list, keys as <kbd>, in the top layer under its button */
+.dv-plot-help { position: fixed; inset: auto; margin: 0; width: min(330px, calc(100vw - 16px)); padding: 12px 14px; border: 1px solid var(--dv-border);
+  border-radius: calc(var(--dv-radius) + 4px); background: var(--dv-bg); color: var(--dv-fg); box-shadow: 0 10px 30px rgba(0,0,0,.22); font-size: 12.5px; }
+.dv-plot-help-h { font-weight: 600; padding-bottom: 8px; margin-bottom: 6px; border-bottom: 1px solid var(--dv-rule); }
+.dv-plot-help dl { margin: 0; }
+.dv-plot-help dl > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 0; }
+.dv-plot-help dt { color: var(--dv-fg); }
+.dv-plot-help dd span { padding: 0 1px; }
+.dv-plot-help dd { margin: 0; display: inline-flex; align-items: center; gap: 3px; color: var(--dv-muted); white-space: nowrap; }
+.dv-plot-help hr { border: 0; border-top: 1px solid var(--dv-rule); margin: 6px 0; }
+.dv-plot-help kbd { font: 11px var(--dv-mono, ui-monospace, monospace); padding: 1px 5px; border: 1px solid var(--dv-border); border-bottom-width: 2px; border-radius: 4px; color: var(--dv-fg); background: var(--dv-subtle); }
+@media (max-width: 560px) {
+  .dv-plot-head { flex-wrap: wrap; row-gap: 4px; }
+}
+
+/* CONTRACT §18: `controls: off` (the view's key, or the <data-views controls="off"> attribute) folds the Encode / Rows bar
+   and its popover away; the plot takes the height back. */
+.dv-view-chart[data-controls="off"] .dv-chart-bar, .dv-view-chart[data-controls="off"] .dv-chart-rows,
+.dv-view-chart[data-controls="off"] .dv-chart-pop { display: none; }

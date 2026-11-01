@@ -1,0 +1,2449 @@
+{
+"id": "logo-rounds",
+"title": "robotparts logo rounds",
+"titleProperty": "name",
+"imageProperty": "file",
+"properties": {
+"name": {
+"type": "text",
+"label": "Name"
+},
+"round": {
+"type": "number",
+"label": "Round",
+"facet": true,
+"labels": {
+"1": "Round 1",
+"2": "Round 2",
+"3": "Round 3",
+"4": "Round 4",
+"5": "Round 5",
+"6": "Round 6",
+"7": "Round 7",
+"8": "Round 8",
+"9": "Round 9",
+"10": "Round 10",
+"11": "Round 11"
+}
+},
+"proposal": {
+"type": "text",
+"label": "Proposal"
+},
+"kind": {
+"type": "text",
+"label": "Kind",
+"facet": true
+},
+"score": {
+"type": "number",
+"label": "Score",
+"unitText": "/ 35",
+"note": "the round's own: seven criteria, 1-5 each"
+},
+"rationale": {
+"type": "text",
+"label": "Rationale"
+},
+"file": {
+"type": "text",
+"label": "SVG",
+"media": "image"
+},
+"source": {
+"type": "text",
+"label": "Source file"
+}
+},
+"rows": [
+{
+"id": "r01-01-exploded-box-mark",
+"round": 1,
+"proposal": "1",
+"name": "Exploded black box",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "A box with its lid lifted on dashed guide lines: the part is a black box you can still look into (specs, CAD, sim, prices).",
+"file": "svg/r01-01-exploded-box-mark.svg",
+"source": "logos-2026-10-25/01-exploded-box-mark.svg"
+},
+{
+"id": "r01-01-exploded-box",
+"round": 1,
+"proposal": "1",
+"name": "Exploded black box",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "A box with its lid lifted on dashed guide lines: the part is a black box you can still look into (specs, CAD, sim, prices).",
+"file": "svg/r01-01-exploded-box.svg",
+"source": "logos-2026-10-25/01-exploded-box.svg"
+},
+{
+"id": "r01-02-iso-cube-mark",
+"round": 1,
+"proposal": "2",
+"name": "Isometric cube with a port",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "One solid isometric block with a single connector port cut into its face; the catalog's unit of thought is the part-as-box.",
+"file": "svg/r01-02-iso-cube-mark.svg",
+"source": "logos-2026-10-25/02-iso-cube-mark.svg"
+},
+{
+"id": "r01-02-iso-cube",
+"round": 1,
+"proposal": "2",
+"name": "Isometric cube with a port",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "One solid isometric block with a single connector port cut into its face; the catalog's unit of thought is the part-as-box.",
+"file": "svg/r01-02-iso-cube.svg",
+"source": "logos-2026-10-25/02-iso-cube.svg"
+},
+{
+"id": "r01-03-gear-in-box-mark",
+"round": 1,
+"proposal": "3",
+"name": "Gear inside a box",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "A gear sealed inside a square outline: mechanism visible, packaging opaque. The literal reading of 'black box'.",
+"file": "svg/r01-03-gear-in-box-mark.svg",
+"source": "logos-2026-10-25/03-gear-in-box-mark.svg"
+},
+{
+"id": "r01-03-gear-in-box",
+"round": 1,
+"proposal": "3",
+"name": "Gear inside a box",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "A gear sealed inside a square outline: mechanism visible, packaging opaque. The literal reading of 'black box'.",
+"file": "svg/r01-03-gear-in-box.svg",
+"source": "logos-2026-10-25/03-gear-in-box.svg"
+},
+{
+"id": "r01-04-servo-horn-mark",
+"round": 1,
+"proposal": "4",
+"name": "Servo horn",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Top view of a four-spoke servo horn with screw holes and shaft screw; instantly readable to anyone who has built an arm.",
+"file": "svg/r01-04-servo-horn-mark.svg",
+"source": "logos-2026-10-25/04-servo-horn-mark.svg"
+},
+{
+"id": "r01-04-servo-horn",
+"round": 1,
+"proposal": "4",
+"name": "Servo horn",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Top view of a four-spoke servo horn with screw holes and shaft screw; instantly readable to anyone who has built an arm.",
+"file": "svg/r01-04-servo-horn.svg",
+"source": "logos-2026-10-25/04-servo-horn.svg"
+},
+{
+"id": "r01-05-part-number-tag-mark",
+"round": 1,
+"proposal": "5",
+"name": "Part-number tag",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "An inventory tag with its string hole, stamped rp in mono: every part in the catalog is a tagged item with a number.",
+"file": "svg/r01-05-part-number-tag-mark.svg",
+"source": "logos-2026-10-25/05-part-number-tag-mark.svg"
+},
+{
+"id": "r01-05-part-number-tag",
+"round": 1,
+"proposal": "5",
+"name": "Part-number tag",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "An inventory tag with its string hole, stamped rp in mono: every part in the catalog is a tagged item with a number.",
+"file": "svg/r01-05-part-number-tag.svg",
+"source": "logos-2026-10-25/05-part-number-tag.svg"
+},
+{
+"id": "r01-06-bracket-mark",
+"round": 1,
+"proposal": "6",
+"name": "L-bracket with slots",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Front view of a slotted L-bracket. Plain mounting hardware, drawn the way a catalog page would show it.",
+"file": "svg/r01-06-bracket-mark.svg",
+"source": "logos-2026-10-25/06-bracket-mark.svg"
+},
+{
+"id": "r01-06-bracket",
+"round": 1,
+"proposal": "6",
+"name": "L-bracket with slots",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Front view of a slotted L-bracket. Plain mounting hardware, drawn the way a catalog page would show it.",
+"file": "svg/r01-06-bracket.svg",
+"source": "logos-2026-10-25/06-bracket.svg"
+},
+{
+"id": "r01-07-motor-flange-mark",
+"round": 1,
+"proposal": "7",
+"name": "Motor flange face",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "NEMA-style chamfered flange, four mounting holes, pilot ring and a shaft: the most recognisable face of an actuator.",
+"file": "svg/r01-07-motor-flange-mark.svg",
+"source": "logos-2026-10-25/07-motor-flange-mark.svg"
+},
+{
+"id": "r01-07-motor-flange",
+"round": 1,
+"proposal": "7",
+"name": "Motor flange face",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "NEMA-style chamfered flange, four mounting holes, pilot ring and a shaft: the most recognisable face of an actuator.",
+"file": "svg/r01-07-motor-flange.svg",
+"source": "logos-2026-10-25/07-motor-flange.svg"
+},
+{
+"id": "r01-08-dsub-pinout-mark",
+"round": 1,
+"proposal": "8",
+"name": "D-sub connector",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "A D-sub connector face with pin 1 marked in the accent: the pinout every datasheet has, drawn as the part itself.",
+"file": "svg/r01-08-dsub-pinout-mark.svg",
+"source": "logos-2026-10-25/08-dsub-pinout-mark.svg"
+},
+{
+"id": "r01-08-dsub-pinout",
+"round": 1,
+"proposal": "8",
+"name": "D-sub connector",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "A D-sub connector face with pin 1 marked in the accent: the pinout every datasheet has, drawn as the part itself.",
+"file": "svg/r01-08-dsub-pinout.svg",
+"source": "logos-2026-10-25/08-dsub-pinout.svg"
+},
+{
+"id": "r01-09-datasheet-tab-mark",
+"round": 1,
+"proposal": "9",
+"name": "Datasheet with tab",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "A folded-corner datasheet with spec rows, one highlighted, and an index tab: the page you open to read the numbers.",
+"file": "svg/r01-09-datasheet-tab-mark.svg",
+"source": "logos-2026-10-25/09-datasheet-tab-mark.svg"
+},
+{
+"id": "r01-09-datasheet-tab",
+"round": 1,
+"proposal": "9",
+"name": "Datasheet with tab",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "A folded-corner datasheet with spec rows, one highlighted, and an index tab: the page you open to read the numbers.",
+"file": "svg/r01-09-datasheet-tab.svg",
+"source": "logos-2026-10-25/09-datasheet-tab.svg"
+},
+{
+"id": "r01-10-stacked-parts-mark",
+"round": 1,
+"proposal": "10",
+"name": "Stack of parts",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Three silhouettes (power supply, driver, actuator) stacked: the catalog's categories as one tower.",
+"file": "svg/r01-10-stacked-parts-mark.svg",
+"source": "logos-2026-10-25/10-stacked-parts-mark.svg"
+},
+{
+"id": "r01-10-stacked-parts",
+"round": 1,
+"proposal": "10",
+"name": "Stack of parts",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Three silhouettes (power supply, driver, actuator) stacked: the catalog's categories as one tower.",
+"file": "svg/r01-10-stacked-parts.svg",
+"source": "logos-2026-10-25/10-stacked-parts.svg"
+},
+{
+"id": "r01-11-black-box-word-mark",
+"round": 1,
+"proposal": "11",
+"name": "parts in a black box",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Pure wordmark: 'robot' plain, 'parts' knocked out of a solid box. The black-box idea is in the type itself.",
+"file": "svg/r01-11-black-box-word-mark.svg",
+"source": "logos-2026-10-25/11-black-box-word-mark.svg"
+},
+{
+"id": "r01-11-black-box-word",
+"round": 1,
+"proposal": "11",
+"name": "parts in a black box",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Pure wordmark: 'robot' plain, 'parts' knocked out of a solid box. The black-box idea is in the type itself.",
+"file": "svg/r01-11-black-box-word.svg",
+"source": "logos-2026-10-25/11-black-box-word.svg"
+},
+{
+"id": "r01-12-dimension-line-mark",
+"round": 1,
+"proposal": "12",
+"name": "Dimension line",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Pure wordmark under a drawing dimension line with arrowheads and extension lines; the mark is a dimensioned box.",
+"file": "svg/r01-12-dimension-line-mark.svg",
+"source": "logos-2026-10-25/12-dimension-line-mark.svg"
+},
+{
+"id": "r01-12-dimension-line",
+"round": 1,
+"proposal": "12",
+"name": "Dimension line",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Pure wordmark under a drawing dimension line with arrowheads and extension lines; the mark is a dimensioned box.",
+"file": "svg/r01-12-dimension-line.svg",
+"source": "logos-2026-10-25/12-dimension-line.svg"
+},
+{
+"id": "r01-13-monogram-rp-mark",
+"round": 1,
+"proposal": "13",
+"name": "Stroke monogram rp",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "r and p built from one stroke weight on a shared x-height, p's bowl a true circle. Works alone as a favicon.",
+"file": "svg/r01-13-monogram-rp-mark.svg",
+"source": "logos-2026-10-25/13-monogram-rp-mark.svg"
+},
+{
+"id": "r01-13-monogram-rp",
+"round": 1,
+"proposal": "13",
+"name": "Stroke monogram rp",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "r and p built from one stroke weight on a shared x-height, p's bowl a true circle. Works alone as a favicon.",
+"file": "svg/r01-13-monogram-rp.svg",
+"source": "logos-2026-10-25/13-monogram-rp.svg"
+},
+{
+"id": "r01-14-dot-matrix-mark",
+"round": 1,
+"proposal": "14",
+"name": "Dot-matrix wordmark",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Pure wordmark in a 5x7 dot grid, 'parts' in the accent: the bolt pattern and the status-LED panel in one texture.",
+"file": "svg/r01-14-dot-matrix-mark.svg",
+"source": "logos-2026-10-25/14-dot-matrix-mark.svg"
+},
+{
+"id": "r01-14-dot-matrix",
+"round": 1,
+"proposal": "14",
+"name": "Dot-matrix wordmark",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Pure wordmark in a 5x7 dot grid, 'parts' in the accent: the bolt pattern and the status-LED panel in one texture.",
+"file": "svg/r01-14-dot-matrix.svg",
+"source": "logos-2026-10-25/14-dot-matrix.svg"
+},
+{
+"id": "r01-15-title-block-mark",
+"round": 1,
+"proposal": "15",
+"name": "Drawing title block",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "A drawing's title block with rp in the name cell and a revision flag. Capitals in mono, like drawing lettering.",
+"file": "svg/r01-15-title-block-mark.svg",
+"source": "logos-2026-10-25/15-title-block-mark.svg"
+},
+{
+"id": "r01-15-title-block",
+"round": 1,
+"proposal": "15",
+"name": "Drawing title block",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "A drawing's title block with rp in the name cell and a revision flag. Capitals in mono, like drawing lettering.",
+"file": "svg/r01-15-title-block.svg",
+"source": "logos-2026-10-25/15-title-block.svg"
+},
+{
+"id": "r01-16-centre-of-gravity-mark",
+"round": 1,
+"proposal": "16",
+"name": "Centre-of-gravity o's",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Both o's become the centre-of-mass target symbol, so the wordmark is monospace with two engineering glyphs in it.",
+"file": "svg/r01-16-centre-of-gravity-mark.svg",
+"source": "logos-2026-10-25/16-centre-of-gravity-mark.svg"
+},
+{
+"id": "r01-16-centre-of-gravity",
+"round": 1,
+"proposal": "16",
+"name": "Centre-of-gravity o's",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Both o's become the centre-of-mass target symbol, so the wordmark is monospace with two engineering glyphs in it.",
+"file": "svg/r01-16-centre-of-gravity.svg",
+"source": "logos-2026-10-25/16-centre-of-gravity.svg"
+},
+{
+"id": "r01-17-io-box-mark",
+"round": 1,
+"proposal": "17",
+"name": "Inputs and outputs",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "The block-diagram black box: two inputs in, one output out. It says 'parts defined by their interface'.",
+"file": "svg/r01-17-io-box-mark.svg",
+"source": "logos-2026-10-25/17-io-box-mark.svg"
+},
+{
+"id": "r01-17-io-box",
+"round": 1,
+"proposal": "17",
+"name": "Inputs and outputs",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "The block-diagram black box: two inputs in, one output out. It says 'parts defined by their interface'.",
+"file": "svg/r01-17-io-box.svg",
+"source": "logos-2026-10-25/17-io-box.svg"
+},
+{
+"id": "r01-18-data-matrix-mark",
+"round": 1,
+"proposal": "18",
+"name": "Data-Matrix code",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "An 8x8 Data-Matrix label with its solid L and accent clock track: the code etched on real parts.",
+"file": "svg/r01-18-data-matrix-mark.svg",
+"source": "logos-2026-10-25/18-data-matrix-mark.svg"
+},
+{
+"id": "r01-18-data-matrix",
+"round": 1,
+"proposal": "18",
+"name": "Data-Matrix code",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "An 8x8 Data-Matrix label with its solid L and accent clock track: the code etched on real parts.",
+"file": "svg/r01-18-data-matrix.svg",
+"source": "logos-2026-10-25/18-data-matrix.svg"
+},
+{
+"id": "r01-19-hex-nut-mark",
+"round": 1,
+"proposal": "19",
+"name": "Hex nut",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Top view of a hex nut with a chamfer ring and a thread arc. Hardware-store plainness, strong silhouette at 16 px.",
+"file": "svg/r01-19-hex-nut-mark.svg",
+"source": "logos-2026-10-25/19-hex-nut-mark.svg"
+},
+{
+"id": "r01-19-hex-nut",
+"round": 1,
+"proposal": "19",
+"name": "Hex nut",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "Top view of a hex nut with a chamfer ring and a thread arc. Hardware-store plainness, strong silhouette at 16 px.",
+"file": "svg/r01-19-hex-nut.svg",
+"source": "logos-2026-10-25/19-hex-nut.svg"
+},
+{
+"id": "r01-20-section-view-mark",
+"round": 1,
+"proposal": "20",
+"name": "Section view",
+"kind": "mark",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "An actuator cut in half: 45-degree section hatching around the housing, the rotor in the accent colour.",
+"file": "svg/r01-20-section-view-mark.svg",
+"source": "logos-2026-10-25/20-section-view-mark.svg"
+},
+{
+"id": "r01-20-section-view",
+"round": 1,
+"proposal": "20",
+"name": "Section view",
+"kind": "lockup",
+"score": {
+"value": null,
+"why": "round 1 was not scored"
+},
+"rationale": "An actuator cut in half: 45-degree section hatching around the housing, the rotor in the accent colour.",
+"file": "svg/r01-20-section-view.svg",
+"source": "logos-2026-10-25/20-section-view.svg"
+},
+{
+"id": "r02-01-voxel-cube-mark",
+"round": 2,
+"proposal": "1",
+"name": "Voxel cube",
+"kind": "mark",
+"score": 22,
+"rationale": "R1-02's block rebuilt from a 3x3x3 grid of voxels: the part is itself made of parts. The front corner voxel is the accent, the one module you are looking at.",
+"file": "svg/r02-01-voxel-cube-mark.svg",
+"source": "logos-2026-10-25b/01-voxel-cube-mark.svg"
+},
+{
+"id": "r02-01-voxel-cube",
+"round": 2,
+"proposal": "1",
+"name": "Voxel cube",
+"kind": "lockup",
+"score": 22,
+"rationale": "R1-02's block rebuilt from a 3x3x3 grid of voxels: the part is itself made of parts. The front corner voxel is the accent, the one module you are looking at.",
+"file": "svg/r02-01-voxel-cube.svg",
+"source": "logos-2026-10-25b/01-voxel-cube.svg"
+},
+{
+"id": "r02-02-pixel-cube-mark",
+"round": 2,
+"proposal": "2",
+"name": "Pixel cube",
+"kind": "mark",
+"score": 26,
+"rationale": "R1-02 redrawn as 2:1 pixel art on the 16-cell grid, the way BAM's hammer is drawn in pixels: three shaded faces and a 2x3 copper port. Wordmark in the square 5x7 matrix.",
+"file": "svg/r02-02-pixel-cube-mark.svg",
+"source": "logos-2026-10-25b/02-pixel-cube-mark.svg"
+},
+{
+"id": "r02-02-pixel-cube",
+"round": 2,
+"proposal": "2",
+"name": "Pixel cube",
+"kind": "lockup",
+"score": 26,
+"rationale": "R1-02 redrawn as 2:1 pixel art on the 16-cell grid, the way BAM's hammer is drawn in pixels: three shaded faces and a 2x3 copper port. Wordmark in the square 5x7 matrix.",
+"file": "svg/r02-02-pixel-cube.svg",
+"source": "logos-2026-10-25b/02-pixel-cube.svg"
+},
+{
+"id": "r02-03-rp-tile-mark",
+"round": 2,
+"proposal": "3",
+"name": "RP tile",
+"kind": "mark",
+"score": 29,
+"rationale": "BAM's tile system applied straight: R and P knocked out of a dark tile with BAM's rx-4 corners; the wordmark is pixel capitals on BAM's 10-unit grid at BAM's letter size, reusing BAM's own B and A, with PARTS in BAM Green.",
+"file": "svg/r02-03-rp-tile-mark.svg",
+"source": "logos-2026-10-25b/03-rp-tile-mark.svg"
+},
+{
+"id": "r02-03-rp-tile",
+"round": 2,
+"proposal": "3",
+"name": "RP tile",
+"kind": "lockup",
+"score": 29,
+"rationale": "BAM's tile system applied straight: R and P knocked out of a dark tile with BAM's rx-4 corners; the wordmark is pixel capitals on BAM's 10-unit grid at BAM's letter size, reusing BAM's own B and A, with PARTS in BAM Green.",
+"file": "svg/r02-03-rp-tile.svg",
+"source": "logos-2026-10-25b/03-rp-tile.svg"
+},
+{
+"id": "r02-04-square-matrix-dots",
+"round": 2,
+"proposal": null,
+"name": "Square matrix dots",
+"kind": "extra",
+"score": {
+"value": null,
+"why": "not scored in its round"
+},
+"rationale": null,
+"file": "svg/r02-04-square-matrix-dots.svg",
+"source": "logos-2026-10-25b/04-square-matrix-dots.svg"
+},
+{
+"id": "r02-04-square-matrix-mark",
+"round": 2,
+"proposal": "4",
+"name": "Square matrix",
+"kind": "mark",
+"score": 28,
+"rationale": "R1-14 moved onto BAM's square pixel: the same 5x7 lowercase, solid square cells, 'parts' in copper. The mark is the wordmark's own p at two grid cells per pixel.",
+"file": "svg/r02-04-square-matrix-mark.svg",
+"source": "logos-2026-10-25b/04-square-matrix-mark.svg"
+},
+{
+"id": "r02-04-square-matrix",
+"round": 2,
+"proposal": "4",
+"name": "Square matrix",
+"kind": "lockup",
+"score": 28,
+"rationale": "R1-14 moved onto BAM's square pixel: the same 5x7 lowercase, solid square cells, 'parts' in copper. The mark is the wordmark's own p at two grid cells per pixel.",
+"file": "svg/r02-04-square-matrix.svg",
+"source": "logos-2026-10-25b/04-square-matrix.svg"
+},
+{
+"id": "r02-05-parts-bot-anim",
+"round": 2,
+"proposal": null,
+"name": "Parts bot anim",
+"kind": "extra",
+"score": {
+"value": null,
+"why": "not scored in its round"
+},
+"rationale": null,
+"file": "svg/r02-05-parts-bot-anim.svg",
+"source": "logos-2026-10-25b/05-parts-bot-anim.svg"
+},
+{
+"id": "r02-05-parts-bot-mark",
+"round": 2,
+"proposal": "5",
+"name": "Parts bot",
+"kind": "mark",
+"score": 24,
+"rationale": "Cellular-automaton growth: 13 square modules on a 5x5 lattice assemble bottom-up into a small robot, and the green eye is the last part placed. The animation below shows it assembling.",
+"file": "svg/r02-05-parts-bot-mark.svg",
+"source": "logos-2026-10-25b/05-parts-bot-mark.svg"
+},
+{
+"id": "r02-05-parts-bot",
+"round": 2,
+"proposal": "5",
+"name": "Parts bot",
+"kind": "lockup",
+"score": 24,
+"rationale": "Cellular-automaton growth: 13 square modules on a 5x5 lattice assemble bottom-up into a small robot, and the green eye is the last part placed. The animation below shows it assembling.",
+"file": "svg/r02-05-parts-bot.svg",
+"source": "logos-2026-10-25b/05-parts-bot.svg"
+},
+{
+"id": "r02-06-quadtree-mark",
+"round": 2,
+"proposal": "6",
+"name": "Quadtree",
+"kind": "mark",
+"score": 28,
+"rationale": "Parts of parts: a square split into four, one quarter split again, and its last quarter split again in copper. Black boxes all the way down, read from small to big.",
+"file": "svg/r02-06-quadtree-mark.svg",
+"source": "logos-2026-10-25b/06-quadtree-mark.svg"
+},
+{
+"id": "r02-06-quadtree",
+"round": 2,
+"proposal": "6",
+"name": "Quadtree",
+"kind": "lockup",
+"score": 28,
+"rationale": "Parts of parts: a square split into four, one quarter split again, and its last quarter split again in copper. Black boxes all the way down, read from small to big.",
+"file": "svg/r02-06-quadtree.svg",
+"source": "logos-2026-10-25b/06-quadtree.svg"
+},
+{
+"id": "r02-07-port-grid-mark",
+"round": 2,
+"proposal": "7",
+"name": "Port grid",
+"kind": "mark",
+"score": 25,
+"rationale": "A part as a BAM tile with a 3x3 grid of ports cut through it; one port is lit green, the connection in use. Breadboard, peg board and parts drawer in one.",
+"file": "svg/r02-07-port-grid-mark.svg",
+"source": "logos-2026-10-25b/07-port-grid-mark.svg"
+},
+{
+"id": "r02-07-port-grid",
+"round": 2,
+"proposal": "7",
+"name": "Port grid",
+"kind": "lockup",
+"score": 25,
+"rationale": "A part as a BAM tile with a 3x3 grid of ports cut through it; one port is lit green, the connection in use. Breadboard, peg board and parts drawer in one.",
+"file": "svg/r02-07-port-grid.svg",
+"source": "logos-2026-10-25b/07-port-grid.svg"
+},
+{
+"id": "r02-08-block-stack-mark",
+"round": 2,
+"proposal": "8",
+"name": "Block stack",
+"kind": "mark",
+"score": 28,
+"rationale": "Six square blocks stacked 3-2-1, the copper part placed on top: small parts building something bigger, the stacking blocks Zach liked in BAM's round 1.",
+"file": "svg/r02-08-block-stack-mark.svg",
+"source": "logos-2026-10-25b/08-block-stack-mark.svg"
+},
+{
+"id": "r02-08-block-stack",
+"round": 2,
+"proposal": "8",
+"name": "Block stack",
+"kind": "lockup",
+"score": 28,
+"rationale": "Six square blocks stacked 3-2-1, the copper part placed on top: small parts building something bigger, the stacking blocks Zach liked in BAM's round 1.",
+"file": "svg/r02-08-block-stack.svg",
+"source": "logos-2026-10-25b/08-block-stack.svg"
+},
+{
+"id": "r02-09-joint-mark",
+"round": 2,
+"proposal": "9",
+"name": "Joint",
+"kind": "mark",
+"score": 27,
+"rationale": "Two parts locked together: a stepped dovetail key in green held in an ink block. robotparts is about how parts fit (interfaces, mounts, connectors).",
+"file": "svg/r02-09-joint-mark.svg",
+"source": "logos-2026-10-25b/09-joint-mark.svg"
+},
+{
+"id": "r02-09-joint",
+"round": 2,
+"proposal": "9",
+"name": "Joint",
+"kind": "lockup",
+"score": 27,
+"rationale": "Two parts locked together: a stepped dovetail key in green held in an ink block. robotparts is about how parts fit (interfaces, mounts, connectors).",
+"file": "svg/r02-09-joint.svg",
+"source": "logos-2026-10-25b/09-joint.svg"
+},
+{
+"id": "r02-10-stud-brick-mark",
+"round": 2,
+"proposal": "10",
+"name": "Stud brick",
+"kind": "mark",
+"score": 31,
+"rationale": "R1-11 made into a building block: 'parts' knocked out of a copper brick with four studs on top, so it snaps onto 'robot'. The mark is a studded brick with a pixel p cut through it.",
+"file": "svg/r02-10-stud-brick-mark.svg",
+"source": "logos-2026-10-25b/10-stud-brick-mark.svg"
+},
+{
+"id": "r02-10-stud-brick",
+"round": 2,
+"proposal": "10",
+"name": "Stud brick",
+"kind": "lockup",
+"score": 31,
+"rationale": "R1-11 made into a building block: 'parts' knocked out of a copper brick with four studs on top, so it snaps onto 'robot'. The mark is a studded brick with a pixel p cut through it.",
+"file": "svg/r02-10-stud-brick.svg",
+"source": "logos-2026-10-25b/10-stud-brick.svg"
+},
+{
+"id": "r02-11-toolbox-mark",
+"round": 2,
+"proposal": "11",
+"name": "Toolbox",
+"kind": "mark",
+"score": 26,
+"rationale": "R1-11 as a toolbox: 'parts' sits in an ink box with a green carry handle. The mark is the same box with a pixel p.",
+"file": "svg/r02-11-toolbox-mark.svg",
+"source": "logos-2026-10-25b/11-toolbox-mark.svg"
+},
+{
+"id": "r02-11-toolbox",
+"round": 2,
+"proposal": "11",
+"name": "Toolbox",
+"kind": "lockup",
+"score": 26,
+"rationale": "R1-11 as a toolbox: 'parts' sits in an ink box with a green carry handle. The mark is the same box with a pixel p.",
+"file": "svg/r02-11-toolbox.svg",
+"source": "logos-2026-10-25b/11-toolbox.svg"
+},
+{
+"id": "r02-12-parts-tile-mark",
+"round": 2,
+"proposal": "12",
+"name": "PARTS tile",
+"kind": "mark",
+"score": 30,
+"rationale": "R1-11 spliced into BAM's system: ROBOT in BAM's pixel capitals, PARTS knocked out of one dark tile in BAM's proportions (5-cell letters, 2-cell margin, rx 4 of 90), with two square green studs so the tile is a brick. The mark is P in a studded tile.",
+"file": "svg/r02-12-parts-tile-mark.svg",
+"source": "logos-2026-10-25b/12-parts-tile-mark.svg"
+},
+{
+"id": "r02-12-parts-tile",
+"round": 2,
+"proposal": "12",
+"name": "PARTS tile",
+"kind": "lockup",
+"score": 30,
+"rationale": "R1-11 spliced into BAM's system: ROBOT in BAM's pixel capitals, PARTS knocked out of one dark tile in BAM's proportions (5-cell letters, 2-cell margin, rx 4 of 90), with two square green studs so the tile is a brick. The mark is P in a studded tile.",
+"file": "svg/r02-12-parts-tile.svg",
+"source": "logos-2026-10-25b/12-parts-tile.svg"
+},
+{
+"id": "r03-a-pixel-letters-mark",
+"round": 3,
+"proposal": "A",
+"name": "Pixel letters",
+"kind": "mark",
+"score": 30,
+"rationale": "Asks whether the brick should speak BAM's pixel language, making robotparts BAM's sibling through the type as well as the grid.",
+"file": "svg/r03-a-pixel-letters-mark.svg",
+"source": "logos-2026-10-25c/a-pixel-letters-mark.svg"
+},
+{
+"id": "r03-a-pixel-letters",
+"round": 3,
+"proposal": "A",
+"name": "Pixel letters",
+"kind": "lockup",
+"score": 30,
+"rationale": "Asks whether the brick should speak BAM's pixel language, making robotparts BAM's sibling through the type as well as the grid.",
+"file": "svg/r03-a-pixel-letters.svg",
+"source": "logos-2026-10-25c/a-pixel-letters.svg"
+},
+{
+"id": "r03-b-two-bricks-mark",
+"round": 3,
+"proposal": "B",
+"name": "Two bricks",
+"kind": "mark",
+"score": 31,
+"rationale": "Asks whether the name itself should be assembled from parts: the robot is a brick and parts is the brick that joins it. The two-block rhythm also echoes BAM's row of letter tiles.",
+"file": "svg/r03-b-two-bricks-mark.svg",
+"source": "logos-2026-10-25c/b-two-bricks-mark.svg"
+},
+{
+"id": "r03-b-two-bricks",
+"round": 3,
+"proposal": "B",
+"name": "Two bricks",
+"kind": "lockup",
+"score": 31,
+"rationale": "Asks whether the name itself should be assembled from parts: the robot is a brick and parts is the brick that joins it. The two-block rhythm also echoes BAM's row of letter tiles.",
+"file": "svg/r03-b-two-bricks.svg",
+"source": "logos-2026-10-25c/b-two-bricks.svg"
+},
+{
+"id": "r03-c-ink-brick-mark",
+"round": 3,
+"proposal": "C",
+"name": "Ink brick, copper studs",
+"kind": "mark",
+"score": 32,
+"rationale": "Asks whether copper should be the brick or the highlight. This is BAM's own discipline (mono plus one highlight) applied to 10: the brick reads as a black-box part and the copper studs are the connection points.",
+"file": "svg/r03-c-ink-brick-mark.svg",
+"source": "logos-2026-10-25c/c-ink-brick-mark.svg"
+},
+{
+"id": "r03-c-ink-brick",
+"round": 3,
+"proposal": "C",
+"name": "Ink brick, copper studs",
+"kind": "lockup",
+"score": 32,
+"rationale": "Asks whether copper should be the brick or the highlight. This is BAM's own discipline (mono plus one highlight) applied to 10: the brick reads as a black-box part and the copper studs are the connection points.",
+"file": "svg/r03-c-ink-brick.svg",
+"source": "logos-2026-10-25c/c-ink-brick.svg"
+},
+{
+"id": "r03-d-extruded-mark",
+"round": 3,
+"proposal": "D",
+"name": "Extruded brick",
+"kind": "mark",
+"score": 26,
+"rationale": "Asks whether the brick should be an object you could pick up (a part) rather than a flat sign.",
+"file": "svg/r03-d-extruded-mark.svg",
+"source": "logos-2026-10-25c/d-extruded-mark.svg"
+},
+{
+"id": "r03-d-extruded",
+"round": 3,
+"proposal": "D",
+"name": "Extruded brick",
+"kind": "lockup",
+"score": 26,
+"rationale": "Asks whether the brick should be an object you could pick up (a part) rather than a flat sign.",
+"file": "svg/r03-d-extruded.svg",
+"source": "logos-2026-10-25c/d-extruded.svg"
+},
+{
+"id": "r03-e-letterless-mark",
+"round": 3,
+"proposal": "E",
+"name": "Plain brick mark",
+"kind": "mark",
+"score": 27,
+"rationale": "Asks whether the favicon needs the letter, or whether the brick alone carries robotparts.",
+"file": "svg/r03-e-letterless-mark.svg",
+"source": "logos-2026-10-25c/e-letterless-mark.svg"
+},
+{
+"id": "r03-e-letterless",
+"round": 3,
+"proposal": "E",
+"name": "Plain brick mark",
+"kind": "lockup",
+"score": 27,
+"rationale": "Asks whether the favicon needs the letter, or whether the brick alone carries robotparts.",
+"file": "svg/r03-e-letterless.svg",
+"source": "logos-2026-10-25c/e-letterless.svg"
+},
+{
+"id": "r04-01-one-stud-mark",
+"round": 4,
+"proposal": "01",
+"name": "One stud",
+"kind": "mark",
+"score": 31,
+"rationale": "A single wide stud centred on the brick. One stud is the unit (one part), and it steps away from the familiar two-by-something toy brick.",
+"file": "svg/r04-01-one-stud-mark.svg",
+"source": "logos-2026-10-25d/01-one-stud-mark.svg"
+},
+{
+"id": "r04-01-one-stud",
+"round": 4,
+"proposal": "01",
+"name": "One stud",
+"kind": "lockup",
+"score": 31,
+"rationale": "A single wide stud centred on the brick. One stud is the unit (one part), and it steps away from the familiar two-by-something toy brick.",
+"file": "svg/r04-01-one-stud.svg",
+"source": "logos-2026-10-25d/01-one-stud.svg"
+},
+{
+"id": "r04-02-square-studs-mark",
+"round": 4,
+"proposal": "02",
+"name": "Square studs, sharp corners",
+"kind": "mark",
+"score": 26,
+"rationale": "Narrow square studs on a sharp-cornered brick: machined rather than moulded, a part off a mill.",
+"file": "svg/r04-02-square-studs-mark.svg",
+"source": "logos-2026-10-25d/02-square-studs-mark.svg"
+},
+{
+"id": "r04-02-square-studs",
+"round": 4,
+"proposal": "02",
+"name": "Square studs, sharp corners",
+"kind": "lockup",
+"score": 26,
+"rationale": "Narrow square studs on a sharp-cornered brick: machined rather than moulded, a part off a mill.",
+"file": "svg/r04-02-square-studs.svg",
+"source": "logos-2026-10-25d/02-square-studs.svg"
+},
+{
+"id": "r04-03-odd-three-mark",
+"round": 4,
+"proposal": "03",
+"name": "Three studs, squat",
+"kind": "mark",
+"score": 27,
+"rationale": "A low 1x3 brick with three studs and no letter in the mark. In the lockup the three studs sit over the right of the brick only, so the word has room.",
+"file": "svg/r04-03-odd-three-mark.svg",
+"source": "logos-2026-10-25d/03-odd-three-mark.svg"
+},
+{
+"id": "r04-03-odd-three",
+"round": 4,
+"proposal": "03",
+"name": "Three studs, squat",
+"kind": "lockup",
+"score": 27,
+"rationale": "A low 1x3 brick with three studs and no letter in the mark. In the lockup the three studs sit over the right of the brick only, so the word has room.",
+"file": "svg/r04-03-odd-three.svg",
+"source": "logos-2026-10-25d/03-odd-three.svg"
+},
+{
+"id": "r04-04-pill-mark",
+"round": 4,
+"proposal": "04",
+"name": "Pill brick",
+"kind": "mark",
+"score": 26,
+"rationale": "The brick's corners rounded all the way to a pill: softer and friendlier, still studded.",
+"file": "svg/r04-04-pill-mark.svg",
+"source": "logos-2026-10-25d/04-pill-mark.svg"
+},
+{
+"id": "r04-04-pill",
+"round": 4,
+"proposal": "04",
+"name": "Pill brick",
+"kind": "lockup",
+"score": 26,
+"rationale": "The brick's corners rounded all the way to a pill: softer and friendlier, still studded.",
+"file": "svg/r04-04-pill.svg",
+"source": "logos-2026-10-25d/04-pill.svg"
+},
+{
+"id": "r04-05-ring-studs-mark",
+"round": 4,
+"proposal": "05",
+"name": "Ring studs from above",
+"kind": "mark",
+"score": 26,
+"rationale": "A 2x2 brick seen from directly above: four hollow ring studs on a square tile, the view you see when you reach into a parts bin.",
+"file": "svg/r04-05-ring-studs-mark.svg",
+"source": "logos-2026-10-25d/05-ring-studs-mark.svg"
+},
+{
+"id": "r04-05-ring-studs",
+"round": 4,
+"proposal": "05",
+"name": "Ring studs from above",
+"kind": "lockup",
+"score": 26,
+"rationale": "A 2x2 brick seen from directly above: four hollow ring studs on a square tile, the view you see when you reach into a parts bin.",
+"file": "svg/r04-05-ring-studs.svg",
+"source": "logos-2026-10-25d/05-ring-studs.svg"
+},
+{
+"id": "r04-06-low-studs-mark",
+"round": 4,
+"proposal": "06",
+"name": "Half-height studs",
+"kind": "mark",
+"score": 30,
+"rationale": "Low, wide studs, more like a plate or a machined boss than a toy: five on the lockup's brick (odd count), two on the mark.",
+"file": "svg/r04-06-low-studs-mark.svg",
+"source": "logos-2026-10-25d/06-low-studs-mark.svg"
+},
+{
+"id": "r04-06-low-studs",
+"round": 4,
+"proposal": "06",
+"name": "Half-height studs",
+"kind": "lockup",
+"score": 30,
+"rationale": "Low, wide studs, more like a plate or a machined boss than a toy: five on the lockup's brick (odd count), two on the mark.",
+"file": "svg/r04-06-low-studs.svg",
+"source": "logos-2026-10-25d/06-low-studs.svg"
+},
+{
+"id": "r04-07-both-ways-mark",
+"round": 4,
+"proposal": "07",
+"name": "Studs above, sockets below",
+"kind": "mark",
+"score": 29,
+"rationale": "Studs on top and matching sockets cut from the bottom edge: a part that connects both ways, to what is above and to what is below.",
+"file": "svg/r04-07-both-ways-mark.svg",
+"source": "logos-2026-10-25d/07-both-ways-mark.svg"
+},
+{
+"id": "r04-07-both-ways",
+"round": 4,
+"proposal": "07",
+"name": "Studs above, sockets below",
+"kind": "lockup",
+"score": 29,
+"rationale": "Studs on top and matching sockets cut from the bottom edge: a part that connects both ways, to what is above and to what is below.",
+"file": "svg/r04-07-both-ways.svg",
+"source": "logos-2026-10-25d/07-both-ways.svg"
+},
+{
+"id": "r04-08-sockets-mark",
+"round": 4,
+"proposal": "08",
+"name": "Sockets cut from the top",
+"kind": "mark",
+"score": 29,
+"rationale": "The studs inverted into round sockets bitten out of the top edge: the brick waiting for the next part.",
+"file": "svg/r04-08-sockets-mark.svg",
+"source": "logos-2026-10-25d/08-sockets-mark.svg"
+},
+{
+"id": "r04-08-sockets",
+"round": 4,
+"proposal": "08",
+"name": "Sockets cut from the top",
+"kind": "lockup",
+"score": 29,
+"rationale": "The studs inverted into round sockets bitten out of the top edge: the brick waiting for the next part.",
+"file": "svg/r04-08-sockets.svg",
+"source": "logos-2026-10-25d/08-sockets.svg"
+},
+{
+"id": "r04-09-outline-mark",
+"round": 4,
+"proposal": "09",
+"name": "Outline brick",
+"kind": "mark",
+"score": 28,
+"rationale": "The brick as a single outline, stroke weight matched to the type; the mark has no letter, just the hollow brick.",
+"file": "svg/r04-09-outline-mark.svg",
+"source": "logos-2026-10-25d/09-outline-mark.svg"
+},
+{
+"id": "r04-09-outline",
+"round": 4,
+"proposal": "09",
+"name": "Outline brick",
+"kind": "lockup",
+"score": 28,
+"rationale": "The brick as a single outline, stroke weight matched to the type; the mark has no letter, just the hollow brick.",
+"file": "svg/r04-09-outline.svg",
+"source": "logos-2026-10-25d/09-outline.svg"
+},
+{
+"id": "r04-10-upside-down-mark",
+"round": 4,
+"proposal": "10",
+"name": "Word on an upturned plate",
+"kind": "mark",
+"score": 25,
+"rationale": "A plate turned over under 'parts': the word stands on its flat back, and the studs hang underneath like feet.",
+"file": "svg/r04-10-upside-down-mark.svg",
+"source": "logos-2026-10-25d/10-upside-down-mark.svg"
+},
+{
+"id": "r04-10-upside-down",
+"round": 4,
+"proposal": "10",
+"name": "Word on an upturned plate",
+"kind": "lockup",
+"score": 25,
+"rationale": "A plate turned over under 'parts': the word stands on its flat back, and the studs hang underneath like feet.",
+"file": "svg/r04-10-upside-down.svg",
+"source": "logos-2026-10-25d/10-upside-down.svg"
+},
+{
+"id": "r04-11-brick-o-mark",
+"round": 4,
+"proposal": "11",
+"name": "The o is a brick",
+"kind": "mark",
+"score": 27,
+"rationale": "Both o's in 'robot' become a 1x1 brick seen from above, a ring stud on a rounded square, so the robot is literally built of parts.",
+"file": "svg/r04-11-brick-o-mark.svg",
+"source": "logos-2026-10-25d/11-brick-o-mark.svg"
+},
+{
+"id": "r04-11-brick-o",
+"round": 4,
+"proposal": "11",
+"name": "The o is a brick",
+"kind": "lockup",
+"score": 27,
+"rationale": "Both o's in 'robot' become a 1x1 brick seen from above, a ring stud on a rounded square, so the robot is literally built of parts.",
+"file": "svg/r04-11-brick-o.svg",
+"source": "logos-2026-10-25d/11-brick-o.svg"
+},
+{
+"id": "r04-12-studded-letters-mark",
+"round": 4,
+"proposal": "12",
+"name": "Studs on the letters",
+"kind": "mark",
+"score": 24,
+"rationale": "No brick at all: studs grow out of the tops of p, a, r and s (placed on measured glyph positions), and the mark is a p carrying two studs.",
+"file": "svg/r04-12-studded-letters-mark.svg",
+"source": "logos-2026-10-25d/12-studded-letters-mark.svg"
+},
+{
+"id": "r04-12-studded-letters",
+"round": 4,
+"proposal": "12",
+"name": "Studs on the letters",
+"kind": "lockup",
+"score": 24,
+"rationale": "No brick at all: studs grow out of the tops of p, a, r and s (placed on measured glyph positions), and the mark is a p carrying two studs.",
+"file": "svg/r04-12-studded-letters.svg",
+"source": "logos-2026-10-25d/12-studded-letters.svg"
+},
+{
+"id": "r04-13-robot-head-mark",
+"round": 4,
+"proposal": "13",
+"name": "Brick robot head",
+"kind": "mark",
+"score": 27,
+"rationale": "The brick is a robot's head: its two studs become ears and two round eyes and a mouth are cut through it.",
+"file": "svg/r04-13-robot-head-mark.svg",
+"source": "logos-2026-10-25d/13-robot-head-mark.svg"
+},
+{
+"id": "r04-13-robot-head",
+"round": 4,
+"proposal": "13",
+"name": "Brick robot head",
+"kind": "lockup",
+"score": 27,
+"rationale": "The brick is a robot's head: its two studs become ears and two round eyes and a mouth are cut through it.",
+"file": "svg/r04-13-robot-head.svg",
+"source": "logos-2026-10-25d/13-robot-head.svg"
+},
+{
+"id": "r04-14-snap-in-mark",
+"round": 4,
+"proposal": "14",
+"name": "Peg over socket",
+"kind": "mark",
+"score": 25,
+"rationale": "Two slabs about to join: a peg on the upper part hangs over the matching socket in the lower one, one gap apart.",
+"file": "svg/r04-14-snap-in-mark.svg",
+"source": "logos-2026-10-25d/14-snap-in-mark.svg"
+},
+{
+"id": "r04-14-snap-in",
+"round": 4,
+"proposal": "14",
+"name": "Peg over socket",
+"kind": "lockup",
+"score": 25,
+"rationale": "Two slabs about to join: a peg on the upper part hangs over the matching socket in the lower one, one gap apart.",
+"file": "svg/r04-14-snap-in.svg",
+"source": "logos-2026-10-25d/14-snap-in.svg"
+},
+{
+"id": "r04-15-iso-flat-mark",
+"round": 4,
+"proposal": "15",
+"name": "Isometric, one ink",
+"kind": "mark",
+"score": 26,
+"rationale": "A 1x1 brick in isometric, drawn as one ink with its edges as cut lines: round 1's 02 cube, now a brick, with no shading tone.",
+"file": "svg/r04-15-iso-flat-mark.svg",
+"source": "logos-2026-10-25d/15-iso-flat-mark.svg"
+},
+{
+"id": "r04-15-iso-flat",
+"round": 4,
+"proposal": "15",
+"name": "Isometric, one ink",
+"kind": "lockup",
+"score": 26,
+"rationale": "A 1x1 brick in isometric, drawn as one ink with its edges as cut lines: round 1's 02 cube, now a brick, with no shading tone.",
+"file": "svg/r04-15-iso-flat.svg",
+"source": "logos-2026-10-25d/15-iso-flat.svg"
+},
+{
+"id": "r04-16-stack-mark",
+"round": 4,
+"proposal": "16",
+"name": "Offset stack",
+"kind": "mark",
+"score": 27,
+"rationale": "Three bricks stacked and offset like a wall, the top one studded: parts building up.",
+"file": "svg/r04-16-stack-mark.svg",
+"source": "logos-2026-10-25d/16-stack-mark.svg"
+},
+{
+"id": "r04-16-stack",
+"round": 4,
+"proposal": "16",
+"name": "Offset stack",
+"kind": "lockup",
+"score": 27,
+"rationale": "Three bricks stacked and offset like a wall, the top one studded: parts building up.",
+"file": "svg/r04-16-stack.svg",
+"source": "logos-2026-10-25d/16-stack.svg"
+},
+{
+"id": "r04-17-long-plate-mark",
+"round": 4,
+"proposal": "17",
+"name": "Long brick under the whole word",
+"kind": "mark",
+"score": 30,
+"rationale": "The whole name knocked out of one long eight-stud brick; the mark is the same idea shrunk to a slim plate with four studs.",
+"file": "svg/r04-17-long-plate-mark.svg",
+"source": "logos-2026-10-25d/17-long-plate-mark.svg"
+},
+{
+"id": "r04-17-long-plate",
+"round": 4,
+"proposal": "17",
+"name": "Long brick under the whole word",
+"kind": "lockup",
+"score": 30,
+"rationale": "The whole name knocked out of one long eight-stud brick; the mark is the same idea shrunk to a slim plate with four studs.",
+"file": "svg/r04-17-long-plate.svg",
+"source": "logos-2026-10-25d/17-long-plate.svg"
+},
+{
+"id": "r04-18-brick-stop-mark",
+"round": 4,
+"proposal": "18",
+"name": "A 1x1 brick as the full stop",
+"kind": "mark",
+"score": 27,
+"rationale": "robotparts has no i to dot, so the smallest part becomes the full stop: a 1x1 brick after the word. The mark is that one brick.",
+"file": "svg/r04-18-brick-stop-mark.svg",
+"source": "logos-2026-10-25d/18-brick-stop-mark.svg"
+},
+{
+"id": "r04-18-brick-stop",
+"round": 4,
+"proposal": "18",
+"name": "A 1x1 brick as the full stop",
+"kind": "lockup",
+"score": 27,
+"rationale": "robotparts has no i to dot, so the smallest part becomes the full stop: a 1x1 brick after the word. The mark is that one brick.",
+"file": "svg/r04-18-brick-stop.svg",
+"source": "logos-2026-10-25d/18-brick-stop.svg"
+},
+{
+"id": "r04-19-on-end-mark",
+"round": 4,
+"proposal": "19",
+"name": "Brick on its end",
+"kind": "mark",
+"score": 28,
+"rationale": "The brick stood on its end so the studs point forward, toward the next part, with the p reading upright in the face.",
+"file": "svg/r04-19-on-end-mark.svg",
+"source": "logos-2026-10-25d/19-on-end-mark.svg"
+},
+{
+"id": "r04-19-on-end",
+"round": 4,
+"proposal": "19",
+"name": "Brick on its end",
+"kind": "lockup",
+"score": 28,
+"rationale": "The brick stood on its end so the studs point forward, toward the next part, with the p reading upright in the face.",
+"file": "svg/r04-19-on-end.svg",
+"source": "logos-2026-10-25d/19-on-end.svg"
+},
+{
+"id": "r04-20-hanging-mark",
+"round": 4,
+"proposal": "20",
+"name": "parts hangs from a plate",
+"kind": "mark",
+"score": 24,
+"rationale": "A studded plate with 'parts' hanging from its underside, like a part on a rail; the mark is a p hanging from a plate.",
+"file": "svg/r04-20-hanging-mark.svg",
+"source": "logos-2026-10-25d/20-hanging-mark.svg"
+},
+{
+"id": "r04-20-hanging",
+"round": 4,
+"proposal": "20",
+"name": "parts hangs from a plate",
+"kind": "lockup",
+"score": 24,
+"rationale": "A studded plate with 'parts' hanging from its underside, like a part on a rail; the mark is a p hanging from a plate.",
+"file": "svg/r04-20-hanging.svg",
+"source": "logos-2026-10-25d/20-hanging.svg"
+},
+{
+"id": "r04-r2-10-bw-mark",
+"round": 4,
+"proposal": "R2-10",
+"name": "Stud brick, in black and white",
+"kind": "reference mark",
+"score": 31,
+"rationale": "Round 2's 10 with its copper swapped for ink and nothing else changed: 'robot' plain, 'parts' knocked out of a brick with four round studs; the mark is a two-stud brick with a pixel p.",
+"file": "svg/r04-r2-10-bw-mark.svg",
+"source": "logos-2026-10-25d/r2-10-bw-mark.svg"
+},
+{
+"id": "r04-r2-10-bw",
+"round": 4,
+"proposal": "R2-10",
+"name": "Stud brick, in black and white",
+"kind": "reference lockup",
+"score": 31,
+"rationale": "Round 2's 10 with its copper swapped for ink and nothing else changed: 'robot' plain, 'parts' knocked out of a brick with four round studs; the mark is a two-stud brick with a pixel p.",
+"file": "svg/r04-r2-10-bw.svg",
+"source": "logos-2026-10-25d/r2-10-bw.svg"
+},
+{
+"id": "r05-01-same-p-mark",
+"round": 5,
+"proposal": "01",
+"name": "The lockup's p",
+"kind": "mark",
+"score": 31,
+"rationale": "The p from 'parts', exactly: Liberation Sans Bold, widened 1.144x as the lockup widens it, knocked out of R2-10's brick at the size that fills the body with clear space on every side.",
+"file": "svg/r05-01-same-p-mark.svg",
+"source": "logos-2026-10-25e/01-same-p-mark.svg"
+},
+{
+"id": "r05-02-heavier-p-mark",
+"round": 5,
+"proposal": "02",
+"name": "Heavier p",
+"kind": "mark",
+"score": 32,
+"rationale": "The same p grown by a round-joined stroke (Liberation Sans stops at Bold), so the stem and bowl hold more pixels at 16 px.",
+"file": "svg/r05-02-heavier-p-mark.svg",
+"source": "logos-2026-10-25e/02-heavier-p-mark.svg"
+},
+{
+"id": "r05-03-rp-mark",
+"round": 5,
+"proposal": "03",
+"name": "rp",
+"kind": "mark",
+"score": 29,
+"rationale": "'rp' in the lockup's bold, lower case, at the font's own spacing: robot and parts both present in the icon.",
+"file": "svg/r05-03-rp-mark.svg",
+"source": "logos-2026-10-25e/03-rp-mark.svg"
+},
+{
+"id": "r05-04-rp-joined-mark",
+"round": 5,
+"proposal": "04",
+"name": "rp, joined",
+"kind": "mark",
+"score": 28,
+"rationale": "r and p pulled together until r's arm runs into p's stem, one connected shape: two parts joined.",
+"file": "svg/r05-04-rp-joined-mark.svg",
+"source": "logos-2026-10-25e/04-rp-joined-mark.svg"
+},
+{
+"id": "r05-05-caps-rp-mark",
+"round": 5,
+"proposal": "05",
+"name": "RP capitals",
+"kind": "mark",
+"score": 27,
+"rationale": "R and P capitals in the lockup's bold: the formal, monogram reading.",
+"file": "svg/r05-05-caps-rp-mark.svg",
+"source": "logos-2026-10-25e/05-caps-rp-mark.svg"
+},
+{
+"id": "r05-06-one-stud-mark",
+"round": 5,
+"proposal": "06",
+"name": "One stud",
+"kind": "mark",
+"score": 30,
+"rationale": "The lockup's p on a one-stud brick: round 4's best silhouette with the real letter.",
+"file": "svg/r05-06-one-stud-mark.svg",
+"source": "logos-2026-10-25e/06-one-stud-mark.svg"
+},
+{
+"id": "r05-07-low-p-mark",
+"round": 5,
+"proposal": "07",
+"name": "p placed low",
+"kind": "mark",
+"score": 31,
+"rationale": "The p dropped until its descender runs out through the bottom edge, leaving a solid band of ink under the studs so they read as studs, not as bumps on the letter.",
+"file": "svg/r05-07-low-p-mark.svg",
+"source": "logos-2026-10-25e/07-low-p-mark.svg"
+},
+{
+"id": "r05-08-lockup-radius-mark",
+"round": 5,
+"proposal": "08",
+"name": "Lockup radius",
+"kind": "mark",
+"score": 31,
+"rationale": "01 with the brick's corner and stud radii set to the lockup brick's in proportion (rx 3 on a 36-tall brick, so rx 4 on the mark's 48-tall body).",
+"file": "svg/r05-08-lockup-radius-mark.svg",
+"source": "logos-2026-10-25e/08-lockup-radius-mark.svg"
+},
+{
+"id": "r05-09-outline-p-mark",
+"round": 5,
+"proposal": "09",
+"name": "Outlined p",
+"kind": "mark",
+"score": 24,
+"rationale": "The lockup's p as an outline cut into the brick, not a solid knockout: lighter, more technical.",
+"file": "svg/r05-09-outline-p-mark.svg",
+"source": "logos-2026-10-25e/09-outline-p-mark.svg"
+},
+{
+"id": "r05-10-four-studs-mark",
+"round": 5,
+"proposal": "10",
+"name": "Four studs",
+"kind": "mark",
+"score": 30,
+"rationale": "The mark borrows the lockup brick's four studs, so the icon is a square crop of the 'parts' brick with its p.",
+"file": "svg/r05-10-four-studs-mark.svg",
+"source": "logos-2026-10-25e/10-four-studs-mark.svg"
+},
+{
+"id": "r05-r2-10-mark",
+"round": 5,
+"proposal": "R2-10",
+"name": "Today's mark: pixel P",
+"kind": "reference mark",
+"score": 31,
+"rationale": "R2-10's mark as it stands: the two-stud brick with a pixel p cut through it. The brick is settled; the letter is what this round replaces, because it does not match the lockup's sans.",
+"file": "svg/r05-r2-10-mark.svg",
+"source": "logos-2026-10-25e/r2-10-mark.svg"
+},
+{
+"id": "r05-r2-10",
+"round": 5,
+"proposal": null,
+"name": "R2 10",
+"kind": "extra",
+"score": {
+"value": null,
+"why": "not scored in its round"
+},
+"rationale": null,
+"file": "svg/r05-r2-10.svg",
+"source": "logos-2026-10-25e/r2-10.svg"
+},
+{
+"id": "r06-01-r-regular-p-bold-mark",
+"round": 6,
+"proposal": "01",
+"name": "r regular, p bold",
+"kind": "mark",
+"score": 32,
+"rationale": "The direct mirror of the lockup: a thin r from 'robot' (Regular) and a bold p from 'parts' (Bold), both knocked out, spaced a touch tighter than the font's own so the pair reads as one unit.",
+"file": "svg/r06-01-r-regular-p-bold-mark.svg",
+"source": "logos-2026-10-25f/01-r-regular-p-bold-mark.svg"
+},
+{
+"id": "r06-02-r-outside-mark",
+"round": 6,
+"proposal": "02",
+"name": "r outside the brick",
+"kind": "mark",
+"score": 28,
+"rationale": "An ink r on the background beside a smaller brick with the bold p knocked out of it: 'robot' beside the 'parts' brick, shrunk to a square. The brick is 11 by 8 grid cells so its edges still land on whole pixels.",
+"file": "svg/r06-02-r-outside-mark.svg",
+"source": "logos-2026-10-25f/02-r-outside-mark.svg"
+},
+{
+"id": "r06-03-r-tucked-mark",
+"round": 6,
+"proposal": "03",
+"name": "r tucked into p",
+"kind": "mark",
+"score": 29,
+"rationale": "The regular r pulled in until its arm reaches over to p's stem: robot and parts joined into one glyph, thin into bold.",
+"file": "svg/r06-03-r-tucked-mark.svg",
+"source": "logos-2026-10-25f/03-r-tucked-mark.svg"
+},
+{
+"id": "r06-04-p-larger-mark",
+"round": 6,
+"proposal": "04",
+"name": "p larger",
+"kind": "mark",
+"score": 28,
+"rationale": "The bold p set larger than the regular r, its descender running out through the brick's bottom edge (round 5's 07): parts is the hero, robot the qualifier.",
+"file": "svg/r06-04-p-larger-mark.svg",
+"source": "logos-2026-10-25f/04-p-larger-mark.svg"
+},
+{
+"id": "r06-05-bold-heavier-mark",
+"round": 6,
+"proposal": "05",
+"name": "Both bold, heavier (control)",
+"kind": "mark",
+"score": 29,
+"rationale": "03 as picked (both bold), grown by round 5's 02 stroke and spaced open so the heavier letters do not touch: the legibility ceiling to judge the others against.",
+"file": "svg/r06-05-bold-heavier-mark.svg",
+"source": "logos-2026-10-25f/05-bold-heavier-mark.svg"
+},
+{
+"id": "r06-r2-10",
+"round": 6,
+"proposal": null,
+"name": "R2 10",
+"kind": "extra",
+"score": {
+"value": null,
+"why": "not scored in its round"
+},
+"rationale": null,
+"file": "svg/r06-r2-10.svg",
+"source": "logos-2026-10-25f/r2-10.svg"
+},
+{
+"id": "r06-r5-03-mark",
+"round": 6,
+"proposal": "R5-03",
+"name": "rp, both bold (as picked)",
+"kind": "reference mark",
+"score": 29,
+"rationale": "Round 5's 03 unchanged: r and p both in the lockup's bold, knocked out of R2-10's brick.",
+"file": "svg/r06-r5-03-mark.svg",
+"source": "logos-2026-10-25f/r5-03-mark.svg"
+},
+{
+"id": "r07-01-outline-brick",
+"round": 7,
+"proposal": "01",
+"name": "Outline brick",
+"kind": "lockup",
+"score": 31,
+"rationale": "The live brick drawn as one 3.5-unit outline (1.5 px in the 28 px header) with its four studs as bumps in the outline; 'parts' sits inside in bold ink.",
+"file": "svg/r07-01-outline-brick.svg",
+"source": "logos-2026-10-25g/01-outline-brick.svg"
+},
+{
+"id": "r07-02-outline-whole-word",
+"round": 7,
+"proposal": "02",
+"name": "Outline brick round the whole name",
+"kind": "lockup",
+"score": 32,
+"rationale": "One outline brick with six studs around the whole word 'robotparts': the name is the part, and nothing sits beside a block.",
+"file": "svg/r07-02-outline-whole-word.svg",
+"source": "logos-2026-10-25g/02-outline-whole-word.svg"
+},
+{
+"id": "r07-03-studs-only",
+"round": 7,
+"proposal": "03",
+"name": "Studs only",
+"kind": "lockup",
+"score": 27,
+"rationale": "No body: just the brick's studded top edge, a thin cap with four studs, sitting over the bold 'parts'.",
+"file": "svg/r07-03-studs-only.svg",
+"source": "logos-2026-10-25g/03-studs-only.svg"
+},
+{
+"id": "r07-04-plate-under",
+"round": 7,
+"proposal": "04",
+"name": "Studded plate under the word",
+"kind": "lockup",
+"score": 27,
+"rationale": "'robotparts' stands on a thin studded plate, like letters built on a baseplate; the p's descender drops into a socket cut through the plate.",
+"file": "svg/r07-04-plate-under.svg",
+"source": "logos-2026-10-25g/04-plate-under.svg"
+},
+{
+"id": "r07-05-outline-solid-studs",
+"round": 7,
+"proposal": "05",
+"name": "Outline brick, solid studs",
+"kind": "lockup",
+"score": 33,
+"rationale": "01's outline brick with its four studs left solid: the body is open, so there is no filled tag, and the solid studs keep the brick's weight at small sizes.",
+"file": "svg/r07-05-outline-solid-studs.svg",
+"source": "logos-2026-10-25g/05-outline-solid-studs.svg"
+},
+{
+"id": "r07-live-logo-dark",
+"round": 7,
+"proposal": "live",
+"name": "Live: reads like a filled tag",
+"kind": "reference lockup, dark",
+"score": 30,
+"rationale": "The lockup on the site today: 'robot' plain beside a solid four-stud brick with 'parts' knocked out of it.",
+"file": "svg/r07-live-logo-dark.svg",
+"source": "logos-2026-10-25g/live-logo-dark.svg"
+},
+{
+"id": "r07-live-logo",
+"round": 7,
+"proposal": "live",
+"name": "Live: reads like a filled tag",
+"kind": "reference lockup",
+"score": 30,
+"rationale": "The lockup on the site today: 'robot' plain beside a solid four-stud brick with 'parts' knocked out of it.",
+"file": "svg/r07-live-logo.svg",
+"source": "logos-2026-10-25g/live-logo.svg"
+},
+{
+"id": "r07-r5-03-mark",
+"round": 7,
+"proposal": null,
+"name": "R5 03 mark",
+"kind": "extra",
+"score": {
+"value": null,
+"why": "not scored in its round"
+},
+"rationale": null,
+"file": "svg/r07-r5-03-mark.svg",
+"source": "logos-2026-10-25g/r5-03-mark.svg"
+},
+{
+"id": "r08-01-dimetric",
+"round": 8,
+"proposal": "01",
+"name": "Dimetric brick, shaded in one ink",
+"kind": "lockup",
+"score": 30,
+"rationale": "The brick turned a little: a long front face sloping 10 degrees carries the knocked-out 'parts', a hatched end face climbs away on the right, and the open top face holds four studs as solid cylinders with open tops.",
+"file": "svg/r08-01-dimetric.svg",
+"source": "logos-2026-10-25h/01-dimetric.svg"
+},
+{
+"id": "r08-02-top-plane",
+"round": 8,
+"proposal": "02",
+"name": "Front brick with a top plane",
+"kind": "lockup",
+"score": 30,
+"rationale": "The live front face, seen a little from above: a thin open top plane appears behind the studs, and the studs become short cylinders with open elliptical tops and a knocked-out highlight line.",
+"file": "svg/r08-02-top-plane.svg",
+"source": "logos-2026-10-25h/02-top-plane.svg"
+},
+{
+"id": "r08-03-extruded",
+"round": 8,
+"proposal": "03",
+"name": "Extruded, one ink",
+"kind": "lockup",
+"score": 27,
+"rationale": "The live brick unchanged, with a solid side and bottom extruded down-right in the same ink, separated from the front face by a thin paper gap (round 3's D was two colours; this is one).",
+"file": "svg/r08-03-extruded.svg",
+"source": "logos-2026-10-25h/03-extruded.svg"
+},
+{
+"id": "r08-04-line-art",
+"round": 8,
+"proposal": "04",
+"name": "Line-art dimetric",
+"kind": "lockup",
+"score": 29,
+"rationale": "01's dimetric brick as line art: every face and stud an outline, 'parts' in bold ink on the front face. Ties to round 7's outline brick.",
+"file": "svg/r08-04-line-art.svg",
+"source": "logos-2026-10-25h/04-line-art.svg"
+},
+{
+"id": "r08-05-tilted",
+"round": 8,
+"proposal": "05",
+"name": "Tilted brick, snapping down",
+"kind": "lockup",
+"score": 25,
+"rationale": "02's brick (top plane, cylinder studs) tilted 6 degrees, as if it is being snapped down onto the line 'robot' sits on: depth plus motion.",
+"file": "svg/r08-05-tilted.svg",
+"source": "logos-2026-10-25h/05-tilted.svg"
+},
+{
+"id": "r08-live-logo-dark",
+"round": 8,
+"proposal": "live",
+"name": "Live: reads like a filled tag",
+"kind": "reference lockup, dark",
+"score": 30,
+"rationale": "The lockup on the site today: 'robot' plain beside a solid four-stud brick with 'parts' knocked out of it.",
+"file": "svg/r08-live-logo-dark.svg",
+"source": "logos-2026-10-25h/live-logo-dark.svg"
+},
+{
+"id": "r08-live-logo",
+"round": 8,
+"proposal": "live",
+"name": "Live: reads like a filled tag",
+"kind": "reference lockup",
+"score": 30,
+"rationale": "The lockup on the site today: 'robot' plain beside a solid four-stud brick with 'parts' knocked out of it.",
+"file": "svg/r08-live-logo.svg",
+"source": "logos-2026-10-25h/live-logo.svg"
+},
+{
+"id": "r08-r5-03-mark",
+"round": 8,
+"proposal": null,
+"name": "R5 03 mark",
+"kind": "extra",
+"score": {
+"value": null,
+"why": "not scored in its round"
+},
+"rationale": null,
+"file": "svg/r08-r5-03-mark.svg",
+"source": "logos-2026-10-25h/r5-03-mark.svg"
+},
+{
+"id": "r09-01-side-by-side",
+"round": 9,
+"proposal": "01",
+"name": "Two bricks side by side",
+"kind": "lockup",
+"score": 29,
+"rationale": "The simplest answer to 'both in cubes': two equal bricks in one view, a small gap between them.",
+"file": "svg/r09-01-side-by-side.svg",
+"source": "logos-2026-10-25i/01-side-by-side.svg"
+},
+{
+"id": "r09-02-end-to-end",
+"round": 9,
+"proposal": "02",
+"name": "Snapped end to end",
+"kind": "lockup",
+"score": 30,
+"rationale": "The two bricks pressed together into one longer part, the seam a single shared edge: robot and parts literally connected.",
+"file": "svg/r09-02-end-to-end.svg",
+"source": "logos-2026-10-25i/02-end-to-end.svg"
+},
+{
+"id": "r09-03-stacked",
+"round": 9,
+"proposal": "03",
+"name": "parts stacked on robot",
+"kind": "lockup",
+"score": 26,
+"rationale": "parts snapped on top of robot, robot's first stud left showing so the connection reads.",
+"file": "svg/r09-03-stacked.svg",
+"source": "logos-2026-10-25i/03-stacked.svg"
+},
+{
+"id": "r09-04-built-from-parts",
+"round": 9,
+"proposal": "04",
+"name": "robot built from parts",
+"kind": "lockup",
+"score": 27,
+"rationale": "The story in one picture: a robot built from parts, the big brick carrying robot and the small one parts.",
+"file": "svg/r09-04-built-from-parts.svg",
+"source": "logos-2026-10-25i/04-built-from-parts.svg"
+},
+{
+"id": "r09-05-long-1x8",
+"round": 9,
+"proposal": "05",
+"name": "One long 1x8 brick",
+"kind": "lockup",
+"score": 30,
+"rationale": "For comparison: one long brick carries the whole name, eight studs.",
+"file": "svg/r09-05-long-1x8.svg",
+"source": "logos-2026-10-25i/05-long-1x8.svg"
+},
+{
+"id": "r09-06-step",
+"round": 9,
+"proposal": "06",
+"name": "A step",
+"kind": "lockup",
+"score": 26,
+"rationale": "A staircase of two bricks, parts climbing off robot: movement without chaos.",
+"file": "svg/r09-06-step.svg",
+"source": "logos-2026-10-25i/06-step.svg"
+},
+{
+"id": "r09-07-three-studs-bold",
+"round": 9,
+"proposal": "07",
+"name": "Three studs each, both bold",
+"kind": "lockup",
+"score": 30,
+"rationale": "Zach's 'cubes': three studs make each brick nearly cube-shaped, and both words go Bold so they hold their weight on the faces.",
+"file": "svg/r09-07-three-studs-bold.svg",
+"source": "logos-2026-10-25i/07-three-studs-bold.svg"
+},
+{
+"id": "r09-08-two-angles",
+"round": 9,
+"proposal": "08",
+"name": "Two angles",
+"kind": "lockup",
+"score": 26,
+"rationale": "Playful but held: robot slopes down 9 degrees, parts tips up 4, so the pair looks handled rather than printed.",
+"file": "svg/r09-08-two-angles.svg",
+"source": "logos-2026-10-25i/08-two-angles.svg"
+},
+{
+"id": "r09-09-contour-weights",
+"round": 9,
+"proposal": "09",
+"name": "Heavy contour, light top",
+"kind": "lockup",
+"score": 28,
+"rationale": "R8-04 with an illustrator's line hierarchy: a heavier outer contour, lighter top face and studs.",
+"file": "svg/r09-09-contour-weights.svg",
+"source": "logos-2026-10-25i/09-contour-weights.svg"
+},
+{
+"id": "r09-10-filled-studs",
+"round": 9,
+"proposal": "10",
+"name": "Filled studs, outline body",
+"kind": "lockup",
+"score": 30,
+"rationale": "R8-04 with the favicon's solid studs on the outline body, so lockup and favicon share their studs.",
+"file": "svg/r09-10-filled-studs.svg",
+"source": "logos-2026-10-25i/10-filled-studs.svg"
+},
+{
+"id": "r09-candidate-mark",
+"round": 9,
+"proposal": null,
+"name": "Candidate mark",
+"kind": "extra",
+"score": {
+"value": null,
+"why": "not scored in its round"
+},
+"rationale": null,
+"file": "svg/r09-candidate-mark.svg",
+"source": "logos-2026-10-25i/candidate-mark.svg"
+},
+{
+"id": "r09-r5-03-mark",
+"round": 9,
+"proposal": null,
+"name": "R5 03 mark",
+"kind": "extra",
+"score": {
+"value": null,
+"why": "not scored in its round"
+},
+"rationale": null,
+"file": "svg/r09-r5-03-mark.svg",
+"source": "logos-2026-10-25i/r5-03-mark.svg"
+},
+{
+"id": "r09-r8-04",
+"round": 9,
+"proposal": "R8-04",
+"name": "Line-art dimetric (round 8's 04)",
+"kind": "reference lockup",
+"score": 28,
+"rationale": "The direction Zach picked: an outline dimetric brick with cylinder studs, 'parts' on its front face, plain 'robot' beside it.",
+"file": "svg/r09-r8-04.svg",
+"source": "logos-2026-10-25i/r8-04.svg"
+},
+{
+"id": "r10-01-shallow",
+"round": 10,
+"proposal": "01",
+"name": "Shallow, 3 deep",
+"kind": "lockup",
+"score": 29,
+"rationale": "R8-03 with the extrusion cut to 3 units (gap 1.2, so a side still shows).",
+"file": "svg/r10-01-shallow.svg",
+"source": "logos-2026-10-25j/01-shallow.svg"
+},
+{
+"id": "r10-02-deep",
+"round": 10,
+"proposal": "02",
+"name": "Deep, 8",
+"kind": "lockup",
+"score": 27,
+"rationale": "R8-03 swept 8 units: the brick becomes a slab. Shown with the favicon extruded the same way (rounded sweep).",
+"file": "svg/r10-02-deep.svg",
+"source": "logos-2026-10-25j/02-deep.svg"
+},
+{
+"id": "r10-03-down-left",
+"round": 10,
+"proposal": "03",
+"name": "Down-left",
+"kind": "lockup",
+"score": 28,
+"rationale": "The extrusion runs down-left, toward 'robot'; the brick moves right 8 so they clear.",
+"file": "svg/r10-03-down-left.svg",
+"source": "logos-2026-10-25j/03-down-left.svg"
+},
+{
+"id": "r10-04-straight-down",
+"round": 10,
+"proposal": "04",
+"name": "Straight down, body only",
+"kind": "lockup",
+"score": 29,
+"rationale": "The extrusion drops straight down from the body alone; the studs stay flat.",
+"file": "svg/r10-04-straight-down.svg",
+"source": "logos-2026-10-25j/04-straight-down.svg"
+},
+{
+"id": "r10-05-no-gap-hatched",
+"round": 10,
+"proposal": "05",
+"name": "No gap, hatched",
+"kind": "lockup",
+"score": 26,
+"rationale": "No paper gap, so the hatching alone separates the side from the face.",
+"file": "svg/r10-05-no-gap-hatched.svg",
+"source": "logos-2026-10-25j/05-no-gap-hatched.svg"
+},
+{
+"id": "r10-06-true-side",
+"round": 10,
+"proposal": "06",
+"name": "Real side face",
+"kind": "lockup",
+"score": 31,
+"rationale": "A true oblique projection: the body's right and bottom faces and each stud's right face as sharp polygons. Shown with the favicon extruded the same way.",
+"file": "svg/r10-06-true-side.svg",
+"source": "logos-2026-10-25j/06-true-side.svg"
+},
+{
+"id": "r10-07-drop-shadow",
+"round": 10,
+"proposal": "07",
+"name": "Drop shadow (period look)",
+"kind": "lockup",
+"score": 23,
+"rationale": "For comparison, labelled: the silhouette offset once, not swept, so it reads as a shadow behind a tag.",
+"file": "svg/r10-07-drop-shadow.svg",
+"source": "logos-2026-10-25j/07-drop-shadow.svg"
+},
+{
+"id": "r10-08-double-step",
+"round": 10,
+"proposal": "08",
+"name": "Double step",
+"kind": "lockup",
+"score": 26,
+"rationale": "Two offset layers, each separated by a paper gap: the brick on two thin plates.",
+"file": "svg/r10-08-double-step.svg",
+"source": "logos-2026-10-25j/08-double-step.svg"
+},
+{
+"id": "r10-09-robot-extruded",
+"round": 10,
+"proposal": "09",
+"name": "robot extruded too",
+"kind": "lockup",
+"score": 24,
+"rationale": "The plain word 'robot' swept 3.5 units behind itself with a hairline gap, matching the brick.",
+"file": "svg/r10-09-robot-extruded.svg",
+"source": "logos-2026-10-25j/09-robot-extruded.svg"
+},
+{
+"id": "r10-10-two-bricks",
+"round": 10,
+"proposal": "10",
+"name": "robot in its own brick",
+"kind": "lockup",
+"score": 31,
+"rationale": "'robot' (Regular, set at 30 px like 'parts' so it clears the brick's top edge) knocked out of its own four-stud brick, beside the 'parts' brick; both extruded the same way.",
+"file": "svg/r10-10-two-bricks.svg",
+"source": "logos-2026-10-25j/10-two-bricks.svg"
+},
+{
+"id": "r10-mark-side",
+"round": 10,
+"proposal": null,
+"name": "Mark side",
+"kind": "extra",
+"score": {
+"value": null,
+"why": "not scored in its round"
+},
+"rationale": null,
+"file": "svg/r10-mark-side.svg",
+"source": "logos-2026-10-25j/mark-side.svg"
+},
+{
+"id": "r10-mark-swept",
+"round": 10,
+"proposal": null,
+"name": "Mark swept",
+"kind": "extra",
+"score": {
+"value": null,
+"why": "not scored in its round"
+},
+"rationale": null,
+"file": "svg/r10-mark-swept.svg",
+"source": "logos-2026-10-25j/mark-swept.svg"
+},
+{
+"id": "r10-r5-03-mark",
+"round": 10,
+"proposal": null,
+"name": "R5 03 mark",
+"kind": "extra",
+"score": {
+"value": null,
+"why": "not scored in its round"
+},
+"rationale": null,
+"file": "svg/r10-r5-03-mark.svg",
+"source": "logos-2026-10-25j/r5-03-mark.svg"
+},
+{
+"id": "r10-r8-03",
+"round": 10,
+"proposal": "R8-03",
+"name": "Extruded, one ink (round 8's 03)",
+"kind": "reference lockup",
+"score": 27,
+"rationale": "The direction Zach picked: the live brick swept 6 units down-right in the same ink, a paper gap between face and side.",
+"file": "svg/r10-r8-03.svg",
+"source": "logos-2026-10-25j/r8-03.svg"
+},
+{
+"id": "r11-01-robot-over-right-header",
+"round": 11,
+"proposal": "01",
+"name": "robot above parts, offset right",
+"kind": "header",
+"score": 29,
+"rationale": "Zach's question, answered directly: R9-03 with the words swapped, robot on top, still set back one stud to the right.",
+"file": "svg/r11-01-robot-over-right-header.svg",
+"source": "logos-2026-10-25k/01-robot-over-right-header.svg"
+},
+{
+"id": "r11-01-robot-over-right",
+"round": 11,
+"proposal": "01",
+"name": "robot above parts, offset right",
+"kind": "lockup",
+"score": 29,
+"rationale": "Zach's question, answered directly: R9-03 with the words swapped, robot on top, still set back one stud to the right.",
+"file": "svg/r11-01-robot-over-right.svg",
+"source": "logos-2026-10-25k/01-robot-over-right.svg"
+},
+{
+"id": "r11-02-robot-over-left-header",
+"round": 11,
+"proposal": "02",
+"name": "robot above parts, offset left",
+"kind": "header",
+"score": 29,
+"rationale": "robot on top, overhanging parts by one stud to the left, so the stack leans back toward where you start reading.",
+"file": "svg/r11-02-robot-over-left-header.svg",
+"source": "logos-2026-10-25k/02-robot-over-left-header.svg"
+},
+{
+"id": "r11-02-robot-over-left",
+"round": 11,
+"proposal": "02",
+"name": "robot above parts, offset left",
+"kind": "lockup",
+"score": 29,
+"rationale": "robot on top, overhanging parts by one stud to the left, so the stack leans back toward where you start reading.",
+"file": "svg/r11-02-robot-over-left.svg",
+"source": "logos-2026-10-25k/02-robot-over-left.svg"
+},
+{
+"id": "r11-03-robot-over-centred-header",
+"round": 11,
+"proposal": "03",
+"name": "robot above parts, centred, top smaller",
+"kind": "header",
+"score": 30,
+"rationale": "A three-stud robot brick centred on the four-stud parts brick: symmetric, steady, a small pyramid.",
+"file": "svg/r11-03-robot-over-centred-header.svg",
+"source": "logos-2026-10-25k/03-robot-over-centred-header.svg"
+},
+{
+"id": "r11-03-robot-over-centred",
+"round": 11,
+"proposal": "03",
+"name": "robot above parts, centred, top smaller",
+"kind": "lockup",
+"score": 30,
+"rationale": "A three-stud robot brick centred on the four-stud parts brick: symmetric, steady, a small pyramid.",
+"file": "svg/r11-03-robot-over-centred.svg",
+"source": "logos-2026-10-25k/03-robot-over-centred.svg"
+},
+{
+"id": "r11-04-robot-over-half-header",
+"round": 11,
+"proposal": "04",
+"name": "robot above parts, half-brick offset",
+"kind": "header",
+"score": 29,
+"rationale": "robot set back half a brick: a running-bond step, like a wall being built.",
+"file": "svg/r11-04-robot-over-half-header.svg",
+"source": "logos-2026-10-25k/04-robot-over-half-header.svg"
+},
+{
+"id": "r11-04-robot-over-half",
+"round": 11,
+"proposal": "04",
+"name": "robot above parts, half-brick offset",
+"kind": "lockup",
+"score": 29,
+"rationale": "robot set back half a brick: a running-bond step, like a wall being built.",
+"file": "svg/r11-04-robot-over-half.svg",
+"source": "logos-2026-10-25k/04-robot-over-half.svg"
+},
+{
+"id": "r11-05-parts-over-flush-header",
+"round": 11,
+"proposal": "05",
+"name": "parts on robot, flush",
+"kind": "header",
+"score": 27,
+"rationale": "The original order, stacked flush: one tall two-brick block.",
+"file": "svg/r11-05-parts-over-flush-header.svg",
+"source": "logos-2026-10-25k/05-parts-over-flush-header.svg"
+},
+{
+"id": "r11-05-parts-over-flush",
+"round": 11,
+"proposal": "05",
+"name": "parts on robot, flush",
+"kind": "lockup",
+"score": 27,
+"rationale": "The original order, stacked flush: one tall two-brick block.",
+"file": "svg/r11-05-parts-over-flush.svg",
+"source": "logos-2026-10-25k/05-parts-over-flush.svg"
+},
+{
+"id": "r11-06-robot-on-big-parts-header",
+"round": 11,
+"proposal": "06",
+"name": "robot on a bigger parts brick",
+"kind": "header",
+"score": 31,
+"rationale": "robot (a 1x4) standing on a longer parts brick (a 1x6): the robot is built on its parts.",
+"file": "svg/r11-06-robot-on-big-parts-header.svg",
+"source": "logos-2026-10-25k/06-robot-on-big-parts-header.svg"
+},
+{
+"id": "r11-06-robot-on-big-parts",
+"round": 11,
+"proposal": "06",
+"name": "robot on a bigger parts brick",
+"kind": "lockup",
+"score": 31,
+"rationale": "robot (a 1x4) standing on a longer parts brick (a 1x6): the robot is built on its parts.",
+"file": "svg/r11-06-robot-on-big-parts.svg",
+"source": "logos-2026-10-25k/06-robot-on-big-parts.svg"
+},
+{
+"id": "r11-07-parts-over-bold-header",
+"round": 11,
+"proposal": "07",
+"name": "parts on robot, both Bold",
+"kind": "header",
+"score": 28,
+"rationale": "R9-03 with 'robot' in Bold too, so both bricks carry equal weight.",
+"file": "svg/r11-07-parts-over-bold-header.svg",
+"source": "logos-2026-10-25k/07-parts-over-bold-header.svg"
+},
+{
+"id": "r11-07-parts-over-bold",
+"round": 11,
+"proposal": "07",
+"name": "parts on robot, both Bold",
+"kind": "lockup",
+"score": 28,
+"rationale": "R9-03 with 'robot' in Bold too, so both bricks carry equal weight.",
+"file": "svg/r11-07-parts-over-bold.svg",
+"source": "logos-2026-10-25k/07-parts-over-bold.svg"
+},
+{
+"id": "r11-08-robot-over-contour-header",
+"round": 11,
+"proposal": "08",
+"name": "robot above parts, heavy contour",
+"kind": "header",
+"score": 30,
+"rationale": "01 drawn with an illustrator's line hierarchy: a heavier outer contour, lighter top faces and studs.",
+"file": "svg/r11-08-robot-over-contour-header.svg",
+"source": "logos-2026-10-25k/08-robot-over-contour-header.svg"
+},
+{
+"id": "r11-08-robot-over-contour",
+"round": 11,
+"proposal": "08",
+"name": "robot above parts, heavy contour",
+"kind": "lockup",
+"score": 30,
+"rationale": "01 drawn with an illustrator's line hierarchy: a heavier outer contour, lighter top faces and studs.",
+"file": "svg/r11-08-robot-over-contour.svg",
+"source": "logos-2026-10-25k/08-robot-over-contour.svg"
+},
+{
+"id": "r11-09-robot-snapping-in-header",
+"round": 11,
+"proposal": "09",
+"name": "robot snapping onto parts",
+"kind": "header",
+"score": 28,
+"rationale": "The playful one: robot lifted 7 units above parts, about to snap on, with a small three-stroke 'click' at its overhanging corner.",
+"file": "svg/r11-09-robot-snapping-in-header.svg",
+"source": "logos-2026-10-25k/09-robot-snapping-in-header.svg"
+},
+{
+"id": "r11-09-robot-snapping-in",
+"round": 11,
+"proposal": "09",
+"name": "robot snapping onto parts",
+"kind": "lockup",
+"score": 28,
+"rationale": "The playful one: robot lifted 7 units above parts, about to snap on, with a small three-stroke 'click' at its overhanging corner.",
+"file": "svg/r11-09-robot-snapping-in.svg",
+"source": "logos-2026-10-25k/09-robot-snapping-in.svg"
+},
+{
+"id": "r11-10-parts-over-filled-header",
+"round": 11,
+"proposal": "10",
+"name": "parts on robot, filled studs",
+"kind": "header",
+"score": 28,
+"rationale": "R9-03 with the favicon's solid studs, so stack and favicon share their studs.",
+"file": "svg/r11-10-parts-over-filled-header.svg",
+"source": "logos-2026-10-25k/10-parts-over-filled-header.svg"
+},
+{
+"id": "r11-10-parts-over-filled",
+"round": 11,
+"proposal": "10",
+"name": "parts on robot, filled studs",
+"kind": "lockup",
+"score": 28,
+"rationale": "R9-03 with the favicon's solid studs, so stack and favicon share their studs.",
+"file": "svg/r11-10-parts-over-filled.svg",
+"source": "logos-2026-10-25k/10-parts-over-filled.svg"
+},
+{
+"id": "r11-r5-03-mark",
+"round": 11,
+"proposal": null,
+"name": "R5 03 mark",
+"kind": "extra",
+"score": {
+"value": null,
+"why": "not scored in its round"
+},
+"rationale": null,
+"file": "svg/r11-r5-03-mark.svg",
+"source": "logos-2026-10-25k/r5-03-mark.svg"
+},
+{
+"id": "r11-r9-02",
+"round": 11,
+"proposal": "R9-03",
+"name": "parts stacked on robot (round 9's 03)",
+"kind": "reference header",
+"score": 28,
+"rationale": "The one Zach picked: parts stacked on robot, set back one stud, line art in one dimetric view.",
+"file": "svg/r11-r9-02.svg",
+"source": "logos-2026-10-25k/r9-02.svg"
+},
+{
+"id": "r11-r9-03",
+"round": 11,
+"proposal": "R9-03",
+"name": "parts stacked on robot (round 9's 03)",
+"kind": "reference lockup",
+"score": 28,
+"rationale": "The one Zach picked: parts stacked on robot, set back one stud, line art in one dimetric view.",
+"file": "svg/r11-r9-03.svg",
+"source": "logos-2026-10-25k/r9-03.svg"
+}
+]
+}

@@ -1,0 +1,83 @@
+{
+ "name": "media",
+ "title": "Media",
+ "description": "One row per clip: PEP 0005 §3's clip (src, poster, t0, fps, duration, basis), plus the run, the camera and the kind.",
+ "rowsPer": [
+  "src"
+ ],
+ "required": [
+  "src",
+  "poster",
+  "t0",
+  "fps",
+  "duration",
+  "basis",
+  "run",
+  "camera",
+  "kind"
+ ],
+ "schema": {
+  "fields": [
+   {
+    "name": "src",
+    "type": "string",
+    "description": "the clip, relative to the data file"
+   },
+   {
+    "name": "poster",
+    "type": "string",
+    "description": "its first frame as an image"
+   },
+   {
+    "name": "t0",
+    "type": "number",
+    "unit": "s",
+    "description": "the clock's t at the clip's frame 0"
+   },
+   {
+    "name": "fps",
+    "type": "number",
+    "unit": "fps",
+    "description": "frames per second"
+   },
+   {
+    "name": "duration",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "basis",
+    "type": "string",
+    "description": "what made it: real-camera, sim-render, screen-capture or illustrative"
+   },
+   {
+    "name": "run",
+    "type": "string",
+    "description": "the run's stable, unique id (runs.json)"
+   },
+   {
+    "name": "camera",
+    "type": "string",
+    "description": "the camera, as samples' device names it"
+   },
+   {
+    "name": "kind",
+    "type": "string",
+    "description": "rgb, depth (a colourised video) or band (one hyperspectral band)",
+    "constraints": {
+     "enum": [
+      "rgb",
+      "depth",
+      "band"
+     ]
+    }
+   },
+   {
+    "name": "band_nm",
+    "type": "number",
+    "unit": "nm",
+    "description": "a band's centre wavelength, in nanometres (the one _nm that is not a torque)"
+   }
+  ]
+ }
+}

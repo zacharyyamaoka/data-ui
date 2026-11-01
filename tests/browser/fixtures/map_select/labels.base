@@ -1,0 +1,12 @@
+# tests/browser/map_select_checks.py: a callout is a button that picks its row
+data: places.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    select: name
+    coordinates: at
+    layers:
+      - { type: labels, text: name, title: Callouts }

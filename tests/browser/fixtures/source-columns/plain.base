@@ -1,0 +1,25 @@
+# Zach's "column roll up where the left most take precedence" with no `sources` list anywhere: one plain column per source and a
+# formula in Bases' own syntax, so this file stays valid in Obsidian. `doubled` is a formula data-ui does not run: it says so. A
+# formula is for display columns: a headline KPI stays the producer's (Survey §16, decision 1), and Headline says so too.
+data: plain.json
+formulas:
+  nominal: '[datasheet, citation, measured].filter(!value.isEmpty())[0]'
+  doubled: 'datasheet * 2'
+properties:
+  formula.nominal:
+    displayName: Nominal
+views:
+  - type: table
+    name: Datasheet
+    order: [field, formula.nominal, formula.doubled]
+  - type: table
+    name: Sources
+    order: [field, datasheet, citation, measured]
+  - type: cards
+    name: Cards
+    order: [field, formula.nominal]
+  - type: kpi
+    name: Headline
+    kpi:
+      label: Nominal
+      value: { property: formula.nominal }

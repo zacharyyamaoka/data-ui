@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Inputs and outputs mark">
+<title>Inputs and outputs mark</title>
+<rect x="19" y="8" width="26" height="48" rx="3" fill="currentColor"/>
+<path d="M1 22L10 22" fill="none" style="stroke:var(--a,#e4572e)" stroke-width="4"/><polygon points="19,22 10,27 10,17" style="fill:var(--a,#e4572e)"/>
+<path d="M1 42L10 42" fill="none" style="stroke:var(--a,#e4572e)" stroke-width="4"/><polygon points="19,42 10,47 10,37" style="fill:var(--a,#e4572e)"/>
+<path d="M45 32L54 32" fill="none" style="stroke:var(--a,#e4572e)" stroke-width="4"/><polygon points="63,32 54,37 54,27" style="fill:var(--a,#e4572e)"/>
+</svg>

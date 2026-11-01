@@ -1,0 +1,648 @@
+{
+ "id": "robotparts-compare",
+ "title": "Actuators side by side",
+ "titleProperty": "name",
+ "linkProperty": "url",
+ "imageProperty": "photo",
+ "source": "robotparts dist/site/v2/catalog.json, release 2026.10.25.1; photos from dist/site/v2/files/",
+ "properties": {
+  "name": {
+   "type": "text",
+   "label": "Part"
+  },
+  "brand": {
+   "type": "text",
+   "label": "Brand"
+  },
+  "model": {
+   "type": "text",
+   "label": "Model"
+  },
+  "photo": {
+   "type": "text",
+   "label": "Photo",
+   "display": "image",
+   "media": "image",
+   "hidden": true
+  },
+  "url": {
+   "type": "text",
+   "label": "Page",
+   "hidden": true
+  },
+  "level": {
+   "type": "number",
+   "label": "Level",
+   "better": "higher",
+   "note": "robotparts' level: listed, cited, CAD, sim, measured (0-5)"
+  },
+  "drivetrain": {
+   "type": "text",
+   "label": "Drivetrain",
+   "display": "badge"
+  },
+  "buses": {
+   "type": "list",
+   "label": "Bus"
+  },
+  "peak_torque": {
+   "type": "number",
+   "label": "Peak torque",
+   "unitText": "N·m",
+   "better": "higher"
+  },
+  "rated_torque": {
+   "type": "number",
+   "label": "Rated torque",
+   "unitText": "N·m",
+   "better": "higher"
+  },
+  "max_speed": {
+   "type": "number",
+   "label": "Max speed",
+   "unitText": "rpm",
+   "better": "higher"
+  },
+  "rated_speed": {
+   "type": "number",
+   "label": "Rated speed",
+   "unitText": "rpm",
+   "better": "higher"
+  },
+  "mass": {
+   "type": "number",
+   "label": "Mass",
+   "unitText": "g",
+   "better": "lower"
+  },
+  "gear_ratio": {
+   "type": "number",
+   "label": "Gear ratio",
+   "unitText": ":1"
+  },
+  "voltage": {
+   "type": "number",
+   "label": "Voltage",
+   "unitText": "V"
+  },
+  "backlash": {
+   "type": "number",
+   "label": "Backlash",
+   "unitText": "arcmin",
+   "better": "lower"
+  },
+  "od": {
+   "type": "number",
+   "label": "Outer diameter",
+   "unitText": "mm",
+   "better": "lower"
+  },
+  "length": {
+   "type": "number",
+   "label": "Length",
+   "unitText": "mm",
+   "better": "lower"
+  },
+  "rated_power": {
+   "type": "number",
+   "label": "Rated power",
+   "unitText": "W",
+   "better": "higher"
+  },
+  "torque_density": {
+   "type": "number",
+   "label": "Peak torque / mass",
+   "unitText": "N·m/kg",
+   "better": "higher",
+   "derived": "peak torque / mass, by robotparts"
+  },
+  "price": {
+   "type": "number",
+   "label": "Price from",
+   "unitText": "USD",
+   "decimals": 0,
+   "better": "lower",
+   "note": "the lowest price of a listing selling the part alone"
+  },
+  "sellers": {
+   "type": "number",
+   "label": "Sellers"
+  },
+  "measured": {
+   "type": "number",
+   "label": "Measured records",
+   "better": "higher"
+  },
+  "cited": {
+   "type": "boolean",
+   "label": "Datasheet cited"
+  },
+  "cad": {
+   "type": "boolean",
+   "label": "CAD model"
+  },
+  "sim": {
+   "type": "boolean",
+   "label": "Sim model"
+  }
+ },
+ "rows": [
+  {
+   "id": "aifitlab-8541438771336",
+   "name": "Steadywin GIM4305-10",
+   "brand": "Steadywin",
+   "model": "GIM4305-10",
+   "photo": "photos/aifitlab-8541438771336.webp",
+   "url": "https://robotparts.dev/actuator/aifitlab-8541438771336/",
+   "level": 4,
+   "drivetrain": "geared",
+   "buses": [
+    "can",
+    "rs485"
+   ],
+   "peak_torque": {
+    "value": 3.82,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Stall Torque'"
+   },
+   "rated_torque": {
+    "value": 1.05,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Nominal Torque'"
+   },
+   "max_speed": {
+    "value": 402.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Max Speed after Reduction'"
+   },
+   "rated_speed": {
+    "value": 312.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Nominal Speed after Reduction'"
+   },
+   "mass": {
+    "value": 150.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Motor Weight (with Driver)'"
+   },
+   "gear_ratio": {
+    "value": 10.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Gear Ratio'"
+   },
+   "voltage": {
+    "value": 24.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Nominal Voltage'"
+   },
+   "backlash": {
+    "value": 15.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Reducer Gear Backlash'"
+   },
+   "od": {
+    "value": 53.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Size (with Driver)'; diameter marked in string"
+   },
+   "length": {
+    "value": 26.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Size (with Driver)'; diameter marked in string; manufacturer says 32.0 mm"
+   },
+   "rated_power": {
+    "value": 34.3,
+    "basis": "derived",
+    "source": "aifitlab.com",
+    "note": "rated torque × rated speed"
+   },
+   "torque_density": 25.467,
+   "price": 70.0,
+   "sellers": 1,
+   "measured": 5,
+   "cited": true,
+   "cad": true,
+   "sim": true
+  },
+  {
+   "id": "aifitlab-8542347853960",
+   "name": "Steadywin GIM6010-8",
+   "brand": "Steadywin",
+   "model": "GIM6010-8",
+   "photo": "photos/aifitlab-8542347853960.webp",
+   "url": "https://robotparts.dev/actuator/aifitlab-8542347853960/",
+   "level": 1,
+   "drivetrain": "geared",
+   "buses": [
+    "can",
+    "rs485"
+   ],
+   "peak_torque": {
+    "value": 11.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Stall Torque'"
+   },
+   "rated_torque": {
+    "value": 5.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Nominal Torque'"
+   },
+   "max_speed": {
+    "value": 420.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Max Speed after Reduction'"
+   },
+   "rated_speed": {
+    "value": 120.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Nominal Speed after Reduction'"
+   },
+   "mass": {
+    "value": 388.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Motor Weight (with Driver)'"
+   },
+   "gear_ratio": {
+    "value": 8.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Gear Ratio'"
+   },
+   "voltage": {
+    "value": 24.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Nominal Voltage'"
+   },
+   "backlash": {
+    "value": 15.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Reducer Gear Backlash'"
+   },
+   "od": {
+    "value": 80.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Size (with Driver)'; diameter marked in string"
+   },
+   "length": {
+    "value": 40.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Size (with Driver)'; diameter marked in string"
+   },
+   "rated_power": {
+    "value": 62.8,
+    "basis": "derived",
+    "source": "aifitlab.com",
+    "note": "rated torque × rated speed"
+   },
+   "torque_density": 28.351,
+   "price": 70.0,
+   "sellers": 1,
+   "measured": null,
+   "cited": false,
+   "cad": false,
+   "sim": false
+  },
+  {
+   "id": "aifitlab-8682672160904",
+   "name": "CubeMars AK60-6 V3.0",
+   "brand": "CubeMars",
+   "model": "AK60-6 V3.0",
+   "photo": "photos/aifitlab-8682672160904.webp",
+   "url": "https://robotparts.dev/actuator/aifitlab-8682672160904/",
+   "level": 1,
+   "drivetrain": "geared",
+   "buses": [],
+   "peak_torque": {
+    "value": 9.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Peak Torque'"
+   },
+   "rated_torque": {
+    "value": 3.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Rated Torque'"
+   },
+   "max_speed": {
+    "value": 640.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'No-load speed'"
+   },
+   "rated_speed": {
+    "value": 490.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Rated Speed'"
+   },
+   "mass": {
+    "value": 380.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Motor Weight'"
+   },
+   "gear_ratio": {
+    "value": 6.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Reduction ratio'"
+   },
+   "voltage": {
+    "value": 48.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Rated Voltage'"
+   },
+   "backlash": null,
+   "od": {
+    "value": 79.0,
+    "basis": "datasheet",
+    "source": "cubemars.com",
+    "note": null
+   },
+   "length": {
+    "value": 43.0,
+    "basis": "datasheet",
+    "source": "cubemars.com",
+    "note": null
+   },
+   "rated_power": {
+    "value": 153.9,
+    "basis": "derived",
+    "source": "aifitlab.com",
+    "note": "rated torque × rated speed"
+   },
+   "torque_density": 23.684,
+   "price": 229.9,
+   "sellers": 1,
+   "measured": null,
+   "cited": false,
+   "cad": false,
+   "sim": false
+  },
+  {
+   "id": "aifitlab-8649843966088",
+   "name": "MyActuator RMD-X6-7",
+   "brand": "MyActuator",
+   "model": "RMD-X6-7",
+   "photo": "photos/aifitlab-8649843966088.webp",
+   "url": "https://robotparts.dev/actuator/aifitlab-8649843966088/",
+   "level": 1,
+   "drivetrain": "geared",
+   "buses": [
+    "can",
+    "rs485",
+    "uart"
+   ],
+   "peak_torque": {
+    "value": 7.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Peak Torque'"
+   },
+   "rated_torque": {
+    "value": 3.5,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Rated Torque'"
+   },
+   "max_speed": null,
+   "rated_speed": {
+    "value": 400.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Rated Speed'"
+   },
+   "mass": {
+    "value": 350.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Weight'"
+   },
+   "gear_ratio": {
+    "value": 6.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Gear ratio'; ratio (bare number)"
+   },
+   "voltage": {
+    "value": 48.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Input Voltage'"
+   },
+   "backlash": {
+    "value": 10.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Backlash'"
+   },
+   "od": null,
+   "length": null,
+   "rated_power": {
+    "value": 146.6,
+    "basis": "derived",
+    "source": "aifitlab.com",
+    "note": "rated torque × rated speed"
+   },
+   "torque_density": 20.0,
+   "price": 230.0,
+   "sellers": 1,
+   "measured": null,
+   "cited": false,
+   "cad": false,
+   "sim": false
+  },
+  {
+   "id": "aifitlab-8542620287112",
+   "name": "Steadywin GIM8108-8",
+   "brand": "Steadywin",
+   "model": "GIM8108-8",
+   "photo": "photos/aifitlab-8542620287112.webp",
+   "url": "https://robotparts.dev/actuator/aifitlab-8542620287112/",
+   "level": 1,
+   "drivetrain": "geared",
+   "buses": [
+    "can",
+    "rs485"
+   ],
+   "peak_torque": {
+    "value": 22.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Stall Torque'"
+   },
+   "rated_torque": {
+    "value": 7.5,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Nominal Torque'"
+   },
+   "max_speed": {
+    "value": 320.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Max Speed after Reduction'"
+   },
+   "rated_speed": {
+    "value": 110.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Nominal Speed after Reduction'"
+   },
+   "mass": {
+    "value": 396.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Motor Weight (with Driver)'"
+   },
+   "gear_ratio": {
+    "value": 8.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Gear Ratio'"
+   },
+   "voltage": {
+    "value": 48.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Nominal Voltage'"
+   },
+   "backlash": {
+    "value": 15.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Reducer Gear Backlash'"
+   },
+   "od": {
+    "value": 92.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Size (with Driver)'; diameter marked in string"
+   },
+   "length": {
+    "value": 55.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Size (with Driver)'; diameter marked in string"
+   },
+   "rated_power": {
+    "value": 86.4,
+    "basis": "derived",
+    "source": "aifitlab.com",
+    "note": "rated torque × rated speed"
+   },
+   "torque_density": 55.556,
+   "price": 85.0,
+   "sellers": 1,
+   "measured": null,
+   "cited": false,
+   "cad": false,
+   "sim": false
+  },
+  {
+   "id": "aifitlab-8682649092232",
+   "name": "CubeMars AK70-10",
+   "brand": "CubeMars",
+   "model": "AK70-10",
+   "photo": "photos/aifitlab-8682649092232.webp",
+   "url": "https://robotparts.dev/actuator/aifitlab-8682649092232/",
+   "level": 1,
+   "drivetrain": "geared",
+   "buses": [],
+   "peak_torque": {
+    "value": 24.8,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Peak torque'"
+   },
+   "rated_torque": {
+    "value": 8.3,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Rated torque'"
+   },
+   "max_speed": {
+    "value": 480.0,
+    "basis": "datasheet",
+    "source": "cubemars.com",
+    "note": "ingest: at 48 V"
+   },
+   "rated_speed": {
+    "value": 310.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Rated speed'"
+   },
+   "mass": {
+    "value": 521.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Weight'"
+   },
+   "gear_ratio": {
+    "value": 10.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Reduction ratio'"
+   },
+   "voltage": {
+    "value": 48.0,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Rated voltage'"
+   },
+   "backlash": {
+    "value": 7.2,
+    "basis": "seller",
+    "source": "aifitlab.com",
+    "note": "row 'Backlash'; deg; aifitlab-image-transcribed says 12 arcmin"
+   },
+   "od": {
+    "value": 89.0,
+    "basis": "datasheet",
+    "source": "cubemars.com",
+    "note": null
+   },
+   "length": {
+    "value": 50.2,
+    "basis": "seller",
+    "source": "cdn.shopify.com",
+    "note": "marketing claim \"thin as 50.2mm\" (module thickness; not a dimension drawing; connector/flange inclusion unstated)"
+   },
+   "rated_power": {
+    "value": 269.4,
+    "basis": "derived",
+    "source": "aifitlab.com",
+    "note": "rated torque × rated speed"
+   },
+   "torque_density": 47.601,
+   "price": 398.9,
+   "sellers": 1,
+   "measured": null,
+   "cited": false,
+   "cad": false,
+   "sim": false
+  }
+ ]
+}

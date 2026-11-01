@@ -1,0 +1,83 @@
+# Deployments → runs → one run: robotics navigation on one dashboard (docs/peps/0010-robotics-playback.md §8, PEP 0010
+# P3; docs/CONTRACT.md §33). The deployments registry, every run of the picked deployment newest first, and the picked
+# run's playback, read from runs/<run>.json only when exactly one run is picked. Real runs of the 1-DOF rack
+# (source/build.py). The links are one-way: a deployment pick narrows its runs and a run pick names the file to read,
+# while a pick on the samples' rail (Show) never narrows the runs.
+data: runs.json
+style:
+  chrome: minimal
+  numbers: { digits: 4, compact: true }
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: samples, time: t }
+datasets:
+  deployments:
+    data: deployments.json
+    label: Deployments
+  runs:
+    data: runs.json
+    label: Runs
+    facets:
+      - { property: device, label: Station }
+      - { property: kind, label: Run kind }
+  # the per-run dataset: the file the run pick names, read when exactly one run is picked (none or two: "Pick one run")
+  samples:
+    data: 'runs/{run}.json'
+    label: Samples
+    facets:
+      - { property: situation, label: Show }
+links:
+  - { from: deployments.deployment, to: runs.deployment, direction: one-way }
+  - { from: runs.run, to: samples.run, direction: one-way }
+layout:
+  panels:
+    - { view: Deployments, w: 12, h: 2 }
+    - { view: Runs, w: 12, h: 4 }
+    - { view: Playback, w: 12 }
+    - { view: Angle, w: 6, h: 3 }
+    - { view: Velocity, w: 6, h: 3 }
+    - { view: Torque, w: 6, h: 3 }
+    - { view: Current, w: 6, h: 3 }
+properties:
+  started: { displayName: Started }
+  duration_s: { displayName: Duration }
+  device: { displayName: Station }
+  kind: { displayName: Kind }
+views:
+  # level 1: the deployments registry (the host's; one today, the rack). Its first row is picked when the page opens
+  - type: table
+    name: Deployments
+    from: deployments
+    select: deployment
+    selected: first
+    order: [title, kind, where, stations, runs, last_run]
+  # level 2: the deployment's runs, newest first; a click picks a run, a ctrl / cmd-click a second (then "Pick one run")
+  - type: table
+    name: Runs
+    from: runs
+    select: run
+    selected: first
+    order: [label, started, device, kind, duration_s, rate_hz]
+    sort:
+      - { property: started, direction: DESC }
+  # level 3: the picked run, on one clock spanning its t
+  - type: playback
+    name: Playback
+    playback: { readout: true }
+  - type: timeseries
+    name: Angle
+    from: samples
+    timeseries: { x: t, 'y': q_deg, series: situation, dash: [target], legend: top, unit: '°' }
+  - type: timeseries
+    name: Velocity
+    from: samples
+    timeseries: { x: t, 'y': qd_deg_s, series: situation, dash: [target], legend: top, unit: '°/s' }
+  - type: timeseries
+    name: Torque
+    from: samples
+    filters: 'situation == "real"'
+    timeseries: { x: t, 'y': tau_nm, series: situation, legend: none, unit: 'N·m' }
+  - type: timeseries
+    name: Current
+    from: samples
+    filters: 'situation == "real"'
+    timeseries: { x: t, 'y': i_q_a, series: situation, legend: none, unit: A }

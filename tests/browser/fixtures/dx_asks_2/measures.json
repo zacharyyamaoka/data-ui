@@ -1,0 +1,43 @@
+{
+ "id": "measures",
+ "title": "Diagnostic readings",
+ "titleProperty": "check",
+ "source": "synthetic: tests/browser/fixtures/dx_asks_2/make_fixture.py (illustrative numbers)",
+ "properties": {
+  "t": {
+   "type": "number",
+   "unit": "s",
+   "label": "Received",
+   "display": "clock"
+  },
+  "check": {
+   "type": "text",
+   "label": "Check"
+  },
+  "value": {
+   "type": "number",
+   "label": "Value"
+  },
+  "reading": {
+   "type": "number",
+   "label": "Reading"
+  },
+  "warn_lo": {
+   "type": "number",
+   "label": "Warn below"
+  },
+  "warn_hi": {
+   "type": "number",
+   "label": "Warn above"
+  },
+  "error_lo": {
+   "type": "number",
+   "label": "Error below"
+  },
+  "error_hi": {
+   "type": "number",
+   "label": "Error above"
+  }
+ },
+ "rows": []
+}

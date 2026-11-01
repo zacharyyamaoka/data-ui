@@ -1,0 +1,300 @@
+{
+ "id": "admin-organizations",
+ "title": "Organizations",
+ "titleProperty": "name",
+ "source": "invented for the data-ui gallery (gallery/examples/admin-shopify/source/build_data.py)",
+ "properties": {
+  "name": {
+   "type": "text",
+   "label": "Organization"
+  },
+  "kind": {
+   "type": "text",
+   "label": "Kind",
+   "display": "badge",
+   "colors": {
+    "Customer": 0,
+    "Prospect": 0,
+    "Competitor": 0
+   }
+  },
+  "stage": {
+   "type": "text",
+   "label": "Stage",
+   "display": "badge",
+   "colors": {
+    "Contacted": 1,
+    "Prospect": 0,
+    "Lead": 0
+   }
+  },
+  "tags": {
+   "type": "list",
+   "label": "Tags",
+   "display": "badge",
+   "colors": {
+    "medical-waste": 0,
+    "collector": 0,
+    "hauler": 0,
+    "hospital": 0,
+    "2023-discovery": 0,
+    "recycler": 0,
+    "public": 0,
+    "municipal": 0,
+    "regulator": 0,
+    "incumbent": 0,
+    "mrf": 0,
+    "optical-sorting": 0,
+    "plastics": 0,
+    "landfill": 0,
+    "producer": 0,
+    "ppe": 0,
+    "commercial": 0,
+    "glass": 0,
+    "metals": 0,
+    "wood": 0,
+    "construction": 0,
+    "manufacturer": 0,
+    "nitrile": 0,
+    "medical": 0
+   }
+  },
+  "place": {
+   "type": "text",
+   "label": "Place"
+  },
+  "people": {
+   "type": "number",
+   "label": "People",
+   "note": "contacts recorded at this organization"
+  },
+  "deals": {
+   "type": "number",
+   "label": "Deals",
+   "note": "deals with this organization"
+  },
+  "last_activity": {
+   "type": "date",
+   "label": "Last activity"
+  }
+ },
+ "rows": [
+  {
+   "id": "alderbank-medical-waste",
+   "name": "Alderbank Medical Waste",
+   "kind": "Customer",
+   "stage": "Contacted",
+   "tags": [
+    "medical-waste",
+    "collector",
+    "hauler",
+    "hospital"
+   ],
+   "place": "Harbour City",
+   "people": 1,
+   "deals": 1,
+   "last_activity": "2026-04-10"
+  },
+  {
+   "id": "birchway-sorting-co",
+   "name": "Birchway Sorting Co",
+   "kind": "Prospect",
+   "stage": "Contacted",
+   "tags": [
+    "hauler",
+    "2023-discovery",
+    "recycler"
+   ],
+   "place": "Harbour City",
+   "people": 3,
+   "deals": null,
+   "last_activity": "2023-07-25"
+  },
+  {
+   "id": "city-of-larkspur",
+   "name": "City of Larkspur",
+   "kind": "Prospect",
+   "stage": "Contacted",
+   "tags": [
+    "public",
+    "municipal",
+    "regulator",
+    "collector"
+   ],
+   "place": "City of Larkspur",
+   "people": 3,
+   "deals": null,
+   "last_activity": "2023-08-11"
+  },
+  {
+   "id": "coldstream-health-services",
+   "name": "Coldstream Health Services",
+   "kind": "Competitor",
+   "stage": "Prospect",
+   "tags": [
+    "incumbent",
+    "medical-waste"
+   ],
+   "place": null,
+   "people": null,
+   "deals": null,
+   "last_activity": null
+  },
+  {
+   "id": "driftwood-medserv",
+   "name": "Driftwood MedServ",
+   "kind": "Prospect",
+   "stage": "Contacted",
+   "tags": [
+    "medical-waste",
+    "collector",
+    "hauler"
+   ],
+   "place": "Harbour City",
+   "people": null,
+   "deals": null,
+   "last_activity": "2023-04-18"
+  },
+  {
+   "id": "fernhill-environmental",
+   "name": "Fernhill Environmental",
+   "kind": "Competitor",
+   "stage": "Prospect",
+   "tags": [
+    "incumbent",
+    "hauler",
+    "mrf",
+    "collector"
+   ],
+   "place": null,
+   "people": null,
+   "deals": null,
+   "last_activity": null
+  },
+  {
+   "id": "glasswing-plastics-supply",
+   "name": "Glasswing Plastics Supply",
+   "kind": "Competitor",
+   "stage": "Prospect",
+   "tags": [
+    "recycler",
+    "optical-sorting",
+    "plastics"
+   ],
+   "place": "Harbour City",
+   "people": null,
+   "deals": null,
+   "last_activity": null
+  },
+  {
+   "id": "harbour-city-regional-district",
+   "name": "Harbour City Regional District",
+   "kind": "Prospect",
+   "stage": "Contacted",
+   "tags": [
+    "public",
+    "regulator",
+    "municipal",
+    "landfill"
+   ],
+   "place": "Harbour City",
+   "people": 3,
+   "deals": 1,
+   "last_activity": "2023-11-20"
+  },
+  {
+   "id": "kestrel-health-care",
+   "name": "Kestrel Health Care",
+   "kind": "Prospect",
+   "stage": "Contacted",
+   "tags": [
+    "hospital",
+    "producer",
+    "ppe"
+   ],
+   "place": "City of Larkspur",
+   "people": 1,
+   "deals": null,
+   "last_activity": "2024-02-06"
+  },
+  {
+   "id": "loopline-recycling",
+   "name": "Loopline Recycling",
+   "kind": "Customer",
+   "stage": "Contacted",
+   "tags": [
+    "recycler",
+    "collector",
+    "mrf",
+    "hauler",
+    "commercial"
+   ],
+   "place": "City of Larkspur",
+   "people": 4,
+   "deals": 1,
+   "last_activity": "2026-06-30"
+  },
+  {
+   "id": "northgate-biohazard",
+   "name": "Northgate Biohazard",
+   "kind": "Competitor",
+   "stage": "Prospect",
+   "tags": [
+    "incumbent",
+    "medical-waste"
+   ],
+   "place": null,
+   "people": null,
+   "deals": null,
+   "last_activity": null
+  },
+  {
+   "id": "quarry-lane-recycling",
+   "name": "Quarry Lane Recycling",
+   "kind": "Competitor",
+   "stage": "Lead",
+   "tags": [
+    "mrf",
+    "recycler",
+    "glass",
+    "metals"
+   ],
+   "place": "Harbour City",
+   "people": null,
+   "deals": null,
+   "last_activity": null
+  },
+  {
+   "id": "timberjack-reclaim",
+   "name": "Timberjack Reclaim",
+   "kind": "Prospect",
+   "stage": "Contacted",
+   "tags": [
+    "wood",
+    "recycler",
+    "construction"
+   ],
+   "place": "City of Larkspur",
+   "people": 3,
+   "deals": null,
+   "last_activity": "2024-04-19"
+  },
+  {
+   "id": "veridian-glove-works",
+   "name": "Veridian Glove Works",
+   "kind": "Customer",
+   "stage": "Contacted",
+   "tags": [
+    "ppe",
+    "manufacturer",
+    "nitrile",
+    "medical",
+    "plastics"
+   ],
+   "place": "Harbour City",
+   "people": 1,
+   "deals": 1,
+   "last_activity": "2024-06-11"
+  }
+ ]
+}

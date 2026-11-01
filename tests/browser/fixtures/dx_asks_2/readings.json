@@ -1,0 +1,2312 @@
+{
+ "id": "readings",
+ "title": "Diagnostic readings (a file)",
+ "titleProperty": "check",
+ "source": "synthetic: tests/browser/fixtures/dx_asks_2/make_fixture.py (illustrative numbers)",
+ "properties": {
+  "t": {
+   "type": "number",
+   "unit": "s",
+   "label": "Received",
+   "display": "clock"
+  },
+  "check": {
+   "type": "text",
+   "label": "Check"
+  },
+  "value": {
+   "type": "number",
+   "label": "Value"
+  },
+  "reading": {
+   "type": "number",
+   "label": "Reading"
+  },
+  "warn_lo": {
+   "type": "number",
+   "label": "Warn below"
+  },
+  "warn_hi": {
+   "type": "number",
+   "label": "Warn above"
+  },
+  "error_lo": {
+   "type": "number",
+   "label": "Error below"
+  },
+  "error_hi": {
+   "type": "number",
+   "label": "Error above"
+  }
+ },
+ "rows": [
+  {
+   "id": "board_temp-000",
+   "t": 1792631000.0,
+   "check": "board_temp",
+   "value": 40.0,
+   "reading": {
+    "value": 40.0,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-000",
+   "t": 1792631000.0,
+   "check": "supply_v",
+   "value": 24.0,
+   "reading": {
+    "value": 24.0,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-001",
+   "t": 1792631000.5,
+   "check": "board_temp",
+   "value": 40.596,
+   "reading": {
+    "value": 40.596,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-001",
+   "t": 1792631000.5,
+   "check": "supply_v",
+   "value": 24.0854,
+   "reading": {
+    "value": 24.0854,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-002",
+   "t": 1792631001.0,
+   "check": "board_temp",
+   "value": 41.1683,
+   "reading": {
+    "value": 41.1683,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-002",
+   "t": 1792631001.0,
+   "check": "supply_v",
+   "value": 24.1691,
+   "reading": {
+    "value": 24.1691,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-003",
+   "t": 1792631001.5,
+   "check": "board_temp",
+   "value": 41.6939,
+   "reading": {
+    "value": 41.6939,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-003",
+   "t": 1792631001.5,
+   "check": "supply_v",
+   "value": 24.2493,
+   "reading": {
+    "value": 24.2493,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-004",
+   "t": 1792631002.0,
+   "check": "board_temp",
+   "value": 42.1521,
+   "reading": {
+    "value": 42.1521,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-004",
+   "t": 1792631002.0,
+   "check": "supply_v",
+   "value": 24.3245,
+   "reading": {
+    "value": 24.3245,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-005",
+   "t": 1792631002.5,
+   "check": "board_temp",
+   "value": 42.5244,
+   "reading": {
+    "value": 42.5244,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-005",
+   "t": 1792631002.5,
+   "check": "supply_v",
+   "value": 24.393,
+   "reading": {
+    "value": 24.393,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-006",
+   "t": 1792631003.0,
+   "check": "board_temp",
+   "value": 42.7961,
+   "reading": {
+    "value": 42.7961,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-006",
+   "t": 1792631003.0,
+   "check": "supply_v",
+   "value": 24.4536,
+   "reading": {
+    "value": 24.4536,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-007",
+   "t": 1792631003.5,
+   "check": "board_temp",
+   "value": 42.9563,
+   "reading": {
+    "value": 42.9563,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-007",
+   "t": 1792631003.5,
+   "check": "supply_v",
+   "value": 24.5049,
+   "reading": {
+    "value": 24.5049,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-008",
+   "t": 1792631004.0,
+   "check": "board_temp",
+   "value": 42.9987,
+   "reading": {
+    "value": 42.9987,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-008",
+   "t": 1792631004.0,
+   "check": "supply_v",
+   "value": 24.5459,
+   "reading": {
+    "value": 24.5459,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-009",
+   "t": 1792631004.5,
+   "check": "board_temp",
+   "value": 42.9215,
+   "reading": {
+    "value": 42.9215,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-009",
+   "t": 1792631004.5,
+   "check": "supply_v",
+   "value": 24.5758,
+   "reading": {
+    "value": 24.5758,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-010",
+   "t": 1792631005.0,
+   "check": "board_temp",
+   "value": 42.7279,
+   "reading": {
+    "value": 42.7279,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-010",
+   "t": 1792631005.0,
+   "check": "supply_v",
+   "value": 24.5939,
+   "reading": {
+    "value": 24.5939,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-011",
+   "t": 1792631005.5,
+   "check": "board_temp",
+   "value": 42.4255,
+   "reading": {
+    "value": 42.4255,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-011",
+   "t": 1792631005.5,
+   "check": "supply_v",
+   "value": 24.6,
+   "reading": {
+    "value": 24.6,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-012",
+   "t": 1792631006.0,
+   "check": "board_temp",
+   "value": 42.0264,
+   "reading": {
+    "value": 42.0264,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-012",
+   "t": 1792631006.0,
+   "check": "supply_v",
+   "value": 24.5938,
+   "reading": {
+    "value": 24.5938,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-013",
+   "t": 1792631006.5,
+   "check": "board_temp",
+   "value": 41.5465,
+   "reading": {
+    "value": 41.5465,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-013",
+   "t": 1792631006.5,
+   "check": "supply_v",
+   "value": 24.5756,
+   "reading": {
+    "value": 24.5756,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-014",
+   "t": 1792631007.0,
+   "check": "board_temp",
+   "value": 41.005,
+   "reading": {
+    "value": 41.005,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-014",
+   "t": 1792631007.0,
+   "check": "supply_v",
+   "value": 24.5456,
+   "reading": {
+    "value": 24.5456,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-015",
+   "t": 1792631007.5,
+   "check": "board_temp",
+   "value": 40.4234,
+   "reading": {
+    "value": 40.4234,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-015",
+   "t": 1792631007.5,
+   "check": "supply_v",
+   "value": 24.5045,
+   "reading": {
+    "value": 24.5045,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-016",
+   "t": 1792631008.0,
+   "check": "board_temp",
+   "value": 39.8249,
+   "reading": {
+    "value": 39.8249,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-016",
+   "t": 1792631008.0,
+   "check": "supply_v",
+   "value": 24.4531,
+   "reading": {
+    "value": 24.4531,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-017",
+   "t": 1792631008.5,
+   "check": "board_temp",
+   "value": 39.2334,
+   "reading": {
+    "value": 39.2334,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-017",
+   "t": 1792631008.5,
+   "check": "supply_v",
+   "value": 24.3925,
+   "reading": {
+    "value": 24.3925,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-018",
+   "t": 1792631009.0,
+   "check": "board_temp",
+   "value": 38.6724,
+   "reading": {
+    "value": 38.6724,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-018",
+   "t": 1792631009.0,
+   "check": "supply_v",
+   "value": 24.3239,
+   "reading": {
+    "value": 24.3239,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-019",
+   "t": 1792631009.5,
+   "check": "board_temp",
+   "value": 38.1644,
+   "reading": {
+    "value": 38.1644,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-019",
+   "t": 1792631009.5,
+   "check": "supply_v",
+   "value": 24.2487,
+   "reading": {
+    "value": 24.2487,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-020",
+   "t": 1792631010.0,
+   "check": "board_temp",
+   "value": 37.7296,
+   "reading": {
+    "value": 37.7296,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-020",
+   "t": 1792631010.0,
+   "check": "supply_v",
+   "value": 24.1684,
+   "reading": {
+    "value": 24.1684,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-021",
+   "t": 1792631010.5,
+   "check": "board_temp",
+   "value": 37.3853,
+   "reading": {
+    "value": 37.3853,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-021",
+   "t": 1792631010.5,
+   "check": "supply_v",
+   "value": 24.0847,
+   "reading": {
+    "value": 24.0847,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-022",
+   "t": 1792631011.0,
+   "check": "board_temp",
+   "value": 37.1452,
+   "reading": {
+    "value": 37.1452,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-022",
+   "t": 1792631011.0,
+   "check": "supply_v",
+   "value": 23.9992,
+   "reading": {
+    "value": 23.9992,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-023",
+   "t": 1792631011.5,
+   "check": "board_temp",
+   "value": 37.0189,
+   "reading": {
+    "value": 37.0189,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-023",
+   "t": 1792631011.5,
+   "check": "supply_v",
+   "value": 23.9138,
+   "reading": {
+    "value": 23.9138,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-024",
+   "t": 1792631012.0,
+   "check": "board_temp",
+   "value": 37.0115,
+   "reading": {
+    "value": 37.0115,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-024",
+   "t": 1792631012.0,
+   "check": "supply_v",
+   "value": 23.8302,
+   "reading": {
+    "value": 23.8302,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-025",
+   "t": 1792631012.5,
+   "check": "board_temp",
+   "value": 37.1232,
+   "reading": {
+    "value": 37.1232,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-025",
+   "t": 1792631012.5,
+   "check": "supply_v",
+   "value": 23.75,
+   "reading": {
+    "value": 23.75,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-026",
+   "t": 1792631013.0,
+   "check": "board_temp",
+   "value": 37.3496,
+   "reading": {
+    "value": 37.3496,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-026",
+   "t": 1792631013.0,
+   "check": "supply_v",
+   "value": 23.6749,
+   "reading": {
+    "value": 23.6749,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-027",
+   "t": 1792631013.5,
+   "check": "board_temp",
+   "value": 37.6817,
+   "reading": {
+    "value": 37.6817,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-027",
+   "t": 1792631013.5,
+   "check": "supply_v",
+   "value": 23.6064,
+   "reading": {
+    "value": 23.6064,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-028",
+   "t": 1792631014.0,
+   "check": "board_temp",
+   "value": 38.1062,
+   "reading": {
+    "value": 38.1062,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-028",
+   "t": 1792631014.0,
+   "check": "supply_v",
+   "value": 23.5459,
+   "reading": {
+    "value": 23.5459,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-029",
+   "t": 1792631014.5,
+   "check": "board_temp",
+   "value": 38.6062,
+   "reading": {
+    "value": 38.6062,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-029",
+   "t": 1792631014.5,
+   "check": "supply_v",
+   "value": 23.4947,
+   "reading": {
+    "value": 23.4947,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-030",
+   "t": 1792631015.0,
+   "check": "board_temp",
+   "value": 39.1618,
+   "reading": {
+    "value": 39.1618,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-030",
+   "t": 1792631015.0,
+   "check": "supply_v",
+   "value": 23.4538,
+   "reading": {
+    "value": 23.4538,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-031",
+   "t": 1792631015.5,
+   "check": "board_temp",
+   "value": 39.7507,
+   "reading": {
+    "value": 39.7507,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-031",
+   "t": 1792631015.5,
+   "check": "supply_v",
+   "value": 23.424,
+   "reading": {
+    "value": 23.424,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-032",
+   "t": 1792631016.0,
+   "check": "board_temp",
+   "value": 40.3496,
+   "reading": {
+    "value": 40.3496,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-032",
+   "t": 1792631016.0,
+   "check": "supply_v",
+   "value": 23.406,
+   "reading": {
+    "value": 23.406,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-033",
+   "t": 1792631016.5,
+   "check": "board_temp",
+   "value": 40.9346,
+   "reading": {
+    "value": 40.9346,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-033",
+   "t": 1792631016.5,
+   "check": "supply_v",
+   "value": 23.4,
+   "reading": {
+    "value": 23.4,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-034",
+   "t": 1792631017.0,
+   "check": "board_temp",
+   "value": 41.4823,
+   "reading": {
+    "value": 41.4823,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-034",
+   "t": 1792631017.0,
+   "check": "supply_v",
+   "value": 23.4063,
+   "reading": {
+    "value": 23.4063,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-035",
+   "t": 1792631017.5,
+   "check": "board_temp",
+   "value": 41.971,
+   "reading": {
+    "value": 41.971,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-035",
+   "t": 1792631017.5,
+   "check": "supply_v",
+   "value": 23.4246,
+   "reading": {
+    "value": 23.4246,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-036",
+   "t": 1792631018.0,
+   "check": "board_temp",
+   "value": 42.381,
+   "reading": {
+    "value": 42.381,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-036",
+   "t": 1792631018.0,
+   "check": "supply_v",
+   "value": 23.4547,
+   "reading": {
+    "value": 23.4547,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-037",
+   "t": 1792631018.5,
+   "check": "board_temp",
+   "value": 42.6961,
+   "reading": {
+    "value": 42.6961,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-037",
+   "t": 1792631018.5,
+   "check": "supply_v",
+   "value": 23.4959,
+   "reading": {
+    "value": 23.4959,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-038",
+   "t": 1792631019.0,
+   "check": "board_temp",
+   "value": 42.9038,
+   "reading": {
+    "value": 42.9038,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-038",
+   "t": 1792631019.0,
+   "check": "supply_v",
+   "value": 23.5474,
+   "reading": {
+    "value": 23.5474,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-039",
+   "t": 1792631019.5,
+   "check": "board_temp",
+   "value": 42.9956,
+   "reading": {
+    "value": 42.9956,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 60,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-039",
+   "t": 1792631019.5,
+   "check": "supply_v",
+   "value": 23.6081,
+   "reading": {
+    "value": 23.6081,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-040",
+   "t": 1792631020.0,
+   "check": "board_temp",
+   "value": 42.9681,
+   "reading": {
+    "value": 42.9681,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-040",
+   "t": 1792631020.0,
+   "check": "supply_v",
+   "value": 23.6768,
+   "reading": {
+    "value": 23.6768,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-041",
+   "t": 1792631020.5,
+   "check": "board_temp",
+   "value": 42.8222,
+   "reading": {
+    "value": 42.8222,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-041",
+   "t": 1792631020.5,
+   "check": "supply_v",
+   "value": 23.752,
+   "reading": {
+    "value": 23.752,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-042",
+   "t": 1792631021.0,
+   "check": "board_temp",
+   "value": 42.5638,
+   "reading": {
+    "value": 42.5638,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-042",
+   "t": 1792631021.0,
+   "check": "supply_v",
+   "value": 23.8324,
+   "reading": {
+    "value": 23.8324,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-043",
+   "t": 1792631021.5,
+   "check": "board_temp",
+   "value": 42.2032,
+   "reading": {
+    "value": 42.2032,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-043",
+   "t": 1792631021.5,
+   "check": "supply_v",
+   "value": 23.9161,
+   "reading": {
+    "value": 23.9161,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-044",
+   "t": 1792631022.0,
+   "check": "board_temp",
+   "value": 41.7548,
+   "reading": {
+    "value": 41.7548,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-044",
+   "t": 1792631022.0,
+   "check": "supply_v",
+   "value": 24.0015,
+   "reading": {
+    "value": 24.0015,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-045",
+   "t": 1792631022.5,
+   "check": "board_temp",
+   "value": 41.2364,
+   "reading": {
+    "value": 41.2364,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-045",
+   "t": 1792631022.5,
+   "check": "supply_v",
+   "value": 24.0869,
+   "reading": {
+    "value": 24.0869,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-046",
+   "t": 1792631023.0,
+   "check": "board_temp",
+   "value": 40.6687,
+   "reading": {
+    "value": 40.6687,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-046",
+   "t": 1792631023.0,
+   "check": "supply_v",
+   "value": 24.1706,
+   "reading": {
+    "value": 24.1706,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-047",
+   "t": 1792631023.5,
+   "check": "board_temp",
+   "value": 40.0743,
+   "reading": {
+    "value": 40.0743,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-047",
+   "t": 1792631023.5,
+   "check": "supply_v",
+   "value": 24.2507,
+   "reading": {
+    "value": 24.2507,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-048",
+   "t": 1792631024.0,
+   "check": "board_temp",
+   "value": 39.477,
+   "reading": {
+    "value": 39.477,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-048",
+   "t": 1792631024.0,
+   "check": "supply_v",
+   "value": 24.3258,
+   "reading": {
+    "value": 24.3258,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-049",
+   "t": 1792631024.5,
+   "check": "board_temp",
+   "value": 38.9006,
+   "reading": {
+    "value": 38.9006,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-049",
+   "t": 1792631024.5,
+   "check": "supply_v",
+   "value": 24.3942,
+   "reading": {
+    "value": 24.3942,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-050",
+   "t": 1792631025.0,
+   "check": "board_temp",
+   "value": 38.3679,
+   "reading": {
+    "value": 38.3679,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-050",
+   "t": 1792631025.0,
+   "check": "supply_v",
+   "value": 24.4546,
+   "reading": {
+    "value": 24.4546,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-051",
+   "t": 1792631025.5,
+   "check": "board_temp",
+   "value": 37.9004,
+   "reading": {
+    "value": 37.9004,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-051",
+   "t": 1792631025.5,
+   "check": "supply_v",
+   "value": 24.5057,
+   "reading": {
+    "value": 24.5057,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-052",
+   "t": 1792631026.0,
+   "check": "board_temp",
+   "value": 37.5165,
+   "reading": {
+    "value": 37.5165,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-052",
+   "t": 1792631026.0,
+   "check": "supply_v",
+   "value": 24.5465,
+   "reading": {
+    "value": 24.5465,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-053",
+   "t": 1792631026.5,
+   "check": "board_temp",
+   "value": 37.2317,
+   "reading": {
+    "value": 37.2317,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-053",
+   "t": 1792631026.5,
+   "check": "supply_v",
+   "value": 24.5762,
+   "reading": {
+    "value": 24.5762,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-054",
+   "t": 1792631027.0,
+   "check": "board_temp",
+   "value": 37.0572,
+   "reading": {
+    "value": 37.0572,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-054",
+   "t": 1792631027.0,
+   "check": "supply_v",
+   "value": 24.5942,
+   "reading": {
+    "value": 24.5942,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-055",
+   "t": 1792631027.5,
+   "check": "board_temp",
+   "value": 37.0,
+   "reading": {
+    "value": 37.0,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-055",
+   "t": 1792631027.5,
+   "check": "supply_v",
+   "value": 24.6,
+   "reading": {
+    "value": 24.6,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-056",
+   "t": 1792631028.0,
+   "check": "board_temp",
+   "value": 37.0625,
+   "reading": {
+    "value": 37.0625,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-056",
+   "t": 1792631028.0,
+   "check": "supply_v",
+   "value": 24.5936,
+   "reading": {
+    "value": 24.5936,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-057",
+   "t": 1792631028.5,
+   "check": "board_temp",
+   "value": 37.242,
+   "reading": {
+    "value": 37.242,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-057",
+   "t": 1792631028.5,
+   "check": "supply_v",
+   "value": 24.5751,
+   "reading": {
+    "value": 24.5751,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-058",
+   "t": 1792631029.0,
+   "check": "board_temp",
+   "value": 37.5315,
+   "reading": {
+    "value": 37.5315,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-058",
+   "t": 1792631029.0,
+   "check": "supply_v",
+   "value": 24.5449,
+   "reading": {
+    "value": 24.5449,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-059",
+   "t": 1792631029.5,
+   "check": "board_temp",
+   "value": 37.9194,
+   "reading": {
+    "value": 37.9194,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-059",
+   "t": 1792631029.5,
+   "check": "supply_v",
+   "value": 24.5036,
+   "reading": {
+    "value": 24.5036,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-060",
+   "t": 1792631030.0,
+   "check": "board_temp",
+   "value": 38.3903,
+   "reading": {
+    "value": 38.3903,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-060",
+   "t": 1792631030.0,
+   "check": "supply_v",
+   "value": 24.4521,
+   "reading": {
+    "value": 24.4521,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-061",
+   "t": 1792631030.5,
+   "check": "board_temp",
+   "value": 38.9253,
+   "reading": {
+    "value": 38.9253,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-061",
+   "t": 1792631030.5,
+   "check": "supply_v",
+   "value": 24.3913,
+   "reading": {
+    "value": 24.3913,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-062",
+   "t": 1792631031.0,
+   "check": "board_temp",
+   "value": 39.5032,
+   "reading": {
+    "value": 39.5032,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-062",
+   "t": 1792631031.0,
+   "check": "supply_v",
+   "value": 24.3226,
+   "reading": {
+    "value": 24.3226,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-063",
+   "t": 1792631031.5,
+   "check": "board_temp",
+   "value": 40.1009,
+   "reading": {
+    "value": 40.1009,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-063",
+   "t": 1792631031.5,
+   "check": "supply_v",
+   "value": 24.2473,
+   "reading": {
+    "value": 24.2473,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-064",
+   "t": 1792631032.0,
+   "check": "board_temp",
+   "value": 40.6945,
+   "reading": {
+    "value": 40.6945,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-064",
+   "t": 1792631032.0,
+   "check": "supply_v",
+   "value": 24.1669,
+   "reading": {
+    "value": 24.1669,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-065",
+   "t": 1792631032.5,
+   "check": "board_temp",
+   "value": 41.2605,
+   "reading": {
+    "value": 41.2605,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-065",
+   "t": 1792631032.5,
+   "check": "supply_v",
+   "value": 24.0832,
+   "reading": {
+    "value": 24.0832,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-066",
+   "t": 1792631033.0,
+   "check": "board_temp",
+   "value": 41.7762,
+   "reading": {
+    "value": 41.7762,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-066",
+   "t": 1792631033.0,
+   "check": "supply_v",
+   "value": 23.9977,
+   "reading": {
+    "value": 23.9977,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-067",
+   "t": 1792631033.5,
+   "check": "board_temp",
+   "value": 42.2211,
+   "reading": {
+    "value": 42.2211,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-067",
+   "t": 1792631033.5,
+   "check": "supply_v",
+   "value": 23.9123,
+   "reading": {
+    "value": 23.9123,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-068",
+   "t": 1792631034.0,
+   "check": "board_temp",
+   "value": 42.5775,
+   "reading": {
+    "value": 42.5775,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-068",
+   "t": 1792631034.0,
+   "check": "supply_v",
+   "value": 23.8287,
+   "reading": {
+    "value": 23.8287,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-069",
+   "t": 1792631034.5,
+   "check": "board_temp",
+   "value": 42.8311,
+   "reading": {
+    "value": 42.8311,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-069",
+   "t": 1792631034.5,
+   "check": "supply_v",
+   "value": 23.7486,
+   "reading": {
+    "value": 23.7486,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-070",
+   "t": 1792631035.0,
+   "check": "board_temp",
+   "value": 42.9718,
+   "reading": {
+    "value": 42.9718,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-070",
+   "t": 1792631035.0,
+   "check": "supply_v",
+   "value": 23.6736,
+   "reading": {
+    "value": 23.6736,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-071",
+   "t": 1792631035.5,
+   "check": "board_temp",
+   "value": 42.9941,
+   "reading": {
+    "value": 42.9941,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-071",
+   "t": 1792631035.5,
+   "check": "supply_v",
+   "value": 23.6052,
+   "reading": {
+    "value": 23.6052,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-072",
+   "t": 1792631036.0,
+   "check": "board_temp",
+   "value": 42.897,
+   "reading": {
+    "value": 42.897,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-072",
+   "t": 1792631036.0,
+   "check": "supply_v",
+   "value": 23.5449,
+   "reading": {
+    "value": 23.5449,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-073",
+   "t": 1792631036.5,
+   "check": "board_temp",
+   "value": 42.6844,
+   "reading": {
+    "value": 42.6844,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-073",
+   "t": 1792631036.5,
+   "check": "supply_v",
+   "value": 23.4939,
+   "reading": {
+    "value": 23.4939,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-074",
+   "t": 1792631037.0,
+   "check": "board_temp",
+   "value": 42.3648,
+   "reading": {
+    "value": 42.3648,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-074",
+   "t": 1792631037.0,
+   "check": "supply_v",
+   "value": 23.4532,
+   "reading": {
+    "value": 23.4532,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-075",
+   "t": 1792631037.5,
+   "check": "board_temp",
+   "value": 41.9509,
+   "reading": {
+    "value": 41.9509,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-075",
+   "t": 1792631037.5,
+   "check": "supply_v",
+   "value": 23.4236,
+   "reading": {
+    "value": 23.4236,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-076",
+   "t": 1792631038.0,
+   "check": "board_temp",
+   "value": 41.4592,
+   "reading": {
+    "value": 41.4592,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-076",
+   "t": 1792631038.0,
+   "check": "supply_v",
+   "value": 23.4057,
+   "reading": {
+    "value": 23.4057,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-077",
+   "t": 1792631038.5,
+   "check": "board_temp",
+   "value": 40.9094,
+   "reading": {
+    "value": 40.9094,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-077",
+   "t": 1792631038.5,
+   "check": "supply_v",
+   "value": 23.4,
+   "reading": {
+    "value": 23.4,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-078",
+   "t": 1792631039.0,
+   "check": "board_temp",
+   "value": 40.3233,
+   "reading": {
+    "value": 40.3233,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-078",
+   "t": 1792631039.0,
+   "check": "supply_v",
+   "value": 23.4065,
+   "reading": {
+    "value": 23.4065,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-079",
+   "t": 1792631039.5,
+   "check": "board_temp",
+   "value": 39.7243,
+   "reading": {
+    "value": 39.7243,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-079",
+   "t": 1792631039.5,
+   "check": "supply_v",
+   "value": 23.4251,
+   "reading": {
+    "value": 23.4251,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  },
+  {
+   "id": "board_temp-080",
+   "t": 1792631040.0,
+   "check": "board_temp",
+   "value": 39.1363,
+   "reading": {
+    "value": 39.1363,
+    "unit": "°C"
+   },
+   "warn_lo": null,
+   "warn_hi": 65,
+   "error_lo": null,
+   "error_hi": 70
+  },
+  {
+   "id": "supply_v-080",
+   "t": 1792631040.0,
+   "check": "supply_v",
+   "value": 23.4554,
+   "reading": {
+    "value": 23.4554,
+    "unit": "V"
+   },
+   "warn_lo": 22,
+   "warn_hi": 26,
+   "error_lo": 20,
+   "error_hi": 28
+  }
+ ]
+}

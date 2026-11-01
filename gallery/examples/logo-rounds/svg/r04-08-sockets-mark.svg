@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#0E100E" role="img" aria-label="Sockets cut from the top mark">
+<title>Sockets cut from the top mark</title>
+<g transform="scale(4)"><defs><mask id="km08" maskUnits="userSpaceOnUse" x="-2" y="-2" width="20" height="20"><rect x="-2" y="-2" width="20" height="20" fill="#fff"/><g fill="#000"><circle cx="4.5" cy="3" r="2.6"/><circle cx="11.5" cy="3" r="2.6"/><rect x="5" y="6" width="2" height="8"/><path d="M5 6H8A3 3 0 0 1 8 12H5Z"/></g><g fill="#fff"><path d="M7 8H8A1 1 0 0 1 8 10H7Z"/></g></mask></defs><g fill="currentColor" mask="url(#km08)"><rect x="0" y="3" width="16" height="12" rx="0.7"/></g></g>
+</svg>

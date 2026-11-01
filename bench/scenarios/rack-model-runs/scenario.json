@@ -1,0 +1,33 @@
+{
+  "id": "rack-model-runs",
+  "title": "Rack model runs (623 rows: models, runs and terms, 15 views)",
+  "app": "robotparts",
+  "base": "views.base",
+  "view": "Ranked",
+  "rows": 623,
+  "synthetic": false,
+  "provenance": {
+    "from": "~/data-ui lane/models-views @ a163e1a: gallery/examples/robotparts-models-leaderboard/models.json (views: leaderboard + pivot + parameters cases)",
+    "sha256": "6df86e2b88bcab6125606cd026d288a7b33bfdc9fa8206493c93fe6640f2a637",
+    "copied": "2026-10-26",
+    "note": "Fitted actuator models on the 1-DOF test rack: model, run and term rows in one file (kind = model | run | term), produced by the models-views lane from robotparts' rack reports."
+  },
+  "interactions": {
+    "filter": {
+      "property": "actuator",
+      "value": "CAN 13 · JMC 60ASM200 + 10:1"
+    },
+    "sort": {
+      "property": "x_floor",
+      "direction": "DESC"
+    },
+    "search": "stri",
+    "presets": [
+      "Ranked",
+      "Runs behind it",
+      "By rung"
+    ],
+    "scroll": true,
+    "peek": true
+  }
+}

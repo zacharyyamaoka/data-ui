@@ -1,0 +1,6 @@
+/* The logo rounds' one rule beyond data-ui's defaults: every logo is one dark ink drawn for paper (each SVG sets
+   color="#0E100E" and fills #000), so its image well stays paper-white in both themes, as the hand-built round
+   galleries showed them (build_gallery.py's .big tile: background #fff, color #161615). In a dark theme a dark
+   well would make the logos vanish. */
+.data-ui-skin .dv-cards-img, .data-ui-skin .pswp__img { background: #ffffff; }
+.data-ui-skin .dv-cards-img img { padding: 10px 12px; }

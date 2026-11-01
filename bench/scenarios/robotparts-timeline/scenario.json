@@ -1,0 +1,33 @@
+{
+  "id": "robotparts-timeline",
+  "title": "robotparts releases and branches (30 rows, timeline)",
+  "app": "robotparts",
+  "base": "views.base",
+  "view": null,
+  "rows": 30,
+  "synthetic": false,
+  "provenance": {
+    "from": "~/data-ui/gallery/examples/robotparts-timeline/timeline.json @ main 0dbc3d4",
+    "sha256": "7a70f510f8cd78de25f2c96f08dc264c4a1f0586a3ab59a0496373924cdaf4cb",
+    "copied": "2026-10-26",
+    "note": "Releases and the branches merged into them, 2026-10-22 to 2026-10-25, read from robotparts' git (metadata only)."
+  },
+  "interactions": {
+    "filter": {
+      "property": "release",
+      "value": "2026.10.22.2"
+    },
+    "sort": {
+      "property": "commits",
+      "direction": "DESC"
+    },
+    "search": "lane",
+    "presets": [
+      "Lanes by kind",
+      "By release",
+      "Releases only"
+    ],
+    "scroll": false,
+    "peek": true
+  }
+}

@@ -1,0 +1,61 @@
+/* The "where this value comes from" popover (src/sources-menu.js, docs/CONTRACT.md §22).
+   WHY its own token chain, not --dv-*: the popover is appended to <body>, outside every data-ui element where the private
+   tokens are not defined, and dist/sources.js runs on pages that load nothing else of the kit. Same --data-* tokens, same
+   fallbacks (shadcn's names, then literals), light and dark exactly as tokens.css switches them. */
+
+.dv-srcmenu {
+  --sm-bg: var(--data-bg, var(--background, #ffffff));
+  --sm-fg: var(--data-fg, var(--foreground, #18181b));
+  --sm-muted: var(--data-muted, var(--muted-foreground, #71717a));
+  --sm-border: var(--data-border, var(--border, #e4e4e7));
+  --sm-accent: var(--data-accent, var(--primary, #2563eb));
+  --sm-radius: var(--data-radius, var(--radius, 6px));
+  --sm-font: var(--data-font, var(--font-sans, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif));
+  --sm-mono: var(--data-mono, var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace));
+  --sm-hover: color-mix(in srgb, var(--sm-accent) 12%, var(--sm-bg));
+  --sm-shadow: 0 6px 24px rgb(0 0 0 / .16), 0 1px 3px rgb(0 0 0 / .1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .dv-srcmenu {
+    color-scheme: dark;
+    --sm-bg: var(--data-bg, var(--background, #111113));
+    --sm-fg: var(--data-fg, var(--foreground, #ececef));
+    --sm-muted: var(--data-muted, var(--muted-foreground, #9a9aa3));
+    --sm-border: var(--data-border, var(--border, #2c2c31));
+    --sm-accent: var(--data-accent, var(--primary, #7aa7f2));
+    --sm-shadow: 0 6px 24px rgb(0 0 0 / .55), 0 1px 3px rgb(0 0 0 / .4);
+  }
+}
+:root[data-theme="dark"] .dv-srcmenu {
+  color-scheme: dark;
+  --sm-bg: var(--data-bg, var(--background, #111113));
+  --sm-fg: var(--data-fg, var(--foreground, #ececef));
+  --sm-muted: var(--data-muted, var(--muted-foreground, #9a9aa3));
+  --sm-border: var(--data-border, var(--border, #2c2c31));
+  --sm-accent: var(--data-accent, var(--primary, #7aa7f2));
+  --sm-shadow: 0 6px 24px rgb(0 0 0 / .55), 0 1px 3px rgb(0 0 0 / .4);
+}
+
+.dv-srcmenu { position: fixed; z-index: 2000; box-sizing: border-box; max-width: 360px; width: max-content; max-height: calc(100vh - 16px); overflow: auto;
+  padding: 12px 14px 10px; background: var(--sm-bg); color: var(--sm-fg); border: 1px solid var(--sm-border); border-radius: var(--sm-radius);
+  box-shadow: var(--sm-shadow); font: 13px/1.4 var(--sm-font); text-align: left; }
+.dv-srcmenu:focus { outline: none; }
+.dv-srcmenu-value { margin: 0 0 6px; color: var(--sm-fg); font-weight: 700; font-size: 15px; overflow-wrap: anywhere; }
+.dv-srcmenu-basis { margin: 0 0 8px; color: var(--sm-muted); font-size: 13px; }
+.dv-srcmenu-word { font-size: 10.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--sm-fg); }
+.dv-srcmenu-mark { font-weight: 600; color: var(--sm-fg); }
+.dv-srcmenu-rows { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 3px 12px; margin: 0 0 10px; }
+.dv-srcmenu-rows dt { color: var(--sm-muted); }
+.dv-srcmenu-rows dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.dv-srcmenu code { font: 12px var(--sm-mono); overflow-wrap: anywhere; }
+.dv-srcmenu a { color: var(--sm-accent); text-decoration: none; }
+.dv-srcmenu a:hover { text-decoration: underline; }
+.dv-srcmenu-actions { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
+.dv-srcmenu-act { appearance: none; box-sizing: border-box; display: inline-flex; align-items: center; min-height: 28px; padding: 3px 10px; margin: 0;
+  font: inherit; color: var(--sm-fg); background: transparent; border: 1px solid var(--sm-border); border-radius: var(--sm-radius); cursor: pointer; text-decoration: none; }
+.dv-srcmenu a.dv-srcmenu-act { color: var(--sm-fg); text-decoration: none; }
+.dv-srcmenu-act:hover { background: var(--sm-hover); text-decoration: none; }
+.dv-srcmenu-act:focus-visible, .dv-srcmenu a:focus-visible { outline: 2px solid var(--sm-accent); outline-offset: 1px; }
+.dv-srcmenu-foot { margin: 0; font-size: 11px; line-height: 1.4; color: var(--sm-muted); }
+@media (max-width: 479px) { .dv-srcmenu { max-width: none; } }
+.dv-srcmenu-url { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

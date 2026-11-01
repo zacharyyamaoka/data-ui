@@ -1,0 +1,4 @@
+{"title":"Devices: the rack's two RealSense cameras","source":"/archive/datasets/bam_rig rack_2026-10-23: each session's cameras/cam_<serial>.npz (hw_ms) and .mp4; written by gallery/examples/robotics-camera/source/build.py","schema":{"fields":[{"name":"device","type":"string"},{"name":"type","type":"string"},{"name":"label","type":"string"},{"name":"parent","type":"string"},{"name":"order","type":"integer"}]},"rows":[
+{"device":"RealSense 218622274411","type":"camera","label":"RealSense 218622274411 · sees CAN 14's plate (its footage is published)","parent":"1-DOF rack","order":1},
+{"device":"RealSense 218622276036","type":"camera","label":"RealSense 218622276036 · stamps only","parent":"1-DOF rack","order":2}
+]}

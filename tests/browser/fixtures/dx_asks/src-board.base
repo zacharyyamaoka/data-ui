@@ -1,0 +1,14 @@
+# A board of tests/browser/dx_asks_checks.py drawn from its src, as data-ui loads one itself: an added panel names the
+# file this board declares, as it always did.
+datasets:
+  config:
+    data: config.json?path=a
+views:
+  - type: table
+    name: Settings
+    from: config
+    filters: 'path == "a"'
+    order: [key, value]
+layout:
+  panels:
+    - { view: Settings, w: 12, h: 3 }

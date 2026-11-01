@@ -1,0 +1,47 @@
+{
+ "title": "kit gaps checker fixture: runs",
+ "schema": {
+  "fields": [
+   {
+    "name": "run",
+    "type": "string"
+   },
+   {
+    "name": "device",
+    "type": "string"
+   },
+   {
+    "name": "devices",
+    "type": "array"
+   },
+   {
+    "name": "kind",
+    "type": "string"
+   },
+   {
+    "name": "started",
+    "type": "datetime"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "run": "r1",
+   "device": "A",
+   "devices": [
+    "A"
+   ],
+   "kind": "sine",
+   "started": "2026-10-25T10:00:00"
+  },
+  {
+   "run": "r2",
+   "device": "B",
+   "devices": [
+    "B"
+   ],
+   "kind": "chirp",
+   "started": "2026-10-25T11:00:00"
+  }
+ ]
+}

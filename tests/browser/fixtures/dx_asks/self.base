@@ -1,0 +1,13 @@
+# The dashboard of tests/browser/dx_asks_checks.py a reader adds to from one of its own panels. The checks' server keeps
+# its text in memory: the page's host saves it (PUT) and draws it again (reload()), and the picker must still be there
+# to say "Added to Self".
+datasets:
+  config: config.json
+views:
+  - type: table
+    name: Settings
+    from: config
+    order: [path, key, value]
+layout:
+  panels:
+    - { view: Settings, w: 12, h: 4 }

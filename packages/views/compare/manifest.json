@@ -1,0 +1,9 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1.",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [
+    { "type": "compare", "name": "Compare", "icon": "columns-3", "summary": "2 to 6 rows side by side, one line per property, the better value marked, differences only, a photo pair as a slider." }
+  ],
+  "npm": ["@tanstack/table-core@9.3.1", "img-comparison-slider@8.0.7"]
+}

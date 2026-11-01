@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notes</title>
+<link rel="stylesheet" href="/kit/data-ui.css">
+<style>
+  :root { color-scheme: light dark; --page-bg: #fff; --page-fg: #18181b; --page-muted: #71717a; --page-line: #e4e4e7; }
+  @media (prefers-color-scheme: dark) { :root { --page-bg: #18181b; --page-fg: #f4f4f5; --page-muted: #a1a1aa; --page-line: #27272a; --data-bg: #18181b; --data-fg: #f4f4f5; --data-muted: #a1a1aa; --data-subtle: #27272a; --data-border: #3f3f46; --data-rule: #27272a; --data-hover: #27272a; } }
+  html, body { height: 100%; margin: 0; background: var(--page-bg); color: var(--page-fg); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  body { display: flex; flex-direction: column; }
+  header { flex: none; display: flex; align-items: baseline; gap: 14px; padding: 8px 16px 6px; border-bottom: 1px solid var(--page-line); overflow-x: auto; }
+  header h1 { margin: 0; font-size: 15px; font-weight: 600; }
+  header nav { display: flex; gap: 4px; }
+  header a { padding: 2px 8px; border-radius: 4px; color: var(--page-muted); text-decoration: none; }
+  header a[aria-current] { background: var(--page-line); color: var(--page-fg); }
+  header .where { margin-left: auto; color: var(--page-muted); font-size: 12px; white-space: nowrap; }
+  main { flex: 1 1 auto; min-height: 0; padding: 0 16px; }
+  data-views { --data-height: 100%; height: 100%; }
+  @media (max-width: 640px) { main { padding: 0 8px; } }
+</style>
+</head>
+<body>
+<header><h1>Notes</h1><nav id="dbs" aria-label="Folders"></nav><span class="where" id="where" role="status"></span></header>
+<main><data-views id="notes" editable add-row view-counts toolbar="bar" filters="pills" aria-label="Notes"></data-views></main>
+<script type="module" src="/kit/data-ui.js"></script>
+<script type="module" src="/host.js"></script>
+</body>
+</html>

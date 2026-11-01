@@ -1,0 +1,13 @@
+{"title":"Components: the rack, its plates and its stations (the roll-up's tree)","source":"bam_rack_twin deployment record ~/bam_ws/.claude/worktrees/sim-to-real-motor-models-f1ee43/src/dev/bam_rack_twin/records/one-dof-test-rack/deployment.json (station text of each board); written by gallery/examples/robotics-deployments-gates/source/build.py","schema":{"fields":[{"name":"id","type":"string"},{"name":"label","type":"string"},{"name":"parent","type":"string"},{"name":"kind","type":"string"},{"name":"worst","type":"integer","display":"status","labels":{"0":"pass","1":"warn","2":"not run","3":"stale","4":"fail"}}]},"rows":[
+{"id":"one-dof-test-rack","label":"One Dof Test Rack","parent":null,"kind":"rack","worst":null},
+{"id":"GIM43 plate","label":"GIM43 plate","parent":"one-dof-test-rack","kind":"plate","worst":null},
+{"id":"JMC60 plates","label":"JMC60 plates","parent":"one-dof-test-rack","kind":"plate","worst":null},
+{"id":"CAN 1","label":"CAN 1 · upper-left joint (tag 0)","parent":"GIM43 plate","kind":"station","worst":null},
+{"id":"CAN 4","label":"CAN 4 · tag 4 (motor-face disc)","parent":"JMC60 plates","kind":"station","worst":null},
+{"id":"CAN 11","label":"CAN 11 · JMC60 plate link with tags 8-12","parent":"JMC60 plates","kind":"station","worst":null},
+{"id":"CAN 12","label":"CAN 12 · tag 7","parent":"JMC60 plates","kind":"station","worst":null},
+{"id":"CAN 13","label":"CAN 13 · tag 6","parent":"JMC60 plates","kind":"station","worst":null},
+{"id":"CAN 14","label":"CAN 14 · lower-left joint (tag 1)","parent":"GIM43 plate","kind":"station","worst":null},
+{"id":"CAN 15","label":"CAN 15 · the small pendulum arm (new board 2026-10-24; shipped as CAN 1, renamed to 15 by UUID)","parent":"GIM43 plate","kind":"station","worst":null},
+{"id":"CAN 21","label":"CAN 21 · tag 5, no gearbox (the tag turned with the rotor)","parent":"JMC60 plates","kind":"station","worst":null}
+]}

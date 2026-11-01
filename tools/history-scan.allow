@@ -1,0 +1,24 @@
+# tools/history-scan.mjs: matches that are not findings. One regex per line, tested against the matched text.
+# Synthetic strings in the gates' own tests and fixtures only. A real name, path or address never goes here: this file
+# is public, and a line here switches a gate off for that string.
+#
+# the home-path gate's own test fixtures, and URL paths that look like home folders
+^/home/(alice|static|page|owner)$
+^/tmp/claude$
+^/Users/c$
+^C:\\\\Users\\\\B$
+# the noise tools/history-scan.mjs documents and tests
+^Q@B\.csJ$
+# reserved example addresses (RFC 2606), and the trailer every Claude-assisted commit carries
+@example\.(com|org)$
+^noreply@anthropic\.com$
+# the private-source tests: made-up account: addresses, so a real one still fails
+account:(supplier-chat|zeta|shop|mail|chat)/
+account:x\b
+# the identity the public mirror commits with (tools/public-export.mjs): GitHub's address that goes nowhere
+@users\.noreply\.github\.com$
+# phone numbers reserved for fiction (North America's 555-0100 to 0199, Ofcom's 020 7946 0xxx), and a made-up address
+^\+1 \d{3} 555 01\d\d$
+^\+1 \(\d{3}\) 555-01\d\d$
+^\+44 20 7946 0\d{3}$
+^a@b\.co$

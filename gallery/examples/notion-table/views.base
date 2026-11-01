@@ -1,0 +1,12 @@
+# A made-up tracker, partly filled in, to play with (docs/CONTRACT.md §40). sheet.js keeps what is typed in this browser.
+data: rows.json
+views:
+  - type: table
+    name: All
+    order: [task, status, owner, points, due, done, link]
+    addRow: true
+  - type: table
+    name: Not done
+    filters: done != true
+    order: [task, status, owner, points, due, done, link]
+    addRow: true

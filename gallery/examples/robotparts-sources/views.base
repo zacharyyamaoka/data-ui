@@ -1,0 +1,39 @@
+# Sources: robotparts' /sources/ page (build/site_pages.py sources_page, site/static/site.js freshness) as a .base
+# file. One row per source, grouped by kind, each with its freshness badge as of 2026-11-25 (source/make.py says why).
+# Obsidian Bases grammar plus data-ui's keys (docs/CONTRACT.md §5).
+data: sources.json
+facets:
+  - kind
+  - freshness
+  - rule
+  - { property: assets, as: range }
+views:
+  - type: table
+    name: By kind
+    order: [name, freshness, stale_kinds, rule, parts, assets, last_accessed, first_seen, links_checked, dead, moved, refresh]
+    groupBy: { property: kind, direction: ASC }
+    sort:
+      - { property: last_accessed, direction: ASC }
+    summaries: { parts: Sum, assets: Sum }
+  - type: table
+    name: Needs refresh
+    filters: 'freshness == "needs refresh"'
+    order: [name, stale_kinds, last_accessed, age_days, assets, refresh]
+    groupBy: { property: kind, direction: ASC }
+    sort:
+      - { property: last_accessed, direction: ASC }
+  - type: list
+    name: List
+    order: [name, freshness, last_accessed, assets, rule]
+    groupBy: { property: kind, direction: ASC }
+    sort:
+      - { property: last_accessed, direction: ASC }
+    separator: " · "
+  - type: record
+    name: Source page
+    record:
+      sections:
+        - { name: The source, properties: [kind, rule, hosts, parts, assets] }
+        - { name: Freshness, properties: [freshness, stale_kinds, last_accessed, via_atlas, age_days, first_seen, oldest] }
+        - { name: Links, properties: [links, links_checked, oldest_check, dead, moved] }
+        - { name: Refresh, properties: [refresh] }

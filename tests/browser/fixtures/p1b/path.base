@@ -1,0 +1,17 @@
+# P1b fixture (tests/browser/p1b_checks.py): trajectory3d over one synthetic tool path per situation (path.json, 564
+# samples at 100 Hz, make_fixture.py). Each view is one check's starting point; the checks then change its keys through
+# the host (setView) or the card's own controls, as a reader would. Every key left out is the trajectory contract's
+# default (docs/CONTRACT.md §32): poses x_mm, y_mm, z_mm, quat_*, frame, body; series situation; unit mm.
+data: path.json
+views:
+  - type: trajectory3d
+    name: Axes
+    trajectory3d: {}
+  - type: trajectory3d
+    name: Decay
+    filters: 'situation == "real"'
+    trajectory3d: { projection: top, show: trail, decay: 0.5 }
+  - type: trajectory3d
+    name: Modes
+    filters: 'situation == "real"'
+    trajectory3d: { modes: { real: [line, points, frames-z] }, density: 20 }

@@ -1,0 +1,4 @@
+{"title":"Devices: the stand-in tool and the illustrative gripper","source":"~/sim2real/dashboards/source/arm_suite_sim.json (the stand-in arm, read-only) and this case's illustrative gripper; written by gallery/examples/robotics-arm-gripper/source/build.py","schema":{"fields":[{"name":"device","type":"string"},{"name":"type","type":"string"},{"name":"label","type":"string"},{"name":"parent","type":"string"},{"name":"order","type":"integer"}]},"rows":[
+{"device":"tcp","type":"eef","label":"Tool (EEF) · stand-in UR5e","parent":"arm","order":1},
+{"device":"gripper","type":"gripper","label":"Gripper · illustrative (none logged yet)","parent":"tcp","order":2}
+]}

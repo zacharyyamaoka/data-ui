@@ -1,0 +1,25 @@
+# Total waste disposed by province, 2024, as proportional circles (docs/CONTRACT.md §42: points with size).
+data: ../map-bivariate/provinces.json
+properties:
+  province: { displayName: Province }
+  disposal_t: { displayName: Waste disposed }
+  kg_per_capita: { displayName: Disposed per person }
+  population: { displayName: Population }
+views:
+  - type: map
+    name: Tonnes disposed
+    coordinates: location
+    layers:
+      - { type: regions, geometry: ../map-bivariate/provinces.geojson, key: code, join: code, title: Provinces }
+      - { type: points, size: { property: disposal_t, max: 34 }, label: code, color: var(--data-series-2) }
+  - type: map
+    name: Per person
+    coordinates: location
+    layers:
+      - { type: regions, geometry: ../map-bivariate/provinces.geojson, key: code, join: code, title: Provinces }
+      - { type: points, size: { property: kg_per_capita, max: 22 }, label: code, color: var(--data-series-4) }
+  - type: table
+    name: Provinces
+    order: [province, disposal_t, kg_per_capita, population, disposal_year]
+    sort:
+      - { property: disposal_t, direction: DESC }

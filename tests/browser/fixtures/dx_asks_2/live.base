@@ -1,0 +1,74 @@
+# The live dashboard of tests/browser/dx_asks_2_checks.py (RobotDx PEP 0001 §18.4, asks 1 and 4). The checks push the
+# readings (readings.json, t in Unix seconds as RobotDx's host sends them) into `measures` (an append dataset, a stream
+# per check) and board_temp's into `latest` (keyed by check), so the clock follows live data and its time is an epoch.
+#   ask 1: each plot draws §35's limits from the readings it holds, by property per series and as numbers, as of t
+#   ask 4: `reading` is a TYPED number column whose cells carry their unit: the KPI cards, the inline-unit table, the
+#          peek and both plots of it
+# the limit plots are 240 px tall (plot.height): a 1 px tolerance is then a tight bound on the value
+# the file's own data: is the readings, so the playback card (a view with no from:) is on their clock
+data: measures.json
+datasets:
+  measures:
+    data: measures.json
+    live: { time: t, stream: check }
+  latest:
+    data: latest.json
+    live: { time: t, key: check }
+layout:
+  columns: 12
+  rowHeight: 56
+  panels:
+    - { view: Timeline, w: 12, h: 2 }
+    - { view: Board temperature, w: 6, h: 6 }
+    - { view: Supply voltage, w: 6, h: 6 }
+    - { view: Both against numbers, w: 12, h: 6 }
+    - { view: Readings, w: 12, h: 3 }
+    - { view: Reading rows, w: 12, h: 6 }
+    - { view: Reading plot, w: 6, h: 5 }
+    - { view: Newest reading, w: 6, h: 5 }
+views:
+  - type: playback
+    name: Timeline
+  # RobotDx's threshold_band plot (its app.js diagnosticsText): one check, §35's limits read from the rows by property
+  - type: plot
+    name: Board temperature
+    from: measures
+    at: 10s
+    filters: 'check == "board_temp"'
+    plot: { 'y': [value], series: check, only: [board_temp], unit: '°C', limits: { warn: [warn_lo, warn_hi], error: [error_lo, error_hi] }, height: 240 }
+  - type: plot
+    name: Supply voltage
+    from: measures
+    at: 10s
+    filters: 'check == "supply_v"'
+    plot: { 'y': [value], series: check, only: [supply_v], unit: V, limits: { warn: [warn_lo, warn_hi], error: [error_lo, error_hi] }, height: 240 }
+  # numbers: one limit for every series (shared)
+  - type: plot
+    name: Both against numbers
+    from: measures
+    at: 10s
+    plot: { 'y': [value], series: check, limits: { warn: [null, 50], error: [null, 55] }, height: 240 }
+  - type: kpi
+    name: Readings
+    from: measures
+    at: 10s
+    groupBy: { property: check }
+    kpi: { value: { property: reading } }
+  - type: table
+    name: Reading rows
+    from: measures
+    at: 10s
+    units: inline
+    order: [t, check, reading]
+    sort:
+      - { property: t, direction: DESC }
+  - type: plot
+    name: Reading plot
+    from: measures
+    at: 10s
+    plot: { 'y': [reading], series: check }
+  - type: plot
+    name: Newest reading
+    from: latest
+    at: 10s
+    plot: { 'y': [reading] }

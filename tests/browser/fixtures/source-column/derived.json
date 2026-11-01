@@ -1,0 +1,177 @@
+{
+ "id": "zeta-zs60-derived",
+ "title": "Zeta ZS-60 (a made-up servo: values decoded from its model code)",
+ "titleProperty": "field",
+ "sources": {
+  "selection": {
+   "name": "Zeta selection list (private)",
+   "kind": "The maker's selection list, received in a chat",
+   "rung": "private",
+   "date": "2026-10-08",
+   "url": "account:zeta/selection-list"
+  },
+  "drawing": {
+   "name": "Zeta drawing",
+   "kind": "The maker's outline drawing",
+   "rung": "maker",
+   "date": "2026-10-29",
+   "url": "https://example.com/zeta/zs60-drawing.pdf"
+  },
+  "decoder": {
+   "name": "Model-code decoder",
+   "kind": "Decoded from the model code",
+   "rung": "derived",
+   "basis": "derived",
+   "url": "https://example.com/zeta/model-codes"
+  }
+ },
+ "ladder": [
+  {
+   "id": "maker",
+   "label": "The maker's documents"
+  },
+  {
+   "id": "private",
+   "label": "A document the owner holds"
+  },
+  {
+   "id": "derived",
+   "label": "Derived from other values"
+  }
+ ],
+ "properties": {
+  "field": {
+   "type": "text",
+   "label": "Field"
+  },
+  "nominal": {
+   "type": "text",
+   "label": "Nominal",
+   "unit": "unit"
+  },
+  "unit": {
+   "type": "text",
+   "label": "Unit"
+  }
+ },
+ "rows": [
+  {
+   "id": "rated_torque",
+   "field": "Rated torque",
+   "unit": "N·m",
+   "nominal": {
+    "sources": [
+     {
+      "source": "selection",
+      "value": 0.64,
+      "text": "0.64"
+     },
+     {
+      "source": "drawing",
+      "value": 0.62,
+      "text": "0.62"
+     }
+    ]
+   }
+  },
+  {
+   "id": "pole_pairs",
+   "field": "Pole pairs",
+   "nominal": {
+    "sources": [
+     {
+      "source": "selection",
+      "value": 4,
+      "text": "4",
+      "basis": "derived",
+      "note": "decoded from the model code ZS-60-4-2500 on the selection list: its third field is the pole pairs"
+     }
+    ]
+   }
+  },
+  {
+   "id": "rotor_inertia",
+   "field": "Rotor inertia",
+   "unit": "kg·cm²",
+   "nominal": {
+    "sources": [
+     {
+      "source": "selection",
+      "value": 0.183,
+      "text": "0.183"
+     },
+     {
+      "source": "decoder",
+      "value": 0.18,
+      "text": "0.18",
+      "note": "the frame size's usual inertia"
+     }
+    ]
+   }
+  },
+  {
+   "id": "encoder_lines",
+   "field": "Encoder lines",
+   "nominal": {
+    "value": 2500,
+    "text": "2500",
+    "basis": "derived",
+    "sourceUrl": "https://example.com/zeta/model-codes",
+    "note": "decoded from the model code's last field"
+   }
+  },
+  {
+   "id": "brake",
+   "field": "Brake",
+   "nominal": {
+    "value": "none",
+    "text": "none",
+    "basis": "derived",
+    "sourcePage": "notes/zeta-model-code.md",
+    "note": "the model code has no B suffix"
+   }
+  },
+  {
+   "id": "torque_constant",
+   "field": "Torque constant",
+   "unit": "N·m/A",
+   "nominal": {
+    "value": 0.15,
+    "text": "0.15",
+    "basis": "derived",
+    "note": "rated torque / rated current"
+   }
+  },
+  {
+   "id": "rated_speed",
+   "field": "Rated speed",
+   "unit": "rpm",
+   "nominal": {
+    "value": 3000,
+    "text": "3000",
+    "source": "Zeta selection list (private)",
+    "sourceUrl": "account:zeta/selection-list",
+    "basis": "datasheet"
+   }
+  },
+  {
+   "id": "frame_size",
+   "field": "Frame size",
+   "unit": "mm",
+   "nominal": {
+    "value": 60,
+    "text": "60",
+    "basis": "derived",
+    "source": "Zeta drawing",
+    "sourceUrl": "https://example.com/zeta/zs60-drawing.pdf",
+    "note": "the flange's width"
+   }
+  },
+  {
+   "id": "mass",
+   "field": "Mass",
+   "unit": "kg",
+   "nominal": 0.9
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+# tests/browser/inspector_checks.py: the inspector (docs/CONTRACT.md, "the inspector: one property per row"). One plain
+# column per source, the way the later source lane will write a datasheet: to hide a source is a view with its column hidden.
+data: parts.json
+properties:
+  field: { displayName: Field }
+  section: { displayName: Section }
+  nominal: { displayName: Nominal }
+  datasheet: { displayName: Datasheet }
+  citation: { displayName: Citation }
+  chat: { displayName: Chat }
+  note: { displayName: Note }
+  weight: { displayName: Weight }
+views:
+  - type: table
+    name: Nominal
+    order: [field, nominal, section]
+  - type: table
+    name: Every source
+    order: [field, datasheet, citation, chat, nominal]
+  - type: table
+    name: Set apart
+    order: [field, nominal, section, chat]
+    record:
+      visibility: { section: hide, citation: show, weight: hideEmpty, nominal: show }
+  - type: table
+    name: Sectioned
+    order: [field, nominal]
+    record:
+      sections:
+        - { name: The value, properties: [nominal, datasheet] }
+  - type: cards
+    name: Cards
+    order: [nominal, section]
+  - type: record
+    name: Record
+    order: [nominal, section]
+  - type: record
+    name: Record set apart
+    order: [nominal, section]
+    record:
+      visibility: { section: hide, chat: show }

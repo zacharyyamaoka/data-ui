@@ -1,0 +1,11 @@
+# tests/browser/fleet_map_checks.py: select: on a property the rows at a counted marker share: one pick, nothing to ask.
+data: ../../../../gallery/examples/robotics-fleet/deployments.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 5 }
+views:
+  - type: map
+    name: Map
+    select: site
+    coordinates: coordinates
+    markerColor: status

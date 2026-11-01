@@ -1,0 +1,138 @@
+/* type: scene3d, trajectory3d and voxels. The frame is drawn by WebGL into the card's own 2D canvas on a transparent
+   background, so the card wears the dashboard's surface; the legend, readout, markers, the view cube's bar and the
+   2D axes are HTML over it (the 2D grid is SVG under it), in the tokens.
+   Every size and colour of the stage is a --data-scene3d-* token (a host restyles the stage with tokens alone; the
+   defaults follow the mocks in docs/peps/0010-robotics-playback/): */
+
+.dv-view-scene3d, .dv-view-trajectory3d, .dv-view-voxels {
+  position: relative; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: hidden;
+  --dv-s3-line: var(--data-scene3d-line, 2px);                /* a path's width */
+  --dv-s3-target-line: var(--data-scene3d-target-line, 1.5px); /* the target's (dashed, drawn on top) */
+  --dv-s3-frame: var(--data-scene3d-frame, 1.5px);            /* frames, arrows, arcs, boxes */
+  --dv-s3-point: var(--data-scene3d-point, 5px);              /* a marker dot's diameter */
+  --dv-s3-cube: var(--data-scene3d-cube, 72px);               /* the view cube */
+  --dv-s3-axis-x: var(--data-scene3d-axis-x, #e5484d);        /* frame axes: RGB = XYZ, always labelled, never a series */
+  --dv-s3-axis-y: var(--data-scene3d-axis-y, #30a46c);
+  --dv-s3-axis-z: var(--data-scene3d-axis-z, #3e63dd);
+  --dv-s3-grid: var(--data-scene3d-grid, var(--dv-rule));     /* the 2D grid */
+  --dv-s3-label: var(--data-scene3d-label, var(--dv-muted));  /* tick labels and axis titles */
+  --dv-s3-workspace: var(--data-scene3d-workspace, var(--dv-muted));
+  --dv-s3-control: var(--data-scene3d-control, var(--dv-subtle)); /* the controls' pressed fill */
+  --dv-s3-ramp: var(--data-scene3d-ramp, 120px);              /* voxels: the ramp bar's length */
+}
+
+.dv-scene3d { position: relative; flex: 1 1 auto; min-height: 220px; container-type: inline-size; color: var(--dv-muted);
+  font: 11.5px/1.3 var(--dv-font); overflow: hidden; }
+.dv-scene3d-grid { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.dv-scene3d-grid line { stroke: var(--dv-s3-grid); stroke-width: 1; shape-rendering: crispEdges; }
+.dv-scene3d-grid line.dv-scene3d-tickmark { stroke: var(--dv-s3-label); }
+.dv-scene3d-grid .dv-scene3d-plot { fill: none; stroke: var(--dv-s3-grid); shape-rendering: crispEdges; }
+.dv-scene3d-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; outline: none; }
+.dv-scene3d-canvas:active { cursor: grabbing; }
+.dv-scene3d[data-ortho] .dv-scene3d-canvas { cursor: move; }
+.dv-scene3d-overlay { position: absolute; inset: 0; pointer-events: none; }
+
+/* the "now" ring around each path's marker sphere; the sphere itself is in the frame */
+.dv-scene3d-marker { position: absolute; left: 0; top: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--c) 55%, transparent); box-sizing: border-box; will-change: transform; }
+.dv-scene3d-marker[hidden] { display: none; }
+
+.dv-scene3d-legend { position: absolute; top: 4px; left: 6px; right: calc(var(--dv-s3-cube) + 16px); display: flex; flex-wrap: wrap; gap: 2px 12px; }
+.dv-scene3d-key { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.dv-scene3d-key i { width: 14px; height: 0; border-top: 2px solid var(--c); border-radius: 1px; }
+.dv-scene3d-key i.dv-scene3d-dash { border-top-style: dashed; opacity: .9; }
+.dv-scene3d-key svg { flex: none; overflow: visible; }
+.dv-scene3d-key .dv-scene3d-extra { color: var(--dv-muted); }
+/* the legend is buttons (the core's .dv-legend-key) over a pass-through overlay: only the entries take the pointer */
+.dv-scene3d-legend .dv-legend-key, .dv-scene3d-legend .dv-legend-reset { pointer-events: auto; }
+.dv-scene3d-key[aria-pressed="false"] i, .dv-scene3d-key[aria-pressed="false"] svg { opacity: .45; }
+.dv-scene3d-xyz { display: inline-flex; gap: 3px; align-items: center; font-weight: 600; }
+.dv-scene3d-xyz b:nth-child(1) { color: var(--dv-s3-axis-x); }
+.dv-scene3d-xyz b:nth-child(2) { color: var(--dv-s3-axis-y); }
+.dv-scene3d-xyz b:nth-child(3) { color: var(--dv-s3-axis-z); }
+
+/* the view cube: three's ViewHelper is drawn into the canvas under this box; the box takes the clicks */
+.dv-scene3d-cubebox { position: absolute; top: 6px; right: 6px; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.dv-scene3d-cube { width: var(--dv-s3-cube); height: var(--dv-s3-cube); pointer-events: auto; cursor: pointer; border-radius: 50%; outline-offset: 2px; }
+.dv-scene3d-cube:focus-visible { outline: 2px solid var(--dv-accent); }
+.dv-scene3d-cubebar { display: flex; align-items: center; gap: 3px; pointer-events: auto; white-space: nowrap; }
+/* in 3D the menu already says 3D: its button and the dot before it only show on a face */
+.dv-scene3d:not([data-ortho]) .dv-scene3d-cubebar [data-perspective], .dv-scene3d:not([data-ortho]) .dv-scene3d-cubebar .dv-scene3d-dot:last-of-type { display: none; }
+.dv-scene3d-cubebar button, .dv-scene3d-cubebar select { font: inherit; color: var(--dv-muted); background: none; border: 0; padding: 1px 2px; border-radius: 3px; cursor: pointer; }
+.dv-scene3d-cubebar select { appearance: none; -webkit-appearance: none; text-transform: uppercase; font-weight: 600; letter-spacing: .02em; text-align: center; field-sizing: content; max-width: 7em; }
+.dv-scene3d-cubebar button:hover, .dv-scene3d-cubebar select:hover { color: var(--dv-fg); background: var(--dv-hover); }
+.dv-scene3d-cubebar button:focus-visible, .dv-scene3d-cubebar select:focus-visible { outline: 2px solid var(--dv-accent); }
+.dv-scene3d-cubebar .dv-scene3d-dot { opacity: .5; }
+
+/* the 2D axes: labels sit centred on their ticks (x) or beside them (y), so a label's box centre is its tick */
+.dv-scene3d-axes { position: absolute; inset: 0; color: var(--dv-s3-label); font-variant-numeric: tabular-nums; }
+.dv-scene3d-axes[hidden] { display: none; }
+.dv-scene3d-tick { position: absolute; white-space: nowrap; line-height: 13px; }
+.dv-scene3d-tick-h { transform: translateX(-50%); }
+.dv-scene3d-tick-v { transform: translate(-100%, -50%); }
+.dv-scene3d-axis-title { position: absolute; white-space: nowrap; color: var(--dv-s3-label); }
+.dv-scene3d-axis-title-h { transform: translateX(-50%); }
+.dv-scene3d-axis-title-v { transform: translate(-50%, -50%) rotate(-90deg); transform-origin: center; }
+/* in 3D: labels set off from the box's edges (the arm mock's matplotlib-style axes), quieter than the 2D ones */
+.dv-scene3d-tick3d, .dv-scene3d-axis3d { position: absolute; white-space: nowrap; transform: translate(-50%, -50%); line-height: 12px; }
+.dv-scene3d-tick3d { font-size: 10.5px; opacity: .8; }
+.dv-scene3d-axis3d { font-size: 11px; }
+@container (max-width: 360px) { .dv-scene3d-tick3d { font-size: 9.5px; } .dv-scene3d-axis3d { display: none; } }
+
+.dv-scene3d-foot { position: absolute; left: 6px; right: 6px; bottom: 4px; display: flex; justify-content: space-between; gap: 12px; }
+/* on a 2D view with axes the readout sits inside the plot, above the x axis (the TOP mock's foot line) */
+.dv-scene3d[data-ortho][data-axes] .dv-scene3d-foot { bottom: 44px; left: 58px; right: 18px; }
+.dv-scene3d-t { font-variant-numeric: tabular-nums; color: var(--dv-fg); flex: none; white-space: nowrap; }
+.dv-scene3d-hint { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; opacity: .8; }
+/* why the stick stands where a meshed robot was asked for (the GLB failed), or what a layer could not read */
+.dv-scene3d-note { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; color: var(--dv-muted); }
+.dv-scene3d-note[hidden] { display: none; }
+/* compare's display scale ("arrows ×20"): always readable while the arrows are drawn longer than the difference */
+.dv-scene3d-compare { flex: none; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--dv-fg); padding: 0 6px;
+  border: 1px solid var(--dv-border); border-radius: var(--dv-radius, 4px); background: var(--dv-bg); line-height: 18px; }
+.dv-scene3d-compare[hidden] { display: none; }
+@container (max-width: 360px) { .dv-scene3d-hint { display: none; } }
+
+.dv-scene3d-poster { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; padding: 0 16px; text-align: center; }
+.dv-scene3d-poster[hidden] { display: none; }
+.dv-scene3d-poster span { font-size: 12px; color: var(--dv-muted); max-width: 46ch; }
+.dv-scene3d[data-empty] .dv-scene3d-foot, .dv-scene3d[data-empty] .dv-scene3d-canvas, .dv-scene3d[data-empty] .dv-scene3d-cubebox { visibility: hidden; }
+
+/* trajectory3d's controls: a strip under the stage (never a side panel), worded, one row per trajectory (July's ask) */
+.dv-scene3d-controls { flex: none; display: flex; flex-direction: column; gap: 3px; padding: 6px 8px 4px; border-top: 1px solid var(--dv-rule);
+  font: 11.5px/1.35 var(--dv-font); color: var(--dv-muted); max-height: 40%; overflow: auto; }
+.dv-scene3d-controls[hidden] { display: none; }
+.dv-t3-row, .dv-t3-stage { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.dv-t3-name { display: inline-flex; align-items: center; gap: 6px; min-width: 64px; color: var(--dv-fg); font-weight: 600; }
+.dv-t3-name svg { flex: none; overflow: visible; }
+.dv-t3-group { display: inline-flex; align-items: center; gap: 2px; flex-wrap: wrap; }
+.dv-t3-group > span { margin-right: 2px; }
+.dv-scene3d-controls button { font: inherit; color: var(--dv-muted); background: none; border: 1px solid transparent; border-radius: 4px; padding: 0 5px; cursor: pointer; line-height: 18px; }
+.dv-scene3d-controls button[aria-pressed="true"] { color: var(--dv-fg); background: var(--dv-s3-control); border-color: var(--dv-border); }
+.dv-scene3d-controls button:hover { color: var(--dv-fg); }
+.dv-scene3d-controls button:focus-visible, .dv-scene3d-controls select:focus-visible, .dv-scene3d-controls input:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+.dv-scene3d-controls select, .dv-scene3d-controls input[type="text"] { font: inherit; color: var(--dv-fg); background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 4px; padding: 0 3px; height: 20px; }
+.dv-scene3d-controls input[type="text"] { width: 4.5em; font-variant-numeric: tabular-nums; }
+.dv-scene3d-controls input[type="range"] { width: 84px; accent-color: var(--dv-accent); vertical-align: middle; }
+.dv-scene3d-controls output { font-variant-numeric: tabular-nums; color: var(--dv-fg); min-width: 2.6em; display: inline-block; }
+.dv-scene3d-controls label { display: inline-flex; align-items: center; gap: 4px; }
+.dv-scene3d-controls [hidden] { display: none; }
+.dv-t3-hint { opacity: .85; }
+
+/* voxels (PEP 0010 P2): the ramp's bar where the series legend sits on the other 3D cards, and the slice strip under
+   the stage (◀ a range ▶, All, where the slice is), worded like trajectory3d's strip */
+.dv-voxels .dv-scene3d-legend { display: none; }
+.dv-voxels-ramp { position: absolute; top: 4px; left: 6px; right: calc(var(--dv-s3-cube) + 16px); display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
+.dv-voxels-ramp:empty { display: none; }
+.dv-voxels-ramp-title { color: var(--dv-fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dv-voxels-ramp-scale { display: inline-flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.dv-voxels-ramp-bar { display: block; flex: none; width: var(--dv-s3-ramp); max-width: 40cqi; height: 8px; border-radius: 2px; }
+.dv-voxels-ramp-glyph { font-weight: 600; color: var(--dv-fg); }
+/* path_overlay color (CONTRACT §35): the ramp's bar as the legend's last row, in the voxels' ramp's own parts */
+.dv-scene3d-ramp { flex: 0 0 100%; display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
+.dv-vox-slice { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
+.dv-vox-label { color: var(--dv-fg); font-weight: 600; margin-right: 2px; }
+.dv-vox-axis { color: var(--dv-fg); font-variant-numeric: tabular-nums; padding: 0 2px; }
+.dv-vox-slice input[type="range"] { width: 120px; }
+.dv-vox-slice input[type="range"][data-all] { opacity: .45; }
+.dv-vox-slice output { min-width: 8em; }

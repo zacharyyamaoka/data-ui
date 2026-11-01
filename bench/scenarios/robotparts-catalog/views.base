@@ -1,0 +1,45 @@
+# robotparts' whole parts catalog (2,068 parts: actuators, cameras, power supplies, ...) as a flat table and two
+# grouped tables. Obsidian Bases grammar plus data-ui's keys (docs/CONTRACT.md §5). The part photos are remote
+# URLs, so this scenario has no cards view: the bench does not touch the network.
+# Check it: node bin/data-ui.mjs check <this file> --data catalog.json
+data: catalog.json
+facets:
+  - category
+  - brand
+  - level
+  - { property: price, as: range }
+properties:
+  model: { displayName: Model }
+  category: { displayName: Category }
+  brand: { displayName: Brand }
+  level: { displayName: Level }
+  drivetrain: { displayName: Drivetrain }
+  buses: { displayName: Bus }
+  peak_torque: { displayName: Peak torque }
+  mass: { displayName: Mass }
+  rated_power: { displayName: Rated power }
+  voltage: { displayName: Voltage }
+  price: { displayName: Price from }
+  offers: { displayName: Offers }
+  sellers: { displayName: Sellers }
+  datasheet: { displayName: Datasheet }
+views:
+  - type: table
+    name: Table
+    order: [model, category, brand, level, peak_torque, mass, rated_power, voltage, buses, price, sellers, datasheet]
+    sort:
+      - { property: brand, direction: ASC }
+      - { property: model, direction: ASC }
+  - type: table
+    name: By category
+    order: [model, brand, level, peak_torque, mass, rated_power, voltage, price]
+    groupBy: { property: category, direction: ASC }
+    sort:
+      - { property: price, direction: DESC }
+    summaries: { price: Min, mass: Min }
+  - type: table
+    name: By brand
+    order: [model, category, level, peak_torque, mass, voltage, price]
+    groupBy: { property: brand, direction: ASC }
+    sort:
+      - { property: level, direction: DESC }

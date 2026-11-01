@@ -1,0 +1,94 @@
+{
+"title": "kit gaps fixture: colours",
+"schema": {
+"fields": [
+{
+"name": "k",
+"type": "string"
+},
+{
+"name": "v",
+"type": "number"
+},
+{
+"name": "state",
+"type": "string",
+"title": "State",
+"colors": {
+"ok": 1,
+"idle": "muted",
+"hot": "var(--data-bad)",
+"custom": "#7a3db8",
+"zero": 0
+}
+},
+{
+"name": "other",
+"type": "string",
+"title": "Other"
+}
+]
+},
+"rows": [
+{
+"k": "k0",
+"v": 1,
+"state": "ok",
+"other": "a"
+},
+{
+"k": "k1",
+"v": 2,
+"state": "idle",
+"other": "b"
+},
+{
+"k": "k2",
+"v": 3,
+"state": "hot",
+"other": null
+},
+{
+"k": "k0",
+"v": 4,
+"state": "custom",
+"other": "a"
+},
+{
+"k": "k1",
+"v": 5,
+"state": "zero",
+"other": "c"
+},
+{
+"k": "k2",
+"v": 6,
+"state": null,
+"other": null
+},
+{
+"k": "k0",
+"v": 7,
+"state": "ok",
+"other": "b"
+},
+{
+"k": "k1",
+"v": 8,
+"state": "idle",
+"other": "a"
+},
+{
+"k": "k2",
+"v": 9,
+"state": null,
+"other": "c"
+},
+{
+"k": "k0",
+"v": 10,
+"state": "hot",
+"other": null
+}
+]
+}

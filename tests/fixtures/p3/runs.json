@@ -1,0 +1,5 @@
+{"id": "runs", "title": "Runs", "properties": {"run": {"type": "text"}, "deployment": {"type": "text"}, "station": {"type": "text"}, "started": {"type": "date"}},
+ "rows": [
+  {"id": "r1", "run": "r1", "deployment": "rack", "station": "S1", "started": "2026-10-29T08:00:00-07:00"},
+  {"id": "r2", "run": "r2", "deployment": "rack", "station": "S2", "started": "2026-10-29T09:00:00-07:00"}
+ ]}

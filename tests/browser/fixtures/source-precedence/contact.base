@@ -1,0 +1,6 @@
+# A made-up CRM contact: the same source precedence on a record that is not a datasheet
+data: contact.json
+views:
+  - type: table
+    name: Profile
+    order: [field, value]

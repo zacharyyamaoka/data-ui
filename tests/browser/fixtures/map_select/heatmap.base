@@ -1,0 +1,12 @@
+# tests/browser/map_select_checks.py: single rows past pointsFrom pick; a mark shows at every zoom
+data: places.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    select: name
+    coordinates: at
+    layers:
+      - { type: heatmap, pointsFrom: 11, title: Density }

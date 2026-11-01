@@ -1,0 +1,36 @@
+# One sheet, many views: one dataset (rows.json), this file, and every change a reader makes comes back on reload.
+# Click a cell to edit it; drag a header to reorder, its edge to resize; the tabs switch views.
+data: rows.json
+sharedColumns: true
+properties:
+  polarity: { displayName: ± }
+  observed: { displayName: Observed }
+  desired: { displayName: Desired }
+  status: { displayName: Status }
+  owner: { displayName: Owner }
+  filed: { displayName: Filed }
+views:
+  - type: table
+    name: Table
+    order: [polarity, observed, desired, status, owner, filed]
+    columnSize: { polarity: 44, observed: 300, desired: 300, status: 90, owner: 90, filed: 100 }
+    sort: [{ property: filed, direction: DESC }]
+    addRow: true
+  - type: table
+    name: Negative
+    filters: polarity == "−"
+    order: [polarity, observed, desired, status, owner, filed]
+    columnSize: { polarity: 44, observed: 300, desired: 300, status: 90, owner: 90, filed: 100 }
+    addRow: true
+  - type: table
+    name: Open
+    filters: status == "open"
+    order: [polarity, observed, desired, status, owner, filed]
+    columnSize: { polarity: 44, observed: 300, desired: 300, status: 90, owner: 90, filed: 100 }
+    addRow: true
+  - type: table
+    name: By owner
+    groupBy: { property: owner, direction: ASC }
+    order: [polarity, observed, desired, status, owner, filed]
+    columnSize: { polarity: 44, observed: 300, desired: 300, status: 90, owner: 90, filed: 100 }
+    addRow: true

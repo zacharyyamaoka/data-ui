@@ -1,0 +1,86 @@
+{
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "run",
+    "type": "string"
+   },
+   {
+    "name": "situation",
+    "type": "string"
+   },
+   {
+    "name": "source",
+    "type": "string"
+   },
+   {
+    "name": "base_x",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "base_y",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "base_z",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "base_qw",
+    "type": "number"
+   },
+   {
+    "name": "base_qx",
+    "type": "number"
+   },
+   {
+    "name": "base_qy",
+    "type": "number"
+   },
+   {
+    "name": "base_qz",
+    "type": "number"
+   },
+   {
+    "name": "shoulder_link_x",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "shoulder_link_y",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "shoulder_link_z",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "shoulder_link_qw",
+    "type": "number"
+   },
+   {
+    "name": "shoulder_link_qx",
+    "type": "number"
+   },
+   {
+    "name": "shoulder_link_qy",
+    "type": "number"
+   },
+   {
+    "name": "shoulder_link_qz",
+    "type": "number"
+   }
+  ]
+ },
+ "rows": []
+}

@@ -1,0 +1,69 @@
+/* type: source. Colours are the private --dv-* tokens (resolved from --data-* by the core's tokens.css), so light and
+   dark come from the page. Every value is drawn with white-space: pre: its spaces are part of it. */
+
+.dv-view-source { flex: 1 1 auto; min-height: 0; min-width: 0; display: flex; flex-direction: column; }
+
+/* ---- the info strip */
+.dv-source-info { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 6px 8px; border-bottom: 1px solid var(--dv-border); font-size: 12px; }
+.dv-source-meta { display: flex; flex-wrap: wrap; gap: 2px 14px; margin: 0; min-width: 0; }
+.dv-source-meta > div { display: flex; gap: 5px; min-width: 0; max-width: 100%; }
+.dv-source-meta dt { color: var(--dv-muted); flex: none; }
+.dv-source-meta dd { margin: 0; min-width: 0; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.dv-source-meta a { color: var(--dv-accent); }
+.dv-source-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin-left: auto; }
+.dv-source-toggle { display: inline-flex; align-items: center; gap: 5px; color: var(--dv-fg); cursor: pointer; white-space: nowrap; }
+.dv-source-actions .dv-btn { border-color: var(--dv-border); color: var(--dv-fg); }
+.dv-source-note { color: var(--dv-muted); }
+
+/* ---- the grid: its own scroll box both ways; the header and the row gutter stay put */
+.dv-source-body { flex: 1 1 auto; min-height: 0; min-width: 0; display: flex; position: relative; }
+.dv-source-scroll { flex: 1 1 auto; min-width: 0; overflow: auto; position: relative; outline: none; }
+.dv-source-grid { min-width: 100%; font-size: 12.5px; }
+/* fixed widths (the column virtualiser places them; index.js COL and GUTTER): the header holds every column, a row the
+   columns on screen after a spacer */
+.dv-source-head, .dv-source-row { display: flex; }
+.dv-source-th, .dv-source-td { flex: none; width: 168px; }
+.dv-source-gutter { flex: none; width: 104px; box-sizing: border-box; }
+.dv-source-pad { flex: none; }
+.dv-source-head { position: sticky; top: 0; z-index: 3; background: var(--dv-subtle); border-bottom: 1px solid var(--dv-border); }
+.dv-source-th { box-sizing: border-box; padding: 3px 8px; min-width: 0; border-right: 1px solid var(--dv-rule); display: flex; flex-direction: column; justify-content: center; }
+.dv-source-name { font-family: var(--dv-mono); font-weight: 600; white-space: pre; overflow: hidden; text-overflow: ellipsis; color: var(--dv-fg); }
+.dv-source-type { color: var(--dv-muted); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dv-source-undeclared .dv-source-type { font-style: italic; }
+.dv-source-rows { position: relative; }
+.dv-source-row { position: absolute; left: 0; right: 0; top: 0; height: 28px; border-bottom: 1px solid var(--dv-rule); outline: none; }
+.dv-source-row:hover > * { background: var(--dv-hover); }
+.dv-source-row.dv-active > * { background: var(--dv-accent-bg); }
+.dv-source-row:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.dv-source-td { box-sizing: border-box; padding: 0 8px; line-height: 27px; min-width: 0; font-family: var(--dv-mono); white-space: pre; overflow: hidden; text-overflow: ellipsis; border-right: 1px solid var(--dv-rule); background: var(--dv-bg); }
+/* null, "" and an absent key are three different things: the first two are written, muted; absent is an empty cell */
+.dv-source-null, .dv-source-empty, .dv-source-made { color: var(--dv-muted); }
+.dv-source-absent { background: var(--dv-subtle); }
+.dv-source-more { color: var(--dv-muted); }
+.dv-source-gutter { position: sticky; left: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 4px; padding: 0 4px 0 8px; background: var(--dv-bg); border-right: 1px solid var(--dv-border); }
+.dv-source-head .dv-source-gutter { z-index: 4; background: var(--dv-subtle); color: var(--dv-muted); font-weight: 600; }
+.dv-source-n { color: var(--dv-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.dv-source-open.dv-btn { padding: 1px 6px; font-size: 11.5px; border-color: var(--dv-border); color: var(--dv-fg); }
+.dv-source-none { padding: 28px 12px; margin: 0; text-align: center; font-family: var(--dv-font); }
+
+/* ---- the source panel: docked beside the grid, its left edge drags (core src/resize.js); a phone shows it over the grid */
+.dv-source-panel { flex: none; width: min(var(--data-panel-width, 440px), calc(100% - 160px)); min-width: 0; overflow: auto; background: var(--dv-bg); border-left: 1px solid var(--dv-border); padding: 0 12px 16px; }
+.dv-source-panel[hidden] { display: none; }
+.dv-source-panel-head { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; gap: 8px; padding: 10px 0 8px; background: var(--dv-bg); border-bottom: 1px solid var(--dv-border); }
+.dv-source-panel-head h2 { flex: 1 1 auto; min-width: 0; margin: 0; font-size: 14px; overflow-wrap: anywhere; }
+.dv-source-panel-head code { font-family: var(--dv-mono); font-weight: 500; }
+.dv-source-where, .dv-source-path { margin: 10px 0 6px; font-size: 12px; color: var(--dv-muted); overflow-wrap: anywhere; }
+.dv-source-path { margin-top: 0; }
+.dv-source-path a { color: var(--dv-accent); }
+.dv-source-where code { font-family: var(--dv-mono); color: var(--dv-fg); }
+.dv-source-err { margin: 10px 0 6px; font-size: 12px; color: var(--dv-warn); }
+.dv-source-lines { display: flex; margin-bottom: 8px; border: 1px solid var(--dv-rule); border-radius: var(--dv-radius); overflow: auto; }
+.dv-source-text, .dv-source-lnums { margin: 0; padding: 6px 8px; font-family: var(--dv-mono); font-size: 12px; line-height: 1.5; white-space: pre; tab-size: 4; }
+.dv-source-text { flex: 1 1 auto; color: var(--dv-fg); }
+.dv-source-panel > .dv-source-text { border: 1px solid var(--dv-rule); border-radius: var(--dv-radius); overflow: auto; }
+.dv-source-lnums { flex: none; color: var(--dv-muted); text-align: right; background: var(--dv-subtle); user-select: none; }
+
+@media (max-width: 700px) {
+  .dv-source-actions { margin-left: 0; }
+  .dv-source-panel { position: absolute; inset: 0; z-index: 5; width: auto; }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "notion-table",
+  "title": "Launch checklist (made-up data)",
+  "titleProperty": "task",
+  "properties": {
+    "task": { "type": "text", "label": "Task" },
+    "owner": { "type": "text", "label": "Owner" },
+    "ticket": { "type": "text", "label": "Ticket", "readOnly": true },
+    "points": { "type": "number", "label": "Points" },
+    "due": { "type": "date", "label": "Due" },
+    "status": { "type": "text", "label": "Status", "display": "badge", "constraints": { "enum": ["todo", "doing", "done"] } },
+    "shipped": { "type": "boolean", "label": "Shipped", "display": "checkbox" },
+    "link": { "type": "text", "label": "Link", "display": "link" },
+    "notes": { "type": "text", "label": "Notes", "display": "media" },
+    "score": { "type": "number", "label": "Score", "derived": "points × 2" }
+  },
+  "rows": [
+    { "id": "t1", "task": "Write the launch note", "owner": "Ana", "ticket": "MADE-101", "points": 3, "due": "2031-03-02", "status": "doing", "shipped": false, "link": "https://example.com/note", "notes": { "value": "First draft is in the shared folder.", "attachments": [] }, "score": 6 },
+    { "id": "t2", "task": "Check the price table", "owner": "Bo", "ticket": "MADE-102", "points": 1250.5, "due": "2031-03-04", "status": "todo", "shipped": false, "link": "pricing.html", "notes": "Plain words, no attachments.", "score": 2501 },
+    { "id": "t3", "task": "Record the demo", "owner": "Ana", "ticket": "MADE-103", "points": 5, "due": "2031-03-05", "status": "todo", "shipped": true, "link": null, "notes": null, "score": 10 },
+    { "id": "t4", "task": "Book the room", "owner": "Noor", "ticket": "MADE-104", "points": 1, "due": "soon", "status": "done", "shipped": true, "link": "https://example.com/room", "notes": null, "score": 2 },
+    { "id": "t5", "task": "Sign the supplier form", "owner": "Lee", "ticket": "MADE-105", "points": 2, "due": "2031-03-09", "status": "todo", "shipped": false, "link": null, "notes": null, "score": 4, "_readOnly": true },
+    { "id": "t6", "task": "Print the labels", "owner": null, "ticket": "MADE-106", "points": null, "due": null, "status": "todo", "shipped": null, "link": null, "notes": null, "score": null },
+    { "id": "t7", "task": "Send the invite", "owner": "Bo", "ticket": "MADE-107", "points": 2, "due": "2031-03-11", "status": "doing", "shipped": false, "link": null, "notes": null, "score": 4 },
+    { "id": "t8", "task": "Tidy the checklist", "owner": "Noor", "ticket": "MADE-108", "points": 1, "due": "2031-03-12", "status": "todo", "shipped": false, "link": null, "notes": null, "score": 2 }
+  ]
+}

@@ -1,0 +1,34 @@
+# The GIM4305-10 actuator model ladder (M0 -> M5) as a lineage: x is the rung, each model hangs off the one it adds
+# physics to, labels instead of pictures. The same view as the brand case's, over other data: the view is generic.
+# Check it: node bin/data-ui.mjs check <this file> --data ladder.json
+data: ladder.json
+facets:
+  - family
+  - status
+views:
+  - type: lineage
+    name: Ladder
+    order: [variant, family, backend, about, runs, q_rms_median, parents_why]
+    lineage:
+      parents: parents
+      x: rung
+      xLabel: rung_name
+      label: variant
+      focus: m4-ripple-c1
+      kept: { status: [measured] }
+      extinct: collapse
+  - type: lineage
+    name: Ladder, radial
+    order: [variant, family, backend, about, runs, q_rms_median, parents_why]
+    lineage:
+      parents: parents
+      x: rung
+      xLabel: rung_name
+      label: variant
+      focus: m4-ripple-c1-soft
+      kept: { status: [measured] }
+      extinct: show
+      layout: radial
+  - type: table
+    name: Table
+    order: [variant, rung_name, family, status, runs, q_rms_median, parents, parents_why]

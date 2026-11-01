@@ -1,0 +1,21 @@
+// Cloudflare deploy of the data-ui docs site: a static-assets Worker serving dist/publish/ (no server code).
+// dist/publish/ is dist/site/ after tools/publish-site.mjs (home paths redacted, privacy scan, size limits).
+// `npm run deploy` guards, tests, builds, publishes, uploads and checks the live site (tools/release-check.mjs).
+{
+  "$schema": "./tools/deploy/node_modules/wrangler/config-schema.json",
+  "name": "data-ui",
+  "compatibility_date": "2026-10-26",
+  "assets": {
+    "directory": "./dist/publish",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  // WHY workers_dev on: data-ui.<account>.workers.dev keeps working before and after data-ui.dev is attached
+  "workers_dev": true,
+  // data-ui.dev's zone is on the same Cloudflare account (nameservers anirban / ligia), so wrangler attaches the
+  // domains and their certificates itself
+  "routes": [
+    { "pattern": "data-ui.dev", "custom_domain": true },
+    { "pattern": "www.data-ui.dev", "custom_domain": true }
+  ]
+}

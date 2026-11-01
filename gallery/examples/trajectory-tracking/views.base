@@ -1,0 +1,236 @@
+# Trajectory tracking: target vs sim vs real. Top: the five-bar pick-and-place's tool path against its target (sim),
+# 2D and 3D, its error over time and the study's own MuJoCo clip, the UR5e tool path (sim) and the rack's one real
+# joint against its twins, all on one clock. Below: round 1's error summaries per trajectory, speed and motor. The
+# full-rate curves stay in traj_compare's own reports (linked in the last panel).
+# Data: source/build.py (rack.json, cells.json, reports.json), source/build_paths.py (path2d.json, situations.json,
+# media.json), source/build_stats.py (stats.json); ../pid-tuning/tool.json and ../sim-to-real/samples.json are those
+# cases' files, read in place. Grammar: docs/peps/0004-dashboards.md, cards: docs/peps/0005-dashboard-cards.md.
+data: rack.json
+facets:
+  - motor
+  - model
+  - { property: speed, order: [slow, medium, fast] }
+  - kind
+properties:
+  motor: { displayName: Motor }
+  model: { displayName: Compared with }
+  speed: { displayName: Speed }
+  kind: { displayName: Trajectory }
+  error: { displayName: RMS error }
+  floor_motor: { displayName: Motor floor }
+  rms_error: { displayName: RMS error }
+  max_error: { displayName: Max error }
+  domain: { displayName: Domain }
+  mode: { displayName: Control }
+  joint: { displayName: Joint }
+  title: { displayName: Report }
+  href: { displayName: Open }
+  situation: { displayName: Situation }
+  err_mm: { displayName: Tool error }
+  err_mrad: { displayName: Joint error }
+  tcp_rms_moving_mm: { displayName: TCP RMS moving }
+  robot: { displayName: Robot }
+  status: { displayName: Status }
+# WHY one colour per situation name across every card (Zach, 2026-10-26: "one integrated surface"); the five-bar,
+# UR5e and rack sets never share a card, so a hue may recur between sets but never within one.
+style:
+  chrome: minimal
+  numbers: { digits: 3, compact: true }
+  palette:
+    target: "#8b9099"
+    house8-model_live_friction_object: "#2a78d6"
+    soft4-model_live_friction_object: "#eb6834"
+    stiff32-none: "#1baf7a"
+    factory: "#eda100"
+    analytic: "#e87ba4"
+    tuned: "#6250d6"
+    oracle: "#008300"
+    real: "#e34948"
+    sim_identified: "#2a78d6"
+    sim_identified_plus: "#1baf7a"
+rerun:
+  rrd: rerun/trajectory-tracking.rrd
+  sdk: 0.40.0
+clock:
+  data: path2d
+  time: t
+  loop: true
+  fps: 25
+datasets:
+  rack: rack.json
+  cells:
+    data: cells.json
+    label: The 10-09 sim study
+    facets: [domain, mode, joint]
+  reports: reports.json
+  path2d:
+    data: path2d.json
+    label: Five-bar tool path (sim)
+    facets: [situation]
+  situations: situations.json
+  stats: stats.json
+  media: media.json
+  ur5e: ../pid-tuning/tool.json
+  rackjoint: ../sim-to-real/samples.json
+layout:
+  panels:
+    - text: |
+        ## Target vs sim vs real, on one clock
+        **Real tool paths do not exist yet.** There is no real UR5e, and the five-bar study never ran hardware: both
+        real slots are declared "not requested" (Situations, below), never drawn as zero. The only real trajectory
+        here is the rack's one joint (CAN 14, the 10-23 sine run), in joint space: real encoder against two twins.
+        The five-bar pick-and-place (8.2 s) and the UR5e tape (7.9 s) are **different motions on one time axis**,
+        both starting at 0; so is the rack's sine (6.5 s). Three of the five-bar's six controllers were lost (tool
+        more than 100 mm off its reference) and have no path. The 2D path draws x against z (the two largest
+        travels; y is dropped) with the report's 1 mm settle band as its tube.
+      w: 12
+    - { view: Worst tool error, w: 3 }
+    - { view: Best controller RMS, w: 3 }
+    - { view: Controllers lost, w: 3 }
+    - { view: Situations by status, w: 3 }
+    - { view: Playback, w: 12 }
+    - { view: "Five-bar tool path (x–z, sim)", w: 6, h: 4 }
+    - { view: Five-bar tool path 3D (sim), w: 6, h: 4 }
+    - { view: Tool error over time (sim), w: 8, h: 3 }
+    - { view: Five-bar MuJoCo render (sim), w: 4, h: 3 }
+    - { view: UR5e tool path 3D (sim), w: 6, h: 4 }
+    - { view: Rack joint real vs twin (real hardware), w: 6, h: 4 }
+    - { view: Situations, w: 12, h: 5 }
+    - text: |
+        ## How far each run lands from its target
+        **Real** rack runs compared with two twins (the identified one and the full one), per motor, speed and
+        trajectory kind; then the **10-09 study** of target vs sim for four joints, whose real slots were never run
+        ("no rack board commissioned"): they show as "—" with that reason, not as zero. The full-rate curves are in
+        traj_compare's reports (bottom), which this page links to rather than redraws.
+      w: 12
+    - { view: Median error by speed, w: 12 }
+    - { view: Real vs twins per motor, w: 7, h: 5 }
+    - { view: Error against the floor, w: 5, h: 5 }
+    - { view: Target vs sim (10-09), w: 7, h: 5 }
+    - { view: Study cells, w: 5, h: 5 }
+    - { view: traj_compare reports, w: 12, h: 3 }
+views:
+  # ---- KPI tiles
+  - type: barlist
+    name: Worst tool error
+    from: path2d
+    filters: 'situation != "target"'
+    barlist: { label: situation, value: { property: err_mm, summary: Max }, better: lower }
+  - type: kpi
+    name: Best controller RMS
+    from: stats
+    filters: 'situation == "house8-model_live_friction_object"'
+    kpi:
+      label: TCP RMS · best (house8)
+      value: { property: tcp_rms_moving_mm }
+  - type: kpi
+    name: Controllers lost
+    from: situations
+    filters: 'robot == "Five-bar" && status == "lost"'
+    kpi:
+      label: Five-bar, > 100 mm off
+      value: { property: situation, summary: Count }
+  - type: tracker
+    name: Situations by status
+    from: situations
+    groupBy: { property: robot }
+    tracker: { state: status, label: title, tones: { ok: good, lost: bad, not requested: muted, not run: warn } }
+  # ---- the clock
+  - type: playback
+    name: Playback
+    playback: { speeds: [0.25, 0.5, 1, 2], range: true, readout: true }
+  # ---- the five-bar (sim)
+  - type: trajectory
+    name: Five-bar tool path (x–z, sim)
+    from: path2d
+    # tolerance 1: the report's own settle band ("Settle to 1 mm", stats.json settle_s)
+    trajectory: { x: x_mm, y: z_mm, series: situation, target: target, color: err_mm, tolerance: 1, t: t, trail: true }
+  - type: scene3d
+    name: Five-bar tool path 3D (sim)
+    from: path2d
+    scene3d: { x: x_mm, y: y_mm, z: z_mm, series: situation, target: target, t: t }
+  - type: timeseries
+    name: Tool error over time (sim)
+    from: path2d
+    filters: 'situation != "target"'
+    timeseries: { x: t, y: err_mm, series: situation, unit: mm, legend: top }
+  - type: video
+    name: Five-bar MuJoCo render (sim)
+    from: media
+    filters: 'situation == "soft4-model_live_friction_object"'
+    video: { src: src, label: note }
+  # ---- the UR5e (sim) and the rack (real)
+  - type: scene3d
+    name: UR5e tool path 3D (sim)
+    from: ur5e
+    scene3d:
+      x: px
+      y: py
+      z: pz
+      series: situation
+      target: target
+      t: t
+      skeleton: [[s0x, s0y, s0z], [s1x, s1y, s1z], [s2x, s2y, s2z], [s3x, s3y, s3z], [s4x, s4y, s4z], [s5x, s5y, s5z], [s6x, s6y, s6z], [s7x, s7y, s7z]]
+  - type: timeseries
+    name: Rack joint real vs twin (real hardware)
+    from: rackjoint
+    filters: 'run == "sine 10-23" && situation != "target"'
+    timeseries: { x: t, y: err_mrad, series: situation, unit: mrad, legend: top }
+  - type: table
+    name: Situations
+    from: situations
+    order: [robot, situation, status, note]
+  # ---- round 1: error summaries
+  - type: kpi
+    name: Median error by speed
+    groupBy: { property: speed }
+    groupOrder: [slow, medium, fast]
+    kpi:
+      value: { property: error, summary: Median }
+  - type: chart
+    name: Real vs twins per motor
+    select: motor
+    chart:
+      mark: bar
+      encoding:
+        x: { field: motor, title: null, sort: [CAN 14, CAN 15, CAN 1, CAN 4, CAN 11, CAN 12, CAN 13, CAN 21] }
+        y: { field: error, aggregate: median, scale: { type: log }, title: Median RMS error (mrad) }
+        color: { field: model, title: Compared with }
+        xOffset: { field: model }
+  - type: chart
+    name: Error against the floor
+    select: motor
+    chart:
+      mark: { type: point, size: 50 }
+      encoding:
+        x: { field: floor_motor, scale: { type: log }, title: Measurement floor of the motor (mrad) }
+        y: { field: error, scale: { type: log }, title: Run RMS error (mrad) }
+        color: { field: model, title: Compared with }
+        shape: { field: speed, title: Speed }
+    guides:
+      - { indexLine: { slope: 1, through: 1 }, label: "error = floor" }
+    hover: { title: run, fields: [motor, model, speed, kind, error, floor_motor] }
+  - type: chart
+    name: Target vs sim (10-09)
+    from: cells
+    chart:
+      mark: bar
+      encoding:
+        x: { field: joint, title: null }
+        y: { field: rms_error, title: RMS error vs target (mrad) }
+        color: { field: mode, title: Control }
+        xOffset: { field: mode }
+        column: { field: speed, sort: [slow, medium, fast], title: null }
+    hover: { title: situation, fields: [speed, joint, mode, rms_error, max_error, peak_torque] }
+  - type: table
+    name: Study cells
+    from: cells
+    order: [domain, speed, joint, mode, rms_error, max_error, final_error, peak_torque, status]
+    sort:
+      - { property: speed_order, direction: ASC }
+  - type: table
+    name: traj_compare reports
+    from: reports
+    order: [title, what, date, size_mb, path]
+    sort:
+      - { property: date, direction: DESC }

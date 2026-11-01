@@ -1,0 +1,240 @@
+# robotparts' actuator models on BAM's rack: the pivot first, then the leaderboard and the parameters, one file of
+# configuration over one data file (models.json: kind model | run | term; each view filters to its kind).
+# Every tab opens with its answer (intro: KPI cards; its text is the tab's About note), rolls up across actuators by default (rollup:),
+# and links each model to its page (open: side, url: page -> the robotparts-model case). CONTRACT §16; property types
+# (status pills, coloured rungs, run-count bars, header icons and tooltips) CONTRACT §28.
+# Check it: node bin/data-ui.mjs check <this file>
+data: models.json
+open: { mode: side, url: page }
+facets:
+  - actuator
+  - rung
+  - family
+  - { property: benches, label: Bench }
+properties:
+  actuator: { displayName: Actuator, icon: gauge }
+  variant: { displayName: Model, icon: cpu }
+  model: { displayName: Model kind, icon: layers }
+  rung: { displayName: Rung, type: select, description: "The model ladder's rung (M0 ideal → M5 motor)", options: { M0: gray, M1: brown, M2: blue, M3: purple, M4: green, M5: orange, driver: pink } }
+  family: { displayName: Family, type: select }
+  ladder_step: { displayName: Ladder step }
+  leader: { displayName: Best model }
+  headline_x: { displayName: Held-out error, icon: target, description: "The median error on the Oct 23 held-out tapes, in multiples of that actuator's measurement floor: 1 × is as close as the rack repeats itself; twin-grade is ≤ 1.5 ×" }
+  headline_mrad: { displayName: Held-out q RMS }
+  dataset_x: { displayName: Dataset, description: "The Oct 24 dataset, in multiples of that actuator's measurement floor: 1 × is as close as the rack repeats itself; twin-grade is ≤ 1.5 ×" }
+  worst_class_x: { displayName: Worst class, description: "The worst motion class's median, in multiples of that actuator's measurement floor: 1 × is as close as the rack repeats itself; twin-grade is ≤ 1.5 ×" }
+  floor_tape_x: { displayName: Floor tape, description: "The five floor repeats, in multiples of that actuator's measurement floor: 1 × is as close as the rack repeats itself; twin-grade is ≤ 1.5 ×" }
+  twin_grade: { displayName: Twin-grade, type: status, description: Within 1.5 × of the floor on every held-out tape, options: [{ value: "yes", color: green, group: done }, { value: "no", color: red, group: in_progress }] }
+  runner_up_x: { displayName: Runner-up }
+  rank_desc: { displayName: Models ranked }
+  n_runs: { displayName: Runs, type: number, showAs: bar, color: blue, description: Runs behind the number (the bar against the most) }
+  bench: { displayName: Bench, type: select }
+  benches: { displayName: Benches, type: multi_select }
+  test: { displayName: Test, type: select }
+  run: { displayName: Run }
+  q_rms_mrad: { displayName: q RMS }
+  x_floor: { displayName: × floor, icon: target, description: "Error in multiples of that actuator's measurement floor: 1 × is as close as the rack repeats itself; twin-grade is ≤ 1.5 ×" }
+  coulomb: { displayName: Coulomb }
+  viscous: { displayName: Viscous }
+  breakaway: { displayName: Breakaway }
+  stribeck_velocity: { displayName: Stribeck velocity }
+  weakening: { displayName: Weakening }
+  capture_fraction: { displayName: Fraction, type: percent, showAs: bar, color: purple, description: Share of the load the capture term carries }
+  capture_speed: { displayName: Speed }
+  capture_dwell: { displayName: Dwell }
+  ripple: { displayName: Ripple RMS }
+  backlash: { displayName: Backlash }
+  gear_stiffness: { displayName: Gear stiffness }
+  inertia: { displayName: Inertia }
+  torque_scale: { displayName: Torque scale }
+  kt: { displayName: Kt (output) }
+  current_loop: { displayName: Current loop }
+  term: { displayName: Term switched off, type: select }
+  delta_mrad: { displayName: Error added }
+  delta_x: { displayName: Added × floor }
+  term_note: { displayName: What it models }
+  description: { displayName: What it is }
+  readme: { displayName: README (at the fit commit) }
+  code_commit: { displayName: Fitted with commit, icon: hash }
+  code_path: { displayName: Code }
+  code_hosted: { displayName: Hosted, icon: globe }
+views:
+  - type: pivot
+    name: Benches
+    intro:
+      text: |
+        **How does every model do on every bench?** A row is a model, rolled up across the actuators it ran on; a
+        column is one bench test; a cell is the median error of every run behind it, in multiples of that actuator's
+        measurement floor (1 × = as close as the rack repeats itself; twin-grade is ≤ 1.5 ×). In the strip, each dot
+        is a run and the tall tick their median, on one scale per column (its ends in the header). **Roll up** in the
+        toolbar brings the actuators back; click a cell for its runs, a model's name for its page.
+      kpi:
+        filters:
+          and:
+            - 'kind == "run"'
+            - '!x_floor.isEmpty()'
+        groupBy: { property: bench }
+        kpi:
+          value: { property: x_floor, summary: Median }
+          gate: { max: 1.5 }
+    filters:
+      and:
+        - 'kind == "run"'
+        - '!x_floor.isEmpty()'
+    order: [variant, actuator]
+    groupBy: { property: rung, direction: ASC }
+    splitBy: [bench, test]
+    value: { property: x_floor, summary: Median, display: dist }
+    rollup: { keep: [variant], dims: [actuator, variant, model, rung, family] }
+    columnSize: { variant: 200 }
+  - type: pivot
+    name: Benches · every actuator
+    intro:
+      text: |
+        The same pivot **without the roll-up**: one row per model per actuator, grouped actuator › rung, so a model's
+        weak actuator shows. This is the drill-down of **Benches**; models that never ran read "—", never 0.
+    filters: 'kind == "run"'
+    order: [variant]
+    groupBy: { property: actuator }
+    subGroupBy: { property: rung, direction: ASC }
+    splitBy: [bench]
+    value: { property: x_floor, summary: Median, display: dist }
+  - type: table
+    name: Leaderboard
+    intro:
+      text: |
+        **Which model wins on each actuator, and is it twin-grade yet?** A card is an actuator's best model on the
+        Oct 23 held-out tapes (× its floor), the delta its lead over the runner-up, the gate twin-grade's 1.5 ×, the
+        spark its models worst → best. Below, every model ranked, **rolled up across actuators** (a cell's dots are the
+        actuators it ran on); un-roll in **Roll up**, click a row for the actuators behind it.
+      kpi:
+        filters:
+          and:
+            - 'kind == "model"'
+            - '!headline_x.isEmpty()'
+        groupBy: { property: leader }
+        kpi:
+          value: { property: headline_x }
+          compare: { against: runner_up_x, better: lower, neutral: 0.02 }
+          spark: { x: rank_desc, y: headline_x }
+          gate: { max: 1.5 }
+    filters:
+      and:
+        - 'kind == "model"'
+        - '!headline_x.isEmpty()'
+    order: [variant, rung, headline_x, actuator, dataset_x, worst_class_x, floor_tape_x, twin_grade, n_runs]
+    sort:
+      - { property: headline_x, direction: ASC }
+    display: { headline_x: dist }
+    rollup: { keep: [variant], dims: [actuator, variant, model, ladder_step, rung, family] }
+    record:
+      sections:
+        - { name: Model, properties: [variant, actuator, rung, family, description] }
+        - { name: Error, properties: [headline_x, dataset_x, worst_class_x, floor_tape_x, twin_grade, benches] }
+        - { name: Code, properties: [code_commit, code_hosted, code_path, readme] }
+  - type: chart
+    name: Rung ladder
+    filters:
+      and:
+        - 'kind == "model"'
+        - '!headline_x.isEmpty()'
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: ladder_step, title: "the model ladder, simplest first" }
+        y: { field: headline_x, scale: { type: log }, title: "held-out error (× floor)" }
+        color: { field: actuator }
+    guides:
+      - { rule: { y: 1.5 }, label: "twin-grade ≤ 1.5 × floor" }
+    hover: { title: variant, fields: [actuator, headline_x, headline_mrad, twin_grade] }
+  - type: table
+    name: Parameters
+    intro:
+      text: |
+        **What does each model run on?** One row per model and actuator with the terms it was fitted with, grouped
+        under Friction, Capture, Drivetrain and Driver. The mark after a value is its basis (● measured, ○ an estimate
+        whose fit the model card refused, C chosen); hover a value for its 95 % CI and source. "—" is a term the model
+        does not run, with the reason on hover. The cards are each actuator's Coulomb friction in its best model.
+      kpi:
+        filters:
+          and:
+            - 'kind == "model"'
+            - 'best == true'
+        groupBy: { property: actuator }
+        kpi:
+          value: { property: coulomb }
+    filters: 'kind == "model"'
+    order: [variant, actuator, coulomb, viscous, breakaway, stribeck_velocity, weakening, capture_fraction, capture_speed, capture_dwell, ripple, backlash, gear_stiffness, inertia, kt, current_loop, torque_scale]
+    groupBy: { property: rung }
+    groupOrder: [M2, M3, M4, M5, M1, M0]
+    columnGroups:
+      Friction: [coulomb, viscous, breakaway, stribeck_velocity, weakening]
+      Capture: [capture_fraction, capture_speed, capture_dwell]
+      Drivetrain: [ripple, backlash, gear_stiffness, inertia]
+      Driver: [kt, current_loop, torque_scale]
+    display: { coulomb: value, viscous: value, weakening: value, ripple: value, backlash: value, inertia: value, kt: value }
+    record:
+      sections:
+        - { name: Model, properties: [variant, actuator, rung, description] }
+        - { name: Terms, properties: [coulomb, viscous, weakening, ripple, backlash, inertia, kt, current_loop] }
+        - { name: Code, properties: [code_commit, code_hosted, code_path, readme] }
+  - type: table
+    name: Parameters · with CI
+    intro:
+      text: |
+        The friction terms **split into sub-columns**: value, the 95 % CI's low and high, and the basis, each its own
+        column under its term, instead of the range squeezed into the cell.
+    filters:
+      and:
+        - 'kind == "model"'
+        - '!coulomb.isEmpty()'
+    order: [variant, actuator, coulomb, viscous, weakening]
+    groupBy: { property: rung, direction: ASC }
+    display: { coulomb: stats, viscous: stats, weakening: stats }
+    stats:
+      coulomb: { parts: [value, low, high, basis], labels: { low: 95% CI low, high: high } }
+      viscous: { parts: [value, low, high, basis], labels: { low: 95% CI low, high: high } }
+      weakening: { parts: [value, low, high, basis], labels: { low: 95% CI low, high: high } }
+  - type: table
+    name: What each rung adds
+    intro:
+      text: |
+        **What does each term buy?** The full twin's ablation: switch one term off and replay the held-out tapes; the
+        error added is how much worse the twin gets (positive = the term helps). The strip shows every run's change on
+        one scale per column (dots runs, tall tick their median). The cards: the median added per rung, across actuators.
+      kpi:
+        filters: 'kind == "term"'
+        groupBy: { property: rung }
+        kpi:
+          value: { property: delta_x, summary: Median }
+    filters: 'kind == "term"'
+    order: [term, actuator, delta_mrad, delta_x, term_note]
+    groupBy: { property: rung }
+    groupOrder: [M2, M3, M4, driver]
+    sort:
+      - { property: delta_x, direction: DESC }
+    summaries: { delta_x: Median }
+    display: { delta_mrad: dist }
+  - type: table
+    name: What each rung adds · columns
+    intro:
+      text: |
+        The same ablation with the distribution **as columns**: the median, min and max of the per-run change, how many
+        runs, and the strip, each under "Error added".
+    filters: 'kind == "term"'
+    order: [term, actuator, delta_mrad, delta_x]
+    groupBy: { property: rung }
+    groupOrder: [M2, M3, M4, driver]
+    sort:
+      - { property: delta_x, direction: DESC }
+    display: { delta_mrad: stats }
+  - type: table
+    name: Runs
+    filters: 'kind == "run"'
+    order: [variant, bench, test, run, q_rms_mrad, x_floor]
+    groupBy: { property: actuator }
+    subGroupBy: { property: variant }
+    sort:
+      - { property: x_floor, direction: ASC }
+    summaries: { q_rms_mrad: Median, x_floor: Median }
+    fold: closed

@@ -1,0 +1,11 @@
+# kit gap 4 (tests/browser/kit_gaps_checks.py): a level history over a recording (a plain dataset, not live) shows the
+# whole recording, with the clock's t as a playhead; `at: 30s` still shows the 30 s ending at t.
+data: levels.json
+views:
+  - type: levels
+    name: Whole
+    levels: { state: level, by: stream, order: [ok, warn, error], tones: { ok: good, warn: warn, error: bad } }
+  - type: levels
+    name: Window
+    at: 30s
+    levels: { state: level, by: stream, order: [ok, warn, error], tones: { ok: good, warn: warn, error: bad } }

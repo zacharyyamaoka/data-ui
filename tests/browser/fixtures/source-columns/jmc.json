@@ -1,0 +1,774 @@
+{
+ "id": "robotparts-datasheet",
+ "title": "JMC 60ASM200-5-1024C datasheet",
+ "titleProperty": "field",
+ "source": "robotparts release 2026.10.29, /v2/parts/jmc-60asm200-5-1024c.json (build/site_pages.py datasheet_dataset)",
+ "properties": {
+  "field": {
+   "type": "text",
+   "label": "Field",
+   "width": 270
+  },
+  "section": {
+   "type": "text",
+   "label": "Section",
+   "width": 160
+  },
+  "keys": {
+   "type": "list",
+   "label": "Registry keys",
+   "width": 160
+  },
+  "sources": {
+   "type": "list",
+   "label": "Every source",
+   "width": 220
+  },
+  "nominal": {
+   "type": "number",
+   "label": "Nominal",
+   "align": "left",
+   "width": 170,
+   "unit": "unit"
+  },
+  "measured": {
+   "type": "number",
+   "label": "Measured (median)",
+   "align": "left",
+   "width": 170,
+   "unit": "measured_unit"
+  },
+  "verdict": {
+   "type": "text",
+   "label": "Verdict",
+   "width": 150
+  },
+  "board": {
+   "type": "number",
+   "label": "Board",
+   "align": "left",
+   "width": 110
+  },
+  "derived": {
+   "type": "number",
+   "label": "Derived",
+   "align": "left",
+   "width": 140,
+   "unit": "unit"
+  },
+  "unit": {
+   "type": "text",
+   "label": "Unit",
+   "width": 84
+  },
+  "measured_unit": {
+   "type": "text",
+   "label": "Measured unit",
+   "width": 84,
+   "hidden": true
+  },
+  "delta": {
+   "type": "number",
+   "label": "Δ vs datasheet",
+   "unitText": "%",
+   "decimals": 1,
+   "width": 120
+  },
+  "status": {
+   "type": "text",
+   "label": "Status",
+   "display": "badge",
+   "width": 100,
+   "colors": {
+    "measured": 6,
+    "datasheet": 0,
+    "derived": 7,
+    "conflict": 8,
+    "missing": 0
+   }
+  },
+  "n": {
+   "type": "number",
+   "label": "Values",
+   "width": 70
+  },
+  "specimens": {
+   "type": "list",
+   "label": "Units measured",
+   "width": 200
+  },
+  "latest": {
+   "type": "text",
+   "label": "Latest",
+   "width": 100
+  },
+  "order": {
+   "type": "number",
+   "hidden": true
+  }
+ },
+ "detail": {
+  "property": "_detail",
+  "kind": "column",
+  "columnKinds": {
+   "nominal": "datasheet",
+   "measured": "measured",
+   "derived": "derived",
+   "board": "board"
+  },
+  "columns": [
+   {
+    "id": "column",
+    "label": "Column"
+   },
+   {
+    "id": "value",
+    "label": "Value"
+   },
+   {
+    "id": "kind",
+    "label": "Kind"
+   },
+   {
+    "id": "specimen",
+    "label": "Unit"
+   },
+   {
+    "id": "date",
+    "label": "Date"
+   },
+   {
+    "id": "ci95",
+    "label": "95% CI"
+   },
+   {
+    "id": "source",
+    "label": "Source",
+    "link": "url",
+    "block": true
+   },
+   {
+    "id": "method",
+    "label": "Method and the source's words",
+    "block": true
+   }
+  ]
+ },
+ "rows": [
+  {
+   "id": "peak_torque",
+   "field": "Peak torque",
+   "section": "Key specs",
+   "keys": [
+    "peak_torque"
+   ],
+   "nominal": {
+    "value": 1.3,
+    "sources": [
+     {
+      "value": 1.3,
+      "basis": "datasheet",
+      "source": "private:sources/2026-10-08-supplier-chat/jmc-low-voltage-servo-selection-list.webp",
+      "note": "Private source, kept in the owner's account.",
+      "unit": "N·m",
+      "record": "jmc-60asm200-5-1024c · specs.peak_torque"
+     },
+     {
+      "value": 1.28,
+      "basis": "datasheet",
+      "source": "manufacturer:jmc-motion.com:for 60ASM400-5-1024C-H",
+      "sourceUrl": "https://www.jmc-motion.com/product/189.html",
+      "sourcePage": "/sources/jmc-motion.com/",
+      "unit": "N·m",
+      "note": "JMC's outline drawing on its 60ASM200-5-1024C page (the page's one image, www.szjmc.com/uploads/20220322/f81040902eb5e17ea995bfbf99d9ca23.jpg, read 2026-10-29), specification block. Its title block names the 60ASM400-5-1024C-H, dated 2021/11/17, though the block's 200 W and 0.64 N·m are the 60ASM200's",
+      "record": "jmc-60asm200-5-1024c · citations.peak_torque[1]"
+     }
+    ],
+    "unit": "N·m"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "unit": "N·m",
+   "status": "conflict",
+   "n": 2,
+   "sources": [
+    "jmc-motion.com"
+   ],
+   "_detail": [
+    {
+     "column": "datasheet",
+     "value": "1.3 N·m",
+     "kind": "private",
+     "status": "conflict",
+     "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+     "method": "note: JMC selection-list row 60ASM200-1024C/2500C, column Peak torque (Nm); at the shaft; raw: 1.3"
+    },
+    {
+     "column": "citation",
+     "value": "1.28 N·m",
+     "kind": "manufacturer",
+     "status": "cited",
+     "source": "jmc-motion.com",
+     "url": "https://www.jmc-motion.com/product/189.html",
+     "method": "note: JMC's outline drawing on its 60ASM200-5-1024C page (the page's one image, www.szjmc.com/uploads/20220322/f81040902eb5e17ea995bfbf99d9ca23.jpg, read 2026-10-29), specification block. Its title block names the 60ASM400-5-1024C-H, dated 2021/11/17, though the block's 200 W and 0.64 N·m are the 60ASM200's; raw: TORQUE MAX (NM) 1.28"
+    }
+   ],
+   "order": 0
+  },
+  {
+   "id": "rated_torque",
+   "field": "Rated torque",
+   "section": "Key specs",
+   "keys": [
+    "rated_torque"
+   ],
+   "nominal": {
+    "value": 0.64,
+    "basis": "datasheet",
+    "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+    "note": "Private source, kept in the owner's account.",
+    "unit": "N·m",
+    "record": "jmc-60asm200-5-1024c · specs.rated_torque"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "unit": "N·m",
+   "status": "datasheet",
+   "n": 1,
+   "_detail": [
+    {
+     "column": "datasheet",
+     "value": "0.64 N·m",
+     "kind": "private",
+     "status": "stated",
+     "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+     "method": "note: JMC selection-list row 60ASM200-1024C/2500C, column Rated torque (Nm); at the shaft; raw: 0.64"
+    }
+   ],
+   "order": 1
+  },
+  {
+   "id": "rated_speed",
+   "field": "Rated speed",
+   "section": "Performance",
+   "keys": [
+    "rated_speed"
+   ],
+   "nominal": {
+    "value": 3000.0,
+    "sources": [
+     {
+      "value": 3000.0,
+      "basis": "datasheet",
+      "source": "manufacturer:jmc-motion.com",
+      "sourceUrl": "https://www.jmc-motion.com/product/189.html",
+      "sourcePage": "/sources/jmc-motion.com/",
+      "unit": "rpm",
+      "record": "jmc-60asm200-5-1024c · specs.rated_speed"
+     },
+     {
+      "value": 3000.0,
+      "basis": "datasheet",
+      "source": "private:sources/2026-10-08-supplier-chat/jmc-low-voltage-servo-selection-list.webp",
+      "note": "JMC selection-list row 60ASM200-1024C/2500C, column Rated speed (r/min)",
+      "unit": "rpm",
+      "record": "jmc-60asm200-5-1024c · citations.rated_speed[1]"
+     }
+    ],
+    "unit": "rpm"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "unit": "rpm",
+   "status": "datasheet",
+   "n": 2,
+   "sources": [
+    "jmc-motion.com"
+   ],
+   "_detail": [
+    {
+     "column": "datasheet",
+     "value": "3000.0 rpm",
+     "kind": "manufacturer",
+     "status": "stated",
+     "source": "jmc-motion.com",
+     "url": "https://www.jmc-motion.com/product/189.html",
+     "method": "note: JMC's product page for the 60ASM200-5-1024C, read 2026-10-29; at the shaft (a bare motor). JMC's selection-list row 60ASM200-1024C/2500C gives the same 3000 r/min (its citation); raw: Rated speed 3000rpm, low speed up to 1rpm"
+    },
+    {
+     "column": "citation",
+     "value": "3000.0 rpm",
+     "kind": "private",
+     "status": "cited",
+     "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+     "method": "note: JMC selection-list row 60ASM200-1024C/2500C, column Rated speed (r/min); raw: 3000"
+    }
+   ],
+   "order": 2
+  },
+  {
+   "id": "rated_power",
+   "field": "Rated power",
+   "section": "Performance",
+   "keys": [
+    "rated_power"
+   ],
+   "nominal": {
+    "value": 200.0,
+    "basis": "datasheet",
+    "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+    "note": "Private source, kept in the owner's account.",
+    "unit": "W",
+    "record": "jmc-60asm200-5-1024c · specs.rated_power"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "unit": "W",
+   "status": "datasheet",
+   "n": 1,
+   "_detail": [
+    {
+     "column": "datasheet",
+     "value": "200.0 W",
+     "kind": "private",
+     "status": "stated",
+     "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+     "method": "note: JMC selection-list row 60ASM200-1024C/2500C, column Rated power (W); raw: 200"
+    }
+   ],
+   "order": 3
+  },
+  {
+   "id": "pole_pairs",
+   "field": "Pole pairs",
+   "section": "Electrical",
+   "keys": [
+    "pole_pairs"
+   ],
+   "nominal": {
+    "value": 5,
+    "basis": "derived",
+    "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+    "note": "Private source, kept in the owner's account.",
+    "record": "jmc-60asm200-5-1024c · specs.pole_pairs"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "derived": {
+    "value": 5,
+    "basis": "derived",
+    "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+    "note": "Private source, kept in the owner's account.",
+    "record": "jmc-60asm200-5-1024c · specs.pole_pairs"
+   },
+   "status": "derived",
+   "n": 1,
+   "_detail": [
+    {
+     "column": "derived",
+     "value": "5",
+     "kind": "derived",
+     "status": "stated",
+     "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+     "method": "raw: 60 ASM 200 - 5 - 1024C; basis: JMC's model description on the selection list: field ④ is the motor's pole pairs ('4: Four pairs of poles (default) 5: Five pairs of poles'); it holds only if this is the -5- variant (notes.md)"
+    }
+   ],
+   "order": 4
+  },
+  {
+   "id": "nominal_voltage",
+   "field": "Nominal voltage",
+   "section": "Electrical",
+   "keys": [
+    "nominal_voltage"
+   ],
+   "nominal": {
+    "value": 36.0,
+    "basis": "datasheet",
+    "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+    "note": "Private source, kept in the owner's account.",
+    "unit": "V",
+    "record": "jmc-60asm200-5-1024c · specs.nominal_voltage"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "unit": "V",
+   "status": "datasheet",
+   "n": 1,
+   "_detail": [
+    {
+     "column": "datasheet",
+     "value": "36.0 V",
+     "kind": "private",
+     "status": "stated",
+     "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+     "method": "note: JMC selection-list row 60ASM200-1024C/2500C, column Power supply voltage (V); raw: 36"
+    }
+   ],
+   "order": 5
+  },
+  {
+   "id": "rotor_inertia",
+   "field": "Rotor inertia",
+   "section": "Mechanical",
+   "keys": [
+    "rotor_inertia"
+   ],
+   "nominal": {
+    "value": 0.183,
+    "sources": [
+     {
+      "value": 0.183,
+      "basis": "datasheet",
+      "source": "private:sources/2026-10-08-supplier-chat/jmc-low-voltage-servo-selection-list.webp",
+      "note": "Private source, kept in the owner's account.",
+      "unit": "kg·cm²",
+      "record": "jmc-60asm200-5-1024c · specs.rotor_inertia"
+     },
+     {
+      "value": 0.32,
+      "basis": "datasheet",
+      "source": "manufacturer:jmc-motion.com:for 60ASM400-5-1024C-H",
+      "sourceUrl": "https://www.jmc-motion.com/product/189.html",
+      "sourcePage": "/sources/jmc-motion.com/",
+      "unit": "kg·cm²",
+      "note": "JMC's outline drawing on its 60ASM200-5-1024C page, specification block (title block 60ASM400-5-1024C-H, as on peak_torque's citation); its header reads KG.M², recorded as 10⁻⁴ kg·m² (kg·cm²) like the selection list's, since 0.32 kg·m² is impossible for a 60 mm rotor",
+      "record": "jmc-60asm200-5-1024c · citations.rotor_inertia[1]"
+     }
+    ],
+    "unit": "kg·cm²"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "unit": "kg·cm²",
+   "status": "conflict",
+   "n": 2,
+   "sources": [
+    "jmc-motion.com"
+   ],
+   "_detail": [
+    {
+     "column": "datasheet",
+     "value": "0.183 kg·cm²",
+     "kind": "private",
+     "status": "conflict",
+     "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+     "method": "note: JMC selection-list row 60ASM200-1024C/2500C, column Rotor inertia, whose header reads (10⁻⁴ kg·cm²); read as 10⁻⁴ kg·m², i.e. 0.183 kg·cm² (taken literally the header would give an impossible 1.83e-9 kg·m²); raw: 0.183"
+    },
+    {
+     "column": "citation",
+     "value": "0.32 kg·cm²",
+     "kind": "manufacturer",
+     "status": "cited",
+     "source": "jmc-motion.com",
+     "url": "https://www.jmc-motion.com/product/189.html",
+     "method": "note: JMC's outline drawing on its 60ASM200-5-1024C page, specification block (title block 60ASM400-5-1024C-H, as on peak_torque's citation); its header reads KG.M², recorded as 10⁻⁴ kg·m² (kg·cm²) like the selection list's, since 0.32 kg·m² is impossible for a 60 mm rotor; raw: Rotor Interial (KG.M²) 0.32"
+    }
+   ],
+   "order": 6
+  },
+  {
+   "id": "max_speed",
+   "field": "Max speed",
+   "section": "As the source names them",
+   "nominal": {
+    "value": 3200.0,
+    "basis": "datasheet",
+    "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+    "note": "Private source, kept in the owner's account.",
+    "unit": "rpm",
+    "record": "jmc-60asm200-5-1024c · specs.max_speed"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "unit": "rpm",
+   "status": "datasheet",
+   "n": 1,
+   "_detail": [
+    {
+     "column": "datasheet",
+     "value": "3200.0 rpm",
+     "kind": "private",
+     "status": "stated",
+     "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+     "method": "note: JMC selection-list row 60ASM200-1024C/2500C, column Max speed (r/min). Not the canonical max_output_speed, which is a no-load speed: the table gives a maximum speed; raw: 3200"
+    }
+   ],
+   "order": 7
+  },
+  {
+   "id": "rated_phase_current",
+   "field": "Rated phase current",
+   "section": "As the source names them",
+   "nominal": {
+    "value": 10.0,
+    "sources": [
+     {
+      "value": 10.0,
+      "basis": "datasheet",
+      "source": "private:sources/2026-10-08-supplier-chat/jmc-low-voltage-servo-selection-list.webp",
+      "note": "Private source, kept in the owner's account.",
+      "unit": "A",
+      "record": "jmc-60asm200-5-1024c · specs.rated_phase_current"
+     },
+     {
+      "value": 7.5,
+      "basis": "datasheet",
+      "source": "manufacturer:jmc-motion.com:for 60ASM400-5-1024C-H",
+      "sourceUrl": "https://www.jmc-motion.com/product/189.html",
+      "sourcePage": "/sources/jmc-motion.com/",
+      "unit": "A",
+      "note": "JMC's outline drawing on its 60ASM200-5-1024C page (the page's one image, www.szjmc.com/uploads/20220322/f81040902eb5e17ea995bfbf99d9ca23.jpg, read 2026-10-29), specification block. Its title block names the 60ASM400-5-1024C-H, dated 2021/11/17, though the block's 200 W and 0.64 N·m are the 60ASM200's",
+      "record": "jmc-60asm200-5-1024c · citations.rated_phase_current[1]"
+     }
+    ],
+    "unit": "A"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "unit": "A",
+   "status": "conflict",
+   "n": 2,
+   "sources": [
+    "jmc-motion.com"
+   ],
+   "_detail": [
+    {
+     "column": "datasheet",
+     "value": "10.0 A",
+     "kind": "private",
+     "status": "conflict",
+     "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+     "method": "note: JMC selection-list row 60ASM200-1024C/2500C, column Rated current (A): the motor's phase current; the table does not say RMS or peak; raw: 10.0"
+    },
+    {
+     "column": "citation",
+     "value": "7.5 A",
+     "kind": "manufacturer",
+     "status": "cited",
+     "source": "jmc-motion.com",
+     "url": "https://www.jmc-motion.com/product/189.html",
+     "method": "note: JMC's outline drawing on its 60ASM200-5-1024C page (the page's one image, www.szjmc.com/uploads/20220322/f81040902eb5e17ea995bfbf99d9ca23.jpg, read 2026-10-29), specification block. Its title block names the 60ASM400-5-1024C-H, dated 2021/11/17, though the block's 200 W and 0.64 N·m are the 60ASM200's; raw: Rated Current(A) 7.5"
+    }
+   ],
+   "order": 8
+  },
+  {
+   "id": "max_phase_current",
+   "field": "Max phase current",
+   "section": "As the source names them",
+   "nominal": {
+    "value": 20.0,
+    "basis": "datasheet",
+    "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+    "note": "Private source, kept in the owner's account.",
+    "unit": "A",
+    "record": "jmc-60asm200-5-1024c · specs.max_phase_current"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "unit": "A",
+   "status": "datasheet",
+   "n": 1,
+   "_detail": [
+    {
+     "column": "datasheet",
+     "value": "20.0 A",
+     "kind": "private",
+     "status": "stated",
+     "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+     "method": "note: JMC selection-list row 60ASM200-1024C/2500C, column Max current (A); raw: 20.0"
+    }
+   ],
+   "order": 9
+  },
+  {
+   "id": "encoder_lines",
+   "field": "Encoder lines",
+   "section": "As the source names them",
+   "nominal": {
+    "value": 1024,
+    "basis": "derived",
+    "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+    "note": "Private source, kept in the owner's account.",
+    "record": "jmc-60asm200-5-1024c · specs.encoder_lines"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "derived": {
+    "value": 1024,
+    "basis": "derived",
+    "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+    "note": "Private source, kept in the owner's account.",
+    "record": "jmc-60asm200-5-1024c · specs.encoder_lines"
+   },
+   "status": "derived",
+   "n": 1,
+   "_detail": [
+    {
+     "column": "derived",
+     "value": "1024",
+     "kind": "derived",
+     "status": "stated",
+     "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+     "method": "raw: 60 ASM 200 - 5 - 1024C; basis: JMC's model description on the selection list: field ⑤ '1024C: 1024 lines magnetic encoder'; a 17BC unit would have a 17-bit absolute encoder instead (notes.md)"
+    }
+   ],
+   "order": 10
+  },
+  {
+   "id": "@drivetrain",
+   "field": "Drivetrain",
+   "section": "Drivetrain, buses and frame",
+   "nominal": {
+    "value": "motor",
+    "basis": "derived",
+    "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+    "note": "Private source, kept in the owner's account.",
+    "record": "jmc-60asm200-5-1024c · drivetrain"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "status": "datasheet",
+   "n": 1,
+   "_detail": [
+    {
+     "column": "datasheet",
+     "value": "motor",
+     "kind": "derived",
+     "status": "stated",
+     "source": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+     "method": "raw: Low Voltage Servo Motor; basis: a bare motor: JMC's selection list sells the motor alone, with its matching driver (MCAC610) as a separate item; BAM's rig keeps the 10:1 planetary gearbox and the moteus controller as separate parts beside it"
+    }
+   ],
+   "order": 11
+  },
+  {
+   "id": "@buses",
+   "field": "Buses",
+   "section": "Drivetrain, buses and frame",
+   "nominal": {
+    "value": "quadrature",
+    "record": "jmc-60asm200-5-1024c · buses",
+    "note": "registry bus names"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "status": "datasheet",
+   "n": 0,
+   "order": 12
+  },
+  {
+   "id": "@protocols",
+   "field": "Protocols",
+   "section": "Drivetrain, buses and frame",
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "status": "missing",
+   "n": 0,
+   "order": 13
+  },
+  {
+   "id": "@part-frame",
+   "field": "Part frame",
+   "section": "Drivetrain, buses and frame",
+   "nominal": {
+    "value": "Origin on the output axis, at the stator mounting face. +Z along the joint axis, pointing out of the output flange; positive rotation is right-handed about +Z. The clocking of X about Z is stated per part in frame_datum.",
+    "record": "jmc-60asm200-5-1024c · frame_datum",
+    "note": "the category rule; this part states no frame datum"
+   },
+   "board": {
+    "value": null,
+    "why": "no board reading in release 2026.10.29"
+   },
+   "status": "datasheet",
+   "n": 0,
+   "order": 14
+  }
+ ],
+ "sourceColumn": true,
+ "sources": {
+  "private:sources/2026-10-08-supplier-chat/jmc-low-voltage-servo-selection-list.webp": {
+   "name": "JMC low-voltage servo selection list, received via a supplier chat, 2026-10-08 (private)",
+   "kind": "private",
+   "rung": "private",
+   "basis": "datasheet"
+  },
+  "manufacturer:jmc-motion.com:for 60ASM400-5-1024C-H": {
+   "name": "jmc-motion.com, for 60ASM400-5-1024C-H",
+   "kind": "manufacturer",
+   "rung": "related",
+   "basis": "datasheet",
+   "page": "/sources/jmc-motion.com/"
+  },
+  "manufacturer:jmc-motion.com": {
+   "name": "jmc-motion.com",
+   "kind": "manufacturer",
+   "rung": "manufacturer",
+   "basis": "datasheet",
+   "page": "/sources/jmc-motion.com/"
+  }
+ },
+ "ladder": [
+  {
+   "id": "measured",
+   "label": "Measured"
+  },
+  {
+   "id": "manufacturer",
+   "label": "Manufacturer: datasheet, page or drawing"
+  },
+  {
+   "id": "inspected",
+   "label": "Inspected: read off the part"
+  },
+  {
+   "id": "private",
+   "label": "Private: a document the owner holds"
+  },
+  {
+   "id": "distributor",
+   "label": "Distributor"
+  },
+  {
+   "id": "listing",
+   "label": "Listing: a retailer's or an atlas's reading of one"
+  },
+  {
+   "id": "derived",
+   "label": "Derived or estimated"
+  },
+  {
+   "id": "related",
+   "label": "Related model: a document for another model"
+  }
+ ]
+}

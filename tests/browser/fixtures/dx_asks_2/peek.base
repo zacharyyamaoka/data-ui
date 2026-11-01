@@ -1,0 +1,31 @@
+# The peek dashboard of tests/browser/dx_asks_2_checks.py (RobotDx PEP 0001 §18.4, ask 3): RobotDx's Diagnostics table
+# holds plain checks beside stock diagnostics, and one view's record.sections lays out the side peek for both. A section
+# with nothing for the peeked row (no field with a value, no row in its view) is not drawn. Both datasets are live keyed
+# (RobotDx's checks and parts); the checks also open the same view in a plain <data-views> over the files.
+data: checks.json
+datasets:
+  checks:
+    data: checks.json
+    live: { time: t, key: id }
+  parts:
+    data: parts.json
+    live: { time: t, key: id }
+layout:
+  columns: 12
+  rowHeight: 56
+  panels:
+    - { view: Checks, w: 12, h: 4 }
+views:
+  - type: table
+    name: Checks
+    from: checks
+    order: [name, level, message]
+    record:
+      sections:
+        - { name: Level, properties: [level, message] }
+        - { name: Measured, properties: [metric, value, unit] }
+        - name: Evidence
+          properties: [t0, t1, run]
+          view: { type: table, name: Judged on, from: parts, filters: 'check == this.id', order: [x, 'y'] }
+        - { name: Stock diagnostic, properties: [diagnostic, hint, role] }
+        - { name: Notes, properties: [note] }

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Drawing title block mark">
+<title>Drawing title block mark</title>
+<rect x="6" y="12" width="52" height="40" fill="none" stroke="currentColor" stroke-width="4"/>
+<path d="M35 12V52M35 32H58" fill="none" stroke="currentColor" stroke-width="3.5"/>
+<rect x="39" y="17" width="15" height="10" style="fill:var(--a,#e4572e)"/>
+<path d="M39 40H54M39 45H50" fill="none" stroke="currentColor" stroke-width="2.5"/>
+<text x="20.5" y="38" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="18" font-weight="700" fill="currentColor" text-anchor="middle" textLength="21.6" lengthAdjust="spacing">rp</text>
+</svg>

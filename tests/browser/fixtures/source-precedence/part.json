@@ -1,0 +1,302 @@
+{
+ "id": "acme-qdd80",
+ "title": "Acme QDD-80 (a made-up actuator)",
+ "titleProperty": "field",
+ "sources": {
+  "chat": {
+   "name": "Supplier chat",
+   "kind": "A chat transcript",
+   "rung": "chat",
+   "date": "2026-10-08",
+   "url": "account:supplier-chat/acme-qdd80"
+  },
+  "listing": {
+   "name": "Shop listing",
+   "kind": "A seller's listing",
+   "rung": "listing",
+   "date": "2026-10-02",
+   "url": "https://example.com/shop/acme-qdd80"
+  },
+  "datasheet": {
+   "name": "Acme datasheet rev C",
+   "kind": "Maker's datasheet for this variant",
+   "rung": "datasheet",
+   "date": "2026-09-14",
+   "url": "https://example.com/acme/qdd80-datasheet-rev-c.pdf"
+  },
+  "bench": {
+   "name": "Bench test 1",
+   "kind": "Measured on our bench",
+   "rung": "measured",
+   "date": "2026-10-20",
+   "url": "https://example.com/lab/bench-1",
+   "basis": "measured"
+  }
+ },
+ "ladder": [
+  {
+   "id": "measured",
+   "label": "Measured on a bench or in a run"
+  },
+  {
+   "id": "datasheet",
+   "label": "The maker's datasheet"
+  },
+  {
+   "id": "distributor",
+   "label": "A distributor's page"
+  },
+  {
+   "id": "listing",
+   "label": "A seller's listing"
+  },
+  {
+   "id": "chat",
+   "label": "A chat or a note"
+  }
+ ],
+ "properties": {
+  "field": {
+   "type": "text",
+   "label": "Field"
+  },
+  "section": {
+   "type": "text",
+   "label": "Section"
+  },
+  "nominal": {
+   "type": "text",
+   "label": "Nominal",
+   "unit": "unit"
+  },
+  "unit": {
+   "type": "text",
+   "label": "Unit"
+  }
+ },
+ "rows": [
+  {
+   "id": "peak_torque",
+   "field": "Peak torque",
+   "section": "Key specs",
+   "unit": "N·m",
+   "nominal": {
+    "sources": [
+     {
+      "source": "chat",
+      "value": 3.8,
+      "text": "3.8 Nm"
+     },
+     {
+      "source": "listing",
+      "value": 3.8,
+      "text": "3.8"
+     },
+     {
+      "source": "datasheet",
+      "value": 3.8,
+      "text": "3.8",
+      "note": "page 2, peak torque"
+     },
+     {
+      "source": "bench",
+      "value": 3.1,
+      "text": "3.1",
+      "asOf": "2026-10-21"
+     }
+    ]
+   }
+  },
+  {
+   "id": "rated_torque",
+   "field": "Rated torque",
+   "section": "Key specs",
+   "unit": "N·m",
+   "nominal": {
+    "sources": [
+     {
+      "source": "chat",
+      "value": 1.27,
+      "text": "1.27"
+     },
+     {
+      "source": "listing",
+      "value": 1.27,
+      "text": "1.27"
+     },
+     {
+      "source": "datasheet",
+      "value": 1.27,
+      "text": "1.27"
+     }
+    ]
+   }
+  },
+  {
+   "id": "max_speed",
+   "field": "Max speed",
+   "section": "Key specs",
+   "unit": "rpm",
+   "nominal": {
+    "sources": [
+     {
+      "source": "chat",
+      "value": 3000,
+      "text": "3000"
+     },
+     {
+      "source": "datasheet",
+      "value": 3200,
+      "text": "3200"
+     }
+    ]
+   }
+  },
+  {
+   "id": "rated_current",
+   "field": "Rated phase current",
+   "section": "Electrical",
+   "unit": "A",
+   "nominal": {
+    "sources": [
+     {
+      "source": "chat",
+      "value": 11,
+      "text": "11"
+     },
+     {
+      "source": "listing",
+      "value": 10,
+      "text": "10"
+     },
+     {
+      "source": "datasheet",
+      "value": 16,
+      "text": "16.0"
+     }
+    ]
+   }
+  },
+  {
+   "id": "supply_voltage",
+   "field": "Supply voltage",
+   "section": "Electrical",
+   "unit": "V",
+   "nominal": {
+    "sources": [
+     {
+      "source": "listing",
+      "value": [
+       24,
+       48
+      ],
+      "text": "24 to 48"
+     },
+     {
+      "source": "datasheet",
+      "value": [
+       24,
+       48
+      ],
+      "text": "24–48"
+     }
+    ]
+   }
+  },
+  {
+   "id": "kt",
+   "field": "Torque constant",
+   "section": "Electrical",
+   "unit": "N·m/A",
+   "nominal": {
+    "sources": [
+     {
+      "source": "datasheet",
+      "value": 0.14,
+      "text": "0.14"
+     }
+    ]
+   }
+  },
+  {
+   "id": "pole_pairs",
+   "field": "Pole pairs",
+   "section": "Electrical",
+   "nominal": {
+    "sources": [
+     {
+      "source": "chat",
+      "value": 10,
+      "text": "10"
+     },
+     {
+      "source": "datasheet",
+      "value": 10,
+      "text": "10"
+     }
+    ]
+   }
+  },
+  {
+   "id": "mass",
+   "field": "Mass",
+   "section": "Mechanical",
+   "unit": "g",
+   "nominal": {
+    "sources": [
+     {
+      "source": "bench",
+      "value": 412,
+      "text": "412"
+     },
+     {
+      "source": "datasheet",
+      "value": 400,
+      "text": "400"
+     }
+    ]
+   }
+  },
+  {
+   "id": "protection",
+   "field": "Protection",
+   "section": "Mechanical",
+   "nominal": {
+    "sources": [
+     {
+      "source": "chat",
+      "value": "IP54",
+      "text": "IP54"
+     }
+    ]
+   }
+  },
+  {
+   "id": "encoder",
+   "field": "Encoder",
+   "section": "Mechanical",
+   "nominal": {
+    "value": "14-bit magnetic",
+    "text": "14-bit magnetic",
+    "source": "Acme datasheet rev C",
+    "sourceUrl": "https://example.com/acme/qdd80-datasheet-rev-c.pdf"
+   }
+  },
+  {
+   "id": "backlash",
+   "field": "Backlash",
+   "section": "Mechanical",
+   "unit": "arcmin",
+   "nominal": {
+    "sources": [
+     {
+      "source": "listing",
+      "value": null,
+      "why": "not on the listing"
+     }
+    ],
+    "why": "no source states it"
+   }
+  }
+ ]
+}

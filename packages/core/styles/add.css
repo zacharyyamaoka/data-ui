@@ -1,0 +1,110 @@
+/* Add to dashboard (docs/CONTRACT.md §34; src/add-picker.js): the item menu and the picker. Both sit in the light DOM of
+   the <data-views> they come from, fixed to the window, so they take its --dv-* tokens (a host's skin, light and dark)
+   and no panel's overflow clips them. On a phone (under 480 px) each is a sheet across the screen with 8 px gutters. */
+
+.dv-itemmenu, .dv-addpick { position: fixed; z-index: 1000; box-sizing: border-box; background: var(--dv-bg); color: var(--dv-fg);
+  border: 1px solid var(--dv-border); border-radius: calc(var(--dv-radius) + 4px); box-shadow: 0 8px 28px rgb(0 0 0 / .16), 0 1px 3px rgb(0 0 0 / .08);
+  font: 13px/1.4 var(--dv-font); text-align: left; overflow: auto; overscroll-behavior: contain; }
+:is(data-views, .data-ui)[theme="dark"] :is(.dv-itemmenu, .dv-addpick),
+:root[data-theme="dark"] :is(.dv-itemmenu, .dv-addpick) { box-shadow: 0 8px 28px rgb(0 0 0 / .55), 0 1px 3px rgb(0 0 0 / .4); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) :is(.dv-itemmenu, .dv-addpick) { box-shadow: 0 8px 28px rgb(0 0 0 / .55), 0 1px 3px rgb(0 0 0 / .4); } }
+
+/* the item menu: one row per action */
+.dv-itemmenu { padding: 4px; min-width: 200px; max-width: min(340px, calc(100vw - 16px)); display: flex; flex-direction: column; }
+.dv-itemmenu.dv-sheet { max-width: none; }
+/* §46: a submenu (Notion's "Open in ›"): beside its item; in a phone's sheet, under it */
+.dv-itemmenu button[data-sub] { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.dv-itemmenu-chev { color: var(--dv-muted); }
+.dv-itemmenu-sub { min-width: 160px; }
+.dv-itemmenu.dv-sheet .dv-itemmenu-sub { position: static; box-shadow: none; border: 0; padding: 0 0 0 12px; min-width: 0; max-width: none; background: none; }
+.dv-itemmenu button { font: inherit; color: inherit; background: none; border: 0; border-radius: var(--dv-radius); padding: 7px 10px; text-align: left; cursor: pointer;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-itemmenu button:hover, .dv-itemmenu button:focus-visible { background: var(--dv-hover); outline: none; }
+
+/* the picker: what is added, the dashboards, New dashboard…, then what happened */
+.dv-addpick { width: 300px; max-width: calc(100vw - 16px); padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+.dv-addpick.dv-sheet { width: auto; }
+.dv-addpick:focus { outline: none; }
+.dv-addpick-head { display: flex; align-items: center; gap: 8px; }
+.dv-addpick-head h4 { margin: 0; flex: 1 1 auto; font-size: 12px; font-weight: 600; color: var(--dv-muted); }
+.dv-addpick-x { font: inherit; display: inline-flex; color: var(--dv-muted); background: none; border: 0; border-radius: var(--dv-radius); padding: 3px; cursor: pointer; }
+.dv-addpick-x:hover { background: var(--dv-hover); color: var(--dv-fg); }
+.dv-addpick-what { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+.dv-addpick-at { display: flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer; }
+.dv-addpick-t { color: var(--dv-muted); font-variant-numeric: tabular-nums; }
+.dv-addpick-list { display: flex; flex-direction: column; border-top: 1px solid var(--dv-rule); padding-top: 4px; }
+.dv-addpick-item, .dv-addpick-new { font: inherit; color: inherit; display: flex; align-items: center; gap: 8px; width: 100%; background: none; border: 0;
+  border-radius: var(--dv-radius); padding: 7px 6px; text-align: left; cursor: pointer; }
+.dv-addpick-item span, .dv-addpick-new span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-addpick-item:hover, .dv-addpick-new:hover, .dv-addpick-item:focus-visible, .dv-addpick-new:focus-visible { background: var(--dv-hover); outline: none; }
+.dv-addpick-item:disabled, .dv-addpick-new:disabled { opacity: .55; cursor: progress; }
+.dv-addpick-new { color: var(--dv-accent); border-top: 1px solid var(--dv-rule); border-radius: 0 0 var(--dv-radius) var(--dv-radius); }
+.dv-addpick-form { display: flex; gap: 6px; }
+.dv-addpick-form[hidden] { display: none; }
+.dv-addpick-form input { flex: 1 1 auto; min-width: 0; font: inherit; font-size: 12.5px; padding: 4px 7px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius);
+  background: var(--dv-bg); color: var(--dv-fg); }
+.dv-addpick-form button { font: inherit; font-size: 12.5px; padding: 4px 10px; border: 0; border-radius: var(--dv-radius); background: var(--dv-accent); color: var(--dv-on-accent); cursor: pointer; white-space: nowrap; }
+.dv-addpick-form button:disabled { opacity: .55; cursor: progress; }
+.dv-addpick-msg { margin: 4px 6px; color: var(--dv-muted); font-size: 12.5px; }
+.dv-addpick-status { margin: 0; font-size: 12.5px; color: var(--dv-muted); overflow-wrap: anywhere; }
+.dv-addpick-status:empty { display: none; }
+.dv-addpick-status[data-state="added"], .dv-addpick-status[data-state="copied"] { color: var(--dv-fg); }
+.dv-addpick-status a { color: var(--dv-accent); }
+.dv-addpick-refused { color: var(--dv-warn); }
+.dv-addpick-text { font: 11.5px/1.4 var(--dv-mono); width: 100%; box-sizing: border-box; min-height: 120px; resize: vertical; border: 1px solid var(--dv-border);
+  border-radius: var(--dv-radius); background: var(--dv-subtle); color: var(--dv-fg); padding: 6px; }
+
+/* an item menu's heading */
+.dv-itemmenu-title { margin: 4px 10px 6px; font-size: 11.5px; font-weight: 600; color: var(--dv-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* the item menu's own pieces (src/add-picker.js): a line under its title, a rule between items, a link item */
+.dv-itemmenu-note { margin: -2px 10px 6px; font-size: 11.5px; line-height: 1.35; color: var(--dv-muted); }
+.dv-itemmenu-sep { height: 1px; margin: 4px 6px; background: var(--dv-rule); flex: 0 0 auto; }
+.dv-itemmenu a[role="menuitem"] { border-radius: var(--dv-radius); padding: 7px 10px; text-decoration: none; }
+.dv-itemmenu a[role="menuitem"]:hover, .dv-itemmenu a[role="menuitem"]:focus-visible { background: var(--dv-hover); outline: none; }
+
+/* the source popover (CONTRACT §36): the item menu of a value two or more sources state. One block per source, in
+   precedence order: its place, name, marks and value on the first line, its rung on the ladder under it, then its
+   basis, date, note (and a private address, as text); its link, a menu item of its own, closes the block. The nominal
+   one is checked (its place in the accent) and says "nominal", a hand-picked one carries the pin, one that differs
+   says so and is tinted as a source's column tints it. Every line wraps: on a phone (a sheet, 8 px gutters) nothing
+   scrolls sideways and nothing is cut. WHY the secondary lines in the text colour at .74 opacity, not --dv-muted: muted
+   text over the amber tint reads at 4.2:1, under the 4.5 this kit holds itself to (these read 6.9:1 on it, 7.5:1 off it);
+   and the links in the text colour, underlined, for the same reason (the accent reads 4.4:1 on the light tint) */
+.dv-itemmenu.dv-src-pop { min-width: 300px; max-width: min(460px, calc(100vw - 16px)); }
+.dv-itemmenu.dv-src-pop.dv-sheet { max-width: none; }
+.dv-itemmenu.dv-src-pop .dv-itemmenu-title { white-space: normal; overflow: visible; overflow-wrap: anywhere; }
+.dv-itemmenu button.dv-src-pop-row { display: grid; grid-template-columns: 20px minmax(0, 1fr); column-gap: 8px; row-gap: 1px; align-items: start;
+  white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; }
+.dv-src-pop-rank { grid-row: 1 / span 3; min-width: 17px; height: 17px; margin-top: 1px; border-radius: 999px; display: inline-grid; place-items: center;
+  font-size: 10.5px; font-weight: 700; background: var(--dv-subtle); color: var(--dv-fg); }
+.dv-src-pop-row[aria-checked="true"] .dv-src-pop-rank { background: var(--dv-accent); color: var(--dv-on-accent); }
+.dv-src-pop-top { grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; column-gap: 6px; row-gap: 2px; min-width: 0; }
+.dv-src-pop-name { min-width: 0; overflow-wrap: anywhere; }
+.dv-src-pop-row[aria-checked="true"] .dv-src-pop-name { font-weight: 600; }
+.dv-src-pop-val { margin-left: auto; padding-left: 6px; font-variant-numeric: tabular-nums; text-align: right; overflow-wrap: anywhere; }
+.dv-src-pop-val .dv-u { opacity: .74; }
+.dv-src-pop-rung, .dv-src-pop-meta { grid-column: 2; font-size: 11.5px; line-height: 1.35; color: var(--dv-fg); opacity: .74; }
+.dv-src-pop-meta { display: flex; flex-wrap: wrap; column-gap: 10px; row-gap: 1px; min-width: 0; }
+.dv-src-pop-meta > span { min-width: 0; overflow-wrap: anywhere; }
+.dv-src-pop-addr { font-family: var(--dv-mono); font-size: 11px; }
+.dv-src-pop-nominal, .dv-src-pop-differs { flex: 0 0 auto; font-size: 10.5px; line-height: 16px; padding: 0 6px; border-radius: 999px; color: var(--dv-fg); }
+.dv-src-pop-nominal { font-weight: 600; background: color-mix(in srgb, var(--dv-accent) 16%, var(--dv-bg)); }
+.dv-src-pop-differs { background: color-mix(in srgb, var(--dv-tone-warn) 24%, var(--dv-bg)); }
+.dv-src-pop .dv-src-pin { flex: 0 0 auto; display: inline-flex; color: var(--dv-accent); }
+.dv-src-pop .dv-src-pin svg { width: 12px; height: 12px; fill: currentColor; }
+/* a row whose source has a link: the link closes its block, so the two read as one */
+.dv-itemmenu button.dv-src-pop-row.dv-src-pop-linked { padding-bottom: 2px; border-radius: var(--dv-radius) var(--dv-radius) 0 0; }
+.dv-itemmenu a.dv-src-pop-link { display: block; padding: 0 10px 7px 38px; border-radius: 0 0 var(--dv-radius) var(--dv-radius); font-size: 11.5px; line-height: 1.35;
+  color: var(--dv-fg); overflow-wrap: anywhere; }
+.dv-src-pop-url { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.dv-src-pop-arrow { color: var(--dv-accent); }
+.dv-itemmenu a.dv-src-pop-link:hover .dv-src-pop-url { text-decoration-thickness: 2px; }
+/* a source whose value differs from the nominal: a source column's translucent amber, under its hover or focus fill */
+.dv-itemmenu .dv-src-pop-tint { background-color: var(--dv-tone-warn-tint); }
+.dv-itemmenu .dv-src-pop-tint:hover, .dv-itemmenu .dv-src-pop-tint:focus-visible { background-color: var(--dv-hover); background-image: linear-gradient(var(--dv-tone-warn-tint), var(--dv-tone-warn-tint)); }
+.dv-itemmenu .dv-src-pop-row:focus-visible, .dv-itemmenu a.dv-src-pop-link:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+/* Back to precedence: what the row goes back to, beside it */
+.dv-itemmenu button.dv-src-pop-back { display: flex; flex-wrap: wrap; justify-content: space-between; column-gap: 10px; white-space: normal; overflow: visible;
+  border-bottom: 1px solid var(--dv-rule); border-radius: var(--dv-radius) var(--dv-radius) 0 0; margin-bottom: 2px; }
+.dv-src-pop-backval { font-size: 11.5px; opacity: .74; overflow-wrap: anywhere; }

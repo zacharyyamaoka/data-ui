@@ -1,0 +1,6 @@
+{"id": "thermal", "title": "Motor temperature", "titleProperty": "joint",
+ "properties": {
+  "t": {"type": "number", "unit": "s", "label": "Time"},
+  "joint": {"type": "text", "label": "Joint"},
+  "temp_c": {"type": "number", "unit": "°C", "label": "Temperature", "decimals": 1}},
+ "rows": []}

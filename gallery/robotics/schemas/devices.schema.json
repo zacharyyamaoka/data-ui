@@ -1,0 +1,98 @@
+{
+ "name": "devices",
+ "title": "Devices",
+ "description": "One row per device: its type (which channels it writes), its place in the rail, and its limits as columns.",
+ "rowsPer": [
+  "device"
+ ],
+ "required": [
+  "device",
+  "type",
+  "label",
+  "parent",
+  "order"
+ ],
+ "schema": {
+  "fields": [
+   {
+    "name": "device",
+    "type": "string",
+    "description": "the part whose channels the row holds: CAN 12, J3 elbow, gripper"
+   },
+   {
+    "name": "type",
+    "type": "string",
+    "description": "servo, driver, camera, gripper, arm or eef",
+    "constraints": {
+     "enum": [
+      "servo",
+      "driver",
+      "camera",
+      "gripper",
+      "arm",
+      "eef"
+     ]
+    }
+   },
+   {
+    "name": "label",
+    "type": "string"
+   },
+   {
+    "name": "parent",
+    "type": "string",
+    "description": "the device it belongs to (J3 elbow → arm); null at the top"
+   },
+   {
+    "name": "order",
+    "type": "integer",
+    "description": "its place in the rail"
+   },
+   {
+    "name": "q_min_deg",
+    "type": "number",
+    "unit": "deg"
+   },
+   {
+    "name": "q_max_deg",
+    "type": "number",
+    "unit": "deg"
+   },
+   {
+    "name": "q_min_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "q_max_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "qd_max_deg_s",
+    "type": "number",
+    "unit": "deg/s"
+   },
+   {
+    "name": "qd_max_mm_s",
+    "type": "number",
+    "unit": "mm/s"
+   },
+   {
+    "name": "tau_max_nm",
+    "type": "number",
+    "unit": "N·m"
+   },
+   {
+    "name": "i_max_a",
+    "type": "number",
+    "unit": "A"
+   },
+   {
+    "name": "part",
+    "type": "string",
+    "description": "the part's robotparts id"
+   }
+  ]
+ }
+}

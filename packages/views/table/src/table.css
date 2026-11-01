@@ -1,0 +1,376 @@
+/* type: table and type: pivot. From the table lane's views.css (ab5ba92); the host's chrome moved to the core.
+   Colours are the private --dv-* tokens (resolved from --data-* by the core's tokens.css). */
+
+.dv-view-table, .dv-view-pivot { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+.dv-scroll { flex: 1 1 auto; overflow: auto; min-height: 0; position: relative; outline: none; }
+.dv-table { border-collapse: separate; border-spacing: 0; table-layout: fixed; min-width: 100%; }
+/* WHY one divider rule for every cell (2026-10-26 header/divider review, finding 1; Zach: "make sure you are drawing
+   all the lines correctly"): every cell, header or body, draws its own 1 px right edge and bottom edge, so a column's
+   divider runs unbroken from the group row to the last row (Notion's and Sheets' grid). The table's last column leaves
+   its right edge to the frame. Header cells never sit blank: a label spans down over the levels it lacks (columns.js). */
+.dv-table th, .dv-table td { height: var(--dv-row); padding: 0 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-bottom: 1px solid var(--dv-rule); border-right: 1px solid var(--dv-rule); text-align: left; vertical-align: middle; box-sizing: border-box; }
+/* the table's last column (header cells by their span, so a rowspan never confuses it; body cells are one per leaf) */
+.dv-table thead th.dv-end, .dv-table tbody td:last-child { border-right-color: transparent; }
+/* WHY the muted ink a little darker in the header (judge r2 #10): the stock --muted on --subtle reads 4.35:1 at 12 px;
+   15 % of the text colour lifts it (and the unit captions, which inherit it) past 4.5:1 in both themes */
+.dv-table thead th { position: sticky; top: 0; z-index: 2; background: var(--dv-subtle); color: color-mix(in srgb, var(--dv-muted) 85%, var(--dv-fg)); font-weight: 600; font-size: 12px; border-bottom: 1px solid var(--dv-border); border-right-color: var(--dv-border); user-select: none; }
+.dv-table thead :is(th.dv-hl, th.dv-hg) { cursor: pointer; }
+.dv-table thead tr.dv-hgroup { height: 24px; }
+.dv-table thead tr.dv-hleaf { height: var(--dv-row); }
+.dv-table thead th.dv-hg { height: 24px; text-align: center; cursor: default; color: var(--dv-fg); font-weight: 600; }
+.dv-table thead th.dv-hg[data-level="1"] { font-weight: 500; color: var(--dv-muted); }
+/* a label spanning down sits on the bottom line, beside the labels that start there */
+.dv-table thead th.dv-hl { vertical-align: bottom; padding-bottom: 7px; }
+.dv-table thead th.dv-hl[rowspan] { height: auto; }
+.dv-table thead th.dv-ar { text-align: right; }
+.dv-table thead th.dv-am { text-align: left; }
+/* the axis row under a distribution column: its scale's ends, sharing the cells' slots */
+.dv-table thead tr.dv-haxis th { height: 18px; padding-top: 0; padding-bottom: 0; cursor: default; font-weight: 400; background: var(--dv-subtle); }
+.dv-axis line { stroke: var(--dv-muted); stroke-width: 1; }
+.dv-axis text { fill: var(--dv-muted); font-size: 9px; font-variant-numeric: tabular-nums; }
+.dv-table thead th:hover { color: var(--dv-fg); }
+.dv-th-text { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; overflow: hidden; white-space: nowrap; vertical-align: bottom; }
+.dv-ar .dv-th-text { justify-content: flex-end; }
+.dv-th-label { overflow: hidden; text-overflow: ellipsis; min-width: 2ch; flex: 0 1 auto; }
+/* the unit: a muted caption after the name, "(N·m)" */
+/* WHY it shrinks first: in a narrow column the name is what a reader needs; the unit is in the tooltip too */
+.dv-unit { font-weight: 400; color: inherit; flex: 0 10 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.dv-sortmark { color: var(--dv-fg); flex: none; }
+/* a header in its column's slots: the distribution's title centred over the strip, a number's over the number */
+.dv-hslots > .dv-m { overflow: visible; }
+.dv-hslots > .dv-m > .dv-th-text, .dv-hslots > .dv-v > .dv-th-text { overflow: visible; }
+.dv-hslots > .dv-v { overflow: visible; }
+/* WHY 10 px and touch-action: a 6 px target at a line nobody can see is a hunt; the line itself is .dv-resize-guide */
+.dv-resize { position: absolute; top: 0; right: 0; width: 10px; height: 100%; cursor: col-resize; touch-action: none; }
+.dv-resize-guide { position: absolute; top: 0; z-index: 4; width: 2px; background: var(--dv-accent); pointer-events: none; }
+/* the hidden table a double-click measures its fit on */
+.dv-table.dv-fit { position: absolute; left: 0; top: 0; visibility: hidden; pointer-events: none; width: auto; min-width: 0; table-layout: auto; }
+/* a cut-off value, whole, one hover away */
+.dv-cliptip { position: fixed; z-index: 70; box-sizing: border-box; max-width: min(480px, calc(100vw - 16px)); padding: 6px 8px; border: 1px solid var(--dv-border); border-radius: 6px; background: var(--dv-bg); color: var(--dv-fg); font-size: 12.5px; line-height: 1.4; white-space: pre-wrap; overflow-wrap: anywhere; pointer-events: none; box-shadow: 0 4px 14px rgba(0, 0, 0, .18); }
+/* the frozen columns stay put when the table scrolls sideways (Notion's Freeze; the first column by default, `freeze:
+   0` none, a property through it): the header cells carry their left offset, the body's are one rule per frozen column
+   (index.js _freezeCss). With `selectable` (§15) the checkbox column is frozen at the left edge, before them */
+.dv-table thead th.dv-fz { position: sticky; z-index: 3; }
+.dv-table thead th:first-child { z-index: 3; }
+.dv-table thead th.dv-selcol { position: sticky; left: 0; z-index: 4; background: var(--dv-subtle); vertical-align: bottom; padding-bottom: 7px; }
+/* the checkbox column is a gutter, not a data column: no divider of its own (Notion's) */
+.dv-table tr > :is(th, td).dv-selcol { border-right: 0; }
+.dv-row { cursor: pointer; }
+.dv-table .dv-row:hover > td { background: var(--dv-hover); }
+.dv-table .dv-row.dv-active > td { background: var(--dv-accent-bg); }
+/* selection (§15): a narrow checkbox column; a selected row is filled with the accent, mixed opaque so frozen cells cover */
+.dv-table .dv-selcol { width: 32px; padding: 0; text-align: center; text-overflow: clip; }
+/* WHY not core's .dv-none opacity on the cell: a faded cell fades its row's fill too (a lighter square in a zebra or
+   selected row); only the dash fades. The td keeps .dv-none so the cell still says it is empty */
+.dv-table td.dv-none { opacity: 1; }
+.dv-table td.dv-none .dv-nil { opacity: .6; }
+.dv-selcol input { margin: 0; width: 15px; height: 15px; vertical-align: middle; accent-color: var(--dv-accent); cursor: pointer; }
+.dv-table .dv-row.dv-sel > td { background: color-mix(in srgb, var(--dv-accent) 10%, var(--dv-bg)); }
+.dv-table .dv-row.dv-sel:hover > td { background: color-mix(in srgb, var(--dv-accent) 16%, var(--dv-bg)); }
+/* wrap: cells wrap instead of ending in an ellipsis; the row is as tall as its text (the virtualiser measures it) */
+.dv-wrap .dv-table td { white-space: normal; overflow-wrap: anywhere; text-overflow: clip; }
+.dv-table td.dv-num, .dv-table th.dv-num { text-align: right; }
+.dv-num { font-variant-numeric: tabular-nums; }
+.dv-cell { display: inline-flex; align-items: center; justify-content: flex-end; gap: 5px; width: 100%; }
+td:not(.dv-num) .dv-cell { justify-content: flex-start; }
+.dv-n { color: var(--dv-muted); font-size: 10px; min-width: 12px; text-align: right; }
+.dv-empty { color: var(--dv-muted); text-align: center; height: 80px; }
+.dv-table td.dv-nocols { white-space: normal; overflow-wrap: anywhere; }
+.dv-pad td { padding: 0; border: 0; }
+.dv-img { height: calc(var(--dv-row) - 6px); max-width: 100%; object-fit: contain; vertical-align: middle; border-radius: 3px; }
+.dv-table td a { color: var(--dv-accent); }
+.dv-tall .dv-table td { white-space: normal; }
+.dv-table td.dv-wrapcol { overflow: hidden; }
+
+/* group rows */
+.dv-table tr.dv-group > td { background: var(--dv-group); font-weight: 600; cursor: pointer; overflow: visible; }
+.dv-table .dv-group:not(.dv-depth0) > td { font-weight: 500; }
+.dv-table .dv-group:hover > td { background: var(--dv-hover); }
+.dv-chev { display: inline-block; width: 14px; color: var(--dv-muted); }
+.dv-tree-lead { display: inline-flex; width: 18px; flex: 0 0 auto; }
+.dv-tree-toggle { font: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; color: inherit; line-height: 1; }
+.dv-table .dv-tree-heading .dv-gname { color: var(--dv-muted); }
+.dv-table .dv-count { color: var(--dv-muted); font-weight: 400; margin-left: 8px; font-size: 12px; }
+.dv-summary { font-weight: 400; color: var(--dv-muted); }
+.dv-sumname { font-size: 10.5px; text-transform: uppercase; letter-spacing: .03em; opacity: .75; }
+
+/* display types */
+td.dv-d-bar { position: relative; }
+/* WHY dv-barfill, not dv-bar: .dv-bar is the toolbar's class (docs/CONTRACT.md §15) */
+.dv-barfill { position: absolute; left: 6px; right: 6px; top: 6px; bottom: 6px; }
+.dv-barfill span { display: block; height: 100%; background: color-mix(in srgb, var(--dv-series-1) 22%, transparent); border-radius: 3px; }
+.dv-bartext { position: relative; }
+.dv-celltext { font-variant-numeric: tabular-nums; }
+.dv-dist, .dv-spark, .dv-axis { vertical-align: middle; overflow: visible; display: block; }
+/* the distribution (a strip plot with its median: CONTRACT §16): points light, the min–max line thin, the median a
+   tall dark tick, so the one number a reader compares stands out from the runs behind it */
+.dv-dist .dv-pt { fill: var(--dv-series-1); opacity: .45; }
+.dv-dist .dv-whisk { stroke: var(--dv-muted); stroke-width: 1; opacity: .7; }
+.dv-dist .dv-med { stroke: var(--dv-fg); stroke-width: 2.2; }
+/* fixed slots: [number][range][mark][count], each the column's width, so numbers and marks line up down a column */
+.dv-slots { display: grid; align-items: center; column-gap: 6px; width: 100%; font-variant-numeric: tabular-nums; }
+.dv-slots > .dv-v { text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-slots > .dv-r { text-align: left; color: var(--dv-muted); font-size: 11.5px; white-space: nowrap; overflow: hidden; }
+.dv-slots > .dv-m { display: flex; justify-content: center; align-items: center; overflow: visible; }
+/* a count sits flush right in its slot, its right edge one x down the column (review finding 3) */
+.dv-slots > .dv-c { text-align: right; }
+.dv-slots > .dv-c .dv-n { min-width: 0; }
+.dv-table td.dv-d-dist, .dv-table td.dv-d-sparkline, .dv-table td.dv-d-range, .dv-table td.dv-d-value { text-align: right; }
+.dv-part.dv-muted .dv-v { color: var(--dv-muted); }
+.dv-part-basis { color: var(--dv-muted); font-size: 12px; }
+.dv-rolled { color: var(--dv-muted); font-style: italic; }
+.dv-titlelink { color: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: 2px; }
+.dv-spark polyline { fill: none; stroke: var(--dv-series-1); stroke-width: 1.4; }
+
+/* source columns (docs/CONTRACT.md §36): a formula's pill and pin, the "<label> source" column, and the cells of a column a formula reads.
+   Every class carries the kit's dv- prefix (the prototype's .ov and .sm met a host's own CSS). Tokens only, light and dark. */
+.dv-src-in { display: flex; align-items: center; gap: 6px; min-width: 0; }
+/* WHY the value last in a number column: its digits line up down the column, whatever the pill beside it says */
+.dv-num .dv-src-in { flex-direction: row-reverse; }
+/* WHY these shrink factors: as a column narrows the name gives way first, down to nothing, and only then the pill */
+.dv-src-in > .dv-src-link, .dv-src-in > .dv-src-label { flex: 0 1000 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-table a.dv-src-link { color: var(--dv-accent); text-decoration: none; }
+.dv-table a.dv-src-link:hover { text-decoration: underline; text-underline-offset: 2px; }
+.dv-src-label { color: var(--dv-fg); }
+.dv-src-dd { position: relative; flex: 0 1 auto; min-width: 26px; overflow: hidden; text-overflow: clip; font: inherit; font-size: 11.5px; line-height: 18px; padding: 0 17px 0 7px; border: 1px solid var(--dv-border); border-radius: 999px;
+  background: var(--dv-bg); color: var(--dv-muted); cursor: pointer; white-space: nowrap; }
+.dv-src-dd:hover, .dv-src-dd[aria-expanded="true"] { border-color: var(--dv-accent); color: var(--dv-fg); }
+.dv-src-dd:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+/* the sources of this row disagree: an amber chip (the gates' warn tone), its words in the text colour so they stay readable */
+.dv-src-dd[data-conflict] { border-color: color-mix(in srgb, var(--dv-tone-warn) 70%, var(--dv-border)); background: color-mix(in srgb, var(--dv-tone-warn) 15%, var(--dv-bg)); color: var(--dv-fg); }
+/* WHY pinned to the edge: the caret says it is a menu, and must outlast the words when the pill shrinks */
+.dv-src-car { position: absolute; right: 6px; top: 0; opacity: .7; }
+/* a derived value (CONTRACT §36): its source, then a quiet "derived". WHY the text colour at .74 opacity, not --dv-muted:
+   muted text on a striped, hovered or selected row reads under 4.5:1; this reads over 7:1 on the page's own fill */
+.dv-src-derived { flex: 0 0 auto; font-size: 11px; color: var(--dv-fg); opacity: .74; }
+/* chosen by hand for this row: a pin in the accent */
+.dv-src-pin { flex: 0 0 auto; display: inline-flex; color: var(--dv-accent); }
+.dv-src-pin svg { width: 13px; height: 13px; fill: currentColor; }
+
+/* a column a formula reads (CONTRACT §36): the cell it takes outlined in the accent, one that differs tinted amber, one that agrees plain */
+.dv-table .dv-row > td.dv-src-val[data-src-state="shown"] { box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--dv-accent) 55%, transparent); font-weight: 600; }
+.dv-table .dv-row > td.dv-src-val[data-src-state="differs"] { background-color: var(--dv-tone-warn-tint); color: var(--dv-fg); }
+/* hovered or selected, the row's fill stays under the tint (the tint is the cell's own colour otherwise: a measured fill) */
+.dv-table .dv-row:hover > td.dv-src-val[data-src-state="differs"] { background-color: var(--dv-hover); background-image: linear-gradient(var(--dv-tone-warn-tint), var(--dv-tone-warn-tint)); }
+.dv-table .dv-row.dv-sel > td.dv-src-val[data-src-state="differs"] { background-color: color-mix(in srgb, var(--dv-accent) 10%, var(--dv-bg)); background-image: linear-gradient(var(--dv-tone-warn-tint), var(--dv-tone-warn-tint)); }
+.dv-table .dv-row > td.dv-src-val[data-src-state="agrees"] { color: var(--dv-fg); }
+.dv-table .dv-row > td.dv-src-val[data-override]::after { content: ''; display: inline-block; width: 6px; height: 6px; margin-left: 6px; border-radius: 999px; background: var(--dv-accent); vertical-align: middle; }
+
+/* editing in place (docs/CONTRACT.md §37): an editable cell invites the text cursor; the editor sits over it */
+.dv-table td.dv-ed { cursor: text; }
+.dv-table td.dv-ed:hover { box-shadow: inset 0 0 0 1px var(--dv-border); }
+.dv-editlayer { position: absolute; left: 0; top: 0; width: 0; height: 0; z-index: 4; }
+.dv-celledit { position: absolute; margin: 0; }
+.dv-celledit.dv-ed-busy { opacity: .7; }
+/* §46: a markdown cell's editor sits in the row it grew, flush with it: no floating shadow */
+.dv-celledit-grow .dv-ed-box { box-shadow: none; }
+.dv-celledit-grow textarea { max-height: 60vh; overflow: auto; }
+.dv-celledit.dv-ed-over .dv-ed-box { border-color: var(--dv-accent); border-style: dashed; }
+/* §46: the Sheet, a markdown cell's side panel (cell-sheet.js). It sits where the peek does (and under it, if both open), and the table gives up its
+   width while it is open, so the cell being edited is never behind it. Its edge drags (src/resize.js); resize.css reads the remembered width. */
+.dv-cellsheet { position: absolute; z-index: 9; top: 0; right: 0; bottom: 0; width: min(420px, 100%); box-sizing: border-box; display: flex; flex-direction: column; background: var(--dv-bg); color: var(--dv-fg); border-left: 1px solid var(--dv-border); }
+.dv-cellsheet[hidden] { display: none; }
+data-views.dv-has-bar:not(.dv-full):not([data-scroll="page"]) > .dv-cellsheet { top: var(--dv-band-bottom, 0px); }
+data-views[data-scroll="page"] > .dv-cellsheet { position: fixed; top: calc(var(--dv-port-top, 0px) + var(--dv-sticky-top, 0px)); bottom: var(--dv-port-bottom, 0px); right: var(--dv-port-right, 0px); z-index: 29; }
+data-views.dv-has-bar[data-scroll="page"]:not(.dv-full) > .dv-cellsheet { top: var(--dv-pane-top, var(--dv-port-top, 0px)); }
+data-views[data-scroll="page"] > .dv-cellsheet + .dv-splitter { position: fixed; z-index: 31; }
+data-views.dv-sheeted > .dv-stage { margin-right: var(--dv-sheet-w, 420px); }
+.dv-cs-head { display: flex; align-items: center; gap: 10px; padding: 10px 12px 6px; }
+.dv-cs-note { flex: 1 1 auto; min-width: 0; font-size: 13px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-cs-state { flex: 0 0 auto; font-size: 11.5px; color: var(--dv-muted); }
+.dv-cs-x { flex: 0 0 auto; font: inherit; font-size: 13px; line-height: 1; padding: 4px 6px; border: 0; border-radius: var(--dv-radius); background: none; color: var(--dv-muted); cursor: pointer; }
+.dv-cs-x:hover { color: var(--dv-fg); background: var(--dv-subtle); }
+.dv-cs-tabs { display: flex; flex-wrap: wrap; gap: 2px; padding: 0 10px; border-bottom: 1px solid var(--dv-border); }
+.dv-cs-tabs[hidden] { display: none; }
+.dv-cs-tabs button { font: inherit; font-size: 12px; padding: 4px 8px; border: 0; border-bottom: 2px solid transparent; background: none; color: var(--dv-muted); cursor: pointer; }
+.dv-cs-tabs button:hover { color: var(--dv-fg); }
+.dv-cs-tabs button.dv-cs-on { color: var(--dv-fg); border-bottom-color: var(--dv-accent); }
+.dv-cs-body { flex: 1 1 auto; min-height: 0; display: flex; padding: 10px 12px 4px; }
+.dv-cs-body textarea { flex: 1 1 auto; width: 100%; box-sizing: border-box; margin: 0; padding: 8px 10px; resize: none; border: 1px solid var(--dv-border); border-radius: 8px; outline: 0; background: var(--dv-bg); color: var(--dv-fg); font: 12.5px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.dv-cs-body textarea:focus { border-color: var(--dv-accent); }
+.dv-cs-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 4px 12px 10px; min-height: 18px; }
+.dv-cs-foot .dv-ed-msg { flex: 1 1 100%; }
+.dv-cs-acts { display: flex; gap: 6px; margin-left: auto; }
+.dv-cs-acts:empty { display: none; }
+.dv-cs-foot .dv-mc-add { margin-left: auto; }
+.dv-table td.dv-cs-on, .dv-table .dv-row:hover > td.dv-cs-on { box-shadow: inset 0 0 0 2px var(--dv-accent); }
+@media (max-width: 700px) {
+  .dv-cellsheet { width: 100%; z-index: 20; }
+  data-views.dv-sheeted > .dv-stage { margin-right: 0; }
+}
+
+/* the box his sheet shows: a rounded box of the page's own surface, the word in it, the quiet add at its bottom right */
+.dv-ed-box { display: flex; flex-direction: column; gap: 3px; box-sizing: border-box; min-width: 0; padding: 5px 8px 4px; background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 8px; }
+.dv-ed-box:focus-within { border-color: var(--dv-accent); }
+.dv-celledit .dv-ed-box { min-height: inherit; box-shadow: 0 2px 12px color-mix(in srgb, var(--dv-fg) 16%, transparent); }
+.dv-ed-box textarea { display: block; width: 100%; box-sizing: border-box; margin: 0; padding: 0; border: 0; outline: 0; resize: none; overflow: hidden; background: none; color: var(--dv-fg); font: inherit; line-height: 1.4; min-height: 1.4em; }
+.dv-ed-box textarea::placeholder { color: var(--dv-muted); }
+.dv-ed-field :is(input, select) { width: 100%; box-sizing: border-box; font: inherit; color: var(--dv-fg); background: none; border: 0; outline: 0; }
+.dv-ed-foot { display: flex; align-items: center; justify-content: flex-end; gap: 8px; min-height: 16px; }
+.dv-ed-msg { flex: 1 1 auto; min-width: 0; font-size: 11.5px; color: var(--dv-warn); white-space: normal; }
+.dv-ed-msg:empty { display: none; }
+.dv-mc-add { flex: 0 0 auto; font: inherit; font-size: 11.5px; line-height: 16px; padding: 0; border: 0; background: none; color: var(--dv-muted); white-space: nowrap; cursor: pointer; }
+.dv-mc-add:hover { color: var(--dv-fg); }
+.dv-ed-thumbs { display: flex; flex-wrap: wrap; gap: 4px; }
+.dv-ed-thumb { position: relative; display: block; width: 44px; height: 33px; border-radius: 4px; overflow: hidden; background: var(--dv-subtle); }
+.dv-ed-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.dv-ed-video { display: grid; place-items: center; width: 100%; height: 100%; font-size: 10.5px; color: var(--dv-muted); }
+.dv-ed-x { position: absolute; top: 1px; right: 1px; width: 15px; height: 15px; padding: 0; border: 0; border-radius: 999px; background: var(--dv-bg); color: var(--dv-fg); font-size: 12px; line-height: 14px; cursor: pointer; }
+
+/* a media cell: the words as typed, wrapped, never clipped; small thumbnails under them; the add shown on hover */
+.dv-table td.dv-d-media { position: relative; white-space: normal; overflow-wrap: anywhere; text-overflow: clip; vertical-align: top; padding-top: 5px; padding-bottom: 5px; line-height: 1.4; }
+.dv-sheet .dv-table tbody td { vertical-align: top; padding-top: 5px; padding-bottom: 5px; line-height: 1.4; }
+.dv-sheet .dv-table tbody tr.dv-group > td { vertical-align: middle; }
+/* a section's cell (CONTRACT §46): its outline or its first lines, then thumbnails; each line ends in an ellipsis rather than clipping */
+.dv-table td.dv-d-outline, .dv-table td.dv-d-preview { white-space: normal; text-overflow: clip; vertical-align: top; padding-top: 5px; padding-bottom: 5px; line-height: 1.4; }
+.dv-sec { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.dv-sec-line { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.dv-sec-text { display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; white-space: pre-wrap; overflow-wrap: anywhere; }
+.dv-sec-more { margin-left: 6px; color: var(--dv-muted); white-space: nowrap; }
+.dv-sec-thumbs { display: flex; flex-wrap: nowrap; align-items: center; gap: 4px; margin-top: 2px; overflow: hidden; }
+.dv-sec-thumbs img { flex: none; height: 36px; width: auto; max-width: 72px; object-fit: cover; border-radius: 3px; background: var(--dv-subtle); }
+.dv-sec-video { flex: none; display: grid; place-items: center; width: 56px; height: 36px; border-radius: 3px; background: var(--dv-subtle); color: var(--dv-muted); font-size: 11px; }
+.dv-mc-text { display: block; white-space: pre-wrap; overflow-wrap: anywhere; }
+.dv-mc-thumbs { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; }
+.dv-mc-thumbs:first-child { margin-top: 0; }
+.dv-mc-thumb { position: relative; display: block; width: 44px; height: 33px; padding: 0; border: 0; border-radius: 4px; overflow: hidden; background: var(--dv-subtle); cursor: zoom-in; }
+.dv-mc-thumb :is(img, video) { display: block; width: 100%; height: 100%; object-fit: cover; }
+.dv-mc-play { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-size: 11px; text-shadow: 0 0 3px #000; }
+.dv-mc-away { align-self: center; font-size: 11px; color: var(--dv-muted); }
+.dv-table td.dv-d-media > .dv-mc-add { position: absolute; right: 8px; bottom: 3px; padding: 0 0 0 6px; background: inherit; opacity: 0; }
+.dv-table td.dv-d-media:hover > .dv-mc-add, .dv-table td.dv-d-media > .dv-mc-add:focus-visible { opacity: 1; }
+@media (hover: none) { .dv-table td.dv-d-media > .dv-mc-add { opacity: .8; } }
+
+/* the add row: the same cells, above the rows */
+.dv-table thead tr.dv-addrow > td { height: auto; padding: 6px 8px; white-space: normal; overflow: visible; vertical-align: top; background: var(--dv-subtle); border-bottom: 1px solid var(--dv-border); color: var(--dv-fg); font-weight: 400; font-size: inherit; cursor: default; }
+.dv-table thead tr.dv-addrow > td.dv-addcyc { text-align: center; }
+.dv-cycle { font: inherit; border: 0; cursor: pointer; }
+.dv-add-go { margin: 0 6px 0 0; }
+.dv-add-msg { display: block; margin-top: 3px; }
+
+/* a row's way in on a sheet whose cells take a click (CONTRACT §38): shown on hover, as Notion's OPEN */
+/* WHY not the first data column beside the checkboxes: it is frozen, and a sticky cell already holds its Open; made relative here, its
+   `left` moved it 32 px over the next column (CONTRACT §40, tests/browser/notion_table_checks.py surfaces) */
+.dv-table tr > td.dv-hasopen:not(:first-child, .dv-selcol + td) { position: relative; }
+.dv-row-open { position: absolute; top: 4px; right: 6px; font: inherit; font-size: 11px; line-height: 16px; padding: 0 6px; border: 1px solid var(--dv-border); border-radius: 4px; background: var(--dv-bg); color: var(--dv-muted); cursor: pointer; opacity: 0; }
+.dv-table tr:hover .dv-row-open, .dv-table tr:focus-within .dv-row-open, .dv-row-open:focus-visible { opacity: 1; }
+.dv-row-open:hover { color: var(--dv-fg); }
+@media (hover: none) { .dv-row-open { opacity: .8; } }
+
+/* the basis sub-column: its mark starts on the cell's text edge, where its header starts (review finding 4) */
+.dv-part-basis .dv-basis { margin-left: 0; }
+/* property types (CONTRACT §28): a typed cell lays its drawing out on one line; Wrap in view lets text and pills wrap
+   (three lines at most: the rows keep their height; the full value is in the hover and the peek) */
+.dv-table td.dv-d-type { text-overflow: clip; }
+.dv-table td.dv-t-number, .dv-table td.dv-t-currency, .dv-table td.dv-t-percent { text-align: left; }
+/* WHY dv-wrapcol, not dv-wrap: §15's dv-wrap is the element's class for wrap: true (every cell, rows measured) */
+.dv-table td.dv-wrapcol { white-space: normal; }
+/* one box per wrapping cell (index.js _box): text clamps to the row's lines with an ellipsis, pills wrap on 18 px lines,
+   and the box is never taller than those lines, so the row stays the height the virtualiser placed it at */
+.dv-wrapbox { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: var(--dv-wrap-lines, 3); line-height: 18px;
+  max-height: calc(var(--dv-wrap-lines, 3) * 18px); overflow: hidden; overflow-wrap: anywhere; }
+.dv-wrapbox:has(> .dv-opts, > .dv-typed, > .dv-slots, > .dv-progress) { display: block; }
+/* WHY a block as wide as the cell (judge r5 #4): an inline block shrinks around its pills or chips and splits the cut
+   between them; as the cell's block the first stays whole and the rest end in an ellipsis */
+.dv-table td > :is(.dv-opts, .dv-files, .dv-people, .dv-rels) { display: block; }
+.dv-wrap .dv-table td > .dv-opts { display: flex; flex-wrap: wrap; gap: 2px 4px; white-space: normal; }
+.dv-wrapbox .dv-opts { display: flex; flex-wrap: wrap; row-gap: 2px; column-gap: 4px; }
+.dv-wrapbox .dv-opt, .dv-wrapbox .dv-statuspill { line-height: 16px; }
+/* Notion's Calculate row: at the foot of the rows, sticky, muted label then the value */
+.dv-table tfoot td { position: sticky; bottom: 0; z-index: 2; background: var(--dv-subtle); height: 28px; border-top: 1px solid var(--dv-border); border-bottom: 0; font-variant-numeric: tabular-nums; font-size: 12px; color: var(--dv-fg); }
+.dv-table tfoot td.dv-fz { z-index: 3; }
+.dv-table tfoot td.dv-end { border-right-color: transparent; }
+.dv-table tfoot .dv-sumname { margin-right: 4px; }
+
+/* Notion's column-header menu (colmenu.js): a light card, icon + label rows, pages with a ‹ back row */
+/* WHY :not(.dv-pop): §40's column menu is the element's own popover with this class too */
+.dv-colmenu:not(.dv-pop) { position: absolute; z-index: 40; max-height: 70vh; overflow: auto; padding: 6px; background: var(--dv-bg); color: var(--dv-fg);
+  border: 1px solid var(--dv-border); border-radius: 10px; box-shadow: 0 10px 30px rgb(0 0 0 / .14), 0 2px 6px rgb(0 0 0 / .08); font-size: 13.5px; }
+.dv-colmenu:not(.dv-pop):focus { outline: none; }
+.dv-cm-item, .dv-cm-type { display: flex; align-items: center; gap: 10px; width: 100%; font: inherit; color: inherit; background: none; border: 0; border-radius: 6px; padding: 6px 8px; cursor: pointer; text-align: left; }
+.dv-cm-item:hover, .dv-cm-item:focus-visible, .dv-cm-type:hover, .dv-cm-type:focus-visible { background: var(--dv-hover); outline: none; }
+.dv-cm-ico { display: inline-flex; width: 16px; justify-content: center; color: var(--dv-muted); flex: none; }
+.dv-cm-label { flex: 1 1 auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dv-cm-hint { color: var(--dv-muted); font-size: 12px; white-space: nowrap; }
+.dv-cm-more, .dv-cm-check { color: var(--dv-muted); flex: none; }
+.dv-cm-check { color: var(--dv-accent); font-weight: 600; }
+.dv-cm-danger:hover, .dv-cm-danger:focus-visible { color: var(--dv-c-red, #d44c47); }
+.dv-cm-danger:hover .dv-cm-ico, .dv-cm-danger:focus-visible .dv-cm-ico { color: inherit; }
+.dv-cm-sep { height: 1px; background: var(--dv-border); margin: 5px 4px; }
+.dv-cm-name { display: flex; align-items: center; gap: 6px; padding: 2px 2px 6px; }
+.dv-cm-name.dv-cm-ro { padding: 6px 8px; gap: 8px; font-weight: 600; }
+.dv-cm-name.dv-cm-ro > span:nth-child(2) { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-cm-iconbtn { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 6px; border: 1px solid var(--dv-border); background: var(--dv-bg); cursor: pointer; color: var(--dv-muted); }
+.dv-cm-iconbtn:hover { background: var(--dv-hover); }
+.dv-cm-iconbtn .dv-ticon { width: 16px; height: 16px; }
+.dv-cm-input, .dv-colmenu:not(.dv-pop) input, .dv-colmenu:not(.dv-pop) select, .dv-colmenu:not(.dv-pop) textarea { font: inherit; font-size: 13px; color: var(--dv-fg); background: var(--dv-subtle); border: 1px solid var(--dv-border); border-radius: 6px; padding: 5px 8px; min-width: 0; }
+.dv-cm-name .dv-cm-input { flex: 1 1 auto; height: 32px; }
+.dv-colmenu:not(.dv-pop) :is(input, select, textarea):focus { outline: 2px solid var(--dv-accent); outline-offset: -1px; }
+.dv-cm-head { display: flex; align-items: center; gap: 6px; padding: 2px 2px 6px; margin-bottom: 4px; border-bottom: 1px solid var(--dv-border); }
+.dv-cm-back { display: inline-flex; background: none; border: 0; border-radius: 6px; padding: 4px; cursor: pointer; color: var(--dv-muted); }
+.dv-cm-back:hover, .dv-cm-back:focus-visible { background: var(--dv-hover); color: var(--dv-fg); outline: none; }
+.dv-cm-title { font-weight: 600; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-cm-sub { color: var(--dv-muted); font-size: 11.5px; font-weight: 500; padding: 8px 8px 4px; }
+.dv-cm-note { color: var(--dv-muted); font-size: 12px; margin: 4px 8px 6px; line-height: 1.4; }
+.dv-cm-types { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2px; }
+.dv-cm-type { padding: 6px 8px; font-size: 13px; }
+.dv-cm-type.dv-on { background: var(--dv-subtle); font-weight: 600; }
+.dv-cm-icons { display: grid; grid-template-columns: repeat(8, 1fr); gap: 2px; padding: 4px; }
+.dv-cm-icon { display: inline-flex; align-items: center; justify-content: center; height: 30px; border: 0; border-radius: 6px; background: none; color: var(--dv-fg); cursor: pointer; }
+.dv-cm-icon:hover, .dv-cm-icon:focus-visible { background: var(--dv-hover); outline: none; }
+.dv-cm-icon.dv-on { background: var(--dv-subtle); box-shadow: inset 0 0 0 1px var(--dv-accent); }
+.dv-cm-field { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 8px; font-size: 13px; }
+.dv-cm-field > :is(select, input) { max-width: 60%; }
+.dv-cm-field.dv-cm-col { flex-direction: column; align-items: stretch; }
+.dv-cm-field textarea { width: 100%; resize: vertical; }
+.dv-cm-toggle { justify-content: flex-start; }
+.dv-cm-options { list-style: none; margin: 0; padding: 0 4px; display: grid; gap: 4px; }
+.dv-cm-options li { display: flex; align-items: center; gap: 6px; }
+.dv-cm-options li .dv-opt { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; justify-content: flex-start; }
+.dv-cm-options select { font-size: 12px; padding: 2px 4px; }
+.dv-cm-rule { display: flex; gap: 6px; align-items: center; padding: 4px 6px; }
+.dv-cm-rule code { flex: 1 1 auto; min-width: 0; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-cm-rule > :is(select, input) { flex: 1 1 0; }
+.dv-cm-x { background: none; border: 0; color: var(--dv-muted); cursor: pointer; border-radius: 4px; }
+.dv-cm-x:hover { background: var(--dv-hover); color: var(--dv-fg); }
+.dv-cm-primary { justify-content: center; color: var(--dv-accent); font-weight: 600; }
+.dv-cm-err { color: var(--dv-warn); font-size: 12px; margin: 4px 8px; }
+.dv-cm-err[hidden] { display: none; }
+.dv-table thead th.dv-hl[aria-expanded="true"] { background: var(--dv-hover); color: var(--dv-fg); }
+/* the box and the violin (columns.js distSvg): the same ink as the strip, the median still the darkest mark */
+.dv-dist .dv-box { fill: color-mix(in srgb, var(--dv-series-1) 22%, transparent); stroke: var(--dv-series-1); stroke-width: 1; }
+.dv-dist .dv-violin { fill: color-mix(in srgb, var(--dv-series-1) 30%, transparent); stroke: var(--dv-series-1); stroke-width: .8; stroke-linejoin: round; }
+.dv-cm-item[disabled] { opacity: .45; cursor: default; }
+.dv-cm-item[disabled]:hover { background: none; }
+/* a distribution's title: its name over its unit, centred over the strip (index.js; judge r2, round 1 #2) */
+.dv-th-stack { flex-direction: column; align-items: center; gap: 0; line-height: 14px; }
+.dv-th-stack .dv-th-row { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; }
+.dv-th-stack .dv-unit { font-size: 11px; line-height: 13px; }
+.dv-hslots > .dv-m > .dv-th-stack { white-space: nowrap; }
+/* the title may be wider than the strip it is centred over: the cell (minWidth) holds it, not the 84 px slot */
+.dv-hslots > .dv-m > .dv-th-stack, .dv-hslots > .dv-m > .dv-th-stack .dv-th-row { max-width: none; overflow: visible; }
+.dv-hslots > .dv-m > .dv-th-stack .dv-th-label { overflow: visible; flex: none; }
+/* a rich cell drawn by a type: the drawing, then its range and basis mark (index.js, found by the table-oracle review) */
+.dv-typedrich { display: flex; align-items: center; gap: 6px; width: 100%; min-width: 0; }
+.dv-typedrich > .dv-progress, .dv-typedrich > .dv-opts { flex: 1 1 auto; min-width: 0; }
+.dv-typedrich > .dv-range { flex: none; color: var(--dv-muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.dv-typedrich > .dv-basis { flex: none; margin-left: 0; }
+/* CONTRACT §43: the avatar display, a badge list's "+N", and the pager */
+/* an initials chip before the name, filled with its colour slot (a badge's --dv-badge), the name semibold (Polaris'
+   IndexTable primary column) */
+.dv-avatar { display: inline-grid; place-items: center; flex: none; width: 20px; height: 20px; margin-right: 8px; border-radius: 50%;
+  background: var(--dv-badge, var(--dv-series-1)); color: var(--dv-on-accent); font-size: 8.5px; font-weight: 700; letter-spacing: .02em;
+  line-height: 1; vertical-align: middle; }
+.dv-avatar-name { font-weight: 650; vertical-align: middle; }
+.dv-badge-more { color: var(--dv-muted); font-size: 11.5px; font-weight: 500; }
+/* Shopify's "‹ 1–50 ›": a small raised pill under the rows, its arrows disabled at either end */
+.dv-pager { display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; flex: none; margin: 8px; padding: 4px;
+  border-radius: calc(var(--dv-radius) * 2); background: var(--dv-bg); color: var(--dv-fg);
+  box-shadow: 0 0 0 1px var(--dv-border), 0 4px 6px -2px color-mix(in srgb, var(--dv-fg) 20%, transparent); font-variant-numeric: tabular-nums; }
+.dv-pager[hidden] { display: none; }
+.dv-pager-step { display: inline-grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; border-radius: var(--dv-radius);
+  background: none; color: var(--dv-fg); font: inherit; font-size: 16px; line-height: 1; cursor: pointer; }
+.dv-pager-step:hover:not(:disabled) { background: var(--dv-hover); }
+.dv-pager-step:disabled { color: var(--dv-muted); opacity: .5; cursor: default; }
+.dv-pager-step:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.dv-pager-range { font-weight: 550; min-width: 2.5em; text-align: center; }

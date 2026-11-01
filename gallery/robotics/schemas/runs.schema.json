@@ -1,0 +1,90 @@
+{
+ "name": "runs",
+ "title": "Runs",
+ "description": "One row per run: one execution, with a stable unique id. The deployments registry is the host's (PEP 0010 §8).",
+ "rowsPer": [
+  "run"
+ ],
+ "required": [
+  "run",
+  "deployment",
+  "started",
+  "duration_s",
+  "kind",
+  "devices",
+  "situations",
+  "rate_hz",
+  "display_hz"
+ ],
+ "schema": {
+  "fields": [
+   {
+    "name": "run",
+    "type": "string",
+    "description": "the run's stable, unique id (runs.json)"
+   },
+   {
+    "name": "deployment",
+    "type": "string",
+    "description": "the installed machine the run ran on: the 1-DOF rack, the UR5e cell"
+   },
+   {
+    "name": "started",
+    "type": "datetime",
+    "description": "the run's start, ISO 8601 with its UTC offset; the absolute order of runs"
+   },
+   {
+    "name": "duration_s",
+    "type": "number",
+    "unit": "s",
+    "description": "the run's length"
+   },
+   {
+    "name": "kind",
+    "type": "string",
+    "description": "what the run did: waypoints, sine, chirp, staircase, gravity, tape"
+   },
+   {
+    "name": "devices",
+    "type": "array",
+    "description": "the devices the run has rows for"
+   },
+   {
+    "name": "situations",
+    "type": "array",
+    "description": "the situations (series) the run has"
+   },
+   {
+    "name": "rate_hz",
+    "type": "number",
+    "unit": "Hz",
+    "description": "the rate the run was logged at"
+   },
+   {
+    "name": "display_hz",
+    "type": "number",
+    "unit": "Hz",
+    "description": "the rate written for display, by picking rows (never averaging)"
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "description": "a short name for the run"
+   },
+   {
+    "name": "basis",
+    "type": "string",
+    "description": "what made the numbers: a CONTRACT §7 basis word"
+   },
+   {
+    "name": "url",
+    "type": "string",
+    "description": "the run's page"
+   },
+   {
+    "name": "note",
+    "type": "string"
+   }
+  ]
+ }
+}

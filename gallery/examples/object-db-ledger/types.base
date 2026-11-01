@@ -1,0 +1,33 @@
+# Proposal 2 · Table-first: ~/bam-waste-objects/views/Types.base (bam-waste-objects @ 3a3be7a, written by
+# `object-db bases`), read by data-ui. The verbatim file is library/Types.base; the edits are marked EDIT below.
+# Check it: node bin/data-ui.mjs check gallery/examples/object-db-ledger/types.base
+data: ../object-db-shelf/types.json   # EDIT 1 (added): data-ui reads a data file; Obsidian reads the vault's notes
+filters:
+  and:
+    # EDIT 2 (commented out): - file.inFolder("types")  data-ui has no vault folders; the data file IS that folder
+    - 'kind == "type"'
+# formulas:   # EDIT 3
+  # instances: 'file.backlinks.filter(value.asFile().inFolder("objects")).length'   # EDIT 3: data-ui does not evaluate formulas
+properties:
+  note.name:
+    displayName: "Name"
+  note.typical_mass_g:
+    displayName: "Typical mass (g)"
+  instances:   # EDIT 3: the backlink count, precomputed by the export
+    displayName: "Instances"
+views:
+  - type: table
+    name: "Types"
+    order:
+      - name
+      - material
+      - form
+      - colour
+      - grade
+      - typical_mass_g
+      - instances   # EDIT 3: the backlink count, precomputed by the export
+    sort:
+      - property: name
+        direction: ASC
+    summaries:
+      instances: Sum   # EDIT 3: the backlink count, precomputed by the export

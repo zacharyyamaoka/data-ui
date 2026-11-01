@@ -1,0 +1,25 @@
+# Garbage flows between Metro Vancouver facilities, 2024 (docs/CONTRACT.md §42: flows). Most splits are synthetic.
+data: flows.json
+properties:
+  from: { displayName: From }
+  to: { displayName: To }
+  tonnes: { displayName: Tonnes }
+  basis: { displayName: Basis }
+  material: { displayName: Material }
+views:
+  - type: map
+    name: Flows by tonnes
+    mapTiles: ../map-food-heatmap/metro-vancouver.pmtiles
+    layers:
+      - { type: flows, from: origin, to: destination, width: { property: tonnes, max: 16 }, color: basis }
+  - type: map
+    name: Published only
+    filters: 'basis == "published"'
+    mapTiles: ../map-food-heatmap/metro-vancouver.pmtiles
+    layers:
+      - { type: flows, from: origin, to: destination, width: { property: tonnes, max: 16 }, color: var(--data-series-1) }
+  - type: table
+    name: Flows
+    order: [from, to, tonnes, material, basis, year]
+    sort:
+      - { property: tonnes, direction: DESC }

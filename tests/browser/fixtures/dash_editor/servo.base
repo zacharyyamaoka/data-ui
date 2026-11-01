@@ -1,0 +1,82 @@
+# Servo overview: the agent's dashboard for one servo and its twin, built from the robotics-servo template.
+# Six real rack runs of CAN 12 and CAN 14, each replayed through its motor's twin. The runs table picks a run; every
+# time series follows it on one clock. Real is the strong blue, the twin orange, the target dashed and muted.
+data: runs.json
+style:
+  chrome: minimal
+  numbers: { digits: 4, compact: true }
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: samples, time: t }
+datasets:
+  runs:
+    data: runs.json
+    label: Runs
+    facets:
+      - { property: run, as: select, label: Run }
+      - { property: kind, label: Run kind }
+  samples:
+    data: samples.json
+    label: Samples
+links:
+  # WHY one-way: a run pick narrows the samples; the samples never narrow the runs
+  - { from: runs.run, to: samples.run, direction: one-way }
+
+layout:
+  panels:
+    - { view: Twin q RMS, w: 4 }
+    - { "view": Duration, w: 4 }  # quoted by hand, and an edit keeps the quotes
+    - { view: Logged at, w: 4 }
+    # the picker: tall enough for six runs
+    - view: Runs
+      # a comment inside an entry stays with it
+      w: 12
+      h: 3
+    - { view: Playback, w: 12 }
+    - { view: Angle, w: 6, h: 3 }  # the tracking plot
+    - { view: Velocity, w: 6, h: 3 }
+    # the agent's note on what the twin check means
+    - text: "**Twin check** · each real run's command is replayed through its motor's twin (bam_rack_twin); *Twin q RMS* is real − twin, in mrad."
+      w: 12
+
+views:
+  # the picked run's headline numbers (the rail's Run pick leaves one run)
+  - type: kpi
+    name: Twin q RMS
+    from: runs
+    kpi:
+      label: Twin q RMS
+      value: { property: q_rms_mrad, summary: Median }
+  - type: kpi
+    name: Duration
+    from: runs
+    kpi:
+      label: Duration
+      value: { property: duration_s, summary: Median }
+  - type: kpi
+    name: Logged at
+    from: runs
+    kpi:
+      label: Logged at
+      value: { property: rate_hz, summary: Median }
+  # the runs table picks a run on the rail; the newest, its first row, when the page opens
+  - type: table
+    name: Runs
+    from: runs
+    select: run
+    selected: first
+    order: [when, run, devices, kind, duration_s, q_rms_mrad, held_out]
+    sort:
+      - { property: started, direction: DESC }
+  - type: playback
+    name: Playback
+    playback: { readout: true }
+  - type: timeseries
+    name: Angle
+    from: samples
+    timeseries: { x: t, 'y': q_deg, series: situation, dash: [target], legend: top, unit: '°' }
+  # the velocity plot: a comment above a view stays with it
+  - type: timeseries
+    name: Velocity  # a comment on the name line stays too
+    from: samples
+    # the same axes as Angle
+    timeseries: { x: t, 'y': qd_deg_s, series: situation, dash: [target], legend: top, unit: '°/s' }

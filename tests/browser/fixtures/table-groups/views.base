@@ -1,0 +1,33 @@
+# A made-up servo's parameters, as firmware names them (tests/browser/table_groups_checks.py, tests/unit/group-paths.test.mjs)
+data: params.json
+views:
+  - type: table
+    name: Nested
+    order: [name, nominal, value, note]
+    groupBy: { property: section, path: dotted }
+  - type: table
+    name: Flat
+    order: [name, nominal, value, note]
+    groupBy: { property: section }
+  - type: table
+    name: Declared
+    order: [name, value]
+    groupBy: { property: trail, path: dotted }
+  - type: table
+    name: Sorted
+    order: [name, value]
+    sort: [{ property: value, direction: DESC }]
+    groupBy: { property: section, path: dotted }
+  - type: list
+    name: Outline
+    order: [name, value]
+    groupBy: { property: section, path: dotted }
+  - type: cards
+    name: Sections
+    order: [name, value]
+    sections: true
+    groupBy: { property: section, path: dotted }
+  - type: kanban
+    name: Board
+    order: [name, value]
+    groupBy: { property: section, path: dotted }

@@ -1,0 +1,49 @@
+# Proposal 3 · Taxonomy-first ("the family tree"). The library as its own structure: family -> material -> type, each
+# node carrying the library-wide instance count (the producer's number, from taxonomy.json). The graph is React Flow
+# (the graph view); the outline is the table's tree. A type's peek is its representative object in 3D, and on the
+# prototype page a full-height stage beside the graph turns the selected type's model (3D as a full pane).
+# Edges are the frontmatter's own links (type -> material, material -> family); nothing is inferred
+# (feedback_do_not_invent_undefined_relationships). New views over a generated node list.
+# Check it: node bin/data-ui.mjs check gallery/examples/object-db-taxonomy/views.base
+data: ../object-db-shelf/taxonomy.json
+facets:
+  - { property: kind, label: Level }
+  - { property: instances, as: slider-histogram, log: true, label: Instances }
+properties:
+  name: { displayName: Name }
+  kind: { displayName: Level }
+  instances: { displayName: Instances }
+  example: { displayName: Example object }
+  density_g_cm3: { displayName: Density (g/cm³) }
+views:
+  - type: graph
+    name: Families and materials
+    filters: 'kind != "type"'
+    edges: { property: parent }
+    # WHY RL: 26 materials in one rank fit to a hairline across the page (TB); stacked, they read
+    layout: { algorithm: dagre, direction: RL }
+    order: [instances, density_g_cm3]
+  - type: table
+    name: Outline
+    tree: { parent: parent }
+    order: [name, kind, instances, example, density_g_cm3]
+    display: { instances: bar }
+    sort:
+      - { property: instances, direction: DESC }
+  - type: graph
+    name: Family tree
+    edges: { property: parent }
+    layout: { algorithm: dagre, direction: RL }
+    order: [kind, instances]
+  - type: cards
+    name: Types as cards
+    filters: 'kind == "type"'
+    groupBy: { property: parent, direction: ASC }
+    order: [name, instances, example]
+    image: thumbnail
+    mesh: mesh
+    meshView: mesh_view
+    imageFit: contain
+    cardSize: 160
+    sort:
+      - { property: instances, direction: DESC }

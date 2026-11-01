@@ -1,0 +1,51 @@
+{
+ "title": "components",
+ "schema": {
+  "fields": [
+   {
+    "name": "id",
+    "type": "string"
+   },
+   {
+    "name": "label",
+    "type": "string"
+   },
+   {
+    "name": "parent",
+    "type": "string"
+   },
+   {
+    "name": "worst",
+    "type": "integer",
+    "display": "status",
+    "labels": {
+     "0": "pass",
+     "1": "warn",
+     "2": "not run",
+     "3": "stale",
+     "4": "fail"
+    }
+   }
+  ]
+ },
+ "rows": [
+  {
+   "id": "rig",
+   "label": "Rig",
+   "parent": null,
+   "worst": null
+  },
+  {
+   "id": "A",
+   "label": "Station A",
+   "parent": "rig",
+   "worst": null
+  },
+  {
+   "id": "B",
+   "label": "Station B",
+   "parent": "rig",
+   "worst": null
+  }
+ ]
+}

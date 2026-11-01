@@ -1,0 +1,26 @@
+# A synthetic sorting line on a floor plan in metres (docs/CONTRACT.md §42: space: local).
+data: line.json
+properties:
+  name: { displayName: Equipment }
+  kind: { displayName: Kind }
+  status: { displayName: Status }
+  picks_per_hour: { displayName: Picks per hour }
+  purity: { displayName: Purity }
+views:
+  - type: map
+    name: Floor plan
+    space: local
+    coordinates: xy
+    layers:
+      - { type: regions, geometry: plan.geojson, key: id, join: id, color: kind, title: Plan }
+      - { type: points, color: status, size: { property: picks_per_hour, max: 16 }, label: name, title: Robots by status }
+  - type: map
+    name: Bin purity
+    space: local
+    coordinates: xy
+    layers:
+      - { type: regions, geometry: plan.geojson, key: id, join: id, value: purity, classes: { method: equal, count: 3 }, title: Bin purity }
+  - type: table
+    name: Equipment
+    groupBy: { property: kind, direction: ASC }
+    order: [name, kind, status, picks_per_hour, purity, xy]

@@ -1,0 +1,90 @@
+{
+ "id": "admin-deals",
+ "title": "Deals",
+ "titleProperty": "deal",
+ "source": "invented for the data-ui gallery (gallery/examples/admin-shopify/source/build_data.py)",
+ "properties": {
+  "deal": {
+   "type": "text",
+   "label": "Deal"
+  },
+  "organization": {
+   "type": "text",
+   "label": "Organization"
+  },
+  "stage": {
+   "type": "text",
+   "label": "Stage",
+   "display": "badge",
+   "colors": {
+    "Idea": 0,
+    "Won": 6,
+    "Lost": 8
+   }
+  },
+  "facility": {
+   "type": "text",
+   "label": "Facility"
+  },
+  "due": {
+   "type": "date",
+   "label": "Due"
+  },
+  "next_step": {
+   "type": "text",
+   "label": "Next step"
+  },
+  "value": {
+   "type": "number",
+   "label": "Value",
+   "unitText": "CAD"
+  }
+ },
+ "rows": [
+  {
+   "id": "food-court-tray-sort-a-sorting-cell-pilot",
+   "deal": "Food-court tray sort: a sorting cell pilot",
+   "organization": "Loopline Recycling",
+   "stage": "Idea",
+   "facility": "Loopline Recycling (commercial recycler)",
+   "due": "2026-11-05",
+   "next_step": "Send the follow-up note (sprint: Oct 14, not yet sent)",
+   "value": null
+  },
+  {
+   "id": "glove-line-offcuts-a-demo-then-a-sorting-pilot",
+   "deal": "Glove-line offcuts: a demo, then a sorting pilot",
+   "organization": "Veridian Glove Works",
+   "stage": "Idea",
+   "facility": "Veridian Glove Works (PPE manufacturer)",
+   "due": "2026-11-05",
+   "next_step": "Send the follow-up note (sprint: Oct 15, not yet sent)",
+   "value": null
+  },
+  {
+   "id": "pilot-v1-one-arm-over-one-bin-of-mixed-clinic-waste",
+   "deal": "Pilot V1: one arm over one bin of mixed clinic waste",
+   "organization": "Alderbank Medical Waste",
+   "stage": "Idea",
+   "facility": "Alderbank Medical Waste (small medical-waste hauler)",
+   "due": "2026-11-13",
+   "next_step": "Send the owner the five sizing questions",
+   "value": {
+    "value": 20,
+    "unit": "CAD",
+    "basis": "estimate",
+    "note": "a guess"
+   }
+  },
+  {
+   "id": "transfer-station-a-sorting-line-by-year-end",
+   "deal": "Transfer station: a sorting line by year end",
+   "organization": "Harbour City Regional District",
+   "stage": "Idea",
+   "facility": "Harbour City Recycling and Waste Centre",
+   "due": "2026-12-31",
+   "next_step": null,
+   "value": null
+  }
+ ]
+}

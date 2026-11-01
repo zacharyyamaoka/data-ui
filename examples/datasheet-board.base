@@ -1,0 +1,14 @@
+# The GIM4305-10 datasheet's "what to measure next" as a board: Bases' own kanban type (Obsidian 1.14+, built in),
+# grouped by status, so stock Obsidian draws it too. The rows are the table lane's datasheet snapshot.
+#   Check it:  python3 tools/check_views.py examples/datasheet-board.base --data <lane>/site/data/datasheet.json
+views:
+  - type: kanban
+    name: To measure next
+    filters:
+      or:
+        - 'status == "missing"'
+        - 'status == "partial"'
+        - 'status == "candidate"'
+    groupBy: { property: status }
+    groupOrder: [missing, partial, candidate]
+    order: [field, section, models, bench]

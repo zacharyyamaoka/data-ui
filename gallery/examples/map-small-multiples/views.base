@@ -1,0 +1,19 @@
+# Disposal per person in six years, one shared legend (docs/CONTRACT.md §42: multiples).
+data: ../map-bc-disposal/disposal.json
+properties:
+  district: { displayName: District }
+  year: { displayName: Year }
+  kg_per_capita: { displayName: Disposal per person }
+views:
+  - type: map
+    name: Six years
+    filters: 'year == 2000 || year == 2005 || year == 2010 || year == 2015 || year == 2020 || year == 2024'
+    multiples: { by: year, columns: 3 }
+    layers:
+      - { type: regions, geometry: ../map-bc-disposal/districts.geojson, key: rd, join: rd, value: kg_per_capita, classes: { method: quantile, count: 5 } }
+  - type: pivot
+    name: By year
+    filters: 'year == 2000 || year == 2005 || year == 2010 || year == 2015 || year == 2020 || year == 2024'
+    groupBy: { property: district, direction: ASC }
+    splitBy: [year]
+    value: { property: kg_per_capita, summary: Max }

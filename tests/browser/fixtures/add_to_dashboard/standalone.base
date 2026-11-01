@@ -1,0 +1,11 @@
+# A plain views file (tests/browser/add_to_dashboard_checks.py): one <data-views> with its rail, the full toolbar or
+# the bar; a reader adds what they see (rail picks, search, sort) to a dashboard.
+data: runs.json
+facets: [robot, kind]
+views:
+  - type: table
+    name: Runs
+    order: [run, robot, kind, started, success]
+  - type: chart
+    name: Success by run
+    chart: { mark: point, encoding: { x: { field: started, type: temporal }, y: { field: success, type: quantitative }, color: { field: robot, type: nominal } } }

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard editor fixture</title>
+<!-- tests/browser/dash_editor_checks.py. Served from the repo root, so the kit is /dist/. THIS PAGE IS THE HOST: data-ui
+     never writes a file (CONTRACT §34), so the page keeps every text it is handed, serves it back when the dashboard reads
+     its files again, and lists saved.base as the queue through dashboards(). `?nohost=1` removes all of that: no listener
+     and no hook, what a static page gets. -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: #fff; color: #18181b; }
+  @media (prefers-color-scheme: dark) { body { background: #111113; color: #ececef; } }
+</style>
+<script>
+  (() => {
+    const params = new URLSearchParams(location.search);
+    const KEY = 'dash-editor-fixture/';
+    const nameOf = (url) => new URL(url, location.href).pathname.split('/').pop();
+    const kept = (name) => { try { return localStorage.getItem(KEY + name); } catch { return null; } };
+    const host = window.host = { saves: [], adds: [], fail: null, files: {}, reads: [] };
+    host.put = (name, text) => { host.files[name] = text; try { localStorage.setItem(KEY + name, text); } catch { /* this visit only */ } };
+    host.reset = () => { host.files = {}; for (const k of Object.keys(localStorage)) if (k.startsWith(KEY)) localStorage.removeItem(k); };
+    const real = window.fetch.bind(window);
+    window.fetch = (input, init) => {
+      const url = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
+      const name = nameOf(url);
+      if (/\.base$/.test(name)) {
+        host.reads.push(name);
+        const text = host.files[name] ?? kept(name);
+        if (text !== null && text !== undefined) return Promise.resolve(new Response(text, { status: 200, headers: { 'content-type': 'text/plain' } }));
+      }
+      return real(input, init);
+    };
+    if (params.has('nohost')) return;
+    document.documentElement.dashboards = async () => [
+      { id: 'saved', title: 'Saved for later', url: 'saved.base', queue: true },
+      { id: 'servo', title: 'Servo overview', url: 'servo.base' },
+    ];
+    const answer = (name, detail, kind) => {
+      if (host.fail) return { ok: false, reason: host.fail };
+      host.put(name, detail.text);
+      host.saves.push({ kind, name, text: detail.text, before: detail.before ?? null, message: detail.message || '', changes: detail.changes || [], asCopy: detail.asCopy || null, dashboard: detail.dashboard });
+      return { ok: true, title: detail.asCopy ? detail.asCopy.title : detail.dashboard.title };
+    };
+    document.addEventListener('data-dashboard-save', (e) => {
+      const d = e.detail;
+      const name = d.asCopy ? `${d.asCopy.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.base` : nameOf(d.dashboard.url);
+      e.detail.respondWith(Promise.resolve(answer(name, d, 'save')));
+    });
+    document.addEventListener('data-add-to-dashboard', (e) => {
+      if (e.detail.text !== null) e.detail.respondWith(Promise.resolve(answer(nameOf(e.detail.dashboard.url), e.detail, 'add')));
+    });
+  })();
+</script>
+<script type="module">
+  await import('/dist/dashboard.js');
+  window.kitReady = true;
+</script>
+</head>
+<body>
+<data-dashboard id="servo" src="servo.base" editor></data-dashboard>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "id": "actuator-charts",
+  "title": "robotparts actuator charts (1,149 rows, Ashby scatter)",
+  "app": "robotparts",
+  "base": "views.base",
+  "view": null,
+  "rows": 1149,
+  "synthetic": false,
+  "provenance": {
+    "from": "~/data-ui/gallery/examples/actuator-charts/views.base @ main 0dbc3d4 + ~/data-ui/gallery/examples/robotparts-actuators/actuators.json @ main 0dbc3d4",
+    "sha256": "60684a21507c5fcf082c517cb8fc8c7302fd01856bb8229cc5a3df01a803d510",
+    "copied": "2026-10-26",
+    "note": "Ashby-style Vega-Lite charts over robotparts' actuators; same rows as robotparts-actuators, photos feed the hover."
+  },
+  "interactions": {
+    "filter": {
+      "property": "brand",
+      "value": "Feetech"
+    },
+    "sort": {
+      "property": "peak_torque",
+      "direction": "DESC"
+    },
+    "search": "gim",
+    "presets": [
+      "Torque vs mass",
+      "Ashby · torque vs mass",
+      "Rows"
+    ],
+    "scroll": false,
+    "peek": false
+  }
+}

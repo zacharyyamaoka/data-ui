@@ -1,0 +1,4848 @@
+{
+ "id": "dx-recorded",
+ "title": "Recorded joints",
+ "titleProperty": "id",
+ "source": "synthetic: tests/browser/fixtures/dx_asks/make_fixture.py (illustrative numbers)",
+ "properties": {
+  "t": {
+   "type": "number",
+   "unit": "s",
+   "label": "Time"
+  },
+  "joint": {
+   "type": "text",
+   "label": "Joint"
+  },
+  "position": {
+   "type": "number",
+   "unit": "rad",
+   "label": "Position"
+  }
+ },
+ "rows": [
+  {
+   "id": "shoulder-000",
+   "t": 0.0,
+   "joint": "shoulder",
+   "position": 8.0
+  },
+  {
+   "id": "elbow-000",
+   "t": 0.0,
+   "joint": "elbow",
+   "position": 0.713
+  },
+  {
+   "id": "wrist-000",
+   "t": 0.0,
+   "joint": "wrist",
+   "position": -7.5526
+  },
+  {
+   "id": "base-000",
+   "t": 0.0,
+   "joint": "base",
+   "position": 47.9426
+  },
+  {
+   "id": "shoulder-001",
+   "t": 0.05,
+   "joint": "shoulder",
+   "position": 8.065
+  },
+  {
+   "id": "elbow-001",
+   "t": 0.05,
+   "joint": "elbow",
+   "position": 0.735
+  },
+  {
+   "id": "wrist-001",
+   "t": 0.05,
+   "joint": "wrist",
+   "position": -7.5795
+  },
+  {
+   "id": "base-001",
+   "t": 0.05,
+   "joint": "base",
+   "position": 53.5416
+  },
+  {
+   "id": "shoulder-002",
+   "t": 0.1,
+   "joint": "shoulder",
+   "position": 8.1296
+  },
+  {
+   "id": "elbow-002",
+   "t": 0.1,
+   "joint": "elbow",
+   "position": 0.754
+  },
+  {
+   "id": "wrist-002",
+   "t": 0.1,
+   "joint": "wrist",
+   "position": -7.6082
+  },
+  {
+   "id": "base-002",
+   "t": 0.1,
+   "joint": "base",
+   "position": 58.9145
+  },
+  {
+   "id": "shoulder-003",
+   "t": 0.15,
+   "joint": "shoulder",
+   "position": 8.1938
+  },
+  {
+   "id": "elbow-003",
+   "t": 0.15,
+   "joint": "elbow",
+   "position": 0.7698
+  },
+  {
+   "id": "wrist-003",
+   "t": 0.15,
+   "joint": "wrist",
+   "position": -7.6385
+  },
+  {
+   "id": "base-003",
+   "t": 0.15,
+   "joint": "base",
+   "position": 64.0385
+  },
+  {
+   "id": "shoulder-004",
+   "t": 0.2,
+   "joint": "shoulder",
+   "position": 8.2571
+  },
+  {
+   "id": "elbow-004",
+   "t": 0.2,
+   "joint": "elbow",
+   "position": 0.7823
+  },
+  {
+   "id": "wrist-004",
+   "t": 0.2,
+   "joint": "wrist",
+   "position": -7.6704
+  },
+  {
+   "id": "base-004",
+   "t": 0.2,
+   "joint": "base",
+   "position": 68.8921
+  },
+  {
+   "id": "shoulder-005",
+   "t": 0.25,
+   "joint": "shoulder",
+   "position": 8.3193
+  },
+  {
+   "id": "elbow-005",
+   "t": 0.25,
+   "joint": "elbow",
+   "position": 0.7915
+  },
+  {
+   "id": "wrist-005",
+   "t": 0.25,
+   "joint": "wrist",
+   "position": -7.7036
+  },
+  {
+   "id": "base-005",
+   "t": 0.25,
+   "joint": "base",
+   "position": 73.4548
+  },
+  {
+   "id": "shoulder-006",
+   "t": 0.3,
+   "joint": "shoulder",
+   "position": 8.3802
+  },
+  {
+   "id": "elbow-006",
+   "t": 0.3,
+   "joint": "elbow",
+   "position": 0.7974
+  },
+  {
+   "id": "wrist-006",
+   "t": 0.3,
+   "joint": "wrist",
+   "position": -7.7382
+  },
+  {
+   "id": "base-006",
+   "t": 0.3,
+   "joint": "base",
+   "position": 77.7072
+  },
+  {
+   "id": "shoulder-007",
+   "t": 0.35,
+   "joint": "shoulder",
+   "position": 8.4395
+  },
+  {
+   "id": "elbow-007",
+   "t": 0.35,
+   "joint": "elbow",
+   "position": 0.7999
+  },
+  {
+   "id": "wrist-007",
+   "t": 0.35,
+   "joint": "wrist",
+   "position": -7.7738
+  },
+  {
+   "id": "base-007",
+   "t": 0.35,
+   "joint": "base",
+   "position": 81.6314
+  },
+  {
+   "id": "shoulder-008",
+   "t": 0.4,
+   "joint": "shoulder",
+   "position": 8.4969
+  },
+  {
+   "id": "elbow-008",
+   "t": 0.4,
+   "joint": "elbow",
+   "position": 0.799
+  },
+  {
+   "id": "wrist-008",
+   "t": 0.4,
+   "joint": "wrist",
+   "position": -7.8104
+  },
+  {
+   "id": "base-008",
+   "t": 0.4,
+   "joint": "base",
+   "position": 85.2108
+  },
+  {
+   "id": "shoulder-009",
+   "t": 0.45,
+   "joint": "shoulder",
+   "position": 8.5522
+  },
+  {
+   "id": "elbow-009",
+   "t": 0.45,
+   "joint": "elbow",
+   "position": 0.7948
+  },
+  {
+   "id": "wrist-009",
+   "t": 0.45,
+   "joint": "wrist",
+   "position": -7.8477
+  },
+  {
+   "id": "base-009",
+   "t": 0.45,
+   "joint": "base",
+   "position": 88.4303
+  },
+  {
+   "id": "shoulder-010",
+   "t": 0.5,
+   "joint": "shoulder",
+   "position": 8.6052
+  },
+  {
+   "id": "elbow-010",
+   "t": 0.5,
+   "joint": "elbow",
+   "position": 0.7872
+  },
+  {
+   "id": "wrist-010",
+   "t": 0.5,
+   "joint": "wrist",
+   "position": -7.8857
+  },
+  {
+   "id": "base-010",
+   "t": 0.5,
+   "joint": "base",
+   "position": 91.2764
+  },
+  {
+   "id": "shoulder-011",
+   "t": 0.55,
+   "joint": "shoulder",
+   "position": 8.6556
+  },
+  {
+   "id": "elbow-011",
+   "t": 0.55,
+   "joint": "elbow",
+   "position": 0.7763
+  },
+  {
+   "id": "wrist-011",
+   "t": 0.55,
+   "joint": "wrist",
+   "position": -7.9242
+  },
+  {
+   "id": "base-011",
+   "t": 0.55,
+   "joint": "base",
+   "position": 93.7369
+  },
+  {
+   "id": "shoulder-012",
+   "t": 0.6,
+   "joint": "shoulder",
+   "position": 8.7033
+  },
+  {
+   "id": "elbow-012",
+   "t": 0.6,
+   "joint": "elbow",
+   "position": 0.7621
+  },
+  {
+   "id": "wrist-012",
+   "t": 0.6,
+   "joint": "wrist",
+   "position": -7.9631
+  },
+  {
+   "id": "base-012",
+   "t": 0.6,
+   "joint": "base",
+   "position": 95.8016
+  },
+  {
+   "id": "shoulder-013",
+   "t": 0.65,
+   "joint": "shoulder",
+   "position": 8.748
+  },
+  {
+   "id": "elbow-013",
+   "t": 0.65,
+   "joint": "elbow",
+   "position": 0.7446
+  },
+  {
+   "id": "wrist-013",
+   "t": 0.65,
+   "joint": "wrist",
+   "position": -8.002
+  },
+  {
+   "id": "base-013",
+   "t": 0.65,
+   "joint": "base",
+   "position": 97.4616
+  },
+  {
+   "id": "shoulder-014",
+   "t": 0.7,
+   "joint": "shoulder",
+   "position": 8.7895
+  },
+  {
+   "id": "elbow-014",
+   "t": 0.7,
+   "joint": "elbow",
+   "position": 0.7241
+  },
+  {
+   "id": "wrist-014",
+   "t": 0.7,
+   "joint": "wrist",
+   "position": -8.041
+  },
+  {
+   "id": "base-014",
+   "t": 0.7,
+   "joint": "base",
+   "position": 98.71
+  },
+  {
+   "id": "shoulder-015",
+   "t": 0.75,
+   "joint": "shoulder",
+   "position": 8.8277
+  },
+  {
+   "id": "elbow-015",
+   "t": 0.75,
+   "joint": "elbow",
+   "position": 0.7004
+  },
+  {
+   "id": "wrist-015",
+   "t": 0.75,
+   "joint": "wrist",
+   "position": -8.0798
+  },
+  {
+   "id": "base-015",
+   "t": 0.75,
+   "joint": "base",
+   "position": 99.5415
+  },
+  {
+   "id": "shoulder-016",
+   "t": 0.8,
+   "joint": "shoulder",
+   "position": 8.8624
+  },
+  {
+   "id": "elbow-016",
+   "t": 0.8,
+   "joint": "elbow",
+   "position": 0.6739
+  },
+  {
+   "id": "wrist-016",
+   "t": 0.8,
+   "joint": "wrist",
+   "position": -8.1183
+  },
+  {
+   "id": "base-016",
+   "t": 0.8,
+   "joint": "base",
+   "position": 99.9526
+  },
+  {
+   "id": "shoulder-017",
+   "t": 0.85,
+   "joint": "shoulder",
+   "position": 8.8935
+  },
+  {
+   "id": "elbow-017",
+   "t": 0.85,
+   "joint": "elbow",
+   "position": 0.6444
+  },
+  {
+   "id": "wrist-017",
+   "t": 0.85,
+   "joint": "wrist",
+   "position": -8.1562
+  },
+  {
+   "id": "base-017",
+   "t": 0.85,
+   "joint": "base",
+   "position": 99.9415
+  },
+  {
+   "id": "shoulder-018",
+   "t": 0.9,
+   "joint": "shoulder",
+   "position": 8.9208
+  },
+  {
+   "id": "elbow-018",
+   "t": 0.9,
+   "joint": "elbow",
+   "position": 0.6123
+  },
+  {
+   "id": "wrist-018",
+   "t": 0.9,
+   "joint": "wrist",
+   "position": -8.1935
+  },
+  {
+   "id": "base-018",
+   "t": 0.9,
+   "joint": "base",
+   "position": 99.5083
+  },
+  {
+   "id": "shoulder-019",
+   "t": 0.95,
+   "joint": "shoulder",
+   "position": 8.9441
+  },
+  {
+   "id": "elbow-019",
+   "t": 0.95,
+   "joint": "elbow",
+   "position": 0.5775
+  },
+  {
+   "id": "wrist-019",
+   "t": 0.95,
+   "joint": "wrist",
+   "position": -8.23
+  },
+  {
+   "id": "base-019",
+   "t": 0.95,
+   "joint": "base",
+   "position": 98.6549
+  },
+  {
+   "id": "shoulder-020",
+   "t": 1.0,
+   "joint": "shoulder",
+   "position": 8.9636
+  },
+  {
+   "id": "elbow-020",
+   "t": 1.0,
+   "joint": "elbow",
+   "position": 0.5404
+  },
+  {
+   "id": "wrist-020",
+   "t": 1.0,
+   "joint": "wrist",
+   "position": -8.2655
+  },
+  {
+   "id": "base-020",
+   "t": 1.0,
+   "joint": "base",
+   "position": 97.3848
+  },
+  {
+   "id": "shoulder-021",
+   "t": 1.05,
+   "joint": "shoulder",
+   "position": 8.9789
+  },
+  {
+   "id": "elbow-021",
+   "t": 1.05,
+   "joint": "elbow",
+   "position": 0.5009
+  },
+  {
+   "id": "wrist-021",
+   "t": 1.05,
+   "joint": "wrist",
+   "position": -8.2999
+  },
+  {
+   "id": "base-021",
+   "t": 1.05,
+   "joint": "base",
+   "position": 95.7033
+  },
+  {
+   "id": "shoulder-022",
+   "t": 1.1,
+   "joint": "shoulder",
+   "position": 8.9901
+  },
+  {
+   "id": "elbow-022",
+   "t": 1.1,
+   "joint": "elbow",
+   "position": 0.4593
+  },
+  {
+   "id": "wrist-022",
+   "t": 1.1,
+   "joint": "wrist",
+   "position": -8.333
+  },
+  {
+   "id": "base-022",
+   "t": 1.1,
+   "joint": "base",
+   "position": 93.6177
+  },
+  {
+   "id": "shoulder-023",
+   "t": 1.15,
+   "joint": "shoulder",
+   "position": 8.9971
+  },
+  {
+   "id": "elbow-023",
+   "t": 1.15,
+   "joint": "elbow",
+   "position": 0.4158
+  },
+  {
+   "id": "wrist-023",
+   "t": 1.15,
+   "joint": "wrist",
+   "position": -8.3647
+  },
+  {
+   "id": "base-023",
+   "t": 1.15,
+   "joint": "base",
+   "position": 91.1367
+  },
+  {
+   "id": "shoulder-024",
+   "t": 1.2,
+   "joint": "shoulder",
+   "position": 8.9999
+  },
+  {
+   "id": "elbow-024",
+   "t": 1.2,
+   "joint": "elbow",
+   "position": 0.3706
+  },
+  {
+   "id": "wrist-024",
+   "t": 1.2,
+   "joint": "wrist",
+   "position": -8.3949
+  },
+  {
+   "id": "base-024",
+   "t": 1.2,
+   "joint": "base",
+   "position": 88.2707
+  },
+  {
+   "id": "shoulder-025",
+   "t": 1.25,
+   "joint": "shoulder",
+   "position": 8.9985
+  },
+  {
+   "id": "elbow-025",
+   "t": 1.25,
+   "joint": "elbow",
+   "position": 0.3237
+  },
+  {
+   "id": "wrist-025",
+   "t": 1.25,
+   "joint": "wrist",
+   "position": -8.4234
+  },
+  {
+   "id": "base-025",
+   "t": 1.25,
+   "joint": "base",
+   "position": 85.032
+  },
+  {
+   "id": "shoulder-026",
+   "t": 1.3,
+   "joint": "shoulder",
+   "position": 8.9929
+  },
+  {
+   "id": "elbow-026",
+   "t": 1.3,
+   "joint": "elbow",
+   "position": 0.2755
+  },
+  {
+   "id": "wrist-026",
+   "t": 1.3,
+   "joint": "wrist",
+   "position": -8.4501
+  },
+  {
+   "id": "base-026",
+   "t": 1.3,
+   "joint": "base",
+   "position": 81.4341
+  },
+  {
+   "id": "shoulder-027",
+   "t": 1.35,
+   "joint": "shoulder",
+   "position": 8.9831
+  },
+  {
+   "id": "elbow-027",
+   "t": 1.35,
+   "joint": "elbow",
+   "position": 0.2261
+  },
+  {
+   "id": "wrist-027",
+   "t": 1.35,
+   "joint": "wrist",
+   "position": -8.475
+  },
+  {
+   "id": "base-027",
+   "t": 1.35,
+   "joint": "base",
+   "position": 77.4923
+  },
+  {
+   "id": "shoulder-028",
+   "t": 1.4,
+   "joint": "shoulder",
+   "position": 8.9691
+  },
+  {
+   "id": "elbow-028",
+   "t": 1.4,
+   "joint": "elbow",
+   "position": 0.1758
+  },
+  {
+   "id": "wrist-028",
+   "t": 1.4,
+   "joint": "wrist",
+   "position": -8.4978
+  },
+  {
+   "id": "base-028",
+   "t": 1.4,
+   "joint": "base",
+   "position": 73.2231
+  },
+  {
+   "id": "shoulder-029",
+   "t": 1.45,
+   "joint": "shoulder",
+   "position": 8.951
+  },
+  {
+   "id": "elbow-029",
+   "t": 1.45,
+   "joint": "elbow",
+   "position": 0.1248
+  },
+  {
+   "id": "wrist-029",
+   "t": 1.45,
+   "joint": "wrist",
+   "position": -8.5185
+  },
+  {
+   "id": "base-029",
+   "t": 1.45,
+   "joint": "base",
+   "position": 68.6448
+  },
+  {
+   "id": "shoulder-030",
+   "t": 1.5,
+   "joint": "shoulder",
+   "position": 8.929
+  },
+  {
+   "id": "elbow-030",
+   "t": 1.5,
+   "joint": "elbow",
+   "position": 0.0732
+  },
+  {
+   "id": "wrist-030",
+   "t": 1.5,
+   "joint": "wrist",
+   "position": -8.537
+  },
+  {
+   "id": "base-030",
+   "t": 1.5,
+   "joint": "base",
+   "position": 63.7765
+  },
+  {
+   "id": "shoulder-031",
+   "t": 1.55,
+   "joint": "shoulder",
+   "position": 8.903
+  },
+  {
+   "id": "elbow-031",
+   "t": 1.55,
+   "joint": "elbow",
+   "position": 0.0213
+  },
+  {
+   "id": "wrist-031",
+   "t": 1.55,
+   "joint": "wrist",
+   "position": -8.5532
+  },
+  {
+   "id": "base-031",
+   "t": 1.55,
+   "joint": "base",
+   "position": 58.6388
+  },
+  {
+   "id": "shoulder-032",
+   "t": 1.6,
+   "joint": "shoulder",
+   "position": 8.8731
+  },
+  {
+   "id": "elbow-032",
+   "t": 1.6,
+   "joint": "elbow",
+   "position": -0.0307
+  },
+  {
+   "id": "wrist-032",
+   "t": 1.6,
+   "joint": "wrist",
+   "position": -8.5672
+  },
+  {
+   "id": "base-032",
+   "t": 1.6,
+   "joint": "base",
+   "position": 53.2535
+  },
+  {
+   "id": "shoulder-033",
+   "t": 1.65,
+   "joint": "shoulder",
+   "position": 8.8396
+  },
+  {
+   "id": "elbow-033",
+   "t": 1.65,
+   "joint": "elbow",
+   "position": -0.0826
+  },
+  {
+   "id": "wrist-033",
+   "t": 1.65,
+   "joint": "wrist",
+   "position": -8.5787
+  },
+  {
+   "id": "base-033",
+   "t": 1.65,
+   "joint": "base",
+   "position": 47.6433
+  },
+  {
+   "id": "shoulder-034",
+   "t": 1.7,
+   "joint": "shoulder",
+   "position": 8.8026
+  },
+  {
+   "id": "elbow-034",
+   "t": 1.7,
+   "joint": "elbow",
+   "position": -0.1341
+  },
+  {
+   "id": "wrist-034",
+   "t": 1.7,
+   "joint": "wrist",
+   "position": -8.5878
+  },
+  {
+   "id": "base-034",
+   "t": 1.7,
+   "joint": "base",
+   "position": 41.8318
+  },
+  {
+   "id": "shoulder-035",
+   "t": 1.75,
+   "joint": "shoulder",
+   "position": 8.7621
+  },
+  {
+   "id": "elbow-035",
+   "t": 1.75,
+   "joint": "elbow",
+   "position": -0.185
+  },
+  {
+   "id": "wrist-035",
+   "t": 1.75,
+   "joint": "wrist",
+   "position": -8.5943
+  },
+  {
+   "id": "base-035",
+   "t": 1.75,
+   "joint": "base",
+   "position": 35.8437
+  },
+  {
+   "id": "shoulder-036",
+   "t": 1.8,
+   "joint": "shoulder",
+   "position": 8.7185
+  },
+  {
+   "id": "elbow-036",
+   "t": 1.8,
+   "joint": "elbow",
+   "position": -0.2352
+  },
+  {
+   "id": "wrist-036",
+   "t": 1.8,
+   "joint": "wrist",
+   "position": -8.5984
+  },
+  {
+   "id": "base-036",
+   "t": 1.8,
+   "joint": "base",
+   "position": 29.7041
+  },
+  {
+   "id": "shoulder-037",
+   "t": 1.85,
+   "joint": "shoulder",
+   "position": 8.6718
+  },
+  {
+   "id": "elbow-037",
+   "t": 1.85,
+   "joint": "elbow",
+   "position": -0.2844
+  },
+  {
+   "id": "wrist-037",
+   "t": 1.85,
+   "joint": "wrist",
+   "position": -8.6
+  },
+  {
+   "id": "base-037",
+   "t": 1.85,
+   "joint": "base",
+   "position": 23.4392
+  },
+  {
+   "id": "shoulder-038",
+   "t": 1.9,
+   "joint": "shoulder",
+   "position": 8.6222
+  },
+  {
+   "id": "elbow-038",
+   "t": 1.9,
+   "joint": "elbow",
+   "position": -0.3323
+  },
+  {
+   "id": "wrist-038",
+   "t": 1.9,
+   "joint": "wrist",
+   "position": -8.599
+  },
+  {
+   "id": "base-038",
+   "t": 1.9,
+   "joint": "base",
+   "position": 17.0752
+  },
+  {
+   "id": "shoulder-039",
+   "t": 1.95,
+   "joint": "shoulder",
+   "position": 8.5701
+  },
+  {
+   "id": "elbow-039",
+   "t": 1.95,
+   "joint": "elbow",
+   "position": -0.3789
+  },
+  {
+   "id": "wrist-039",
+   "t": 1.95,
+   "joint": "wrist",
+   "position": -8.5955
+  },
+  {
+   "id": "base-039",
+   "t": 1.95,
+   "joint": "base",
+   "position": 10.6391
+  },
+  {
+   "id": "shoulder-040",
+   "t": 2.0,
+   "joint": "shoulder",
+   "position": 8.5155
+  },
+  {
+   "id": "elbow-040",
+   "t": 2.0,
+   "joint": "elbow",
+   "position": -0.4239
+  },
+  {
+   "id": "wrist-040",
+   "t": 2.0,
+   "joint": "wrist",
+   "position": -8.5895
+  },
+  {
+   "id": "base-040",
+   "t": 2.0,
+   "joint": "base",
+   "position": 4.1581
+  },
+  {
+   "id": "shoulder-041",
+   "t": 2.05,
+   "joint": "shoulder",
+   "position": 8.4588
+  },
+  {
+   "id": "elbow-041",
+   "t": 2.05,
+   "joint": "elbow",
+   "position": -0.467
+  },
+  {
+   "id": "wrist-041",
+   "t": 2.05,
+   "joint": "wrist",
+   "position": -8.581
+  },
+  {
+   "id": "base-041",
+   "t": 2.05,
+   "joint": "base",
+   "position": -2.3405
+  },
+  {
+   "id": "shoulder-042",
+   "t": 2.1,
+   "joint": "shoulder",
+   "position": 8.4001
+  },
+  {
+   "id": "elbow-042",
+   "t": 2.1,
+   "joint": "elbow",
+   "position": -0.5082
+  },
+  {
+   "id": "wrist-042",
+   "t": 2.1,
+   "joint": "wrist",
+   "position": -8.57
+  },
+  {
+   "id": "base-042",
+   "t": 2.1,
+   "joint": "base",
+   "position": -8.8292
+  },
+  {
+   "id": "shoulder-043",
+   "t": 2.15,
+   "joint": "shoulder",
+   "position": 8.3397
+  },
+  {
+   "id": "elbow-043",
+   "t": 2.15,
+   "joint": "elbow",
+   "position": -0.5473
+  },
+  {
+   "id": "wrist-043",
+   "t": 2.15,
+   "joint": "wrist",
+   "position": -8.5566
+  },
+  {
+   "id": "base-043",
+   "t": 2.15,
+   "joint": "base",
+   "position": -15.2806
+  },
+  {
+   "id": "shoulder-044",
+   "t": 2.2,
+   "joint": "shoulder",
+   "position": 8.2779
+  },
+  {
+   "id": "elbow-044",
+   "t": 2.2,
+   "joint": "elbow",
+   "position": -0.584
+  },
+  {
+   "id": "wrist-044",
+   "t": 2.2,
+   "joint": "wrist",
+   "position": -8.5409
+  },
+  {
+   "id": "base-044",
+   "t": 2.2,
+   "joint": "base",
+   "position": -21.6675
+  },
+  {
+   "id": "shoulder-045",
+   "t": 2.25,
+   "joint": "shoulder",
+   "position": 8.2149
+  },
+  {
+   "id": "elbow-045",
+   "t": 2.25,
+   "joint": "elbow",
+   "position": -0.6183
+  },
+  {
+   "id": "wrist-045",
+   "t": 2.25,
+   "joint": "wrist",
+   "position": -8.5229
+  },
+  {
+   "id": "base-045",
+   "t": 2.25,
+   "joint": "base",
+   "position": -27.9629
+  },
+  {
+   "id": "shoulder-046",
+   "t": 2.3,
+   "joint": "shoulder",
+   "position": 8.151
+  },
+  {
+   "id": "elbow-046",
+   "t": 2.3,
+   "joint": "elbow",
+   "position": -0.65
+  },
+  {
+   "id": "wrist-046",
+   "t": 2.3,
+   "joint": "wrist",
+   "position": -8.5027
+  },
+  {
+   "id": "base-046",
+   "t": 2.3,
+   "joint": "base",
+   "position": -34.1401
+  },
+  {
+   "id": "shoulder-047",
+   "t": 2.35,
+   "joint": "shoulder",
+   "position": 8.0865
+  },
+  {
+   "id": "elbow-047",
+   "t": 2.35,
+   "joint": "elbow",
+   "position": -0.6789
+  },
+  {
+   "id": "wrist-047",
+   "t": 2.35,
+   "joint": "wrist",
+   "position": -8.4803
+  },
+  {
+   "id": "base-047",
+   "t": 2.35,
+   "joint": "base",
+   "position": -40.1732
+  },
+  {
+   "id": "shoulder-048",
+   "t": 2.4,
+   "joint": "shoulder",
+   "position": 8.0216
+  },
+  {
+   "id": "elbow-048",
+   "t": 2.4,
+   "joint": "elbow",
+   "position": -0.705
+  },
+  {
+   "id": "wrist-048",
+   "t": 2.4,
+   "joint": "wrist",
+   "position": -8.456
+  },
+  {
+   "id": "base-048",
+   "t": 2.4,
+   "joint": "base",
+   "position": -46.0366
+  },
+  {
+   "id": "shoulder-049",
+   "t": 2.45,
+   "joint": "shoulder",
+   "position": 7.9566
+  },
+  {
+   "id": "elbow-049",
+   "t": 2.45,
+   "joint": "elbow",
+   "position": -0.728
+  },
+  {
+   "id": "wrist-049",
+   "t": 2.45,
+   "joint": "wrist",
+   "position": -8.4297
+  },
+  {
+   "id": "base-049",
+   "t": 2.45,
+   "joint": "base",
+   "position": -51.7056
+  },
+  {
+   "id": "shoulder-050",
+   "t": 2.5,
+   "joint": "shoulder",
+   "position": 7.8918
+  },
+  {
+   "id": "elbow-050",
+   "t": 2.5,
+   "joint": "elbow",
+   "position": -0.748
+  },
+  {
+   "id": "wrist-050",
+   "t": 2.5,
+   "joint": "wrist",
+   "position": -8.4015
+  },
+  {
+   "id": "base-050",
+   "t": 2.5,
+   "joint": "base",
+   "position": -57.1561
+  },
+  {
+   "id": "shoulder-051",
+   "t": 2.55,
+   "joint": "shoulder",
+   "position": 7.8275
+  },
+  {
+   "id": "elbow-051",
+   "t": 2.55,
+   "joint": "elbow",
+   "position": -0.7649
+  },
+  {
+   "id": "wrist-051",
+   "t": 2.55,
+   "joint": "wrist",
+   "position": -8.3717
+  },
+  {
+   "id": "base-051",
+   "t": 2.55,
+   "joint": "base",
+   "position": -62.3653
+  },
+  {
+   "id": "shoulder-052",
+   "t": 2.6,
+   "joint": "shoulder",
+   "position": 7.7638
+  },
+  {
+   "id": "elbow-052",
+   "t": 2.6,
+   "joint": "elbow",
+   "position": -0.7785
+  },
+  {
+   "id": "wrist-052",
+   "t": 2.6,
+   "joint": "wrist",
+   "position": -8.3404
+  },
+  {
+   "id": "base-052",
+   "t": 2.6,
+   "joint": "base",
+   "position": -67.3111
+  },
+  {
+   "id": "shoulder-053",
+   "t": 2.65,
+   "joint": "shoulder",
+   "position": 7.7012
+  },
+  {
+   "id": "elbow-053",
+   "t": 2.65,
+   "joint": "elbow",
+   "position": -0.7888
+  },
+  {
+   "id": "wrist-053",
+   "t": 2.65,
+   "joint": "wrist",
+   "position": -8.3075
+  },
+  {
+   "id": "base-053",
+   "t": 2.65,
+   "joint": "base",
+   "position": -71.9726
+  },
+  {
+   "id": "shoulder-054",
+   "t": 2.7,
+   "joint": "shoulder",
+   "position": 7.6399
+  },
+  {
+   "id": "elbow-054",
+   "t": 2.7,
+   "joint": "elbow",
+   "position": -0.7958
+  },
+  {
+   "id": "wrist-054",
+   "t": 2.7,
+   "joint": "wrist",
+   "position": -8.2734
+  },
+  {
+   "id": "base-054",
+   "t": 2.7,
+   "joint": "base",
+   "position": -76.3301
+  },
+  {
+   "id": "shoulder-055",
+   "t": 2.75,
+   "joint": "shoulder",
+   "position": 7.58
+  },
+  {
+   "id": "elbow-055",
+   "t": 2.75,
+   "joint": "elbow",
+   "position": -0.7994
+  },
+  {
+   "id": "wrist-055",
+   "t": 2.75,
+   "joint": "wrist",
+   "position": -8.2382
+  },
+  {
+   "id": "base-055",
+   "t": 2.75,
+   "joint": "base",
+   "position": -80.3652
+  },
+  {
+   "id": "shoulder-056",
+   "t": 2.8,
+   "joint": "shoulder",
+   "position": 7.522
+  },
+  {
+   "id": "elbow-056",
+   "t": 2.8,
+   "joint": "elbow",
+   "position": -0.7997
+  },
+  {
+   "id": "wrist-056",
+   "t": 2.8,
+   "joint": "wrist",
+   "position": -8.2019
+  },
+  {
+   "id": "base-056",
+   "t": 2.8,
+   "joint": "base",
+   "position": -84.0609
+  },
+  {
+   "id": "shoulder-057",
+   "t": 2.85,
+   "joint": "shoulder",
+   "position": 7.4659
+  },
+  {
+   "id": "elbow-057",
+   "t": 2.85,
+   "joint": "elbow",
+   "position": -0.7966
+  },
+  {
+   "id": "wrist-057",
+   "t": 2.85,
+   "joint": "wrist",
+   "position": -8.1648
+  },
+  {
+   "id": "base-057",
+   "t": 2.85,
+   "joint": "base",
+   "position": -87.4016
+  },
+  {
+   "id": "shoulder-058",
+   "t": 2.9,
+   "joint": "shoulder",
+   "position": 7.4121
+  },
+  {
+   "id": "elbow-058",
+   "t": 2.9,
+   "joint": "elbow",
+   "position": -0.7901
+  },
+  {
+   "id": "wrist-058",
+   "t": 2.9,
+   "joint": "wrist",
+   "position": -8.1269
+  },
+  {
+   "id": "base-058",
+   "t": 2.9,
+   "joint": "base",
+   "position": -90.3732
+  },
+  {
+   "id": "shoulder-059",
+   "t": 2.95,
+   "joint": "shoulder",
+   "position": 7.3608
+  },
+  {
+   "id": "elbow-059",
+   "t": 2.95,
+   "joint": "elbow",
+   "position": -0.7803
+  },
+  {
+   "id": "wrist-059",
+   "t": 2.95,
+   "joint": "wrist",
+   "position": -8.0886
+  },
+  {
+   "id": "base-059",
+   "t": 2.95,
+   "joint": "base",
+   "position": -92.963
+  },
+  {
+   "id": "shoulder-060",
+   "t": 3.0,
+   "joint": "shoulder",
+   "position": 7.3122
+  },
+  {
+   "id": "elbow-060",
+   "t": 3.0,
+   "joint": "elbow",
+   "position": -0.7671
+  },
+  {
+   "id": "wrist-060",
+   "t": 3.0,
+   "joint": "wrist",
+   "position": -8.0499
+  },
+  {
+   "id": "base-060",
+   "t": 3.0,
+   "joint": "base",
+   "position": -95.1602
+  },
+  {
+   "id": "shoulder-061",
+   "t": 3.05,
+   "joint": "shoulder",
+   "position": 7.2665
+  },
+  {
+   "id": "elbow-061",
+   "t": 3.05,
+   "joint": "elbow",
+   "position": -0.7508
+  },
+  {
+   "id": "wrist-061",
+   "t": 3.05,
+   "joint": "wrist",
+   "position": -8.0109
+  },
+  {
+   "id": "base-061",
+   "t": 3.05,
+   "joint": "base",
+   "position": -96.9555
+  },
+  {
+   "id": "shoulder-062",
+   "t": 3.1,
+   "joint": "shoulder",
+   "position": 7.2239
+  },
+  {
+   "id": "elbow-062",
+   "t": 3.1,
+   "joint": "elbow",
+   "position": -0.7312
+  },
+  {
+   "id": "wrist-062",
+   "t": 3.1,
+   "joint": "wrist",
+   "position": -7.9719
+  },
+  {
+   "id": "base-062",
+   "t": 3.1,
+   "joint": "base",
+   "position": -98.3413
+  },
+  {
+   "id": "shoulder-063",
+   "t": 3.15,
+   "joint": "shoulder",
+   "position": 7.1846
+  },
+  {
+   "id": "elbow-063",
+   "t": 3.15,
+   "joint": "elbow",
+   "position": -0.7086
+  },
+  {
+   "id": "wrist-063",
+   "t": 3.15,
+   "joint": "wrist",
+   "position": -7.9331
+  },
+  {
+   "id": "base-063",
+   "t": 3.15,
+   "joint": "base",
+   "position": -99.3118
+  },
+  {
+   "id": "shoulder-064",
+   "t": 3.2,
+   "joint": "shoulder",
+   "position": 7.1487
+  },
+  {
+   "id": "elbow-064",
+   "t": 3.2,
+   "joint": "elbow",
+   "position": -0.683
+  },
+  {
+   "id": "wrist-064",
+   "t": 3.2,
+   "joint": "wrist",
+   "position": -7.8945
+  },
+  {
+   "id": "base-064",
+   "t": 3.2,
+   "joint": "base",
+   "position": -99.8628
+  },
+  {
+   "id": "shoulder-065",
+   "t": 3.25,
+   "joint": "shoulder",
+   "position": 7.1164
+  },
+  {
+   "id": "elbow-065",
+   "t": 3.25,
+   "joint": "elbow",
+   "position": -0.6545
+  },
+  {
+   "id": "wrist-065",
+   "t": 3.25,
+   "joint": "wrist",
+   "position": -7.8563
+  },
+  {
+   "id": "base-065",
+   "t": 3.25,
+   "joint": "base",
+   "position": -99.992
+  },
+  {
+   "id": "shoulder-066",
+   "t": 3.3,
+   "joint": "shoulder",
+   "position": 7.0879
+  },
+  {
+   "id": "elbow-066",
+   "t": 3.3,
+   "joint": "elbow",
+   "position": -0.6233
+  },
+  {
+   "id": "wrist-066",
+   "t": 3.3,
+   "joint": "wrist",
+   "position": -7.8188
+  },
+  {
+   "id": "base-066",
+   "t": 3.3,
+   "joint": "base",
+   "position": -99.699
+  },
+  {
+   "id": "shoulder-067",
+   "t": 3.35,
+   "joint": "shoulder",
+   "position": 7.0632
+  },
+  {
+   "id": "elbow-067",
+   "t": 3.35,
+   "joint": "elbow",
+   "position": -0.5894
+  },
+  {
+   "id": "wrist-067",
+   "t": 3.35,
+   "joint": "wrist",
+   "position": -7.782
+  },
+  {
+   "id": "base-067",
+   "t": 3.35,
+   "joint": "base",
+   "position": -98.9848
+  },
+  {
+   "id": "shoulder-068",
+   "t": 3.4,
+   "joint": "shoulder",
+   "position": 7.0424
+  },
+  {
+   "id": "elbow-068",
+   "t": 3.4,
+   "joint": "elbow",
+   "position": -0.553
+  },
+  {
+   "id": "wrist-068",
+   "t": 3.4,
+   "joint": "wrist",
+   "position": -7.7462
+  },
+  {
+   "id": "base-068",
+   "t": 3.4,
+   "joint": "base",
+   "position": -97.8526
+  },
+  {
+   "id": "shoulder-069",
+   "t": 3.45,
+   "joint": "shoulder",
+   "position": 7.0257
+  },
+  {
+   "id": "elbow-069",
+   "t": 3.45,
+   "joint": "elbow",
+   "position": -0.5143
+  },
+  {
+   "id": "wrist-069",
+   "t": 3.45,
+   "joint": "wrist",
+   "position": -7.7114
+  },
+  {
+   "id": "base-069",
+   "t": 3.45,
+   "joint": "base",
+   "position": -96.3071
+  },
+  {
+   "id": "shoulder-070",
+   "t": 3.5,
+   "joint": "shoulder",
+   "position": 7.0132
+  },
+  {
+   "id": "elbow-070",
+   "t": 3.5,
+   "joint": "elbow",
+   "position": -0.4734
+  },
+  {
+   "id": "wrist-070",
+   "t": 3.5,
+   "joint": "wrist",
+   "position": -7.6778
+  },
+  {
+   "id": "base-070",
+   "t": 3.5,
+   "joint": "base",
+   "position": -94.3549
+  },
+  {
+   "id": "shoulder-071",
+   "t": 3.55,
+   "joint": "shoulder",
+   "position": 7.0047
+  },
+  {
+   "id": "elbow-071",
+   "t": 3.55,
+   "joint": "elbow",
+   "position": -0.4305
+  },
+  {
+   "id": "wrist-071",
+   "t": 3.55,
+   "joint": "wrist",
+   "position": -7.6456
+  },
+  {
+   "id": "base-071",
+   "t": 3.55,
+   "joint": "base",
+   "position": -92.0041
+  },
+  {
+   "id": "shoulder-072",
+   "t": 3.6,
+   "joint": "shoulder",
+   "position": 7.0005
+  },
+  {
+   "id": "elbow-072",
+   "t": 3.6,
+   "joint": "elbow",
+   "position": -0.3858
+  },
+  {
+   "id": "wrist-072",
+   "t": 3.6,
+   "joint": "wrist",
+   "position": -7.6149
+  },
+  {
+   "id": "base-072",
+   "t": 3.6,
+   "joint": "base",
+   "position": -89.2648
+  },
+  {
+   "id": "shoulder-073",
+   "t": 3.65,
+   "joint": "shoulder",
+   "position": 7.0005
+  },
+  {
+   "id": "elbow-073",
+   "t": 3.65,
+   "joint": "elbow",
+   "position": -0.3394
+  },
+  {
+   "id": "wrist-073",
+   "t": 3.65,
+   "joint": "wrist",
+   "position": -7.5859
+  },
+  {
+   "id": "base-073",
+   "t": 3.65,
+   "joint": "base",
+   "position": -86.1484
+  },
+  {
+   "id": "shoulder-074",
+   "t": 3.7,
+   "joint": "shoulder",
+   "position": 7.0048
+  },
+  {
+   "id": "elbow-074",
+   "t": 3.7,
+   "joint": "elbow",
+   "position": -0.2917
+  },
+  {
+   "id": "wrist-074",
+   "t": 3.7,
+   "joint": "wrist",
+   "position": -7.5585
+  },
+  {
+   "id": "base-074",
+   "t": 3.7,
+   "joint": "base",
+   "position": -82.6682
+  },
+  {
+   "id": "shoulder-075",
+   "t": 3.75,
+   "joint": "shoulder",
+   "position": 7.0132
+  },
+  {
+   "id": "elbow-075",
+   "t": 3.75,
+   "joint": "elbow",
+   "position": -0.2427
+  },
+  {
+   "id": "wrist-075",
+   "t": 3.75,
+   "joint": "wrist",
+   "position": -7.5331
+  },
+  {
+   "id": "base-075",
+   "t": 3.75,
+   "joint": "base",
+   "position": -78.8389
+  },
+  {
+   "id": "shoulder-076",
+   "t": 3.8,
+   "joint": "shoulder",
+   "position": 7.0258
+  },
+  {
+   "id": "elbow-076",
+   "t": 3.8,
+   "joint": "elbow",
+   "position": -0.1926
+  },
+  {
+   "id": "wrist-076",
+   "t": 3.8,
+   "joint": "wrist",
+   "position": -7.5096
+  },
+  {
+   "id": "base-076",
+   "t": 3.8,
+   "joint": "base",
+   "position": -74.6765
+  },
+  {
+   "id": "shoulder-077",
+   "t": 3.85,
+   "joint": "shoulder",
+   "position": 7.0425
+  },
+  {
+   "id": "elbow-077",
+   "t": 3.85,
+   "joint": "elbow",
+   "position": -0.1418
+  },
+  {
+   "id": "wrist-077",
+   "t": 3.85,
+   "joint": "wrist",
+   "position": -7.4882
+  },
+  {
+   "id": "base-077",
+   "t": 3.85,
+   "joint": "base",
+   "position": -70.1988
+  },
+  {
+   "id": "shoulder-078",
+   "t": 3.9,
+   "joint": "shoulder",
+   "position": 7.0633
+  },
+  {
+   "id": "elbow-078",
+   "t": 3.9,
+   "joint": "elbow",
+   "position": -0.0904
+  },
+  {
+   "id": "wrist-078",
+   "t": 3.9,
+   "joint": "wrist",
+   "position": -7.4689
+  },
+  {
+   "id": "base-078",
+   "t": 3.9,
+   "joint": "base",
+   "position": -65.4246
+  },
+  {
+   "id": "shoulder-079",
+   "t": 3.95,
+   "joint": "shoulder",
+   "position": 7.088
+  },
+  {
+   "id": "elbow-079",
+   "t": 3.95,
+   "joint": "elbow",
+   "position": -0.0385
+  },
+  {
+   "id": "wrist-079",
+   "t": 3.95,
+   "joint": "wrist",
+   "position": -7.4519
+  },
+  {
+   "id": "base-079",
+   "t": 3.95,
+   "joint": "base",
+   "position": -60.3741
+  },
+  {
+   "id": "shoulder-080",
+   "t": 4.0,
+   "joint": "shoulder",
+   "position": 7.1165
+  },
+  {
+   "id": "elbow-080",
+   "t": 4.0,
+   "joint": "elbow",
+   "position": 0.0135
+  },
+  {
+   "id": "wrist-080",
+   "t": 4.0,
+   "joint": "wrist",
+   "position": -7.4372
+  },
+  {
+   "id": "base-080",
+   "t": 4.0,
+   "joint": "base",
+   "position": -55.0686
+  },
+  {
+   "id": "shoulder-081",
+   "t": 4.05,
+   "joint": "shoulder",
+   "position": 7.1488
+  },
+  {
+   "id": "elbow-081",
+   "t": 4.05,
+   "joint": "elbow",
+   "position": 0.0654
+  },
+  {
+   "id": "wrist-081",
+   "t": 4.05,
+   "joint": "wrist",
+   "position": -7.4249
+  },
+  {
+   "id": "base-081",
+   "t": 4.05,
+   "joint": "base",
+   "position": -49.5304
+  },
+  {
+   "id": "shoulder-082",
+   "t": 4.1,
+   "joint": "shoulder",
+   "position": 7.1847
+  },
+  {
+   "id": "elbow-082",
+   "t": 4.1,
+   "joint": "elbow",
+   "position": 0.117
+  },
+  {
+   "id": "wrist-082",
+   "t": 4.1,
+   "joint": "wrist",
+   "position": -7.415
+  },
+  {
+   "id": "base-082",
+   "t": 4.1,
+   "joint": "base",
+   "position": -43.7832
+  },
+  {
+   "id": "shoulder-083",
+   "t": 4.15,
+   "joint": "shoulder",
+   "position": 7.2241
+  },
+  {
+   "id": "elbow-083",
+   "t": 4.15,
+   "joint": "elbow",
+   "position": 0.1682
+  },
+  {
+   "id": "wrist-083",
+   "t": 4.15,
+   "joint": "wrist",
+   "position": -7.4076
+  },
+  {
+   "id": "base-083",
+   "t": 4.15,
+   "joint": "base",
+   "position": -37.8509
+  },
+  {
+   "id": "shoulder-084",
+   "t": 4.2,
+   "joint": "shoulder",
+   "position": 7.2667
+  },
+  {
+   "id": "elbow-084",
+   "t": 4.2,
+   "joint": "elbow",
+   "position": 0.2186
+  },
+  {
+   "id": "wrist-084",
+   "t": 4.2,
+   "joint": "wrist",
+   "position": -7.4026
+  },
+  {
+   "id": "base-084",
+   "t": 4.2,
+   "joint": "base",
+   "position": -31.7589
+  },
+  {
+   "id": "shoulder-085",
+   "t": 4.25,
+   "joint": "shoulder",
+   "position": 7.3124
+  },
+  {
+   "id": "elbow-085",
+   "t": 4.25,
+   "joint": "elbow",
+   "position": 0.2682
+  },
+  {
+   "id": "wrist-085",
+   "t": 4.25,
+   "joint": "wrist",
+   "position": -7.4003
+  },
+  {
+   "id": "base-085",
+   "t": 4.25,
+   "joint": "base",
+   "position": -25.5326
+  },
+  {
+   "id": "shoulder-086",
+   "t": 4.3,
+   "joint": "shoulder",
+   "position": 7.361
+  },
+  {
+   "id": "elbow-086",
+   "t": 4.3,
+   "joint": "elbow",
+   "position": 0.3165
+  },
+  {
+   "id": "wrist-086",
+   "t": 4.3,
+   "joint": "wrist",
+   "position": -7.4004
+  },
+  {
+   "id": "base-086",
+   "t": 4.3,
+   "joint": "base",
+   "position": -19.1986
+  },
+  {
+   "id": "shoulder-087",
+   "t": 4.35,
+   "joint": "shoulder",
+   "position": 7.4123
+  },
+  {
+   "id": "elbow-087",
+   "t": 4.35,
+   "joint": "elbow",
+   "position": 0.3636
+  },
+  {
+   "id": "wrist-087",
+   "t": 4.35,
+   "joint": "wrist",
+   "position": -7.4031
+  },
+  {
+   "id": "base-087",
+   "t": 4.35,
+   "joint": "base",
+   "position": -12.7835
+  },
+  {
+   "id": "shoulder-088",
+   "t": 4.4,
+   "joint": "shoulder",
+   "position": 7.4661
+  },
+  {
+   "id": "elbow-088",
+   "t": 4.4,
+   "joint": "elbow",
+   "position": 0.4091
+  },
+  {
+   "id": "wrist-088",
+   "t": 4.4,
+   "joint": "wrist",
+   "position": -7.4082
+  },
+  {
+   "id": "base-088",
+   "t": 4.4,
+   "joint": "base",
+   "position": -6.3143
+  },
+  {
+   "id": "shoulder-089",
+   "t": 4.45,
+   "joint": "shoulder",
+   "position": 7.5222
+  },
+  {
+   "id": "elbow-089",
+   "t": 4.45,
+   "joint": "elbow",
+   "position": 0.4529
+  },
+  {
+   "id": "wrist-089",
+   "t": 4.45,
+   "joint": "wrist",
+   "position": -7.4159
+  },
+  {
+   "id": "base-089",
+   "t": 4.45,
+   "joint": "base",
+   "position": 0.1815
+  },
+  {
+   "id": "shoulder-090",
+   "t": 4.5,
+   "joint": "shoulder",
+   "position": 7.5802
+  },
+  {
+   "id": "elbow-090",
+   "t": 4.5,
+   "joint": "elbow",
+   "position": 0.4948
+  },
+  {
+   "id": "wrist-090",
+   "t": 4.5,
+   "joint": "wrist",
+   "position": -7.4261
+  },
+  {
+   "id": "base-090",
+   "t": 4.5,
+   "joint": "base",
+   "position": 6.6765
+  },
+  {
+   "id": "shoulder-091",
+   "t": 4.55,
+   "joint": "shoulder",
+   "position": 7.6401
+  },
+  {
+   "id": "elbow-091",
+   "t": 4.55,
+   "joint": "elbow",
+   "position": 0.5346
+  },
+  {
+   "id": "wrist-091",
+   "t": 4.55,
+   "joint": "wrist",
+   "position": -7.4387
+  },
+  {
+   "id": "base-091",
+   "t": 4.55,
+   "joint": "base",
+   "position": 13.1433
+  },
+  {
+   "id": "shoulder-092",
+   "t": 4.6,
+   "joint": "shoulder",
+   "position": 7.7014
+  },
+  {
+   "id": "elbow-092",
+   "t": 4.6,
+   "joint": "elbow",
+   "position": 0.5721
+  },
+  {
+   "id": "wrist-092",
+   "t": 4.6,
+   "joint": "wrist",
+   "position": -7.4536
+  },
+  {
+   "id": "base-092",
+   "t": 4.6,
+   "joint": "base",
+   "position": 19.5547
+  },
+  {
+   "id": "shoulder-093",
+   "t": 4.65,
+   "joint": "shoulder",
+   "position": 7.7641
+  },
+  {
+   "id": "elbow-093",
+   "t": 4.65,
+   "joint": "elbow",
+   "position": 0.6072
+  },
+  {
+   "id": "wrist-093",
+   "t": 4.65,
+   "joint": "wrist",
+   "position": -7.4709
+  },
+  {
+   "id": "base-093",
+   "t": 4.65,
+   "joint": "base",
+   "position": 25.8834
+  },
+  {
+   "id": "shoulder-094",
+   "t": 4.7,
+   "joint": "shoulder",
+   "position": 7.8277
+  },
+  {
+   "id": "elbow-094",
+   "t": 4.7,
+   "joint": "elbow",
+   "position": 0.6398
+  },
+  {
+   "id": "wrist-094",
+   "t": 4.7,
+   "joint": "wrist",
+   "position": -7.4904
+  },
+  {
+   "id": "base-094",
+   "t": 4.7,
+   "joint": "base",
+   "position": 32.1028
+  },
+  {
+   "id": "shoulder-095",
+   "t": 4.75,
+   "joint": "shoulder",
+   "position": 7.892
+  },
+  {
+   "id": "elbow-095",
+   "t": 4.75,
+   "joint": "elbow",
+   "position": 0.6696
+  },
+  {
+   "id": "wrist-095",
+   "t": 4.75,
+   "joint": "wrist",
+   "position": -7.512
+  },
+  {
+   "id": "base-095",
+   "t": 4.75,
+   "joint": "base",
+   "position": 38.1866
+  },
+  {
+   "id": "shoulder-096",
+   "t": 4.8,
+   "joint": "shoulder",
+   "position": 7.9568
+  },
+  {
+   "id": "elbow-096",
+   "t": 4.8,
+   "joint": "elbow",
+   "position": 0.6966
+  },
+  {
+   "id": "wrist-096",
+   "t": 4.8,
+   "joint": "wrist",
+   "position": -7.5357
+  },
+  {
+   "id": "base-096",
+   "t": 4.8,
+   "joint": "base",
+   "position": 44.1092
+  },
+  {
+   "id": "shoulder-097",
+   "t": 4.85,
+   "joint": "shoulder",
+   "position": 8.0218
+  },
+  {
+   "id": "elbow-097",
+   "t": 4.85,
+   "joint": "elbow",
+   "position": 0.7207
+  },
+  {
+   "id": "wrist-097",
+   "t": 4.85,
+   "joint": "wrist",
+   "position": -7.5614
+  },
+  {
+   "id": "base-097",
+   "t": 4.85,
+   "joint": "base",
+   "position": 49.8454
+  },
+  {
+   "id": "shoulder-098",
+   "t": 4.9,
+   "joint": "shoulder",
+   "position": 8.0867
+  },
+  {
+   "id": "elbow-098",
+   "t": 4.9,
+   "joint": "elbow",
+   "position": 0.7417
+  },
+  {
+   "id": "wrist-098",
+   "t": 4.9,
+   "joint": "wrist",
+   "position": -7.5889
+  },
+  {
+   "id": "base-098",
+   "t": 4.9,
+   "joint": "base",
+   "position": 55.3711
+  },
+  {
+   "id": "shoulder-099",
+   "t": 4.95,
+   "joint": "shoulder",
+   "position": 8.1512
+  },
+  {
+   "id": "elbow-099",
+   "t": 4.95,
+   "joint": "elbow",
+   "position": 0.7596
+  },
+  {
+   "id": "wrist-099",
+   "t": 4.95,
+   "joint": "wrist",
+   "position": -7.6182
+  },
+  {
+   "id": "base-099",
+   "t": 4.95,
+   "joint": "base",
+   "position": 60.663
+  },
+  {
+   "id": "shoulder-100",
+   "t": 5.0,
+   "joint": "shoulder",
+   "position": 8.2151
+  },
+  {
+   "id": "elbow-100",
+   "t": 5.0,
+   "joint": "elbow",
+   "position": 0.7743
+  },
+  {
+   "id": "wrist-100",
+   "t": 5.0,
+   "joint": "wrist",
+   "position": -7.649
+  },
+  {
+   "id": "base-100",
+   "t": 5.0,
+   "joint": "base",
+   "position": 65.6987
+  },
+  {
+   "id": "shoulder-101",
+   "t": 5.05,
+   "joint": "shoulder",
+   "position": 8.2781
+  },
+  {
+   "id": "elbow-101",
+   "t": 5.05,
+   "joint": "elbow",
+   "position": 0.7858
+  },
+  {
+   "id": "wrist-101",
+   "t": 5.05,
+   "joint": "wrist",
+   "position": -7.6814
+  },
+  {
+   "id": "base-101",
+   "t": 5.05,
+   "joint": "base",
+   "position": 70.4568
+  },
+  {
+   "id": "shoulder-102",
+   "t": 5.1,
+   "joint": "shoulder",
+   "position": 8.3399
+  },
+  {
+   "id": "elbow-102",
+   "t": 5.1,
+   "joint": "elbow",
+   "position": 0.7939
+  },
+  {
+   "id": "wrist-102",
+   "t": 5.1,
+   "joint": "wrist",
+   "position": -7.7151
+  },
+  {
+   "id": "base-102",
+   "t": 5.1,
+   "joint": "base",
+   "position": 74.9174
+  },
+  {
+   "id": "shoulder-103",
+   "t": 5.15,
+   "joint": "shoulder",
+   "position": 8.4003
+  },
+  {
+   "id": "elbow-103",
+   "t": 5.15,
+   "joint": "elbow",
+   "position": 0.7986
+  },
+  {
+   "id": "wrist-103",
+   "t": 5.15,
+   "joint": "wrist",
+   "position": -7.75
+  },
+  {
+   "id": "base-103",
+   "t": 5.15,
+   "joint": "base",
+   "position": 79.0616
+  },
+  {
+   "id": "shoulder-104",
+   "t": 5.2,
+   "joint": "shoulder",
+   "position": 8.459
+  },
+  {
+   "id": "elbow-104",
+   "t": 5.2,
+   "joint": "elbow",
+   "position": 0.8
+  },
+  {
+   "id": "wrist-104",
+   "t": 5.2,
+   "joint": "wrist",
+   "position": -7.786
+  },
+  {
+   "id": "base-104",
+   "t": 5.2,
+   "joint": "base",
+   "position": 82.8719
+  },
+  {
+   "id": "shoulder-105",
+   "t": 5.25,
+   "joint": "shoulder",
+   "position": 8.5157
+  },
+  {
+   "id": "elbow-105",
+   "t": 5.25,
+   "joint": "elbow",
+   "position": 0.798
+  },
+  {
+   "id": "wrist-105",
+   "t": 5.25,
+   "joint": "wrist",
+   "position": -7.8228
+  },
+  {
+   "id": "base-105",
+   "t": 5.25,
+   "joint": "base",
+   "position": 86.3321
+  },
+  {
+   "id": "shoulder-106",
+   "t": 5.3,
+   "joint": "shoulder",
+   "position": 8.5703
+  },
+  {
+   "id": "elbow-106",
+   "t": 5.3,
+   "joint": "elbow",
+   "position": 0.7926
+  },
+  {
+   "id": "wrist-106",
+   "t": 5.3,
+   "joint": "wrist",
+   "position": -7.8604
+  },
+  {
+   "id": "base-106",
+   "t": 5.3,
+   "joint": "base",
+   "position": 89.4278
+  },
+  {
+   "id": "shoulder-107",
+   "t": 5.35,
+   "joint": "shoulder",
+   "position": 8.6224
+  },
+  {
+   "id": "elbow-107",
+   "t": 5.35,
+   "joint": "elbow",
+   "position": 0.7839
+  },
+  {
+   "id": "wrist-107",
+   "t": 5.35,
+   "joint": "wrist",
+   "position": -7.8986
+  },
+  {
+   "id": "base-107",
+   "t": 5.35,
+   "joint": "base",
+   "position": 92.1457
+  },
+  {
+   "id": "shoulder-108",
+   "t": 5.4,
+   "joint": "shoulder",
+   "position": 8.6719
+  },
+  {
+   "id": "elbow-108",
+   "t": 5.4,
+   "joint": "elbow",
+   "position": 0.7719
+  },
+  {
+   "id": "wrist-108",
+   "t": 5.4,
+   "joint": "wrist",
+   "position": -7.9372
+  },
+  {
+   "id": "base-108",
+   "t": 5.4,
+   "joint": "base",
+   "position": 94.4745
+  },
+  {
+   "id": "shoulder-109",
+   "t": 5.45,
+   "joint": "shoulder",
+   "position": 8.7186
+  },
+  {
+   "id": "elbow-109",
+   "t": 5.45,
+   "joint": "elbow",
+   "position": 0.7566
+  },
+  {
+   "id": "wrist-109",
+   "t": 5.45,
+   "joint": "wrist",
+   "position": -7.9761
+  },
+  {
+   "id": "base-109",
+   "t": 5.45,
+   "joint": "base",
+   "position": 96.4042
+  },
+  {
+   "id": "shoulder-110",
+   "t": 5.5,
+   "joint": "shoulder",
+   "position": 8.7623
+  },
+  {
+   "id": "elbow-110",
+   "t": 5.5,
+   "joint": "elbow",
+   "position": 0.7381
+  },
+  {
+   "id": "wrist-110",
+   "t": 5.5,
+   "joint": "wrist",
+   "position": -8.0151
+  },
+  {
+   "id": "base-110",
+   "t": 5.5,
+   "joint": "base",
+   "position": 97.9268
+  },
+  {
+   "id": "shoulder-111",
+   "t": 5.55,
+   "joint": "shoulder",
+   "position": 8.8027
+  },
+  {
+   "id": "elbow-111",
+   "t": 5.55,
+   "joint": "elbow",
+   "position": 0.7165
+  },
+  {
+   "id": "wrist-111",
+   "t": 5.55,
+   "joint": "wrist",
+   "position": -8.0541
+  },
+  {
+   "id": "base-111",
+   "t": 5.55,
+   "joint": "base",
+   "position": 99.0358
+  },
+  {
+   "id": "shoulder-112",
+   "t": 5.6,
+   "joint": "shoulder",
+   "position": 8.8397
+  },
+  {
+   "id": "elbow-112",
+   "t": 5.6,
+   "joint": "elbow",
+   "position": 0.6919
+  },
+  {
+   "id": "wrist-112",
+   "t": 5.6,
+   "joint": "wrist",
+   "position": -8.0928
+  },
+  {
+   "id": "base-112",
+   "t": 5.6,
+   "joint": "base",
+   "position": 99.7265
+  },
+  {
+   "id": "shoulder-113",
+   "t": 5.65,
+   "joint": "shoulder",
+   "position": 8.8732
+  },
+  {
+   "id": "elbow-113",
+   "t": 5.65,
+   "joint": "elbow",
+   "position": 0.6643
+  },
+  {
+   "id": "wrist-113",
+   "t": 5.65,
+   "joint": "wrist",
+   "position": -8.1311
+  },
+  {
+   "id": "base-113",
+   "t": 5.65,
+   "joint": "base",
+   "position": 99.996
+  },
+  {
+   "id": "shoulder-114",
+   "t": 5.7,
+   "joint": "shoulder",
+   "position": 8.903
+  },
+  {
+   "id": "elbow-114",
+   "t": 5.7,
+   "joint": "elbow",
+   "position": 0.6339
+  },
+  {
+   "id": "wrist-114",
+   "t": 5.7,
+   "joint": "wrist",
+   "position": -8.1688
+  },
+  {
+   "id": "base-114",
+   "t": 5.7,
+   "joint": "base",
+   "position": 99.8431
+  },
+  {
+   "id": "shoulder-115",
+   "t": 5.75,
+   "joint": "shoulder",
+   "position": 8.929
+  },
+  {
+   "id": "elbow-115",
+   "t": 5.75,
+   "joint": "elbow",
+   "position": 0.6009
+  },
+  {
+   "id": "wrist-115",
+   "t": 5.75,
+   "joint": "wrist",
+   "position": -8.2059
+  },
+  {
+   "id": "base-115",
+   "t": 5.75,
+   "joint": "base",
+   "position": 99.2686
+  },
+  {
+   "id": "shoulder-116",
+   "t": 5.8,
+   "joint": "shoulder",
+   "position": 8.9511
+  },
+  {
+   "id": "elbow-116",
+   "t": 5.8,
+   "joint": "elbow",
+   "position": 0.5653
+  },
+  {
+   "id": "wrist-116",
+   "t": 5.8,
+   "joint": "wrist",
+   "position": -8.242
+  },
+  {
+   "id": "base-116",
+   "t": 5.8,
+   "joint": "base",
+   "position": 98.2748
+  },
+  {
+   "id": "shoulder-117",
+   "t": 5.85,
+   "joint": "shoulder",
+   "position": 8.9692
+  },
+  {
+   "id": "elbow-117",
+   "t": 5.85,
+   "joint": "elbow",
+   "position": 0.5274
+  },
+  {
+   "id": "wrist-117",
+   "t": 5.85,
+   "joint": "wrist",
+   "position": -8.2772
+  },
+  {
+   "id": "base-117",
+   "t": 5.85,
+   "joint": "base",
+   "position": 96.866
+  },
+  {
+   "id": "shoulder-118",
+   "t": 5.9,
+   "joint": "shoulder",
+   "position": 8.9831
+  },
+  {
+   "id": "elbow-118",
+   "t": 5.9,
+   "joint": "elbow",
+   "position": 0.4872
+  },
+  {
+   "id": "wrist-118",
+   "t": 5.9,
+   "joint": "wrist",
+   "position": -8.3112
+  },
+  {
+   "id": "base-118",
+   "t": 5.9,
+   "joint": "base",
+   "position": 95.048
+  },
+  {
+   "id": "shoulder-119",
+   "t": 5.95,
+   "joint": "shoulder",
+   "position": 8.9929
+  },
+  {
+   "id": "elbow-119",
+   "t": 5.95,
+   "joint": "elbow",
+   "position": 0.4449
+  },
+  {
+   "id": "wrist-119",
+   "t": 5.95,
+   "joint": "wrist",
+   "position": -8.3438
+  },
+  {
+   "id": "base-119",
+   "t": 5.95,
+   "joint": "base",
+   "position": 92.8286
+  },
+  {
+   "id": "shoulder-120",
+   "t": 6.0,
+   "joint": "shoulder",
+   "position": 8.9985
+  },
+  {
+   "id": "elbow-120",
+   "t": 6.0,
+   "joint": "elbow",
+   "position": 0.4008
+  },
+  {
+   "id": "wrist-120",
+   "t": 6.0,
+   "joint": "wrist",
+   "position": -8.375
+  },
+  {
+   "id": "base-120",
+   "t": 6.0,
+   "joint": "base",
+   "position": 90.2172
+  },
+  {
+   "id": "shoulder-121",
+   "t": 6.05,
+   "joint": "shoulder",
+   "position": 8.9999
+  },
+  {
+   "id": "elbow-121",
+   "t": 6.05,
+   "joint": "elbow",
+   "position": 0.355
+  },
+  {
+   "id": "wrist-121",
+   "t": 6.05,
+   "joint": "wrist",
+   "position": -8.4047
+  },
+  {
+   "id": "base-121",
+   "t": 6.05,
+   "joint": "base",
+   "position": 87.2247
+  },
+  {
+   "id": "shoulder-122",
+   "t": 6.1,
+   "joint": "shoulder",
+   "position": 8.9971
+  },
+  {
+   "id": "elbow-122",
+   "t": 6.1,
+   "joint": "elbow",
+   "position": 0.3077
+  },
+  {
+   "id": "wrist-122",
+   "t": 6.1,
+   "joint": "wrist",
+   "position": -8.4326
+  },
+  {
+   "id": "base-122",
+   "t": 6.1,
+   "joint": "base",
+   "position": 83.8638
+  },
+  {
+   "id": "shoulder-123",
+   "t": 6.15,
+   "joint": "shoulder",
+   "position": 8.9901
+  },
+  {
+   "id": "elbow-123",
+   "t": 6.15,
+   "joint": "elbow",
+   "position": 0.2591
+  },
+  {
+   "id": "wrist-123",
+   "t": 6.15,
+   "joint": "wrist",
+   "position": -8.4587
+  },
+  {
+   "id": "base-123",
+   "t": 6.15,
+   "joint": "base",
+   "position": 80.1487
+  },
+  {
+   "id": "shoulder-124",
+   "t": 6.2,
+   "joint": "shoulder",
+   "position": 8.9789
+  },
+  {
+   "id": "elbow-124",
+   "t": 6.2,
+   "joint": "elbow",
+   "position": 0.2094
+  },
+  {
+   "id": "wrist-124",
+   "t": 6.2,
+   "joint": "wrist",
+   "position": -8.4828
+  },
+  {
+   "id": "base-124",
+   "t": 6.2,
+   "joint": "base",
+   "position": 76.0951
+  },
+  {
+   "id": "shoulder-125",
+   "t": 6.25,
+   "joint": "shoulder",
+   "position": 8.9635
+  },
+  {
+   "id": "elbow-125",
+   "t": 6.25,
+   "joint": "elbow",
+   "position": 0.1588
+  },
+  {
+   "id": "wrist-125",
+   "t": 6.25,
+   "joint": "wrist",
+   "position": -8.505
+  },
+  {
+   "id": "base-125",
+   "t": 6.25,
+   "joint": "base",
+   "position": 71.7201
+  },
+  {
+   "id": "shoulder-126",
+   "t": 6.3,
+   "joint": "shoulder",
+   "position": 8.9441
+  },
+  {
+   "id": "elbow-126",
+   "t": 6.3,
+   "joint": "elbow",
+   "position": 0.1075
+  },
+  {
+   "id": "wrist-126",
+   "t": 6.3,
+   "joint": "wrist",
+   "position": -8.5249
+  },
+  {
+   "id": "base-126",
+   "t": 6.3,
+   "joint": "base",
+   "position": 67.0422
+  },
+  {
+   "id": "shoulder-127",
+   "t": 6.35,
+   "joint": "shoulder",
+   "position": 8.9207
+  },
+  {
+   "id": "elbow-127",
+   "t": 6.35,
+   "joint": "elbow",
+   "position": 0.0558
+  },
+  {
+   "id": "wrist-127",
+   "t": 6.35,
+   "joint": "wrist",
+   "position": -8.5427
+  },
+  {
+   "id": "base-127",
+   "t": 6.35,
+   "joint": "base",
+   "position": 62.0812
+  },
+  {
+   "id": "shoulder-128",
+   "t": 6.4,
+   "joint": "shoulder",
+   "position": 8.8934
+  },
+  {
+   "id": "elbow-128",
+   "t": 6.4,
+   "joint": "elbow",
+   "position": 0.0038
+  },
+  {
+   "id": "wrist-128",
+   "t": 6.4,
+   "joint": "wrist",
+   "position": -8.5582
+  },
+  {
+   "id": "base-128",
+   "t": 6.4,
+   "joint": "base",
+   "position": 56.8579
+  },
+  {
+   "id": "shoulder-129",
+   "t": 6.45,
+   "joint": "shoulder",
+   "position": 8.8623
+  },
+  {
+   "id": "elbow-129",
+   "t": 6.45,
+   "joint": "elbow",
+   "position": -0.0481
+  },
+  {
+   "id": "wrist-129",
+   "t": 6.45,
+   "joint": "wrist",
+   "position": -8.5713
+  },
+  {
+   "id": "base-129",
+   "t": 6.45,
+   "joint": "base",
+   "position": 51.3946
+  },
+  {
+   "id": "shoulder-130",
+   "t": 6.5,
+   "joint": "shoulder",
+   "position": 8.8276
+  },
+  {
+   "id": "elbow-130",
+   "t": 6.5,
+   "joint": "elbow",
+   "position": -0.0999
+  },
+  {
+   "id": "wrist-130",
+   "t": 6.5,
+   "joint": "wrist",
+   "position": -8.582
+  },
+  {
+   "id": "base-130",
+   "t": 6.5,
+   "joint": "base",
+   "position": 45.7141
+  },
+  {
+   "id": "shoulder-131",
+   "t": 6.55,
+   "joint": "shoulder",
+   "position": 8.7894
+  },
+  {
+   "id": "elbow-131",
+   "t": 6.55,
+   "joint": "elbow",
+   "position": -0.1513
+  },
+  {
+   "id": "wrist-131",
+   "t": 6.55,
+   "joint": "wrist",
+   "position": -8.5902
+  },
+  {
+   "id": "base-131",
+   "t": 6.55,
+   "joint": "base",
+   "position": 39.8406
+  },
+  {
+   "id": "shoulder-132",
+   "t": 6.6,
+   "joint": "shoulder",
+   "position": 8.7478
+  },
+  {
+   "id": "elbow-132",
+   "t": 6.6,
+   "joint": "elbow",
+   "position": -0.202
+  },
+  {
+   "id": "wrist-132",
+   "t": 6.6,
+   "joint": "wrist",
+   "position": -8.596
+  },
+  {
+   "id": "base-132",
+   "t": 6.6,
+   "joint": "base",
+   "position": 33.7988
+  },
+  {
+   "id": "shoulder-133",
+   "t": 6.65,
+   "joint": "shoulder",
+   "position": 8.7031
+  },
+  {
+   "id": "elbow-133",
+   "t": 6.65,
+   "joint": "elbow",
+   "position": -0.2518
+  },
+  {
+   "id": "wrist-133",
+   "t": 6.65,
+   "joint": "wrist",
+   "position": -8.5992
+  },
+  {
+   "id": "base-133",
+   "t": 6.65,
+   "joint": "base",
+   "position": 27.6142
+  },
+  {
+   "id": "shoulder-134",
+   "t": 6.7,
+   "joint": "shoulder",
+   "position": 8.6554
+  },
+  {
+   "id": "elbow-134",
+   "t": 6.7,
+   "joint": "elbow",
+   "position": -0.3006
+  },
+  {
+   "id": "wrist-134",
+   "t": 6.7,
+   "joint": "wrist",
+   "position": -8.5999
+  },
+  {
+   "id": "base-134",
+   "t": 6.7,
+   "joint": "base",
+   "position": 21.313
+  },
+  {
+   "id": "shoulder-135",
+   "t": 6.75,
+   "joint": "shoulder",
+   "position": 8.605
+  },
+  {
+   "id": "elbow-135",
+   "t": 6.75,
+   "joint": "elbow",
+   "position": -0.3481
+  },
+  {
+   "id": "wrist-135",
+   "t": 6.75,
+   "joint": "wrist",
+   "position": -8.5981
+  },
+  {
+   "id": "base-135",
+   "t": 6.75,
+   "joint": "base",
+   "position": 14.9219
+  },
+  {
+   "id": "shoulder-136",
+   "t": 6.8,
+   "joint": "shoulder",
+   "position": 8.552
+  },
+  {
+   "id": "elbow-136",
+   "t": 6.8,
+   "joint": "elbow",
+   "position": -0.3942
+  },
+  {
+   "id": "wrist-136",
+   "t": 6.8,
+   "joint": "wrist",
+   "position": -8.5938
+  },
+  {
+   "id": "base-136",
+   "t": 6.8,
+   "joint": "base",
+   "position": 8.4676
+  },
+  {
+   "id": "shoulder-137",
+   "t": 6.85,
+   "joint": "shoulder",
+   "position": 8.4967
+  },
+  {
+   "id": "elbow-137",
+   "t": 6.85,
+   "joint": "elbow",
+   "position": -0.4386
+  },
+  {
+   "id": "wrist-137",
+   "t": 6.85,
+   "joint": "wrist",
+   "position": -8.5869
+  },
+  {
+   "id": "base-137",
+   "t": 6.85,
+   "joint": "base",
+   "position": 1.9777
+  },
+  {
+   "id": "shoulder-138",
+   "t": 6.9,
+   "joint": "shoulder",
+   "position": 8.4393
+  },
+  {
+   "id": "elbow-138",
+   "t": 6.9,
+   "joint": "elbow",
+   "position": -0.4811
+  },
+  {
+   "id": "wrist-138",
+   "t": 6.9,
+   "joint": "wrist",
+   "position": -8.5775
+  },
+  {
+   "id": "base-138",
+   "t": 6.9,
+   "joint": "base",
+   "position": -4.5207
+  },
+  {
+   "id": "shoulder-139",
+   "t": 6.95,
+   "joint": "shoulder",
+   "position": 8.38
+  },
+  {
+   "id": "elbow-139",
+   "t": 6.95,
+   "joint": "elbow",
+   "position": -0.5216
+  },
+  {
+   "id": "wrist-139",
+   "t": 6.95,
+   "joint": "wrist",
+   "position": -8.5658
+  },
+  {
+   "id": "base-139",
+   "t": 6.95,
+   "joint": "base",
+   "position": -10.9999
+  },
+  {
+   "id": "shoulder-140",
+   "t": 7.0,
+   "joint": "shoulder",
+   "position": 8.3191
+  },
+  {
+   "id": "elbow-140",
+   "t": 7.0,
+   "joint": "elbow",
+   "position": -0.5599
+  },
+  {
+   "id": "wrist-140",
+   "t": 7.0,
+   "joint": "wrist",
+   "position": -8.5516
+  },
+  {
+   "id": "base-140",
+   "t": 7.0,
+   "joint": "base",
+   "position": -17.4327
+  },
+  {
+   "id": "shoulder-141",
+   "t": 7.05,
+   "joint": "shoulder",
+   "position": 8.2569
+  },
+  {
+   "id": "elbow-141",
+   "t": 7.05,
+   "joint": "elbow",
+   "position": -0.5958
+  },
+  {
+   "id": "wrist-141",
+   "t": 7.05,
+   "joint": "wrist",
+   "position": -8.5351
+  },
+  {
+   "id": "base-141",
+   "t": 7.05,
+   "joint": "base",
+   "position": -23.7918
+  },
+  {
+   "id": "shoulder-142",
+   "t": 7.1,
+   "joint": "shoulder",
+   "position": 8.1935
+  },
+  {
+   "id": "elbow-142",
+   "t": 7.1,
+   "joint": "elbow",
+   "position": -0.6292
+  },
+  {
+   "id": "wrist-142",
+   "t": 7.1,
+   "joint": "wrist",
+   "position": -8.5163
+  },
+  {
+   "id": "base-142",
+   "t": 7.1,
+   "joint": "base",
+   "position": -30.0505
+  },
+  {
+   "id": "shoulder-143",
+   "t": 7.15,
+   "joint": "shoulder",
+   "position": 8.1294
+  },
+  {
+   "id": "elbow-143",
+   "t": 7.15,
+   "joint": "elbow",
+   "position": -0.66
+  },
+  {
+   "id": "wrist-143",
+   "t": 7.15,
+   "joint": "wrist",
+   "position": -8.4954
+  },
+  {
+   "id": "base-143",
+   "t": 7.15,
+   "joint": "base",
+   "position": -36.1822
+  },
+  {
+   "id": "shoulder-144",
+   "t": 7.2,
+   "joint": "shoulder",
+   "position": 8.0647
+  },
+  {
+   "id": "elbow-144",
+   "t": 7.2,
+   "joint": "elbow",
+   "position": -0.688
+  },
+  {
+   "id": "wrist-144",
+   "t": 7.2,
+   "joint": "wrist",
+   "position": -8.4724
+  },
+  {
+   "id": "base-144",
+   "t": 7.2,
+   "joint": "base",
+   "position": -42.1612
+  },
+  {
+   "id": "shoulder-145",
+   "t": 7.25,
+   "joint": "shoulder",
+   "position": 7.9998
+  },
+  {
+   "id": "elbow-145",
+   "t": 7.25,
+   "joint": "elbow",
+   "position": -0.713
+  },
+  {
+   "id": "wrist-145",
+   "t": 7.25,
+   "joint": "wrist",
+   "position": -8.4473
+  },
+  {
+   "id": "base-145",
+   "t": 7.25,
+   "joint": "base",
+   "position": -47.962
+  },
+  {
+   "id": "shoulder-146",
+   "t": 7.3,
+   "joint": "shoulder",
+   "position": 7.9348
+  },
+  {
+   "id": "elbow-146",
+   "t": 7.3,
+   "joint": "elbow",
+   "position": -0.7351
+  },
+  {
+   "id": "wrist-146",
+   "t": 7.3,
+   "joint": "wrist",
+   "position": -8.4204
+  },
+  {
+   "id": "base-146",
+   "t": 7.3,
+   "joint": "base",
+   "position": -53.5603
+  },
+  {
+   "id": "shoulder-147",
+   "t": 7.35,
+   "joint": "shoulder",
+   "position": 7.8701
+  },
+  {
+   "id": "elbow-147",
+   "t": 7.35,
+   "joint": "elbow",
+   "position": -0.7541
+  },
+  {
+   "id": "wrist-147",
+   "t": 7.35,
+   "joint": "wrist",
+   "position": -8.3917
+  },
+  {
+   "id": "base-147",
+   "t": 7.35,
+   "joint": "base",
+   "position": -58.9324
+  },
+  {
+   "id": "shoulder-148",
+   "t": 7.4,
+   "joint": "shoulder",
+   "position": 7.806
+  },
+  {
+   "id": "elbow-148",
+   "t": 7.4,
+   "joint": "elbow",
+   "position": -0.7698
+  },
+  {
+   "id": "wrist-148",
+   "t": 7.4,
+   "joint": "wrist",
+   "position": -8.3614
+  },
+  {
+   "id": "base-148",
+   "t": 7.4,
+   "joint": "base",
+   "position": -64.0556
+  },
+  {
+   "id": "shoulder-149",
+   "t": 7.45,
+   "joint": "shoulder",
+   "position": 7.7427
+  },
+  {
+   "id": "elbow-149",
+   "t": 7.45,
+   "joint": "elbow",
+   "position": -0.7823
+  },
+  {
+   "id": "wrist-149",
+   "t": 7.45,
+   "joint": "wrist",
+   "position": -8.3295
+  },
+  {
+   "id": "base-149",
+   "t": 7.45,
+   "joint": "base",
+   "position": -68.9082
+  },
+  {
+   "id": "shoulder-150",
+   "t": 7.5,
+   "joint": "shoulder",
+   "position": 7.6805
+  },
+  {
+   "id": "elbow-150",
+   "t": 7.5,
+   "joint": "elbow",
+   "position": -0.7915
+  },
+  {
+   "id": "wrist-150",
+   "t": 7.5,
+   "joint": "wrist",
+   "position": -8.2962
+  },
+  {
+   "id": "base-150",
+   "t": 7.5,
+   "joint": "base",
+   "position": -73.4698
+  },
+  {
+   "id": "shoulder-151",
+   "t": 7.55,
+   "joint": "shoulder",
+   "position": 7.6196
+  },
+  {
+   "id": "elbow-151",
+   "t": 7.55,
+   "joint": "elbow",
+   "position": -0.7974
+  },
+  {
+   "id": "wrist-151",
+   "t": 7.55,
+   "joint": "wrist",
+   "position": -8.2617
+  },
+  {
+   "id": "base-151",
+   "t": 7.55,
+   "joint": "base",
+   "position": -77.7211
+  },
+  {
+   "id": "shoulder-152",
+   "t": 7.6,
+   "joint": "shoulder",
+   "position": 7.5603
+  },
+  {
+   "id": "elbow-152",
+   "t": 7.6,
+   "joint": "elbow",
+   "position": -0.7999
+  },
+  {
+   "id": "wrist-152",
+   "t": 7.6,
+   "joint": "wrist",
+   "position": -8.2261
+  },
+  {
+   "id": "base-152",
+   "t": 7.6,
+   "joint": "base",
+   "position": -81.6442
+  },
+  {
+   "id": "shoulder-153",
+   "t": 7.65,
+   "joint": "shoulder",
+   "position": 7.5029
+  },
+  {
+   "id": "elbow-153",
+   "t": 7.65,
+   "joint": "elbow",
+   "position": -0.799
+  },
+  {
+   "id": "wrist-153",
+   "t": 7.65,
+   "joint": "wrist",
+   "position": -8.1895
+  },
+  {
+   "id": "base-153",
+   "t": 7.65,
+   "joint": "base",
+   "position": -85.2224
+  },
+  {
+   "id": "shoulder-154",
+   "t": 7.7,
+   "joint": "shoulder",
+   "position": 7.4476
+  },
+  {
+   "id": "elbow-154",
+   "t": 7.7,
+   "joint": "elbow",
+   "position": -0.7948
+  },
+  {
+   "id": "wrist-154",
+   "t": 7.7,
+   "joint": "wrist",
+   "position": -8.1521
+  },
+  {
+   "id": "base-154",
+   "t": 7.7,
+   "joint": "base",
+   "position": -88.4407
+  },
+  {
+   "id": "shoulder-155",
+   "t": 7.75,
+   "joint": "shoulder",
+   "position": 7.3946
+  },
+  {
+   "id": "elbow-155",
+   "t": 7.75,
+   "joint": "elbow",
+   "position": -0.7872
+  },
+  {
+   "id": "wrist-155",
+   "t": 7.75,
+   "joint": "wrist",
+   "position": -8.1141
+  },
+  {
+   "id": "base-155",
+   "t": 7.75,
+   "joint": "base",
+   "position": -91.2855
+  },
+  {
+   "id": "shoulder-156",
+   "t": 7.8,
+   "joint": "shoulder",
+   "position": 7.3442
+  },
+  {
+   "id": "elbow-156",
+   "t": 7.8,
+   "joint": "elbow",
+   "position": -0.7762
+  },
+  {
+   "id": "wrist-156",
+   "t": 7.8,
+   "joint": "wrist",
+   "position": -8.0756
+  },
+  {
+   "id": "base-156",
+   "t": 7.8,
+   "joint": "base",
+   "position": -93.7447
+  },
+  {
+   "id": "shoulder-157",
+   "t": 7.85,
+   "joint": "shoulder",
+   "position": 7.2966
+  },
+  {
+   "id": "elbow-157",
+   "t": 7.85,
+   "joint": "elbow",
+   "position": -0.762
+  },
+  {
+   "id": "wrist-157",
+   "t": 7.85,
+   "joint": "wrist",
+   "position": -8.0368
+  },
+  {
+   "id": "base-157",
+   "t": 7.85,
+   "joint": "base",
+   "position": -95.8079
+  },
+  {
+   "id": "shoulder-158",
+   "t": 7.9,
+   "joint": "shoulder",
+   "position": 7.2519
+  },
+  {
+   "id": "elbow-158",
+   "t": 7.9,
+   "joint": "elbow",
+   "position": -0.7446
+  },
+  {
+   "id": "wrist-158",
+   "t": 7.9,
+   "joint": "wrist",
+   "position": -7.9978
+  },
+  {
+   "id": "base-158",
+   "t": 7.9,
+   "joint": "base",
+   "position": -97.4666
+  },
+  {
+   "id": "shoulder-159",
+   "t": 7.95,
+   "joint": "shoulder",
+   "position": 7.2104
+  },
+  {
+   "id": "elbow-159",
+   "t": 7.95,
+   "joint": "elbow",
+   "position": -0.724
+  },
+  {
+   "id": "wrist-159",
+   "t": 7.95,
+   "joint": "wrist",
+   "position": -7.9589
+  },
+  {
+   "id": "base-159",
+   "t": 7.95,
+   "joint": "base",
+   "position": -98.7136
+  },
+  {
+   "id": "shoulder-160",
+   "t": 8.0,
+   "joint": "shoulder",
+   "position": 7.1722
+  },
+  {
+   "id": "elbow-160",
+   "t": 8.0,
+   "joint": "elbow",
+   "position": -0.7004
+  },
+  {
+   "id": "wrist-160",
+   "t": 8.0,
+   "joint": "wrist",
+   "position": -7.9201
+  },
+  {
+   "id": "base-160",
+   "t": 8.0,
+   "joint": "base",
+   "position": -99.5436
+  },
+  {
+   "id": "shoulder-161",
+   "t": 8.05,
+   "joint": "shoulder",
+   "position": 7.1375
+  },
+  {
+   "id": "elbow-161",
+   "t": 8.05,
+   "joint": "elbow",
+   "position": -0.6738
+  },
+  {
+   "id": "wrist-161",
+   "t": 8.05,
+   "joint": "wrist",
+   "position": -7.8816
+  },
+  {
+   "id": "base-161",
+   "t": 8.05,
+   "joint": "base",
+   "position": -99.9533
+  },
+  {
+   "id": "shoulder-162",
+   "t": 8.1,
+   "joint": "shoulder",
+   "position": 7.1064
+  },
+  {
+   "id": "elbow-162",
+   "t": 8.1,
+   "joint": "elbow",
+   "position": -0.6443
+  },
+  {
+   "id": "wrist-162",
+   "t": 8.1,
+   "joint": "wrist",
+   "position": -7.8436
+  },
+  {
+   "id": "base-162",
+   "t": 8.1,
+   "joint": "base",
+   "position": -99.9407
+  },
+  {
+   "id": "shoulder-163",
+   "t": 8.15,
+   "joint": "shoulder",
+   "position": 7.0792
+  },
+  {
+   "id": "elbow-163",
+   "t": 8.15,
+   "joint": "elbow",
+   "position": -0.6122
+  },
+  {
+   "id": "wrist-163",
+   "t": 8.15,
+   "joint": "wrist",
+   "position": -7.8064
+  },
+  {
+   "id": "base-163",
+   "t": 8.15,
+   "joint": "base",
+   "position": -99.5061
+  },
+  {
+   "id": "shoulder-164",
+   "t": 8.2,
+   "joint": "shoulder",
+   "position": 7.0558
+  },
+  {
+   "id": "elbow-164",
+   "t": 8.2,
+   "joint": "elbow",
+   "position": -0.5774
+  },
+  {
+   "id": "wrist-164",
+   "t": 8.2,
+   "joint": "wrist",
+   "position": -7.7699
+  },
+  {
+   "id": "base-164",
+   "t": 8.2,
+   "joint": "base",
+   "position": -98.6513
+  },
+  {
+   "id": "shoulder-165",
+   "t": 8.25,
+   "joint": "shoulder",
+   "position": 7.0364
+  },
+  {
+   "id": "elbow-165",
+   "t": 8.25,
+   "joint": "elbow",
+   "position": -0.5402
+  },
+  {
+   "id": "wrist-165",
+   "t": 8.25,
+   "joint": "wrist",
+   "position": -7.7344
+  },
+  {
+   "id": "base-165",
+   "t": 8.25,
+   "joint": "base",
+   "position": -97.3797
+  },
+  {
+   "id": "shoulder-166",
+   "t": 8.3,
+   "joint": "shoulder",
+   "position": 7.0211
+  },
+  {
+   "id": "elbow-166",
+   "t": 8.3,
+   "joint": "elbow",
+   "position": -0.5008
+  },
+  {
+   "id": "wrist-166",
+   "t": 8.3,
+   "joint": "wrist",
+   "position": -7.7
+  },
+  {
+   "id": "base-166",
+   "t": 8.3,
+   "joint": "base",
+   "position": -95.6969
+  },
+  {
+   "id": "shoulder-167",
+   "t": 8.35,
+   "joint": "shoulder",
+   "position": 7.0099
+  },
+  {
+   "id": "elbow-167",
+   "t": 8.35,
+   "joint": "elbow",
+   "position": -0.4592
+  },
+  {
+   "id": "wrist-167",
+   "t": 8.35,
+   "joint": "wrist",
+   "position": -7.6669
+  },
+  {
+   "id": "base-167",
+   "t": 8.35,
+   "joint": "base",
+   "position": -93.6099
+  },
+  {
+   "id": "shoulder-168",
+   "t": 8.4,
+   "joint": "shoulder",
+   "position": 7.0029
+  },
+  {
+   "id": "elbow-168",
+   "t": 8.4,
+   "joint": "elbow",
+   "position": -0.4157
+  },
+  {
+   "id": "wrist-168",
+   "t": 8.4,
+   "joint": "wrist",
+   "position": -7.6352
+  },
+  {
+   "id": "base-168",
+   "t": 8.4,
+   "joint": "base",
+   "position": -91.1275
+  },
+  {
+   "id": "shoulder-169",
+   "t": 8.45,
+   "joint": "shoulder",
+   "position": 7.0001
+  },
+  {
+   "id": "elbow-169",
+   "t": 8.45,
+   "joint": "elbow",
+   "position": -0.3704
+  },
+  {
+   "id": "wrist-169",
+   "t": 8.45,
+   "joint": "wrist",
+   "position": -7.605
+  },
+  {
+   "id": "base-169",
+   "t": 8.45,
+   "joint": "base",
+   "position": -88.2603
+  },
+  {
+   "id": "shoulder-170",
+   "t": 8.5,
+   "joint": "shoulder",
+   "position": 7.0015
+  },
+  {
+   "id": "elbow-170",
+   "t": 8.5,
+   "joint": "elbow",
+   "position": -0.3236
+  },
+  {
+   "id": "wrist-170",
+   "t": 8.5,
+   "joint": "wrist",
+   "position": -7.5765
+  },
+  {
+   "id": "base-170",
+   "t": 8.5,
+   "joint": "base",
+   "position": -85.0203
+  },
+  {
+   "id": "shoulder-171",
+   "t": 8.55,
+   "joint": "shoulder",
+   "position": 7.0071
+  },
+  {
+   "id": "elbow-171",
+   "t": 8.55,
+   "joint": "elbow",
+   "position": -0.2753
+  },
+  {
+   "id": "wrist-171",
+   "t": 8.55,
+   "joint": "wrist",
+   "position": -7.5498
+  },
+  {
+   "id": "base-171",
+   "t": 8.55,
+   "joint": "base",
+   "position": -81.4212
+  },
+  {
+   "id": "shoulder-172",
+   "t": 8.6,
+   "joint": "shoulder",
+   "position": 7.017
+  },
+  {
+   "id": "elbow-172",
+   "t": 8.6,
+   "joint": "elbow",
+   "position": -0.226
+  },
+  {
+   "id": "wrist-172",
+   "t": 8.6,
+   "joint": "wrist",
+   "position": -7.525
+  },
+  {
+   "id": "base-172",
+   "t": 8.6,
+   "joint": "base",
+   "position": -77.4782
+  },
+  {
+   "id": "shoulder-173",
+   "t": 8.65,
+   "joint": "shoulder",
+   "position": 7.0309
+  },
+  {
+   "id": "elbow-173",
+   "t": 8.65,
+   "joint": "elbow",
+   "position": -0.1757
+  },
+  {
+   "id": "wrist-173",
+   "t": 8.65,
+   "joint": "wrist",
+   "position": -7.5022
+  },
+  {
+   "id": "base-173",
+   "t": 8.65,
+   "joint": "base",
+   "position": -73.208
+  },
+  {
+   "id": "shoulder-174",
+   "t": 8.7,
+   "joint": "shoulder",
+   "position": 7.049
+  },
+  {
+   "id": "elbow-174",
+   "t": 8.7,
+   "joint": "elbow",
+   "position": -0.1246
+  },
+  {
+   "id": "wrist-174",
+   "t": 8.7,
+   "joint": "wrist",
+   "position": -7.4815
+  },
+  {
+   "id": "base-174",
+   "t": 8.7,
+   "joint": "base",
+   "position": -68.6286
+  },
+  {
+   "id": "shoulder-175",
+   "t": 8.75,
+   "joint": "shoulder",
+   "position": 7.0711
+  },
+  {
+   "id": "elbow-175",
+   "t": 8.75,
+   "joint": "elbow",
+   "position": -0.073
+  },
+  {
+   "id": "wrist-175",
+   "t": 8.75,
+   "joint": "wrist",
+   "position": -7.4629
+  },
+  {
+   "id": "base-175",
+   "t": 8.75,
+   "joint": "base",
+   "position": -63.7594
+  },
+  {
+   "id": "shoulder-176",
+   "t": 8.8,
+   "joint": "shoulder",
+   "position": 7.0971
+  },
+  {
+   "id": "elbow-176",
+   "t": 8.8,
+   "joint": "elbow",
+   "position": -0.0211
+  },
+  {
+   "id": "wrist-176",
+   "t": 8.8,
+   "joint": "wrist",
+   "position": -7.4467
+  },
+  {
+   "id": "base-176",
+   "t": 8.8,
+   "joint": "base",
+   "position": -58.6208
+  },
+  {
+   "id": "shoulder-177",
+   "t": 8.85,
+   "joint": "shoulder",
+   "position": 7.127
+  },
+  {
+   "id": "elbow-177",
+   "t": 8.85,
+   "joint": "elbow",
+   "position": 0.0309
+  },
+  {
+   "id": "wrist-177",
+   "t": 8.85,
+   "joint": "wrist",
+   "position": -7.4328
+  },
+  {
+   "id": "base-177",
+   "t": 8.85,
+   "joint": "base",
+   "position": -53.2347
+  },
+  {
+   "id": "shoulder-178",
+   "t": 8.9,
+   "joint": "shoulder",
+   "position": 7.1605
+  },
+  {
+   "id": "elbow-178",
+   "t": 8.9,
+   "joint": "elbow",
+   "position": 0.0828
+  },
+  {
+   "id": "wrist-178",
+   "t": 8.9,
+   "joint": "wrist",
+   "position": -7.4213
+  },
+  {
+   "id": "base-178",
+   "t": 8.9,
+   "joint": "base",
+   "position": -47.6237
+  },
+  {
+   "id": "shoulder-179",
+   "t": 8.95,
+   "joint": "shoulder",
+   "position": 7.1976
+  },
+  {
+   "id": "elbow-179",
+   "t": 8.95,
+   "joint": "elbow",
+   "position": 0.1343
+  },
+  {
+   "id": "wrist-179",
+   "t": 8.95,
+   "joint": "wrist",
+   "position": -7.4122
+  },
+  {
+   "id": "base-179",
+   "t": 8.95,
+   "joint": "base",
+   "position": -41.8116
+  },
+  {
+   "id": "shoulder-180",
+   "t": 9.0,
+   "joint": "shoulder",
+   "position": 7.238
+  },
+  {
+   "id": "elbow-180",
+   "t": 9.0,
+   "joint": "elbow",
+   "position": 0.1852
+  },
+  {
+   "id": "wrist-180",
+   "t": 9.0,
+   "joint": "wrist",
+   "position": -7.4056
+  },
+  {
+   "id": "base-180",
+   "t": 9.0,
+   "joint": "base",
+   "position": -35.8229
+  },
+  {
+   "id": "shoulder-181",
+   "t": 9.05,
+   "joint": "shoulder",
+   "position": 7.2817
+  },
+  {
+   "id": "elbow-181",
+   "t": 9.05,
+   "joint": "elbow",
+   "position": 0.2354
+  },
+  {
+   "id": "wrist-181",
+   "t": 9.05,
+   "joint": "wrist",
+   "position": -7.4016
+  },
+  {
+   "id": "base-181",
+   "t": 9.05,
+   "joint": "base",
+   "position": -29.6829
+  },
+  {
+   "id": "shoulder-182",
+   "t": 9.1,
+   "joint": "shoulder",
+   "position": 7.3284
+  },
+  {
+   "id": "elbow-182",
+   "t": 9.1,
+   "joint": "elbow",
+   "position": 0.2845
+  },
+  {
+   "id": "wrist-182",
+   "t": 9.1,
+   "joint": "wrist",
+   "position": -7.4
+  },
+  {
+   "id": "base-182",
+   "t": 9.1,
+   "joint": "base",
+   "position": -23.4176
+  },
+  {
+   "id": "shoulder-183",
+   "t": 9.15,
+   "joint": "shoulder",
+   "position": 7.3779
+  },
+  {
+   "id": "elbow-183",
+   "t": 9.15,
+   "joint": "elbow",
+   "position": 0.3325
+  },
+  {
+   "id": "wrist-183",
+   "t": 9.15,
+   "joint": "wrist",
+   "position": -7.401
+  },
+  {
+   "id": "base-183",
+   "t": 9.15,
+   "joint": "base",
+   "position": -17.0533
+  },
+  {
+   "id": "shoulder-184",
+   "t": 9.2,
+   "joint": "shoulder",
+   "position": 7.4301
+  },
+  {
+   "id": "elbow-184",
+   "t": 9.2,
+   "joint": "elbow",
+   "position": 0.3791
+  },
+  {
+   "id": "wrist-184",
+   "t": 9.2,
+   "joint": "wrist",
+   "position": -7.4045
+  },
+  {
+   "id": "base-184",
+   "t": 9.2,
+   "joint": "base",
+   "position": -10.617
+  },
+  {
+   "id": "shoulder-185",
+   "t": 9.25,
+   "joint": "shoulder",
+   "position": 7.4847
+  },
+  {
+   "id": "elbow-185",
+   "t": 9.25,
+   "joint": "elbow",
+   "position": 0.424
+  },
+  {
+   "id": "wrist-185",
+   "t": 9.25,
+   "joint": "wrist",
+   "position": -7.4106
+  },
+  {
+   "id": "base-185",
+   "t": 9.25,
+   "joint": "base",
+   "position": -4.1359
+  },
+  {
+   "id": "shoulder-186",
+   "t": 9.3,
+   "joint": "shoulder",
+   "position": 7.5414
+  },
+  {
+   "id": "elbow-186",
+   "t": 9.3,
+   "joint": "elbow",
+   "position": 0.4672
+  },
+  {
+   "id": "wrist-186",
+   "t": 9.3,
+   "joint": "wrist",
+   "position": -7.4191
+  },
+  {
+   "id": "base-186",
+   "t": 9.3,
+   "joint": "base",
+   "position": 2.3627
+  },
+  {
+   "id": "shoulder-187",
+   "t": 9.35,
+   "joint": "shoulder",
+   "position": 7.6001
+  },
+  {
+   "id": "elbow-187",
+   "t": 9.35,
+   "joint": "elbow",
+   "position": 0.5084
+  },
+  {
+   "id": "wrist-187",
+   "t": 9.35,
+   "joint": "wrist",
+   "position": -7.4301
+  },
+  {
+   "id": "base-187",
+   "t": 9.35,
+   "joint": "base",
+   "position": 8.8513
+  },
+  {
+   "id": "shoulder-188",
+   "t": 9.4,
+   "joint": "shoulder",
+   "position": 7.6605
+  },
+  {
+   "id": "elbow-188",
+   "t": 9.4,
+   "joint": "elbow",
+   "position": 0.5474
+  },
+  {
+   "id": "wrist-188",
+   "t": 9.4,
+   "joint": "wrist",
+   "position": -7.4434
+  },
+  {
+   "id": "base-188",
+   "t": 9.4,
+   "joint": "base",
+   "position": 15.3026
+  },
+  {
+   "id": "shoulder-189",
+   "t": 9.45,
+   "joint": "shoulder",
+   "position": 7.7223
+  },
+  {
+   "id": "elbow-189",
+   "t": 9.45,
+   "joint": "elbow",
+   "position": 0.5842
+  },
+  {
+   "id": "wrist-189",
+   "t": 9.45,
+   "joint": "wrist",
+   "position": -7.4592
+  },
+  {
+   "id": "base-189",
+   "t": 9.45,
+   "joint": "base",
+   "position": 21.6892
+  },
+  {
+   "id": "shoulder-190",
+   "t": 9.5,
+   "joint": "shoulder",
+   "position": 7.7853
+  },
+  {
+   "id": "elbow-190",
+   "t": 9.5,
+   "joint": "elbow",
+   "position": 0.6184
+  },
+  {
+   "id": "wrist-190",
+   "t": 9.5,
+   "joint": "wrist",
+   "position": -7.4772
+  },
+  {
+   "id": "base-190",
+   "t": 9.5,
+   "joint": "base",
+   "position": 27.9842
+  },
+  {
+   "id": "shoulder-191",
+   "t": 9.55,
+   "joint": "shoulder",
+   "position": 7.8492
+  },
+  {
+   "id": "elbow-191",
+   "t": 9.55,
+   "joint": "elbow",
+   "position": 0.6501
+  },
+  {
+   "id": "wrist-191",
+   "t": 9.55,
+   "joint": "wrist",
+   "position": -7.4974
+  },
+  {
+   "id": "base-191",
+   "t": 9.55,
+   "joint": "base",
+   "position": 34.161
+  },
+  {
+   "id": "shoulder-192",
+   "t": 9.6,
+   "joint": "shoulder",
+   "position": 7.9137
+  },
+  {
+   "id": "elbow-192",
+   "t": 9.6,
+   "joint": "elbow",
+   "position": 0.679
+  },
+  {
+   "id": "wrist-192",
+   "t": 9.6,
+   "joint": "wrist",
+   "position": -7.5198
+  },
+  {
+   "id": "base-192",
+   "t": 9.6,
+   "joint": "base",
+   "position": 40.1935
+  },
+  {
+   "id": "shoulder-193",
+   "t": 9.65,
+   "joint": "shoulder",
+   "position": 7.9786
+  },
+  {
+   "id": "elbow-193",
+   "t": 9.65,
+   "joint": "elbow",
+   "position": 0.705
+  },
+  {
+   "id": "wrist-193",
+   "t": 9.65,
+   "joint": "wrist",
+   "position": -7.5441
+  },
+  {
+   "id": "base-193",
+   "t": 9.65,
+   "joint": "base",
+   "position": 46.0563
+  },
+  {
+   "id": "shoulder-194",
+   "t": 9.7,
+   "joint": "shoulder",
+   "position": 8.0436
+  },
+  {
+   "id": "elbow-194",
+   "t": 9.7,
+   "joint": "elbow",
+   "position": 0.7281
+  },
+  {
+   "id": "wrist-194",
+   "t": 9.7,
+   "joint": "wrist",
+   "position": -7.5704
+  },
+  {
+   "id": "base-194",
+   "t": 9.7,
+   "joint": "base",
+   "position": 51.7246
+  },
+  {
+   "id": "shoulder-195",
+   "t": 9.75,
+   "joint": "shoulder",
+   "position": 8.1084
+  },
+  {
+   "id": "elbow-195",
+   "t": 9.75,
+   "joint": "elbow",
+   "position": 0.7481
+  },
+  {
+   "id": "wrist-195",
+   "t": 9.75,
+   "joint": "wrist",
+   "position": -7.5986
+  },
+  {
+   "id": "base-195",
+   "t": 9.75,
+   "joint": "base",
+   "position": 57.1744
+  },
+  {
+   "id": "shoulder-196",
+   "t": 9.8,
+   "joint": "shoulder",
+   "position": 8.1728
+  },
+  {
+   "id": "elbow-196",
+   "t": 9.8,
+   "joint": "elbow",
+   "position": 0.7649
+  },
+  {
+   "id": "wrist-196",
+   "t": 9.8,
+   "joint": "wrist",
+   "position": -7.6284
+  },
+  {
+   "id": "base-196",
+   "t": 9.8,
+   "joint": "base",
+   "position": 62.3827
+  },
+  {
+   "id": "shoulder-197",
+   "t": 9.85,
+   "joint": "shoulder",
+   "position": 8.2364
+  },
+  {
+   "id": "elbow-197",
+   "t": 9.85,
+   "joint": "elbow",
+   "position": 0.7785
+  },
+  {
+   "id": "wrist-197",
+   "t": 9.85,
+   "joint": "wrist",
+   "position": -7.6597
+  },
+  {
+   "id": "base-197",
+   "t": 9.85,
+   "joint": "base",
+   "position": 67.3275
+  },
+  {
+   "id": "shoulder-198",
+   "t": 9.9,
+   "joint": "shoulder",
+   "position": 8.299
+  },
+  {
+   "id": "elbow-198",
+   "t": 9.9,
+   "joint": "elbow",
+   "position": 0.7888
+  },
+  {
+   "id": "wrist-198",
+   "t": 9.9,
+   "joint": "wrist",
+   "position": -7.6926
+  },
+  {
+   "id": "base-198",
+   "t": 9.9,
+   "joint": "base",
+   "position": 71.988
+  },
+  {
+   "id": "shoulder-199",
+   "t": 9.95,
+   "joint": "shoulder",
+   "position": 8.3603
+  },
+  {
+   "id": "elbow-199",
+   "t": 9.95,
+   "joint": "elbow",
+   "position": 0.7958
+  },
+  {
+   "id": "wrist-199",
+   "t": 9.95,
+   "joint": "wrist",
+   "position": -7.7267
+  },
+  {
+   "id": "base-199",
+   "t": 9.95,
+   "joint": "base",
+   "position": 76.3444
+  },
+  {
+   "id": "shoulder-200",
+   "t": 10.0,
+   "joint": "shoulder",
+   "position": 8.4202
+  },
+  {
+   "id": "elbow-200",
+   "t": 10.0,
+   "joint": "elbow",
+   "position": 0.7994
+  },
+  {
+   "id": "wrist-200",
+   "t": 10.0,
+   "joint": "wrist",
+   "position": -7.762
+  },
+  {
+   "id": "base-200",
+   "t": 10.0,
+   "joint": "base",
+   "position": 80.3784
+  }
+ ]
+}

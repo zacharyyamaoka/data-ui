@@ -1,0 +1,9 @@
+# tests/browser/map_select_checks.py: a <data-views> map: a host's marks (el.picked) reach every layer
+data: places.json
+views:
+  - type: map
+    name: Map
+    coordinates: at
+    layers:
+      - { type: regions, geometry: zones.geojson, key: id, join: zone, title: Zones }
+      - { type: points, radius: 7, title: Places }

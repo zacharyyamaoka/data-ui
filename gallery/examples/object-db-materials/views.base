@@ -1,0 +1,42 @@
+# Proposal 5 · Material-first ("the material lab"). What a hyperspectral sorter sees first: materials with their
+# density and their measured reflectance spectra (USGS splib07a, HZDR RODARE 2448, 4TU; spectra.base beside this file),
+# and the objects placed by what they are made of, mass against bounding-box volume (an Ashby chart: a material's
+# objects sit along its density line). 3D shows only in an object's peek; the cards here are materials, not objects.
+# New views. Check it: node bin/data-ui.mjs check gallery/examples/object-db-materials/views.base
+data: ../object-db-shelf/materials.json
+facets:
+  - { property: family, label: Family }
+  - { property: density_g_cm3, as: range, unit: g/cm³, label: Density }
+properties:
+  name: { displayName: Material }
+  family: { displayName: Family }
+  resin_code: { displayName: Resin code }
+  density_g_cm3: { displayName: Density }
+  spectra: { displayName: Spectra }
+  spectral_range_nm: { displayName: Range (nm) }
+  spectral_source: { displayName: Spectral source }
+  instances: { displayName: Objects in library }
+views:
+  - type: table
+    name: Materials
+    groupBy: { property: family, direction: ASC }
+    order: [name, resin_code, density_g_cm3, instances, spectra, spectral_range_nm, spectral_source]
+    display: { instances: bar }
+    sort:
+      - { property: density_g_cm3, direction: DESC }
+  - type: chart
+    name: Density by family
+    chart:
+      mark: { type: point, filled: true, size: 80 }
+      encoding:
+        y: { field: name, sort: "-x", title: null }
+        x: { field: density_g_cm3, title: "Density (g/cm³)" }
+        color: { field: family }
+  - type: chart
+    name: Objects per material
+    chart:
+      mark: { type: bar }
+      encoding:
+        y: { field: name, sort: "-x", title: null }
+        x: { field: instances, title: "Objects in the library" }
+        color: { field: family }

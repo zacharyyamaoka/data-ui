@@ -1,0 +1,46 @@
+# Vibe Tracks' 700 aruco-studio producer runs (vt-run/1), one row per run: the run's facets and metrics as columns.
+# Obsidian Bases grammar plus data-ui's keys (docs/CONTRACT.md §5).
+# Check it: node bin/data-ui.mjs check <this file> --data runs.json
+data: runs.json
+facets:
+  - host
+  - marker_type
+  - method
+  - call
+  - profile_kind
+  - layout
+properties:
+  run_id: { displayName: Run }
+  t: { displayName: When }
+  marker_type: { displayName: Marker }
+  profile_kind: { displayName: Profile }
+  cold_ms_sum: { displayName: Cold ms }
+  warm_ms_sum: { displayName: Warm ms }
+  startup_ms_sum: { displayName: Startup ms }
+views:
+  - type: table
+    name: Runs
+    order: [run_id, t, host, marker_type, layout, profile_kind, method, call, cells, cold_ms_sum, warm_ms_sum, startup_ms_sum]
+    sort:
+      - { property: t, direction: DESC }
+  - type: table
+    name: By host
+    order: [run_id, t, marker_type, layout, method, call, cold_ms_sum, warm_ms_sum]
+    groupBy: { property: host, direction: ASC }
+    sort:
+      - { property: t, direction: DESC }
+    summaries: { warm_ms_sum: Median, cold_ms_sum: Median }
+  - type: pivot
+    name: Host × marker
+    order: [host]
+    splitBy: [marker_type]
+    value: { property: warm_ms_sum, summary: Median, display: bar }
+  - type: chart
+    name: Warm time by layout
+    chart:
+      mark: { type: point, filled: true }
+      encoding:
+        x: { field: cells, title: Cells in the marker }
+        y: { field: warm_ms_sum, scale: { type: log }, title: Warm ms (30 calls) }
+        color: { field: host }
+    hover: { title: run_id, fields: [host, layout, method, call, cold_ms_sum, warm_ms_sum] }

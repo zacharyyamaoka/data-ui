@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A host that calls load() itself</title>
+<!-- tests/browser/dash_editor_more_checks.py: a host that reads the .base itself and draws it with load(). ?text=0 leaves
+     baseText unset, so Edit must not be offered: a parsed document has lost its comments. -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<script type="module">
+  import * as kit from '/dist/data-ui.js';
+  await import('/dist/dashboard.js');
+  const text = await (await fetch('servo.base')).text();
+  const datasets = {};
+  for (const name of ['runs', 'samples']) datasets[name] = { ...(await kit.loadDataset(new URL(`${name}.json`, location.href).href)), url: new URL(`${name}.json`, location.href).href };
+  const dash = document.querySelector('data-dashboard');
+  dash.baseUrl = new URL('servo.base', location.href).href;
+  if (new URLSearchParams(location.search).get('text') !== '0') dash.baseText = text;
+  dash.load(kit.parseBase(text), datasets);
+  window.kitReady = true;
+</script>
+</head>
+<body>
+<data-dashboard id="servo" editor></data-dashboard>
+</body>
+</html>

@@ -1,0 +1,72 @@
+# Shopify admin's index page, data-ui's way: the Organizations screen of Tycoon's S6 shell (Zach's screenshots,
+# 2026-10-28), rebuilt from this file and 14 invented organizations. Two cards: the summary card (the top-level
+# `summary:`, drawn by <data-summary for>) and the table card (<data-views frame="card" toolbar="bar" views="dropdown"
+# promote="" search="expand" selectable>). docs/CONTRACT.md §43: `summary:`, frame="card",
+# search="expand", the avatar and date displays, maxBadges, pageSize. Check it: node bin/data-ui.mjs check <this file>
+data: organizations.json
+facets:
+  - kind
+  - stage
+  - place
+  - tags
+summary:
+  cells:
+    - label: Organizations
+      note: Every organization in the file, whatever its kind.
+    - label: Customers
+      filters: 'kind == "Customer"'
+      note: Organizations that buy from us (kind is Customer).
+    - label: Prospects
+      filters: 'kind == "Prospect"'
+      note: Organizations we are talking to that have not bought yet (kind is Prospect).
+    - label: Competitors
+      filters: 'kind == "Competitor"'
+      note: Organizations that sell what we sell (kind is Competitor).
+views:
+  - type: table
+    name: All
+    order: [name, kind, stage, tags, place, people, deals, last_activity]
+    sort:
+      - { property: name, direction: ASC }
+    display: { name: avatar, last_activity: date }
+    avatar: { color: kind, colors: { Customer: 6, Prospect: 1, Competitor: 8 } }
+    maxBadges: 2
+    pageSize: 50
+    rowHeight: medium
+    columnSize: { name: 250, kind: 120, stage: 120, tags: 250, place: 150, people: 70, deals: 70, last_activity: 120 }
+  - type: table
+    name: Customers
+    filters: 'kind == "Customer"'
+    order: [name, kind, stage, tags, place, people, deals, last_activity]
+    sort:
+      - { property: name, direction: ASC }
+    display: { name: avatar, last_activity: date }
+    avatar: { color: kind, colors: { Customer: 6, Prospect: 1, Competitor: 8 } }
+    maxBadges: 2
+    pageSize: 50
+    rowHeight: medium
+    columnSize: { name: 250, kind: 120, stage: 120, tags: 250, place: 150, people: 70, deals: 70, last_activity: 120 }
+  - type: table
+    name: Prospects
+    filters: 'kind == "Prospect"'
+    order: [name, kind, stage, tags, place, people, deals, last_activity]
+    sort:
+      - { property: name, direction: ASC }
+    display: { name: avatar, last_activity: date }
+    avatar: { color: kind, colors: { Customer: 6, Prospect: 1, Competitor: 8 } }
+    maxBadges: 2
+    pageSize: 50
+    rowHeight: medium
+    columnSize: { name: 250, kind: 120, stage: 120, tags: 250, place: 150, people: 70, deals: 70, last_activity: 120 }
+  - type: table
+    name: Competitors
+    filters: 'kind == "Competitor"'
+    order: [name, kind, stage, tags, place, people, deals, last_activity]
+    sort:
+      - { property: name, direction: ASC }
+    display: { name: avatar, last_activity: date }
+    avatar: { color: kind, colors: { Customer: 6, Prospect: 1, Competitor: 8 } }
+    maxBadges: 2
+    pageSize: 50
+    rowHeight: medium
+    columnSize: { name: 250, kind: 120, stage: 120, tags: 250, place: 150, people: 70, deals: 70, last_activity: 120 }

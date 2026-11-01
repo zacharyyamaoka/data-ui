@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 204 64" width="204" height="64" role="img" aria-label="robotparts, parts in a black box">
+<title>robotparts, parts in a black box</title>
+<defs><mask id="m11l" maskUnits="userSpaceOnUse" x="0" y="0" width="260" height="64"><rect width="260" height="64" fill="#fff"/><text x="148" y="42" font-family="'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif" font-size="32" font-weight="700" fill="#000" text-anchor="middle" textLength="88" lengthAdjust="spacingAndGlyphs">parts</text></mask></defs>
+<text x="0" y="42" font-family="'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif" font-size="32" font-weight="400" fill="currentColor" textLength="88" lengthAdjust="spacingAndGlyphs">robot</text>
+<rect x="94" y="12" width="108" height="38" rx="4" fill="currentColor" mask="url(#m11l)"/>
+</svg>

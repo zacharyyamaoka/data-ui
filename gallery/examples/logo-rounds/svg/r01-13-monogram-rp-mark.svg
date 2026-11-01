@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Stroke monogram rp mark">
+<title>Stroke monogram rp mark</title>
+<g transform="translate(-1 -3)" fill="none" stroke-width="6.5">
+<path d="M17 24V50" style="stroke:var(--a,#e4572e)"/>
+<path d="M17 38C17 30 22 25 30 25" style="stroke:var(--a,#e4572e)" stroke-linecap="butt"/>
+<path d="M37 22V58" stroke="currentColor"/>
+<circle cx="45" cy="33.5" r="9.5" stroke="currentColor"/>
+</g>
+</svg>

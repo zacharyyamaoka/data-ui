@@ -1,0 +1,23 @@
+# P3 fixture (tests/browser/p3_checks.py): a selection preset in the .base, sim2real gap #7. The runs table selects r3 when
+# the page opens (`selected:`), as a click on its row would: in the state, in the URL, and on the samples through the link.
+data: runs.json
+datasets:
+  runs: runs.json
+  samples: samples.json
+links:
+  - { from: runs.run, to: samples.run, direction: one-way }
+layout:
+  panels:
+    - { view: Runs, w: 6, h: 3 }
+    - { view: Samples, w: 6, h: 3 }
+views:
+  - type: table
+    name: Runs
+    from: runs
+    select: run
+    selected: r3
+    order: [run, station, kind, started]
+  - type: table
+    name: Samples
+    from: samples
+    order: [run, situation, t, q_deg]

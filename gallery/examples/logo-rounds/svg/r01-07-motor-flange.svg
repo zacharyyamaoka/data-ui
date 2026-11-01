@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 64" width="250" height="64" role="img" aria-label="robotparts, Motor flange face">
+<title>robotparts, Motor flange face</title>
+<defs><mask id="m07" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64"><rect width="64" height="64" fill="#fff"/><circle cx="16" cy="16" r="4" fill="#000"/><circle cx="16" cy="48" r="4" fill="#000"/><circle cx="48" cy="16" r="4" fill="#000"/><circle cx="48" cy="48" r="4" fill="#000"/><circle cx="32" cy="32" r="14" fill="none" stroke="#000" stroke-width="4"/></mask></defs>
+<g>
+<g mask="url(#m07)"><polygon points="15,6 49,6 58,15 58,49 49,58 15,58 6,49 6,15" fill="currentColor"/></g>
+<circle cx="32" cy="32" r="7.5" style="fill:var(--a,#e4572e)"/>
+</g>
+<text x="80" y="44.24" font-family="'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif" font-size="34" font-weight="500" fill="currentColor" textLength="168" lengthAdjust="spacingAndGlyphs">robotparts</text>
+</svg>

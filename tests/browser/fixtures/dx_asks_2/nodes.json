@@ -1,0 +1,70 @@
+{
+ "id": "nodes",
+ "title": "Components (live)",
+ "titleProperty": "label",
+ "source": "synthetic: tests/browser/fixtures/dx_asks_2/make_fixture.py (illustrative numbers)",
+ "properties": {
+  "id": {
+   "type": "text"
+  },
+  "t": {
+   "type": "number",
+   "unit": "s"
+  },
+  "label": {
+   "type": "text",
+   "label": "Component"
+  },
+  "parent": {
+   "type": "text",
+   "label": "Parent"
+  },
+  "worst": {
+   "type": "number",
+   "label": "Worst gate",
+   "labels": {
+    "0": "pass",
+    "1": "warn",
+    "4": "fail"
+   }
+  }
+ },
+ "rows": [
+  {
+   "id": "rack",
+   "t": 1792631000.0,
+   "label": "Rack",
+   "parent": null
+  },
+  {
+   "id": "plate1",
+   "t": 1792631000.0,
+   "label": "Plate 1",
+   "parent": "rack"
+  },
+  {
+   "id": "plate2",
+   "t": 1792631000.0,
+   "label": "Plate 2",
+   "parent": "rack"
+  },
+  {
+   "id": "stationA",
+   "t": 1792631000.0,
+   "label": "Station A",
+   "parent": "plate1"
+  },
+  {
+   "id": "stationB",
+   "t": 1792631000.0,
+   "label": "Station B",
+   "parent": "plate1"
+  },
+  {
+   "id": "stationC",
+   "t": 1792631000.0,
+   "label": "Station C",
+   "parent": "plate2"
+  }
+ ]
+}

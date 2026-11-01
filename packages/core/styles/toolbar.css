@@ -1,0 +1,276 @@
+/* data-ui: toolbar.css (docs/CONTRACT.md §15). Lane A owns this file: the bar (toolbar="bar"), its view chip and tabs,
+   the filter control and pills, the view menu, the layout grid and the View settings panel / popover. The query box
+   (.dv-query, query.css) and the selection (select.css) are lane B's.
+   WHY one quiet row: Zach's calm-UI rule (memory feedback_calm_ui_progressive_disclosure): the bar at rest is one row of
+   muted controls; colour only marks what is set or open; the pill row appears only when a filter exists.
+   Colours only from the --dv-* tokens (tokens.css), so light and dark both follow the host. */
+
+data-views.dv-has-bar > .dv-head { display: none; }
+/* (the table's bar cells were renamed .dv-barfill in lane B, so .dv-bar is only the toolbar's; no override needed) */
+data-views > .dv-bar > :is(.dv-bar-views, .dv-bar-tools) span.dv-i { display: inline-flex; height: 15px; }
+data-views > .dv-bar > :is(.dv-bar-views, .dv-bar-tools) span.dv-chev { display: inline-flex; }
+data-views > .dv-bar > :is(.dv-bar-views, .dv-bar-tools) span.dv-chev span.dv-i { height: 13px; }
+data-views > .dv-bar > :is(.dv-bar-views, .dv-bar-tools) span.dv-bar-count { background: var(--dv-accent-bg); }
+data-views > .dv-bar > :is(.dv-bar-views, .dv-bar-tools) span.dv-bar-dirty { display: inline-flex; }
+.dv-i { display: inline-flex; flex: none; width: 15px; height: 15px; }
+.dv-i svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---- the bar: views · query · tools, ALWAYS one row (§15 note 2026-10-26). It never wraps: as its own width shrinks,
+   bar.js drops labels to icons, moves controls into "…", folds the tabs to "N more" then the chip, and folds the query
+   box to its icon (DEGRADE in bar.js). The pill / bulk row under it is a second row by design. */
+/* WHY a min-height: the row is the same height whether the query box shows (33 px) or has folded to its icon */
+.dv-bar { position: relative; display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; padding: 6px 8px; border-bottom: 1px solid var(--dv-border); min-width: 0; min-height: 46px; }
+.dv-bar [hidden], .dv-subbar [hidden] { display: none !important; }
+.dv-bar-views { flex: 0 1 auto; min-width: 0; display: flex; align-items: center; }
+.dv-bar-query { flex: 1 1 0; min-width: 0; display: flex; align-items: center; }
+.dv-bar-query > * { flex: 1 1 auto; min-width: 0; }
+.dv-bar-tools { flex: none; display: flex; align-items: center; gap: 2px; margin-left: auto; }
+/* a tool short of room: its label drops (the icon, aria-label and title stay), then its count */
+.dv-bar-btn.dv-iconic > .dv-bar-label, .dv-bar-btn.dv-nocount > .dv-bar-count { display: none; }
+.dv-viewchip.dv-compact :is(.dv-viewchip-name, .dv-mine) { display: none; }
+/* the "…" overflow menu */
+.dv-pop.dv-overflowmenu { width: auto; min-width: 200px; padding: 4px; }
+.dv-overflow { display: flex; flex-direction: column; }
+.dv-overflow-item { display: flex; align-items: center; gap: 8px; font: inherit; font-size: 13px; color: var(--dv-fg); background: none; border: 0; border-radius: var(--dv-radius); padding: 6px 8px; cursor: pointer; text-align: left; white-space: nowrap; }
+.dv-overflow-item:hover, .dv-overflow-item:focus-visible { background: var(--dv-hover); outline: none; }
+.dv-overflow-item > .dv-i { color: var(--dv-muted); }
+/* a fallback for the query box until query.css styles it; :where() so lane B's rules always win */
+:where(.dv-bar-query) :where(input[type="search"], input[type="text"]) { font: inherit; font-size: 13px; width: 100%; min-width: 0; padding: 5px 9px;
+  border: 1px solid var(--dv-border); border-radius: var(--dv-radius); background: var(--dv-bg); color: var(--dv-fg); }
+
+.dv-bar-btn, .dv-viewchip, .dv-vtab, .dv-vtab-more, .dv-vtab-add {
+  font: inherit; font-size: 12.5px; line-height: 18px; color: var(--dv-muted); background: none; border: 1px solid transparent;
+  border-radius: var(--dv-radius); padding: 4px 8px; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
+.dv-bar-btn:hover, .dv-viewchip:hover, .dv-vtab:hover, .dv-vtab-more:hover, .dv-vtab-add:hover, .dv-viewchip[aria-expanded="true"], .dv-vtab-more[aria-expanded="true"] { background: var(--dv-hover); color: var(--dv-fg); }
+.dv-bar-btn:focus-visible, .dv-viewchip:focus-visible, .dv-vtab:focus-visible, .dv-vtab-more:focus-visible, .dv-vtab-add:focus-visible,
+.dv-pill-body:focus-visible, .dv-pill-x:focus-visible, .dv-pill-add:focus-visible, .dv-pill-clear:focus-visible, .dv-layout:focus-visible,
+.dv-set-row:focus-visible, .dv-vm-row:focus-visible, .dv-vm-config:focus-visible, .dv-vm-act:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+/* what is set reads in the text colour (Obsidian's "Sort: Peak torque"); what is open has the subtle fill */
+.dv-bar-btn.dv-set { color: var(--dv-fg); }
+.dv-bar-btn.dv-on, .dv-bar-btn[aria-expanded="true"] { background: var(--dv-subtle); color: var(--dv-fg); }
+.dv-bar-rail[aria-pressed="true"] { color: var(--dv-fg); }
+.dv-bar-count { min-width: 16px; padding: 0 5px; border-radius: 999px; background: var(--dv-accent-bg); color: var(--dv-accent); font-size: 11px; font-weight: 600; line-height: 16px; text-align: center; }
+.dv-bar-save { color: var(--dv-accent); }
+
+/* the view chip (Bases): type icon, name, an up/down chevron that lights on hover (Zach's screenshot 20261026122137) */
+.dv-viewchip { color: var(--dv-fg); font-size: 13px; font-weight: 600; max-width: 100%; }
+.dv-viewchip-name { min-width: 0; max-width: 260px; overflow: hidden; text-overflow: ellipsis; }
+.dv-chev { display: inline-flex; color: var(--dv-muted); opacity: .5; transition: color .12s, opacity .12s; }
+.dv-chev .dv-i { width: 13px; height: 13px; }
+.dv-viewchip:hover .dv-chev, .dv-viewchip:focus-visible .dv-chev, .dv-viewchip[aria-expanded="true"] .dv-chev { color: var(--dv-fg); opacity: 1; }
+
+/* the tabs (Notion): every view a tab, the rest in "N more…", then + */
+.dv-viewtabs { display: inline-flex; align-items: center; gap: 2px; min-width: 0; max-width: 100%; overflow: hidden; }
+/* WHY flex: none: a tab keeps its width and the strip clips; the bar folds what does not fit into "N more…" */
+.dv-vtab, .dv-vtab-more, .dv-vtab-add { flex: none; }
+/* the open tab, when even it does not fit beside "N more", shrinks with an ellipsis (bar.js sets its max-width; the full
+   name is its title and aria-label) */
+.dv-vtab > span:not(.dv-i):not(.dv-mine) { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.dv-vtab.dv-on { background: var(--dv-subtle); color: var(--dv-fg); font-weight: 600; }
+.dv-vtab-add { padding: 4px 6px; }
+.dv-vtab .dv-mine, .dv-viewchip .dv-mine, .dv-vm-label .dv-mine { margin-left: -3px; }
+
+/* ---- the pill row (Shopify / Notion): one pill per clause of the all-views filter, + Filter, Clear */
+.dv-subbar { display: flex; align-items: center; gap: 6px; padding: 0 8px; border-bottom: 1px solid var(--dv-border); min-width: 0; }
+.dv-subbar:not(:has(> :not([hidden]):not(:empty))) { display: none; }
+.dv-pills { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 6px 0; min-width: 0; }
+.dv-pills:empty, .dv-pills[hidden] { display: none; }
+.dv-pill { display: inline-flex; align-items: center; min-width: 0; max-width: 100%; border: 1px solid var(--dv-border); background: var(--dv-subtle); border-radius: 999px; font-size: 12.5px; }
+.dv-pill-body { font: inherit; color: var(--dv-fg); background: none; border: 0; border-radius: 999px; padding: 2px 4px 2px 10px; cursor: pointer; min-width: 0; max-width: 420px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-pill-x { display: inline-flex; flex: none; border: 0; background: none; color: var(--dv-muted); padding: 4px 7px 4px 3px; border-radius: 999px; cursor: pointer; }
+.dv-pill-x:hover { color: var(--dv-fg); }
+.dv-pill-x .dv-i { width: 11px; height: 11px; }
+.dv-pill-add, .dv-pill-clear { font: inherit; font-size: 12.5px; color: var(--dv-muted); background: none; border: 1px solid transparent; border-radius: 999px; padding: 2px 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
+.dv-pill-add .dv-i { width: 12px; height: 12px; }
+.dv-pill-add:hover, .dv-pill-clear:hover { background: var(--dv-hover); color: var(--dv-fg); }
+
+/* the rail toggle: the host's grid keeps a track for the rail; the views span it while the rail is hidden */
+data-facets[hidden] { display: none !important; }
+data-views.dv-rail-off { grid-column: 1 / -1; }
+
+/* ---- the view menu (Bases): find box, the views with a ✓ and a ›, Add view; Configure view and Add view pages */
+.dv-pop.dv-viewmenu { width: min(300px, calc(100% - 16px)); padding: 6px; }
+.dv-viewmenu [hidden] { display: none !important; }
+.dv-vm-search { display: flex; align-items: center; gap: 6px; margin: 0 0 4px !important; padding: 3px 8px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); color: var(--dv-muted); justify-content: flex-start !important; }
+.dv-pop .dv-vm-search input.dv-vm-find { flex: 1 1 auto; border: 0; padding: 3px 0; background: none; outline: none; font-size: 13px; }
+.dv-vm-list { list-style: none; margin: 0; padding: 0; max-height: 320px; overflow: auto; }
+.dv-vm-row { display: flex; align-items: center; gap: 8px; padding: 5px 4px; border-radius: var(--dv-radius); cursor: pointer; font-size: 13px; color: var(--dv-fg); }
+.dv-vm-row:hover, .dv-vm-row.dv-vm-hl { background: var(--dv-hover); }
+.dv-vm-row > .dv-i { color: var(--dv-muted); }
+.dv-vm-check { display: inline-flex; width: 15px; flex: none; }
+.dv-vm-label { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-vm-on .dv-vm-label { font-weight: 600; }
+.dv-vm-config { display: inline-flex; flex: none; border: 0; background: none; color: var(--dv-muted); padding: 3px; border-radius: 4px; cursor: pointer; opacity: .55; }
+.dv-vm-row:hover .dv-vm-config, .dv-vm-row.dv-vm-hl .dv-vm-config, .dv-vm-config:focus-visible { opacity: 1; }
+.dv-vm-config:hover { background: var(--dv-subtle); color: var(--dv-fg); }
+.dv-vm-add { display: flex; align-items: center; gap: 8px; width: 100%; font: inherit; font-size: 13px; color: var(--dv-muted); background: none; border: 0; border-top: 1px solid var(--dv-rule); border-radius: 0; margin-top: 4px; padding: 8px 4px 3px; cursor: pointer; }
+.dv-vm-add:hover { color: var(--dv-fg); }
+.dv-vm-page { padding: 2px 4px 4px; }
+.dv-vm-head { display: flex; align-items: center; gap: 4px; margin: 0 0 8px; }
+.dv-pop .dv-vm-head h4 { flex: 1 1 auto; margin: 0; font-size: 13px; color: var(--dv-fg); }
+.dv-vm-back, .dv-vm-close, .dv-set-back, .dv-set-close { display: inline-flex; flex: none; border: 0; background: none; color: var(--dv-muted); padding: 4px; border-radius: var(--dv-radius); cursor: pointer; }
+.dv-vm-back:hover, .dv-vm-close:hover, .dv-set-back:hover, .dv-set-close:hover { background: var(--dv-hover); color: var(--dv-fg); }
+.dv-pop input.dv-vm-name { width: 100%; padding: 6px 8px; font-size: 13px; }
+.dv-vm-actions { display: flex; flex-direction: column; border-top: 1px solid var(--dv-rule); margin-top: 10px; padding-top: 6px; }
+.dv-vm-act { display: flex; align-items: center; gap: 8px; font: inherit; font-size: 13px; color: var(--dv-fg); background: none; border: 0; padding: 6px 4px; border-radius: var(--dv-radius); cursor: pointer; text-align: left; }
+.dv-vm-act:hover { background: var(--dv-hover); }
+.dv-vm-act > .dv-i { color: var(--dv-muted); }
+.dv-vm-danger, .dv-vm-danger > .dv-i { color: var(--dv-warn); }
+
+/* the layout grid (robotparts' 3 × 4, Zach's screenshot 20261026122246): planned types greyed */
+.dv-layouts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; margin: 4px 0 8px; }
+.dv-layout { display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 0; font: inherit; font-size: 12px; color: var(--dv-fg); background: none; border: 1px solid transparent; border-radius: var(--dv-radius); padding: 9px 2px 7px; cursor: pointer; }
+.dv-layout .dv-i { width: 18px; height: 18px; color: var(--dv-muted); }
+.dv-layout > span:last-child { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-layout:hover { background: var(--dv-hover); }
+.dv-layout.dv-on { background: var(--dv-accent-bg); color: var(--dv-accent); }
+.dv-layout.dv-on .dv-i { color: var(--dv-accent); }
+.dv-layout[disabled] { opacity: .4; cursor: default; background: none; }
+
+/* ---- View settings (Notion's side panel, Zach's screenshot 20261026122558; or Linear's popover) */
+.dv-settings { position: absolute; z-index: 11; background: var(--dv-bg); color: var(--dv-fg); overflow: auto; font-size: 13px; }
+.dv-settings[hidden] { display: none; }
+.dv-settings-panel { right: 0; bottom: 0; width: min(320px, 100%); padding: 0 12px 14px; border-left: 1px solid var(--dv-border);
+  box-shadow: -8px 0 24px color-mix(in srgb, var(--dv-fg) 8%, transparent); border-bottom-right-radius: var(--dv-radius); }
+.dv-settings-pop { z-index: 20; width: min(320px, calc(100% - 16px)); max-height: min(70vh, 560px); padding: 0 12px 10px; border: 1px solid var(--dv-border);
+  border-radius: calc(var(--dv-radius) + 2px); box-shadow: 0 8px 28px color-mix(in srgb, var(--dv-fg) 16%, transparent); }
+@media (min-width: 701px) { .dv-settings-panel.dv-sized { width: min(var(--data-panel-width), 100%); } }
+/* the panel's drag handle (resize.js) sits above the panel's own edge */
+.dv-settings + .dv-splitter { z-index: 12; }
+/* below 700 px either opens as a full-width sheet under the bar */
+@media (max-width: 700px) {
+  .dv-settings-panel, .dv-settings-pop { left: 0 !important; right: 0; bottom: 0; width: auto; max-height: none; border: 0; border-top: 1px solid var(--dv-border);
+    border-radius: 0 0 var(--dv-radius) var(--dv-radius); box-shadow: none; }
+}
+.dv-set-head { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; gap: 4px; padding: 10px 0 8px; background: var(--dv-bg); }
+.dv-set-head h3 { flex: 1 1 auto; margin: 0; font-size: 13px; font-weight: 600; color: var(--dv-muted); }
+.dv-set-back + h3 { color: var(--dv-fg); }
+.dv-set-name { display: flex; align-items: center; gap: 8px; margin: 2px 0 8px; }
+.dv-set-name > .dv-i { box-sizing: content-box; padding: 7px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); color: var(--dv-muted); }
+.dv-set-input { flex: 1 1 auto; min-width: 0; font: inherit; font-size: 13px; padding: 6px 8px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); background: var(--dv-bg); color: var(--dv-fg); }
+.dv-set-rows { display: flex; flex-direction: column; }
+.dv-set-rows hr { width: 100%; border: 0; border-top: 1px solid var(--dv-rule); margin: 6px 0; }
+.dv-set-row { display: flex; align-items: center; gap: 10px; width: 100%; font: inherit; font-size: 13px; color: var(--dv-fg); background: none; border: 0; border-radius: var(--dv-radius); padding: 7px 6px; cursor: pointer; text-align: left; }
+.dv-set-row:hover { background: var(--dv-hover); }
+.dv-set-row > .dv-i { color: var(--dv-muted); }
+.dv-set-label { flex: 1 1 auto; min-width: 0; }
+.dv-set-value { max-width: 48%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--dv-muted); }
+.dv-set-row > .dv-set-chev { width: 13px; height: 13px; }
+/* the sub-pages are the toolbar's menu bodies: the same rules as .dv-pop gives them (core.css), at the lowest
+   specificity so each body's own rules (.dv-prop label, …) still win, as they do in the popup */
+.dv-set-body > h4:first-child { display: none; }
+:where(.dv-set-body) h5 { margin: 12px 0 4px; font-size: 11.5px; font-weight: 600; color: var(--dv-muted); }
+:where(.dv-set-body) label { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 6px 0; }
+:where(.dv-set-body) label.dv-dir { justify-content: flex-end; margin-top: -2px; }
+:where(.dv-set-body) :is(select, input:not([type=checkbox]):not([type=range])) { font: inherit; font-size: 12.5px; padding: 3px 6px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius); background: var(--dv-bg); color: var(--dv-fg); min-width: 0; }
+:where(.dv-set-body) .dv-rule { display: flex; gap: 6px; align-items: center; margin: 6px 0; }
+:where(.dv-set-body) .dv-rule :is(select:first-child, input) { flex: 1 1 auto; }
+:where(.dv-set-body) code { flex: 1 1 auto; font: 12px var(--dv-mono); background: var(--dv-subtle); padding: 3px 6px; border-radius: 4px; overflow-wrap: anywhere; }
+.dv-set-layout .dv-layouts { margin-top: 0; }
+/* the reader's Frame page: six frames, each with its one-line hint, and Reset to page default */
+.dv-frames { display: flex; flex-direction: column; gap: 2px; }
+.dv-frame { display: flex; align-items: center; gap: 10px; width: 100%; font: inherit; font-size: 13px; color: var(--dv-fg); background: none; border: 0; border-radius: var(--dv-radius); padding: 7px 6px; cursor: pointer; text-align: left; }
+.dv-frame:hover { background: var(--dv-hover); }
+.dv-frame:focus-visible, .dv-frame-reset:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.dv-frame-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.dv-frame.dv-on .dv-frame-name { font-weight: 600; }
+.dv-frame-hint { color: var(--dv-muted); font-size: 12px; }
+.dv-frame-check { display: inline-flex; width: 15px; flex: none; }
+.dv-frame-reset { margin-top: 8px; font: inherit; font-size: 12.5px; color: var(--dv-accent); background: none; border: 0; padding: 4px 6px; border-radius: var(--dv-radius); cursor: pointer; }
+.dv-frame-reset[disabled] { color: var(--dv-muted); opacity: .6; cursor: default; }
+@media (prefers-reduced-motion: reduce) { .dv-chev { transition: none; } }
+
+/* ---- the bar under each frame (docs/CONTRACT.md §12; styles/frame.css frames the full toolbar's .dv-head).
+   WHY repeated here: under toolbar="bar" the band is .dv-bar and .dv-subbar (the pills or the bulk bar), so each
+   frame's look is given to them too, and the sticky band of page and bleed is the bar, then the pill / bulk row, then
+   the status line (frame.js measures --dv-bar-h and --dv-head-h from them). Lane A, 2026-10-26. */
+data-views:is([frame="flush"], [frame="tabs"], [frame="page"]) > :is(.dv-bar, .dv-subbar) { padding-left: 0; padding-right: 0; }
+
+/* tabs: the view tabs read as the page's nav (underlined in the accent, no fill), still in the bar's one row */
+data-views[frame="tabs"] > .dv-bar .dv-viewtabs { gap: 14px; }
+data-views[frame="tabs"] > .dv-bar :is(.dv-vtab, .dv-vtab-more, .dv-vtab-add) { font-size: 14px; padding: 6px 2px; border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: none; }
+data-views[frame="tabs"] > .dv-bar :is(.dv-vtab, .dv-vtab-more, .dv-vtab-add):hover { background: none; color: var(--dv-fg); }
+data-views[frame="tabs"] > .dv-bar .dv-vtab.dv-on { background: none; border-bottom-color: var(--dv-accent); }
+data-views[frame="tabs"] > .dv-subbar { border-bottom: 0; }
+
+/* sheet: one tinted header (the bar and its pill row), the open tab and the open control white on it */
+data-views[frame="sheet"] > .dv-bar { background: var(--dv-subtle); border-bottom: 0; border-radius: calc(var(--dv-radius) + 2px) calc(var(--dv-radius) + 2px) 0 0; }
+data-views[frame="sheet"] > .dv-subbar { background: var(--dv-subtle); border-bottom: 0; }
+
+/* page and bleed: the page scrolls the rows; the bar, then the pill / bulk row stick to the scroller's top */
+data-views[data-scroll="page"] > .dv-bar { position: sticky; top: calc(var(--dv-sticky-top) - var(--dv-pad-top, 0px)); z-index: 7; background: var(--dv-bg); }
+data-views[data-scroll="page"] > .dv-subbar { position: sticky; top: calc(var(--dv-sticky-top) - var(--dv-pad-top, 0px) + var(--dv-bar-h, 0px)); z-index: 6; background: var(--dv-bg); }
+/* View settings is pinned to the scroller's visible box, as the peek is (its top follows the bar: settings.js) */
+data-views[data-scroll="page"] > .dv-settings-panel { position: fixed; bottom: var(--dv-port-bottom, 0px); right: var(--dv-port-right, 0px); z-index: 31; }
+data-views[data-scroll="page"] > .dv-settings-panel + .dv-splitter { position: fixed; z-index: 32; }
+data-views[data-scroll="page"] > :is(.dv-pop, .dv-settings-pop) { z-index: 40; }
+/* beside open modes' split pane (CONTRACT §13): View settings docks on the pane's left, so neither covers the other
+   (an overlay pane and the settings close each other instead: settings.js and data-views.js openPeek) */
+data-views.dv-split > .dv-settings-panel { right: var(--dv-open-pane, 540px); }
+data-views.dv-split[data-scroll="page"] > .dv-settings-panel { right: calc(var(--dv-port-right, 0px) + var(--dv-open-pane, 540px)); }
+/* an overlay record pane starts under the band (the bar, and its pill or bulk row; bar.js measures --dv-band-bottom), so Display, the query box, the pills and the bulk bar stay
+   usable while a record is open; split and full-screen panes keep open.css's places, a page frame its fixed one */
+data-views.dv-has-bar:not(.dv-split):not(.dv-full):not([data-scroll="page"]) > .dv-peek { top: var(--dv-band-bottom, 0px); }
+/* under a page frame the overlay pane is fixed to the window (frame.css): it starts at the bar's bottom in the window,
+   which bar.js follows as the page scrolls (--dv-pane-top); the split pane keeps open.js's dock, full screen is the screen */
+data-views.dv-has-bar[data-scroll="page"]:not(.dv-split):not(.dv-full) > .dv-peek { top: var(--dv-pane-top, var(--dv-port-top, 0px)); }
+
+/* bleed: the bar and its pill row on the tinted band, edge to edge of the host's column (after page's rules) */
+data-views[frame="bleed"] > :is(.dv-bar, .dv-subbar) { background: var(--dv-subtle); border-bottom: 0; padding-left: var(--dv-bleed); padding-right: var(--dv-bleed); }
+/* on a tinted band the open tab, the open control and a hover are white, as sheet's pill tabs are */
+data-views:is([frame="sheet"], [frame="bleed"]) > .dv-bar :is(.dv-vtab.dv-on, .dv-bar-btn.dv-on, .dv-bar-btn[aria-expanded="true"]),
+data-views:is([frame="sheet"], [frame="bleed"]) > :is(.dv-bar, .dv-subbar) :is(.dv-bar-btn, .dv-viewchip, .dv-vtab, .dv-vtab-more, .dv-vtab-add, .dv-pill-add, .dv-pill-clear):hover { background: var(--dv-bg); }
+data-views:is([frame="sheet"], [frame="bleed"]) > .dv-subbar .dv-pill { background: var(--dv-bg); }
+
+/* a layout setting's slider shows its value beside it (data-views.js _optionRows), in the popup and in View settings */
+.dv-opt-slider { display: inline-flex; align-items: center; gap: 8px; }
+.dv-opt-slider output { min-width: 4.5em; text-align: right; color: var(--dv-muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+
+/* search="icon" (bar.js): the box's slot keeps its room; the box grows in it from the right, next to the Search icon,
+   so nothing else in the bar moves. When the row has no room, the open box lies over the views (dv-search-over). */
+.dv-bar.dv-search-icon > .dv-bar-query { justify-content: flex-end; }
+.dv-bar.dv-search-icon > .dv-bar-query > * { flex: 0 0 auto; width: 100%; transition: width .18s ease, opacity .12s ease; }
+.dv-bar.dv-search-icon:not(.dv-search-open) > .dv-bar-query > * { width: 0; height: 0; opacity: 0; visibility: hidden; overflow: hidden; }
+/* no room in the row for the open box: it opens over the views and the query slot, up to the tools (bar.js) */
+.dv-bar.dv-search-over > .dv-bar-query { position: absolute; z-index: 3; left: 8px; right: var(--dv-search-right, 120px); top: 50%; transform: translateY(-50%); background: var(--dv-bg); }
+data-views:is([frame="sheet"], [frame="bleed"]) > .dv-bar.dv-search-over > .dv-bar-query { background: var(--dv-subtle); }
+.dv-bar-search[aria-expanded="true"] { color: var(--dv-fg); }
+@media (prefers-reduced-motion: reduce) { .dv-bar.dv-search-icon > .dv-bar-query > * { transition: none; } }
+
+/* the selection's band (select.css): shadcn's --primary at 12% over --background (--dv-accent-bg, the selected rows'
+   tint), unless the host sets --data-selection-band; distinct from the bar (--dv-bg) and the column header (--dv-subtle) */
+data-views { --dv-band: var(--data-selection-band, var(--dv-accent-bg)); }
+/* a view with no header row (the gallery): the band sits at its top and the view moves down under it */
+data-views.dv-bulk-on.dv-bulk-top > .dv-stage { padding-top: var(--dv-bulk-h, 40px); }
+
+/* ---- search="expand" (CONTRACT §43; src/toolbar/expand.js): Polaris' IndexFilters. At rest a
+   quiet "Search and filter" line; open, the bordered box, Cancel in Display's place, and "+ <facet>" chips under the bar */
+.dv-bar.dv-search-expand:not(.dv-search-active) .dv-qbox { border-color: transparent; background: none; box-shadow: none; cursor: pointer; }
+.dv-bar.dv-search-expand:not(.dv-search-active) .dv-qbox:hover { background: var(--dv-hover); }
+.dv-bar.dv-search-active > .dv-bar-tools { display: none; }
+.dv-qcancel { flex: none; font: inherit; font-size: 13px; font-weight: 550; color: var(--dv-fg); background: none; border: 0;
+  border-radius: var(--dv-radius); padding: 6px 10px; cursor: pointer; white-space: nowrap; }
+.dv-qcancel:hover { background: var(--dv-hover); }
+.dv-qcancel:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.dv-qcancel[hidden] { display: none; }
+data-views:not([data-scroll="page"]) > .dv-subbar:has(> .dv-fchips) { position: relative; }
+.dv-fchips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 8px 0; min-width: 0; }
+.dv-fchips:empty { display: none; }
+.dv-fchip { display: inline-flex; align-items: center; min-width: 0; border: 1px dashed var(--dv-border); border-radius: var(--dv-radius); }
+.dv-fchip-on { border-style: solid; background: var(--dv-subtle); }
+.dv-fchip-body, .dv-fchip-x { font: inherit; font-size: 12px; font-weight: 550; line-height: 18px; color: var(--dv-fg); background: none; border: 0; cursor: pointer; }
+.dv-fchip-body { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; min-width: 0; max-width: 20rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-fchip-body .dv-i { width: 12px; height: 12px; }
+.dv-fchip-x { display: inline-flex; padding: 2px 6px 2px 0; color: var(--dv-muted); }
+.dv-fchip-x:hover { color: var(--dv-fg); }
+.dv-fchip :is(button):focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; border-radius: var(--dv-radius); }
+.dv-fchip-menu { position: absolute; top: calc(100% - 4px); z-index: 30; min-width: 220px; max-width: min(360px, calc(100vw - 16px)); max-height: 320px;
+  overflow: auto; padding: 4px; background: var(--dv-bg); color: var(--dv-fg); border: 1px solid var(--dv-border);
+  border-radius: calc(var(--dv-radius) + 4px); box-shadow: 0 8px 28px rgb(0 0 0 / .16); }
+.dv-fchip-menu ul { list-style: none; margin: 0; padding: 0; }
+.dv-fchip-menu label { display: flex; align-items: center; gap: 8px; padding: 5px 8px; border-radius: var(--dv-radius); cursor: pointer; font-size: 13px; }
+.dv-fchip-menu label:hover { background: var(--dv-hover); }
+.dv-fchip-menu input { margin: 0; accent-color: var(--dv-accent); }
+.dv-fchip-v { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-fchip-n { color: var(--dv-muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.dv-fchip-empty { margin: 6px 8px; color: var(--dv-muted); }

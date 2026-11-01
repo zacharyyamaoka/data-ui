@@ -1,0 +1,10 @@
+# tests/browser/fleet_map_checks.py: a plain <data-views>: a map and a table of the fleet, no dashboard, no select:.
+data: ../../../../gallery/examples/robotics-fleet/deployments.json
+views:
+  - type: map
+    name: Map
+    coordinates: coordinates
+    markerColor: status
+  - type: table
+    name: Table
+    order: [name, status]

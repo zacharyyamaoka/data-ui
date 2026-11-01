@@ -1,0 +1,93 @@
+/* The demo's views read the page's shadcn-named tokens (the survey's token contract): --background --foreground
+   --muted-foreground --border --primary --card --chart-1..8. #du-demo[data-theme] overrides them locally. */
+#du-demo { color: var(--foreground); background: var(--background); border: 1px solid var(--border); border-radius: 10px;
+  position: relative; overflow: hidden; font-size: 13px; }
+#du-demo button { font: inherit; color: inherit; }
+#du-demo pre, #du-demo input, #du-demo code, .du-tab small, .du-chips button { font-variant-ligatures: none; }
+.du-top { display: flex; gap: 8px; align-items: center; justify-content: space-between; padding: 10px 12px 0; flex-wrap: wrap; }
+.du-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+.du-tab { border: 1px solid var(--border); background: var(--card); border-radius: 7px; padding: 6px 10px; cursor: pointer; }
+.du-tab small { color: var(--muted-foreground); font-family: var(--font-mono); font-size: 11px; margin-left: 4px; }
+.du-tab[aria-selected="true"] { border-color: var(--primary); box-shadow: inset 0 -2px 0 var(--primary); }
+.du-theme { border: 1px solid var(--border); background: var(--card); border-radius: 7px; padding: 6px 10px; cursor: pointer; }
+.du-filter { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+.du-filter label { font-weight: 600; }
+.du-filter label small { font-weight: 400; color: var(--muted-foreground); }
+.du-filter input { flex: 1 1 260px; min-width: 0; font: 12.5px var(--font-mono); padding: 6px 8px; border: 1px solid var(--border);
+  border-radius: 6px; background: var(--background); color: var(--foreground); }
+.du-chips { display: flex; gap: 4px; flex-wrap: wrap; }
+.du-chips button { font: 11.5px var(--font-mono); border: 1px solid var(--border); background: var(--card); border-radius: 999px; padding: 3px 8px; cursor: pointer; }
+.du-muted { color: var(--muted-foreground); }
+.du-err { color: var(--destructive); }
+.du-body { display: grid; grid-template-columns: minmax(0, 1fr) 320px; min-height: 560px; }
+.du-stage { min-width: 0; position: relative; }
+.du-side { border-left: 1px solid var(--border); padding: 10px 12px; min-width: 0; overflow: auto; max-height: 640px; }
+.du-side h4 { margin: 4px 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted-foreground); }
+.du-yaml { font: 11.5px/1.45 var(--font-mono); white-space: pre-wrap; word-break: break-word; margin: 0 0 12px; }
+.du-yaml mark { background: color-mix(in srgb, var(--primary) 14%, transparent); color: inherit; border-radius: 3px; display: block; }
+.du-log { font-size: 12px; padding-left: 18px; margin: 0; }
+.du-log li { margin: 0 0 4px; }
+.du-log li.refused { color: var(--destructive); }
+.du-log li.ok { color: var(--ok); }
+.du-none { color: var(--muted-foreground); }
+.du-unit { color: var(--muted-foreground); font-size: .9em; }
+
+/* cards */
+.du-cards-bar { display: flex; gap: 12px; align-items: center; padding: 8px 12px; }
+.du-cards-bar input { vertical-align: middle; accent-color: var(--primary); }
+.du-cards-scroll { height: 600px; overflow: auto; padding: 0 0 12px 12px; }
+.du-cards-inner { position: relative; }
+.du-card { position: absolute; top: 0; left: 0; box-sizing: border-box; border: 1px solid var(--border); border-radius: 9px; background: var(--card);
+  padding: 10px 12px; cursor: pointer; overflow: hidden; }
+.du-card:hover, .du-kcard:hover { border-color: var(--primary); }
+.du-card-title { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.du-card-sub { color: var(--muted-foreground); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
+.du-card-prop { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; line-height: 20px; }
+.du-card-prop span { color: var(--muted-foreground); }
+.du-card-prop b { font-weight: 500; font-variant-numeric: tabular-nums; }
+.du-sketch { display: block; margin: 0 0 6px; }
+.du-sketch rect { fill: color-mix(in srgb, var(--primary) 18%, transparent); stroke: var(--primary); stroke-width: 1.2; }
+.du-sketch line { stroke: var(--primary); stroke-width: 1; opacity: .6; }
+.du-sketch text { font: 10.5px var(--font-mono); fill: var(--muted-foreground); }
+.du-sketch-none { display: flex; align-items: center; justify-content: center; font-size: 11.5px; color: var(--muted-foreground);
+  border: 1px dashed var(--border); border-radius: 6px; margin-bottom: 6px; }
+
+/* board */
+.du-board { display: flex; gap: 10px; padding: 12px; overflow-x: auto; align-items: flex-start; }
+.du-col { flex: 0 0 auto; background: color-mix(in srgb, var(--muted-foreground) 7%, transparent); border: 1px solid var(--border);
+  border-radius: 9px; display: flex; flex-direction: column; position: relative; }
+.du-col[data-over="card"] { outline: 2px solid var(--primary); outline-offset: -2px; }
+.du-col[data-over="left"]::before, .du-col[data-over="right"]::after { content: ""; position: absolute; top: 0; bottom: 0; width: 3px;
+  background: var(--primary); border-radius: 2px; }
+.du-col[data-over="left"]::before { left: -7px; }
+.du-col[data-over="right"]::after { right: -7px; }
+.du-col-head { display: flex; justify-content: space-between; padding: 8px 10px; font-weight: 600; cursor: grab; user-select: none; }
+.du-count { color: var(--muted-foreground); font-weight: 400; font-variant-numeric: tabular-nums; }
+.du-col-scroll { height: 520px; overflow: auto; padding: 0 8px 8px; }
+.du-col-inner { position: relative; }
+.du-kcard { position: absolute; left: 0; right: 0; top: 0; height: 64px; box-sizing: border-box; border: 1px solid var(--border); border-radius: 7px;
+  background: var(--card); padding: 8px 10px; cursor: grab; }
+
+/* chart */
+.du-chart { width: 100%; padding: 12px 12px 0; box-sizing: border-box; }
+.du-chart-note { margin: 4px 12px 12px; font-size: 12px; }
+#vg-tooltip-element.vg-tooltip.custom-theme { background: var(--card); color: var(--foreground); border: 1px solid var(--border);
+  font: 12px var(--font-sans); border-radius: 6px; }
+
+/* peek + toast */
+.du-peek { position: absolute; top: 0; right: 0; bottom: 0; width: 330px; max-width: 100%; background: var(--card); border-left: 1px solid var(--border);
+  box-shadow: -8px 0 24px rgb(0 0 0 / .12); padding: 12px 14px; overflow: auto; z-index: 5; }
+.du-peek header { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.du-peek dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0 0 10px; }
+.du-peek dt { color: var(--muted-foreground); }
+.du-peek dd { margin: 0; font-variant-numeric: tabular-nums; }
+.du-x { border: 0; background: none; font-size: 18px; cursor: pointer; line-height: 1; }
+.du-toast { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); max-width: min(640px, 92%); background: var(--foreground);
+  color: var(--background); padding: 9px 14px; border-radius: 8px; font-size: 12.5px; z-index: 6; }
+.du-toast.refused { background: var(--destructive); color: #fff; }
+
+@media (max-width: 860px) {
+  .du-body { grid-template-columns: 1fr; }
+  .du-side { border-left: 0; border-top: 1px solid var(--border); max-height: none; }
+  .du-cards-scroll { height: 480px; }
+}

@@ -1,0 +1,53 @@
+# SYNTHETIC: N actuators bootstrapped from robotparts' real ones (generate.py, seeded), numerics jittered +-10 %.
+# Generate it first: python3 generate.py --rows 10000 --out <this folder>. Four views over one file: a flat table,
+# a grouped table, a pivot and a scatter. Obsidian Bases grammar plus data-ui's keys (docs/CONTRACT.md §5).
+data: large.json
+facets:
+  - brand
+  - form
+  - drivetrain
+  - { property: peak_torque, as: range }
+properties:
+  model: { displayName: Model }
+  brand: { displayName: Brand }
+  form: { displayName: Form }
+  drivetrain: { displayName: Drivetrain }
+  peak_torque: { displayName: Peak torque }
+  rated_torque: { displayName: Rated torque }
+  max_speed: { displayName: Max speed }
+  mass: { displayName: Mass }
+  gear_ratio: { displayName: Ratio }
+  voltage: { displayName: Voltage }
+  od: { displayName: OD }
+  length: { displayName: Length }
+  torque_density: { displayName: Peak N·m/kg }
+  price: { displayName: Price from }
+views:
+  - type: table
+    name: Table
+    order: [model, brand, form, drivetrain, peak_torque, rated_torque, max_speed, mass, gear_ratio, voltage, od, price]
+    sort:
+      - { property: model, direction: ASC }
+  - type: table
+    name: Grouped
+    order: [model, form, peak_torque, rated_torque, mass, gear_ratio, voltage, price]
+    groupBy: { property: brand, direction: ASC }
+    sort:
+      - { property: peak_torque, direction: DESC }
+    summaries: { peak_torque: Max, mass: Min, price: Min }
+  - type: pivot
+    name: Pivot
+    order: [brand]
+    splitBy: [form]
+    value: { property: peak_torque, summary: Max }
+    sort:
+      - { property: brand, direction: ASC }
+  - type: chart
+    name: Chart
+    chart:
+      mark: { type: point, filled: true, size: 12 }
+      encoding:
+        x: { field: mass, scale: { type: log } }
+        y: { field: peak_torque, scale: { type: log } }
+        color: { field: drivetrain }
+    hover: { title: name, fields: [peak_torque, mass, torque_density, price, drivetrain] }

@@ -1,0 +1,4 @@
+{"id": "samples", "title": "Joint samples", "titleProperty": "joint",
+ "properties": {"t": {"type": "number", "unit": "s", "label": "Time"}, "joint": {"type": "text", "label": "Joint"},
+  "position": {"type": "number", "unit": "rad", "label": "Position"}, "current": {"type": "number", "unit": "A", "label": "Current"}},
+ "rows": []}

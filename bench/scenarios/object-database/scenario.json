@@ -1,0 +1,38 @@
+{
+  "id": "object-database",
+  "title": "BAM object library, public sample (366 rows, thumbnails)",
+  "app": "object-database",
+  "base": "views.base",
+  "view": null,
+  "rows": 366,
+  "synthetic": false,
+  "provenance": {
+    "from": "lane/object-db-public 809e9b2 gallery/examples/object-db-shelf/objects.json (366 of the library's 2,196 instances @ 3a3be7a: open-licence scans and generated primitives)",
+    "sha256": "e491417c86f4431d21c5a67dd62567ed248baea69cc7c1aeb0f4488906e9a1da",
+    "copied": "2026-10-27",
+    "note": "The public sample replaced the full library (2,196 rows, whose tags named customers) on 2026-10-27; the bench's object-database numbers before and after this date are on different data."
+  },
+  "interactions": {
+    "filter": {
+      "property": "material",
+      "value": "wood"
+    },
+    "sort": {
+      "property": "mass_g",
+      "direction": "DESC"
+    },
+    "search": "cup",
+    "presets": [
+      "Table",
+      "Cards",
+      "By class"
+    ],
+    "scroll": true,
+    "peek": true
+  },
+  "rebuild_if_missing": {
+    "path": "thumbs",
+    "run": "source/build.py",
+    "why": "the 366 thumbnails stay out of git (Zach's source-only rule); source/build.py copies them for objects.json's rows from ~/bam-waste-objects"
+  }
+}

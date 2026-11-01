@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 228 64" width="228" height="64" role="img" aria-label="robotparts, Centre-of-gravity o's">
+<title>robotparts, Centre-of-gravity o's</title>
+<text x="16.8" y="42" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="36" font-weight="500" fill="currentColor" text-anchor="middle">r</text>
+<path d="M38.4 32L38.4 23.8A8.2 8.2 0 0 0 30.2 32ZM38.4 32L38.4 40.2A8.2 8.2 0 0 0 46.6 32Z" fill="currentColor"/>
+<circle cx="38.4" cy="32" r="8.2" fill="none" stroke="currentColor" stroke-width="2.5"/>
+<path d="M38.4 21.6V42.4M28 32H48.8" fill="none" style="stroke:var(--a,#e4572e)" stroke-width="2.00"/>
+<text x="60" y="42" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="36" font-weight="500" fill="currentColor" text-anchor="middle">b</text>
+<path d="M81.6 32L81.6 23.8A8.2 8.2 0 0 0 73.4 32ZM81.6 32L81.6 40.2A8.2 8.2 0 0 0 89.8 32Z" fill="currentColor"/>
+<circle cx="81.6" cy="32" r="8.2" fill="none" stroke="currentColor" stroke-width="2.5"/>
+<path d="M81.6 21.6V42.4M71.2 32H92" fill="none" style="stroke:var(--a,#e4572e)" stroke-width="2.00"/>
+<text x="103.2" y="42" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="36" font-weight="500" fill="currentColor" text-anchor="middle">t</text>
+<text x="124.8" y="42" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="36" font-weight="500" fill="currentColor" text-anchor="middle">p</text>
+<text x="146.4" y="42" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="36" font-weight="500" fill="currentColor" text-anchor="middle">a</text>
+<text x="168" y="42" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="36" font-weight="500" fill="currentColor" text-anchor="middle">r</text>
+<text x="189.6" y="42" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="36" font-weight="500" fill="currentColor" text-anchor="middle">t</text>
+<text x="211.2" y="42" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="36" font-weight="500" fill="currentColor" text-anchor="middle">s</text>
+</svg>

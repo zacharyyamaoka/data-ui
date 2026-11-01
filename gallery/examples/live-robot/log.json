@@ -1,0 +1,7 @@
+{"id": "log", "title": "Log", "titleProperty": "message",
+ "properties": {
+  "t": {"type": "number", "unit": "s", "label": "Time"},
+  "source": {"type": "text", "label": "Source"},
+  "severity": {"type": "text", "label": "Severity"},
+  "message": {"type": "text", "label": "Message"}},
+ "rows": []}

@@ -1,0 +1,33 @@
+# BC disposal per person: a map, a trend and a KPI that cross-filter (docs/peps/0004-dashboards.md; CONTRACT §42).
+data: ../map-bc-disposal/disposal.json
+properties:
+  district: { displayName: District }
+  year: { displayName: Year }
+  kg_per_capita: { displayName: Disposal per person }
+  disposal_t: { displayName: Disposal }
+layout:
+  panels:
+    - { view: Disposal 2024, w: 3, h: 2 }
+    - { view: Trend, w: 9, h: 2 }
+    - { view: Per person 2024, w: 12, h: 5 }
+views:
+  - type: map
+    name: Per person 2024
+    filters: 'year == 2024'
+    select: rd
+    layers:
+      - { type: regions, geometry: ../map-bc-disposal/districts.geojson, key: rd, join: rd, value: kg_per_capita, label: name }
+  - type: chart
+    name: Trend
+    filters: 'year >= 2012'
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: year, type: ordinal, title: Year }
+        y: { field: kg_per_capita, aggregate: mean, title: Mean disposal per person (kg/person/yr) }
+  - type: kpi
+    name: Disposal 2024
+    filters: 'year == 2024'
+    kpi:
+      label: Disposed in 2024
+      value: { property: disposal_t, summary: Sum }

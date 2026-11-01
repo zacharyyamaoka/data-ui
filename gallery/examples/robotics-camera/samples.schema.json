@@ -1,0 +1,50 @@
+{
+ "title": "Samples: every frame interval of the rack's two RealSense cameras, six sessions of Oct 23",
+ "source": "/archive/datasets/bam_rig rack_2026-10-23: each session's cameras/cam_<serial>.npz (hw_ms) and .mp4; written by gallery/examples/robotics-camera/source/build.py",
+ "path": "samples.csv",
+ "description": "One row per frame interval: frame_dt_ms = hw_ms[k] − hw_ms[k−1] (the camera's hardware stamps, written exactly); t is frame k's time from the session's first frame.",
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s",
+    "description": "frame k's time, seconds from the session's first frame (either camera)"
+   },
+   {
+    "name": "run",
+    "type": "string",
+    "title": "Session",
+    "labels": {
+     "10-23/session_01a": "s01a · backlash · CAN 14 · 10-23",
+     "10-23/session_01c": "s01c · inertia heldout · CAN 14 · 10-23",
+     "10-23/session_02": "s02 · backlash fine · CAN 14 · 10-23",
+     "10-23/session_04": "s04 · minus stop · CAN 1 · 10-23",
+     "10-23/session_05": "s05 · full circle · CAN 1 · 10-23",
+     "10-23/session_06": "s06 · datum · CAN 1 · 10-23"
+    }
+   },
+   {
+    "name": "situation",
+    "type": "string"
+   },
+   {
+    "name": "source",
+    "type": "string",
+    "title": "Family"
+   },
+   {
+    "name": "device",
+    "type": "string",
+    "title": "Camera"
+   },
+   {
+    "name": "frame_dt_ms",
+    "type": "number",
+    "unit": "ms",
+    "title": "Frame interval",
+    "description": "the interval since the camera's previous frame (hardware stamps)"
+   }
+  ]
+ }
+}

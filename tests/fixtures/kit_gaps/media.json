@@ -1,0 +1,37 @@
+{
+ "title": "kit gaps checker fixture: media",
+ "schema": {
+  "fields": [
+   {
+    "name": "run",
+    "type": "string"
+   },
+   {
+    "name": "kind",
+    "type": "string"
+   },
+   {
+    "name": "src",
+    "type": "string"
+   },
+   {
+    "name": "poster",
+    "type": "string"
+   },
+   {
+    "name": "t0",
+    "type": "number",
+    "unit": "s"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "run": "r1",
+   "kind": "rgb",
+   "src": "a.mp4",
+   "poster": "a.jpg",
+   "t0": 0
+  }
+ ]
+}

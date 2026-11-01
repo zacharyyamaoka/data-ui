@@ -1,0 +1,51 @@
+# robotparts' eleven logo rounds as a media grid: every SVG a row, grouped by round, a lightbox over all of them.
+# Obsidian Bases grammar plus data-ui's keys (docs/CONTRACT.md §5).
+# Check it: node bin/data-ui.mjs check <this file> --data logos.json
+data: logos.json
+facets:
+  - round
+  - kind
+  - { property: score, as: range }
+views:
+  - type: cards
+    name: Every round
+    order: [name, kind, score]
+    image: file
+    imageFit: contain
+    imageAspectRatio: 0.55
+    cardSize: 210
+    lightbox: true
+    caption: [round, kind, score]
+    groupBy: { property: round, direction: ASC }
+  - type: cards
+    name: Lockups by score
+    filters:
+      and:
+        - 'kind == "lockup"'
+        - '!score.isEmpty()'
+    order: [name, round, score]
+    image: file
+    imageFit: contain
+    imageAspectRatio: 0.55
+    cardSize: 240
+    lightbox: true
+    caption: [round, score, rationale]
+    sort:
+      - { property: score, direction: DESC }
+  - type: cards
+    name: Marks
+    filters: 'kind == "mark" || kind == "reference mark"'
+    order: [name, score]
+    image: file
+    imageFit: contain
+    imageAspectRatio: 1
+    cardSize: 120
+    lightbox: true
+    caption: [round, score]
+    groupBy: { property: round, direction: ASC }
+  - type: table
+    name: Table
+    order: [name, round, proposal, kind, score, rationale, source]
+    groupBy: { property: round, direction: ASC }
+    sort:
+      - { property: score, direction: DESC }

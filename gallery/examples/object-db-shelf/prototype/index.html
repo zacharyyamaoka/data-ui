@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Object library · five proposals</title>
+<script>try { const t = localStorage.getItem('data-ui-site-theme'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+<link rel="stylesheet" href="../../../site.css">
+<link rel="stylesheet" href="../../../kit/data-ui.css">
+<link rel="stylesheet" href="proto.css">
+<script type="module" src="../../../kit/data-ui.js"></script>
+<script type="module" src="proto.js"></script>
+</head>
+<body>
+<!-- A prototype, not a product page: five ways to rebuild BAM's object-database views on data-ui, switched from the
+     bottom-right control (remembered in this browser; never a URL flag). Each proposal is plain .base files in
+     gallery/examples/object-db-*; this page only lays them out and, for 3 and 4, wires a selection between panels. -->
+<header class="proto-head">
+  <div class="proto-title">
+    <span class="proto-kicker" id="kicker">Proposal 1 of 5</span>
+    <h1 id="title">Object library</h1>
+    <p class="proto-pitch" id="pitch"></p>
+  </div>
+  <dl class="proto-facts" id="facts"></dl>
+</header>
+<main class="proto-main" id="stage" aria-live="polite"></main>
+<nav class="proto-switch" aria-label="Prototype: pick a proposal">
+  <span class="proto-switch-label">Prototype</span>
+  <div class="proto-switch-row" role="group" aria-label="Proposal" id="switch"></div>
+  <button type="button" class="proto-theme" id="theme" aria-label="Theme">Theme: system</button>
+</nav>
+</body>
+</html>

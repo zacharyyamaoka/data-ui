@@ -1,0 +1,33 @@
+{
+  "id": "robotparts-photos",
+  "title": "robotparts photos (175 rows, cards with images)",
+  "app": "robotparts",
+  "base": "views.base",
+  "view": null,
+  "rows": 175,
+  "synthetic": false,
+  "provenance": {
+    "from": "~/data-ui/gallery/examples/robotparts-photos/photos.json @ main 0dbc3d4",
+    "sha256": "f781eb0524bbaf5bf5ffd39e9c04682809d896544806ce24e679eee61a2fae20",
+    "copied": "2026-10-26",
+    "note": "Actuators and cameras as image cards with brand logos; photos are robotparts' hosted primary photos resized by the gallery build."
+  },
+  "interactions": {
+    "filter": {
+      "property": "brand",
+      "value": "Damiao"
+    },
+    "sort": {
+      "property": "peak_torque",
+      "direction": "DESC"
+    },
+    "search": "stea",
+    "presets": [
+      "Actuators",
+      "Cameras",
+      "Photo wall"
+    ],
+    "scroll": true,
+    "peek": true
+  }
+}

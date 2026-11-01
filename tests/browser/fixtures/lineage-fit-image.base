@@ -1,0 +1,11 @@
+# tests/browser/lineage_fit_checks.py: 18 rounds of picture marks over lineage-fit.json. The columns can be no closer than
+# 56 px (a picture mark), so on a ~680 px stage the whole tree fits at about 0.58x: between the first view's two
+# thresholds (0.5x: fit the whole tree; 0.6x: the smallest zoom that reads).
+data: lineage-fit.json
+views:
+  - type: lineage
+    name: Tree
+    lineage: { parents: parents, x: round_n, xLabel: round, image: thumb, label: name, focus: c18 }
+  - type: lineage
+    name: Rings
+    lineage: { parents: parents, x: round_n, xLabel: round, image: thumb, label: name, focus: c18, layout: radial }

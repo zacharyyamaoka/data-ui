@@ -1,0 +1,169 @@
+# Camera · Playback + Gates: the Camera template (gallery/examples/robotics-camera) with the diagnostics and gates overlay
+# (docs/CONTRACT.md §35, docs/peps/0010-robotics-playback.md §10). Every dataset and view of the template is here as it is
+# there (../robotics-camera/); the overlay adds the gate datasets source/build.py writes with RobotDx's sample-rate
+# diagnostic from each camera's own frame stamps (real RealSense stamps, Oct 23 2026): the frame rate and the dropped
+# frames per session and camera, and the largest frame interval per 1 s window (warn 50 ms, error 100 ms: this twin's
+# choice, 1.5 and 3 frame periods). data-ui computes no gate.
+data: ../robotics-camera/runs.json
+style:
+  chrome: minimal
+  numbers: { digits: 4, compact: true }
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: stamps, time: t }
+datasets:
+  runs:
+    data: ../robotics-camera/runs.json
+    label: Sessions
+    facets:
+      # newest first (the rail's order is the facet's order: runs.json by started, latest first)
+      - { property: run, as: select, label: Session, order: [10-23/session_02, 10-23/session_01c, 10-23/session_01a] }
+  media:
+    data: ../robotics-camera/media.json
+    label: Clips
+  # the picked session's stamps: the clock spans them
+  stamps:
+    data: ../robotics-camera/samples.schema.json
+    label: Frame stamps
+  # WHY a second, unlinked copy: the frame-interval panels read every session of the picked camera (the mock's coverage),
+  # so a session pick keeps them full; the Camera facet sits here, on the cameras' own rows
+  coverage:
+    data: ../robotics-camera/samples.schema.json
+    label: Every session
+    facets:
+      - { property: device, as: select, label: Camera }
+    filters: 'device == "RealSense 218622274411"'
+  # the gates overlay (CONTRACT §35): per session × camera, and per 1 s window (the windows follow the session pick)
+  checks:
+    data: checks.json
+    label: Session checks
+  windows:
+    data: windows.json
+    label: Check windows
+links:
+  # WHY one-way (CONTRACT §33): the session pick narrows the clips and the stamps, never the other way
+  - { from: runs.run, to: media.run, direction: one-way }
+  - { from: runs.run, to: stamps.run, direction: one-way }
+  - { from: runs.run, to: windows.run, direction: one-way }
+layout:
+  panels:
+    # WHY a sessions table on top, which the mock leaves out: PEP 0010 §6's template rule ("the runs table on top")
+    - { view: Sessions, w: 12, h: 2 }
+    - text: "**Gates** · Each camera's achieved frame rate (30 fps nominal) and dropped frames per session, as cameras × sessions, and its largest frame interval per 1 s window. Computed by `source/build.py` with RobotDx's diagnostics library (robotdx.diagnostics' sample_rate over the cameras' hw_ms stamps, read-only); the page computes none of it. A cell opens its check in the side peek, with the data in its window; the evidence link plays the run there."
+      w: 12
+    - { view: Frame rate, w: 6, h: 3 }
+    - { view: Dropped frames by session, w: 6, h: 3 }
+    - { view: Playback, w: 12 }
+    - { view: RGB, key: rgb, title: 'RGB · RealSense 218622274411, CAN 14''s plate (video.primary)', w: 6, h: 5 }
+    - { view: Depth, key: depth, title: Depth · RGBD, w: 3, h: 5 }
+    - { view: Hyperspectral band, key: band, title: Hyperspectral band, w: 3, h: 5 }
+    - { view: Frame interval against its limits, w: 6, h: 3 }
+    - { view: Check history, w: 6, h: 3 }
+    - { view: Frame interval, key: interval-hist, title: 'Frame interval (ms) · 30 fps nominal · every session of this camera', w: 6, h: 4 }
+    - { view: Dropped frames, key: dropped, title: 'Dropped frames per session · intervals > 1.5 × 33.3 ms', w: 6, h: 4 }
+    - { view: Check rows, w: 12, h: 3 }
+properties:
+  when: { displayName: Started }
+  duration_s: { displayName: Duration }
+  kind: { displayName: Plan }
+  rate_hz: { displayName: Frame rate }
+views:
+  # the sessions table picks a session on the rail (a picker, CONTRACT §33); the newest when the page opens
+  - type: table
+    name: Sessions
+    from: runs
+    select: run
+    selected: first
+    order: [when, run, kind, duration_s, rate_hz, note]
+    sort:
+      - { property: started, direction: DESC }
+  - type: playback
+    name: Playback
+    playback: { readout: true }
+  - type: video
+    name: RGB
+    from: media
+    filters: 'kind == "rgb"'
+    video: { primary: true, label: label }
+  - type: video
+    name: Depth
+    from: media
+    filters: 'kind == "depth"'
+    empty: "No depth captured yet: the rack's RealSense recordings hold colour frames only. This card plays the producer's colourised depth video (media.json, kind: depth) on the same clock once one is written."
+  - type: image
+    name: Hyperspectral band
+    from: media
+    filters: 'kind == "band"'
+    image: poster
+    empty: "No hyperspectral capture yet. This card shows the band image (media.json, kind: band, band_nm) of the session; a band_nm facet on the rail picks the band once captures exist."
+  - type: chart
+    name: Frame interval
+    from: coverage
+    controls: false
+    intro:
+      text: "Every interval between two frames of the picked camera, from its hardware stamps (hw_ms), six sessions. Intervals over 120 ms (camera stalls) are left off this axis; Dropped frames counts them."
+    chart:
+      transform:
+        - filter: datum.frame_dt_ms <= 120
+      mark: { type: bar }
+      encoding:
+        x: { field: frame_dt_ms, bin: { extent: [0, 120], step: 2 }, title: interval (ms) }
+        'y': { aggregate: count, title: intervals, scale: { type: symlog } }
+  - type: chart
+    name: Dropped frames
+    from: coverage
+    controls: false
+    chart:
+      transform:
+        - filter: datum.frame_dt_ms > 50
+      mark: { type: bar }
+      encoding:
+        x: { field: run, type: nominal, title: null, sort: ascending }
+        'y': { aggregate: count, title: intervals over 50 ms }
+        tooltip: [{ field: frame_dt_ms }]
+  # ---- the gates overlay (CONTRACT §35; PEP 0010 §10's hints). Everything below reads rows source/build.py wrote
+  # gate_matrix, one check each: one row per camera, one column per session
+  - type: tracker
+    name: Frame rate
+    from: checks
+    filters: 'title == "Rate"'
+    groupBy: { property: device }
+    sort:
+      - { property: started, direction: ASC }
+    tracker: { state: verdict, column: run, label: message }
+    display: { verdict: status, evidence: link }
+    record:
+      sections:
+        - { name: Verdict, properties: [verdict, value, unit, message] }
+        - name: Evidence
+          properties: [evidence, t0, t1]
+          view: { type: table, name: Frame intervals in the window, from: windows, filters: 'run == this.run && device == this.device && t >= this.t0 && t <= this.t1', order: [t, value, verdict], display: { verdict: status } }
+        - { name: Provenance, properties: [subject, diagnostic, basis, source, record] }
+  - type: tracker
+    name: Dropped frames by session
+    from: checks
+    filters: 'title == "Dropped"'
+    groupBy: { property: device }
+    sort:
+      - { property: started, direction: ASC }
+    tracker: { state: verdict, column: run, label: message }
+    display: { verdict: status, evidence: link }
+    record:
+      sections:
+        - { name: Verdict, properties: [verdict, value, unit, message] }
+        - { name: Evidence, properties: [evidence, t0, t1] }
+        - { name: Provenance, properties: [subject, diagnostic, basis, source, record] }
+  # threshold_band: the largest frame interval in each 1 s window of the picked session, per camera
+  - type: timeseries
+    name: Frame interval against its limits
+    from: windows
+    timeseries: { x: t, 'y': value, series: device, limits: { warn: [warn_lo, warn_hi], error: [error_lo, error_hi] }, legend: top, unit: ms }
+  # level_history: each camera's frame-interval verdict over the picked session
+  - type: levels
+    name: Check history
+    from: windows
+    levels: { state: verdict, by: device, label: message }
+  - type: table
+    name: Check rows
+    from: checks
+    order: [run, device, title, verdict, value, unit, message]
+    display: { verdict: status }

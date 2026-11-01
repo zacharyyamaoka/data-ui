@@ -1,0 +1,45 @@
+# A synthetic facility's inputs (made-up example values): py_dataclass_viewer's Outline, Sheet and Controls views
+# (py_dataclass_viewer/static/app.js) over DEMO_FACILITY as rows. Obsidian Bases grammar plus data-ui's keys (docs/CONTRACT.md §5).
+data: facility.json
+views:
+  - type: list
+    name: Outline
+    tree: { parent: parent }
+    order: [name, value, refers_to]
+    markers: none
+    separator: "  "
+  - type: list
+    name: Outline with sources
+    tree: { parent: parent }
+    order: [name, value, measured_by, file]
+    markers: none
+    indentProperties: true
+  - type: record
+    name: Field
+    filters: 'kind == "value"'
+    record:
+      sections:
+        - { name: Value, properties: [value, measured_by] }
+        - { name: Where it lives, properties: [path, class, type, file, hidden] }
+  - type: record
+    name: Edit
+    filters: 'kind == "value"'
+    edit: true
+    record:
+      sections:
+        - { name: Value, properties: [value, measured_by] }
+        - { name: Where it lives, properties: [path, file] }
+  - type: table
+    name: Rows
+    filters: 'kind == "value"'
+    order: [name, value, measured_by, file]
+    groupBy: { property: class }
+    edit: true
+    record:
+      sections:
+        - { name: Value, properties: [value, measured_by] }
+        - { name: Where it lives, properties: [path, file] }
+  - type: table
+    name: Outline table
+    tree: { parent: parent }
+    order: [name, value, kind, measured_by, file]

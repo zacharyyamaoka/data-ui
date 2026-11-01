@@ -1,0 +1,135 @@
+# One track's page as a dashboard: pick the track in the rail (a select facet is Grafana's dashboard variable), and
+# its KPI cards, their history, its check runs and its child tracks follow through the links. Opens on Vibe Tracks
+# itself (its own spec runs). Data: ../vibetracks-dashboard (real). Grammar: docs/peps/0004-dashboards.md.
+data: ../vibetracks-dashboard/tracks.json
+filters: 'title == "Vibe Tracks"'
+facets:
+  - { property: title, as: select, dropdown: true, label: Track }
+properties:
+  title: { displayName: Track }
+  label: { displayName: KPI }
+  t: { displayName: When }
+  suite: { displayName: Suite }
+  pass_rate: { displayName: Pass rate, digits: 3 }
+  value: { digits: 3 }
+  passed: { displayName: Passed }
+  checks: { displayName: Checks }
+  kind: { displayName: Kind }
+  day: { displayName: Day }
+  verdict: { displayName: Verdict }
+# the same hue per run kind as the track overview (vibetracks-dashboard)
+style:
+  chrome: minimal
+  numbers: { digits: 3, compact: true }
+  palette: { tests: "#2a78d6", checks: "#19a979", goldens: "#d4a72c", gates: "#a259d9", Checks passing: "#19a979", Tests with a purpose: "#2a78d6" }
+datasets:
+  tracks: ../vibetracks-dashboard/tracks.json
+  kpis: ../vibetracks-dashboard/kpis.json
+  runs:
+    data: ../vibetracks-dashboard/runs.json
+    facets:
+      - suite
+      - { property: t, as: date, label: Run date }
+  days: ../vibetracks-dashboard/days.json
+links:
+  - { from: kpis.track, to: tracks.id }
+  - { from: runs.track, to: tracks.id }
+  - { from: days.track, to: tracks.id }
+layout:
+  panels:
+    - { view: The track, w: 12, h: 1.8, toolbar: none }
+    - { view: KPIs, w: 12 }
+    - { view: Checks passing, w: 4, h: 2 }
+    - { view: Last 30 days, w: 8, h: 2 }
+    - { view: KPI history, w: 12, h: 5 }
+    - { view: Pass rate by suite, w: 6, h: 4 }
+    - { view: Runs per week, w: 6, h: 4 }
+    - { view: Check runs, w: 7, h: 5 }
+    - { view: Every KPI point, w: 5, h: 5 }
+views:
+  - type: table
+    name: The track
+    order: [title, area, parent_title, health, state, headline_kpi, headline, kpis]
+  - type: kpi
+    name: KPIs
+    from: kpis
+    groupBy: { property: label }
+    sort:
+      - { property: t, direction: ASC }
+    kpi:
+      value: { property: value }
+      compare: { against: previous, better: better, neutral: 0.005 }
+      spark: { x: t, y: value }
+      format: { digits: 3, compact: true }
+  # WHY a bar, not an arc: a track's ratio is often above half, and the arc gauge draws a fill past half the long way
+  # round today (stat-model.js arcPath's large-arc flag; reported to the cards lane)
+  - type: gauge
+    name: Checks passing
+    from: runs
+    gauge:
+      value: { property: passed, summary: Ratio, per: checks }
+      min: 0
+      max: 1
+      shape: bar
+      better: higher
+      label: Σ passed / Σ checks over this track's runs
+      bands: [{ to: 0.9, tone: bad }, { to: 0.99, tone: warn }, { tone: good }]
+  - type: tracker
+    name: Last 30 days
+    from: days
+    groupBy: { property: track_title }
+    sort:
+      - { property: day, direction: ASC }
+    tracker: { state: verdict, label: day, tones: { pass: good, mixed: warn, fail: bad, none: muted } }
+  - type: chart
+    name: Runs per week
+    from: runs
+    # no mark: a count over weeks is a line (Zach, 2026-10-26; docs/SPEC.md §8.5), one line per run kind
+    chart:
+      encoding:
+        x: { field: t, by: week, title: null, axis: { labelAngle: 0 } }
+        y: { aggregate: count, title: Runs }
+        color: { field: kind, title: Kind }
+    hover: { title: run, fields: [suite, passed, checks, channel] }
+  - type: chart
+    name: KPI history
+    from: kpis
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: t, title: null }
+        # WHY linear: the auto log scale reads the whole file (every track's KPIs span decades); one track's KPIs, each on
+        # its own y, read as plain lines
+        y: { field: value, title: null, scale: { type: linear, zero: false } }
+        # a hue per KPI, named in each cell's header (so no legend). WHY it is here at all: the chart view sizes facet
+        # cells for one shared y axis, so with resolve: independent the last column ran past the tile; the colour
+        # channel's legend room keeps every cell inside (reported to the chart lane)
+        color: { field: label, legend: null }
+        facet: { field: label, columns: 3 }
+      resolve: { scale: { y: independent } }
+    hover: { title: label, fields: [value, t, sha, role] }
+  - type: chart
+    name: Pass rate by suite
+    from: runs
+    select: suite
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: t, title: null }
+        y: { field: pass_rate, title: Pass rate, scale: { domain: [0, 1] } }
+        color: { field: suite, title: Suite }
+    hover: { title: run, fields: [suite, passed, checks, channel, branch] }
+  - type: table
+    name: Check runs
+    from: runs
+    order: [t, suite, channel, passed, failed, skipped, checks, pass_rate, seconds, branch, sha]
+    sort:
+      - { property: t, direction: DESC }
+  - type: table
+    name: Every KPI point
+    from: kpis
+    order: [t, label, value, role, sha]
+    groupBy: { property: label }
+    sort:
+      - { property: t, direction: DESC }
+    fold: closed

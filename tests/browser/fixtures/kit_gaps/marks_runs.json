@@ -1,0 +1,37 @@
+{
+"title": "kit gaps fixture: runs",
+"schema": {
+"fields": [
+{
+"name": "run",
+"type": "string"
+},
+{
+"name": "device",
+"type": "string"
+},
+{
+"name": "kind",
+"type": "string"
+},
+{
+"name": "started",
+"type": "datetime"
+}
+]
+},
+"rows": [
+{
+"run": "A",
+"device": "gripper",
+"kind": "pick",
+"started": "2026-10-28T10:00:00"
+},
+{
+"run": "B",
+"device": "gripper",
+"kind": "limiters",
+"started": "2026-10-28T11:00:00"
+}
+]
+}

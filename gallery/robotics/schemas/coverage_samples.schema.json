@@ -1,0 +1,166 @@
+{
+ "name": "coverage_samples",
+ "title": "Coverage samples",
+ "description": "The deployment's runs as samples, decimated for coverage panels: rows picked on a uniform time grid (w = 1) plus each run's argmin and argmax row of every channel (w = 0); at most 150,000 rows.",
+ "rowsPer": [
+  "t",
+  "run",
+  "situation",
+  "device"
+ ],
+ "required": [
+  "t",
+  "run",
+  "situation",
+  "source",
+  "device",
+  "w"
+ ],
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s",
+    "description": "seconds from the run's start (the target's start)"
+   },
+   {
+    "name": "run",
+    "type": "string",
+    "description": "the run's stable, unique id (runs.json)"
+   },
+   {
+    "name": "situation",
+    "type": "string",
+    "description": "one way of playing the run, one series on screen: real, real B, twin v7, model 2, target"
+   },
+   {
+    "name": "source",
+    "type": "string",
+    "description": "the situation's family: real, sim (every model, twin, replay or prediction) or target; it picks the hue",
+    "constraints": {
+     "enum": [
+      "real",
+      "sim",
+      "target"
+     ]
+    }
+   },
+   {
+    "name": "device",
+    "type": "string",
+    "description": "the part whose channels the row holds: CAN 12, J3 elbow, gripper"
+   },
+   {
+    "name": "q_deg",
+    "type": "number",
+    "unit": "deg",
+    "description": "joint angle (revolute)"
+   },
+   {
+    "name": "qd_deg_s",
+    "type": "number",
+    "unit": "deg/s",
+    "description": "joint velocity"
+   },
+   {
+    "name": "qdd_deg_s2",
+    "type": "number",
+    "unit": "deg/s²",
+    "description": "joint acceleration (derived at full rate when not logged: basis derived)"
+   },
+   {
+    "name": "tau_nm",
+    "type": "number",
+    "unit": "N·m",
+    "description": "joint torque"
+   },
+   {
+    "name": "q_mm",
+    "type": "number",
+    "unit": "mm",
+    "description": "joint position (prismatic)"
+   },
+   {
+    "name": "qd_mm_s",
+    "type": "number",
+    "unit": "mm/s",
+    "description": "joint velocity (prismatic)"
+   },
+   {
+    "name": "qdd_mm_s2",
+    "type": "number",
+    "unit": "mm/s²",
+    "description": "joint acceleration (prismatic)"
+   },
+   {
+    "name": "i_q_a",
+    "type": "number",
+    "unit": "A",
+    "description": "q-axis current"
+   },
+   {
+    "name": "i_d_a",
+    "type": "number",
+    "unit": "A",
+    "description": "d-axis current"
+   },
+   {
+    "name": "v_bus_v",
+    "type": "number",
+    "unit": "V",
+    "description": "bus voltage"
+   },
+   {
+    "name": "temp_c",
+    "type": "number",
+    "unit": "°C",
+    "description": "winding or board temperature"
+   },
+   {
+    "name": "power_w",
+    "type": "number",
+    "unit": "W",
+    "description": "electrical power"
+   },
+   {
+    "name": "mode",
+    "type": "string",
+    "description": "the driver's mode (text)"
+   },
+   {
+    "name": "fault",
+    "type": "string",
+    "description": "the driver's fault (text; null when none)"
+   },
+   {
+    "name": "width_mm",
+    "type": "number",
+    "unit": "mm",
+    "description": "finger opening"
+   },
+   {
+    "name": "force_n",
+    "type": "number",
+    "unit": "N",
+    "description": "grip force"
+   },
+   {
+    "name": "grip",
+    "type": "string",
+    "description": "open, closing or holding"
+   },
+   {
+    "name": "frame_dt_ms",
+    "type": "number",
+    "unit": "ms",
+    "description": "the interval since the camera's previous frame (the device is the camera)"
+   },
+   {
+    "name": "w",
+    "type": "number",
+    "description": "the row's weight: 1 on the uniform time grid (display_hz), 0 on a run's kept argmin / argmax rows; a histogram sums w, min / max over rows stay exact"
+   }
+  ]
+ }
+}

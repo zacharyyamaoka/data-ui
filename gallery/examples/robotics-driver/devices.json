@@ -1,0 +1,5 @@
+{"title":"Devices: the rack's three moteus boards here","source":"/archive/datasets/bam_rig rack_2026-10-23, rack_2026-10-24, rack_2026-10-25: the rack's own run logs (moteus registers as logged), CAN 12, 13 and 14; written by gallery/examples/robotics-driver/source/build.py","schema":{"fields":[{"name":"device","type":"string"},{"name":"type","type":"string"},{"name":"label","type":"string"},{"name":"parent","type":"string"},{"name":"order","type":"integer"},{"name":"i_max_a","type":"number","unit":"A","description":"servo.max_current_A, the 10-23 electrical survey"}]},"rows":[
+{"device":"CAN 12","type":"driver","label":"CAN 12 · moteus board","parent":"1-DOF rack","order":1,"i_max_a":4.0},
+{"device":"CAN 13","type":"driver","label":"CAN 13 · moteus board","parent":"1-DOF rack","order":2,"i_max_a":8.0},
+{"device":"CAN 14","type":"driver","label":"CAN 14 · moteus board","parent":"1-DOF rack","order":3,"i_max_a":3.5}
+]}

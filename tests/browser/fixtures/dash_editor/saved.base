@@ -1,0 +1,36 @@
+# Saved for later: views this reader kept from other dashboards, to place later (Amazon's "Saved for later").
+# The host keeps it like any dashboard; Add to dashboard… lists it (CONTRACT §34), and the editor's "To place" reads it.
+data: runs.json
+datasets:
+  runs:
+    data: runs.json
+    label: Runs
+  samples:
+    data: samples.json
+    label: Samples
+layout:
+  panels:
+    - { view: Torque, h: 3 }
+    - { view: Twin q RMS by run, h: 3 }
+    - { view: Held-out runs }
+views:
+  # saved from the Servo template's Torque panel
+  - type: timeseries
+    name: Torque
+    from: samples
+    timeseries: { x: t, 'y': tau_nm, series: situation, legend: top, unit: 'N·m' }
+  - type: chart
+    name: Twin q RMS by run
+    from: runs
+    chart:
+      mark: bar
+      encoding:
+        x: { field: label, type: nominal, sort: '-y', title: run }
+        'y': { field: q_rms_mrad, type: quantitative, title: Twin q RMS (mrad) }
+  - type: kpi
+    name: Held-out runs
+    from: runs
+    filters: 'held_out == true'
+    kpi:
+      label: Held-out runs
+      value: { property: run, summary: Count }

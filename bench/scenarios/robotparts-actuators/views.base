@@ -1,0 +1,85 @@
+# Actuators: robotparts' 1,149 actuators, one .base file, many views. The five table views are the table lane's
+# presets (robotparts lane/tables @ ab5ba92, presets/actuators.base); the pivots are data-ui's. Obsidian Bases
+# grammar plus data-ui's keys (docs/CONTRACT.md §5). Check it: node bin/data-ui.mjs check <this file>
+data: actuators.json
+facets:
+  - brand
+  - form
+  - drivetrain
+  - buses
+  - level
+  - { property: peak_torque, as: range }
+  - { property: mass, as: range }
+  - { property: price, as: range }
+  - { property: torque_density, as: has }
+properties:
+  model: { displayName: Model }
+  brand: { displayName: Brand }
+  form: { displayName: Form }
+  drivetrain: { displayName: Drivetrain }
+  peak_torque: { displayName: Peak torque }
+  rated_torque: { displayName: Rated torque }
+  max_speed: { displayName: Max speed }
+  mass: { displayName: Mass }
+  gear_ratio: { displayName: Ratio }
+  voltage: { displayName: Voltage }
+  od: { displayName: OD }
+  length: { displayName: Length }
+  buses: { displayName: Bus }
+  torque_density: { displayName: Peak N·m/kg }
+  price: { displayName: Price from }
+  sellers: { displayName: Sellers }
+  level: { displayName: Level }
+views:
+  - type: table
+    name: By brand
+    order: [model, form, peak_torque, rated_torque, max_speed, mass, gear_ratio, voltage, od, length, buses, price]
+    groupBy: { property: brand, direction: ASC }
+    sort:
+      - { property: peak_torque, direction: DESC }
+    summaries: { peak_torque: Max, mass: Min, price: Min }
+  - type: table
+    name: Brand › form
+    order: [model, peak_torque, mass, gear_ratio, voltage, price]
+    groupBy: { property: brand, direction: ASC }
+    subGroupBy: { property: form, direction: ASC }
+    sort:
+      - { property: peak_torque, direction: DESC }
+    summaries: { peak_torque: Max, price: Min }
+    fold: closed
+  - type: table
+    name: Torque density
+    filters: '!torque_density.isEmpty()'
+    order: [model, brand, torque_density, peak_torque, mass, price]
+    sort:
+      - { property: torque_density, direction: DESC }
+    display: { torque_density: bar }
+  - type: table
+    name: Geared CAN under $150
+    filters:
+      and:
+        - 'drivetrain == "geared"'
+        - 'buses.contains("can")'
+        - 'price < 150'
+    order: [model, brand, price, peak_torque, mass, gear_ratio, voltage]
+    sort:
+      - { property: price, direction: ASC }
+    display: { price: bar }
+  - type: table
+    name: All, flat
+    order: [model, brand, form, drivetrain, peak_torque, rated_torque, max_speed, mass, gear_ratio, voltage, od, length, buses, torque_density, price, sellers, level]
+    sort:
+      - { property: brand, direction: ASC }
+      - { property: model, direction: ASC }
+  - type: pivot
+    name: Brand × form
+    order: [brand]
+    splitBy: [form]
+    value: { property: null, summary: Count }
+    sort:
+      - { property: brand, direction: ASC }
+  - type: pivot
+    name: Torque by drivetrain × form
+    order: [drivetrain]
+    splitBy: [form]
+    value: { property: peak_torque, summary: Median, display: dist }

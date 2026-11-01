@@ -1,0 +1,566 @@
+{
+ "name": "runs",
+ "title": "Runs of One Dof Test Rack",
+ "primaryKey": "run",
+ "titleProperty": "label",
+ "source": "/archive/datasets/bam_rig rack_2026-10-28, rack_2026-10-29 (every runs/*.npz with ≥ 20 samples and ≤ 15 s), read-only; the newest 3 of each station; written by gallery/examples/robotics-deployments/source/build.py",
+ "schema": {
+  "fields": [
+   {
+    "name": "run",
+    "type": "string",
+    "title": "Run",
+    "description": "day~folder~step under the rack's archive: the run's file is runs/<run>.json"
+   },
+   {
+    "name": "deployment",
+    "type": "string",
+    "title": "Deployment"
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "title": "Run"
+   },
+   {
+    "name": "started",
+    "type": "datetime",
+    "title": "Started",
+    "description": "the run's first logged row, the rig's wall clock with its UTC offset"
+   },
+   {
+    "name": "device",
+    "type": "string",
+    "title": "Station"
+   },
+   {
+    "name": "devices",
+    "type": "array",
+    "title": "Devices"
+   },
+   {
+    "name": "kind",
+    "type": "string",
+    "title": "Kind"
+   },
+   {
+    "name": "duration_s",
+    "type": "number",
+    "unit": "s",
+    "title": "Duration"
+   },
+   {
+    "name": "situations",
+    "type": "array",
+    "title": "Situations"
+   },
+   {
+    "name": "rate_hz",
+    "type": "number",
+    "unit": "Hz",
+    "title": "Logged at",
+    "description": "the board's log rate"
+   },
+   {
+    "name": "display_hz",
+    "type": "number",
+    "unit": "Hz",
+    "title": "Drawn at",
+    "description": "the rate written for display, by picking rows"
+   },
+   {
+    "name": "basis",
+    "type": "string",
+    "title": "Basis"
+   },
+   {
+    "name": "note",
+    "type": "string",
+    "title": "Archive file",
+    "description": "the run's npz under /archive/datasets/bam_rig"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "run": "10-28~t2~heldout_can12~s14",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 12 · waypoints · s14",
+   "started": "2026-10-28T11:30:34-07:00",
+   "device": "CAN 12",
+   "devices": [
+    "CAN 12"
+   ],
+   "kind": "waypoints",
+   "duration_s": 4.07,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.1,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-28/t2/heldout_can12/runs/s14_can12_waypoints.npz"
+  },
+  {
+   "run": "10-28~t2~heldout_can12~s16",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 12 · waypoints · s16",
+   "started": "2026-10-28T11:30:39-07:00",
+   "device": "CAN 12",
+   "devices": [
+    "CAN 12"
+   ],
+   "kind": "waypoints",
+   "duration_s": 2.248,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.2,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-28/t2/heldout_can12/runs/s16_can12_waypoints.npz"
+  },
+  {
+   "run": "10-28~t2~heldout_can12~s18",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 12 · sine · s18",
+   "started": "2026-10-28T11:30:43-07:00",
+   "device": "CAN 12",
+   "devices": [
+    "CAN 12"
+   ],
+   "kind": "sine",
+   "duration_s": 11.61,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.0,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-28/t2/heldout_can12/runs/s18_can12_sine.npz"
+  },
+  {
+   "run": "10-29~can11_heldout_il0.5~s18",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 11 · waypoints · s18",
+   "started": "2026-10-29T01:01:59-07:00",
+   "device": "CAN 11",
+   "devices": [
+    "CAN 11"
+   ],
+   "kind": "waypoints",
+   "duration_s": 2.44,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.1,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/can11_heldout_il0.5/runs/s18_can11_waypoints.npz"
+  },
+  {
+   "run": "10-29~can11_heldout_il0.5~s20",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 11 · sine · s20",
+   "started": "2026-10-29T01:02:03-07:00",
+   "device": "CAN 11",
+   "devices": [
+    "CAN 11"
+   ],
+   "kind": "sine",
+   "duration_s": 5.968,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.0,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/can11_heldout_il0.5/runs/s20_can11_sine.npz"
+  },
+  {
+   "run": "10-29~can11_probe_il0.8~s02",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 11 · waypoints · s02",
+   "started": "2026-10-29T01:02:19-07:00",
+   "device": "CAN 11",
+   "devices": [
+    "CAN 11"
+   ],
+   "kind": "waypoints",
+   "duration_s": 4.616,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 88.4,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/can11_probe_il0.8/runs/s02_can11_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~15_warm_can14~s08",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 14 · waypoints · s08",
+   "started": "2026-10-29T02:36:31-07:00",
+   "device": "CAN 14",
+   "devices": [
+    "CAN 14"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.358,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.2,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/15_warm_can14/runs/s08_can14_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~15_warm_can14~s10",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 14 · waypoints · s10",
+   "started": "2026-10-29T02:36:37-07:00",
+   "device": "CAN 14",
+   "devices": [
+    "CAN 14"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.351,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.1,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/15_warm_can14/runs/s10_can14_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~15_warm_can14~s12",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 14 · waypoints · s12",
+   "started": "2026-10-29T02:36:44-07:00",
+   "device": "CAN 14",
+   "devices": [
+    "CAN 14"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.351,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.1,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/15_warm_can14/runs/s12_can14_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~13_warm_can21~s08",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 21 · waypoints · s08",
+   "started": "2026-10-29T03:40:42-07:00",
+   "device": "CAN 21",
+   "devices": [
+    "CAN 21"
+   ],
+   "kind": "waypoints",
+   "duration_s": 6.106,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.1,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/13_warm_can21/runs/s08_can21_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~13_warm_can21~s10",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 21 · waypoints · s10",
+   "started": "2026-10-29T03:40:49-07:00",
+   "device": "CAN 21",
+   "devices": [
+    "CAN 21"
+   ],
+   "kind": "waypoints",
+   "duration_s": 6.098,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.1,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/13_warm_can21/runs/s10_can21_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~13_warm_can21~s12",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 21 · waypoints · s12",
+   "started": "2026-10-29T03:40:57-07:00",
+   "device": "CAN 21",
+   "devices": [
+    "CAN 21"
+   ],
+   "kind": "waypoints",
+   "duration_s": 6.099,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.1,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/13_warm_can21/runs/s12_can21_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~07_warm_can4~s08",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 4 · waypoints · s08",
+   "started": "2026-10-29T04:07:11-07:00",
+   "device": "CAN 4",
+   "devices": [
+    "CAN 4"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.536,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.0,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/07_warm_can4/runs/s08_can4_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~07_warm_can4~s10",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 4 · waypoints · s10",
+   "started": "2026-10-29T04:07:18-07:00",
+   "device": "CAN 4",
+   "devices": [
+    "CAN 4"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.538,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 94.8,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/07_warm_can4/runs/s10_can4_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~07_warm_can4~s12",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 4 · waypoints · s12",
+   "started": "2026-10-29T04:07:25-07:00",
+   "device": "CAN 4",
+   "devices": [
+    "CAN 4"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.535,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 94.8,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/07_warm_can4/runs/s12_can4_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~32_warm_can1~s08",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 1 · waypoints · s08",
+   "started": "2026-10-29T05:28:02-07:00",
+   "device": "CAN 1",
+   "devices": [
+    "CAN 1"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.038,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 94.9,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/32_warm_can1/runs/s08_can1_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~32_warm_can1~s10",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 1 · waypoints · s10",
+   "started": "2026-10-29T05:28:08-07:00",
+   "device": "CAN 1",
+   "devices": [
+    "CAN 1"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.037,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 94.7,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/32_warm_can1/runs/s10_can1_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~32_warm_can1~s12",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 1 · waypoints · s12",
+   "started": "2026-10-29T05:28:14-07:00",
+   "device": "CAN 1",
+   "devices": [
+    "CAN 1"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.03,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 94.8,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/32_warm_can1/runs/s12_can1_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~34_warm_can15~s08",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 15 · waypoints · s08",
+   "started": "2026-10-29T05:33:50-07:00",
+   "device": "CAN 15",
+   "devices": [
+    "CAN 15"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.069,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.1,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/34_warm_can15/runs/s08_can15_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~34_warm_can15~s10",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 15 · waypoints · s10",
+   "started": "2026-10-29T05:33:57-07:00",
+   "device": "CAN 15",
+   "devices": [
+    "CAN 15"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.073,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.0,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/34_warm_can15/runs/s10_can15_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~34_warm_can15~s12",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 15 · waypoints · s12",
+   "started": "2026-10-29T05:34:03-07:00",
+   "device": "CAN 15",
+   "devices": [
+    "CAN 15"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.072,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.0,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/34_warm_can15/runs/s12_can15_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~36_warm_can13_ff~s08",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 13 · waypoints · s08",
+   "started": "2026-10-29T05:37:21-07:00",
+   "device": "CAN 13",
+   "devices": [
+    "CAN 13"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.434,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.1,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/36_warm_can13_ff/runs/s08_can13_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~36_warm_can13_ff~s10",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 13 · waypoints · s10",
+   "started": "2026-10-29T05:37:28-07:00",
+   "device": "CAN 13",
+   "devices": [
+    "CAN 13"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.432,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.2,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/36_warm_can13_ff/runs/s10_can13_waypoints.npz"
+  },
+  {
+   "run": "10-29~gates~36_warm_can13_ff~s12",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 13 · waypoints · s12",
+   "started": "2026-10-29T05:37:34-07:00",
+   "device": "CAN 13",
+   "devices": [
+    "CAN 13"
+   ],
+   "kind": "waypoints",
+   "duration_s": 5.432,
+   "situations": [
+    "real",
+    "target"
+   ],
+   "rate_hz": 95.2,
+   "display_hz": 25.0,
+   "basis": "measured",
+   "note": "rack_2026-10-29/gates/36_warm_can13_ff/runs/s12_can13_waypoints.npz"
+  }
+ ]
+}

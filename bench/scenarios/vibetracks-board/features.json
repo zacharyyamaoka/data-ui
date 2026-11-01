@@ -1,0 +1,1169 @@
+{
+"id": "vibetracks-features",
+"title": "Vibe Tracks features",
+"titleProperty": "title",
+"properties": {
+"id": {
+"type": "text",
+"label": "ID"
+},
+"title": {
+"type": "text",
+"label": "Feature"
+},
+"status": {
+"type": "text",
+"label": "Status",
+"facet": true
+},
+"priority": {
+"type": "text",
+"label": "Priority",
+"facet": true,
+"colors": {
+"high": 8,
+"medium": 4,
+"low": 0
+}
+},
+"areas": {
+"type": "list",
+"label": "Areas",
+"facet": true
+},
+"description": {
+"type": "text",
+"label": "Description"
+},
+"depends": {
+"type": "number",
+"label": "Depends on",
+"note": "notes this feature waits on"
+},
+"evidence": {
+"type": "number",
+"label": "Evidence",
+"note": "evidence links in the note"
+},
+"commits": {
+"type": "number",
+"label": "Commits"
+},
+"proof": {
+"type": "text",
+"label": "Proof",
+"facet": true,
+"derived": "from the note's vibe-commits and vibe-evidence",
+"colors": {
+"commits": 3,
+"evidence": 1,
+"none": 0
+}
+}
+},
+"rows": [
+{
+"id": "VT-001",
+"title": "File-first renderer V0",
+"status": "done",
+"priority": null,
+"areas": [
+"data",
+"renderer",
+"model"
+],
+"description": "Codex V0: Base-compatible loading, Graph/Kanban/Focus, fenced status writes, pyblocks example.",
+"depends": 0,
+"evidence": 0,
+"commits": 1,
+"proof": "commits"
+},
+{
+"id": "VT-002",
+"title": "Production refactor and dispatcher protocol",
+"status": "done",
+"priority": null,
+"areas": [
+"data",
+"model",
+"writes",
+"agent",
+"renderer"
+],
+"description": "Fable pass: modular backend, three fenced panel writes, area-catalog memory, init/new/status/comment CLI, /vibetracks skill for Claude and Codex, paper-minimal UI.",
+"depends": 1,
+"evidence": 0,
+"commits": 3,
+"proof": "commits"
+},
+{
+"id": "VT-003",
+"title": "Obsidian plugin wrapper",
+"status": "archived",
+"priority": null,
+"areas": [
+"obsidian"
+],
+"description": "Register vibetracks-graph/kanban/focus as custom Base views; write through processFrontMatter so live buffers are safe.",
+"depends": 1,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-004",
+"title": "File watching and SSE",
+"status": "backlog",
+"priority": "medium",
+"areas": [
+"data",
+"renderer"
+],
+"description": "Replace polling (the home every 10 s, the roadmap every 30 s) with file watching and server-sent events, so a page shows an agent's write at once.",
+"depends": 2,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-005",
+"title": "Automatic review-packet generation",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"review",
+"agent"
+],
+"description": "Turn a worker run (diff, test output, screenshots) into a draft review packet without hand-authoring HTML.",
+"depends": 2,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-006",
+"title": "CRLF and BOM byte-fidelity for panel writes",
+"status": "done",
+"priority": null,
+"areas": [
+"data",
+"writes"
+],
+"description": "read_text universal newlines mean one status flip rewrites a CRLF note entirely to LF; revisions are computed over translated text. Needs raw-byte reads and newline-preserving transforms.",
+"depends": 1,
+"evidence": 1,
+"commits": 1,
+"proof": "commits"
+},
+{
+"id": "VT-007",
+"title": "Liveness the panel ages its own claims",
+"status": "done",
+"priority": "high",
+"areas": [
+"data",
+"renderer",
+"agent"
+],
+"description": "Cards carry their age, a quiet running claim is drawn stale, and per-track briefings feed one pinned agent per lane.",
+"depends": 1,
+"evidence": 0,
+"commits": 1,
+"proof": "commits"
+},
+{
+"id": "VT-008",
+"title": "Per-track agents and answerable review packets",
+"status": "waiting",
+"priority": "medium",
+"areas": [
+"review",
+"agent",
+"renderer"
+],
+"description": "One standing prompt per track, and review packets the human answers in the page and pastes back (unmerged, never reviewed).",
+"depends": 1,
+"evidence": 0,
+"commits": 1,
+"proof": "commits"
+},
+{
+"id": "VT-009",
+"title": "Sidebar in Claude Code's visual language",
+"status": "done",
+"priority": "high",
+"areas": [
+"sidebar",
+"renderer"
+],
+"description": "Claude Desktop's own sidebar CSS: 26 px rows, the status dots and blink, project headers, account bottom-left, phone drawer.",
+"depends": 2,
+"evidence": 2,
+"commits": 2,
+"proof": "commits"
+},
+{
+"id": "VT-010",
+"title": "Resizable sidebar and one view switcher",
+"status": "running",
+"priority": "high",
+"areas": [
+"sidebar"
+],
+"description": "Drag the sidebar edge (remembered, double-click resets); drop the left view switcher, Display and keys 1-4 stay.",
+"depends": 1,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-011",
+"title": "Other sessions listed open, as Claude shows them",
+"status": "ready",
+"priority": "high",
+"areas": [
+"sidebar"
+],
+"description": "Sessions no track matches are listed one per row, the way Claude's sidebar shows them, not folded into one row.",
+"depends": 1,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-012",
+"title": "Double-click to rename in the sidebar",
+"status": "ready",
+"priority": "medium",
+"areas": [
+"sidebar",
+"writes"
+],
+"description": "Double-click a track (or session) in the sidebar to rename it in place.",
+"depends": 2,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-013",
+"title": "Drag a session onto a track to reassign it",
+"status": "backlog",
+"priority": "medium",
+"areas": [
+"sidebar",
+"writes"
+],
+"description": "A session is not necessarily a track: drag it onto a track to pin it there.",
+"depends": 2,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-014",
+"title": "Sidebar five variant proposals",
+"status": "running",
+"priority": "medium",
+"areas": [
+"sidebar"
+],
+"description": "Round 4: five clickable sidebar variants on real data, one merging with Claude Hub's sidebar.",
+"depends": 1,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-015",
+"title": "One sidebar with Claude Hub, or two",
+"status": "waiting",
+"priority": "low",
+"areas": [
+"sidebar"
+],
+"description": "Decide whether Vibe Tracks and Claude Hub share one sidebar component or stay two apps with one look.",
+"depends": 1,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-016",
+"title": "Sidebar pixel parity for the selected fill and background",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"sidebar"
+],
+"description": "Close B2's two measured deltas against Claude's CSS: the selected fill and the background step.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-017",
+"title": "Home on derived state, the Linear initiatives table",
+"status": "done",
+"priority": "high",
+"areas": [
+"home",
+"renderer"
+],
+"description": "B1: project and track rows on one grid (target, health, progress, state, worked, last action) over GET /home.",
+"depends": 1,
+"evidence": 3,
+"commits": 3,
+"proof": "commits"
+},
+{
+"id": "VT-018",
+"title": "Display button with Rows, Table, Board and Cards",
+"status": "done",
+"priority": "medium",
+"areas": [
+"home",
+"renderer"
+],
+"description": "A Linear-style Display popover with Rows / Table / Board / Cards on keys 1-4, remembered, and grouping.",
+"depends": 1,
+"evidence": 1,
+"commits": 1,
+"proof": "commits"
+},
+{
+"id": "VT-019",
+"title": "Fix the two frozen-check bugs behind the known reds",
+"status": "waiting",
+"priority": "high",
+"areas": [
+"home",
+"data"
+],
+"description": "Two one-line bugs in frozen acceptance checks and a pre-existing kinsim adapter error keep the suite at 3 reds.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-020",
+"title": "Home five variant proposals",
+"status": "running",
+"priority": "medium",
+"areas": [
+"home"
+],
+"description": "Round 4: five clickable home variants on real data.",
+"depends": 1,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-021",
+"title": "Stable and Preview chip on the home",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"home"
+],
+"description": "Show the Stable / Preview chip on the home page, which is served through the /api/ proxy.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-022",
+"title": "Sessions-only view",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"home"
+],
+"description": "A Display option that lists live sessions only, Claude Code's own view of the same data.",
+"depends": 1,
+"evidence": 2,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-023",
+"title": "The one number on top of the home",
+"status": "waiting",
+"priority": "medium",
+"areas": [
+"home"
+],
+"description": "One headline number for everything (proposed: $/t from the facility model), kept apart from attention.",
+"depends": 2,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-024",
+"title": "Sub-track roll-up rows",
+"status": "review",
+"priority": "low",
+"areas": [
+"home"
+],
+"description": "Nested tracks: vibe-parent at any depth, a Storybook-style tree in the sidebar and Rows, parents roll up their subtree's worst state.",
+"depends": 1,
+"evidence": 4,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-025",
+"title": "Board writes for Done and Archived",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"home",
+"writes"
+],
+"description": "Drag a track into Done or Archived on the Board writes its status; derived columns still refuse drops.",
+"depends": 2,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-026",
+"title": "Review placeholder over the real needs",
+"status": "done",
+"priority": "medium",
+"areas": [
+"review"
+],
+"description": "B2's Review: the real /needs grouped by project, answers copied as Markdown, until a design is picked.",
+"depends": 2,
+"evidence": 1,
+"commits": 1,
+"proof": "commits"
+},
+{
+"id": "VT-027",
+"title": "Pick the review design, V1 Inbox to Zen or V3 Zen with bookends",
+"status": "waiting",
+"priority": "high",
+"areas": [
+"review"
+],
+"description": "Choose between V1 Inbox -> Zen (93) and V3 Zen with bookends (92); default V1.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-028",
+"title": "Review mode on the real needs",
+"status": "ready",
+"priority": "high",
+"areas": [
+"review"
+],
+"description": "Build the picked review design over /needs: Zen, triaged order, Claude-style options, recommendation and default.",
+"depends": 1,
+"evidence": 2,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-029",
+"title": "Answers reach the loops",
+"status": "backlog",
+"priority": "high",
+"areas": [
+"review",
+"writes"
+],
+"description": "An answer given in Review lands in the loop's own answer file through a fenced write.",
+"depends": 2,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-030",
+"title": "Media-first questions",
+"status": "backlog",
+"priority": "medium",
+"areas": [
+"review",
+"data"
+],
+"description": "Loops attach images and video to their questions; Review shows them before the text.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-031",
+"title": "Age badges in Review and Zen",
+"status": "backlog",
+"priority": "medium",
+"areas": [
+"review",
+"data"
+],
+"description": "Age pies on review rows and Zen steps, from a first-appeared time derived from the loops' events.",
+"depends": 1,
+"evidence": 2,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-032",
+"title": "Snooze a question",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"review",
+"writes"
+],
+"description": "Snooze a question, kept in a small Vibe Tracks-side store.",
+"depends": 2,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-033",
+"title": "Pin a comment on a spot in an image or video frame",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"review"
+],
+"description": "An answer can pin a comment on a spot in an image or a frame of a video.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-034",
+"title": "Auditor findings flow into Review",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"review"
+],
+"description": "Open findings from audit rounds show up as decisions in Review.",
+"depends": 2,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-035",
+"title": "Codex-model projects, a name plus one or more folders",
+"status": "done",
+"priority": "high",
+"areas": [
+"project-page",
+"model"
+],
+"description": "A project is a .vibetrack with a name and roots: [..], so one project spans several repos.",
+"depends": 1,
+"evidence": 2,
+"commits": 2,
+"proof": "commits"
+},
+{
+"id": "VT-036",
+"title": "Project page with the north star over the tracks' KPIs",
+"status": "done",
+"priority": "high",
+"areas": [
+"project-page"
+],
+"description": "A project's page: its north star (lagging) above its tracks' KPIs (leading) on one time axis.",
+"depends": 1,
+"evidence": 1,
+"commits": 1,
+"proof": "commits"
+},
+{
+"id": "VT-037",
+"title": "New project writes its descriptor",
+"status": "ready",
+"priority": "medium",
+"areas": [
+"project-page",
+"writes"
+],
+"description": "The New project dialog writes workspace/projects/<name>.vibetrack instead of printing it.",
+"depends": 2,
+"evidence": 2,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-038",
+"title": "Declare each project's north star",
+"status": "waiting",
+"priority": "medium",
+"areas": [
+"project-page"
+],
+"description": "Each project declares its north star; none is shown until one is declared.",
+"depends": 1,
+"evidence": 2,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-039",
+"title": "Project descriptors live in one of the project's roots",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"project-page"
+],
+"description": "Each project's descriptor moves into one of its own roots; who owns it is open.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-040",
+"title": "Project page five variant proposals",
+"status": "running",
+"priority": "medium",
+"areas": [
+"project-page"
+],
+"description": "Round 4: five clickable project-page variants on real data.",
+"depends": 1,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-041",
+"title": "Track page with KPIs, gates, rungs, activity, sessions and auditor",
+"status": "done",
+"priority": "high",
+"areas": [
+"track-page"
+],
+"description": "B2's track page: soft KPIs as cards or rows, hard gates, the rung ladder, activity, sessions with Open, auditor.",
+"depends": 3,
+"evidence": 2,
+"commits": 1,
+"proof": "commits"
+},
+{
+"id": "VT-042",
+"title": "Vibe Tracks' own roadmap on its track page",
+"status": "review",
+"priority": "high",
+"areas": [
+"track-page",
+"data"
+],
+"description": "The repo's own feature notes, grouped under the five areas plus Data and Multi-machine, as the vibetracks track's roadmap.",
+"depends": 2,
+"evidence": 1,
+"commits": 1,
+"proof": "commits"
+},
+{
+"id": "VT-043",
+"title": "Track page five variant proposals and the tab set",
+"status": "running",
+"priority": "medium",
+"areas": [
+"track-page"
+],
+"description": "Round 4: five track-page variants on real data, with an inventory of tabs and a recommended tab set.",
+"depends": 1,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-044",
+"title": "Frontier strip on each track",
+"status": "backlog",
+"priority": "medium",
+"areas": [
+"track-page"
+],
+"description": "Five numbers atop each track: best KPI vs baseline, kept/discarded/errored, frontier, agents running, auditor.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-045",
+"title": "Staircase chart of every attempt",
+"status": "backlog",
+"priority": "medium",
+"areas": [
+"track-page"
+],
+"description": "The running best as a step line, every attempt a dot, ruler changes marked; the home sparkline is its miniature.",
+"depends": 2,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-046",
+"title": "Experiment tree per roadmap rung",
+"status": "backlog",
+"priority": "medium",
+"areas": [
+"track-page"
+],
+"description": "Each roadmap rung is a subtree of experiments, the best path highlighted.",
+"depends": 2,
+"evidence": 2,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-047",
+"title": "Experiment drawer with Summary, Diff, Cases and Logs",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"track-page"
+],
+"description": "Click an attempt: Summary / Diff / Cases / Logs with its change vs parent, hypothesis, model and cost.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-048",
+"title": "Track memory of dead ends",
+"status": "backlog",
+"priority": "medium",
+"areas": [
+"track-page",
+"agent"
+],
+"description": "One panel per track of dead ends, failure traces and rules every agent reads before its next try.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-049",
+"title": "The vibetracks-loop skill with a Discover phase",
+"status": "backlog",
+"priority": "medium",
+"areas": [
+"track-page",
+"agent"
+],
+"description": "A loop skill that starts a KPI-less track in Discover (propose KPIs, gates, ruler), then optimises.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-050",
+"title": "Outcomes tab",
+"status": "backlog",
+"priority": "medium",
+"areas": [
+"track-page"
+],
+"description": "A tab per track with KPIs start -> now, media, decisions and gates instead of code.",
+"depends": 1,
+"evidence": 2,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-051",
+"title": "Discussion on the track timeline",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"track-page",
+"writes"
+],
+"description": "People's comments, @agent requests and dated health updates on the track's timeline.",
+"depends": 2,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-052",
+"title": "Open in Claude Code with the right account",
+"status": "backlog",
+"priority": "medium",
+"areas": [
+"track-page"
+],
+"description": "Open a session in the account that owns it; new session on this track; Copy as prompt.",
+"depends": 1,
+"evidence": 2,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-053",
+"title": "Hardware track tables for deployments and models",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"track-page"
+],
+"description": "Deployments x KPIs with Rerun playbacks, and models x curriculum rungs, for hardware tracks.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-054",
+"title": "Derived state from Claude Code's own files",
+"status": "done",
+"priority": "high",
+"areas": [
+"data",
+"model"
+],
+"description": "The activity spine reads Claude Code's sessions and transcripts, no hooks; state is derived, never claimed.",
+"depends": 1,
+"evidence": 2,
+"commits": 2,
+"proof": "commits"
+},
+{
+"id": "VT-055",
+"title": "Work-track registry and KPI adapters",
+"status": "done",
+"priority": "high",
+"areas": [
+"data",
+"model"
+],
+"description": "One note per work track and one adapter per loop, projecting KPIs, freshness and needs.",
+"depends": 1,
+"evidence": 2,
+"commits": 3,
+"proof": "commits"
+},
+{
+"id": "VT-056",
+"title": "Needs-you documents",
+"status": "done",
+"priority": "medium",
+"areas": [
+"data",
+"review"
+],
+"description": "Each loop's open questions as one document with recommendation, default and status, served at /needs.",
+"depends": 1,
+"evidence": 1,
+"commits": 1,
+"proof": "commits"
+},
+{
+"id": "VT-057",
+"title": "The bam-roadmap projector and live roadmap routes",
+"status": "done",
+"priority": "high",
+"areas": [
+"data"
+],
+"description": "One roadmap and proof-of-done format for every loop, projected live at /roadmap/doc.",
+"depends": 1,
+"evidence": 1,
+"commits": 2,
+"proof": "commits"
+},
+{
+"id": "VT-058",
+"title": "Fenced write routes from the home",
+"status": "ready",
+"priority": "high",
+"areas": [
+"data",
+"writes"
+],
+"description": "Fenced, revision-checked write routes from the home, one per write, extending the panel's three note writes.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-059",
+"title": "Durable homes for loop data",
+"status": "ready",
+"priority": "high",
+"areas": [
+"data"
+],
+"description": "Move loop ledgers out of sweepable worktrees (kincal's 12 MB ledger first); re-run or archive grasping.",
+"depends": 0,
+"evidence": 2,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-060",
+"title": "Land the fivebar and kincal track adapters",
+"status": "ready",
+"priority": "medium",
+"areas": [
+"data"
+],
+"description": "Merge the fivebar and kincal KPI adapters from their lanes, one after the other.",
+"depends": 2,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-061",
+"title": "Kinsim needs read from git",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"data"
+],
+"description": "Read kinsim's triage.json from git (an @git: source form), so its needs stop reading null.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-062",
+"title": "Audit sources for every track",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"data"
+],
+"description": "Declare vibe-audits globs for fivebar, kincal, scantunnel and mag; a MODEL: line in audit files.",
+"depends": 1,
+"evidence": 2,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-063",
+"title": "Experiment records with parent, session and account",
+"status": "backlog",
+"priority": "medium",
+"areas": [
+"data"
+],
+"description": "Record each attempt with its parent, KPI values, session and account, for the experiment views.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-064",
+"title": "Hooks as a second writer",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"data"
+],
+"description": "Hooks as a second writer, only after their latency across five accounts is measured.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-065",
+"title": "Retire or rewrite the vibetracks skill",
+"status": "waiting",
+"priority": "low",
+"areas": [
+"data",
+"agent"
+],
+"description": "The /vibetracks skill still describes the Aug 25 Graph / Kanban / Focus dispatcher; retire or rewrite it.",
+"depends": 1,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-066",
+"title": "Remote prototype with hub, phone app and per-machine sync",
+"status": "done",
+"priority": "medium",
+"areas": [
+"multi-machine"
+],
+"description": "Per-host folders in a git share, a hub restoring file times, a phone-first app, Talk to agent.",
+"depends": 1,
+"evidence": 1,
+"commits": 2,
+"proof": "commits"
+},
+{
+"id": "VT-067",
+"title": "Remote v1 with quiet workers, Refresh and setup-machine",
+"status": "done",
+"priority": "medium",
+"areas": [
+"multi-machine"
+],
+"description": "Quiet workers, adaptive hub checks, Refresh, agents per machine, open-hub and setup-machine.",
+"depends": 1,
+"evidence": 1,
+"commits": 1,
+"proof": "commits"
+},
+{
+"id": "VT-068",
+"title": "The home reads other machines' sessions",
+"status": "running",
+"priority": "high",
+"areas": [
+"multi-machine",
+"home"
+],
+"description": "The home also reads other machines' sessions from vibetracks-share, live only as of each host's sync.",
+"depends": 2,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-069",
+"title": "The hub serves the new home",
+"status": "running",
+"priority": "high",
+"areas": [
+"multi-machine",
+"home"
+],
+"description": "The hub serves the new home instead of the old dashboard, so the phone sees the same page.",
+"depends": 2,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-070",
+"title": "First real install on the Windows box",
+"status": "ready",
+"priority": "medium",
+"areas": [
+"multi-machine"
+],
+"description": "Run setup-machine for real on the Windows box (win-a); tested by dry run only so far.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-071",
+"title": "Shared hook line in the vault settings",
+"status": "waiting",
+"priority": "low",
+"areas": [
+"multi-machine"
+],
+"description": "Add the one shared hook line to the vault's settings.json; waits on Zach's yes.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-072",
+"title": "Tailscale for the phone and instant pokes",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"multi-machine"
+],
+"description": "Tailscale ($8/mo) for the phone off the LAN and instant pokes from win-a; deferred.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-073",
+"title": "Write from the phone",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"multi-machine",
+"writes"
+],
+"description": "Status changes, answers and comments from the phone, through the home's fenced writes.",
+"depends": 2,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-074",
+"title": "Refuse a duplicate vibe-id",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"multi-machine",
+"model"
+],
+"description": "A sync conflict copy with the same vibe-id loads as a named problem, not a second card.",
+"depends": 0,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+},
+{
+"id": "VT-075",
+"title": "Swap git for Syncthing or Obsidian Headless in the share",
+"status": "backlog",
+"priority": "low",
+"areas": [
+"multi-machine"
+],
+"description": "Swap the share's git sync for Syncthing or Obsidian Headless when its history grows too big.",
+"depends": 1,
+"evidence": 1,
+"commits": 0,
+"proof": "evidence"
+},
+{
+"id": "VT-076",
+"title": "Several KPI lines in one chart",
+"status": "todo",
+"priority": "medium",
+"areas": [
+"home"
+],
+"description": "A KPI chart can draw several series as lines on one chart (e.g. ClaudeParty native parity on Linux, macOS and Windows), more compact than three charts.",
+"depends": 1,
+"evidence": 0,
+"commits": 0,
+"proof": "none"
+}
+]
+}

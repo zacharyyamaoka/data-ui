@@ -1,0 +1,65 @@
+{
+ "name": "coverage_samples",
+ "title": "Coverage: 278 rack runs of CAN 12, CAN 14",
+ "source": "/archive/datasets/bam_rig rack_2026-10-23, -24 and -25 (every runs/*.npz with ≥ 20 samples), read-only; written by gallery/examples/robotics-servo/source/build_coverage.py",
+ "display_hz": 1.0,
+ "runs": 278,
+ "frame": "the joint's output frame: board radians × output_per_board of the board's config at the run's start (bam_rack_twin records/one-dof-test-rack/deployment.json)",
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s",
+    "description": "seconds from the run's first logged row"
+   },
+   {
+    "name": "run",
+    "type": "string",
+    "title": "Run",
+    "description": "day/folder/session under the rack's archive (the Servo template's run id)"
+   },
+   {
+    "name": "situation",
+    "type": "string",
+    "title": "Situation"
+   },
+   {
+    "name": "source",
+    "type": "string",
+    "title": "Family"
+   },
+   {
+    "name": "device",
+    "type": "string",
+    "title": "Servo"
+   },
+   {
+    "name": "kind",
+    "type": "string",
+    "title": "Run kind"
+   },
+   {
+    "name": "q_deg",
+    "type": "number",
+    "unit": "deg",
+    "title": "Angle",
+    "decimals": 3,
+    "description": "joint angle, the output frame"
+   },
+   {
+    "name": "qd_deg_s",
+    "type": "number",
+    "unit": "deg/s",
+    "title": "Velocity",
+    "decimals": 2
+   },
+   {
+    "name": "w",
+    "type": "number",
+    "title": "Weight",
+    "description": "1 on the time grid (display_hz), 0 on a run's kept argmin / argmax rows: a histogram sums w, min and max over rows are the full-rate ones"
+   }
+  ]
+ }
+}

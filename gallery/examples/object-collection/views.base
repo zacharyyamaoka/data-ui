@@ -1,0 +1,57 @@
+# BAM's object library as a catalogue home: the grouped gallery (docs/CONTRACT.md §20). Big section titles, a second
+# heading level only where the data has one, a tile per type, a left rail that filters to one group, and a live
+# grouping switcher. ObjectDB's home page consumes the same keys. The data is ObjectDB's public sample (366 objects:
+# open-licence scans and BAM's generated primitives; source/snapshot.py).
+# Check it: node bin/data-ui.mjs check <this file>
+data: objects.json
+facets:
+  - { as: nav, follow: groupBy, clear: true }
+properties:
+  name: { displayName: Name }
+  family: { displayName: Material }
+  area: { displayName: Area }
+  type_name: { displayName: Type }
+  grade: { displayName: Grade }
+  size_class: { displayName: Size class }
+  bbox_volume_ml: { displayName: Size }
+  mass_g: { displayName: Mass }
+  geometry_class: { displayName: Shape }
+  source: { displayName: Source }
+  geometry: { displayName: Geometry }
+views:
+  - type: cards
+    name: Home
+    order: [name, type_name, size_class, mass_g]
+    groupBy: { property: family }
+    subGroupBy: { property: area }
+    cardSize: 180
+    sections: true
+    tiles: { property: type_name, all: true, limit: 12 }
+    grouping: material
+    groupings:
+      - id: material
+        label: Material
+        groupBy: { property: family }
+        subGroupBy: { property: area }
+        tiles: { property: type_name, all: true, limit: 12 }
+      - id: size
+        label: Size
+        groupBy: { property: bbox_volume_ml, bins: [250, 1000, 5000], log: true, unit: mL }
+        tiles: { property: type_name, all: true, limit: 12 }
+      - id: shape
+        label: Shape
+        groupBy: { property: geometry_class }
+        tiles: { property: type_name, all: true, limit: 12 }
+      - id: type
+        label: Type
+        groupBy: { property: type_name }
+      - id: source
+        label: Source
+        groupBy: { property: source }
+        tiles: { property: type_name, all: true, limit: 12 }
+    switcher: segmented
+  - type: table
+    name: Objects
+    order: [name, family, type_name, grade, size_class, bbox_volume_ml, mass_g, geometry_class, source, geometry]
+    groupBy: { property: family }
+    fold: closed

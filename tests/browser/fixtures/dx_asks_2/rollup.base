@@ -1,0 +1,45 @@
+# The roll-up dashboard of tests/browser/dx_asks_2_checks.py (RobotDx PEP 0001 §18.4, ask 2): §17's dataset roll-up
+# (Max of rank: §35's rollup_tree) over live gate rows, onto a tree from a file (components) and onto a live tree (nodes,
+# whose station C moves under plate 1 at T0 + 25 s). The checks push the gates' versions; each node's worst gate is the
+# rows as of the clock's t, so it rewinds with it.
+data: gates.json
+datasets:
+  gates:
+    data: gates.json
+    live: { time: t, key: id }
+  components:
+    data: components.json
+    tree: { parent: parent }
+    rollup: { from: gates, values: { worst: { property: rank, summary: Max } } }
+  nodes:
+    data: nodes.json
+    live: { time: t, key: id }
+    tree: { parent: parent }
+    rollup: { from: gates, values: { worst: { property: rank, summary: Max } } }
+links:
+  - { from: gates.device, to: components.id }
+  - { from: gates.device, to: nodes.id }
+layout:
+  columns: 12
+  rowHeight: 56
+  panels:
+    - { view: Timeline, w: 12, h: 2 }
+    - { view: Components, w: 6, h: 5 }
+    - { view: Nodes, w: 6, h: 5 }
+views:
+  - type: playback
+    name: Timeline
+  - type: table
+    name: Components
+    from: components
+    tree: { parent: parent }
+    fold: open
+    order: [label, worst]
+    display: { worst: status }
+  - type: table
+    name: Nodes
+    from: nodes
+    tree: { parent: parent }
+    fold: open
+    order: [label, worst]
+    display: { worst: status }

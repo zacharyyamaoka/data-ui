@@ -1,0 +1,19 @@
+# Published facility figures as callouts (docs/CONTRACT.md §42: labels).
+data: facts.json
+properties:
+  facility: { displayName: Facility }
+  figure: { displayName: Figure }
+  unit: { displayName: Unit }
+  what: { displayName: What }
+  source: { displayName: Source }
+views:
+  - type: map
+    name: Figures
+    coordinates: location
+    mapTiles: ../map-food-heatmap/metro-vancouver.pmtiles
+    layers:
+      - { type: labels, text: facility, detail: [figure, unit] }
+      - { type: points, color: var(--data-fg), radius: 4 }
+  - type: table
+    name: Figures
+    order: [facility, figure, unit, what, year, source, page]

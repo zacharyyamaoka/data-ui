@@ -1,0 +1,360 @@
+{
+ "id": "a2d-runs",
+ "title": "Runs",
+ "titleProperty": "run",
+ "source": "synthetic: tests/browser/fixtures/add_to_dashboard/make_fixture.py (illustrative numbers)",
+ "properties": {
+  "run": {
+   "type": "text",
+   "label": "Run"
+  },
+  "robot": {
+   "type": "text",
+   "label": "Robot"
+  },
+  "kind": {
+   "type": "text",
+   "label": "Kind"
+  },
+  "started": {
+   "type": "date",
+   "label": "Started"
+  },
+  "success": {
+   "type": "number",
+   "label": "Success rate",
+   "decimals": 3
+  },
+  "duration_s": {
+   "type": "number",
+   "label": "Duration",
+   "unitText": "s"
+  }
+ },
+ "rows": [
+  {
+   "id": "r01",
+   "run": "r01",
+   "robot": "A",
+   "kind": "sim",
+   "started": "2026-10-01",
+   "success": 0.761,
+   "duration_s": 10.6
+  },
+  {
+   "id": "r02",
+   "run": "r02",
+   "robot": "B",
+   "kind": "sim",
+   "started": "2026-10-02",
+   "success": 0.976,
+   "duration_s": 16.5
+  },
+  {
+   "id": "r03",
+   "run": "r03",
+   "robot": "C",
+   "kind": "sim",
+   "started": "2026-10-03",
+   "success": 0.589,
+   "duration_s": 22.1
+  },
+  {
+   "id": "r04",
+   "run": "r04",
+   "robot": "A",
+   "kind": "real",
+   "started": "2026-10-04",
+   "success": 0.98,
+   "duration_s": 15.6
+  },
+  {
+   "id": "r05",
+   "run": "r05",
+   "robot": "B",
+   "kind": "sim",
+   "started": "2026-10-05",
+   "success": 0.543,
+   "duration_s": 11.8
+  },
+  {
+   "id": "r06",
+   "run": "r06",
+   "robot": "C",
+   "kind": "sim",
+   "started": "2026-10-06",
+   "success": 0.628,
+   "duration_s": 15.6
+  },
+  {
+   "id": "r07",
+   "run": "r07",
+   "robot": "A",
+   "kind": "sim",
+   "started": "2026-10-07",
+   "success": 0.928,
+   "duration_s": 10.8
+  },
+  {
+   "id": "r08",
+   "run": "r08",
+   "robot": "B",
+   "kind": "real",
+   "started": "2026-10-08",
+   "success": 0.745,
+   "duration_s": 11.4
+  },
+  {
+   "id": "r09",
+   "run": "r09",
+   "robot": "C",
+   "kind": "sim",
+   "started": "2026-10-09",
+   "success": 0.951,
+   "duration_s": 19.6
+  },
+  {
+   "id": "r10",
+   "run": "r10",
+   "robot": "A",
+   "kind": "sim",
+   "started": "2026-10-10",
+   "success": 0.941,
+   "duration_s": 7.6
+  },
+  {
+   "id": "r11",
+   "run": "r11",
+   "robot": "B",
+   "kind": "sim",
+   "started": "2026-10-11",
+   "success": 0.62,
+   "duration_s": 12.8
+  },
+  {
+   "id": "r12",
+   "run": "r12",
+   "robot": "C",
+   "kind": "real",
+   "started": "2026-10-12",
+   "success": 0.637,
+   "duration_s": 16.0
+  },
+  {
+   "id": "r13",
+   "run": "r13",
+   "robot": "A",
+   "kind": "sim",
+   "started": "2026-10-13",
+   "success": 0.599,
+   "duration_s": 18.1
+  },
+  {
+   "id": "r14",
+   "run": "r14",
+   "robot": "B",
+   "kind": "sim",
+   "started": "2026-10-14",
+   "success": 0.56,
+   "duration_s": 7.5
+  },
+  {
+   "id": "r15",
+   "run": "r15",
+   "robot": "C",
+   "kind": "sim",
+   "started": "2026-10-15",
+   "success": 0.651,
+   "duration_s": 10.3
+  },
+  {
+   "id": "r16",
+   "run": "r16",
+   "robot": "A",
+   "kind": "real",
+   "started": "2026-10-16",
+   "success": 0.953,
+   "duration_s": 12.3
+  },
+  {
+   "id": "r17",
+   "run": "r17",
+   "robot": "B",
+   "kind": "sim",
+   "started": "2026-10-17",
+   "success": 0.968,
+   "duration_s": 8.4
+  },
+  {
+   "id": "r18",
+   "run": "r18",
+   "robot": "C",
+   "kind": "sim",
+   "started": "2026-10-18",
+   "success": 0.928,
+   "duration_s": 26.5
+  },
+  {
+   "id": "r19",
+   "run": "r19",
+   "robot": "A",
+   "kind": "sim",
+   "started": "2026-10-19",
+   "success": 0.795,
+   "duration_s": 27.1
+  },
+  {
+   "id": "r20",
+   "run": "r20",
+   "robot": "B",
+   "kind": "real",
+   "started": "2026-10-20",
+   "success": 0.732,
+   "duration_s": 15.6
+  },
+  {
+   "id": "r21",
+   "run": "r21",
+   "robot": "C",
+   "kind": "sim",
+   "started": "2026-10-21",
+   "success": 0.881,
+   "duration_s": 17.2
+  },
+  {
+   "id": "r22",
+   "run": "r22",
+   "robot": "A",
+   "kind": "sim",
+   "started": "2026-10-22",
+   "success": 0.937,
+   "duration_s": 28.6
+  },
+  {
+   "id": "r23",
+   "run": "r23",
+   "robot": "B",
+   "kind": "sim",
+   "started": "2026-10-23",
+   "success": 0.52,
+   "duration_s": 17.9
+  },
+  {
+   "id": "r24",
+   "run": "r24",
+   "robot": "C",
+   "kind": "real",
+   "started": "2026-10-24",
+   "success": 0.811,
+   "duration_s": 20.8
+  },
+  {
+   "id": "r25",
+   "run": "r25",
+   "robot": "A",
+   "kind": "sim",
+   "started": "2026-10-25",
+   "success": 0.91,
+   "duration_s": 15.6
+  },
+  {
+   "id": "r26",
+   "run": "r26",
+   "robot": "B",
+   "kind": "sim",
+   "started": "2026-10-26",
+   "success": 0.661,
+   "duration_s": 15.9
+  },
+  {
+   "id": "r27",
+   "run": "r27",
+   "robot": "C",
+   "kind": "sim",
+   "started": "2026-10-27",
+   "success": 0.814,
+   "duration_s": 23.4
+  },
+  {
+   "id": "r28",
+   "run": "r28",
+   "robot": "A",
+   "kind": "real",
+   "started": "2026-10-28",
+   "success": 0.583,
+   "duration_s": 20.9
+  },
+  {
+   "id": "r29",
+   "run": "r29",
+   "robot": "B",
+   "kind": "sim",
+   "started": "2026-10-01",
+   "success": 0.681,
+   "duration_s": 18.4
+  },
+  {
+   "id": "r30",
+   "run": "r30",
+   "robot": "C",
+   "kind": "sim",
+   "started": "2026-10-02",
+   "success": 0.545,
+   "duration_s": 29.9
+  },
+  {
+   "id": "r31",
+   "run": "r31",
+   "robot": "A",
+   "kind": "sim",
+   "started": "2026-10-03",
+   "success": 0.627,
+   "duration_s": 16.8
+  },
+  {
+   "id": "r32",
+   "run": "r32",
+   "robot": "B",
+   "kind": "real",
+   "started": "2026-10-04",
+   "success": 0.881,
+   "duration_s": 15.9
+  },
+  {
+   "id": "r33",
+   "run": "r33",
+   "robot": "C",
+   "kind": "sim",
+   "started": "2026-10-05",
+   "success": 0.813,
+   "duration_s": 28.9
+  },
+  {
+   "id": "r34",
+   "run": "r34",
+   "robot": "A",
+   "kind": "sim",
+   "started": "2026-10-06",
+   "success": 0.749,
+   "duration_s": 9.2
+  },
+  {
+   "id": "r35",
+   "run": "r35",
+   "robot": "B",
+   "kind": "sim",
+   "started": "2026-10-07",
+   "success": 0.834,
+   "duration_s": 15.8
+  },
+  {
+   "id": "r36",
+   "run": "r36",
+   "robot": "C",
+   "kind": "real",
+   "started": "2026-10-08",
+   "success": 0.917,
+   "duration_s": 17.2
+  }
+ ]
+}

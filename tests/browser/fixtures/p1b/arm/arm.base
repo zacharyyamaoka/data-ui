@@ -1,0 +1,55 @@
+# P1b fixture (tests/browser/p1b_checks.py): the robot arm's playback panels (PEP 0010 §6, the arm.png mock) on a
+# STAND-IN: pid-tuning's UR5e forward kinematics in millimetres (make_fixture.py; tuned plays "real", factory "twin",
+# oracle "replay", an unlisted family). Two runs; the Joint rail on samples picks one (J3 elbow is run r1's, J4 wrist 1
+# run r2's) and the links carry the pick to the poses, the link poses and the difference rows.
+data: runs.json
+style:
+  chrome: minimal
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: poses, time: t }
+datasets:
+  runs: runs.json
+  poses: { data: poses.json, facets: [{ property: situation, label: Show }] }
+  samples: { data: samples.json, facets: [{ property: device, as: select, label: Joint }] }
+  links: links.json
+  diff: diff_poses.json
+links:
+  - { from: samples.run, to: runs.run }
+  - { from: poses.run, to: samples.run }
+  - { from: links.run, to: poses.run }
+  - { from: diff.run, to: poses.run }
+layout:
+  panels:
+    - { view: Playback, w: 12 }
+    - { view: Path 3D, w: 6, h: 6 }
+    - { view: Path top, w: 6, h: 6 }
+    - { view: Tool z, w: 6, h: 3 }
+    - { view: Joint angle, w: 6, h: 3 }
+views:
+  - type: playback
+    name: Playback
+  - type: trajectory3d
+    name: Path 3D
+    from: poses
+    trajectory3d:
+      modes: { real: [line, frames-z], twin: [line], target: [line], replay: [line] }
+      compare: { data: diff, pairs: [[real, target]] }
+      robots:
+        data: links
+        model: ../../../../../gallery/examples/pid-tuning/media/ur5e_links.glb
+        links: [base, shoulder_link, upper_arm_link, forearm_link, wrist_1_link, wrist_2_link, wrist_3_link]
+        series: { twin: { color: 5, opacity: 0.5 }, target: { opacity: 0.2 } }
+      show: trail
+      decay: 0.6
+  - type: trajectory3d
+    name: Path top
+    from: poses
+    trajectory3d: { projection: top }
+  - type: timeseries
+    name: Tool z
+    from: poses
+    timeseries: { x: t, 'y': z_mm, series: situation, unit: mm }
+  - type: timeseries
+    name: Joint angle
+    from: samples
+    timeseries: { x: t, 'y': q_deg, series: situation, unit: '°' }

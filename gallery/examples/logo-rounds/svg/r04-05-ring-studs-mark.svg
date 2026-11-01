@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" color="#0E100E" role="img" aria-label="Ring studs from above mark">
+<title>Ring studs from above mark</title>
+<g transform="scale(4)"><defs><mask id="km05" maskUnits="userSpaceOnUse" x="-2" y="-2" width="20" height="20"><rect x="-2" y="-2" width="20" height="20" fill="#fff"/><g fill="#000"><circle cx="4.5" cy="4.5" r="2.7"/><circle cx="4.5" cy="11.5" r="2.7"/><circle cx="11.5" cy="4.5" r="2.7"/><circle cx="11.5" cy="11.5" r="2.7"/></g><g fill="#fff"><circle cx="4.5" cy="4.5" r="1.5"/><circle cx="4.5" cy="11.5" r="1.5"/><circle cx="11.5" cy="4.5" r="1.5"/><circle cx="11.5" cy="11.5" r="1.5"/></g></mask></defs><g fill="currentColor" mask="url(#km05)"><rect x="0" y="0" width="16" height="16" rx="1"/></g></g>
+</svg>

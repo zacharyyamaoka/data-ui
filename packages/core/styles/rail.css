@@ -1,0 +1,140 @@
+/* <data-rail>, the app rail (src/rail/data-rail.js, docs/CONTRACT.md §27): three styles keyed on the element's `mode`
+   attribute, never on a stock data-state (that reads "expanded" for more than one open style).
+
+   Tokens: the §4 --data-* chain, resolved here into the same private --dv-* properties tokens.css makes for the other
+   elements (WHY not added to tokens.css's lists: this file is the rail's own, so the rail lands without touching a file
+   every lane edits). Its own: --data-rail-bg, --data-rail-width-collapsed|expanded|wide.
+
+   WHY the edge is an inset shadow, not a border: a 1px border would take 1px of the 48px and put every centred icon
+   half a pixel off the rail's centre line (measured by tests/browser/rail_checks.py). */
+
+data-rail {
+  --dv-bg: var(--data-bg, var(--background, #ffffff));
+  --dv-fg: var(--data-fg, var(--foreground, #18181b));
+  --dv-muted: var(--data-muted, var(--muted-foreground, #71717a));
+  --dv-subtle: var(--data-subtle, var(--muted, #f4f4f5));
+  --dv-border: var(--data-border, var(--border, #e4e4e7));
+  --dv-rule: var(--data-rule, var(--border, #ececef));
+  --dv-hover: var(--data-hover, var(--accent, #f4f4f5));
+  --dv-accent: var(--data-accent, var(--primary, #2563eb));
+  --dv-radius: var(--data-radius, var(--radius, 6px));
+  --dv-font: var(--data-font, var(--font-sans, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif));
+  --dv-group: color-mix(in srgb, var(--dv-subtle) 55%, var(--dv-bg));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) data-rail:not([theme="light"]) {
+    color-scheme: dark;
+    --dv-bg: var(--data-bg, var(--background, #111113));
+    --dv-fg: var(--data-fg, var(--foreground, #ececef));
+    --dv-muted: var(--data-muted, var(--muted-foreground, #9a9aa3));
+    --dv-subtle: var(--data-subtle, var(--muted, #1c1c20));
+    --dv-border: var(--data-border, var(--border, #2c2c31));
+    --dv-rule: var(--data-rule, var(--border, #222226));
+    --dv-hover: var(--data-hover, var(--accent, #1d1d22));
+    --dv-accent: var(--data-accent, var(--primary, #7aa7f2));
+  }
+}
+:root[data-theme="dark"] data-rail:not([theme="light"]), data-rail[theme="dark"] {
+  color-scheme: dark;
+  --dv-bg: var(--data-bg, var(--background, #111113));
+  --dv-fg: var(--data-fg, var(--foreground, #ececef));
+  --dv-muted: var(--data-muted, var(--muted-foreground, #9a9aa3));
+  --dv-subtle: var(--data-subtle, var(--muted, #1c1c20));
+  --dv-border: var(--data-border, var(--border, #2c2c31));
+  --dv-rule: var(--data-rule, var(--border, #222226));
+  --dv-hover: var(--data-hover, var(--accent, #1d1d22));
+  --dv-accent: var(--data-accent, var(--primary, #7aa7f2));
+}
+
+data-rail {
+  display: flex; flex-direction: column; flex: none; position: relative; box-sizing: border-box; min-height: 0; height: 100%;
+  width: var(--data-rail-width-collapsed, 3rem); padding: 8px; overflow: hidden;
+  background: var(--data-rail-bg, var(--dv-group)); color: var(--dv-fg); font: 13px/1.35 var(--dv-font);
+  box-shadow: inset -1px 0 0 var(--dv-border);
+}
+data-rail *, data-rail *::before, data-rail *::after { box-sizing: border-box; }
+data-rail[mode="expanded"] { width: var(--data-rail-width-expanded, 4.5rem); padding: 8px 4px; }
+/* the width is §11's --data-panel-width (set by the splitter, remembered), and only the wide style reads it */
+data-rail[mode="wide"] { width: var(--data-panel-width, var(--data-rail-width-wide, 15rem)); }
+.dv-splitter[data-rail-fixed] { display: none !important; }
+
+data-rail ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+data-rail button, data-rail input { font: inherit; }
+
+/* the header: the brand's mark (and its name, wide), the collapse button (wide) */
+data-rail .dv-rail-head { display: flex; align-items: center; gap: 4px; flex: none; }
+data-rail .dv-rail-brand { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1 1 auto; justify-content: center; }
+data-rail .dv-rail-brand-mark { flex: none; display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: var(--dv-radius);
+  background: var(--dv-fg); color: var(--dv-bg); font-weight: 600; }
+data-rail .dv-rail-brand-mark svg { width: 18px; height: 18px; }
+data-rail .dv-rail-brand-name { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-weight: 600; display: none; }
+data-rail .dv-rail-collapse { display: none; flex: none; width: 2rem; height: 2rem; padding: 0; place-items: center; border: 0; border-radius: var(--dv-radius);
+  background: none; color: var(--dv-fg); opacity: .7; cursor: pointer; }
+data-rail .dv-rail-collapse:hover { opacity: 1; background: var(--dv-hover); }
+data-rail[mode="wide"] .dv-rail-brand { justify-content: flex-start; }
+data-rail[mode="wide"] .dv-rail-brand-name { display: block; }
+data-rail[mode="wide"] .dv-rail-collapse { display: grid; }
+
+/* the wide style's search: a read-only field that is really a button (it opens on click, Enter or Space, never on focus) */
+data-rail .dv-rail-search-wrap { display: none; position: relative; flex: none; margin-top: 8px; align-items: center; }
+data-rail[mode="wide"] .dv-rail-search-wrap { display: flex; }
+data-rail .dv-rail-search-wrap > svg { position: absolute; left: 8px; color: var(--dv-muted); pointer-events: none; }
+data-rail .dv-rail-search { width: 100%; height: 2rem; padding: 0 3.6rem 0 28px; border: 1px solid var(--dv-border); border-radius: var(--dv-radius);
+  background: var(--dv-bg); color: var(--dv-fg); cursor: pointer; text-overflow: ellipsis; }
+data-rail .dv-rail-search::placeholder { color: var(--dv-muted); opacity: 1; }
+data-rail .dv-rail-search-keys { position: absolute; right: 6px; padding: 1px 5px; border: 1px solid var(--dv-border); border-radius: 4px;
+  font: 11px/1.3 var(--dv-font); color: var(--dv-muted); pointer-events: none; }
+
+/* the destinations */
+data-rail .dv-rail-nav { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; margin-top: 8px; }
+data-rail .dv-rail-scroll { flex: 1 1 auto; min-height: 0; overflow-x: hidden; overflow-y: auto; scrollbar-width: thin; }
+data-rail .dv-rail-group + .dv-rail-group { margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--dv-rule); }
+data-rail .dv-rail-group-label { display: none; padding: 8px 8px 4px; font-size: 11px; line-height: 1.2; color: var(--dv-muted); }
+data-rail[mode="wide"] .dv-rail-group + .dv-rail-group { margin-top: 4px; padding-top: 0; border-top: 0; }
+data-rail[mode="wide"] .dv-rail-group-label { display: block; }
+data-rail .dv-rail-foot { flex: none; display: flex; flex-direction: column; gap: 4px; margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--dv-rule); }
+
+data-rail .dv-rail-dest { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 2rem; padding: 0; border: 0;
+  border-radius: var(--dv-radius); background: none; color: var(--dv-fg); text-decoration: none; text-align: left; cursor: pointer; }
+data-rail .dv-rail-dest:hover { background: var(--dv-hover); }
+data-rail .dv-rail-dest[aria-current="page"] { background: color-mix(in srgb, var(--dv-fg) 9%, transparent); }
+data-rail :is(.dv-rail-dest, .dv-rail-toggle, .dv-rail-collapse, .dv-rail-search):focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+data-rail .dv-rail-icon { flex: none; display: grid; place-items: center; width: 16px; height: 16px; }
+data-rail .dv-rail-icon > :is(svg, img) { width: 100%; height: 100%; display: block; }
+data-rail .dv-rail-glyph { font-size: 12px; font-weight: 600; line-height: 1; }
+data-rail .dv-rail-label { display: none; min-width: 0; }
+
+/* the footer's toggle, the narrow styles' way to fold (the wide style has the header's) */
+data-rail .dv-rail-toggle { display: grid; place-items: center; width: 2rem; height: 2rem; padding: 0; margin: 0 auto; border: 0; border-radius: var(--dv-radius);
+  background: none; color: var(--dv-fg); opacity: .7; cursor: pointer; }
+data-rail .dv-rail-toggle:hover { opacity: 1; background: var(--dv-hover); }
+data-rail[mode="wide"] .dv-rail-toggle { display: none; }
+
+/* Figma's: the icon with its label centred under it. The label wraps at spaces and at the <wbr> the element puts in a
+   camelCase name, clamps to two lines with an explicit ellipsis, and breaks anywhere only as a last resort, where a
+   mid-word break still shows every letter and a clip would not. */
+data-rail[mode="expanded"] .dv-rail-dest { height: 3.625rem; flex-direction: column; justify-content: center; gap: 3px; padding: 0; text-align: center; }
+data-rail[mode="expanded"] .dv-rail-icon { width: 1.375rem; height: 1.375rem; }
+data-rail[mode="expanded"] .dv-rail-label { display: -webkit-box; width: 100%; font-size: 11px; line-height: 1.1; text-align: center;
+  overflow: hidden; overflow-wrap: anywhere; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; }
+
+/* Shopify's: a row of icon then label; a name too long for it ends in an ellipsis and keeps its whole text as its title */
+data-rail[mode="wide"] .dv-rail-dest { justify-content: flex-start; padding: 0 8px; }
+data-rail[mode="wide"] .dv-rail-label { display: block; flex: 1 1 auto; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+data-rail[mode="wide"] .dv-rail-dest[aria-current="page"] .dv-rail-label { font-weight: 600; }
+
+/* CONTRACT §43: a destination's count (data-badge) and sub-destinations (data-parent).
+   The wide style only: the count at the row's end, the subs under their parent without an icon, muted until current;
+   the open section's parent row keeps the current fill in every style (its subs are hidden in the narrow two) */
+data-rail .dv-rail-badge { display: none; flex: none; margin-left: auto; min-width: 20px; padding: 0 6px; border-radius: var(--dv-radius);
+  background: color-mix(in srgb, var(--dv-fg) 14%, transparent); font-size: 11.5px; font-weight: 600; line-height: 20px; text-align: center;
+  font-variant-numeric: tabular-nums; }
+data-rail[mode="wide"] .dv-rail-badge { display: inline-block; }
+data-rail li.dv-rail-sub[hidden], data-rail:not([mode="wide"]) li.dv-rail-sub { display: none; }
+data-rail[mode="wide"] li.dv-rail-sub .dv-rail-dest { padding-left: 32px; height: 1.75rem; }
+data-rail[mode="wide"] li.dv-rail-sub .dv-rail-icon { display: none; }
+data-rail[mode="wide"] li.dv-rail-sub .dv-rail-dest:not([aria-current]) { color: var(--dv-muted); }
+data-rail[mode="wide"] li.dv-rail-sub .dv-rail-dest[aria-current="page"] { background: none; }
+data-rail[mode="wide"] li.dv-rail-sub .dv-rail-dest:hover { background: var(--dv-hover); }
+data-rail .dv-rail-dest.dv-rail-section { background: color-mix(in srgb, var(--dv-fg) 9%, transparent); }
+data-rail[mode="wide"] .dv-rail-dest.dv-rail-section .dv-rail-label { font-weight: 600; }

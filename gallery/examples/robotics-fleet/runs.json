@@ -1,0 +1,436 @@
+{
+ "name": "runs",
+ "title": "Runs of the fleet",
+ "primaryKey": "run",
+ "titleProperty": "label",
+ "source": "The rack's runs: gallery/examples/robotics-deployments (real, newest of 4 stations). Every other run: synthetic, written by source/build.py",
+ "schema": {
+  "fields": [
+   {
+    "name": "run",
+    "type": "string",
+    "title": "Run",
+    "description": "the run's id: its file is runs/<run>.json"
+   },
+   {
+    "name": "deployment",
+    "type": "string",
+    "title": "Deployment"
+   },
+   {
+    "name": "label",
+    "type": "string",
+    "title": "Run"
+   },
+   {
+    "name": "started",
+    "type": "datetime",
+    "title": "Started"
+   },
+   {
+    "name": "device",
+    "type": "string",
+    "title": "Station"
+   },
+   {
+    "name": "kind",
+    "type": "string",
+    "title": "Kind"
+   },
+   {
+    "name": "duration_s",
+    "type": "number",
+    "unit": "s",
+    "title": "Duration"
+   },
+   {
+    "name": "basis",
+    "type": "string",
+    "title": "Data",
+    "description": "real: the rack's own log; synthetic: made up for this case"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "run": "10-29~gates~07_warm_can4~s12",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 4 · waypoints · s12",
+   "started": "2026-10-29T04:07:25-07:00",
+   "device": "CAN 4",
+   "kind": "waypoints",
+   "duration_s": 5.535,
+   "basis": "real"
+  },
+  {
+   "run": "10-29~gates~32_warm_can1~s12",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 1 · waypoints · s12",
+   "started": "2026-10-29T05:28:14-07:00",
+   "device": "CAN 1",
+   "kind": "waypoints",
+   "duration_s": 5.03,
+   "basis": "real"
+  },
+  {
+   "run": "10-29~gates~34_warm_can15~s12",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 15 · waypoints · s12",
+   "started": "2026-10-29T05:34:03-07:00",
+   "device": "CAN 15",
+   "kind": "waypoints",
+   "duration_s": 5.072,
+   "basis": "real"
+  },
+  {
+   "run": "10-29~gates~36_warm_can13_ff~s12",
+   "deployment": "one-dof-test-rack",
+   "label": "CAN 13 · waypoints · s12",
+   "started": "2026-10-29T05:37:34-07:00",
+   "device": "CAN 13",
+   "kind": "waypoints",
+   "duration_s": 5.432,
+   "basis": "real"
+  },
+  {
+   "run": "sorter-a1~10-20~s04",
+   "deployment": "sorter-a1",
+   "label": "Sorter A1 · pick and place · s04",
+   "started": "2026-10-20T07:24:53-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 6.1,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-a1~10-23~s02",
+   "deployment": "sorter-a1",
+   "label": "Sorter A1 · sort cycle · s02",
+   "started": "2026-10-23T16:55:26-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 6.2,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-a1~10-28~s06",
+   "deployment": "sorter-a1",
+   "label": "Sorter A1 · sort cycle · s06",
+   "started": "2026-10-28T13:18:14-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 5.4,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-a1~10-28~s08",
+   "deployment": "sorter-a1",
+   "label": "Sorter A1 · sort cycle · s08",
+   "started": "2026-10-28T19:55:15-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 6.2,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-a2~10-22~s06",
+   "deployment": "sorter-a2",
+   "label": "Sorter A2 · sort cycle · s06",
+   "started": "2026-10-22T10:49:12-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 6.9,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-a2~10-22~s02",
+   "deployment": "sorter-a2",
+   "label": "Sorter A2 · sort cycle · s02",
+   "started": "2026-10-22T18:46:45-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 5.6,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-a2~10-24~s04",
+   "deployment": "sorter-a2",
+   "label": "Sorter A2 · homing · s04",
+   "started": "2026-10-24T10:10:31-07:00",
+   "device": "Joint 1",
+   "kind": "homing",
+   "duration_s": 4.0,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-b1~10-20~s04",
+   "deployment": "sorter-b1",
+   "label": "Sorter B1 · sort cycle · s04",
+   "started": "2026-10-20T14:05:23-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 5.1,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-b1~10-26~s02",
+   "deployment": "sorter-b1",
+   "label": "Sorter B1 · homing · s02",
+   "started": "2026-10-26T19:46:01-07:00",
+   "device": "Joint 1",
+   "kind": "homing",
+   "duration_s": 6.4,
+   "basis": "synthetic"
+  },
+  {
+   "run": "gantry-c1~10-23~s04",
+   "deployment": "gantry-c1",
+   "label": "Gantry C1 · homing · s04",
+   "started": "2026-10-23T10:05:55-07:00",
+   "device": "Joint 1",
+   "kind": "homing",
+   "duration_s": 5.2,
+   "basis": "synthetic"
+  },
+  {
+   "run": "gantry-c1~10-23~s02",
+   "deployment": "gantry-c1",
+   "label": "Gantry C1 · sort cycle · s02",
+   "started": "2026-10-23T14:11:52-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 6.7,
+   "basis": "synthetic"
+  },
+  {
+   "run": "gantry-c1~10-28~s06",
+   "deployment": "gantry-c1",
+   "label": "Gantry C1 · pick and place · s06",
+   "started": "2026-10-28T11:37:41-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 4.3,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-d1~10-21~s06",
+   "deployment": "sorter-d1",
+   "label": "Sorter D1 · pick and place · s06",
+   "started": "2026-10-21T18:32:24-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 4.7,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-d1~10-26~s02",
+   "deployment": "sorter-d1",
+   "label": "Sorter D1 · homing · s02",
+   "started": "2026-10-26T18:58:22-07:00",
+   "device": "Joint 1",
+   "kind": "homing",
+   "duration_s": 4.2,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-d1~10-28~s04",
+   "deployment": "sorter-d1",
+   "label": "Sorter D1 · pick and place · s04",
+   "started": "2026-10-28T20:40:14-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 4.4,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-e1~10-23~s04",
+   "deployment": "sorter-e1",
+   "label": "Sorter E1 · pick and place · s04",
+   "started": "2026-10-23T18:28:41-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 6.3,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-e1~10-24~s08",
+   "deployment": "sorter-e1",
+   "label": "Sorter E1 · homing · s08",
+   "started": "2026-10-24T15:29:10-07:00",
+   "device": "Joint 1",
+   "kind": "homing",
+   "duration_s": 5.6,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-e1~10-25~s06",
+   "deployment": "sorter-e1",
+   "label": "Sorter E1 · pick and place · s06",
+   "started": "2026-10-25T07:58:29-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 6.6,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-e1~10-28~s02",
+   "deployment": "sorter-e1",
+   "label": "Sorter E1 · sort cycle · s02",
+   "started": "2026-10-28T16:04:16-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 6.6,
+   "basis": "synthetic"
+  },
+  {
+   "run": "gantry-e2~10-24~s02",
+   "deployment": "gantry-e2",
+   "label": "Gantry E2 · pick and place · s02",
+   "started": "2026-10-24T19:28:05-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 6.0,
+   "basis": "synthetic"
+  },
+  {
+   "run": "gantry-e2~10-26~s04",
+   "deployment": "gantry-e2",
+   "label": "Gantry E2 · pick and place · s04",
+   "started": "2026-10-26T06:05:39-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 5.0,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-f1~10-25~s02",
+   "deployment": "sorter-f1",
+   "label": "Sorter F1 · pick and place · s02",
+   "started": "2026-10-25T19:50:14-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 6.6,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-f1~10-29~s04",
+   "deployment": "sorter-f1",
+   "label": "Sorter F1 · homing · s04",
+   "started": "2026-10-29T10:52:25-07:00",
+   "device": "Joint 1",
+   "kind": "homing",
+   "duration_s": 4.6,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-g1~10-22~s04",
+   "deployment": "sorter-g1",
+   "label": "Sorter G1 · sort cycle · s04",
+   "started": "2026-10-22T19:38:28-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 4.8,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-g1~10-23~s02",
+   "deployment": "sorter-g1",
+   "label": "Sorter G1 · sort cycle · s02",
+   "started": "2026-10-23T07:34:37-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 4.4,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-g1~10-29~s06",
+   "deployment": "sorter-g1",
+   "label": "Sorter G1 · sort cycle · s06",
+   "started": "2026-10-29T08:29:12-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 4.3,
+   "basis": "synthetic"
+  },
+  {
+   "run": "gantry-h1~10-20~s08",
+   "deployment": "gantry-h1",
+   "label": "Gantry H1 · pick and place · s08",
+   "started": "2026-10-20T08:27:57-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 5.3,
+   "basis": "synthetic"
+  },
+  {
+   "run": "gantry-h1~10-22~s04",
+   "deployment": "gantry-h1",
+   "label": "Gantry H1 · pick and place · s04",
+   "started": "2026-10-22T11:52:26-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 4.2,
+   "basis": "synthetic"
+  },
+  {
+   "run": "gantry-h1~10-29~s02",
+   "deployment": "gantry-h1",
+   "label": "Gantry H1 · pick and place · s02",
+   "started": "2026-10-29T21:34:35-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 5.0,
+   "basis": "synthetic"
+  },
+  {
+   "run": "gantry-h1~10-29~s06",
+   "deployment": "gantry-h1",
+   "label": "Gantry H1 · pick and place · s06",
+   "started": "2026-10-29T21:39:13-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 4.7,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-i1~10-21~s02",
+   "deployment": "sorter-i1",
+   "label": "Sorter I1 · pick and place · s02",
+   "started": "2026-10-21T08:01:10-07:00",
+   "device": "Joint 1",
+   "kind": "pick and place",
+   "duration_s": 6.3,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-i1~10-21~s08",
+   "deployment": "sorter-i1",
+   "label": "Sorter I1 · sort cycle · s08",
+   "started": "2026-10-21T15:28:19-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 5.1,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-i1~10-21~s04",
+   "deployment": "sorter-i1",
+   "label": "Sorter I1 · sort cycle · s04",
+   "started": "2026-10-21T20:14:17-07:00",
+   "device": "Joint 1",
+   "kind": "sort cycle",
+   "duration_s": 6.2,
+   "basis": "synthetic"
+  },
+  {
+   "run": "sorter-i1~10-28~s06",
+   "deployment": "sorter-i1",
+   "label": "Sorter I1 · homing · s06",
+   "started": "2026-10-28T19:23:58-07:00",
+   "device": "Joint 1",
+   "kind": "homing",
+   "duration_s": 6.9,
+   "basis": "synthetic"
+  }
+ ]
+}

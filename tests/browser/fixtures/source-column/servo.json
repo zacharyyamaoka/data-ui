@@ -1,0 +1,105 @@
+{
+ "id": "zeta-zs60",
+ "title": "Zeta ZS-60 (a made-up servo, every value from one source)",
+ "titleProperty": "field",
+ "sourceColumn": true,
+ "properties": {
+  "field": {
+   "type": "text",
+   "label": "Field"
+  },
+  "section": {
+   "type": "text",
+   "label": "Section"
+  },
+  "nominal": {
+   "type": "text",
+   "label": "Nominal",
+   "unit": "unit"
+  },
+  "unit": {
+   "type": "text",
+   "label": "Unit"
+  }
+ },
+ "rows": [
+  {
+   "id": "rated_torque",
+   "field": "Rated torque",
+   "section": "Key specs",
+   "unit": "N·m",
+   "nominal": {
+    "value": 0.64,
+    "text": "0.64",
+    "source": "Zeta datasheet",
+    "sourceUrl": "https://example.com/zeta/zs60-datasheet.pdf",
+    "basis": "datasheet",
+    "asOf": "2026-10-02"
+   }
+  },
+  {
+   "id": "rated_speed",
+   "field": "Rated speed",
+   "section": "Key specs",
+   "unit": "rpm",
+   "nominal": {
+    "value": 3000,
+    "text": "3000",
+    "source": "Zeta selection list (private)",
+    "sourceUrl": "account:zeta/selection-list",
+    "basis": "datasheet",
+    "asOf": "2026-10-08"
+   }
+  },
+  {
+   "id": "rated_current",
+   "field": "Rated current",
+   "section": "Electrical",
+   "unit": "A",
+   "nominal": {
+    "value": 4.2,
+    "text": "4.2",
+    "source": "Zeta catalog notes",
+    "sourcePage": "notes/zeta-catalog.md"
+   }
+  },
+  {
+   "id": "supply_voltage",
+   "field": "Supply voltage",
+   "section": "Electrical",
+   "unit": "V",
+   "nominal": {
+    "value": [
+     24,
+     48
+    ],
+    "text": "24 to 48",
+    "source": "Shop listing",
+    "sourceUrl": "https://example.com/shop/zs60",
+    "basis": "seller"
+   }
+  },
+  {
+   "id": "protection",
+   "field": "Protection",
+   "section": "Mechanical",
+   "nominal": {
+    "value": "IP65",
+    "text": "IP65"
+   }
+  },
+  {
+   "id": "mass",
+   "field": "Mass",
+   "section": "Mechanical",
+   "unit": "kg",
+   "nominal": 0.9
+  },
+  {
+   "id": "frame",
+   "field": "Frame",
+   "section": "Mechanical",
+   "nominal": "60 mm flange"
+  }
+ ]
+}

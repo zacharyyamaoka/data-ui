@@ -1,0 +1,24 @@
+# empty-table fixture (tests/browser/empty_table_checks.py): robotparts' part Overview cut down to its Offers table. The
+# dataset is a bare [] (no rows, so nothing to infer columns from); the view's columns are declared by `properties:`.
+data: offers.json
+properties:
+  seller: { displayName: Seller }
+  variant: { displayName: Variant }
+  price: { displayName: Price }
+datasets: { offers: offers.json, stocked: stocked.json }
+layout:
+  columns: 12
+  rowHeight: 40
+  panels:
+    - { view: Offers, w: 12, h: 4, toolbar: none }
+    - { view: Stocked, w: 12, h: 4, toolbar: none }
+views:
+  - type: table
+    name: Offers
+    from: offers
+    order: [seller, variant, price]
+  - type: table
+    name: Stocked
+    from: stocked
+    order: [seller, variant, price]
+    filters: 'price > 100'

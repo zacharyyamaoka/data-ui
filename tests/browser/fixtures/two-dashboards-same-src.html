@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>two dashboards, one src fixture</title>
+<!-- gallery/examples/dashboard-cards/checks_dashboard.py, judge round 2 #4: two dashboards with no id and the same
+     src still keep their own clocks in the URL: automatic scopes are unique in document order (#t.views-base= /
+     #t.views-base-2=, docs/peps/0005-dashboard-cards.md §4). The check serves this file at
+     gallery/dashboard-cards/two-dashboards.html of the built site (page.route), so views.base and the kit resolve
+     as on the case's own page. -->
+<link rel="stylesheet" href="../../kit/data-ui.css">
+<link rel="stylesheet" href="../../site.css">
+</head>
+<body>
+<main class="wrap wide">
+  <h1>Two dashboards, one src, no id</h1>
+  <data-dashboard src="views.base" aria-label="First dashboard"></data-dashboard>
+  <data-dashboard src="views.base" aria-label="Second dashboard"></data-dashboard>
+</main>
+<script type="module" src="../../site.js"></script>
+</body>
+</html>

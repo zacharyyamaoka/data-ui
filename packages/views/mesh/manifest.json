@@ -1,0 +1,7 @@
+{
+  "$comment": "Not a view type: the 3D engine behind <data-mesh> (docs/CONTRACT.md §23). The core defines the element and loads this bundle (dist/views/mesh.js) the first time a model is wanted; cards (`mesh:`) and the peek (a `media: mesh` property) draw the element.",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [],
+  "npm": ["three@0.186.1"]
+}

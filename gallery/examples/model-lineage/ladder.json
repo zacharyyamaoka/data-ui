@@ -1,0 +1,260 @@
+{
+ "id": "model-lineage",
+ "title": "GIM4305-10 actuator model ladder",
+ "titleProperty": "variant",
+ "source": "models-benches/models.json (robotparts lane/datasheet @ ec9a13c); parents from robotparts lane/datasheet docs/proposals/models-2026-10-25.md",
+ "properties": {
+  "variant": {
+   "type": "text",
+   "width": 240
+  },
+  "rung": {
+   "type": "number",
+   "width": 60,
+   "note": "how much physics the model captures (M0-M5)"
+  },
+  "rung_name": {
+   "type": "text",
+   "width": 60
+  },
+  "family": {
+   "type": "text",
+   "width": 230
+  },
+  "backend": {
+   "type": "text",
+   "width": 250
+  },
+  "about": {
+   "type": "text",
+   "width": 260
+  },
+  "runs": {
+   "type": "number",
+   "width": 60
+  },
+  "q_rms_median": {
+   "type": "number",
+   "unitText": "mrad",
+   "decimals": 2,
+   "width": 110,
+   "better": "lower"
+  },
+  "status": {
+   "type": "text",
+   "width": 90,
+   "display": "badge",
+   "colors": {
+    "measured": 1,
+    "no runs": 0
+   }
+  },
+  "parents": {
+   "type": "list",
+   "width": 200,
+   "relation": true,
+   "note": "the model this one adds physics to; two = a splice"
+  },
+  "parents_why": {
+   "type": "text",
+   "width": 320,
+   "note": "the sentence in robotparts lane/datasheet docs/proposals/models-2026-10-25.md that names the parent"
+  }
+ },
+ "rows": [
+  {
+   "id": "m0-ideal",
+   "variant": "M0.ideal",
+   "rung": 0,
+   "rung_name": "M0",
+   "family": "M0 · ideal",
+   "backend": "MuJoCo native",
+   "about": "no friction, datasheet inertia",
+   "runs": 0,
+   "q_rms_median": {
+    "value": null,
+    "why": "no run on the bench yet"
+   },
+   "status": "no runs",
+   "parents": [],
+   "parents_why": "heads every ladder as the ablation baseline"
+  },
+  {
+   "id": "m1-datasheet",
+   "variant": "M1.datasheet",
+   "rung": 1,
+   "rung_name": "M1",
+   "family": "M1 · datasheet",
+   "backend": "MuJoCo native",
+   "about": "the stated values",
+   "runs": 0,
+   "q_rms_median": {
+    "value": null,
+    "why": "no run on the bench yet"
+   },
+   "status": "no runs",
+   "parents": [
+    "m0-ideal"
+   ],
+   "parents_why": "M1 adds the stated values (Kt, any stated friction and backlash) to M0's gear ratio and inertia"
+  },
+  {
+   "id": "m2-coulomb-viscous",
+   "variant": "M2.coulomb_viscous",
+   "rung": 2,
+   "rung_name": "M2",
+   "family": "M2 · fitted constant friction",
+   "backend": "MuJoCo native, soft friction",
+   "about": "Coulomb + viscous",
+   "runs": 19,
+   "q_rms_median": 2.102,
+   "status": "measured",
+   "parents": [
+    "m1-datasheet"
+   ],
+   "parents_why": "M2 adds fitted constant friction: Coulomb, viscous"
+  },
+  {
+   "id": "m3-stribeck",
+   "variant": "M3.stribeck",
+   "rung": 3,
+   "rung_name": "M3",
+   "family": "M3 · static friction family",
+   "backend": "MuJoCo + plugin",
+   "about": "Coulomb + viscous + Stribeck",
+   "runs": 0,
+   "q_rms_median": {
+    "value": null,
+    "why": "no run on the bench yet"
+   },
+   "status": "no runs",
+   "parents": [
+    "m2-coulomb-viscous"
+   ],
+   "parents_why": "stribeck: + breakaway, Stribeck speed (on M2's Coulomb + viscous)"
+  },
+  {
+   "id": "m3-load",
+   "variant": "M3.load",
+   "rung": 3,
+   "rung_name": "M3",
+   "family": "M3 · static friction family",
+   "backend": "MuJoCo + plugin",
+   "about": "Coulomb + viscous + load",
+   "runs": 0,
+   "q_rms_median": {
+    "value": null,
+    "why": "no run on the bench yet"
+   },
+   "status": "no runs",
+   "parents": [
+    "m2-coulomb-viscous"
+   ],
+   "parents_why": "load: + load coefficient (Coulomb + viscous + load)"
+  },
+  {
+   "id": "m3-capture",
+   "variant": "M3.capture",
+   "rung": 3,
+   "rung_name": "M3",
+   "family": "M3 · static friction family",
+   "backend": "MuJoCo + plugin",
+   "about": "Coulomb + viscous + capture",
+   "runs": 0,
+   "q_rms_median": {
+    "value": null,
+    "why": "no run on the bench yet"
+   },
+   "status": "no runs",
+   "parents": [
+    "m2-coulomb-viscous"
+   ],
+   "parents_why": "capture: + capture level, speed, dwell (Coulomb + viscous + capture)"
+  },
+  {
+   "id": "m3-lugre",
+   "variant": "M3.lugre",
+   "rung": 3,
+   "rung_name": "M3",
+   "family": "M3 · dynamic friction family",
+   "backend": "MuJoCo native (dcmotor)",
+   "about": "LuGre: a bristle state",
+   "runs": 0,
+   "q_rms_median": {
+    "value": null,
+    "why": "no run on the bench yet"
+   },
+   "status": "no runs",
+   "parents": [
+    "m2-coulomb-viscous"
+   ],
+   "parents_why": "lugre: + bristle state σ0, σ1, σ2"
+  },
+  {
+   "id": "m4-ripple",
+   "variant": "M4.ripple (ideal driver)",
+   "rung": 4,
+   "rung_name": "M4",
+   "family": "M4 · grey-box drivetrain family",
+   "backend": "MuJoCo + plugin, ideal driver",
+   "about": "Coulomb + weakening + cogging map + backlash",
+   "runs": 19,
+   "q_rms_median": 1.101,
+   "status": "measured",
+   "parents": [
+    "m3-stribeck"
+   ],
+   "parents_why": "line 274: M4.ripple = Coulomb + Stribeck-like weakening + cogging map + backlash"
+  },
+  {
+   "id": "m4-ripple-c1",
+   "variant": "M4.ripple (moteus-c1 driver twin)",
+   "rung": 4,
+   "rung_name": "M4",
+   "family": "M4 · grey-box drivetrain family",
+   "backend": "MuJoCo + plugin + moteus-c1 driver twin",
+   "about": "the same, with the driver's current loop as run",
+   "runs": 36,
+   "q_rms_median": 1.829,
+   "status": "measured",
+   "parents": [
+    "m4-ripple"
+   ],
+   "parents_why": "the same model, with the moteus-c1 driver's current loop as run"
+  },
+  {
+   "id": "m4-ripple-c1-soft",
+   "variant": "M4.ripple (c1, soft friction)",
+   "rung": 4,
+   "rung_name": "M4",
+   "family": "M4 · grey-box drivetrain family",
+   "backend": "MuJoCo + plugin + c1, soft friction",
+   "about": "the same on MuJoCo's default soft friction",
+   "runs": 19,
+   "q_rms_median": 2.183,
+   "status": "measured",
+   "parents": [
+    "m4-ripple-c1",
+    "m2-coulomb-viscous"
+   ],
+   "parents_why": "the c1 twin, on MuJoCo's default soft friction (M2's backend): a splice"
+  },
+  {
+   "id": "m5-dcmotor",
+   "variant": "M5.dcmotor",
+   "rung": 5,
+   "rung_name": "M5",
+   "family": "M5 · the motor's R, L and heat",
+   "backend": "MuJoCo native (dcmotor)",
+   "about": "R, L, motor constant, winding heat",
+   "runs": 0,
+   "q_rms_median": {
+    "value": null,
+    "why": "no run on the bench yet"
+   },
+   "status": "no runs",
+   "parents": [],
+   "parents_why": "M5 adds the motor's R, L and heat; the proposal names no base model, so none is drawn"
+  }
+ ]
+}

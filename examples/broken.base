@@ -1,0 +1,22 @@
+# Deliberately wrong, the way an agent's first draft often is. `python3 tools/check_views.py examples/broken.base
+# --data examples/actuators.schema.json` must name every mistake on its own line, with a suggestion.
+filters:
+  AND:
+    - 'brand == "Steadywin"'
+views:
+  - type: chrat
+    name: Torque vs mass
+    chart:
+      mark: dots
+      encoding:
+        x: { field: mas, scale: { type: logarithmic } }
+        y: { field: peak_torque }
+        colour: { field: brand }
+  - type: table
+    name: Heaviest first
+    groupby: { property: brand }
+    sort:
+      - { property: mass, direction: desc }
+    order: [model, peak_torq, mass]
+  - type: chart
+    name: No chart block

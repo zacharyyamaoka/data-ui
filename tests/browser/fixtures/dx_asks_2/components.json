@@ -1,0 +1,60 @@
+{
+ "id": "components",
+ "title": "Components (a file)",
+ "titleProperty": "label",
+ "source": "synthetic: tests/browser/fixtures/dx_asks_2/make_fixture.py (illustrative numbers)",
+ "properties": {
+  "id": {
+   "type": "text"
+  },
+  "label": {
+   "type": "text",
+   "label": "Component"
+  },
+  "parent": {
+   "type": "text",
+   "label": "Parent"
+  },
+  "worst": {
+   "type": "number",
+   "label": "Worst gate",
+   "labels": {
+    "0": "pass",
+    "1": "warn",
+    "4": "fail"
+   }
+  }
+ },
+ "rows": [
+  {
+   "id": "rack",
+   "label": "Rack",
+   "parent": null
+  },
+  {
+   "id": "plate1",
+   "label": "Plate 1",
+   "parent": "rack"
+  },
+  {
+   "id": "plate2",
+   "label": "Plate 2",
+   "parent": "rack"
+  },
+  {
+   "id": "stationA",
+   "label": "Station A",
+   "parent": "plate1"
+  },
+  {
+   "id": "stationB",
+   "label": "Station B",
+   "parent": "plate1"
+  },
+  {
+   "id": "stationC",
+   "label": "Station C",
+   "parent": "plate2"
+  }
+ ]
+}

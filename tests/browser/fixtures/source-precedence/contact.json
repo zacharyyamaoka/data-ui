@@ -1,0 +1,102 @@
+{
+ "id": "pat-example",
+ "title": "Pat Example (a made-up contact)",
+ "titleProperty": "field",
+ "sources": {
+  "org": {
+   "name": "Org note",
+   "kind": "A profile note",
+   "rung": "profile",
+   "date": "2026-06-01",
+   "url": "notes/example-org.md"
+  },
+  "sprint": {
+   "name": "Sprint note",
+   "kind": "A dated note",
+   "rung": "dated",
+   "date": "2026-10-12"
+  },
+  "mail": {
+   "name": "Their mail",
+   "kind": "Their own words",
+   "rung": "own",
+   "date": "2026-10-15",
+   "url": "account:mail/pat-example"
+  }
+ },
+ "ladder": [
+  {
+   "id": "own",
+   "label": "Their own words"
+  },
+  {
+   "id": "dated",
+   "label": "A dated note"
+  },
+  {
+   "id": "profile",
+   "label": "A profile note"
+  }
+ ],
+ "properties": {
+  "field": {
+   "type": "text",
+   "label": "Field"
+  },
+  "value": {
+   "type": "text",
+   "label": "Value"
+  }
+ },
+ "rows": [
+  {
+   "id": "surname",
+   "field": "Surname",
+   "value": {
+    "sources": [
+     {
+      "source": "org",
+      "value": "exampel",
+      "text": "Exampel"
+     },
+     {
+      "source": "mail",
+      "value": "example",
+      "text": "Example"
+     }
+    ]
+   }
+  },
+  {
+   "id": "role",
+   "field": "Role",
+   "value": {
+    "sources": [
+     {
+      "source": "org",
+      "value": "owner",
+      "text": "Owner-operator"
+     }
+    ]
+   }
+  },
+  {
+   "id": "last_contact",
+   "field": "Last in touch",
+   "value": {
+    "sources": [
+     {
+      "source": "sprint",
+      "value": "2025",
+      "text": "2025"
+     },
+     {
+      "source": "mail",
+      "value": "2026-04-10",
+      "text": "2026-04-10"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,401 @@
+{
+ "id": "canada-diversion",
+ "title": "Solid waste diversion and disposal by province and territory, Canada",
+ "titleProperty": "province",
+ "source": "ECCC CESI solid waste diversion figure 5 (Open Government Licence – Canada); adapted from Statistics Canada tables 38-10-0032-01 and 17-10-0009-01 (Statistics Canada Open Licence; not an endorsement by Statistics Canada); Natural Earth label points",
+ "properties": {
+  "province": {
+   "type": "text",
+   "label": "Province or territory"
+  },
+  "code": {
+   "type": "text",
+   "label": "Code"
+  },
+  "diversion_2002": {
+   "type": "number",
+   "label": "Diversion 2002",
+   "unitText": "%",
+   "decimals": 1
+  },
+  "diversion_2022": {
+   "type": "number",
+   "label": "Diversion 2022",
+   "unitText": "%",
+   "decimals": 1
+  },
+  "change_pts": {
+   "type": "number",
+   "label": "Change 2002–2022",
+   "unitText": "percentage points",
+   "decimals": 1
+  },
+  "disposal_t": {
+   "type": "number",
+   "label": "Disposed (all sources)",
+   "unitText": "t",
+   "decimals": 0
+  },
+  "disposal_year": {
+   "type": "number",
+   "label": "Disposal year",
+   "decimals": 0
+  },
+  "population": {
+   "type": "number",
+   "label": "Population (July 1)",
+   "unitText": "persons",
+   "decimals": 0
+  },
+  "kg_per_capita": {
+   "type": "number",
+   "label": "Disposed per person",
+   "unitText": "kg/person/yr",
+   "decimals": 0
+  },
+  "location": {
+   "type": "list",
+   "label": "Label point (lat, lng)"
+  }
+ },
+ "rows": [
+  {
+   "id": "NL",
+   "code": "NL",
+   "province": "Newfoundland and Labrador",
+   "diversion_2002": 7.5,
+   "diversion_2022": 11.4,
+   "change_pts": {
+    "value": 3.9,
+    "basis": "derived",
+    "note": "diversion_2022 − diversion_2002, percentage points"
+   },
+   "disposal_t": 365653,
+   "disposal_year": 2024,
+   "population": 545080,
+   "kg_per_capita": {
+    "value": 671,
+    "basis": "derived",
+    "note": "disposal_t / population (July 1, 2024) × 1000"
+   },
+   "location": [
+    48.6598,
+    -56.2169
+   ]
+  },
+  {
+   "id": "PE",
+   "code": "PE",
+   "province": "Prince Edward Island",
+   "diversion_2002": {
+    "value": null,
+    "why": "suppressed by Statistics Canada"
+   },
+   "diversion_2022": {
+    "value": null,
+    "why": "suppressed by Statistics Canada"
+   },
+   "change_pts": {
+    "value": null,
+    "why": "a diversion rate is suppressed in 2002 or 2022"
+   },
+   "disposal_t": 60397,
+   "disposal_year": 2024,
+   "population": 178869,
+   "kg_per_capita": {
+    "value": 338,
+    "basis": "derived",
+    "note": "disposal_t / population (July 1, 2024) × 1000"
+   },
+   "location": [
+    46.3417,
+    -63.3862
+   ]
+  },
+  {
+   "id": "NS",
+   "code": "NS",
+   "province": "Nova Scotia",
+   "diversion_2002": 33,
+   "diversion_2022": 42.9,
+   "change_pts": {
+    "value": 9.9,
+    "basis": "derived",
+    "note": "diversion_2022 − diversion_2002, percentage points"
+   },
+   "disposal_t": 438320,
+   "disposal_year": 2024,
+   "population": 1080310,
+   "kg_per_capita": {
+    "value": 406,
+    "basis": "derived",
+    "note": "disposal_t / population (July 1, 2024) × 1000"
+   },
+   "location": [
+    45.2293,
+    -62.8113
+   ]
+  },
+  {
+   "id": "NB",
+   "code": "NB",
+   "province": "New Brunswick",
+   "diversion_2002": 24,
+   "diversion_2022": 25.7,
+   "change_pts": {
+    "value": 1.7,
+    "basis": "derived",
+    "note": "diversion_2022 − diversion_2002, percentage points"
+   },
+   "disposal_t": 499490,
+   "disposal_year": 2024,
+   "population": 857114,
+   "kg_per_capita": {
+    "value": 583,
+    "basis": "derived",
+    "note": "disposal_t / population (July 1, 2024) × 1000"
+   },
+   "location": [
+    46.5822,
+    -66.4558
+   ]
+  },
+  {
+   "id": "QC",
+   "code": "QC",
+   "province": "Quebec",
+   "diversion_2002": 23,
+   "diversion_2022": 31.5,
+   "change_pts": {
+    "value": 8.5,
+    "basis": "derived",
+    "note": "diversion_2022 − diversion_2002, percentage points"
+   },
+   "disposal_t": 5742389,
+   "disposal_year": 2024,
+   "population": 8982312,
+   "kg_per_capita": {
+    "value": 639,
+    "basis": "derived",
+    "note": "disposal_t / population (July 1, 2024) × 1000"
+   },
+   "location": [
+    52.2593,
+    -73.7168
+   ]
+  },
+  {
+   "id": "ON",
+   "code": "ON",
+   "province": "Ontario",
+   "diversion_2002": 19,
+   "diversion_2022": 24.2,
+   "change_pts": {
+    "value": 5.2,
+    "basis": "derived",
+    "note": "diversion_2022 − diversion_2002, percentage points"
+   },
+   "disposal_t": 11417222,
+   "disposal_year": 2024,
+   "population": 16090358,
+   "kg_per_capita": {
+    "value": 710,
+    "basis": "derived",
+    "note": "disposal_t / population (July 1, 2024) × 1000"
+   },
+   "location": [
+    50.5244,
+    -84.7943
+   ]
+  },
+  {
+   "id": "MB",
+   "code": "MB",
+   "province": "Manitoba",
+   "diversion_2002": 19.4,
+   "diversion_2022": 19.7,
+   "change_pts": {
+    "value": 0.3,
+    "basis": "derived",
+    "note": "diversion_2022 − diversion_2002, percentage points"
+   },
+   "disposal_t": 925185,
+   "disposal_year": 2024,
+   "population": 1487953,
+   "kg_per_capita": {
+    "value": 622,
+    "basis": "derived",
+    "note": "disposal_t / population (July 1, 2024) × 1000"
+   },
+   "location": [
+    54.85,
+    -97.3828
+   ]
+  },
+  {
+   "id": "SK",
+   "code": "SK",
+   "province": "Saskatchewan",
+   "diversion_2002": 12.8,
+   "diversion_2022": 17.9,
+   "change_pts": {
+    "value": 5.1,
+    "basis": "derived",
+    "note": "diversion_2022 − diversion_2002, percentage points"
+   },
+   "disposal_t": 855744,
+   "disposal_year": 2024,
+   "population": 1245196,
+   "kg_per_capita": {
+    "value": 687,
+    "basis": "derived",
+    "note": "disposal_t / population (July 1, 2024) × 1000"
+   },
+   "location": [
+    54.4965,
+    -105.682
+   ]
+  },
+  {
+   "id": "AB",
+   "code": "AB",
+   "province": "Alberta",
+   "diversion_2002": 19.3,
+   "diversion_2022": 19.6,
+   "change_pts": {
+    "value": 0.3,
+    "basis": "derived",
+    "note": "diversion_2022 − diversion_2002, percentage points"
+   },
+   "disposal_t": 4121917,
+   "disposal_year": 2024,
+   "population": 4901795,
+   "kg_per_capita": {
+    "value": 841,
+    "basis": "derived",
+    "note": "disposal_t / population (July 1, 2024) × 1000"
+   },
+   "location": [
+    55.2816,
+    -115
+   ]
+  },
+  {
+   "id": "BC",
+   "code": "BC",
+   "province": "British Columbia",
+   "diversion_2002": 31.2,
+   "diversion_2022": 38.4,
+   "change_pts": {
+    "value": 7.2,
+    "basis": "derived",
+    "note": "diversion_2022 − diversion_2002, percentage points"
+   },
+   "disposal_t": 2985550,
+   "disposal_year": 2024,
+   "population": 5659205,
+   "kg_per_capita": {
+    "value": 528,
+    "basis": "derived",
+    "note": "disposal_t / population (July 1, 2024) × 1000"
+   },
+   "location": [
+    54.6943,
+    -124.662
+   ]
+  },
+  {
+   "id": "YT",
+   "code": "YT",
+   "province": "Yukon",
+   "diversion_2002": {
+    "value": null,
+    "why": "suppressed by Statistics Canada"
+   },
+   "diversion_2022": {
+    "value": null,
+    "why": "suppressed by Statistics Canada"
+   },
+   "change_pts": {
+    "value": null,
+    "why": "a diversion rate is suppressed in 2002 or 2022"
+   },
+   "disposal_t": {
+    "value": null,
+    "why": "Statistics Canada publishes the three territories combined (Yukon, Northwest Territories and Nunavut: 92,006 t in 2024)"
+   },
+   "disposal_year": 2024,
+   "population": 47683,
+   "kg_per_capita": {
+    "value": null,
+    "why": "no disposal figure for this territory alone"
+   },
+   "location": [
+    63.6088,
+    -135.7
+   ]
+  },
+  {
+   "id": "NT",
+   "code": "NT",
+   "province": "Northwest Territories",
+   "diversion_2002": {
+    "value": null,
+    "why": "suppressed by Statistics Canada"
+   },
+   "diversion_2022": {
+    "value": null,
+    "why": "suppressed by Statistics Canada"
+   },
+   "change_pts": {
+    "value": null,
+    "why": "a diversion rate is suppressed in 2002 or 2022"
+   },
+   "disposal_t": {
+    "value": null,
+    "why": "Statistics Canada publishes the three territories combined (Yukon, Northwest Territories and Nunavut: 92,006 t in 2024)"
+   },
+   "disposal_year": 2024,
+   "population": 45274,
+   "kg_per_capita": {
+    "value": null,
+    "why": "no disposal figure for this territory alone"
+   },
+   "location": [
+    64.0831,
+    -119.942
+   ]
+  },
+  {
+   "id": "NU",
+   "code": "NU",
+   "province": "Nunavut",
+   "diversion_2002": {
+    "value": null,
+    "why": "suppressed by Statistics Canada"
+   },
+   "diversion_2022": {
+    "value": null,
+    "why": "suppressed by Statistics Canada"
+   },
+   "change_pts": {
+    "value": null,
+    "why": "a diversion rate is suppressed in 2002 or 2022"
+   },
+   "disposal_t": {
+    "value": null,
+    "why": "Statistics Canada publishes the three territories combined (Yukon, Northwest Territories and Nunavut: 92,006 t in 2024)"
+   },
+   "disposal_year": 2024,
+   "population": 41444,
+   "kg_per_capita": {
+    "value": null,
+    "why": "no disposal figure for this territory alone"
+   },
+   "location": [
+    64.3853,
+    -97.1443
+   ]
+  }
+ ]
+}

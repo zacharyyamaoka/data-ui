@@ -1,0 +1,62 @@
+{
+ "id": "p3-runs",
+ "title": "Runs",
+ "properties": {
+  "run": {
+   "type": "text"
+  },
+  "station": {
+   "type": "text"
+  },
+  "kind": {
+   "type": "text"
+  },
+  "started": {
+   "type": "date"
+  }
+ },
+ "rows": [
+  {
+   "id": "r1",
+   "run": "r1",
+   "station": "S1",
+   "kind": "sine",
+   "started": "2026-10-29T08:00:00-07:00"
+  },
+  {
+   "id": "r2",
+   "run": "r2",
+   "station": "S1",
+   "kind": "waypoints",
+   "started": "2026-10-29T08:10:00-07:00"
+  },
+  {
+   "id": "r3",
+   "run": "r3",
+   "station": "S2",
+   "kind": "sine",
+   "started": "2026-10-29T08:20:00-07:00"
+  },
+  {
+   "id": "r4",
+   "run": "r4",
+   "station": "S2",
+   "kind": "waypoints",
+   "started": "2026-10-29T08:30:00-07:00"
+  },
+  {
+   "id": "r5",
+   "run": "r5",
+   "station": "S3",
+   "kind": "sine",
+   "started": "2026-10-29T08:40:00-07:00"
+  },
+  {
+   "id": "r6",
+   "run": "r6",
+   "station": "S3",
+   "kind": "chirp",
+   "started": "2026-10-29T08:50:00-07:00"
+  }
+ ]
+}

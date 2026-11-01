@@ -1,0 +1,112 @@
+# Camera (RGB, RGBD, hyperspectral): the robotics playback template for a camera (docs/peps/0010-robotics-playback.md
+# §6, the camera.png mock). The 1-DOF rack's two RealSense cameras, Oct 23 2026 (source/build.py): every frame stamp of
+# six recording sessions, and the RGB footage of CAN 14's plate for its three sessions. The rail picks a session (the
+# newest when the page opens) and a camera; the RGB clip drives the clock (video.primary); the frame-interval panels read
+# every session of the picked camera (an unlinked copy of the stamps, so a session pick never empties them). No depth
+# and no hyperspectral capture exists yet: those cards are wired to media.json's `depth` and `band` rows and say so
+# while none exists (their `empty:` text; once a row is written the card plays it and the text goes).
+# samples.schema.json is the stamps' sidecar and names its CSV rows (`path`), so the page and the checkers type them alike.
+# The sessions table picks a session (CONTRACT §33): a click moves the rail's Session pick; `selected: first` picks the
+# newest when the page opens.
+# Tables: gallery/robotics/CONTRACT.md.
+data: runs.json
+style:
+  chrome: minimal
+  numbers: { digits: 4, compact: true }
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: stamps, time: t }
+datasets:
+  runs:
+    data: runs.json
+    label: Sessions
+    facets:
+      # newest first (the rail's order is the facet's order: runs.json by started, latest first)
+      - { property: run, as: select, label: Session, order: [10-23/session_02, 10-23/session_01c, 10-23/session_01a] }
+  media:
+    data: media.json
+    label: Clips
+  # the picked session's stamps: the clock spans them
+  stamps:
+    data: samples.schema.json
+    label: Frame stamps
+  # WHY a second, unlinked copy: the frame-interval panels read every session of the picked camera (the mock's coverage),
+  # so a session pick keeps them full; the Camera facet sits here, on the cameras' own rows
+  coverage:
+    data: samples.schema.json
+    label: Every session
+    facets:
+      - { property: device, as: select, label: Camera }
+    filters: 'device == "RealSense 218622274411"'
+links:
+  # WHY one-way (CONTRACT §33): the session pick narrows the clips and the stamps, never the other way
+  - { from: runs.run, to: media.run, direction: one-way }
+  - { from: runs.run, to: stamps.run, direction: one-way }
+layout:
+  panels:
+    # WHY a sessions table on top, which the mock leaves out: PEP 0010 §6's template rule ("the runs table on top")
+    - { view: Sessions, w: 12, h: 2 }
+    - { view: Playback, w: 12 }
+    - { view: RGB, key: rgb, title: 'RGB · RealSense 218622274411, CAN 14''s plate (video.primary)', w: 6, h: 5 }
+    - { view: Depth, key: depth, title: Depth · RGBD, w: 3, h: 5 }
+    - { view: Hyperspectral band, key: band, title: Hyperspectral band, w: 3, h: 5 }
+    - { view: Frame interval, key: interval-hist, title: 'Frame interval (ms) · 30 fps nominal · every session of this camera', w: 6, h: 4 }
+    - { view: Dropped frames, key: dropped, title: 'Dropped frames per session · intervals > 1.5 × 33.3 ms', w: 6, h: 4 }
+properties:
+  when: { displayName: Started }
+  duration_s: { displayName: Duration }
+  kind: { displayName: Plan }
+  rate_hz: { displayName: Frame rate }
+views:
+  # the sessions table picks a session on the rail (a picker, CONTRACT §33); the newest when the page opens
+  - type: table
+    name: Sessions
+    from: runs
+    select: run
+    selected: first
+    order: [when, run, kind, duration_s, rate_hz, note]
+    sort:
+      - { property: started, direction: DESC }
+  - type: playback
+    name: Playback
+    playback: { readout: true }
+  - type: video
+    name: RGB
+    from: media
+    filters: 'kind == "rgb"'
+    video: { primary: true, label: label }
+  - type: video
+    name: Depth
+    from: media
+    filters: 'kind == "depth"'
+    empty: "No depth captured yet: the rack's RealSense recordings hold colour frames only. This card plays the producer's colourised depth video (media.json, kind: depth) on the same clock once one is written."
+  - type: image
+    name: Hyperspectral band
+    from: media
+    filters: 'kind == "band"'
+    image: poster
+    empty: "No hyperspectral capture yet. This card shows the band image (media.json, kind: band, band_nm) of the session; a band_nm facet on the rail picks the band once captures exist."
+  - type: chart
+    name: Frame interval
+    from: coverage
+    controls: false
+    intro:
+      text: "Every interval between two frames of the picked camera, from its hardware stamps (hw_ms), six sessions. Intervals over 120 ms (camera stalls) are left off this axis; Dropped frames counts them."
+    chart:
+      transform:
+        - filter: datum.frame_dt_ms <= 120
+      mark: { type: bar }
+      encoding:
+        x: { field: frame_dt_ms, bin: { extent: [0, 120], step: 2 }, title: interval (ms) }
+        'y': { aggregate: count, title: intervals, scale: { type: symlog } }
+  - type: chart
+    name: Dropped frames
+    from: coverage
+    controls: false
+    chart:
+      transform:
+        - filter: datum.frame_dt_ms > 50
+      mark: { type: bar }
+      encoding:
+        x: { field: run, type: nominal, title: null, sort: ascending }
+        'y': { aggregate: count, title: intervals over 50 ms }
+        tooltip: [{ field: frame_dt_ms }]

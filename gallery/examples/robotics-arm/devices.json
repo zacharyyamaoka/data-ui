@@ -1,0 +1,8 @@
+{"title":"Devices (stand-in): the UR5e's six joints","source":"STAND-IN, simulation only: ~/sim2real/dashboards/source/arm_suite_sim.json (sim2real's perturbed MuJoCo UR5e) and gallery/examples/pid-tuning (pidtuna's MuJoCo replay); written by gallery/examples/robotics-arm/source/build.py","schema":{"fields":[{"name":"device","type":"string"},{"name":"type","type":"string"},{"name":"label","type":"string"},{"name":"parent","type":"string"},{"name":"order","type":"integer"}]},"rows":[
+{"device":"J1 shoulder pan","type":"servo","label":"J1 shoulder pan (UR5e joint)","parent":"UR5e","order":1},
+{"device":"J2 shoulder lift","type":"servo","label":"J2 shoulder lift (UR5e joint)","parent":"UR5e","order":2},
+{"device":"J3 elbow","type":"servo","label":"J3 elbow (UR5e joint)","parent":"UR5e","order":3},
+{"device":"J4 wrist 1","type":"servo","label":"J4 wrist 1 (UR5e joint)","parent":"UR5e","order":4},
+{"device":"J5 wrist 2","type":"servo","label":"J5 wrist 2 (UR5e joint)","parent":"UR5e","order":5},
+{"device":"J6 wrist 3","type":"servo","label":"J6 wrist 3 (UR5e joint)","parent":"UR5e","order":6}
+]}

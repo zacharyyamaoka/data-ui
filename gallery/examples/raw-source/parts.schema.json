@@ -1,0 +1,13 @@
+{
+  "name": "parts",
+  "title": "Parts (deliberately awkward)",
+  "titleProperty": "name",
+  "schema": {
+    "fields": [
+      { "name": "sku", "type": "string", "title": "SKU" },
+      { "name": "name", "type": "string", "title": "Name" },
+      { "name": "price", "type": "string", "title": "Price", "description": "text on purpose: 1.50 stays 1.50, never 1.5" },
+      { "name": "qty", "type": "integer", "title": "Quantity" }
+    ]
+  }
+}

@@ -1,0 +1,189 @@
+{
+ "id": "sorting-line",
+ "title": "Sorting line floor plan (synthetic)",
+ "titleProperty": "name",
+ "source": "synthetic: invented layout and figures, not a real facility",
+ "properties": {
+  "name": {
+   "type": "text",
+   "label": "Item"
+  },
+  "kind": {
+   "type": "text",
+   "label": "Kind"
+  },
+  "xy": {
+   "type": "list",
+   "label": "Position (x, y)",
+   "unitText": "m"
+  },
+  "picks_per_hour": {
+   "type": "number",
+   "label": "Picks per hour",
+   "unitText": "picks/h",
+   "decimals": 0
+  },
+  "purity": {
+   "type": "number",
+   "label": "Bin purity",
+   "unitText": "%",
+   "decimals": 1
+  },
+  "status": {
+   "type": "text",
+   "label": "Status"
+  }
+ },
+ "rows": [
+  {
+   "id": "infeed",
+   "name": "Infeed tipping floor",
+   "kind": "infeed",
+   "xy": [
+    4.0,
+    9.0
+   ],
+   "status": "running"
+  },
+  {
+   "id": "conveyor",
+   "name": "Conveyor",
+   "kind": "conveyor",
+   "xy": [
+    23.0,
+    9.0
+   ],
+   "status": "running"
+  },
+  {
+   "id": "robot-1",
+   "name": "Robot cell 1",
+   "kind": "robot",
+   "xy": [
+    13.0,
+    9.0
+   ],
+   "picks_per_hour": 2340,
+   "status": "running"
+  },
+  {
+   "id": "robot-2",
+   "name": "Robot cell 2",
+   "kind": "robot",
+   "xy": [
+    19.0,
+    9.0
+   ],
+   "picks_per_hour": 2110,
+   "status": "running"
+  },
+  {
+   "id": "robot-3",
+   "name": "Robot cell 3",
+   "kind": "robot",
+   "xy": [
+    25.0,
+    9.0
+   ],
+   "picks_per_hour": 1860,
+   "status": "fault"
+  },
+  {
+   "id": "robot-4",
+   "name": "Robot cell 4",
+   "kind": "robot",
+   "xy": [
+    31.0,
+    9.0
+   ],
+   "picks_per_hour": 2480,
+   "status": "running"
+  },
+  {
+   "id": "bin-aluminium",
+   "name": "Bin: aluminium",
+   "kind": "bin",
+   "xy": [
+    18.5,
+    4.0
+   ],
+   "purity": 96.8,
+   "status": "running"
+  },
+  {
+   "id": "bin-film",
+   "name": "Bin: film",
+   "kind": "bin",
+   "xy": [
+    30.5,
+    4.0
+   ],
+   "purity": 82.6,
+   "status": "running"
+  },
+  {
+   "id": "bin-organics",
+   "name": "Bin: organics",
+   "kind": "bin",
+   "xy": [
+    12.0,
+    4.0
+   ],
+   "purity": 91.5,
+   "status": "running"
+  },
+  {
+   "id": "bin-paper",
+   "name": "Bin: paper",
+   "kind": "bin",
+   "xy": [
+    24.5,
+    4.0
+   ],
+   "purity": 84.1,
+   "status": "idle"
+  },
+  {
+   "id": "bin-pet",
+   "name": "Bin: PET",
+   "kind": "bin",
+   "xy": [
+    15.0,
+    4.0
+   ],
+   "purity": 95.2,
+   "status": "running"
+  },
+  {
+   "id": "bin-residue",
+   "name": "Bin: residue",
+   "kind": "bin",
+   "xy": [
+    39.0,
+    9.0
+   ],
+   "purity": 88.0,
+   "status": "running"
+  },
+  {
+   "id": "baler",
+   "name": "Baler",
+   "kind": "baler",
+   "xy": [
+    33.0,
+    14.75
+   ],
+   "status": "idle"
+  },
+  {
+   "id": "control-room",
+   "name": "Control room",
+   "kind": "room",
+   "xy": [
+    3.0,
+    16.5
+   ],
+   "status": "running"
+  }
+ ]
+}

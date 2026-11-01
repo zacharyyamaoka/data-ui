@@ -1,0 +1,308 @@
+{
+ "titleProperty": "name",
+ "sources": {
+  "list": {
+   "name": "Acme low-voltage servo selection list, received by chat from the distributor's sales desk, 2026-10-08 (private)",
+   "kind": "chat",
+   "rung": "chat",
+   "date": "2026-10-08"
+  },
+  "long": {
+   "name": "Acme low-voltage servo selection list, received by chat from the distributor's sales desk, 2026-10-08 (private), second revision with the corrected connector table and the torque curve redrawn by hand",
+   "kind": "chat",
+   "rung": "chat",
+   "date": "2026-10-09"
+  },
+  "sheet": {
+   "name": "Acme datasheet rev C",
+   "kind": "datasheet",
+   "rung": "datasheet",
+   "date": "2026-09-14",
+   "url": "https://example.com/acme.pdf"
+  }
+ },
+ "properties": {
+  "name": {
+   "type": "text",
+   "label": "Parameter"
+  },
+  "section": {
+   "type": "text",
+   "label": "Section"
+  },
+  "trail": {
+   "type": "list",
+   "label": "Trail"
+  },
+  "nominal": {
+   "type": "text",
+   "label": "Nominal"
+  },
+  "value": {
+   "type": "number",
+   "label": "Value"
+  },
+  "note": {
+   "type": "text",
+   "label": "Note"
+  }
+ },
+ "rows": [
+  {
+   "id": "bus_voltage",
+   "name": "bus_voltage",
+   "section": "servo",
+   "value": 48,
+   "nominal": {
+    "sources": [
+     {
+      "source": "list",
+      "value": 48,
+      "text": "48"
+     },
+     {
+      "source": "sheet",
+      "value": 48,
+      "text": "48"
+     }
+    ]
+   },
+   "trail": [
+    "servo"
+   ],
+   "note": "The whole note on bus_voltage, long enough that a 160 px column cuts it off well before its end"
+  },
+  {
+   "id": "fw_version",
+   "name": "fw_version",
+   "section": "servo.fw",
+   "value": 3,
+   "nominal": {
+    "sources": [
+     {
+      "source": "list",
+      "value": 3,
+      "text": "3"
+     }
+    ]
+   },
+   "trail": [
+    "servo",
+    "fw"
+   ],
+   "note": "The whole note on fw_version, long enough that a 160 px column cuts it off well before its end"
+  },
+  {
+   "id": "kp",
+   "name": "kp",
+   "section": "servo.pid_position",
+   "value": 12,
+   "nominal": {
+    "sources": [
+     {
+      "source": "list",
+      "value": 12,
+      "text": "12"
+     },
+     {
+      "source": "sheet",
+      "value": 14,
+      "text": "14"
+     }
+    ]
+   },
+   "trail": [
+    "servo",
+    "pid_position"
+   ],
+   "note": "The whole note on kp, long enough that a 160 px column cuts it off well before its end"
+  },
+  {
+   "id": "max_current",
+   "name": "max_current",
+   "section": "servo",
+   "value": 20,
+   "nominal": {
+    "sources": [
+     {
+      "source": "list",
+      "value": 20,
+      "text": "20"
+     },
+     {
+      "source": "sheet",
+      "value": 20,
+      "text": "20"
+     }
+    ]
+   },
+   "trail": [
+    "servo"
+   ],
+   "note": "The whole note on max_current, long enough that a 160 px column cuts it off well before its end"
+  },
+  {
+   "id": "poles",
+   "name": "poles",
+   "section": "motor",
+   "value": 14,
+   "nominal": {
+    "sources": [
+     {
+      "source": "list",
+      "value": 14,
+      "text": "14"
+     }
+    ]
+   },
+   "trail": [
+    "motor"
+   ],
+   "note": "The whole note on poles, long enough that a 160 px column cuts it off well before its end"
+  },
+  {
+   "id": "ki",
+   "name": "ki",
+   "section": "servo.pid_position",
+   "value": 2,
+   "nominal": {
+    "sources": [
+     {
+      "source": "list",
+      "value": 2,
+      "text": "2"
+     }
+    ]
+   },
+   "trail": [
+    "servo",
+    "pid_position"
+   ],
+   "note": "The whole note on ki, long enough that a 160 px column cuts it off well before its end"
+  },
+  {
+   "id": "clamp",
+   "name": "clamp",
+   "section": "servo.pid_position.limits",
+   "value": 9,
+   "nominal": {
+    "sources": [
+     {
+      "source": "list",
+      "value": 9,
+      "text": "9"
+     }
+    ]
+   },
+   "trail": [
+    "servo",
+    "pid_position",
+    "limits"
+   ],
+   "note": "The whole note on clamp, long enough that a 160 px column cuts it off well before its end"
+  },
+  {
+   "id": "fw_build",
+   "name": "fw_build",
+   "section": "servo.fw",
+   "value": 77,
+   "nominal": {
+    "sources": [
+     {
+      "source": "list",
+      "value": 77,
+      "text": "77"
+     }
+    ]
+   },
+   "trail": [
+    "servo",
+    "fw"
+   ],
+   "note": "The whole note on fw_build, long enough that a 160 px column cuts it off well before its end"
+  },
+  {
+   "id": "kd",
+   "name": "kd",
+   "section": "servo.pid_position",
+   "value": 5,
+   "nominal": {
+    "sources": [
+     {
+      "source": "list",
+      "value": 5,
+      "text": "5"
+     }
+    ]
+   },
+   "trail": [
+    "servo",
+    "pid_position"
+   ],
+   "note": "The whole note on kd, long enough that a 160 px column cuts it off well before its end"
+  },
+  {
+   "id": "kv",
+   "name": "kv",
+   "section": "motor",
+   "value": 60,
+   "nominal": {
+    "sources": [
+     {
+      "source": "list",
+      "value": 60,
+      "text": "60"
+     },
+     {
+      "source": "sheet",
+      "value": 61,
+      "text": "61"
+     }
+    ]
+   },
+   "trail": [
+    "motor"
+   ],
+   "note": "The whole note on kv, long enough that a 160 px column cuts it off well before its end"
+  },
+  {
+   "id": "mass",
+   "name": "mass",
+   "value": 1,
+   "nominal": {
+    "sources": [
+     {
+      "source": "list",
+      "value": 1,
+      "text": "1"
+     }
+    ]
+   },
+   "note": "The whole note on mass, long enough that a 160 px column cuts it off well before its end"
+  },
+  {
+   "id": "encoder_note",
+   "name": "encoder_note",
+   "section": "servo",
+   "value": 7,
+   "nominal": {
+    "sources": [
+     {
+      "source": "long",
+      "value": 7,
+      "text": "7"
+     },
+     {
+      "source": "sheet",
+      "value": 8,
+      "text": "8"
+     }
+    ]
+   },
+   "trail": [
+    "servo"
+   ],
+   "note": "The whole note on encoder_note, long enough that a 160 px column cuts it off well before its end"
+  }
+ ]
+}

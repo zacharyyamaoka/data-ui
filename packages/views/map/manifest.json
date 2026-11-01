@@ -1,0 +1,47 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1. split: the analysis parts (h3-js, Terra Draw, the swipe, the PMTiles basemap) load on first use (§42).",
+  "entry": "src/index.js",
+  "status": "built",
+  "split": true,
+  "views": [
+    {
+      "type": "map",
+      "name": "Map",
+      "icon": "map",
+      "summary": "Rows on a map and the analyses a map answers: markers, clustered or proportional points, heatmap, H3 hexagons, choropleth and bivariate regions, flows, routes, rings, catchments, within-a-distance, callouts, 3D columns, time playback, small multiples, a swipe and a drawn area; a bundled Natural Earth world map, or a self-hosted OpenStreetMap .pmtiles basemap; or a floor plan in metres. A click opens a row or a region's rows, or picks them on a dashboard (select:); a counted marker asks which."
+    }
+  ],
+  "npm": [
+    "maplibre-gl@6.16.0",
+    "pmtiles@4.5.0",
+    "@protomaps/basemaps@5.7.2",
+    "@turf/turf@7.4.0",
+    "h3-js@4.5.0",
+    "simple-statistics@7.12.1",
+    "terra-draw@1.37.0",
+    "terra-draw-maplibre-gl-adapter@1.5.0",
+    "img-comparison-slider@8.0.7"
+  ],
+  "assets": [
+    {
+      "from": "node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs",
+      "to": "maplibre-gl-worker.mjs"
+    },
+    {
+      "from": "packages/views/map/assets/glyphs/noto-sans-regular/0-255.pbf",
+      "to": "map-glyphs/noto-sans-regular/0-255.pbf"
+    },
+    {
+      "from": "packages/views/map/assets/glyphs/noto-sans-regular/256-511.pbf",
+      "to": "map-glyphs/noto-sans-regular/256-511.pbf"
+    },
+    {
+      "from": "packages/views/map/assets/glyphs/noto-sans-regular/8192-8447.pbf",
+      "to": "map-glyphs/noto-sans-regular/8192-8447.pbf"
+    },
+    {
+      "from": "packages/views/map/assets/glyphs/OFL.txt",
+      "to": "map-glyphs/OFL.txt"
+    }
+  ]
+}

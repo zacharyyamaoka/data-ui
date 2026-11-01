@@ -1,0 +1,19 @@
+# P2 fixture (tests/browser/p2_checks.py): rules and bands from a property (sim2real gap #6) over limits.json
+# (make_fixture.py): device A's own limits (lim_lo, lim_hi: constants per device) and a cap that changes at t = 5 s.
+data: limits.json
+views:
+  - type: timeseries
+    name: Limit
+    filters: 'device == "A"'
+    timeseries: { x: t, 'y': q_deg, series: situation, rules: [{ 'y': lim_hi, label: limit }], bands: [{ 'y': [lim_lo, lim_hi] }] }
+  - type: timeseries
+    name: Cap
+    filters: 'device == "A"'
+    timeseries: { x: t, 'y': q_deg, series: situation, rules: [{ 'y': cap, label: cap }] }
+  - type: timeseries
+    name: Every device
+    timeseries: { x: t, 'y': q_deg, series: device, rules: [{ 'y': lim_hi }] }
+  - type: plot
+    name: Plot
+    filters: 'device == "A"'
+    plot: { x: t, 'y': q_deg, series: situation, rules: [{ 'y': lim_hi }, { 'y': cap }], bands: [{ 'y': [lim_lo, lim_hi] }] }

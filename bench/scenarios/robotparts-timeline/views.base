@@ -1,0 +1,37 @@
+# robotparts' releases and the branches merged into them, 2026-10-22 to 2026-10-25, from git (metadata only).
+# Obsidian Bases grammar plus data-ui's timeline keys (docs/CONTRACT.md §5).
+data: timeline.json
+properties:
+  title: { displayName: Branch or release }
+  kind: { displayName: Kind }
+  release: { displayName: Shipped in }
+views:
+  - type: timeline
+    name: Lanes by kind
+    start: start
+    end: end
+    title: title
+    color: release
+    groupBy: { property: kind, direction: ASC }
+    groupOrder: [release, integration, contract, main, lane]
+    zoom: { min: PT10M, max: P14D }
+  - type: timeline
+    name: By release
+    start: start
+    end: end
+    title: title
+    color: kind
+    groupBy: { property: release, direction: ASC }
+    subGroupBy: { property: kind, direction: ASC }
+    zoom: { min: PT10M, max: P14D }
+  - type: timeline
+    name: Releases only
+    filters: 'kind == "release"'
+    start: start
+    title: title
+    color: release
+  - type: table
+    name: All
+    order: [title, kind, start, end, release, commits, commit, subject]
+    sort:
+      - { property: start, direction: ASC }

@@ -1,0 +1,11 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/media.js): the media cards of docs/peps/0005-dashboard-cards.md. The browser's <video> and <img> are the stock parts; no npm package.",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [
+    { "type": "video", "name": "Video", "icon": "video", "summary": "One clip (native <video>) on the dashboard's clock: it seeks with every card, a primary video drives t while it plays, a click plays or pauses; the caption says what made the clip (real camera, sim render, illustrative)." },
+    { "type": "video-compare", "name": "Video overlay", "icon": "columns-2", "summary": "Two clips on the clock, compared by wipe slider, onion skin, difference blend or side by side; the mode and split are kept in the view; both clips' basis is printed (sim render vs real camera)." },
+    { "type": "image", "name": "Image", "icon": "image", "summary": "An image per row (lazy <img>, contained), captioned; several rows make a horizontal strip." }
+  ],
+  "npm": []
+}

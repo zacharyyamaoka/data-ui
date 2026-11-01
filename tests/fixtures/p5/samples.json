@@ -1,0 +1,227 @@
+{
+ "title": "samples",
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "run",
+    "type": "string"
+   },
+   {
+    "name": "situation",
+    "type": "string"
+   },
+   {
+    "name": "source",
+    "type": "string"
+   },
+   {
+    "name": "device",
+    "type": "string"
+   },
+   {
+    "name": "q_deg",
+    "type": "number",
+    "unit": "deg"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "t": 0.0,
+   "run": "r1",
+   "situation": "real",
+   "source": "real",
+   "device": "A",
+   "q_deg": 0.0
+  },
+  {
+   "t": 0.0,
+   "run": "r1",
+   "situation": "target",
+   "source": "target",
+   "device": "A",
+   "q_deg": 0.0
+  },
+  {
+   "t": 0.5,
+   "run": "r1",
+   "situation": "real",
+   "source": "real",
+   "device": "A",
+   "q_deg": 1.0
+  },
+  {
+   "t": 0.5,
+   "run": "r1",
+   "situation": "target",
+   "source": "target",
+   "device": "A",
+   "q_deg": 1.1
+  },
+  {
+   "t": 1.0,
+   "run": "r1",
+   "situation": "real",
+   "source": "real",
+   "device": "A",
+   "q_deg": 2.0
+  },
+  {
+   "t": 1.0,
+   "run": "r1",
+   "situation": "target",
+   "source": "target",
+   "device": "A",
+   "q_deg": 2.2
+  },
+  {
+   "t": 1.5,
+   "run": "r1",
+   "situation": "real",
+   "source": "real",
+   "device": "A",
+   "q_deg": 3.0
+  },
+  {
+   "t": 1.5,
+   "run": "r1",
+   "situation": "target",
+   "source": "target",
+   "device": "A",
+   "q_deg": 3.3000000000000003
+  },
+  {
+   "t": 2.0,
+   "run": "r1",
+   "situation": "real",
+   "source": "real",
+   "device": "A",
+   "q_deg": 4.0
+  },
+  {
+   "t": 2.0,
+   "run": "r1",
+   "situation": "target",
+   "source": "target",
+   "device": "A",
+   "q_deg": 4.4
+  },
+  {
+   "t": 2.5,
+   "run": "r1",
+   "situation": "real",
+   "source": "real",
+   "device": "A",
+   "q_deg": 5.0
+  },
+  {
+   "t": 2.5,
+   "run": "r1",
+   "situation": "target",
+   "source": "target",
+   "device": "A",
+   "q_deg": 5.5
+  },
+  {
+   "t": 0.0,
+   "run": "r2",
+   "situation": "real",
+   "source": "real",
+   "device": "B",
+   "q_deg": 0.0
+  },
+  {
+   "t": 0.0,
+   "run": "r2",
+   "situation": "target",
+   "source": "target",
+   "device": "B",
+   "q_deg": 0.0
+  },
+  {
+   "t": 0.5,
+   "run": "r2",
+   "situation": "real",
+   "source": "real",
+   "device": "B",
+   "q_deg": 1.0
+  },
+  {
+   "t": 0.5,
+   "run": "r2",
+   "situation": "target",
+   "source": "target",
+   "device": "B",
+   "q_deg": 1.1
+  },
+  {
+   "t": 1.0,
+   "run": "r2",
+   "situation": "real",
+   "source": "real",
+   "device": "B",
+   "q_deg": 2.0
+  },
+  {
+   "t": 1.0,
+   "run": "r2",
+   "situation": "target",
+   "source": "target",
+   "device": "B",
+   "q_deg": 2.2
+  },
+  {
+   "t": 1.5,
+   "run": "r2",
+   "situation": "real",
+   "source": "real",
+   "device": "B",
+   "q_deg": 3.0
+  },
+  {
+   "t": 1.5,
+   "run": "r2",
+   "situation": "target",
+   "source": "target",
+   "device": "B",
+   "q_deg": 3.3000000000000003
+  },
+  {
+   "t": 2.0,
+   "run": "r2",
+   "situation": "real",
+   "source": "real",
+   "device": "B",
+   "q_deg": 4.0
+  },
+  {
+   "t": 2.0,
+   "run": "r2",
+   "situation": "target",
+   "source": "target",
+   "device": "B",
+   "q_deg": 4.4
+  },
+  {
+   "t": 2.5,
+   "run": "r2",
+   "situation": "real",
+   "source": "real",
+   "device": "B",
+   "q_deg": 5.0
+  },
+  {
+   "t": 2.5,
+   "run": "r2",
+   "situation": "target",
+   "source": "target",
+   "device": "B",
+   "q_deg": 5.5
+  }
+ ]
+}

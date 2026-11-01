@@ -1,0 +1,7 @@
+{"id":"p0-runs","title":"Runs (P0 fixture)","source":"synthetic, tests/browser/fixtures/p0/make_fixture.py","properties":{"run":{"type":"text"},"run_set":{"type":"text"},"device":{"type":"text"},"duration_s":{"type":"number","unit":"s"}},"rows":[
+{"id":"CAN 14 · s03 · 10-23","run":"CAN 14 · s03 · 10-23","run_set":"staircase","device":"J3 elbow","duration_s":35.993},
+{"id":"CAN 11 · s09 · 10-25","run":"CAN 11 · s09 · 10-25","run_set":"held-out","device":"J3 elbow","duration_s":4.518},
+{"id":"CAN 12 · s09 · 10-25","run":"CAN 12 · s09 · 10-25","run_set":"held-out","device":"J4 wrist 1","duration_s":4.0169},
+{"id":"CAN 13 · s09 · 10-25","run":"CAN 13 · s09 · 10-25","run_set":"held-out","device":"J2 shoulder lift","duration_s":3.5186},
+{"id":"CAN 1 · s01 · 10-24","run":"CAN 1 · s01 · 10-24","run_set":"held-out","device":"J1 shoulder pan","duration_s":3.5326}
+]}

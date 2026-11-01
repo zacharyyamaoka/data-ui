@@ -1,0 +1,38 @@
+{
+ "id": "a2d-other",
+ "title": "Other samples",
+ "titleProperty": "id",
+ "source": "synthetic: tests/browser/fixtures/add_to_dashboard/make_fixture.py (illustrative numbers)",
+ "rows": [
+  {
+   "id": "o0",
+   "run": "r01",
+   "t": 0.0,
+   "value": 0
+  },
+  {
+   "id": "o1",
+   "run": "r01",
+   "t": 0.5,
+   "value": 1
+  },
+  {
+   "id": "o2",
+   "run": "r01",
+   "t": 1.0,
+   "value": 2
+  },
+  {
+   "id": "o3",
+   "run": "r01",
+   "t": 1.5,
+   "value": 3
+  },
+  {
+   "id": "o4",
+   "run": "r01",
+   "t": 2.0,
+   "value": 4
+  }
+ ]
+}

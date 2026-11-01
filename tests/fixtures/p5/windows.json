@@ -1,0 +1,177 @@
+{
+ "title": "windows",
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "run",
+    "type": "string"
+   },
+   {
+    "name": "device",
+    "type": "string"
+   },
+   {
+    "name": "title",
+    "type": "string"
+   },
+   {
+    "name": "verdict",
+    "type": "string",
+    "display": "status",
+    "tones": {
+     "partial": "warn"
+    },
+    "labels": {
+     "not_run": "not run"
+    }
+   },
+   {
+    "name": "value",
+    "type": "number"
+   },
+   {
+    "name": "warn_lo",
+    "type": "number"
+   },
+   {
+    "name": "warn_hi",
+    "type": "number"
+   },
+   {
+    "name": "error_lo",
+    "type": "number"
+   },
+   {
+    "name": "error_hi",
+    "type": "number"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "t": 0.5,
+   "run": "r1",
+   "device": "A",
+   "title": "temperature",
+   "verdict": "pass",
+   "value": 55.0,
+   "warn_lo": null,
+   "warn_hi": 60.0,
+   "error_lo": -10.0,
+   "error_hi": 70.0
+  },
+  {
+   "t": 1.0,
+   "run": "r1",
+   "device": "A",
+   "title": "temperature",
+   "verdict": "pass",
+   "value": 57.0,
+   "warn_lo": null,
+   "warn_hi": 60.0,
+   "error_lo": -10.0,
+   "error_hi": 70.0
+  },
+  {
+   "t": 1.5,
+   "run": "r1",
+   "device": "A",
+   "title": "temperature",
+   "verdict": "pass",
+   "value": 59.0,
+   "warn_lo": null,
+   "warn_hi": 60.0,
+   "error_lo": -10.0,
+   "error_hi": 70.0
+  },
+  {
+   "t": 2.0,
+   "run": "r1",
+   "device": "A",
+   "title": "temperature",
+   "verdict": "warn",
+   "value": 61.0,
+   "warn_lo": null,
+   "warn_hi": 60.0,
+   "error_lo": -10.0,
+   "error_hi": 70.0
+  },
+  {
+   "t": 2.5,
+   "run": "r1",
+   "device": "A",
+   "title": "temperature",
+   "verdict": "warn",
+   "value": 63.0,
+   "warn_lo": null,
+   "warn_hi": 60.0,
+   "error_lo": -10.0,
+   "error_hi": 70.0
+  },
+  {
+   "t": 0.5,
+   "run": "r2",
+   "device": "B",
+   "title": "temperature",
+   "verdict": "pass",
+   "value": 45.0,
+   "warn_lo": null,
+   "warn_hi": 50.0,
+   "error_lo": -10.0,
+   "error_hi": 60.0
+  },
+  {
+   "t": 1.0,
+   "run": "r2",
+   "device": "B",
+   "title": "temperature",
+   "verdict": "pass",
+   "value": 47.0,
+   "warn_lo": null,
+   "warn_hi": 50.0,
+   "error_lo": -10.0,
+   "error_hi": 60.0
+  },
+  {
+   "t": 1.5,
+   "run": "r2",
+   "device": "B",
+   "title": "temperature",
+   "verdict": "pass",
+   "value": 49.0,
+   "warn_lo": null,
+   "warn_hi": 50.0,
+   "error_lo": -10.0,
+   "error_hi": 60.0
+  },
+  {
+   "t": 2.0,
+   "run": "r2",
+   "device": "B",
+   "title": "temperature",
+   "verdict": "warn",
+   "value": 51.0,
+   "warn_lo": null,
+   "warn_hi": 50.0,
+   "error_lo": -10.0,
+   "error_hi": 60.0
+  },
+  {
+   "t": 2.5,
+   "run": "r2",
+   "device": "B",
+   "title": "temperature",
+   "verdict": "warn",
+   "value": 53.0,
+   "warn_lo": null,
+   "warn_hi": 50.0,
+   "error_lo": -10.0,
+   "error_hi": 60.0
+  }
+ ]
+}

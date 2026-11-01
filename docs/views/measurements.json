@@ -1,0 +1,1778 @@
+{
+ "measured_on": "2026-10-25",
+ "method": "Measure every candidate library in docs/VIEWS.md the same way, and record its npm metadata.",
+ "installed": {
+  "@atlaskit/pragmatic-drag-and-drop": "4.0.0",
+  "@atlaskit/pragmatic-drag-and-drop-hitbox": "3.0.0",
+  "@awesome.me/webawesome": "3.14.0",
+  "@dagrejs/dagre": "3.1.3",
+  "@dnd-kit/core": "6.3.1",
+  "@dnd-kit/dom": "0.5.1",
+  "@egjs/hammerjs": "2.0.17",
+  "@event-calendar/build": "5.18.1",
+  "@event-calendar/core": "5.18.1",
+  "@fancyapps/ui": "6.1.15",
+  "@full-ui/headless-calendar": "7.1.3",
+  "@fullcalendar/core": "7.1.3",
+  "@headless-tree/core": "1.8.0",
+  "@hello-pangea/dnd": "18.0.1",
+  "@json-editor/json-editor": "2.17.3",
+  "@jsonforms/core": "3.8.0",
+  "@jsonforms/react": "3.8.0",
+  "@jsonforms/vanilla-renderers": "3.8.0",
+  "@kanaries/graphic-walker": "0.5.3",
+  "@observablehq/plot": "0.6.17",
+  "@preact/signals": "2.11.3",
+  "@rjsf/core": "6.11.0",
+  "@rjsf/utils": "6.11.0",
+  "@rjsf/validator-ajv8": "6.11.0",
+  "@schedule-x/calendar": "4.9.1",
+  "@schedule-x/theme-default": "4.9.1",
+  "@svar-ui/react-gantt": "2.8.1",
+  "@tanstack/table-core": "9.3.1",
+  "@tanstack/virtual-core": "3.19.7",
+  "@toast-ui/calendar": "2.1.3",
+  "@tremor/react": "3.18.7",
+  "@xyflow/react": "12.12.0",
+  "@xyflow/svelte": "1.7.0",
+  "@xyflow/system": "0.0.83",
+  "chart.js": "4.6.1",
+  "component-emitter": "2.0.0",
+  "cytoscape": "3.34.4",
+  "d3-force": "3.0.0",
+  "d3-hierarchy": "3.1.2",
+  "dhtmlx-gantt": "10.0.3",
+  "echarts": "6.1.0",
+  "force-graph": "1.52.0",
+  "frappe-gantt": "1.2.2",
+  "fullcalendar": "7.1.3",
+  "glightbox": "3.3.1",
+  "graphology": "0.26.0",
+  "graphology-types": "0.24.8",
+  "img-comparison-slider": "8.0.7",
+  "jkanban": "1.3.1",
+  "jquery": "4.0.0",
+  "justified-layout": "4.1.0",
+  "keycharm": "0.4.0",
+  "leaflet": "1.9.4",
+  "lightgallery": "3.0.0",
+  "maplibre-gl": "6.16.0",
+  "masonry-layout": "4.2.2",
+  "muuri": "0.9.5",
+  "ol": "10.11.0",
+  "photoswipe": "5.4.4",
+  "pivottable": "2.23.0",
+  "plotly.js-dist-min": "4.1.2",
+  "pmtiles": "4.5.0",
+  "preact": "11.0.2",
+  "react": "19.3.1",
+  "react-arborist": "4.0.1",
+  "react-dnd": "16.0.1",
+  "react-dnd-html5-backend": "16.0.1",
+  "react-dom": "19.3.1",
+  "react-hook-form": "7.91.0",
+  "sigma": "4.0.3",
+  "sortablejs": "1.15.7",
+  "svelte": "5.57.2",
+  "tabulator-tables": "6.7.1",
+  "temporal-polyfill": "1.0.6",
+  "uplot": "1.6.32",
+  "uuid": "14.0.3",
+  "vega": "6.4.0",
+  "vega-embed": "7.3.0",
+  "vega-interpreter": "2.3.2",
+  "vega-lite": "6.5.0",
+  "vega-tooltip": "1.1.0",
+  "virtua": "0.53.6",
+  "vis-data": "8.0.6",
+  "vis-network": "10.1.3",
+  "vis-timeline": "8.5.5",
+  "vis-util": "6.0.3",
+  "xstate": "5.33.3"
+ },
+ "sizes": {
+  "tanstack-table-core": {
+   "externals": [],
+   "min_bytes": 110582,
+   "min_gz": 29168
+  },
+  "tanstack-virtual-core": {
+   "externals": [],
+   "min_bytes": 33010,
+   "min_gz": 9810
+  },
+  "virtua-core": {
+   "externals": [],
+   "min_bytes": 16952,
+   "min_gz": 7788
+  },
+  "masonry-layout": {
+   "externals": [],
+   "min_bytes": 23566,
+   "min_gz": 7601
+  },
+  "muuri": {
+   "externals": [],
+   "min_bytes": 85353,
+   "min_gz": 23857
+  },
+  "photoswipe": {
+   "externals": [],
+   "min_bytes": 75129,
+   "min_gz": 20640,
+   "css": {
+    "css_bytes": 7423,
+    "css_gz": 2358,
+    "custom_props_defined": 12,
+    "var_uses": 12
+   }
+  },
+  "glightbox": {
+   "externals": [],
+   "min_bytes": 56994,
+   "min_gz": 15727,
+   "css": {
+    "css_bytes": 13749,
+    "css_gz": 2555,
+    "custom_props_defined": 0,
+    "var_uses": 0
+   }
+  },
+  "lightgallery": {
+   "externals": [],
+   "min_bytes": 67216,
+   "min_gz": 19321,
+   "css": {
+    "css_bytes": 12516,
+    "css_gz": 2783,
+    "custom_props_defined": 0,
+    "var_uses": 2
+   }
+  },
+  "fancybox": {
+   "externals": [],
+   "min_bytes": 110037,
+   "min_gz": 38793,
+   "css": {
+    "css_bytes": 32711,
+    "css_gz": 6352,
+    "custom_props_defined": 140,
+    "var_uses": 268
+   }
+  },
+  "justified-layout": {
+   "externals": [],
+   "min_bytes": 6238,
+   "min_gz": 2079
+  },
+  "img-comparison-slider": {
+   "externals": [],
+   "min_bytes": 11800,
+   "min_gz": 3830
+  },
+  "vega+vega-lite+vega-embed": {
+   "externals": [],
+   "min_bytes": 840069,
+   "min_gz": 289476
+  },
+  "vega+vega-lite": {
+   "externals": [],
+   "min_bytes": 781079,
+   "min_gz": 268778
+  },
+  "vega-runtime-only": {
+   "externals": [],
+   "min_bytes": 523975,
+   "min_gz": 185756
+  },
+  "vega-interpreter": {
+   "externals": [],
+   "min_bytes": 6449,
+   "min_gz": 2681
+  },
+  "echarts-full": {
+   "externals": [],
+   "min_bytes": 1142052,
+   "min_gz": 382560
+  },
+  "echarts-subset": {
+   "externals": [],
+   "min_bytes": 653616,
+   "min_gz": 221127
+  },
+  "observable-plot": {
+   "externals": [],
+   "min_bytes": 393812,
+   "min_gz": 133176
+  },
+  "uplot": {
+   "externals": [],
+   "min_bytes": 52123,
+   "min_gz": 23096,
+   "css": {
+    "css_bytes": 1857,
+    "css_gz": 758,
+    "custom_props_defined": 0,
+    "var_uses": 0
+   }
+  },
+  "chart.js-auto": {
+   "externals": [],
+   "min_bytes": 206086,
+   "min_gz": 70776
+  },
+  "plotly.js-dist-min": {
+   "externals": [],
+   "min_bytes": 4812279,
+   "min_gz": 1467042
+  },
+  "graphic-walker": {
+   "externals": [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "react-dom/client",
+    "react/jsx-dev-runtime"
+   ],
+   "min_bytes": 4138271,
+   "min_gz": 1198721
+  },
+  "tremor-react": {
+   "externals": [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "react-dom/client",
+    "react/jsx-dev-runtime"
+   ],
+   "min_bytes": 873842,
+   "min_gz": 241942
+  },
+  "react-island(react+react-dom/client)": {
+   "externals": [],
+   "min_bytes": 222869,
+   "min_gz": 68894
+  },
+  "dnd-kit-dom": {
+   "externals": [],
+   "min_bytes": 93253,
+   "min_gz": 31058
+  },
+  "dnd-kit-core(react)": {
+   "externals": [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "react-dom/client",
+    "react/jsx-dev-runtime"
+   ],
+   "min_bytes": 42853,
+   "min_gz": 14622
+  },
+  "sortablejs": {
+   "externals": [],
+   "min_bytes": 46480,
+   "min_gz": 15651
+  },
+  "pragmatic-dnd(element+hitbox+autoscroll)": {
+   "externals": [],
+   "min_bytes": 23185,
+   "min_gz": 7182
+  },
+  "jkanban": {
+   "externals": [],
+   "min_bytes": 19055,
+   "min_gz": 6516,
+   "css": {
+    "css_bytes": 1840,
+    "css_gz": 640,
+    "custom_props_defined": 0,
+    "var_uses": 0
+   }
+  },
+  "hello-pangea-dnd(react)": {
+   "externals": [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "react-dom/client",
+    "react/jsx-dev-runtime"
+   ],
+   "min_bytes": 99117,
+   "min_gz": 31616
+  },
+  "fullcalendar7(daygrid+timegrid+list+interaction+classic)": {
+   "externals": [
+    "temporal-polyfill",
+    "temporal-polyfill/*"
+   ],
+   "min_bytes": 301855,
+   "min_gz": 84319,
+   "css": {
+    "css_bytes": 23675,
+    "css_gz": 5192,
+    "custom_props_defined": 31,
+    "var_uses": 73
+   }
+  },
+  "temporal-polyfill": {
+   "externals": [],
+   "min_bytes": 59116,
+   "min_gz": 20473
+  },
+  "event-calendar-build": {
+   "externals": [],
+   "min_bytes": 134463,
+   "min_gz": 46086,
+   "css": {
+    "css_bytes": 15515,
+    "css_gz": 3205,
+    "custom_props_defined": 29,
+    "var_uses": 111
+   }
+  },
+  "schedule-x-calendar(+preact)": {
+   "externals": [
+    "temporal-polyfill",
+    "temporal-polyfill/*"
+   ],
+   "min_bytes": 188706,
+   "min_gz": 49743,
+   "css": {
+    "css_bytes": 37208,
+    "css_gz": 5946,
+    "custom_props_defined": 55,
+    "var_uses": 223
+   }
+  },
+  "toast-ui-calendar": {
+   "externals": [],
+   "min_bytes": 263629,
+   "min_gz": 84631,
+   "css": {
+    "css_bytes": 26740,
+    "css_gz": 7031,
+    "custom_props_defined": 0,
+    "var_uses": 0
+   }
+  },
+  "frappe-gantt": {
+   "externals": [],
+   "min_bytes": 47824,
+   "min_gz": 13353,
+   "css": {
+    "css_bytes": 6848,
+    "css_gz": 1781,
+    "custom_props_defined": 20,
+    "var_uses": 51
+   }
+  },
+  "vis-timeline-standalone": {
+   "externals": [],
+   "min_bytes": 571824,
+   "min_gz": 163310,
+   "css": {
+    "css_bytes": 19837,
+    "css_gz": 3611,
+    "custom_props_defined": 0,
+    "var_uses": 0
+   }
+  },
+  "dhtmlx-gantt": {
+   "externals": [],
+   "min_bytes": 669929,
+   "min_gz": 180390,
+   "css": {
+    "css_bytes": 142729,
+    "css_gz": 51044,
+    "custom_props_defined": 187,
+    "var_uses": 677
+   }
+  },
+  "svar-react-gantt": {
+   "externals": [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "react-dom/client",
+    "react/jsx-dev-runtime"
+   ],
+   "min_bytes": 314273,
+   "min_gz": 106699
+  },
+  "maplibre-gl": {
+   "externals": [],
+   "min_bytes": 1106503,
+   "min_gz": 298704,
+   "css": {
+    "css_bytes": 71596,
+    "css_gz": 10191,
+    "custom_props_defined": 0,
+    "var_uses": 0
+   }
+  },
+  "leaflet": {
+   "externals": [],
+   "min_bytes": 150300,
+   "min_gz": 43402,
+   "css": {
+    "css_bytes": 14806,
+    "css_gz": 3522,
+    "custom_props_defined": 0,
+    "var_uses": 0
+   }
+  },
+  "openlayers(Map+View+Tile+Vector)": {
+   "externals": [],
+   "min_bytes": 337837,
+   "min_gz": 97747,
+   "css": {
+    "css_bytes": 6343,
+    "css_gz": 1466,
+    "custom_props_defined": 7,
+    "var_uses": 31
+   }
+  },
+  "pmtiles": {
+   "externals": [],
+   "min_bytes": 19515,
+   "min_gz": 7597
+  },
+  "headless-tree-core": {
+   "externals": [],
+   "min_bytes": 46577,
+   "min_gz": 12984
+  },
+  "react-arborist(react)": {
+   "externals": [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "react-dom/client",
+    "react/jsx-dev-runtime"
+   ],
+   "min_bytes": 107673,
+   "min_gz": 30978
+  },
+  "d3-hierarchy": {
+   "externals": [],
+   "min_bytes": 14842,
+   "min_gz": 5855
+  },
+  "webawesome-tree": {
+   "externals": [],
+   "min_bytes": 148436,
+   "min_gz": 37652
+  },
+  "cytoscape": {
+   "externals": [],
+   "min_bytes": 444170,
+   "min_gz": 141446
+  },
+  "sigma+graphology": {
+   "externals": [],
+   "min_bytes": 447271,
+   "min_gz": 112916
+  },
+  "xyflow-react(react external)": {
+   "externals": [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "react-dom/client",
+    "react/jsx-dev-runtime"
+   ],
+   "min_bytes": 189006,
+   "min_gz": 62189,
+   "css": {
+    "css_bytes": 18596,
+    "css_gz": 3027,
+    "custom_props_defined": 37,
+    "var_uses": 85
+   }
+  },
+  "xyflow-react+react island": {
+   "externals": [],
+   "min_bytes": 415281,
+   "min_gz": 130652
+  },
+  "xyflow-system": {
+   "externals": [],
+   "min_bytes": 101552,
+   "min_gz": 35753
+  },
+  "vis-network-standalone": {
+   "externals": [],
+   "min_bytes": 670907,
+   "min_gz": 160723
+  },
+  "force-graph": {
+   "externals": [],
+   "min_bytes": 176171,
+   "min_gz": 59062
+  },
+  "jsonforms-core": {
+   "externals": [],
+   "min_bytes": 241881,
+   "min_gz": 79845
+  },
+  "jsonforms-vanilla(react)": {
+   "externals": [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "react-dom/client",
+    "react/jsx-dev-runtime",
+    "@jsonforms/core"
+   ],
+   "min_bytes": 99540,
+   "min_gz": 34653
+  },
+  "react-hook-form(react)": {
+   "externals": [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "react-dom/client",
+    "react/jsx-dev-runtime"
+   ],
+   "min_bytes": 47333,
+   "min_gz": 16764
+  },
+  "rjsf-core(react)": {
+   "externals": [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "react-dom/client",
+    "react/jsx-dev-runtime"
+   ],
+   "min_bytes": 394282,
+   "min_gz": 130521
+  },
+  "json-editor": {
+   "externals": [],
+   "min_bytes": 539842,
+   "min_gz": 109284
+  },
+  "pivottable(+jquery)": {
+   "externals": [],
+   "min_bytes": 109781,
+   "min_gz": 37615,
+   "css": {
+    "css_bytes": 2069,
+    "css_gz": 786,
+    "custom_props_defined": 0,
+    "var_uses": 0
+   }
+  },
+  "dagre": {
+   "externals": [],
+   "min_bytes": 48842,
+   "min_gz": 17038
+  },
+  "d3-force": {
+   "externals": [],
+   "min_bytes": 15753,
+   "min_gz": 5935
+  },
+  "tabulator": {
+   "externals": [],
+   "min_bytes": 458496,
+   "min_gz": 105884,
+   "css": {
+    "css_bytes": 28383,
+    "css_gz": 3940,
+    "custom_props_defined": 0,
+    "var_uses": 0
+   }
+  }
+ },
+ "registry": {
+  "@atlaskit/pragmatic-drag-and-drop": {
+   "latest": "4.0.0",
+   "published": "2026-09-24T01:55:52.394Z",
+   "license": "Apache-2.0",
+   "peer": [],
+   "deps": 3,
+   "dist_tags": {
+    "next": "0.18.2",
+    "latest": "4.0.0"
+   },
+   "url": "https://www.npmjs.com/package/@atlaskit/pragmatic-drag-and-drop"
+  },
+  "@atlaskit/pragmatic-drag-and-drop-hitbox": {
+   "latest": "3.0.0",
+   "published": "2026-09-24T01:54:08.684Z",
+   "license": "Apache-2.0",
+   "peer": [],
+   "deps": 2,
+   "dist_tags": {
+    "next": "0.11.2",
+    "latest": "3.0.0"
+   },
+   "url": "https://www.npmjs.com/package/@atlaskit/pragmatic-drag-and-drop-hitbox"
+  },
+  "@awesome.me/webawesome": {
+   "latest": "3.14.0",
+   "published": "2026-09-24T15:15:58.538Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 13,
+   "dist_tags": {
+    "latest": "3.14.0"
+   },
+   "url": "https://www.npmjs.com/package/@awesome.me/webawesome"
+  },
+  "@dagrejs/dagre": {
+   "latest": "3.1.3",
+   "published": "2026-10-24T21:48:02.059Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 1,
+   "dist_tags": {
+    "latest": "3.1.3"
+   },
+   "url": "https://www.npmjs.com/package/@dagrejs/dagre"
+  },
+  "@dnd-kit/core": {
+   "latest": "6.3.1",
+   "published": "2024-12-05T17:10:19.974Z",
+   "license": "MIT",
+   "peer": [
+    "react",
+    "react-dom"
+   ],
+   "deps": 3,
+   "dist_tags": {
+    "latest": "6.3.1",
+    "next": "6.3.1-next-202411517925"
+   },
+   "url": "https://www.npmjs.com/package/@dnd-kit/core"
+  },
+  "@dnd-kit/dom": {
+   "latest": "0.5.1",
+   "published": "2026-10-15T12:10:27.283Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 5,
+   "dist_tags": {
+    "latest": "0.5.1",
+    "beta": "0.5.1-beta-20261015120327"
+   },
+   "url": "https://www.npmjs.com/package/@dnd-kit/dom"
+  },
+  "@event-calendar/build": {
+   "latest": "5.18.1",
+   "published": "2026-10-25T15:04:37.003Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "5.18.1"
+   },
+   "url": "https://www.npmjs.com/package/@event-calendar/build"
+  },
+  "@event-calendar/core": {
+   "latest": "5.18.1",
+   "published": "2026-10-25T15:05:03.875Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 1,
+   "dist_tags": {
+    "latest": "5.18.1"
+   },
+   "url": "https://www.npmjs.com/package/@event-calendar/core"
+  },
+  "@fancyapps/ui": {
+   "latest": "6.1.15",
+   "published": "2026-09-08T07:03:31.659Z",
+   "license": "SEE LICENSE IN LICENSE.md",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "alpha": "4.0.0-alpha.0",
+    "latest": "6.1.15"
+   },
+   "url": "https://www.npmjs.com/package/@fancyapps/ui"
+  },
+  "@finos/perspective": {
+   "latest": "3.8.0",
+   "published": "2025-09-03T19:50:09.943Z",
+   "license": "Apache-2.0",
+   "peer": [],
+   "deps": 3,
+   "dist_tags": {
+    "next": "3.3.0-rc.1",
+    "latest": "3.8.0"
+   },
+   "url": "https://www.npmjs.com/package/@finos/perspective"
+  },
+  "@finos/perspective-viewer": {
+   "latest": "3.8.0",
+   "published": "2025-09-03T19:50:21.085Z",
+   "license": "Apache-2.0",
+   "peer": [],
+   "deps": 2,
+   "dist_tags": {
+    "next": "3.3.0-rc.1",
+    "latest": "3.8.0"
+   },
+   "url": "https://www.npmjs.com/package/@finos/perspective-viewer"
+  },
+  "@full-ui/headless-calendar": {
+   "latest": "7.1.3",
+   "published": "2026-10-16T03:05:13.734Z",
+   "license": "MIT",
+   "peer": [
+    "temporal-polyfill"
+   ],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "7.1.3"
+   },
+   "url": "https://www.npmjs.com/package/@full-ui/headless-calendar"
+  },
+  "@fullcalendar/core": {
+   "latest": "7.1.3",
+   "published": "2026-10-16T03:04:48.967Z",
+   "license": "MIT",
+   "peer": [
+    "@full-ui/headless-calendar",
+    "temporal-polyfill"
+   ],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "7.1.3",
+    "legacy": "6.1.22"
+   },
+   "url": "https://www.npmjs.com/package/@fullcalendar/core"
+  },
+  "@headless-tree/core": {
+   "latest": "1.8.0",
+   "published": "2026-10-15T04:33:50.974Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "branch": "0.0.0-20250511185653",
+    "snapshot": "0.0.0-20261025205653",
+    "latest": "1.8.0"
+   },
+   "url": "https://www.npmjs.com/package/@headless-tree/core"
+  },
+  "@hello-pangea/dnd": {
+   "latest": "18.0.1",
+   "published": "2025-02-09T18:51:28.649Z",
+   "license": "Apache-2.0",
+   "peer": [
+    "react",
+    "react-dom"
+   ],
+   "deps": 5,
+   "dist_tags": {
+    "beta": "18.0.0-beta.0",
+    "latest": "18.0.1"
+   },
+   "url": "https://www.npmjs.com/package/@hello-pangea/dnd"
+  },
+  "@json-editor/json-editor": {
+   "latest": "2.17.3",
+   "published": "2026-10-09T13:50:42.210Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 1,
+   "dist_tags": {
+    "latest": "2.17.3"
+   },
+   "url": "https://www.npmjs.com/package/@json-editor/json-editor"
+  },
+  "@jsonforms/core": {
+   "latest": "3.8.0",
+   "published": "2026-06-16T07:49:27.597Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 4,
+   "dist_tags": {
+    "latest": "3.8.0",
+    "next": "3.9.0-alpha.1"
+   },
+   "url": "https://www.npmjs.com/package/@jsonforms/core"
+  },
+  "@jsonforms/vanilla-renderers": {
+   "latest": "3.8.0",
+   "published": "2026-06-16T07:49:57.546Z",
+   "license": "MIT",
+   "peer": [
+    "@jsonforms/core",
+    "@jsonforms/react",
+    "react"
+   ],
+   "deps": 1,
+   "dist_tags": {
+    "latest": "3.8.0",
+    "next": "3.9.0-alpha.1"
+   },
+   "url": "https://www.npmjs.com/package/@jsonforms/vanilla-renderers"
+  },
+  "@kanaries/graphic-walker": {
+   "latest": "0.5.3",
+   "published": "2026-10-01T16:45:19.922Z",
+   "license": "Apache-2.0",
+   "peer": [
+    "react",
+    "react-dom"
+   ],
+   "deps": 71,
+   "dist_tags": {
+    "pre": "0.4.84",
+    "latest": "0.5.3"
+   },
+   "url": "https://www.npmjs.com/package/@kanaries/graphic-walker"
+  },
+  "@observablehq/framework": {
+   "latest": "1.13.4",
+   "published": "2026-03-02T21:48:49.487Z",
+   "license": "ISC",
+   "peer": [],
+   "deps": 44,
+   "dist_tags": {
+    "latest": "1.13.4"
+   },
+   "url": "https://www.npmjs.com/package/@observablehq/framework"
+  },
+  "@observablehq/plot": {
+   "latest": "0.6.17",
+   "published": "2025-02-14T16:15:29.386Z",
+   "license": "ISC",
+   "peer": [],
+   "deps": 3,
+   "dist_tags": {
+    "latest": "0.6.17"
+   },
+   "url": "https://www.npmjs.com/package/@observablehq/plot"
+  },
+  "@perspective-dev/client": {
+   "latest": "5.6.1",
+   "published": "2026-10-23T16:37:46.707Z",
+   "license": "Apache-2.0",
+   "peer": [],
+   "deps": 3,
+   "dist_tags": {
+    "latest": "5.6.1"
+   },
+   "url": "https://www.npmjs.com/package/@perspective-dev/client"
+  },
+  "@perspective-dev/viewer": {
+   "latest": "5.6.1",
+   "published": "2026-10-23T16:37:57.418Z",
+   "license": "Apache-2.0",
+   "peer": [],
+   "deps": 3,
+   "dist_tags": {
+    "latest": "5.6.1"
+   },
+   "url": "https://www.npmjs.com/package/@perspective-dev/viewer"
+  },
+  "@perspective-dev/viewer-d3fc": {
+   "latest": "4.4.1",
+   "published": "2026-04-14T15:29:27.535Z",
+   "license": "Apache-2.0",
+   "peer": [],
+   "deps": 12,
+   "dist_tags": {
+    "latest": "4.4.1"
+   },
+   "url": "https://www.npmjs.com/package/@perspective-dev/viewer-d3fc"
+  },
+  "@perspective-dev/viewer-datagrid": {
+   "latest": "5.6.1",
+   "published": "2026-10-23T16:38:24.236Z",
+   "license": "Apache-2.0",
+   "peer": [],
+   "deps": 3,
+   "dist_tags": {
+    "latest": "5.6.1"
+   },
+   "url": "https://www.npmjs.com/package/@perspective-dev/viewer-datagrid"
+  },
+  "@rjsf/core": {
+   "latest": "6.11.0",
+   "published": "2026-09-29T00:04:09.064Z",
+   "license": "Apache-2.0",
+   "peer": [
+    "@rjsf/utils",
+    "react"
+   ],
+   "deps": 1,
+   "dist_tags": {
+    "canary": "3.0.1",
+    "next": "6.0.0-beta.23",
+    "latest": "6.11.0"
+   },
+   "url": "https://www.npmjs.com/package/@rjsf/core"
+  },
+  "@schedule-x/calendar": {
+   "latest": "4.9.1",
+   "published": "2026-09-29T09:59:42.874Z",
+   "license": "MIT",
+   "peer": [
+    "@preact/signals",
+    "preact",
+    "temporal-polyfill"
+   ],
+   "deps": 0,
+   "dist_tags": {
+    "beta": "3.0.0-rc.3",
+    "latest": "4.9.1"
+   },
+   "url": "https://www.npmjs.com/package/@schedule-x/calendar"
+  },
+  "@schedule-x/drag-and-drop": {
+   "latest": "3.7.3",
+   "published": "2026-01-14T13:32:39.353Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "beta": "3.0.0-rc.3",
+    "latest": "3.7.3"
+   },
+   "url": "https://www.npmjs.com/package/@schedule-x/drag-and-drop"
+  },
+  "@svar-ui/react-gantt": {
+   "latest": "2.8.1",
+   "published": "2026-10-12T13:29:04.056Z",
+   "license": "MIT",
+   "peer": [
+    "react",
+    "react-dom"
+   ],
+   "deps": 17,
+   "dist_tags": {
+    "latest": "2.8.1"
+   },
+   "url": "https://www.npmjs.com/package/@svar-ui/react-gantt"
+  },
+  "@tanstack/table-core": {
+   "latest": "9.3.1",
+   "published": "2026-10-12T16:51:29.597Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 1,
+   "dist_tags": {
+    "alpha": "9.0.0-alpha.54",
+    "beta": "9.0.0-beta.80",
+    "latest": "9.3.1"
+   },
+   "url": "https://www.npmjs.com/package/@tanstack/table-core"
+  },
+  "@tanstack/virtual-core": {
+   "latest": "3.19.7",
+   "published": "2026-10-22T12:05:01.046Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "alpha": "3.0.0-alpha.2",
+    "beta": "3.0.0-beta.68",
+    "latest": "3.19.7"
+   },
+   "url": "https://www.npmjs.com/package/@tanstack/virtual-core"
+  },
+  "@toast-ui/calendar": {
+   "latest": "2.1.3",
+   "published": "2022-08-16T05:18:52.891Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 6,
+   "dist_tags": {
+    "latest": "2.1.3"
+   },
+   "url": "https://www.npmjs.com/package/@toast-ui/calendar"
+  },
+  "@tremor/react": {
+   "latest": "3.18.7",
+   "published": "2025-01-13T13:06:12.787Z",
+   "license": "Apache 2.0",
+   "peer": [
+    "react",
+    "react-dom"
+   ],
+   "deps": 7,
+   "dist_tags": {
+    "test-fix-overflow-date-picker-modal": "1.0.13-test-fix-overflow-date-picker-modal.1",
+    "test-v1.1.0": "1.1.0-test-v1.1.0.7",
+    "beta-1.1.2": "1.1.4-beta-1.1.2.1",
+    "beta-1.1.4": "1.1.4-beta-1.1.4.2",
+    "beta-v1.1.4-patch": "1.1.5-beta-v1.1.4-patch.5",
+    "beta-1.2.0": "1.2.0-beta-1.2.0.10",
+    "beta-patch-1.2.1": "1.2.2-beta-patch-1.2.1.2",
+    "beta-1.3.0": "1.3.0-beta-1.3.0.1",
+    "beta-feat-1.3.0-disabledtext": "1.3.0-beta-feat-1.3.0-disabledtext.3",
+    "beta-feat-1.3.0": "1.3.0-beta-feat-1.3.0.8",
+    "beta-1.4.0": "1.4.0-beta-1.4.0.9",
+    "beta-1.5.0": "1.5.0-beta-1.5.0.3",
+    "beta-1.6.0": "1.6.0-beta-1.6.0.1",
+    "beta-1.7.0": "1.7.0-beta-1.7.0.4",
+    "beta-1.8.0": "1.8.0-beta-1.8.0.1",
+    "beta-v2": "1.9.0-beta-v2.1",
+    "beta-2.0": "1.9.0-beta-2.0.2",
+    "beta-v2.0": "2.0.0-beta-v2.0.5",
+    "beta-test-v2": "2.0.0-beta-test-v2.1",
+    "beta-2.0.0": "2.0.0-beta-2.0.0.5",
+    "beta-build-2.1.2": "2.2.0-beta-build-2.1.2.1",
+    "beta-2.2.0": "2.2.0-beta-2.2.0.1",
+    "beta-2.3.0": "2.3.0-beta-2.3.0.3",
+    "beta-v1.4.0": "2.4.0-beta-v1.4.0.2",
+    "beta-2.5.0": "2.5.0-beta-2.5.0.4",
+    "beta-v3-development": "3.0.0-beta-v3-development.1",
+    "beta-3.0.0": "3.0.0-beta-3.0.0.7",
+    "beta-3.1.0": "3.1.0-beta-3.1.0.2",
+    "beta-3.0.2": "3.0.2-beta-3.0.2.2",
+    "beta-3.1.1": "3.0.3-beta-3.1.1.1",
+    "beta-3.4.0": "3.4.0-beta-3.4.0.1",
+    "beta-3.4": "3.4.0-beta-3.4.1",
+    "beta-3.4.0-datepicker": "3.4.0-beta-3.4.0-datepicker.1",
+    "beta-3.5": "3.5.0-beta-3.5.1",
+    "beta-3.5.0.1": "3.5.0-beta-3.5.0.1.1",
+    "beta-3.5.0.2": "3.5.0-beta-3.5.0.2.1",
+    "beta-3.5.0.3": "3.5.0-beta-3.5.0.3.1",
+    "beta-3.6.0": "3.6.0-beta-3.6.0.1",
+    "beta-3.6.0.1": "3.6.0-beta-3.6.0.1.1",
+    "beta-3.6.0.2": "3.6.0-beta-3.6.0.2.1",
+    "beta-3.6.1": "3.6.1-beta-3.6.1.1",
+    "beta-3.8": "3.7.10-beta-3.8.1",
+    "beta-3.8-2": "3.7.10-beta-3.8-2.1",
+    "beta-fixnegativebar": "3.10.1-beta-fixnegativebar.3",
+    "beta-package-updates": "3.12.0-beta-package-updates.1",
+    "beta-customcolors": "3.12.0-beta-customcolors.5",
+    "beta-dialog-fix": "3.13.1-beta-dialog-fix.1",
+    "beta-button-transition": "3.13.2-beta-button-transition.1",
+    "beta-select": "3.13.4-beta-select.3",
+    "beta-search-select": "3.14.0-beta-search-select.1",
+    "beta-barlist": "3.14.0-beta-barlist.2",
+    "beta-temp": "3.14.0-beta-temp.2",
+    "beta-dialog": "3.14.2-beta-dialog.1",
+    "beta-tabfixes": "3.15.1-beta-tabfixes.3",
+    "beta-funnel": "3.16.1-beta-funnel.4",
+    "beta-dual-axis": "3.17.0-beta-dual-axis.1",
+    "beta-version-bump": "3.16.2-beta-version-bump.2",
+    "beta-chart-color-logic": "3.16.3-beta-chart-color-logic.1",
+    "beta": "3.17.0-beta.7",
+    "beta-tab-color-fix": "3.17.4-beta-tab-color-fix.4",
+    "beta-tailwind-merge-update": "3.18.3-beta-tailwind-merge-update.1",
+    "beta-workflows": "3.18.3-beta-workflows.2",
+    "beta-typescript-rollup": "3.18.4-beta-typescript-rollup.2",
+    "beta-headlessui": "3.18.5-beta-headlessui.4",
+    "latest": "3.18.7",
+    "beta-tremor-v4": "4.0.0-beta-tremor-v4.4"
+   },
+   "url": "https://www.npmjs.com/package/@tremor/react"
+  },
+  "@xyflow/react": {
+   "latest": "12.12.0",
+   "published": "2026-09-24T12:41:36.171Z",
+   "license": "MIT",
+   "peer": [
+    "@types/react",
+    "@types/react-dom",
+    "react",
+    "react-dom"
+   ],
+   "deps": 3,
+   "dist_tags": {
+    "next": "13.0.0-next.0",
+    "latest": "12.12.0"
+   },
+   "url": "https://www.npmjs.com/package/@xyflow/react"
+  },
+  "@xyflow/svelte": {
+   "latest": "1.7.0",
+   "published": "2026-09-24T12:41:13.124Z",
+   "license": "MIT",
+   "peer": [
+    "svelte"
+   ],
+   "deps": 2,
+   "dist_tags": {
+    "next": "2.0.0-next.4",
+    "latest": "1.7.0"
+   },
+   "url": "https://www.npmjs.com/package/@xyflow/svelte"
+  },
+  "@xyflow/system": {
+   "latest": "0.0.83",
+   "published": "2026-09-24T12:43:01.347Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 9,
+   "dist_tags": {
+    "next": "1.0.0-next.4",
+    "latest": "0.0.83"
+   },
+   "url": "https://www.npmjs.com/package/@xyflow/system"
+  },
+  "ag-charts-community": {
+   "latest": "14.2.0",
+   "published": "2026-09-16T07:13:32.964Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 3,
+   "dist_tags": {
+    "v10-lts": "10.3.9",
+    "latest": "14.2.0"
+   },
+   "url": "https://www.npmjs.com/package/ag-charts-community"
+  },
+  "ag-grid-community": {
+   "latest": "36.2.0",
+   "published": "2026-09-16T08:00:00.051Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 2,
+   "dist_tags": {
+    "v32-lts": "32.3.9",
+    "latest": "36.2.0"
+   },
+   "url": "https://www.npmjs.com/package/ag-grid-community"
+  },
+  "chart.js": {
+   "latest": "4.6.1",
+   "published": "2026-10-22T17:23:24.755Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 1,
+   "dist_tags": {
+    "next": "4.0.0-release",
+    "latest": "4.6.1"
+   },
+   "url": "https://www.npmjs.com/package/chart.js"
+  },
+  "clusterize.js": {
+   "latest": "1.0.0",
+   "published": "2023-01-22T14:41:07.855Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "1.0.0"
+   },
+   "url": "https://www.npmjs.com/package/clusterize.js"
+  },
+  "cytoscape": {
+   "latest": "3.34.4",
+   "published": "2026-10-15T19:14:50.649Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "3.34.4"
+   },
+   "url": "https://www.npmjs.com/package/cytoscape"
+  },
+  "d3-force": {
+   "latest": "3.0.0",
+   "published": "2021-06-05T19:11:01.836Z",
+   "license": "ISC",
+   "peer": [],
+   "deps": 3,
+   "dist_tags": {
+    "latest": "3.0.0",
+    "one": "1.2.1",
+    "next": "2.1.0-rc.2"
+   },
+   "url": "https://www.npmjs.com/package/d3-force"
+  },
+  "d3-hierarchy": {
+   "latest": "3.1.2",
+   "published": "2022-04-02T22:20:25.115Z",
+   "license": "ISC",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "3.1.2",
+    "next": "2.0.0-rc.4"
+   },
+   "url": "https://www.npmjs.com/package/d3-hierarchy"
+  },
+  "datatables.net": {
+   "latest": "3.1.4",
+   "published": "2026-10-13T08:20:36.024Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "dt1": "1.13.11",
+    "beta": "3.0.0-beta.2",
+    "latest": "3.1.4"
+   },
+   "url": "https://www.npmjs.com/package/datatables.net"
+  },
+  "dhtmlx-gantt": {
+   "latest": "10.0.3",
+   "published": "2026-09-03T12:15:46.412Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "10.0.3"
+   },
+   "url": "https://www.npmjs.com/package/dhtmlx-gantt"
+  },
+  "diff": {
+   "latest": "9.0.0",
+   "published": "2026-04-13T12:39:24.498Z",
+   "license": "BSD-3-Clause",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "tmp": "3.5.1",
+    "latest": "9.0.0"
+   },
+   "url": "https://www.npmjs.com/package/diff"
+  },
+  "echarts": {
+   "latest": "6.1.0",
+   "published": "2026-05-19T17:52:11.076Z",
+   "license": "Apache-2.0",
+   "peer": [],
+   "deps": 2,
+   "dist_tags": {
+    "alpha": "5.0.0-alpha.2",
+    "beta": "6.0.0-beta.1",
+    "latest": "6.1.0",
+    "rc": "6.1.0-rc.2"
+   },
+   "url": "https://www.npmjs.com/package/echarts"
+  },
+  "elkjs": {
+   "latest": "0.12.0",
+   "published": "2026-07-17T08:07:54.693Z",
+   "license": "EPL-2.0 OR GPL-3.0-or-later",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "0.12.0"
+   },
+   "url": "https://www.npmjs.com/package/elkjs"
+  },
+  "flexmonster": {
+   "latest": "2.9.140",
+   "published": "2026-10-12T09:59:34.631Z",
+   "license": "https://www.flexmonster.com/software-license-agreement/",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "2.9.140"
+   },
+   "url": "https://www.npmjs.com/package/flexmonster"
+  },
+  "force-graph": {
+   "latest": "1.52.0",
+   "published": "2026-09-28T23:16:07.723Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 15,
+   "dist_tags": {
+    "latest": "1.52.0"
+   },
+   "url": "https://www.npmjs.com/package/force-graph"
+  },
+  "frappe-gantt": {
+   "latest": "1.2.2",
+   "published": "2026-02-25T10:12:26.442Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "1.2.2"
+   },
+   "url": "https://www.npmjs.com/package/frappe-gantt"
+  },
+  "fullcalendar": {
+   "latest": "7.1.3",
+   "published": "2026-10-16T03:05:15.726Z",
+   "license": "MIT",
+   "peer": [
+    "temporal-polyfill"
+   ],
+   "deps": 3,
+   "dist_tags": {
+    "latest": "7.1.3",
+    "legacy": "6.1.22"
+   },
+   "url": "https://www.npmjs.com/package/fullcalendar"
+  },
+  "glightbox": {
+   "latest": "3.3.1",
+   "published": "2025-01-21T01:00:52.380Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "3.3.1",
+    "beta": "4.0.0-beta.8"
+   },
+   "url": "https://www.npmjs.com/package/glightbox"
+  },
+  "graphology": {
+   "latest": "0.26.0",
+   "published": "2025-01-26T10:25:05.589Z",
+   "license": "MIT",
+   "peer": [
+    "graphology-types"
+   ],
+   "deps": 1,
+   "dist_tags": {
+    "alpha": "0.26.0-alpha1",
+    "latest": "0.26.0",
+    "rc": "0.26.0-rc1"
+   },
+   "url": "https://www.npmjs.com/package/graphology"
+  },
+  "img-comparison-slider": {
+   "latest": "8.0.7",
+   "published": "2026-01-29T08:14:01.501Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "8.0.7"
+   },
+   "url": "https://www.npmjs.com/package/img-comparison-slider"
+  },
+  "jkanban": {
+   "latest": "1.3.1",
+   "published": "2020-12-17T19:31:07.955Z",
+   "license": "Apache 2.0",
+   "peer": [],
+   "deps": 2,
+   "dist_tags": {
+    "latest": "1.3.1"
+   },
+   "url": "https://www.npmjs.com/package/jkanban"
+  },
+  "justified-layout": {
+   "latest": "4.1.0",
+   "published": "2021-01-06T21:23:06.767Z",
+   "license": "ISC",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "4.1.0"
+   },
+   "url": "https://www.npmjs.com/package/justified-layout"
+  },
+  "leaflet": {
+   "latest": "1.9.4",
+   "published": "2023-05-18T11:04:11.088Z",
+   "license": "BSD-2-Clause",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "beta": "1.8.0-beta.3",
+    "latest": "1.9.4",
+    "alpha": "2.0.0-alpha.1"
+   },
+   "url": "https://www.npmjs.com/package/leaflet"
+  },
+  "lightgallery": {
+   "latest": "3.0.0",
+   "published": "2026-10-09T04:11:23.446Z",
+   "license": "(GPL-3.0-only OR LicenseRef-Commercial)",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "3.0.0",
+    "next": "3.0.0"
+   },
+   "url": "https://www.npmjs.com/package/lightgallery"
+  },
+  "maplibre-gl": {
+   "latest": "6.16.0",
+   "published": "2026-10-25T13:17:01.849Z",
+   "license": "BSD-3-Clause",
+   "peer": [],
+   "deps": 18,
+   "dist_tags": {
+    "v1": "1.15.3",
+    "next": "6.0.0-22",
+    "latest": "6.16.0"
+   },
+   "url": "https://www.npmjs.com/package/maplibre-gl"
+  },
+  "masonic": {
+   "latest": "4.1.0",
+   "published": "2025-04-22T16:33:10.965Z",
+   "license": "MIT",
+   "peer": [
+    "react"
+   ],
+   "deps": 11,
+   "dist_tags": {
+    "beta": "3.0.0-beta",
+    "latest": "4.1.0"
+   },
+   "url": "https://www.npmjs.com/package/masonic"
+  },
+  "masonry-layout": {
+   "latest": "4.2.2",
+   "published": "2018-07-04T18:01:20.543Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 2,
+   "dist_tags": {
+    "latest": "4.2.2"
+   },
+   "url": "https://www.npmjs.com/package/masonry-layout"
+  },
+  "muuri": {
+   "latest": "0.9.5",
+   "published": "2021-07-09T19:14:08.022Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "0.9.5"
+   },
+   "url": "https://www.npmjs.com/package/muuri"
+  },
+  "ol": {
+   "latest": "10.11.0",
+   "published": "2026-10-04T19:50:20.782Z",
+   "license": "BSD-2-Clause",
+   "peer": [],
+   "deps": 6,
+   "dist_tags": {
+    "nowebgl": "5.0.0-nowebgl.1",
+    "beta": "6.0.0-beta.15",
+    "sh": "9.2.5-sh.2",
+    "pr": "10.7.1-pr.17308.1",
+    "latest": "10.11.0",
+    "dev": "10.11.1-dev.1792746023853"
+   },
+   "url": "https://www.npmjs.com/package/ol"
+  },
+  "photoswipe": {
+   "latest": "5.4.4",
+   "published": "2024-05-24T15:15:47.273Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "5.4.4",
+    "beta": "5.2.0-beta.5"
+   },
+   "url": "https://www.npmjs.com/package/photoswipe"
+  },
+  "pivottable": {
+   "latest": "2.23.0",
+   "published": "2018-11-04T18:22:55.637Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 1,
+   "dist_tags": {
+    "latest": "2.23.0"
+   },
+   "url": "https://www.npmjs.com/package/pivottable"
+  },
+  "plotly.js-dist-min": {
+   "latest": "4.1.2",
+   "published": "2026-10-05T12:51:56.283Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "rc": "4.0.0-rc.0",
+    "latest": "4.1.2"
+   },
+   "url": "https://www.npmjs.com/package/plotly.js-dist-min"
+  },
+  "pmtiles": {
+   "latest": "4.5.0",
+   "published": "2026-08-10T20:12:24.430Z",
+   "license": "BSD-3-Clause",
+   "peer": [],
+   "deps": 1,
+   "dist_tags": {
+    "beta": "3.0.0-alpha.2",
+    "latest": "4.5.0"
+   },
+   "url": "https://www.npmjs.com/package/pmtiles"
+  },
+  "react": {
+   "latest": "19.3.1",
+   "published": "2026-10-14T16:47:15.290Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "beta": "19.0.0-beta-26f2496093-20240514",
+    "rc": "19.0.0-rc.1",
+    "next": "19.3.0-canary-d5736f09-20260507",
+    "latest": "19.3.1",
+    "backport": "19.1.10",
+    "experimental": "0.0.0-experimental-a6b912fb-20261023",
+    "canary": "19.3.0-canary-a6b912fb-20261023"
+   },
+   "url": "https://www.npmjs.com/package/react"
+  },
+  "react-arborist": {
+   "latest": "4.0.1",
+   "published": "2026-10-11T00:58:33.901Z",
+   "license": "MIT",
+   "peer": [
+    "react",
+    "react-dnd",
+    "react-dnd-html5-backend",
+    "react-dom"
+   ],
+   "deps": 3,
+   "dist_tags": {
+    "next": "3.3.2-0",
+    "latest": "4.0.1"
+   },
+   "url": "https://www.npmjs.com/package/react-arborist"
+  },
+  "react-dom": {
+   "latest": "19.3.1",
+   "published": "2026-10-14T16:49:10.081Z",
+   "license": "MIT",
+   "peer": [
+    "react"
+   ],
+   "deps": 1,
+   "dist_tags": {
+    "beta": "19.0.0-beta-26f2496093-20240514",
+    "rc": "19.0.0-rc.1",
+    "next": "19.3.0-canary-d5736f09-20260507",
+    "latest": "19.3.1",
+    "backport": "19.1.10",
+    "experimental": "0.0.0-experimental-a6b912fb-20261023",
+    "canary": "19.3.0-canary-a6b912fb-20261023"
+   },
+   "url": "https://www.npmjs.com/package/react-dom"
+  },
+  "react-hook-form": {
+   "latest": "7.91.0",
+   "published": "2026-10-23T21:37:28.462Z",
+   "license": "MIT",
+   "peer": [
+    "@types/react",
+    "react"
+   ],
+   "deps": 0,
+   "dist_tags": {
+    "next": "7.60.0-next.0",
+    "alpha": "8.0.0-alpha.5",
+    "beta": "8.0.0-beta.0",
+    "latest": "7.91.0"
+   },
+   "url": "https://www.npmjs.com/package/react-hook-form"
+  },
+  "sigma": {
+   "latest": "4.0.3",
+   "published": "2026-10-15T13:51:09.448Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 2,
+   "dist_tags": {
+    "alpha-rc": "2.0.0-alpha7-labelgrid",
+    "rc": "2.0.0-alpha10-rc2",
+    "legacy": "1.2.2",
+    "alpha": "4.0.0-alpha.7",
+    "beta": "4.0.0-beta.8",
+    "latest": "4.0.3"
+   },
+   "url": "https://www.npmjs.com/package/sigma"
+  },
+  "sortablejs": {
+   "latest": "1.15.7",
+   "published": "2026-02-11T22:42:31.720Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "1.15.7"
+   },
+   "url": "https://www.npmjs.com/package/sortablejs"
+  },
+  "tabulator-tables": {
+   "latest": "6.7.1",
+   "published": "2026-10-22T16:58:45.000Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "alpha": "5.0.0-alpha.0",
+    "latest": "6.7.1"
+   },
+   "url": "https://www.npmjs.com/package/tabulator-tables"
+  },
+  "temporal-polyfill": {
+   "latest": "1.0.6",
+   "published": "2026-10-13T20:13:31.257Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 2,
+   "dist_tags": {
+    "beta": "0.3.0-beta.1",
+    "latest": "1.0.6"
+   },
+   "url": "https://www.npmjs.com/package/temporal-polyfill"
+  },
+  "uplot": {
+   "latest": "1.6.32",
+   "published": "2025-03-14T02:51:47.242Z",
+   "license": "MIT",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "1.6.32"
+   },
+   "url": "https://www.npmjs.com/package/uplot"
+  },
+  "vega": {
+   "latest": "6.4.0",
+   "published": "2026-08-14T17:16:29.973Z",
+   "license": "BSD-3-Clause",
+   "peer": [],
+   "deps": 27,
+   "dist_tags": {
+    "next": "3.0.0-beta.4",
+    "v5-maintenance": "5.33.1",
+    "latest": "6.4.0"
+   },
+   "url": "https://www.npmjs.com/package/vega"
+  },
+  "vega-embed": {
+   "latest": "7.3.0",
+   "published": "2026-09-23T17:37:00.548Z",
+   "license": "BSD-3-Clause",
+   "peer": [
+    "vega",
+    "vega-lite"
+   ],
+   "deps": 8,
+   "dist_tags": {
+    "pre": "3.0.0-beta.11",
+    "canary": "6.21.1--canary.1039.c10684c.0",
+    "next": "6.22.0-next.0",
+    "latest": "7.3.0"
+   },
+   "url": "https://www.npmjs.com/package/vega-embed"
+  },
+  "vega-interpreter": {
+   "latest": "2.3.2",
+   "published": "2026-08-14T17:18:19.838Z",
+   "license": "BSD-3-Clause",
+   "peer": [],
+   "deps": 1,
+   "dist_tags": {
+    "v1-maintenance": "1.2.1",
+    "latest": "2.3.2"
+   },
+   "url": "https://www.npmjs.com/package/vega-interpreter"
+  },
+  "vega-lite": {
+   "latest": "6.5.0",
+   "published": "2026-10-08T14:30:35.728Z",
+   "license": "BSD-3-Clause",
+   "peer": [
+    "vega"
+   ],
+   "deps": 6,
+   "dist_tags": {
+    "pre": "2.0.0-beta.1",
+    "canary": "5.7.0--canary.8145.0eb1af7.0",
+    "next": "5.7.0-next.0",
+    "latest": "6.5.0"
+   },
+   "url": "https://www.npmjs.com/package/vega-lite"
+  },
+  "vega-tooltip": {
+   "latest": "1.1.0",
+   "published": "2025-09-18T19:31:48.304Z",
+   "license": "BSD-3-Clause",
+   "peer": [],
+   "deps": 1,
+   "dist_tags": {
+    "pre": "0.2.0",
+    "canary": "0.29.1--canary.717.1dd1a25.0",
+    "next": "1.0.0-alpha.5",
+    "latest": "1.1.0"
+   },
+   "url": "https://www.npmjs.com/package/vega-tooltip"
+  },
+  "virtua": {
+   "latest": "0.53.6",
+   "published": "2026-10-21T14:07:09.400Z",
+   "license": "MIT",
+   "peer": [
+    "@angular/common",
+    "@angular/core",
+    "react",
+    "react-dom",
+    "solid-js",
+    "svelte",
+    "vue"
+   ],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "0.53.6"
+   },
+   "url": "https://www.npmjs.com/package/virtua"
+  },
+  "vis-network": {
+   "latest": "10.1.3",
+   "published": "2026-10-25T14:59:23.920Z",
+   "license": "(Apache-2.0 OR MIT)",
+   "peer": [
+    "@egjs/hammerjs",
+    "component-emitter",
+    "keycharm",
+    "uuid",
+    "vis-data",
+    "vis-util"
+   ],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "10.1.3"
+   },
+   "url": "https://www.npmjs.com/package/vis-network"
+  },
+  "vis-timeline": {
+   "latest": "8.5.5",
+   "published": "2026-10-25T13:23:17.912Z",
+   "license": "(Apache-2.0 OR MIT)",
+   "peer": [
+    "@egjs/hammerjs",
+    "component-emitter",
+    "keycharm",
+    "moment",
+    "propagating-hammerjs",
+    "uuid",
+    "vis-data",
+    "vis-util",
+    "xss"
+   ],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "8.5.5"
+   },
+   "url": "https://www.npmjs.com/package/vis-timeline"
+  },
+  "webdatarocks": {
+   "latest": "1.4.9",
+   "published": "2023-10-19T13:12:22.072Z",
+   "license": "https://webdatarocks.com/license-agreement/",
+   "peer": [],
+   "deps": 0,
+   "dist_tags": {
+    "latest": "1.4.9"
+   },
+   "url": "https://www.npmjs.com/package/webdatarocks"
+  }
+ }
+}

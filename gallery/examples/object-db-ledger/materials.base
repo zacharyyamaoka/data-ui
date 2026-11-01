@@ -1,0 +1,34 @@
+# Proposal 2 · Table-first: ~/bam-waste-objects/views/Materials.base (bam-waste-objects @ 3a3be7a, written by
+# `object-db bases`), read by data-ui. The verbatim file is library/Materials.base; the edits are marked EDIT below.
+# Check it: node bin/data-ui.mjs check gallery/examples/object-db-ledger/materials.base
+data: ../object-db-shelf/materials.json   # EDIT 1 (added): data-ui reads a data file; Obsidian reads the vault's notes
+filters:
+  and:
+    # EDIT 2 (commented out): - file.inFolder("materials")  data-ui has no vault folders; the data file IS that folder
+    - 'kind == "material"'
+properties:
+  note.name:
+    displayName: "Name"
+  note.resin_code:
+    displayName: "Resin code"
+  note.density_g_cm3:
+    displayName: "Density (g/cm3)"
+  note.spectral_range_nm:
+    displayName: "Spectral range (nm)"
+  note.spectral_source:
+    displayName: "Spectral source"
+views:
+  - type: table
+    name: "Materials"
+    order:
+      - name
+      - family
+      - resin_code
+      - density_g_cm3
+      - spectral_range_nm
+      - spectral_source
+    sort:
+      - property: family
+        direction: ASC
+      - property: name
+        direction: ASC

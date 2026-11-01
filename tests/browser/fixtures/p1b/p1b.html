@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P1b scene3d and trajectory3d fixture</title>
+<!-- tests/browser/p1b_checks.py: an empty page the checks fill with <data-views> over this folder's path.base and
+     two-frames.base, with a <data-dashboard> over arm/arm.base, and with a <data-views> fed 150,000 generated samples.
+     Served from the repo root, so the kit is /dist/. -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: #fff; color: #111; }
+  @media (prefers-color-scheme: dark) { body { background: #0a0a0a; color: #eee; } }
+  data-views.boxed { display: block; height: 600px; }
+  @media (max-width: 500px) { body { padding: 8px; } data-views.boxed { height: 560px; } }
+</style>
+<script type="module">
+  import * as kit from '/dist/data-ui.js';
+  await import('/dist/dashboard.js');
+  window.kit = kit;
+  window.kitReady = true;
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# The live dashboard of tests/browser/dx_asks_checks.py. The page pushes joint samples on the wall clock (t in Unix
+# seconds, as RobotDx's host sends them), so the clock follows live data and its time is an epoch. Joints is the live
+# `plot` card (CONTRACT §26) whose legend RobotDx's /dx/ needed interactive (CONTRACT §31, §34; RobotDx PEP 0001 §17.1).
+# the file's own data: is the samples, so the playback card (a view with no from:) is on their clock
+data: samples.json
+datasets:
+  samples:
+    data: samples.json
+    live: { time: t, stream: joint }
+layout:
+  columns: 12
+  rowHeight: 56
+  panels:
+    - { view: Timeline, w: 12, h: 2 }
+    - { view: Joints, w: 12, h: 5 }
+views:
+  - type: playback
+    name: Timeline
+  - type: plot
+    name: Joints
+    from: samples
+    at: 10s
+    plot: { y: [position], series: joint, unit: rad }

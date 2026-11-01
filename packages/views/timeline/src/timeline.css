@@ -1,0 +1,40 @@
+/* type: timeline. vis-timeline's own stylesheet comes first (index.js); these recolour it from the private --dv-*
+   tokens (it has no custom properties of its own), so the axis, lanes and items follow the host's theme. */
+
+.dv-view-timeline { position: relative; flex: 1 1 auto; min-height: 0; }
+.dv-tl-box { position: absolute; inset: 0; }
+.dv-tl-mount { height: 100%; }
+.dv-view-timeline .vis-timeline { border: 0; font: inherit; color: var(--dv-fg); background: var(--dv-bg); }
+.dv-view-timeline .vis-panel.vis-center, .dv-view-timeline .vis-panel.vis-left, .dv-view-timeline .vis-panel.vis-right,
+.dv-view-timeline .vis-panel.vis-top, .dv-view-timeline .vis-panel.vis-bottom { border-color: var(--dv-border); }
+.dv-view-timeline .vis-time-axis .vis-text { color: var(--dv-muted); font-size: 11.5px; }
+.dv-view-timeline .vis-time-axis .vis-text.vis-major { color: var(--dv-fg); font-weight: 600; }
+.dv-view-timeline .vis-time-axis .vis-grid.vis-minor { border-color: var(--dv-rule); }
+.dv-view-timeline .vis-time-axis .vis-grid.vis-major { border-color: var(--dv-border); }
+.dv-view-timeline .vis-labelset .vis-label { color: var(--dv-fg); border-bottom-color: var(--dv-rule); background: var(--dv-bg); }
+.dv-view-timeline .vis-labelset .vis-label.vis-nested-group { background: var(--dv-subtle); }
+.dv-view-timeline .vis-labelset .vis-label .vis-inner { padding: 4px 10px; }
+.dv-view-timeline .vis-foreground .vis-group { border-bottom-color: var(--dv-rule); }
+.dv-view-timeline .vis-label.vis-nesting-group:hover { background: var(--dv-hover); }
+.dv-view-timeline .vis-label.vis-nesting-group.expanded::before, .dv-view-timeline .vis-label.vis-nesting-group.collapsed::before { color: var(--dv-muted); }
+.dv-tl-lane { font-weight: 600; }
+.dv-tl-n { color: var(--dv-muted); font-size: 11.5px; margin-left: 4px; }
+
+/* items: a range is a tinted bar with the series colour; a point is a dot and its label */
+.dv-view-timeline .vis-item.dv-tl-item {
+  color: var(--dv-fg); border-color: var(--dv-item); font-size: 12px; cursor: pointer;
+  background: color-mix(in srgb, var(--dv-item) 22%, var(--dv-bg));
+}
+.dv-view-timeline .vis-item.dv-tl-item.vis-range { border-radius: 4px; border-width: 1px; border-left-width: 3px; }
+.dv-view-timeline .vis-item.dv-tl-item.vis-point { background: none; border: 0; }
+/* a point's dot is its own .vis-item (it carries the item's class and style too) */
+.dv-view-timeline .vis-item.dv-tl-item.vis-dot { border-color: var(--dv-item); background: var(--dv-item); outline: 0; }
+.dv-view-timeline .vis-item.dv-tl-item .vis-item-content { padding: 2px 6px; }
+.dv-view-timeline .vis-item.dv-tl-item:hover { background: color-mix(in srgb, var(--dv-item) 34%, var(--dv-bg)); }
+.dv-view-timeline .vis-item.dv-tl-item.vis-point:hover { background: var(--dv-hover); }
+.dv-view-timeline .vis-item.dv-tl-item.vis-selected { outline: 2px solid var(--dv-accent); outline-offset: 1px; z-index: 2; }
+.dv-view-timeline .vis-item.dv-tl-item.vis-point.vis-selected { background: var(--dv-accent-bg); }
+.dv-view-timeline .vis-tooltip {
+  color: var(--dv-fg); background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: var(--dv-radius);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .14); font: 12px/1.4 var(--dv-font); padding: 6px 8px;
+}

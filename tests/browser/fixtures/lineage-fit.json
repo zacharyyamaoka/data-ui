@@ -1,0 +1,269 @@
+{
+ "id": "lineage-fit",
+ "title": "lineage first-view fit fixture",
+ "titleProperty": "name",
+ "imageProperty": "thumb",
+ "source": "tests/browser/lineage_fit_checks.py: 18 rounds (R1-R18), a chain of 18 plus 6 side branches = 24 marks; the focus is the last link",
+ "properties": {
+  "name": {
+   "type": "text",
+   "width": 120
+  },
+  "round_n": {
+   "type": "number",
+   "width": 70
+  },
+  "round": {
+   "type": "text",
+   "width": 70
+  },
+  "parents": {
+   "type": "list",
+   "width": 120
+  },
+  "thumb": {
+   "type": "text",
+   "width": 60
+  }
+ },
+ "rows": [
+  {
+   "id": "c1",
+   "name": "C1",
+   "round_n": 1,
+   "round": "R1",
+   "parents": [],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c2",
+   "name": "C2",
+   "round_n": 2,
+   "round": "R2",
+   "parents": [
+    "c1"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c3",
+   "name": "C3",
+   "round_n": 3,
+   "round": "R3",
+   "parents": [
+    "c2"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c4",
+   "name": "C4",
+   "round_n": 4,
+   "round": "R4",
+   "parents": [
+    "c3"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c5",
+   "name": "C5",
+   "round_n": 5,
+   "round": "R5",
+   "parents": [
+    "c4"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c6",
+   "name": "C6",
+   "round_n": 6,
+   "round": "R6",
+   "parents": [
+    "c5"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c7",
+   "name": "C7",
+   "round_n": 7,
+   "round": "R7",
+   "parents": [
+    "c6"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c8",
+   "name": "C8",
+   "round_n": 8,
+   "round": "R8",
+   "parents": [
+    "c7"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c9",
+   "name": "C9",
+   "round_n": 9,
+   "round": "R9",
+   "parents": [
+    "c8"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c10",
+   "name": "C10",
+   "round_n": 10,
+   "round": "R10",
+   "parents": [
+    "c9"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c11",
+   "name": "C11",
+   "round_n": 11,
+   "round": "R11",
+   "parents": [
+    "c10"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c12",
+   "name": "C12",
+   "round_n": 12,
+   "round": "R12",
+   "parents": [
+    "c11"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c13",
+   "name": "C13",
+   "round_n": 13,
+   "round": "R13",
+   "parents": [
+    "c12"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c14",
+   "name": "C14",
+   "round_n": 14,
+   "round": "R14",
+   "parents": [
+    "c13"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c15",
+   "name": "C15",
+   "round_n": 15,
+   "round": "R15",
+   "parents": [
+    "c14"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c16",
+   "name": "C16",
+   "round_n": 16,
+   "round": "R16",
+   "parents": [
+    "c15"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c17",
+   "name": "C17",
+   "round_n": 17,
+   "round": "R17",
+   "parents": [
+    "c16"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "c18",
+   "name": "C18",
+   "round_n": 18,
+   "round": "R18",
+   "parents": [
+    "c17"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "s3",
+   "name": "S3",
+   "round_n": 3,
+   "round": "R3",
+   "parents": [
+    "c2"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "s5",
+   "name": "S5",
+   "round_n": 5,
+   "round": "R5",
+   "parents": [
+    "c4"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "s8",
+   "name": "S8",
+   "round_n": 8,
+   "round": "R8",
+   "parents": [
+    "c7"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "s10",
+   "name": "S10",
+   "round_n": 10,
+   "round": "R10",
+   "parents": [
+    "c9"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "s12",
+   "name": "S12",
+   "round_n": 12,
+   "round": "R12",
+   "parents": [
+    "c11"
+   ],
+   "thumb": "lineage-fit.svg"
+  },
+  {
+   "id": "s15",
+   "name": "S15",
+   "round_n": 15,
+   "round": "R15",
+   "parents": [
+    "c14"
+   ],
+   "thumb": "lineage-fit.svg"
+  }
+ ]
+}

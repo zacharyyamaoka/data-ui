@@ -1,0 +1,220 @@
+# Robot arm · Playback + Gates: the Robot arm template (gallery/examples/robotics-arm) with the diagnostics and gates
+# overlay (docs/CONTRACT.md §35, docs/peps/0010-robotics-playback.md §10). Every dataset and view of the template is here
+# as it is there (../robotics-arm/); the overlay adds STAND-IN gate rows (the arm is sim2real's simulated UR5e; no real arm
+# run exists) that source/build.py writes from the template's difference rows: each situation's path error against the
+# target, judged against a stand-in tolerance (warn 5 mm, error 10 mm), the path coloured by its own error with the
+# tolerance tube around the target (path_overlay), and BAM Reach's reach map (real) in verdict colours.
+data: ../robotics-arm/runs.json
+style:
+  chrome: minimal
+  numbers: { digits: 4, compact: true }
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: poses, time: t }
+datasets:
+  runs:
+    data: ../robotics-arm/runs.json
+    label: Runs
+    facets:
+      - { property: run, as: select, label: Run, order: [ur5e-suite/coordinated, ur5e-pidtuna/coordinated] }
+  poses:
+    data: ../robotics-arm/poses.json
+    label: Tool poses
+    facets:
+      - { property: situation, label: Show }
+  samples:
+    data: ../robotics-arm/samples.json
+    label: Joints
+    facets:
+      - { property: device, as: select, label: Joint }
+    filters: 'device == "J3 elbow"'
+  links: ../robotics-arm/links.json
+  # difference(a, b) of poses.json and samples.json (source/build_diff.py, gallery/robotics/difference.py): each
+  # situation against the target, the twin against real and real B
+  diff:
+    data: ../robotics-arm/diff_poses.json
+    label: Tool difference
+  joint_diff:
+    data: ../robotics-arm/diff_samples.json
+    label: Joint difference
+  # COVERAGE (PEP 0010 P2). WHY unlinked copies of poses and samples: a run pick or a hidden situation must not empty
+  # the coverage panels (PEP 0010 §6, the sim-to-real case's trick)
+  all_poses:
+    data: ../robotics-arm/poses.json
+    label: Tool, every run
+  all_samples:
+    data: ../robotics-arm/samples.json
+    label: Joints, every run
+  # BAM Reach's map (source/build_coverage.py): one row per tested position, the fraction of orientations reachable
+  reach:
+    data: ../robotics-arm/grid.json
+    label: Reach map
+  # the gates overlay (CONTRACT §35): STAND-IN checks per run × situation and per 0.5 s window; poses_error.json is the
+  # template's poses with each sample's own err_mm from diff_poses.json (null on the target), for the path overlay
+  checks:
+    data: checks.json
+    label: Path checks
+  windows:
+    data: windows.json
+    label: Check windows
+  poses_error:
+    data: poses_error.json
+    label: Path error on the path
+links:
+  # WHY one-way (CONTRACT §33, sim2real gap #8): the run pick narrows the poses and the joints; Show and Joint never
+  # narrow the runs
+  - { from: runs.run, to: poses.run, direction: one-way }
+  - { from: runs.run, to: samples.run, direction: one-way }
+  - { from: samples.run, to: poses.run }
+  - { from: samples.situation, to: poses.situation }
+  - { from: links.run, to: poses.run }
+  - { from: links.situation, to: poses.situation }
+  # WHY a link per key column: Show (poses) and Joint (samples) reach the difference rows directly, so a hidden
+  # situation loses its arrows, its Z-arcs and its error lines in every panel (CONTRACT §32: every direct link filters)
+  - { from: diff.run, to: poses.run }
+  - { from: diff.situation, to: poses.situation }
+  - { from: diff.body, to: poses.body }
+  - { from: joint_diff.run, to: samples.run }
+  - { from: joint_diff.device, to: samples.device }
+  - { from: joint_diff.situation, to: samples.situation }
+  - { from: joint_diff.run, to: poses.run }
+  - { from: joint_diff.situation, to: poses.situation }
+  - { from: runs.run, to: windows.run, direction: one-way }
+  - { from: runs.run, to: poses_error.run, direction: one-way }
+  - { from: poses_error.situation, to: poses.situation }
+layout:
+  panels:
+    - { view: Runs, w: 12, h: 2 }
+    - text: "**Gates** · STAND-IN: each situation's path error against the target (RMS and max) and its rotation error, judged against a stand-in tolerance, and the path error per 0.5 s window. Computed by `source/build.py` with RobotDx's diagnostics library (from the template's difference rows, never recomputed in the page); the page computes none of it. A cell opens its check in the side peek, with the data in its window; the evidence link plays the run there."
+      w: 12
+    - { view: Path checks, w: 6, h: 3 }
+    - { view: Path error on the path, w: 6, h: 6 }
+    - { view: Playback, w: 12 }
+    - { view: Path 3D, w: 6, h: 6 }
+    - { view: Path top, w: 6, h: 6 }
+    - { view: EEF error, w: 4, h: 3 }
+    - { view: Joint error, w: 4, h: 3 }
+    - { view: Joint angle, w: 4, h: 3 }
+    - { view: Path error against its tolerance, w: 6, h: 3 }
+    - { view: Check history, w: 6, h: 3 }
+    - text: "**Coverage** · every run's tool path at 1/n opacity per family over the arm's reachable volume (the convex hull of the tool point over 20,000 sampled poses, above the floor), BAM Reach's reach map sliced at z ≈ 143 mm (its own frame, `ur_arm/base_link_ur`; ◀ ▶ steps a cell), and each joint's range over every run. Stand-in data; unlinked, so a run pick never empties it."
+      w: 12
+    - { view: Coverage, w: 6, h: 5 }
+    - { view: Reach, w: 6, h: 5 }
+    - { view: Joint range, w: 12, h: 3 }
+    - { view: Reach verdict, w: 6, h: 5 }
+    - { view: Check rows, w: 6, h: 5 }
+properties:
+  when: { displayName: Started }
+  duration_s: { displayName: Duration }
+  kind: { displayName: Kind }
+  situations: { displayName: Situations }
+  basis: { displayName: Basis }
+views:
+  # the runs table picks a run on the rail (a picker, CONTRACT §33); the newest when the page opens
+  - type: table
+    name: Runs
+    from: runs
+    select: run
+    selected: first
+    order: [when, run, kind, duration_s, situations, basis]
+    sort:
+      - { property: started, direction: DESC }
+  - type: playback
+    name: Playback
+    playback: { readout: true }
+  - type: trajectory3d
+    name: Path 3D
+    from: poses
+    trajectory3d:
+      modes: { real: [line, frames-z], real B: [line], twin: [line], target: [line] }
+      # the mock's "compare real → target" (and the tuned rung's, on pidtuna's run): arrows a(t) → b(t), Z-arcs where
+      # a draws frames-z; scale lengthens the arrows only (the menu's ×1 ×10 ×30 ×100)
+      compare: { data: diff, pairs: [[real, target], [tuned, target]] }
+      robots:
+        data: links
+        model: ../pid-tuning/media/ur5e_links.glb
+        links: [base, shoulder_link, upper_arm_link, forearm_link, wrist_1_link, wrist_2_link, wrist_3_link]
+        series: { twin: { opacity: 0.5 } }
+      show: trail
+      decay: 0.6
+  - type: trajectory3d
+    name: Path top
+    from: poses
+    # every situation against the target (compare's default pairs): the top view reads cross-path error directly
+    trajectory3d: { projection: top, compare: { data: diff } }
+  # |b − a| of the tool against the target (the arrows' lengths), and e_q = target − q of the rail's joint
+  - type: timeseries
+    name: EEF error
+    from: diff
+    filters: 'reference == "target"'
+    timeseries: { x: t, 'y': err_mm, series: situation, legend: top, unit: mm }
+  - type: timeseries
+    name: Joint error
+    from: joint_diff
+    filters: 'reference == "target"'
+    timeseries: { x: t, 'y': e_q_mrad, series: situation, legend: top, unit: mrad, rules: [{ 'y': 0 }] }
+  - type: timeseries
+    name: Joint angle
+    from: samples
+    timeseries: { x: t, 'y': q_deg, series: situation, dash: [target], legend: top, unit: '°' }
+  # COVERAGE: every run of every situation at opacity auto (1/n over each family's paths), from the top, inside the
+  # workspace (Zach: "draw an outline of the robot's workspace… so you can literally see exactly what the coverage is")
+  - type: trajectory3d
+    name: Coverage
+    from: all_poses
+    trajectory3d: { projection: top, workspace: { model: media/workspace.glb } }
+  # the reach map (BAM Reach), the slice through z ≈ 143 mm as an image heatmap; grey: its rows have no family
+  - type: voxels
+    name: Reach
+    from: reach
+    voxels: { x: x_mm, 'y': y_mm, z: z_mm, unit: mm, cell: 150, value: value, projection: top, slice: { axis: z, at: 142.887 } }
+  # each joint's range over every run and situation: the whiskers are the min and max
+  - type: chart
+    name: Joint range
+    from: all_samples
+    chart:
+      mark: { type: boxplot, extent: min-max }
+      encoding:
+        x: { field: device, type: nominal, title: joint, sort: [J1 shoulder pan, J2 shoulder lift, J3 elbow, J4 wrist 1, J5 wrist 2, J6 wrist 3] }
+        'y': { field: q_deg, type: quantitative, title: 'q (deg)' }
+  # ---- the gates overlay (CONTRACT §35; PEP 0010 §10's hints). Everything below reads rows source/build.py wrote
+  - type: tracker
+    name: Path checks
+    from: checks
+    groupBy: { property: device }
+    sort:
+      - { property: order, direction: ASC }
+    tracker: { state: verdict, column: title, label: message }
+    display: { verdict: status, evidence: link }
+    record:
+      sections:
+        - { name: Verdict, properties: [verdict, value, unit, warn_hi, error_hi, message] }
+        - name: Evidence
+          properties: [evidence, t0, t1]
+          view: { type: timeseries, name: Path error in the window, from: poses_error, filters: 'run == this.run && situation == this.device && t >= this.t0 && t <= this.t1', timeseries: { x: t, 'y': err_mm, series: situation, legend: none, unit: mm } }
+        - { name: Provenance, properties: [subject, diagnostic, basis, source, record] }
+  # path_overlay: each path painted by its own error, the target as a tube of the stand-in tolerance (10 mm)
+  - type: trajectory3d
+    name: Path error on the path
+    from: poses_error
+    trajectory3d: { color: err_mm, tolerance: 10 }
+  # threshold_band: the path error per 0.5 s window against the stand-in tolerance
+  - type: timeseries
+    name: Path error against its tolerance
+    from: windows
+    filters: 'title == "Path error"'
+    timeseries: { x: t, 'y': value, series: device, limits: { warn: [warn_lo, warn_hi], error: [error_lo, error_hi] }, legend: top, unit: mm }
+  - type: levels
+    name: Check history
+    from: windows
+    levels: { state: verdict, by: device, label: message }
+  # BAM Reach's reach score (the fraction of tool orientations reachable) in verdict colours: red unreachable, green all
+  - type: voxels
+    name: Reach verdict
+    from: reach
+    voxels: { x: x_mm, 'y': y_mm, z: z_mm, unit: mm, cell: 150, value: value, projection: top, slice: { axis: z, at: 142.887 }, scale: verdict, better: higher }
+  - type: table
+    name: Check rows
+    from: checks
+    order: [run, device, title, verdict, value, unit, message]
+    display: { verdict: status }

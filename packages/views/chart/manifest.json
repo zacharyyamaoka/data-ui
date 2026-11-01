@@ -1,0 +1,12 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1.",
+  "entry": "src/index.js",
+  "split": true,
+  "status": "built",
+  "views": [
+    { "type": "chart", "name": "Chart", "icon": "chart-scatter", "summary": "Any Vega-Lite chart of the view's rows: presets per .base, an Encode menu, a hover card with the photo, Ashby envelopes and index lines, the same rows as a table one click away." },
+    { "type": "timeseries", "name": "Time series", "icon": "chart-line", "summary": "Series over t, Tremor's frameless look: target dashed, bands, rules and annotations; on the dashboard's clock a playhead, a shared crosshair readout and brush-to-zoom (PEP 0005); interactive: true is the Foxglove/Rerun plot on uPlot (pan, zoom x/y/box, legend hide/isolate, ? help, maximise), loaded only then." },
+    { "type": "trajectory", "name": "Trajectory", "icon": "route", "summary": "2D paths against a target at equal aspect, with a tolerance tube, start and end marks, and a marker and trail per path that follow the clock (PEP 0005)." }
+  ],
+  "npm": ["vega@6.4.0", "vega-lite@6.5.0", "vega-embed@7.3.0", "uplot@1.6.32"]
+}

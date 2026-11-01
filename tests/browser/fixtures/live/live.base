@@ -1,0 +1,51 @@
+# tests/browser/live_checks.py: a live dashboard whose rows the checks push from the page, plus one dataset served
+# over server-sent events by the checks' own server (docs/peps/0012-live-data.md, docs/CONTRACT.md §26)
+data: samples.json
+datasets:
+  samples:
+    data: samples.json
+    live: { time: t, stream: joint }
+  events:
+    data: events.json
+    live: { time: t }
+  levels:
+    data: levels.json
+    live: { time: t, stream: name }
+  sse:
+    data: sse.json
+    live: { sse: /sse/rows, time: t, stale: 2s }
+clock: { fps: 50 }
+layout:
+  columns: 12
+  rowHeight: 60
+  panels:
+    - { view: Timeline, w: 12, h: 2 }
+    - { view: Joints, w: 8, h: 4 }
+    - { view: Position, w: 4, h: 2 }
+    - { view: Health, w: 4, h: 2 }
+    - { view: Events, w: 12, h: 5 }
+views:
+  - type: playback
+    name: Timeline
+  - type: plot
+    name: Joints
+    from: samples
+    at: 10s
+    plot: { y: [position], series: joint, unit: rad }
+  - type: kpi
+    name: Position
+    from: samples
+    at: latest
+    groupBy: { property: joint }
+    kpi: { value: { property: position }, label: Position }
+  - type: levels
+    name: Health
+    from: levels
+    at: 20s
+    levels: { state: level }
+  - type: table
+    name: Events
+    from: events
+    order: [t, source, severity, message]
+    sort: [{ property: t, direction: DESC }]
+    limit: 500

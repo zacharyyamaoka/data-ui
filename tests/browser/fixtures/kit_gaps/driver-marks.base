@@ -1,0 +1,40 @@
+# kit gap 2 on the BLDC driver case's own files (tests/browser/kit_gaps_checks.py): its mode and fault changes drawn from
+# events.json (two datasets on the one file, each filtered to one kind), on the picked run's i_q and v_bus. The links are
+# one-way (CONTRACT §33): the run pick narrows the samples, faults and modes; their own filters (one kind each) never
+# narrow the runs, so the Run picker lists every run, a run with no fault too (sim2real gap #8).
+data: ../../../../gallery/examples/robotics-driver/runs.json
+style:
+  chrome: minimal
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: samples, time: t }
+datasets:
+  runs:
+    data: ../../../../gallery/examples/robotics-driver/runs.json
+    facets:
+      - { property: run, as: select, label: Run }
+    filters: 'run == "10-24/session_11/s07"'
+  samples:
+    data: ../../../../gallery/examples/robotics-driver/samples.json
+  faults:
+    data: ../../../../gallery/examples/robotics-driver/events.json
+    filters: 'kind == "fault"'
+  modes:
+    data: ../../../../gallery/examples/robotics-driver/events.json
+    filters: 'kind == "mode"'
+links:
+  - { from: runs.run, to: samples.run, direction: one-way }
+  - { from: runs.run, to: faults.run, direction: one-way }
+  - { from: runs.run, to: modes.run, direction: one-way }
+layout:
+  panels:
+    - { view: Faults on i_q, key: iq, w: 12, h: 3 }
+    - { view: Modes on v_bus, key: vbus, w: 12, h: 3 }
+views:
+  - type: timeseries
+    name: Faults on i_q
+    from: samples
+    timeseries: { x: t, 'y': i_q_a, series: situation, legend: none, unit: A, annotations: [{ data: faults, x: t, label: label, tone: bad }] }
+  - type: timeseries
+    name: Modes on v_bus
+    from: samples
+    timeseries: { x: t, 'y': v_bus_v, series: situation, legend: none, unit: V, annotations: [{ data: modes, x: t, label: label }] }

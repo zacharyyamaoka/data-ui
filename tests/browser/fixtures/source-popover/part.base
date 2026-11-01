@@ -1,0 +1,16 @@
+# The source-precedence fixture's made-up actuator datasheet (its part.json, unchanged), in the four places a value with
+# several sources is drawn: the table, the cards, the record page and (from the table) the side peek
+# (tests/browser/source_popover_checks.py, docs/CONTRACT.md §36)
+data: ../source-precedence/part.json
+views:
+  - type: table
+    name: Datasheet
+    order: [field, nominal]
+    groupBy: { property: section }
+    units: inline
+  - type: cards
+    name: Cards
+    order: [field, nominal]
+  - type: record
+    name: Record
+    order: [field, nominal]

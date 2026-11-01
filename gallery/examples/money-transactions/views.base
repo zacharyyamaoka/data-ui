@@ -1,0 +1,40 @@
+# Transactions, ILLUSTRATIVE: money's test fixture (synthetic rows, no real account data), each booked by money's own
+# ledger code. Obsidian Bases grammar plus data-ui's keys (docs/CONTRACT.md §5).
+data: transactions.json
+facets:
+  - entity
+  - group
+  - category
+views:
+  - type: list
+    name: Recent
+    order: [name, amount, date, entity]
+    groupBy: { property: group, direction: ASC }
+    subGroupBy: { property: category, direction: ASC }
+    sort:
+      - { property: date, direction: DESC }
+    markers: none
+    separator: " · "
+  - type: table
+    name: By category
+    order: [name, date, amount, entity, account, how]
+    groupBy: { property: category, direction: ASC }
+    sort:
+      - { property: date, direction: DESC }
+    summaries: { amount: Sum }
+  - type: list
+    name: By entity
+    order: [name, amount, date, category]
+    groupBy: { property: entity, direction: ASC }
+    subGroupBy: { property: group, direction: ASC }
+    sort:
+      - { property: date, direction: DESC }
+    markers: number
+  - type: record
+    name: Categorise
+    filters: 'group != "Transfers"'
+    edit: true
+    record:
+      sections:
+        - { name: Transaction, properties: [date, amount, entity, account, merchant, plaid] }
+        - { name: Category, properties: [category, group, how] }

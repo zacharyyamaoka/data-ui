@@ -1,0 +1,56 @@
+{
+ "name": "events",
+ "title": "Events",
+ "description": "One row per event: a mark on the time series and the playback track.",
+ "rowsPer": [
+  "t",
+  "run",
+  "device",
+  "kind"
+ ],
+ "required": [
+  "t",
+  "run",
+  "device",
+  "kind",
+  "label"
+ ],
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s",
+    "description": "seconds from the run's start (the target's start)"
+   },
+   {
+    "name": "run",
+    "type": "string",
+    "description": "the run's stable, unique id (runs.json)"
+   },
+   {
+    "name": "device",
+    "type": "string",
+    "description": "the part whose channels the row holds: CAN 12, J3 elbow, gripper"
+   },
+   {
+    "name": "kind",
+    "type": "string",
+    "description": "grasp, release, contact, fault or mode",
+    "constraints": {
+     "enum": [
+      "grasp",
+      "release",
+      "contact",
+      "fault",
+      "mode"
+     ]
+    }
+   },
+   {
+    "name": "label",
+    "type": "string"
+   }
+  ]
+ }
+}

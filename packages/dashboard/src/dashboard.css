@@ -1,0 +1,147 @@
+/* <data-dashboard>: a rail beside a 12-column grid of panels (PEP 0004). Colours are the private --dv-* tokens (the
+   element carries the .data-ui class, so tokens.css resolves them from the host's --data-*). Classes are dd-*.
+   WHY CSS grid alone: the file is the editor (an agent writes `w`/`h`), so the reader needs no drag-to-arrange; grid
+   costs 0 bytes and a media query reflows it to one column on a phone. gridstack is the part to take if that changes. */
+
+/* WHY border-box: the filled surface pads the element; content-box made the page 30 px wider than its column */
+data-dashboard { display: block; box-sizing: border-box; max-width: 100%; color: var(--dv-fg); font: 13px/1.4 var(--dv-font); min-width: 0; }
+data-dashboard * { box-sizing: border-box; }
+.dd-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
+.dd-body.dd-has-rail { grid-template-columns: auto minmax(0, 1fr); }
+/* WHY not sticky: the drag handle is placed beside the rail when the layout changes, not on every scroll, so a rail
+   that slid with the page would leave its handle behind (measured); it scrolls with the page, as every data-ui rail does */
+.dd-rail { width: var(--data-panel-width, 236px); padding-right: 6px; display: flex; flex-direction: column; gap: 10px; }
+.dd-rail-h { font-size: 11px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--dv-muted); margin: 6px 0 -4px; }
+.dd-main { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.dd-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 26px; font-size: 12.5px; color: var(--dv-muted); }
+.dd-chips:empty:not([data-empty=""])::before { font-size: 12px; }
+.dd-chips:empty::before { content: attr(data-empty); }
+.dd-chip { font: inherit; display: inline-flex; align-items: center; gap: 6px; color: var(--dv-fg); background: var(--dv-subtle); border: 1px solid var(--dv-border); border-radius: 999px; padding: 2px 6px 2px 10px; cursor: pointer; }
+.dd-chip:hover { background: var(--dv-hover); }
+.dd-chip b { font-weight: 600; }
+.dd-chip .dd-x { color: var(--dv-muted); font-size: 11px; }
+.dd-grid { display: grid; grid-template-columns: repeat(var(--dd-cols, 12), minmax(0, 1fr)); gap: var(--dd-gap, 12px); align-items: stretch; }
+.dd-panel { grid-column: span var(--dd-w, 12); min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.dd-panel-h { font-size: 12.5px; font-weight: 600; margin: 0 2px; color: var(--dv-fg); display: flex; gap: 8px; align-items: baseline; }
+.dd-panel-h .dd-sel { font-weight: 400; color: var(--dv-muted); font-size: 11.5px; }
+.dd-panel data-views { --data-height: var(--dd-h, 440px); }
+/* a panel's own search box is noise on a dashboard (the rail filters every panel); toolbar: full brings it back */
+.dd-panel data-views:not([toolbar="full"]) .dv-search { display: none; }
+.dd-panel[data-select] .dd-panel-h::after { content: "click to filter"; font-weight: 400; font-size: 11px; color: var(--dv-muted); margin-left: auto; }
+/* a picker (CONTRACT §33): its click moves its rail's one pick */
+.dd-panel[data-pick] .dd-panel-h::after { content: "click to pick"; font-weight: 400; font-size: 11px; color: var(--dv-muted); margin-left: auto; }
+
+/* ---- Add to dashboard (CONTRACT §34). A panel's own menu, ⋯ at its top right: quiet until the panel is hovered or
+   focused (always shown where nothing hovers, a phone), its title row keeping clear of it. A panel pinned at an
+   instant says "at t = 1.2 s" beside its title. */
+.dd-panel-menu { position: absolute; z-index: 4; top: calc(var(--dd-p-pad, 16px) - 6px); right: calc(var(--dd-p-pad, 16px) - 8px); display: inline-flex; align-items: center;
+  justify-content: center; width: 28px; height: 24px; padding: 0; color: var(--dv-muted); background: none; border: 1px solid transparent; border-radius: 7px;
+  cursor: pointer; opacity: 0; transition: opacity .12s ease; }
+.dd-panel-menu svg { width: 16px; height: 16px; fill: currentColor; }
+.dd-panel:hover > .dd-panel-menu, .dd-panel:focus-within > .dd-panel-menu, .dd-panel-menu[aria-expanded="true"] { opacity: 1; }
+.dd-panel-menu:hover, .dd-panel-menu[aria-expanded="true"] { color: var(--dv-fg); background: var(--dv-hover); }
+.dd-panel-menu:focus-visible { opacity: 1; outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+@media (hover: none) { .dd-panel-menu { opacity: 1; } }
+.dd-panel:has(> .dd-panel-menu) > .dd-panel-h { padding-right: 30px; }
+.dd-panel[data-surface="transparent"] > .dd-panel-menu, .dd-panel[data-title="top"] > .dd-panel-menu { top: -4px; right: -4px; }
+.dd-panel-pop { position: absolute; z-index: 30; top: calc(var(--dd-p-pad, 16px) + 22px); right: calc(var(--dd-p-pad, 16px) - 8px); min-width: 200px; padding: 4px;
+  background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 10px; box-shadow: 0 8px 28px rgba(0, 0, 0, .16); display: flex; flex-direction: column; }
+.dd-panel-pop[hidden] { display: none; }
+.dd-panel-pop .dd-item:focus-visible { outline: none; background: var(--dv-hover); }
+data-dashboard[data-arranging] :is(.dd-panel-menu, .dd-panel-pop) { display: none; }
+.dd-at { font-weight: 400; font-size: 11.5px; color: var(--dv-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---- navigation (CONTRACT §33). A panel on a per-pick dataset with no file says why over its view ("Pick one run",
+   "Loading run …", a file that did not load); the view is hidden, not removed, so it keeps its size and redraws in place.
+   The picked rows of a selecting or picking table are marked. */
+.dd-panel { position: relative; }
+.dd-panel[data-wait] > data-views { visibility: hidden; }
+.dd-wait { position: absolute; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 12px; text-align: center; color: var(--dv-muted); font-size: 12.5px; line-height: 1.4; border: 1px dashed var(--dd-line, var(--dv-border)); border-radius: calc(var(--dd-p-radius, 12px) - 4px); }
+.dd-wait b { color: var(--dv-fg); font-size: 14px; font-weight: 600; }
+.dd-panel[data-wait="loading"] .dd-wait b { font-weight: 500; color: var(--dv-muted); }
+data-dashboard { --dd-mark: color-mix(in srgb, var(--dv-accent) 14%, var(--dv-bg)); }
+
+/* ---- the surface (docs/peps/0005-dashboard-cards.md §5). WHY one surface: Zach's references (Klipfolio) are tiles on a
+   quieter page, the title inside each tile, nothing boxed inside a tile: "make it look more integrated, like a native
+   dashboard … versus what it looks like now, which is these separate things that each are separate" (2026-10-26) */
+data-dashboard { --dd-page: color-mix(in srgb, var(--dv-fg) 4.5%, var(--dv-bg)); --dd-card: var(--dv-bg); --dd-line: color-mix(in srgb, var(--dv-fg) 9%, var(--dv-bg)); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) data-dashboard:not([theme="light"]) { --dd-page: color-mix(in srgb, black 38%, var(--dv-bg)); --dd-card: color-mix(in srgb, var(--dv-fg) 5%, var(--dv-bg)); --dd-line: color-mix(in srgb, var(--dv-fg) 10%, var(--dv-bg)); }
+}
+:root[data-theme="dark"] data-dashboard:not([theme="light"]), data-dashboard[theme="dark"] { --dd-page: color-mix(in srgb, black 38%, var(--dv-bg)); --dd-card: color-mix(in srgb, var(--dv-fg) 5%, var(--dv-bg)); --dd-line: color-mix(in srgb, var(--dv-fg) 10%, var(--dv-bg)); }
+data-dashboard:focus { outline: none; }
+data-dashboard:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 2px; }
+data-dashboard[data-surface="filled"] { background: var(--dd-page); border-radius: calc(var(--dd-radius, 12px) + 4px); padding: var(--dd-gap, 12px); }
+data-dashboard[data-density="compact"] { --dd-gap: 8px; }
+.dd-panel { border-radius: var(--dd-p-radius, var(--dd-radius, 12px)); }
+.dd-panel[data-surface="filled"], .dd-panel[data-surface="outline"] { padding: var(--dd-p-pad, 16px); gap: 8px; }
+.dd-panel[data-surface="filled"] { background: var(--dd-card); }
+.dd-panel[data-surface="outline"] { border: 1px solid var(--dd-line); }
+data-dashboard[data-density="compact"] .dd-panel[data-surface] { padding: calc(var(--dd-p-pad, 16px) * .6); }
+/* title: inside (in the tile, muted, Klipfolio's 13 px), top (above the tile), none */
+.dd-panel[data-title="inside"] .dd-panel-h { font-size: 13px; font-weight: 600; margin: 0; letter-spacing: -.005em; }
+.dd-panel[data-title="top"][data-surface="filled"] { background: none; padding: 0; }
+.dd-panel[data-title="top"][data-surface="filled"] data-views { background: var(--dd-card); border-radius: var(--dd-p-radius, 12px); padding: var(--dd-p-pad, 16px); }
+/* nothing boxed inside a tile: the views lose their own border, background and status line (a list keeps a quiet count) */
+.dd-panel data-views { border: 0; border-radius: 0; background: transparent; }
+/* WHY min-width 0: a tile's width is the grid's (w of 12); core's 280 px floor for a lone <data-views> pushed a 3-wide tile
+   30 px past the page at 1280 px */
+.dd-panel data-views { min-width: 0; }
+.dd-panel[data-sized] { height: var(--dd-h); }
+.dd-panel[data-sized] data-views { flex: 1 1 auto; height: auto; min-height: 0; }
+.dd-panel:not([data-sized]):is([data-type="kpi"], [data-type="gauge"], [data-type="bullet"], [data-type="barlist"], [data-type="tracker"], [data-type="playback"]) data-views { height: auto; }
+/* WHY clipped, not display: none: the count stays for a screen reader (and for hosts that wait on the status line) */
+.dd-panel:not(:is([data-type="table"], [data-type="pivot"], [data-type="list"])) data-views > .dv-status { position: absolute; width: 1px; height: 1px; min-height: 0; padding: 0; border: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.dd-panel:is([data-type="table"], [data-type="pivot"], [data-type="list"]) data-views > .dv-status { border: 0; padding: 0 2px 6px; min-height: 0; font-size: 11.5px; order: 9; }
+.dd-panel data-views > .dv-head { border-bottom: 0; padding: 0 0 4px; }
+.dd-panel[data-type="playback"] { justify-content: center; }
+.dd-panel[data-type="playback"] .dd-panel-h { display: none; }
+
+/* ---- the bar above the grid: selection chips, then Open in Rerun and Arrange */
+.dd-bar { display: flex; align-items: center; gap: 8px; min-height: 28px; }
+.dd-bar .dd-chips { flex: 1 1 auto; min-width: 0; }
+/* the clock's quiet note (judge r3 #4: its driving video is not on screen), when no playback card carries it */
+.dd-bar .dd-clock-note { flex: 0 1 auto; min-width: 0; color: var(--dv-muted, #6b7280); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dd-actions { display: flex; gap: 6px; flex: none; }
+.dd-act { font: inherit; font-size: 12.5px; color: var(--dv-fg); background: var(--dd-card); border: 1px solid var(--dd-line); border-radius: 8px; padding: 4px 10px; cursor: pointer; white-space: nowrap; }
+.dd-act:hover { background: var(--dv-hover); }
+.dd-act[aria-pressed="true"] { background: var(--dv-accent); color: var(--dv-on-accent); border-color: transparent; }
+.dd-act:disabled { opacity: .5; cursor: help; }
+.dd-menu { position: relative; }
+.dd-pop { position: absolute; right: 0; top: calc(100% + 4px); z-index: 30; min-width: 280px; padding: 4px; background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 10px; box-shadow: 0 8px 28px rgba(0, 0, 0, .16); display: flex; flex-direction: column; }
+.dd-pop[hidden] { display: none; }
+.dd-item { font: inherit; font-size: 12.5px; text-align: left; color: var(--dv-fg); background: none; border: 0; border-radius: 6px; padding: 7px 10px; cursor: pointer; text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+.dd-item:hover { background: var(--dv-hover); }
+.dd-item small { color: var(--dv-muted); font-size: 11px; overflow-wrap: anywhere; }
+.dd-text { padding: 2px 2px 0; color: var(--dv-fg); max-width: 92ch; overflow-wrap: anywhere; }
+.dd-text > :first-child { margin-top: 0; }
+.dd-text h2 { font-size: 18px; margin: 4px 0 6px; letter-spacing: -.01em; }
+.dd-text h3 { font-size: 14px; margin: 10px 0 4px; }
+.dd-text h4, .dd-text h5 { font-size: 13px; margin: 8px 0 2px; }
+.dd-text p, .dd-text ul, .dd-text ol { margin: 4px 0 8px; color: var(--dv-fg); }
+.dd-text p { color: var(--dv-muted); }
+.dd-text a { color: var(--dv-accent); }
+.dd-text code { font-family: var(--dv-mono); font-size: 12px; background: var(--dv-subtle); padding: 1px 4px; border-radius: 4px; }
+.dd-text blockquote { margin: 6px 0; padding: 4px 10px; border-left: 3px solid var(--dv-border); color: var(--dv-muted); }
+.dd-problems { color: var(--dv-warn); font-size: 12.5px; margin: 0 0 8px; padding-left: 18px; }
+data-dashboard-source { display: none; }
+/* the one drill-down for the whole dashboard (PEP 0006's side peek): a <data-views> covering the viewport whose only
+   visible part is its peek; its stage and bar never show */
+data-views.dd-drill { position: fixed; inset: 0; z-index: 60; height: 100vh; --data-height: 100vh; border: 0; border-radius: 0; background: transparent; pointer-events: none; }
+data-views.dd-drill > :not(.dv-peek):not(.dv-splitter):not(.dv-itemmenu):not(.dv-addpick) { visibility: hidden; }
+data-views.dd-drill > .dv-stage { display: none; }
+data-views.dd-drill > .dv-peek, data-views.dd-drill > .dv-splitter, data-views.dd-drill > .dv-itemmenu, data-views.dd-drill > .dv-addpick { pointer-events: auto; }
+data-views.dd-drill > .dv-peek { box-shadow: -10px 0 30px rgba(0, 0, 0, .14); }
+
+@media (max-width: 900px) {
+  .dd-grid { grid-template-columns: minmax(0, 1fr); }
+  .dd-panel { grid-column: auto; }
+}
+@media (max-width: 700px) {
+  .dd-body.dd-has-rail { grid-template-columns: minmax(0, 1fr); }
+  .dd-rail { width: auto; padding-right: 0; }
+  .dd-panel data-views { --data-height: var(--dd-h-phone, var(--dd-h, 440px)); }
+}
+
+/* a text panel is part of the page (a heading and its lede), not a tile */
+.dd-panel.dd-panel-text { background: none; padding: 0 4px; border: 0; }

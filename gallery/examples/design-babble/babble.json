@@ -1,0 +1,600 @@
+{
+"id": "design-babble",
+"title": "robotparts design babble",
+"titleProperty": "variant",
+"imageProperty": "still",
+"properties": {
+"variant": {
+"type": "text",
+"label": "Variant"
+},
+"name": {
+"type": "text",
+"label": "Name"
+},
+"round": {
+"type": "text",
+"label": "Round",
+"facet": true
+},
+"shot": {
+"type": "text",
+"label": "Still",
+"facet": true
+},
+"order": {
+"type": "number",
+"label": "Still order",
+"hidden": true
+},
+"score": {
+"type": "number",
+"label": "Score",
+"unitText": "/ 100",
+"derived": "the babble's weighted total, sum(score x weight) / 5"
+},
+"default": {
+"type": "boolean",
+"label": "Default pick"
+},
+"thesis": {
+"type": "text",
+"label": "Thesis"
+},
+"best_when": {
+"type": "text",
+"label": "Best when"
+},
+"loses_when": {
+"type": "text",
+"label": "Loses when"
+},
+"still": {
+"type": "text",
+"label": "Still",
+"media": "image"
+}
+},
+"rows": [
+{
+"id": "b1-v1-landing",
+"variant": "R1 v1 · Shell",
+"name": "Shell",
+"round": "Round 1 · five design languages",
+"shot": "Landing",
+"order": 0,
+"score": 93.0,
+"default": false,
+"thesis": "The site is a terminal session: clickable commands whose output is the UI, with real pictures inside the output.",
+"best_when": "The visitor is a developer who wants to find a part, see it, check its sources and copy the code.",
+"loses_when": "Browsing visually or a non-technical visitor — outputs pile up as history and the prompt bar costs ~80 px.",
+"still": {
+"value": "stills/b1-v1-landing.webp",
+"source": "robotparts design/babble-2026-10-22/v1-shell/shots/landing-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v1-hero",
+"variant": "R1 v1 · Shell",
+"name": "Shell",
+"round": "Round 1 · five design languages",
+"shot": "Part page",
+"order": 1,
+"score": 93.0,
+"default": false,
+"thesis": "The site is a terminal session: clickable commands whose output is the UI, with real pictures inside the output.",
+"best_when": "The visitor is a developer who wants to find a part, see it, check its sources and copy the code.",
+"loses_when": "Browsing visually or a non-technical visitor — outputs pile up as history and the prompt bar costs ~80 px.",
+"still": {
+"value": "stills/b1-v1-hero.webp",
+"source": "robotparts design/babble-2026-10-22/v1-shell/shots/hero-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v1-phone",
+"variant": "R1 v1 · Shell",
+"name": "Shell",
+"round": "Round 1 · five design languages",
+"shot": "Phone",
+"order": 2,
+"score": 93.0,
+"default": false,
+"thesis": "The site is a terminal session: clickable commands whose output is the UI, with real pictures inside the output.",
+"best_when": "The visitor is a developer who wants to find a part, see it, check its sources and copy the code.",
+"loses_when": "Browsing visually or a non-technical visitor — outputs pile up as history and the prompt bar costs ~80 px.",
+"still": {
+"value": "stills/b1-v1-phone.webp",
+"source": "robotparts design/babble-2026-10-22/v1-shell/shots/phone-375.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v2-landing",
+"variant": "R1 v2 · Drawing Sheet",
+"name": "Drawing Sheet",
+"round": "Round 1 · five design languages",
+"shot": "Landing",
+"order": 0,
+"score": 85.0,
+"default": false,
+"thesis": "Every part is an engineering drawing sheet — dimensioned views, a spec list, a title block and a provenance block.",
+"best_when": "Judging size and envelope, and where each number came from.",
+"loses_when": "Browsing for looks — the register shows drawn thumbnails, and specs scroll inside the sheet on desktop.",
+"still": {
+"value": "stills/b1-v2-landing.webp",
+"source": "robotparts design/babble-2026-10-22/v2-drawing-sheet/shots/landing-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v2-hero",
+"variant": "R1 v2 · Drawing Sheet",
+"name": "Drawing Sheet",
+"round": "Round 1 · five design languages",
+"shot": "Part page",
+"order": 1,
+"score": 85.0,
+"default": false,
+"thesis": "Every part is an engineering drawing sheet — dimensioned views, a spec list, a title block and a provenance block.",
+"best_when": "Judging size and envelope, and where each number came from.",
+"loses_when": "Browsing for looks — the register shows drawn thumbnails, and specs scroll inside the sheet on desktop.",
+"still": {
+"value": "stills/b1-v2-hero.webp",
+"source": "robotparts design/babble-2026-10-22/v2-drawing-sheet/shots/hero-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v2-phone",
+"variant": "R1 v2 · Drawing Sheet",
+"name": "Drawing Sheet",
+"round": "Round 1 · five design languages",
+"shot": "Phone",
+"order": 2,
+"score": 85.0,
+"default": false,
+"thesis": "Every part is an engineering drawing sheet — dimensioned views, a spec list, a title block and a provenance block.",
+"best_when": "Judging size and envelope, and where each number came from.",
+"loses_when": "Browsing for looks — the register shows drawn thumbnails, and specs scroll inside the sheet on desktop.",
+"still": {
+"value": "stills/b1-v2-phone.webp",
+"source": "robotparts design/babble-2026-10-22/v2-drawing-sheet/shots/phone-375.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v3-landing",
+"variant": "R1 v3 · Catalog",
+"name": "Catalog",
+"round": "Round 1 · five design languages",
+"shot": "Landing",
+"order": 0,
+"score": 81.0,
+"default": false,
+"thesis": "McMaster-density catalog: category tree and dense rows lead to a long part page with a photo column, spec table and offers.",
+"best_when": "You already know roughly what you want and need to scan, filter and compare many parts quickly.",
+"loses_when": "You want the feel of a developer tool or a terminal; this reads as a store catalog.",
+"still": {
+"value": "stills/b1-v3-landing.webp",
+"source": "robotparts design/babble-2026-10-22/v3-catalog/shots/landing-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v3-hero",
+"variant": "R1 v3 · Catalog",
+"name": "Catalog",
+"round": "Round 1 · five design languages",
+"shot": "Part page",
+"order": 1,
+"score": 81.0,
+"default": false,
+"thesis": "McMaster-density catalog: category tree and dense rows lead to a long part page with a photo column, spec table and offers.",
+"best_when": "You already know roughly what you want and need to scan, filter and compare many parts quickly.",
+"loses_when": "You want the feel of a developer tool or a terminal; this reads as a store catalog.",
+"still": {
+"value": "stills/b1-v3-hero.webp",
+"source": "robotparts design/babble-2026-10-22/v3-catalog/shots/hero-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v3-phone",
+"variant": "R1 v3 · Catalog",
+"name": "Catalog",
+"round": "Round 1 · five design languages",
+"shot": "Phone",
+"order": 2,
+"score": 81.0,
+"default": false,
+"thesis": "McMaster-density catalog: category tree and dense rows lead to a long part page with a photo column, spec table and offers.",
+"best_when": "You already know roughly what you want and need to scan, filter and compare many parts quickly.",
+"loses_when": "You want the feel of a developer tool or a terminal; this reads as a store catalog.",
+"still": {
+"value": "stills/b1-v3-phone.webp",
+"source": "robotparts design/babble-2026-10-22/v3-catalog/shots/phone-375.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v4-landing",
+"variant": "R1 v4 · Views",
+"name": "Views",
+"round": "Round 1 · five design languages",
+"shot": "Landing",
+"order": 0,
+"score": 96.0,
+"default": true,
+"thesis": "An Ultra Librarian-style multi-panel viewer: one panel per layer of the black box, side by side, toggleable and maximisable.",
+"best_when": "You want the whole part — pictures, specs, offers and code — on one screen.",
+"loses_when": "Browsing many parts — the explorer list is plain and it is the least narrative variant.",
+"still": {
+"value": "stills/b1-v4-landing.webp",
+"source": "robotparts design/babble-2026-10-22/v4-views/shots/landing-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v4-hero",
+"variant": "R1 v4 · Views",
+"name": "Views",
+"round": "Round 1 · five design languages",
+"shot": "Part page",
+"order": 1,
+"score": 96.0,
+"default": true,
+"thesis": "An Ultra Librarian-style multi-panel viewer: one panel per layer of the black box, side by side, toggleable and maximisable.",
+"best_when": "You want the whole part — pictures, specs, offers and code — on one screen.",
+"loses_when": "Browsing many parts — the explorer list is plain and it is the least narrative variant.",
+"still": {
+"value": "stills/b1-v4-hero.webp",
+"source": "robotparts design/babble-2026-10-22/v4-views/shots/hero-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v4-phone",
+"variant": "R1 v4 · Views",
+"name": "Views",
+"round": "Round 1 · five design languages",
+"shot": "Phone",
+"order": 2,
+"score": 96.0,
+"default": true,
+"thesis": "An Ultra Librarian-style multi-panel viewer: one panel per layer of the black box, side by side, toggleable and maximisable.",
+"best_when": "You want the whole part — pictures, specs, offers and code — on one screen.",
+"loses_when": "Browsing many parts — the explorer list is plain and it is the least narrative variant.",
+"still": {
+"value": "stills/b1-v4-phone.webp",
+"source": "robotparts design/babble-2026-10-22/v4-views/shots/phone-375.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v5-landing",
+"variant": "R1 v5 · Notebook",
+"name": "Notebook",
+"round": "Round 1 · five design languages",
+"shot": "Landing",
+"order": 0,
+"score": 86.0,
+"default": false,
+"thesis": "Each page is an executable reference notebook: real code cells and their outputs — figures, tables and plots.",
+"best_when": "The visitor is a developer who wants to read and copy the code that gets the data.",
+"loses_when": "Someone wants to look at a part fast — code chrome costs vertical space, and on a phone the picture is below the first screen.",
+"still": {
+"value": "stills/b1-v5-landing.webp",
+"source": "robotparts design/babble-2026-10-22/v5-notebook/shots/landing-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v5-hero",
+"variant": "R1 v5 · Notebook",
+"name": "Notebook",
+"round": "Round 1 · five design languages",
+"shot": "Part page",
+"order": 1,
+"score": 86.0,
+"default": false,
+"thesis": "Each page is an executable reference notebook: real code cells and their outputs — figures, tables and plots.",
+"best_when": "The visitor is a developer who wants to read and copy the code that gets the data.",
+"loses_when": "Someone wants to look at a part fast — code chrome costs vertical space, and on a phone the picture is below the first screen.",
+"still": {
+"value": "stills/b1-v5-hero.webp",
+"source": "robotparts design/babble-2026-10-22/v5-notebook/shots/hero-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b1-v5-phone",
+"variant": "R1 v5 · Notebook",
+"name": "Notebook",
+"round": "Round 1 · five design languages",
+"shot": "Phone",
+"order": 2,
+"score": 86.0,
+"default": false,
+"thesis": "Each page is an executable reference notebook: real code cells and their outputs — figures, tables and plots.",
+"best_when": "The visitor is a developer who wants to read and copy the code that gets the data.",
+"loses_when": "Someone wants to look at a part fast — code chrome costs vertical space, and on a phone the picture is below the first screen.",
+"still": {
+"value": "stills/b1-v5-phone.webp",
+"source": "robotparts design/babble-2026-10-22/v5-notebook/shots/phone-375.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v1-landing",
+"variant": "R2 v1 · McMaster",
+"name": "McMaster",
+"round": "Round 2 · five catalog designs",
+"shot": "Landing",
+"order": 0,
+"score": 88.0,
+"default": false,
+"thesis": "McMaster-Carr's catalog logic: category index with spec buckets, dense family tables with a picture on every row, and a part page with photo + always-visible drawing + buy box.",
+"best_when": "You know roughly what you want and scan many parts fast in dense tables.",
+"loses_when": "The visitor wants something visual or curated; the landing's three dense columns can read as a wall of links.",
+"still": {
+"value": "stills/b2-v1-landing.webp",
+"source": "robotparts design/babble-2026-10-22b/w1-mcmaster/shots/landing-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v1-hero",
+"variant": "R2 v1 · McMaster",
+"name": "McMaster",
+"round": "Round 2 · five catalog designs",
+"shot": "Part page",
+"order": 1,
+"score": 88.0,
+"default": false,
+"thesis": "McMaster-Carr's catalog logic: category index with spec buckets, dense family tables with a picture on every row, and a part page with photo + always-visible drawing + buy box.",
+"best_when": "You know roughly what you want and scan many parts fast in dense tables.",
+"loses_when": "The visitor wants something visual or curated; the landing's three dense columns can read as a wall of links.",
+"still": {
+"value": "stills/b2-v1-hero.webp",
+"source": "robotparts design/babble-2026-10-22b/w1-mcmaster/shots/hero-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v1-phone",
+"variant": "R2 v1 · McMaster",
+"name": "McMaster",
+"round": "Round 2 · five catalog designs",
+"shot": "Phone",
+"order": 2,
+"score": 88.0,
+"default": false,
+"thesis": "McMaster-Carr's catalog logic: category index with spec buckets, dense family tables with a picture on every row, and a part page with photo + always-visible drawing + buy box.",
+"best_when": "You know roughly what you want and scan many parts fast in dense tables.",
+"loses_when": "The visitor wants something visual or curated; the landing's three dense columns can read as a wall of links.",
+"still": {
+"value": "stills/b2-v1-phone.webp",
+"source": "robotparts design/babble-2026-10-22b/w1-mcmaster/shots/phone-375.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v2-landing",
+"variant": "R2 v2 · PCPartPicker",
+"name": "PCPartPicker",
+"round": "Round 2 · five catalog designs",
+"shot": "Landing",
+"order": 0,
+"score": 90.0,
+"default": false,
+"thesis": "PCPartPicker's shopping logic: picture-led browse, filterable tables with compare, and a part page centred on prices across sellers, price history, region and the level as the 'rating'.",
+"best_when": "Shopping or shortlisting — filter, compare two or three, and see who sells each at what price, checked when.",
+"loses_when": "Pictures should carry the part page; views sit in one-at-a-time tabs and price chrome overweights thin shipping data.",
+"still": {
+"value": "stills/b2-v2-landing.webp",
+"source": "robotparts design/babble-2026-10-22b/w2-pcpartpicker/shots/landing-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v2-hero",
+"variant": "R2 v2 · PCPartPicker",
+"name": "PCPartPicker",
+"round": "Round 2 · five catalog designs",
+"shot": "Part page",
+"order": 1,
+"score": 90.0,
+"default": false,
+"thesis": "PCPartPicker's shopping logic: picture-led browse, filterable tables with compare, and a part page centred on prices across sellers, price history, region and the level as the 'rating'.",
+"best_when": "Shopping or shortlisting — filter, compare two or three, and see who sells each at what price, checked when.",
+"loses_when": "Pictures should carry the part page; views sit in one-at-a-time tabs and price chrome overweights thin shipping data.",
+"still": {
+"value": "stills/b2-v2-hero.webp",
+"source": "robotparts design/babble-2026-10-22b/w2-pcpartpicker/shots/hero-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v2-phone",
+"variant": "R2 v2 · PCPartPicker",
+"name": "PCPartPicker",
+"round": "Round 2 · five catalog designs",
+"shot": "Phone",
+"order": 2,
+"score": 90.0,
+"default": false,
+"thesis": "PCPartPicker's shopping logic: picture-led browse, filterable tables with compare, and a part page centred on prices across sellers, price history, region and the level as the 'rating'.",
+"best_when": "Shopping or shortlisting — filter, compare two or three, and see who sells each at what price, checked when.",
+"loses_when": "Pictures should carry the part page; views sit in one-at-a-time tabs and price chrome overweights thin shipping data.",
+"still": {
+"value": "stills/b2-v2-phone.webp",
+"source": "robotparts design/babble-2026-10-22b/w2-pcpartpicker/shots/phone-375.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v3-landing",
+"variant": "R2 v3 · Views + Offers",
+"name": "Views + Offers",
+"round": "Round 2 · five catalog designs",
+"shot": "Landing",
+"order": 0,
+"score": 92.0,
+"default": true,
+"thesis": "Ultra Librarian's part page (four views side by side, each with its own selector and download) plus Octopart's distributor offer table, behind a search-first home.",
+"best_when": "You want each part's first screen to be four labelled pictures of it, then who sells it — a distributor + component-model site.",
+"loses_when": "You want one dominant hero picture or McMaster density; for PSUs and cameras one of the four panels is an honest empty slot.",
+"still": {
+"value": "stills/b2-v3-landing.webp",
+"source": "robotparts design/babble-2026-10-22b/w3-ultralibrarian-octopart/shots/landing-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v3-hero",
+"variant": "R2 v3 · Views + Offers",
+"name": "Views + Offers",
+"round": "Round 2 · five catalog designs",
+"shot": "Part page",
+"order": 1,
+"score": 92.0,
+"default": true,
+"thesis": "Ultra Librarian's part page (four views side by side, each with its own selector and download) plus Octopart's distributor offer table, behind a search-first home.",
+"best_when": "You want each part's first screen to be four labelled pictures of it, then who sells it — a distributor + component-model site.",
+"loses_when": "You want one dominant hero picture or McMaster density; for PSUs and cameras one of the four panels is an honest empty slot.",
+"still": {
+"value": "stills/b2-v3-hero.webp",
+"source": "robotparts design/babble-2026-10-22b/w3-ultralibrarian-octopart/shots/hero-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v3-phone",
+"variant": "R2 v3 · Views + Offers",
+"name": "Views + Offers",
+"round": "Round 2 · five catalog designs",
+"shot": "Phone",
+"order": 2,
+"score": 92.0,
+"default": true,
+"thesis": "Ultra Librarian's part page (four views side by side, each with its own selector and download) plus Octopart's distributor offer table, behind a search-first home.",
+"best_when": "You want each part's first screen to be four labelled pictures of it, then who sells it — a distributor + component-model site.",
+"loses_when": "You want one dominant hero picture or McMaster density; for PSUs and cameras one of the four panels is an honest empty slot.",
+"still": {
+"value": "stills/b2-v3-phone.webp",
+"source": "robotparts design/babble-2026-10-22b/w3-ultralibrarian-octopart/shots/phone-375.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v4-landing",
+"variant": "R2 v4 · Parametric",
+"name": "Parametric",
+"round": "Round 2 · five catalog designs",
+"shot": "Landing",
+"order": 0,
+"score": 76.0,
+"default": false,
+"thesis": "DigiKey/Mouser parametric search: every spec is a filter with a histogram and live counts, a full-width results table, and a part page led by the attributes table and 'similar parts'.",
+"best_when": "You know the spec ('3–6 N·m, under 0.2 kg, in stock') and want to narrow 1,146 actuators and compare in columns.",
+"loses_when": "Someone is just looking — filter boxes and tables lead, pictures follow.",
+"still": {
+"value": "stills/b2-v4-landing.webp",
+"source": "robotparts design/babble-2026-10-22b/w4-parametric/shots/landing-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v4-hero",
+"variant": "R2 v4 · Parametric",
+"name": "Parametric",
+"round": "Round 2 · five catalog designs",
+"shot": "Part page",
+"order": 1,
+"score": 76.0,
+"default": false,
+"thesis": "DigiKey/Mouser parametric search: every spec is a filter with a histogram and live counts, a full-width results table, and a part page led by the attributes table and 'similar parts'.",
+"best_when": "You know the spec ('3–6 N·m, under 0.2 kg, in stock') and want to narrow 1,146 actuators and compare in columns.",
+"loses_when": "Someone is just looking — filter boxes and tables lead, pictures follow.",
+"still": {
+"value": "stills/b2-v4-hero.webp",
+"source": "robotparts design/babble-2026-10-22b/w4-parametric/shots/hero-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v4-phone",
+"variant": "R2 v4 · Parametric",
+"name": "Parametric",
+"round": "Round 2 · five catalog designs",
+"shot": "Phone",
+"order": 2,
+"score": 76.0,
+"default": false,
+"thesis": "DigiKey/Mouser parametric search: every spec is a filter with a histogram and live counts, a full-width results table, and a part page led by the attributes table and 'similar parts'.",
+"best_when": "You know the spec ('3–6 N·m, under 0.2 kg, in stock') and want to narrow 1,146 actuators and compare in columns.",
+"loses_when": "Someone is just looking — filter boxes and tables lead, pictures follow.",
+"still": {
+"value": "stills/b2-v4-phone.webp",
+"source": "robotparts design/babble-2026-10-22b/w4-parametric/shots/phone-375.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v5-landing",
+"variant": "R2 v5 · Gallery",
+"name": "Gallery",
+"round": "Round 2 · five catalog designs",
+"shot": "Landing",
+"order": 0,
+"score": 88.0,
+"default": false,
+"thesis": "Adafruit/SparkFun/Misumi product browsing: a picture-card grid with views badges and facets, and a top-down part page with a big views carousel, key-spec tiles and a buy box.",
+"best_when": "A human lands and browses by picture — scan photos and drawn envelopes with price and stock, peek, then open a part.",
+"loses_when": "Density matters — about 8 parts per screen against ~15 rows in a table, and it reads most like a store.",
+"still": {
+"value": "stills/b2-v5-landing.webp",
+"source": "robotparts design/babble-2026-10-22b/w5-gallery/shots/landing-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v5-hero",
+"variant": "R2 v5 · Gallery",
+"name": "Gallery",
+"round": "Round 2 · five catalog designs",
+"shot": "Part page",
+"order": 1,
+"score": 88.0,
+"default": false,
+"thesis": "Adafruit/SparkFun/Misumi product browsing: a picture-card grid with views badges and facets, and a top-down part page with a big views carousel, key-spec tiles and a buy box.",
+"best_when": "A human lands and browses by picture — scan photos and drawn envelopes with price and stock, peek, then open a part.",
+"loses_when": "Density matters — about 8 parts per screen against ~15 rows in a table, and it reads most like a store.",
+"still": {
+"value": "stills/b2-v5-hero.webp",
+"source": "robotparts design/babble-2026-10-22b/w5-gallery/shots/hero-1280.png",
+"asOf": "2026-10-22"
+}
+},
+{
+"id": "b2-v5-phone",
+"variant": "R2 v5 · Gallery",
+"name": "Gallery",
+"round": "Round 2 · five catalog designs",
+"shot": "Phone",
+"order": 2,
+"score": 88.0,
+"default": false,
+"thesis": "Adafruit/SparkFun/Misumi product browsing: a picture-card grid with views badges and facets, and a top-down part page with a big views carousel, key-spec tiles and a buy box.",
+"best_when": "A human lands and browses by picture — scan photos and drawn envelopes with price and stock, peek, then open a part.",
+"loses_when": "Density matters — about 8 parts per screen against ~15 rows in a table, and it reads most like a store.",
+"still": {
+"value": "stills/b2-v5-phone.webp",
+"source": "robotparts design/babble-2026-10-22b/w5-gallery/shots/phone-375.png",
+"asOf": "2026-10-22"
+}
+}
+]
+}

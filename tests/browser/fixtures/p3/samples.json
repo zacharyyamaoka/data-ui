@@ -1,0 +1,593 @@
+{
+ "id": "p3-samples",
+ "title": "Samples",
+ "properties": {
+  "run": {
+   "type": "text"
+  },
+  "station": {
+   "type": "text"
+  },
+  "situation": {
+   "type": "text"
+  },
+  "t": {
+   "type": "number",
+   "unit": "s"
+  },
+  "q_deg": {
+   "type": "number",
+   "unit": "deg"
+  }
+ },
+ "rows": [
+  {
+   "id": "r1-real-0",
+   "run": "r1",
+   "station": "S1",
+   "situation": "real",
+   "t": 0.0,
+   "q_deg": 10.25
+  },
+  {
+   "id": "r1-real-1",
+   "run": "r1",
+   "station": "S1",
+   "situation": "real",
+   "t": 0.5,
+   "q_deg": 11.25
+  },
+  {
+   "id": "r1-real-2",
+   "run": "r1",
+   "station": "S1",
+   "situation": "real",
+   "t": 1.0,
+   "q_deg": 12.25
+  },
+  {
+   "id": "r1-real-3",
+   "run": "r1",
+   "station": "S1",
+   "situation": "real",
+   "t": 1.5,
+   "q_deg": 13.25
+  },
+  {
+   "id": "r1-real-4",
+   "run": "r1",
+   "station": "S1",
+   "situation": "real",
+   "t": 2.0,
+   "q_deg": 14.25
+  },
+  {
+   "id": "r1-target-0",
+   "run": "r1",
+   "station": "S1",
+   "situation": "target",
+   "t": 0.0,
+   "q_deg": 10.0
+  },
+  {
+   "id": "r1-target-1",
+   "run": "r1",
+   "station": "S1",
+   "situation": "target",
+   "t": 0.5,
+   "q_deg": 11.0
+  },
+  {
+   "id": "r1-target-2",
+   "run": "r1",
+   "station": "S1",
+   "situation": "target",
+   "t": 1.0,
+   "q_deg": 12.0
+  },
+  {
+   "id": "r1-target-3",
+   "run": "r1",
+   "station": "S1",
+   "situation": "target",
+   "t": 1.5,
+   "q_deg": 13.0
+  },
+  {
+   "id": "r1-target-4",
+   "run": "r1",
+   "station": "S1",
+   "situation": "target",
+   "t": 2.0,
+   "q_deg": 14.0
+  },
+  {
+   "id": "r2-real-0",
+   "run": "r2",
+   "station": "S1",
+   "situation": "real",
+   "t": 0.0,
+   "q_deg": 20.25
+  },
+  {
+   "id": "r2-real-1",
+   "run": "r2",
+   "station": "S1",
+   "situation": "real",
+   "t": 0.5,
+   "q_deg": 21.25
+  },
+  {
+   "id": "r2-real-2",
+   "run": "r2",
+   "station": "S1",
+   "situation": "real",
+   "t": 1.0,
+   "q_deg": 22.25
+  },
+  {
+   "id": "r2-real-3",
+   "run": "r2",
+   "station": "S1",
+   "situation": "real",
+   "t": 1.5,
+   "q_deg": 23.25
+  },
+  {
+   "id": "r2-real-4",
+   "run": "r2",
+   "station": "S1",
+   "situation": "real",
+   "t": 2.0,
+   "q_deg": 24.25
+  },
+  {
+   "id": "r2-real-5",
+   "run": "r2",
+   "station": "S1",
+   "situation": "real",
+   "t": 2.5,
+   "q_deg": 25.25
+  },
+  {
+   "id": "r2-target-0",
+   "run": "r2",
+   "station": "S1",
+   "situation": "target",
+   "t": 0.0,
+   "q_deg": 20.0
+  },
+  {
+   "id": "r2-target-1",
+   "run": "r2",
+   "station": "S1",
+   "situation": "target",
+   "t": 0.5,
+   "q_deg": 21.0
+  },
+  {
+   "id": "r2-target-2",
+   "run": "r2",
+   "station": "S1",
+   "situation": "target",
+   "t": 1.0,
+   "q_deg": 22.0
+  },
+  {
+   "id": "r2-target-3",
+   "run": "r2",
+   "station": "S1",
+   "situation": "target",
+   "t": 1.5,
+   "q_deg": 23.0
+  },
+  {
+   "id": "r2-target-4",
+   "run": "r2",
+   "station": "S1",
+   "situation": "target",
+   "t": 2.0,
+   "q_deg": 24.0
+  },
+  {
+   "id": "r2-target-5",
+   "run": "r2",
+   "station": "S1",
+   "situation": "target",
+   "t": 2.5,
+   "q_deg": 25.0
+  },
+  {
+   "id": "r3-real-0",
+   "run": "r3",
+   "station": "S2",
+   "situation": "real",
+   "t": 0.0,
+   "q_deg": 30.25
+  },
+  {
+   "id": "r3-real-1",
+   "run": "r3",
+   "station": "S2",
+   "situation": "real",
+   "t": 0.5,
+   "q_deg": 31.25
+  },
+  {
+   "id": "r3-real-2",
+   "run": "r3",
+   "station": "S2",
+   "situation": "real",
+   "t": 1.0,
+   "q_deg": 32.25
+  },
+  {
+   "id": "r3-real-3",
+   "run": "r3",
+   "station": "S2",
+   "situation": "real",
+   "t": 1.5,
+   "q_deg": 33.25
+  },
+  {
+   "id": "r3-real-4",
+   "run": "r3",
+   "station": "S2",
+   "situation": "real",
+   "t": 2.0,
+   "q_deg": 34.25
+  },
+  {
+   "id": "r3-real-5",
+   "run": "r3",
+   "station": "S2",
+   "situation": "real",
+   "t": 2.5,
+   "q_deg": 35.25
+  },
+  {
+   "id": "r3-real-6",
+   "run": "r3",
+   "station": "S2",
+   "situation": "real",
+   "t": 3.0,
+   "q_deg": 36.25
+  },
+  {
+   "id": "r3-target-0",
+   "run": "r3",
+   "station": "S2",
+   "situation": "target",
+   "t": 0.0,
+   "q_deg": 30.0
+  },
+  {
+   "id": "r3-target-1",
+   "run": "r3",
+   "station": "S2",
+   "situation": "target",
+   "t": 0.5,
+   "q_deg": 31.0
+  },
+  {
+   "id": "r3-target-2",
+   "run": "r3",
+   "station": "S2",
+   "situation": "target",
+   "t": 1.0,
+   "q_deg": 32.0
+  },
+  {
+   "id": "r3-target-3",
+   "run": "r3",
+   "station": "S2",
+   "situation": "target",
+   "t": 1.5,
+   "q_deg": 33.0
+  },
+  {
+   "id": "r3-target-4",
+   "run": "r3",
+   "station": "S2",
+   "situation": "target",
+   "t": 2.0,
+   "q_deg": 34.0
+  },
+  {
+   "id": "r3-target-5",
+   "run": "r3",
+   "station": "S2",
+   "situation": "target",
+   "t": 2.5,
+   "q_deg": 35.0
+  },
+  {
+   "id": "r3-target-6",
+   "run": "r3",
+   "station": "S2",
+   "situation": "target",
+   "t": 3.0,
+   "q_deg": 36.0
+  },
+  {
+   "id": "r4-real-0",
+   "run": "r4",
+   "station": "S2",
+   "situation": "real",
+   "t": 0.0,
+   "q_deg": 40.25
+  },
+  {
+   "id": "r4-real-1",
+   "run": "r4",
+   "station": "S2",
+   "situation": "real",
+   "t": 0.5,
+   "q_deg": 41.25
+  },
+  {
+   "id": "r4-real-2",
+   "run": "r4",
+   "station": "S2",
+   "situation": "real",
+   "t": 1.0,
+   "q_deg": 42.25
+  },
+  {
+   "id": "r4-real-3",
+   "run": "r4",
+   "station": "S2",
+   "situation": "real",
+   "t": 1.5,
+   "q_deg": 43.25
+  },
+  {
+   "id": "r4-real-4",
+   "run": "r4",
+   "station": "S2",
+   "situation": "real",
+   "t": 2.0,
+   "q_deg": 44.25
+  },
+  {
+   "id": "r4-real-5",
+   "run": "r4",
+   "station": "S2",
+   "situation": "real",
+   "t": 2.5,
+   "q_deg": 45.25
+  },
+  {
+   "id": "r4-real-6",
+   "run": "r4",
+   "station": "S2",
+   "situation": "real",
+   "t": 3.0,
+   "q_deg": 46.25
+  },
+  {
+   "id": "r4-real-7",
+   "run": "r4",
+   "station": "S2",
+   "situation": "real",
+   "t": 3.5,
+   "q_deg": 47.25
+  },
+  {
+   "id": "r4-target-0",
+   "run": "r4",
+   "station": "S2",
+   "situation": "target",
+   "t": 0.0,
+   "q_deg": 40.0
+  },
+  {
+   "id": "r4-target-1",
+   "run": "r4",
+   "station": "S2",
+   "situation": "target",
+   "t": 0.5,
+   "q_deg": 41.0
+  },
+  {
+   "id": "r4-target-2",
+   "run": "r4",
+   "station": "S2",
+   "situation": "target",
+   "t": 1.0,
+   "q_deg": 42.0
+  },
+  {
+   "id": "r4-target-3",
+   "run": "r4",
+   "station": "S2",
+   "situation": "target",
+   "t": 1.5,
+   "q_deg": 43.0
+  },
+  {
+   "id": "r4-target-4",
+   "run": "r4",
+   "station": "S2",
+   "situation": "target",
+   "t": 2.0,
+   "q_deg": 44.0
+  },
+  {
+   "id": "r4-target-5",
+   "run": "r4",
+   "station": "S2",
+   "situation": "target",
+   "t": 2.5,
+   "q_deg": 45.0
+  },
+  {
+   "id": "r4-target-6",
+   "run": "r4",
+   "station": "S2",
+   "situation": "target",
+   "t": 3.0,
+   "q_deg": 46.0
+  },
+  {
+   "id": "r4-target-7",
+   "run": "r4",
+   "station": "S2",
+   "situation": "target",
+   "t": 3.5,
+   "q_deg": 47.0
+  },
+  {
+   "id": "r5-real-0",
+   "run": "r5",
+   "station": "S3",
+   "situation": "real",
+   "t": 0.0,
+   "q_deg": 50.25
+  },
+  {
+   "id": "r5-real-1",
+   "run": "r5",
+   "station": "S3",
+   "situation": "real",
+   "t": 0.5,
+   "q_deg": 51.25
+  },
+  {
+   "id": "r5-real-2",
+   "run": "r5",
+   "station": "S3",
+   "situation": "real",
+   "t": 1.0,
+   "q_deg": 52.25
+  },
+  {
+   "id": "r5-real-3",
+   "run": "r5",
+   "station": "S3",
+   "situation": "real",
+   "t": 1.5,
+   "q_deg": 53.25
+  },
+  {
+   "id": "r5-real-4",
+   "run": "r5",
+   "station": "S3",
+   "situation": "real",
+   "t": 2.0,
+   "q_deg": 54.25
+  },
+  {
+   "id": "r5-real-5",
+   "run": "r5",
+   "station": "S3",
+   "situation": "real",
+   "t": 2.5,
+   "q_deg": 55.25
+  },
+  {
+   "id": "r5-real-6",
+   "run": "r5",
+   "station": "S3",
+   "situation": "real",
+   "t": 3.0,
+   "q_deg": 56.25
+  },
+  {
+   "id": "r5-real-7",
+   "run": "r5",
+   "station": "S3",
+   "situation": "real",
+   "t": 3.5,
+   "q_deg": 57.25
+  },
+  {
+   "id": "r5-real-8",
+   "run": "r5",
+   "station": "S3",
+   "situation": "real",
+   "t": 4.0,
+   "q_deg": 58.25
+  },
+  {
+   "id": "r6-real-0",
+   "run": "r6",
+   "station": "S3",
+   "situation": "real",
+   "t": 0.0,
+   "q_deg": 60.25
+  },
+  {
+   "id": "r6-real-1",
+   "run": "r6",
+   "station": "S3",
+   "situation": "real",
+   "t": 0.5,
+   "q_deg": 61.25
+  },
+  {
+   "id": "r6-real-2",
+   "run": "r6",
+   "station": "S3",
+   "situation": "real",
+   "t": 1.0,
+   "q_deg": 62.25
+  },
+  {
+   "id": "r6-real-3",
+   "run": "r6",
+   "station": "S3",
+   "situation": "real",
+   "t": 1.5,
+   "q_deg": 63.25
+  },
+  {
+   "id": "r6-real-4",
+   "run": "r6",
+   "station": "S3",
+   "situation": "real",
+   "t": 2.0,
+   "q_deg": 64.25
+  },
+  {
+   "id": "r6-real-5",
+   "run": "r6",
+   "station": "S3",
+   "situation": "real",
+   "t": 2.5,
+   "q_deg": 65.25
+  },
+  {
+   "id": "r6-real-6",
+   "run": "r6",
+   "station": "S3",
+   "situation": "real",
+   "t": 3.0,
+   "q_deg": 66.25
+  },
+  {
+   "id": "r6-real-7",
+   "run": "r6",
+   "station": "S3",
+   "situation": "real",
+   "t": 3.5,
+   "q_deg": 67.25
+  },
+  {
+   "id": "r6-real-8",
+   "run": "r6",
+   "station": "S3",
+   "situation": "real",
+   "t": 4.0,
+   "q_deg": 68.25
+  },
+  {
+   "id": "r6-real-9",
+   "run": "r6",
+   "station": "S3",
+   "situation": "real",
+   "t": 4.5,
+   "q_deg": 69.25
+  }
+ ]
+}

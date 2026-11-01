@@ -1,0 +1,9 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/kanban.js). Bases' own type since Obsidian 1.14; docs/CONTRACT.md §1.",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [
+    { "type": "kanban", "name": "Kanban", "icon": "kanban", "summary": "Columns are groupBy's values in groupOrder, each with its count; dragging a card proposes a data edit (derived properties refuse), dragging a column writes groupOrder; both work from the keyboard." }
+  ],
+  "npm": ["@atlaskit/pragmatic-drag-and-drop@4.0.0", "@atlaskit/pragmatic-drag-and-drop-hitbox@3.0.0", "@tanstack/virtual-core@3.19.7"]
+}

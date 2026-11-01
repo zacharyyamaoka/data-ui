@@ -1,0 +1,99 @@
+# Proposal 1 · Gallery-first ("the 3D shelf"). BAM's object library as cards: each card is the library's own poster
+# render, and the object's real mesh turns under the pointer (one shared WebGL renderer for the page, at most 4 live;
+# docs/CONTRACT.md §23). The rail is the six orthogonal axes of object-database/CONTRACT.md (material, form, colour,
+# grade, damage, rigidity) plus where the geometry came from; a click opens the peek, whose first thing is an orbit
+# viewer. New views: the dataset's own Objects.base "Cards" view is the seed (image: thumbnail, imageFit: contain,
+# cardSize: 170, groupBy type) with `mesh:` added.
+# Check it: node bin/data-ui.mjs check gallery/examples/object-db-shelf/views.base
+data: objects.json
+facets:
+  - { as: current, label: Your filters }
+  - { property: name, as: search, properties: [name, type, brand, material], label: Find, placeholder: "Name, type or brand" }
+  - { property: material, label: Material, limit: 8 }
+  - { property: form, label: Form, limit: 8 }
+  - { property: colour, label: Colour }
+  - { property: grade, label: Grade }
+  - { property: damage, label: Damage }
+  - { property: rigidity, label: Rigidity }
+  - { property: geometry, label: Geometry }
+  - { property: source, label: Source }
+  - { property: mass_g, as: slider-histogram, log: true, unit: g, label: Mass }
+properties:
+  name: { displayName: Name }
+  type: { displayName: Type }
+  material: { displayName: Material }
+  form: { displayName: Form }
+  colour: { displayName: Colour }
+  grade: { displayName: Grade }
+  damage: { displayName: Damage }
+  rigidity: { displayName: Rigidity }
+  geometry: { displayName: Geometry }
+  source: { displayName: Source }
+  mass_g: { displayName: Mass }
+  size_class: { displayName: Size class }
+  brand: { displayName: Brand }
+views:
+  - type: cards
+    name: Everything · real scans first
+    order: [name, type, material, mass_g]
+    image: thumbnail
+    mesh: mesh
+    meshView: mesh_view
+    imageFit: contain
+    cardSize: 170
+    sort:
+      - { property: geometry, direction: DESC }
+      - { property: type, direction: ASC }
+  - type: cards
+    name: Shelf · by type
+    groupBy: { property: type, direction: ASC }
+    order: [name, material, form, mass_g]
+    image: thumbnail
+    mesh: mesh
+    meshView: mesh_view
+    imageFit: contain
+    cardSize: 170
+    sort:
+      - { property: name, direction: ASC }
+  - type: cards
+    name: Real scans
+    filters: 'geometry == "real scan"'
+    groupBy: { property: source, direction: ASC }
+    order: [name, type, mass_g]
+    image: thumbnail
+    mesh: mesh
+    meshView: mesh_view
+    imageFit: contain
+    cardSize: 190
+    sort:
+      - { property: name, direction: ASC }
+  - type: cards
+    name: By material
+    groupBy: { property: material, direction: ASC }
+    order: [name, type, colour]
+    image: thumbnail
+    mesh: mesh
+    meshView: mesh_view
+    imageFit: contain
+    cardSize: 150
+    sort:
+      - { property: mass_g, direction: DESC }
+  - type: cards
+    name: Contact sheet
+    order: [name]
+    image: thumbnail
+    mesh: mesh
+    meshView: mesh_view
+    meshInteract: click
+    imageFit: contain
+    cardSize: 104
+    sort:
+      - { property: type, direction: ASC }
+  - type: table
+    name: Same rows · table
+    order: [name, type, material, form, colour, grade, damage, rigidity, mass_g, geometry, source]
+    display: { thumbnail: image }
+    sort:
+      - { property: type, direction: ASC }
+  - type: source
+    name: Raw source

@@ -1,0 +1,15 @@
+# Values several sources state beside ones that do not (docs/CONTRACT.md §40): a multi-source cell takes no hand edit.
+data: sourced.json
+views:
+  - type: table
+    name: Parts
+    order: [part, torque, maker, mass, owner]
+    addRow: true
+  - type: table
+    name: Form
+    edit: true
+    order: [part, torque, maker, mass, owner]
+  - type: record
+    name: Record
+    edit: true
+    order: [part, torque, maker, mass, owner]

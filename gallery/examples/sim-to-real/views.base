@@ -1,0 +1,252 @@
+# Sim-to-real: CAN 14's twin against the real rack, sample by sample and on camera, then the rack's eight motor twins
+# against the real motors. Per motor: how far the twin is from the measurement floor, which model rung buys how much,
+# the twin's error run by run, the improvement rounds, and every model-card term. Real hardware runs, Oct 21-25 2026
+# (source/build.py and source/build_replays.py, read-only from /archive/datasets/bam_rig).
+# Grammar: docs/peps/0004-dashboards.md; cards and the clock: docs/peps/0005-dashboard-cards.md.
+data: motors.json
+facets:
+  - part
+  - board
+properties:
+  motor: { displayName: Motor }
+  twin: { displayName: Twin RMS }
+  floor: { displayName: Floor }
+  twin_over_floor: { displayName: Twin ÷ floor }
+  model: { displayName: Model }
+  family: { displayName: Family }
+  error: { displayName: Error }
+  full_twin: { displayName: Full twin }
+  identified_twin: { displayName: Identified twin }
+  order: { displayName: Run (in order) }
+  label: { displayName: Term }
+  status: { displayName: Status }
+  held_out: { displayName: Held out }
+  situation: { displayName: Situation }
+  q_deg: { displayName: Angle }
+  gap_mrad: { displayName: Gap }
+  run: { displayName: Run }
+style:
+  chrome: minimal
+  numbers: { digits: 3, compact: true }
+  # one colour per situation, the same in every panel: the real rack is the strong ink, the twins are the two hues
+  palette: { target: "#8b9099", real: "#2a78d6", sim_identified: "#e8743b", sim_identified_plus: "#19a979" }
+rerun:
+  rrd: rerun/sim-to-real.rrd
+  sdk: 0.40.0
+clock:
+  data: samples
+  time: t
+datasets:
+  samples:
+    data: samples.json
+    label: CAN 14 run
+    facets:
+      - { property: run, as: select, label: Run }
+    # the staircase: a run with a real camera clip, and the longest (36 s), so it fills the clock's span
+    filters: 'run == "staircase 10-23"'
+  media: media.json
+  # WHY a second entry on media.json with no link: the real-vs-real repeat card always shows tape A and tape B,
+  # whatever run the rail picks (the rail narrows `media` through its link to samples).
+  tape_pair: media.json
+  # WHY unlinked entries for the CAN 14 headline: a click on another motor below must not empty the top tiles.
+  # (before `motors`: the last entry on the top-level data: file names the default dataset)
+  can14_motor: motors.json
+  can14_runs: runs.json
+  can14_models: models.json
+  motors: motors.json
+  models:
+    data: models.json
+    facets: [family]
+  runs:
+    data: runs.json
+    facets: [kind, speed]
+  terms:
+    data: terms.json
+    label: Model-card terms
+    facets: [status, in_twin]
+  rounds: rounds.json
+links:
+  - { from: media.run, to: samples.run }
+  - { from: models.motor, to: motors.motor }
+  - { from: runs.motor, to: motors.motor }
+  - { from: terms.motor, to: motors.motor }
+  - { from: rounds.motor, to: motors.motor }
+layout:
+  panels:
+    - text: |
+        ## CAN 14's twin against the real rack
+        Everything here is **real hardware**: CAN 14 on the rack, its encoder (real) and its RealSense camera. The
+        twin is a **model**: `sim_identified` and `sim_identified_plus` replay the same commands. **No sim render of
+        the rack exists** (CAN 14's joint is not in the CAD export), so there is no sim video to lay over the camera.
+        The overlay card compares two **real** repeats of the same tape instead: the repeatability floor, the bar a
+        twin can never beat. Pick a run in the rail; the sine (10-23) has **no usable camera clip** (its camera kept
+        53 frames over 6.5 s). Below: the rack's eight motor twins against their floors, and every model card.
+      w: 12
+    - { view: Twin gap RMS, w: 3 }
+    - { view: Repeat floor, w: 3 }
+    # h on the gauge only: in a content-sized row its arc collapses to 16 px (the gauge's own stage has no height)
+    - { view: Twin ÷ floor, w: 3, h: 2 }
+    - { view: Held-out runs, w: 3 }
+    - { view: Playback, w: 12 }
+    - { view: "Angle: real vs twin", w: 8, h: 3 }
+    - { view: Rack camera (real), w: 4, h: 3 }
+    - { view: "Gap: twin − real", w: 8, h: 3 }
+    - { view: Tape A vs tape B (real repeat), w: 4, h: 3 }
+    - { view: Twin vs floor, w: 12 }
+    - { view: Model error by rung (CAN 14), w: 4 }
+    - { view: Model ladder (10-23 runs), w: 8, h: 4 }
+    - { view: Friction ladder (10-24 held-out), w: 5, h: 4 }
+    - { view: Twin error by run, w: 7, h: 4 }
+    - { view: Improvement rounds, w: 5, h: 5 }
+    - { view: Model cards, w: 7, h: 5, toolbar: full }
+    - { view: Motors, w: 12, h: 4 }
+views:
+  # ---- CAN 14's headline (motors.json, runs.json, models.json; unlinked copies, see datasets)
+  - type: kpi
+    name: Twin gap RMS
+    from: can14_motor
+    filters: 'motor == "CAN 14"'
+    kpi:
+      label: Twin gap RMS · CAN 14
+      value: { property: twin }
+      compare: { against: floor, better: lower }
+  - type: kpi
+    name: Repeat floor
+    from: can14_motor
+    filters: 'motor == "CAN 14"'
+    kpi:
+      label: Repeat floor · identical tape pairs
+      value: { property: floor }
+  # gate 1.5: acceptance T2 "fidelity", the held-out twin within 1.5x the floor
+  # (/archive/datasets/bam_rig/rack_2026-10-24/analysis/acceptance.json)
+  - type: gauge
+    name: Twin ÷ floor
+    from: can14_motor
+    filters: 'motor == "CAN 14"'
+    gauge:
+      value: { property: twin_over_floor }
+      min: 0
+      max: 3
+      target: 1.5
+      shape: arc
+      better: lower
+      label: Twin ÷ floor · gate T2 ≤ 1.5×
+      bands: [{ to: 1.5, tone: good }, { tone: bad }]
+  - type: kpi
+    name: Held-out runs
+    from: can14_runs
+    filters: 'motor == "CAN 14" && held_out == true'
+    kpi:
+      label: Held-out real runs · CAN 14
+      value: { property: held_out, summary: Count }
+  # one bullet per rung, simplest first; the tick is CAN 14's measured repeat floor (models.json rung 20 = motors.json
+  # floor = 0.522 mrad), the bar no twin can beat
+  - type: bullet
+    name: Model error by rung (CAN 14)
+    from: can14_models
+    filters: 'motor == "CAN 14" && family != "friction" && family != "floor"'
+    sort:
+      - { property: rung, direction: ASC }
+    bullet: { value: { property: error }, target: 0.522, label: model, better: lower }
+  # ---- the clock
+  - type: playback
+    name: Playback
+    playback: { speeds: [0.25, 0.5, 1, 2], range: true, readout: true }
+  # ---- CAN 14, sample by sample (samples.json: the rail's run)
+  - type: timeseries
+    name: "Angle: real vs twin"
+    from: samples
+    timeseries:
+      x: t
+      y: q_deg
+      series: situation
+      unit: °
+      dash: [target]
+      legend: top
+  - type: timeseries
+    name: "Gap: twin − real"
+    from: samples
+    filters: 'situation == "sim_identified" || situation == "sim_identified_plus"'
+    timeseries:
+      x: t
+      y: gap_mrad
+      series: situation
+      unit: mrad
+      legend: top
+      # CAN 14's measured repeat floor, motors.json floor = 0.522 mrad (budget_can14.json:floor_rms_mrad)
+      rules: [{ y: 0.522, label: "repeat floor 0.522 mrad" }, { y: -0.522 }]
+  # ---- the camera (media.json: real RealSense clips, t0 = -0.3 s)
+  - type: video
+    name: Rack camera (real)
+    from: media
+    video: { src: src, label: run, primary: true }
+  - type: video-compare
+    name: Tape A vs tape B (real repeat)
+    from: tape_pair
+    overlay: { by: run, a: tape A 10-21, b: tape B 10-21, mode: onion, split: 0.5 }
+  # ---- the rack's eight motors
+  - type: kpi
+    name: Twin vs floor
+    select: motor
+    groupBy: { property: motor }
+    groupOrder: [CAN 14, CAN 15, CAN 1, CAN 4, CAN 11, CAN 12, CAN 13, CAN 21]
+    kpi:
+      value: { property: twin }
+      compare: { against: floor, better: lower }
+  - type: chart
+    name: Model ladder (10-23 runs)
+    from: models
+    select: motor
+    filters: 'family != "friction"'
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: model, sort: { field: rung }, title: null, axis: { labelAngle: -30 } }
+        y: { field: error, scale: { type: log }, title: RMS error vs real (mrad) }
+        color: { field: motor, title: Motor }
+    hover: { title: model, fields: [motor, family, error, ruler] }
+  - type: chart
+    name: Friction ladder (10-24 held-out)
+    from: models
+    select: motor
+    filters: 'family == "friction"'
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: model, sort: { field: rung }, title: null, axis: { labelAngle: -30 } }
+        y: { field: error, title: Held-out median (mrad) }
+        color: { field: motor, title: Motor }
+        detail: { field: base_twin }
+    hover: { title: model, fields: [motor, base_twin, error, ruler] }
+  - type: chart
+    name: Twin error by run
+    from: runs
+    select: motor
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: order, title: Real run, in acquisition order }
+        y: { field: full_twin, scale: { type: log }, title: Full twin RMS (mrad) }
+        color: { field: motor, title: Motor }
+    hover: { title: run, fields: [motor, session_label, kind, speed, full_twin, identified_twin] }
+  - type: chart
+    name: Improvement rounds
+    from: rounds
+    select: motor
+    filters: 'metric.contains("held-out median")'
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: round, title: Round, axis: { tickMinStep: 1 } }
+        y: { field: median, title: Held-out median (mrad) }
+        color: { field: motor, title: Motor }
+    hover: { title: metric, fields: [motor, round, median, baseline_median, twin, wrote] }
+  - type: table
+    name: Model cards
+    from: terms
+    groupBy: { property: motor }
+    order: [label, value, unit, status, method, datasheet, agreement, in_twin, ci95]
+    fold: closed
+  - type: table
+    name: Motors
+    order: [motor, part, board, twin, floor, floor_kind, twin_over_floor, repeat_floor, gates_pass, gates_partial, gates_fail, gates_not_run, terms_measured, terms_total]

@@ -1,0 +1,2564 @@
+[
+{
+"id": "egad_a0",
+"source": "egad",
+"bytes": 11484,
+"triangles_source": 7720,
+"textured": false
+},
+{
+"id": "egad_a1",
+"source": "egad",
+"bytes": 11624,
+"triangles_source": 10580,
+"textured": false
+},
+{
+"id": "egad_a3",
+"source": "egad",
+"bytes": 11868,
+"triangles_source": 16828,
+"textured": false
+},
+{
+"id": "egad_a4",
+"source": "egad",
+"bytes": 11776,
+"triangles_source": 14916,
+"textured": false
+},
+{
+"id": "egad_a6",
+"source": "egad",
+"bytes": 11812,
+"triangles_source": 13950,
+"textured": false
+},
+{
+"id": "egad_b1",
+"source": "egad",
+"bytes": 11720,
+"triangles_source": 12822,
+"textured": false
+},
+{
+"id": "egad_b2",
+"source": "egad",
+"bytes": 11652,
+"triangles_source": 11272,
+"textured": false
+},
+{
+"id": "egad_b4",
+"source": "egad",
+"bytes": 11860,
+"triangles_source": 12758,
+"textured": false
+},
+{
+"id": "egad_b6",
+"source": "egad",
+"bytes": 11928,
+"triangles_source": 14112,
+"textured": false
+},
+{
+"id": "egad_c0",
+"source": "egad",
+"bytes": 11276,
+"triangles_source": 10236,
+"textured": false
+},
+{
+"id": "egad_c2",
+"source": "egad",
+"bytes": 11800,
+"triangles_source": 13706,
+"textured": false
+},
+{
+"id": "egad_c3",
+"source": "egad",
+"bytes": 11800,
+"triangles_source": 12664,
+"textured": false
+},
+{
+"id": "egad_c5",
+"source": "egad",
+"bytes": 11896,
+"triangles_source": 15170,
+"textured": false
+},
+{
+"id": "egad_d0",
+"source": "egad",
+"bytes": 11672,
+"triangles_source": 12028,
+"textured": false
+},
+{
+"id": "egad_d1",
+"source": "egad",
+"bytes": 11528,
+"triangles_source": 9910,
+"textured": false
+},
+{
+"id": "egad_d3",
+"source": "egad",
+"bytes": 11840,
+"triangles_source": 11984,
+"textured": false
+},
+{
+"id": "egad_d5",
+"source": "egad",
+"bytes": 11560,
+"triangles_source": 11488,
+"textured": false
+},
+{
+"id": "egad_d6",
+"source": "egad",
+"bytes": 11744,
+"triangles_source": 9846,
+"textured": false
+},
+{
+"id": "egad_e1",
+"source": "egad",
+"bytes": 11736,
+"triangles_source": 13086,
+"textured": false
+},
+{
+"id": "egad_e3",
+"source": "egad",
+"bytes": 11896,
+"triangles_source": 14702,
+"textured": false
+},
+{
+"id": "egad_e4",
+"source": "egad",
+"bytes": 11452,
+"triangles_source": 6180,
+"textured": false
+},
+{
+"id": "egad_e6",
+"source": "egad",
+"bytes": 11816,
+"triangles_source": 12648,
+"textured": false
+},
+{
+"id": "egad_f0",
+"source": "egad",
+"bytes": 10856,
+"triangles_source": 4174,
+"textured": false
+},
+{
+"id": "egad_f2",
+"source": "egad",
+"bytes": 11504,
+"triangles_source": 6692,
+"textured": false
+},
+{
+"id": "egad_f4",
+"source": "egad",
+"bytes": 11908,
+"triangles_source": 16068,
+"textured": false
+},
+{
+"id": "egad_f5",
+"source": "egad",
+"bytes": 11692,
+"triangles_source": 10896,
+"textured": false
+},
+{
+"id": "egad_g0",
+"source": "egad",
+"bytes": 11264,
+"triangles_source": 5370,
+"textured": false
+},
+{
+"id": "egad_g2",
+"source": "egad",
+"bytes": 11176,
+"triangles_source": 3434,
+"textured": false
+},
+{
+"id": "egad_g3",
+"source": "egad",
+"bytes": 11424,
+"triangles_source": 4494,
+"textured": false
+},
+{
+"id": "egad_g5",
+"source": "egad",
+"bytes": 11816,
+"triangles_source": 10006,
+"textured": false
+},
+{
+"id": "gen_aerosol-can_00",
+"source": "generated",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "gen_aerosol-can_01",
+"source": "generated",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "gen_aerosol-can_02",
+"source": "generated",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "gen_aerosol-can_03",
+"source": "generated",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "gen_aerosol-can_04",
+"source": "generated",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "gen_aerosol-can_05",
+"source": "generated",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "gen_battery_00",
+"source": "generated",
+"bytes": 4036,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "gen_battery_01",
+"source": "generated",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "gen_battery_02",
+"source": "generated",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "gen_battery_03",
+"source": "generated",
+"bytes": 4032,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "gen_battery_04",
+"source": "generated",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "gen_battery_05",
+"source": "generated",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "gen_diaper_00",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_diaper_01",
+"source": "generated",
+"bytes": 1324,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_diaper_02",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_diaper_03",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_diaper_04",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_diaper_05",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_foam-piece_00",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_foam-piece_01",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_foam-piece_02",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_foam-piece_03",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_foam-piece_04",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_foam-piece_05",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_food-item_00",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_food-item_01",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_food-item_02",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_food-item_03",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_food-item_04",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_food-item_05",
+"source": "generated",
+"bytes": 24152,
+"triangles_source": 1280,
+"textured": false
+},
+{
+"id": "gen_furniture-piece_00",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_furniture-piece_01",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_furniture-piece_02",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_furniture-piece_03",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_furniture-piece_04",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_furniture-piece_05",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_paper-bag_00",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_paper-bag_01",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_paper-bag_02",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_paper-bag_03",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_paper-bag_04",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_paper-bag_05",
+"source": "generated",
+"bytes": 1328,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_pet-waste_00",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_pet-waste_01",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_pet-waste_02",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_pet-waste_03",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_pet-waste_04",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_pet-waste_05",
+"source": "generated",
+"bytes": 1340,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_rubble-piece_00",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_rubble-piece_01",
+"source": "generated",
+"bytes": 1304,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_rubble-piece_02",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_rubble-piece_03",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_rubble-piece_04",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_rubble-piece_05",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_wood-piece_00",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_wood-piece_01",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_wood-piece_02",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_wood-piece_03",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_wood-piece_04",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_wood-piece_05",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_yard-waste_00",
+"source": "generated",
+"bytes": 1328,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_yard-waste_01",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_yard-waste_02",
+"source": "generated",
+"bytes": 1320,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_yard-waste_03",
+"source": "generated",
+"bytes": 1320,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_yard-waste_04",
+"source": "generated",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gen_yard-waste_05",
+"source": "generated",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "gso_11pro_sl_trx_fg",
+"source": "google-scanned-objects",
+"bytes": 30092,
+"triangles_source": 20706,
+"textured": true
+},
+{
+"id": "gso_3d_dollhouse_sink",
+"source": "google-scanned-objects",
+"bytes": 30172,
+"triangles_source": 7978,
+"textured": true
+},
+{
+"id": "gso_50_blocks",
+"source": "google-scanned-objects",
+"bytes": 41440,
+"triangles_source": 10728,
+"textured": true
+},
+{
+"id": "gso_adizero_slide_2_sc",
+"source": "google-scanned-objects",
+"bytes": 30976,
+"triangles_source": 13138,
+"textured": true
+},
+{
+"id": "gso_amberlight_up_w",
+"source": "google-scanned-objects",
+"bytes": 30980,
+"triangles_source": 23444,
+"textured": true
+},
+{
+"id": "gso_apples_to_apples_kids_edition",
+"source": "google-scanned-objects",
+"bytes": 31264,
+"triangles_source": 1690,
+"textured": true
+},
+{
+"id": "gso_asics_gelblur33_20_gs_flash_yellowhot_punchsilver",
+"source": "google-scanned-objects",
+"bytes": 32252,
+"triangles_source": 30660,
+"textured": true
+},
+{
+"id": "gso_asics_geltour_lyte_whiteorchidsilver",
+"source": "google-scanned-objects",
+"bytes": 33812,
+"triangles_source": 26000,
+"textured": true
+},
+{
+"id": "gso_asus_sabertooth_z97_mark_1_motherboard_atx_lga1150_socket",
+"source": "google-scanned-objects",
+"bytes": 32480,
+"triangles_source": 3184,
+"textured": true
+},
+{
+"id": "gso_avengers_thor_pllrpyniaeb",
+"source": "google-scanned-objects",
+"bytes": 28964,
+"triangles_source": 10822,
+"textured": true
+},
+{
+"id": "gso_balderdash_game",
+"source": "google-scanned-objects",
+"bytes": 26728,
+"triangles_source": 1464,
+"textured": true
+},
+{
+"id": "gso_beta_glucan",
+"source": "google-scanned-objects",
+"bytes": 32736,
+"triangles_source": 8726,
+"textured": true
+},
+{
+"id": "gso_big_o_sponges_assorted_cellulose_12_pack",
+"source": "google-scanned-objects",
+"bytes": 28656,
+"triangles_source": 31182,
+"textured": true
+},
+{
+"id": "gso_black_forest_fruit_snacks_28_pack_grape",
+"source": "google-scanned-objects",
+"bytes": 27924,
+"triangles_source": 2036,
+"textured": true
+},
+{
+"id": "gso_bradshaw_international_11642_7_qt_mp_plastic_bowl",
+"source": "google-scanned-objects",
+"bytes": 28900,
+"triangles_source": 15502,
+"textured": true
+},
+{
+"id": "gso_brother_printing_cartridge_pc501",
+"source": "google-scanned-objects",
+"bytes": 36344,
+"triangles_source": 4816,
+"textured": true
+},
+{
+"id": "gso_canon_225226_ink_cartridges_blackcolor_cyan_magenta_yellow_6_count",
+"source": "google-scanned-objects",
+"bytes": 31304,
+"triangles_source": 6292,
+"textured": true
+},
+{
+"id": "gso_canon_pixma_ink_cartridge_cyan_251",
+"source": "google-scanned-objects",
+"bytes": 29408,
+"triangles_source": 5756,
+"textured": true
+},
+{
+"id": "gso_chef_style_round_cake_pan_9_inch_pan",
+"source": "google-scanned-objects",
+"bytes": 26500,
+"triangles_source": 4436,
+"textured": true
+},
+{
+"id": "gso_children_bedroom_classic",
+"source": "google-scanned-objects",
+"bytes": 33476,
+"triangles_source": 12712,
+"textured": true
+},
+{
+"id": "gso_closetmaid_premium_fabric_cube_red",
+"source": "google-scanned-objects",
+"bytes": 29316,
+"triangles_source": 12158,
+"textured": true
+},
+{
+"id": "gso_cole_hardware_deep_bowl_good_earth_1075",
+"source": "google-scanned-objects",
+"bytes": 26816,
+"triangles_source": 10364,
+"textured": true
+},
+{
+"id": "gso_cole_hardware_electric_pot_cabana_55",
+"source": "google-scanned-objects",
+"bytes": 27976,
+"triangles_source": 7674,
+"textured": true
+},
+{
+"id": "gso_cole_hardware_plant_saucer_glazed_9",
+"source": "google-scanned-objects",
+"bytes": 27548,
+"triangles_source": 4126,
+"textured": true
+},
+{
+"id": "gso_connect_4_launchers",
+"source": "google-scanned-objects",
+"bytes": 31976,
+"triangles_source": 2544,
+"textured": true
+},
+{
+"id": "gso_corningware_cw_by_corningware_3qt_oblong_casserole_dish_blue",
+"source": "google-scanned-objects",
+"bytes": 29052,
+"triangles_source": 4612,
+"textured": true
+},
+{
+"id": "gso_crayola_model_magic_modeling_material_single_packs_6_pack_05_oz_packs",
+"source": "google-scanned-objects",
+"bytes": 38732,
+"triangles_source": 4150,
+"textured": true
+},
+{
+"id": "gso_crazy_shadow_2",
+"source": "google-scanned-objects",
+"bytes": 30192,
+"triangles_source": 39326,
+"textured": true
+},
+{
+"id": "gso_curver_storage_bin_black_small",
+"source": "google-scanned-objects",
+"bytes": 32360,
+"triangles_source": 86044,
+"textured": true
+},
+{
+"id": "gso_dell_ink_cartridge",
+"source": "google-scanned-objects",
+"bytes": 30288,
+"triangles_source": 5510,
+"textured": true
+},
+{
+"id": "gso_digital_camo_double_decker_lunch_bag",
+"source": "google-scanned-objects",
+"bytes": 29900,
+"triangles_source": 16358,
+"textured": true
+},
+{
+"id": "gso_dino_5",
+"source": "google-scanned-objects",
+"bytes": 32844,
+"triangles_source": 16162,
+"textured": true
+},
+{
+"id": "gso_down_to_earth_orchid_pot_ceramic_red",
+"source": "google-scanned-objects",
+"bytes": 29584,
+"triangles_source": 24492,
+"textured": true
+},
+{
+"id": "gso_ecoforms_garden_pot_gp16aturquois",
+"source": "google-scanned-objects",
+"bytes": 30504,
+"triangles_source": 9126,
+"textured": true
+},
+{
+"id": "gso_ecoforms_plant_container_gp16amocha",
+"source": "google-scanned-objects",
+"bytes": 30832,
+"triangles_source": 11020,
+"textured": true
+},
+{
+"id": "gso_ecoforms_plant_container_s14turquoise",
+"source": "google-scanned-objects",
+"bytes": 27052,
+"triangles_source": 4592,
+"textured": true
+},
+{
+"id": "gso_ecoforms_plant_container_urn_nat",
+"source": "google-scanned-objects",
+"bytes": 28372,
+"triangles_source": 4926,
+"textured": true
+},
+{
+"id": "gso_ecoforms_plant_saucer_s17mocha",
+"source": "google-scanned-objects",
+"bytes": 27344,
+"triangles_source": 6504,
+"textured": true
+},
+{
+"id": "gso_ecoforms_plate_s20avocado",
+"source": "google-scanned-objects",
+"bytes": 26912,
+"triangles_source": 4340,
+"textured": true
+},
+{
+"id": "gso_envision_home_dish_drying_mat_red_6_x_18",
+"source": "google-scanned-objects",
+"bytes": 28312,
+"triangles_source": 19994,
+"textured": true
+},
+{
+"id": "gso_epson_t5803_ink_cartridge_magenta_1pack",
+"source": "google-scanned-objects",
+"bytes": 29932,
+"triangles_source": 4704,
+"textured": true
+},
+{
+"id": "gso_farm_animal",
+"source": "google-scanned-objects",
+"bytes": 44216,
+"triangles_source": 25032,
+"textured": true
+},
+{
+"id": "gso_fisher_price_classic_toys_buzzy_bee",
+"source": "google-scanned-objects",
+"bytes": 34804,
+"triangles_source": 12592,
+"textured": true
+},
+{
+"id": "gso_fraction_fun_n4h4qte23qr",
+"source": "google-scanned-objects",
+"bytes": 30264,
+"triangles_source": 6278,
+"textured": true
+},
+{
+"id": "gso_fruity_friends",
+"source": "google-scanned-objects",
+"bytes": 33912,
+"triangles_source": 17626,
+"textured": true
+},
+{
+"id": "gso_gears_puzzles_standard_gcyxhnhhkli",
+"source": "google-scanned-objects",
+"bytes": 37804,
+"triangles_source": 25342,
+"textured": true
+},
+{
+"id": "gso_ghost_6_gtx_color_anthblckslvrfernsulphsprng_size_80",
+"source": "google-scanned-objects",
+"bytes": 32288,
+"triangles_source": 58118,
+"textured": true
+},
+{
+"id": "gso_google_cardboard_original_package",
+"source": "google-scanned-objects",
+"bytes": 29728,
+"triangles_source": 5108,
+"textured": true
+},
+{
+"id": "gso_granimals_20_wooden_abc_blocks_wagon_g2tinmugghi",
+"source": "google-scanned-objects",
+"bytes": 32980,
+"triangles_source": 12336,
+"textured": true
+},
+{
+"id": "gso_grreatv_choice_dog_bowl_gray_bones_plastic_20_fl_oz_total",
+"source": "google-scanned-objects",
+"bytes": 31096,
+"triangles_source": 8862,
+"textured": true
+},
+{
+"id": "gso_hasbro_dont_wake_daddy_board_game_njnjgna4u1a",
+"source": "google-scanned-objects",
+"bytes": 37816,
+"triangles_source": 8756,
+"textured": true
+},
+{
+"id": "gso_hey_you_pikachu_nintendo_64",
+"source": "google-scanned-objects",
+"bytes": 29552,
+"triangles_source": 6462,
+"textured": true
+},
+{
+"id": "gso_hp_1800_tablet_8gb_7",
+"source": "google-scanned-objects",
+"bytes": 19612,
+"triangles_source": 1652,
+"textured": true
+},
+{
+"id": "gso_in_green_company_surface_saver_ring_10_terra_cotta",
+"source": "google-scanned-objects",
+"bytes": 20172,
+"triangles_source": 18272,
+"textured": true
+},
+{
+"id": "gso_jarrodophilusfos_value_size",
+"source": "google-scanned-objects",
+"bytes": 33804,
+"triangles_source": 8406,
+"textured": true
+},
+{
+"id": "gso_js_wings_20_black_flag",
+"source": "google-scanned-objects",
+"bytes": 27000,
+"triangles_source": 34798,
+"textured": true
+},
+{
+"id": "gso_just_for_men_shampooin_haircolor_light_brown_25",
+"source": "google-scanned-objects",
+"bytes": 36544,
+"triangles_source": 4056,
+"textured": true
+},
+{
+"id": "gso_kitchen_set_classic_40hwchfeg0h",
+"source": "google-scanned-objects",
+"bytes": 33204,
+"triangles_source": 7274,
+"textured": true
+},
+{
+"id": "gso_lacing_sheep",
+"source": "google-scanned-objects",
+"bytes": 31028,
+"triangles_source": 14590,
+"textured": true
+},
+{
+"id": "gso_lego_bricks_more_creative_suitcase",
+"source": "google-scanned-objects",
+"bytes": 41536,
+"triangles_source": 5138,
+"textured": true
+},
+{
+"id": "gso_lego_friends_mia",
+"source": "google-scanned-objects",
+"bytes": 45668,
+"triangles_source": 36812,
+"textured": true
+},
+{
+"id": "gso_little_debbie_cloud_cakes_10_ct",
+"source": "google-scanned-objects",
+"bytes": 31176,
+"triangles_source": 2544,
+"textured": true
+},
+{
+"id": "gso_ltyrosine",
+"source": "google-scanned-objects",
+"bytes": 33452,
+"triangles_source": 10370,
+"textured": true
+},
+{
+"id": "gso_marc_anthony_true_professional_oil_of_morocco_argan_oil_treatment",
+"source": "google-scanned-objects",
+"bytes": 31720,
+"triangles_source": 6076,
+"textured": true
+},
+{
+"id": "gso_marvel_avengers_titan_hero_series_doctor_doom",
+"source": "google-scanned-objects",
+"bytes": 32884,
+"triangles_source": 23082,
+"textured": true
+},
+{
+"id": "gso_melissa_doug_felt_food_pizza_set",
+"source": "google-scanned-objects",
+"bytes": 34688,
+"triangles_source": 33188,
+"textured": true
+},
+{
+"id": "gso_mens_asv_billfish_boat_shoe_in_dark_brown_leather_zdhvhxuei3w",
+"source": "google-scanned-objects",
+"bytes": 29772,
+"triangles_source": 21364,
+"textured": true
+},
+{
+"id": "gso_mens_bahama_in_khaki_oyster_xu2jeqywhqj",
+"source": "google-scanned-objects",
+"bytes": 33756,
+"triangles_source": 20600,
+"textured": true
+},
+{
+"id": "gso_mens_gold_cup_asv_2eye_boat_shoe_in_cognac_leather",
+"source": "google-scanned-objects",
+"bytes": 26448,
+"triangles_source": 24598,
+"textured": true
+},
+{
+"id": "gso_mens_mako_canoe_moc_2eye_boat_shoe_in_oystertaupe_otyrrfvpmia",
+"source": "google-scanned-objects",
+"bytes": 33000,
+"triangles_source": 17868,
+"textured": true
+},
+{
+"id": "gso_mens_tremont_kiltie_tassel_loafer_in_black_amaretto_ft0i9ojsa6o",
+"source": "google-scanned-objects",
+"bytes": 30936,
+"triangles_source": 44822,
+"textured": true
+},
+{
+"id": "gso_mini_fire_engine",
+"source": "google-scanned-objects",
+"bytes": 31328,
+"triangles_source": 25254,
+"textured": true
+},
+{
+"id": "gso_mosaic",
+"source": "google-scanned-objects",
+"bytes": 30244,
+"triangles_source": 2822,
+"textured": true
+},
+{
+"id": "gso_my_mood_memo",
+"source": "google-scanned-objects",
+"bytes": 34440,
+"triangles_source": 15014,
+"textured": true
+},
+{
+"id": "gso_nescafe_nescafe_tc_stks_decaf_6_ct",
+"source": "google-scanned-objects",
+"bytes": 33900,
+"triangles_source": 6260,
+"textured": true
+},
+{
+"id": "gso_nestle_nips_hard_candy_peanut_butter",
+"source": "google-scanned-objects",
+"bytes": 36944,
+"triangles_source": 4852,
+"textured": true
+},
+{
+"id": "gso_netgear_nighthawk_x6_ac3200_triband_gigabit_wireless_router",
+"source": "google-scanned-objects",
+"bytes": 31888,
+"triangles_source": 3170,
+"textured": true
+},
+{
+"id": "gso_nikon_1_aw1_w11275mm_lens_silver",
+"source": "google-scanned-objects",
+"bytes": 29580,
+"triangles_source": 9566,
+"textured": true
+},
+{
+"id": "gso_now_designs_bowl_akita_black",
+"source": "google-scanned-objects",
+"bytes": 32588,
+"triangles_source": 42522,
+"textured": true
+},
+{
+"id": "gso_office_depot_canon_cl211xl_remanufactured_ink_cartridge_tricolor",
+"source": "google-scanned-objects",
+"bytes": 29980,
+"triangles_source": 6088,
+"textured": true
+},
+{
+"id": "gso_office_depot_canon_pg21xl_remanufactured_ink_cartridge_black",
+"source": "google-scanned-objects",
+"bytes": 30512,
+"triangles_source": 4780,
+"textured": true
+},
+{
+"id": "gso_office_depot_dell_series_1_remanufactured_ink_cartridge_black",
+"source": "google-scanned-objects",
+"bytes": 30256,
+"triangles_source": 5394,
+"textured": true
+},
+{
+"id": "gso_office_depot_hp_564xl_remanufactured_ink_cartridges_color_cyan_magenta_yellow_3_count",
+"source": "google-scanned-objects",
+"bytes": 31836,
+"triangles_source": 4126,
+"textured": true
+},
+{
+"id": "gso_office_depot_hp_950xl_ink_cartridge_black_cn045an",
+"source": "google-scanned-objects",
+"bytes": 31472,
+"triangles_source": 5454,
+"textured": true
+},
+{
+"id": "gso_olive_kids_butterfly_garden_munch_n_lunch_bag",
+"source": "google-scanned-objects",
+"bytes": 31500,
+"triangles_source": 18968,
+"textured": true
+},
+{
+"id": "gso_olive_kids_game_on_munch_n_lunch",
+"source": "google-scanned-objects",
+"bytes": 32732,
+"triangles_source": 17356,
+"textured": true
+},
+{
+"id": "gso_orbit_bubblemint_mini_bottle_6_ct",
+"source": "google-scanned-objects",
+"bytes": 38028,
+"triangles_source": 11374,
+"textured": true
+},
+{
+"id": "gso_oval_xylophone",
+"source": "google-scanned-objects",
+"bytes": 42332,
+"triangles_source": 8862,
+"textured": true
+},
+{
+"id": "gso_parent_room_furniture_set_1_dlkey8h4mwk",
+"source": "google-scanned-objects",
+"bytes": 36148,
+"triangles_source": 9406,
+"textured": true
+},
+{
+"id": "gso_pepsi_cola_caffeine_free_12_12_fl_oz_355_ml_cans_144_fl_oz_426_lt",
+"source": "google-scanned-objects",
+"bytes": 30132,
+"triangles_source": 3718,
+"textured": true
+},
+{
+"id": "gso_perricone_md_best_of_perricone_7piece_collection_megso6gisyl",
+"source": "google-scanned-objects",
+"bytes": 18960,
+"triangles_source": 1406,
+"textured": true
+},
+{
+"id": "gso_perricone_md_firming_neck_therapy_treatment",
+"source": "google-scanned-objects",
+"bytes": 27392,
+"triangles_source": 2968,
+"textured": true
+},
+{
+"id": "gso_perricone_md_no_bronzer_bronzer",
+"source": "google-scanned-objects",
+"bytes": 29560,
+"triangles_source": 4374,
+"textured": true
+},
+{
+"id": "gso_perricone_md_ovm",
+"source": "google-scanned-objects",
+"bytes": 19512,
+"triangles_source": 1890,
+"textured": true
+},
+{
+"id": "gso_perricone_md_the_metabolic_formula_supplements",
+"source": "google-scanned-objects",
+"bytes": 25792,
+"triangles_source": 2158,
+"textured": true
+},
+{
+"id": "gso_pheehan_run",
+"source": "google-scanned-objects",
+"bytes": 31768,
+"triangles_source": 33016,
+"textured": true
+},
+{
+"id": "gso_phillips_stool_softener_liquid_gels_30_liquid_gels",
+"source": "google-scanned-objects",
+"bytes": 29880,
+"triangles_source": 3534,
+"textured": true
+},
+{
+"id": "gso_pokemon_omega_ruby_alpha_sapphire_dual_pack_nintendo_3ds",
+"source": "google-scanned-objects",
+"bytes": 29556,
+"triangles_source": 2486,
+"textured": true
+},
+{
+"id": "gso_pony_c_clamp_1440",
+"source": "google-scanned-objects",
+"bytes": 27556,
+"triangles_source": 16180,
+"textured": true
+},
+{
+"id": "gso_progressive_rubber_spatulas_3_count",
+"source": "google-scanned-objects",
+"bytes": 27988,
+"triangles_source": 4212,
+"textured": true
+},
+{
+"id": "gso_purecadence_2_color_tleblulmepnchslvmoodindgwh_size_50_eezafcbfhho",
+"source": "google-scanned-objects",
+"bytes": 33364,
+"triangles_source": 35224,
+"textured": true
+},
+{
+"id": "gso_qhpomegranate",
+"source": "google-scanned-objects",
+"bytes": 32420,
+"triangles_source": 10176,
+"textured": true
+},
+{
+"id": "gso_razer_blackwidow_tournament_edition_keyboard",
+"source": "google-scanned-objects",
+"bytes": 26648,
+"triangles_source": 25702,
+"textured": true
+},
+{
+"id": "gso_razer_taipan_white_ambidextrous_gaming_mouse",
+"source": "google-scanned-objects",
+"bytes": 33324,
+"triangles_source": 23000,
+"textured": true
+},
+{
+"id": "gso_reebok_cl_dibello_ii",
+"source": "google-scanned-objects",
+"bytes": 29248,
+"triangles_source": 31018,
+"textured": true
+},
+{
+"id": "gso_reebok_dmx_max_plus_athletic",
+"source": "google-scanned-objects",
+"bytes": 28988,
+"triangles_source": 27920,
+"textured": true
+},
+{
+"id": "gso_reebok_gl_6000",
+"source": "google-scanned-objects",
+"bytes": 27316,
+"triangles_source": 24766,
+"textured": true
+},
+{
+"id": "gso_reebok_realflex_select",
+"source": "google-scanned-objects",
+"bytes": 36760,
+"triangles_source": 26914,
+"textured": true
+},
+{
+"id": "gso_reebok_sl_flip_update",
+"source": "google-scanned-objects",
+"bytes": 28160,
+"triangles_source": 22734,
+"textured": true
+},
+{
+"id": "gso_reebok_versa_train",
+"source": "google-scanned-objects",
+"bytes": 29668,
+"triangles_source": 39860,
+"textured": true
+},
+{
+"id": "gso_reef_braided_cushion",
+"source": "google-scanned-objects",
+"bytes": 26588,
+"triangles_source": 22626,
+"textured": true
+},
+{
+"id": "gso_retail_leadership_summit",
+"source": "google-scanned-objects",
+"bytes": 35960,
+"triangles_source": 16554,
+"textured": true
+},
+{
+"id": "gso_romantic_blush_tieks_metallic_italian_leather_ballet_flats",
+"source": "google-scanned-objects",
+"bytes": 33768,
+"triangles_source": 20168,
+"textured": true
+},
+{
+"id": "gso_rose_garden_tieks_leather_ballet_flats_with_floral_rosettes",
+"source": "google-scanned-objects",
+"bytes": 31592,
+"triangles_source": 43880,
+"textured": true
+},
+{
+"id": "gso_samoa_onepiece",
+"source": "google-scanned-objects",
+"bytes": 28156,
+"triangles_source": 24064,
+"textured": true
+},
+{
+"id": "gso_santa_cruz_mens_vnbitddt5xh",
+"source": "google-scanned-objects",
+"bytes": 25232,
+"triangles_source": 29050,
+"textured": true
+},
+{
+"id": "gso_schleich_hereford_bull",
+"source": "google-scanned-objects",
+"bytes": 32928,
+"triangles_source": 13512,
+"textured": true
+},
+{
+"id": "gso_seagate_1tb_backup_plus_portable_drive_blue",
+"source": "google-scanned-objects",
+"bytes": 26084,
+"triangles_source": 3272,
+"textured": true
+},
+{
+"id": "gso_shape_matching_nxacpay9jdt",
+"source": "google-scanned-objects",
+"bytes": 29228,
+"triangles_source": 6078,
+"textured": true
+},
+{
+"id": "gso_sienna_brown_croc_tieks_patent_leather_crocodile_print_ballet_flats",
+"source": "google-scanned-objects",
+"bytes": 31088,
+"triangles_source": 21468,
+"textured": true
+},
+{
+"id": "gso_snail_measuring_tape",
+"source": "google-scanned-objects",
+"bytes": 33308,
+"triangles_source": 8564,
+"textured": true
+},
+{
+"id": "gso_sorry_sliders_board_game",
+"source": "google-scanned-objects",
+"bytes": 32444,
+"triangles_source": 1610,
+"textured": true
+},
+{
+"id": "gso_spiderman_titan_hero_12inch_action_figure_5hnn4mtkfsp",
+"source": "google-scanned-objects",
+"bytes": 35112,
+"triangles_source": 16320,
+"textured": true
+},
+{
+"id": "gso_stacking_bear_v04kkggbn2a",
+"source": "google-scanned-objects",
+"bytes": 34348,
+"triangles_source": 11064,
+"textured": true
+},
+{
+"id": "gso_super_mario_3d_world_deluxe_set",
+"source": "google-scanned-objects",
+"bytes": 27760,
+"triangles_source": 8820,
+"textured": true
+},
+{
+"id": "gso_sushi_mat",
+"source": "google-scanned-objects",
+"bytes": 35080,
+"triangles_source": 18076,
+"textured": true
+},
+{
+"id": "gso_tag_dishtowel_dobby_stripe_blue_18_x_26",
+"source": "google-scanned-objects",
+"bytes": 36284,
+"triangles_source": 19262,
+"textured": true
+},
+{
+"id": "gso_terrex_fast_r",
+"source": "google-scanned-objects",
+"bytes": 26700,
+"triangles_source": 39346,
+"textured": true
+},
+{
+"id": "gso_thomas_friends_wooden_railway_ascending_track_riser_pack",
+"source": "google-scanned-objects",
+"bytes": 31148,
+"triangles_source": 6272,
+"textured": true
+},
+{
+"id": "gso_threshold_bistro_ceramic_dinner_plate_ruby_ring",
+"source": "google-scanned-objects",
+"bytes": 29672,
+"triangles_source": 3464,
+"textured": true
+},
+{
+"id": "gso_threshold_porcelain_spoon_rest_white",
+"source": "google-scanned-objects",
+"bytes": 27108,
+"triangles_source": 8810,
+"textured": true
+},
+{
+"id": "gso_tieks_ballet_flats_diamond_white_croc",
+"source": "google-scanned-objects",
+"bytes": 31012,
+"triangles_source": 22612,
+"textured": true
+},
+{
+"id": "gso_timberland_mens_earthkeepers_newmarket_6inch_cupsole_boot",
+"source": "google-scanned-objects",
+"bytes": 37900,
+"triangles_source": 16976,
+"textured": true
+},
+{
+"id": "gso_timberland_womens_waterproof_nellie_chukka_double",
+"source": "google-scanned-objects",
+"bytes": 31068,
+"triangles_source": 24054,
+"textured": true
+},
+{
+"id": "gso_tory_burch_kiernan_riding_boot",
+"source": "google-scanned-objects",
+"bytes": 28796,
+"triangles_source": 7112,
+"textured": true
+},
+{
+"id": "gso_transformers_age_of_extinction_stomp_and_chomp_grimlock_figure",
+"source": "google-scanned-objects",
+"bytes": 39028,
+"triangles_source": 73004,
+"textured": true
+},
+{
+"id": "gso_twinlab_100_whey_protein_fuel_chocolate",
+"source": "google-scanned-objects",
+"bytes": 34932,
+"triangles_source": 12770,
+"textured": true
+},
+{
+"id": "gso_twisted_puzzle_twb4ayftu8q",
+"source": "google-scanned-objects",
+"bytes": 31740,
+"triangles_source": 3470,
+"textured": true
+},
+{
+"id": "gso_ugg_bailey_button_womens_boots_black_7",
+"source": "google-scanned-objects",
+"bytes": 24432,
+"triangles_source": 22838,
+"textured": true
+},
+{
+"id": "gso_us_army_stash_lunch_bag",
+"source": "google-scanned-objects",
+"bytes": 29272,
+"triangles_source": 16422,
+"textured": true
+},
+{
+"id": "gso_vtech_roll_learn_turtle",
+"source": "google-scanned-objects",
+"bytes": 36828,
+"triangles_source": 30686,
+"textured": true
+},
+{
+"id": "gso_whale_whistle_6pcs_set",
+"source": "google-scanned-objects",
+"bytes": 29488,
+"triangles_source": 6452,
+"textured": true
+},
+{
+"id": "gso_wild_copper_tieks_metallic_italian_leather_ballet_flats",
+"source": "google-scanned-objects",
+"bytes": 36972,
+"triangles_source": 20854,
+"textured": true
+},
+{
+"id": "gso_womens_angelfish_boat_shoe_in_linen_oat",
+"source": "google-scanned-objects",
+"bytes": 34456,
+"triangles_source": 17926,
+"textured": true
+},
+{
+"id": "gso_womens_betty_chukka_boot_in_navy_aee8oqvmii4",
+"source": "google-scanned-objects",
+"bytes": 31216,
+"triangles_source": 22772,
+"textured": true
+},
+{
+"id": "gso_womens_bluefish_2eye_boat_shoe_in_linen_oat",
+"source": "google-scanned-objects",
+"bytes": 38244,
+"triangles_source": 19904,
+"textured": true
+},
+{
+"id": "gso_womens_canvas_bahama_in_white_4uyohp6rygo",
+"source": "google-scanned-objects",
+"bytes": 33788,
+"triangles_source": 12688,
+"textured": true
+},
+{
+"id": "gso_womens_hikerfish_boot_in_linen_leather_sparkle_suede_qktiyakonru",
+"source": "google-scanned-objects",
+"bytes": 30292,
+"triangles_source": 20600,
+"textured": true
+},
+{
+"id": "gso_womens_sparkle_suede_bahama_in_silver_sparkle_suede_grey_patent_x9rclu7ejxx",
+"source": "google-scanned-objects",
+"bytes": 34236,
+"triangles_source": 13136,
+"textured": true
+},
+{
+"id": "gso_wrigley_orbit_mint_variety_18_count",
+"source": "google-scanned-objects",
+"bytes": 30284,
+"triangles_source": 2634,
+"textured": true
+},
+{
+"id": "med_blister_pack_0007",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_blister_pack_0019",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_blister_pack_0043",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_blister_pack_0067",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_blister_pack_0079",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_inhaler_0011",
+"source": "synthetic",
+"bytes": 1320,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_inhaler_0035",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_inhaler_0047",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_inhaler_0071",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_inhaler_0095",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_insulin_pen_0001",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_insulin_pen_0025",
+"source": "synthetic",
+"bytes": 4008,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_insulin_pen_0049",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_insulin_pen_0061",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_insulin_pen_0085",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_isolation_gown_0006",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_isolation_gown_0018",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_isolation_gown_0042",
+"source": "synthetic",
+"bytes": 1324,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_isolation_gown_0066",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_isolation_gown_0078",
+"source": "synthetic",
+"bytes": 1328,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_iv_bag_0008",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_iv_bag_0032",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_iv_bag_0044",
+"source": "synthetic",
+"bytes": 1328,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_iv_bag_0068",
+"source": "synthetic",
+"bytes": 1312,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_iv_bag_0092",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_nitrile_glove_0005",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_nitrile_glove_0029",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_nitrile_glove_0053",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_nitrile_glove_0065",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_nitrile_glove_0089",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_pill_0016",
+"source": "synthetic",
+"bytes": 24160,
+"triangles_source": 1280,
+"textured": false
+},
+{
+"id": "med_pill_0028",
+"source": "synthetic",
+"bytes": 24152,
+"triangles_source": 1280,
+"textured": false
+},
+{
+"id": "med_pill_0052",
+"source": "synthetic",
+"bytes": 24156,
+"triangles_source": 1280,
+"textured": false
+},
+{
+"id": "med_pill_0076",
+"source": "synthetic",
+"bytes": 24156,
+"triangles_source": 1280,
+"textured": false
+},
+{
+"id": "med_pill_0088",
+"source": "synthetic",
+"bytes": 24156,
+"triangles_source": 1280,
+"textured": false
+},
+{
+"id": "med_pill_bottle_0015",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_pill_bottle_0039",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_pill_bottle_0051",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_pill_bottle_0075",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_pill_bottle_0099",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_scalpel_0009",
+"source": "synthetic",
+"bytes": 1328,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_scalpel_0033",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_scalpel_0057",
+"source": "synthetic",
+"bytes": 1320,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_scalpel_0069",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_scalpel_0093",
+"source": "synthetic",
+"bytes": 1324,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "med_specimen_cup_0022",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_specimen_cup_0034",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_specimen_cup_0058",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_specimen_cup_0082",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_specimen_cup_0094",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_syringe_0012",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_syringe_0036",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_syringe_0048",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_syringe_0072",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_syringe_0096",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_vial_0002",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_vial_0026",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_vial_0050",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_vial_0062",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "med_vial_0086",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_aluminum_can_0001",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_aluminum_can_0013",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_aluminum_can_0037",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_aluminum_can_0061",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_aluminum_can_0073",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_aluminum_can_0097",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_bottle_cap_0017",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_bottle_cap_0029",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_bottle_cap_0053",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_bottle_cap_0077",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_bottle_cap_0089",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_cardboard_piece_0016",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_cardboard_piece_0040",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_cardboard_piece_0052",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_cardboard_piece_0076",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_clamshell_0006",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_clamshell_0018",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_clamshell_0042",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_clamshell_0066",
+"source": "synthetic",
+"bytes": 1328,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_clamshell_0078",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_foil_tray_0008",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_foil_tray_0032",
+"source": "synthetic",
+"bytes": 1316,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_foil_tray_0044",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_foil_tray_0068",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_foil_tray_0092",
+"source": "synthetic",
+"bytes": 1320,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_glass_jar_0003",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_glass_jar_0027",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_glass_jar_0051",
+"source": "synthetic",
+"bytes": 4028,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_glass_jar_0063",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_glass_jar_0087",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_hdpe_jug_0002",
+"source": "synthetic",
+"bytes": 1328,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_hdpe_jug_0014",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_hdpe_jug_0038",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_hdpe_jug_0062",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_hdpe_jug_0074",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_hdpe_jug_0098",
+"source": "synthetic",
+"bytes": 1328,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_milk_carton_0023",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_milk_carton_0035",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_milk_carton_0059",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_milk_carton_0083",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_milk_carton_0095",
+"source": "synthetic",
+"bytes": 1328,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_paper_cup_0022",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_paper_cup_0046",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_paper_cup_0058",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_paper_cup_0082",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_pet_bottle_0000",
+"source": "synthetic",
+"bytes": 4020,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_pet_bottle_0012",
+"source": "synthetic",
+"bytes": 4008,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_pet_bottle_0036",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_pet_bottle_0060",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_pet_bottle_0072",
+"source": "synthetic",
+"bytes": 4024,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_pet_bottle_0096",
+"source": "synthetic",
+"bytes": 4016,
+"triangles_source": 160,
+"textured": false
+},
+{
+"id": "rec_plastic_film_0021",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_plastic_film_0033",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_plastic_film_0057",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_plastic_film_0081",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_plastic_film_0093",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_tetra_pak_0019",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_tetra_pak_0043",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_tetra_pak_0055",
+"source": "synthetic",
+"bytes": 1336,
+"triangles_source": 12,
+"textured": false
+},
+{
+"id": "rec_tetra_pak_0079",
+"source": "synthetic",
+"bytes": 1332,
+"triangles_source": 12,
+"textured": false
+}
+]

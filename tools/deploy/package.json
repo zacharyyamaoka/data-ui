@@ -1,0 +1,8 @@
+{
+  "name": "data-ui-deploy",
+  "private": true,
+  "description": "Pinned deploy tooling for data-ui.dev (wrangler). WHY its own prefix: the kit's node_modules is one directory shared by every lane worktree through a symlink, and installing wrangler there re-lays 157 packages under running test suites; this prefix keeps wrangler pinned and the kit's dependencies untouched.",
+  "devDependencies": {
+    "wrangler": "4.151.0"
+  }
+}

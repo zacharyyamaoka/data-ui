@@ -1,0 +1,21 @@
+{
+  "$comment": "A run table in data-ui's input contract (docs/SPEC.md §4). The fields follow Vibe Tracks' vt-run/1 idea (one row per run; the producer writes the numbers); the names here are illustrative, not vt-run/1's own. No rows are committed.",
+  "name": "runs",
+  "title": "Runs",
+  "primaryKey": "run",
+  "titleProperty": "run",
+  "schema": {
+    "fields": [
+      { "name": "run", "type": "string", "title": "Run" },
+      { "name": "model", "type": "string", "title": "Model", "facet": "values" },
+      { "name": "family", "type": "string", "title": "Family", "facet": "values" },
+      { "name": "env", "type": "string", "title": "Environment", "facet": "values" },
+      { "name": "tier", "type": "string", "title": "Tier", "facet": "values" },
+      { "name": "started", "type": "datetime", "title": "Started" },
+      { "name": "successes", "type": "integer", "title": "Successes", "basis": "measured" },
+      { "name": "attempts", "type": "integer", "title": "Attempts", "basis": "measured" },
+      { "name": "success_rate", "type": "number", "title": "Success rate", "basis": "measured", "derived": "successes / attempts, written by the producer" },
+      { "name": "compute_s", "type": "number", "title": "Compute", "unit": "s", "basis": "measured" }
+    ]
+  }
+}

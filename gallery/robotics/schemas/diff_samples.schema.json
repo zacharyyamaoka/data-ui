@@ -1,0 +1,92 @@
+{
+ "name": "diff_samples",
+ "title": "Sample differences",
+ "description": "difference(a, b) over samples (CONTRACT.md §5): b − a at each sample of a inside b's span; e_q_mrad for a revolute axis, e_q_mm for a prismatic one.",
+ "rowsPer": [
+  "t",
+  "run",
+  "situation",
+  "reference",
+  "device"
+ ],
+ "required": [
+  "t",
+  "run",
+  "situation",
+  "source",
+  "reference",
+  "device"
+ ],
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s",
+    "description": "a's sample time"
+   },
+   {
+    "name": "run",
+    "type": "string",
+    "description": "the run's stable, unique id (runs.json)"
+   },
+   {
+    "name": "situation",
+    "type": "string",
+    "description": "a: the compared situation"
+   },
+   {
+    "name": "source",
+    "type": "string",
+    "description": "a's family",
+    "constraints": {
+     "enum": [
+      "real",
+      "sim",
+      "target"
+     ]
+    }
+   },
+   {
+    "name": "reference",
+    "type": "string",
+    "description": "b: the reference situation"
+   },
+   {
+    "name": "device",
+    "type": "string",
+    "description": "the part whose channels the row holds: CAN 12, J3 elbow, gripper"
+   },
+   {
+    "name": "e_q_mrad",
+    "type": "number",
+    "unit": "mrad",
+    "description": "b − a of q_deg, in mrad (revolute)"
+   },
+   {
+    "name": "e_q_mm",
+    "type": "number",
+    "unit": "mm",
+    "description": "b − a of q_mm (prismatic)"
+   },
+   {
+    "name": "e_qd_deg_s",
+    "type": "number",
+    "unit": "deg/s",
+    "description": "b − a of qd_deg_s"
+   },
+   {
+    "name": "e_qd_mm_s",
+    "type": "number",
+    "unit": "mm/s",
+    "description": "b − a of qd_mm_s"
+   },
+   {
+    "name": "e_tau_nm",
+    "type": "number",
+    "unit": "N·m",
+    "description": "b − a of tau_nm"
+   }
+  ]
+ }
+}

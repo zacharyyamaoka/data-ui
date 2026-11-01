@@ -1,0 +1,246 @@
+{
+ "id": "pid-tuning-ur5e-headline",
+ "title": "UR5e · each rung's worst-joint scores beside the factory's and the oracle's (sim)",
+ "titleProperty": "title",
+ "source": "kpis.json (this case; pidtuna-website site/public/data (last changed at c02e786), read 2026-10-26: ur5e.json rungs.*.score and ladder. Sim against illustrative parameters: basis derived, note sim; never measured.), copied by source/build_headline.py: no number recomputed.",
+ "properties": {
+  "situation": {
+   "type": "text",
+   "display": "badge",
+   "note": "The controller rung, as the replay names it."
+  },
+  "title": {
+   "type": "text",
+   "note": "replay.ts RUNG_NAMES."
+  },
+  "order": {
+   "type": "number",
+   "hidden": true,
+   "note": "0 factory … 3 oracle: sorts the ladder."
+  },
+  "stop_p90": {
+   "type": "number",
+   "unit": "mrad",
+   "note": "Worst joint's stop error, p90 over holds: the producer's score on this replay (ur5e.json rungs.<rung>.<joint>.score: the coordinated workload, every joint on its own held-out tape at once). Picked, never recomputed."
+  },
+  "factory_stop_p90": {
+   "type": "number",
+   "unit": "mrad",
+   "note": "The factory rung's worst joint's stop error, p90 over holds: the producer's score on this replay (ur5e.json rungs.<rung>.<joint>.score: the coordinated workload, every joint on its own held-out tape at once). Picked, never recomputed. Copied from kpis.json's factory row onto every row, so a tile can compare against it."
+  },
+  "oracle_stop_p90": {
+   "type": "number",
+   "unit": "mrad",
+   "note": "The oracle rung's worst joint's stop error, p90 over holds: the producer's score on this replay (ur5e.json rungs.<rung>.<joint>.score: the coordinated workload, every joint on its own held-out tape at once). Picked, never recomputed. Copied from kpis.json's oracle row onto every row, so a tile can compare against it."
+  },
+  "tracking_rms": {
+   "type": "number",
+   "unit": "mrad",
+   "note": "Worst joint's RMS tracking error: the producer's score on this replay (ur5e.json rungs.<rung>.<joint>.score: the coordinated workload, every joint on its own held-out tape at once)."
+  },
+  "factory_tracking_rms": {
+   "type": "number",
+   "unit": "mrad",
+   "note": "The factory rung's worst joint's RMS tracking error: the producer's score on this replay (ur5e.json rungs.<rung>.<joint>.score: the coordinated workload, every joint on its own held-out tape at once). Copied from kpis.json's factory row onto every row, so a tile can compare against it."
+  },
+  "oracle_tracking_rms": {
+   "type": "number",
+   "unit": "mrad",
+   "note": "The oracle rung's worst joint's RMS tracking error: the producer's score on this replay (ur5e.json rungs.<rung>.<joint>.score: the coordinated workload, every joint on its own held-out tape at once). Copied from kpis.json's oracle row onto every row, so a tile can compare against it."
+  }
+ },
+ "rows": [
+  {
+   "id": "factory",
+   "situation": "factory",
+   "title": "Factory gains",
+   "order": 0,
+   "stop_p90": {
+    "value": 124.4579,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=factory].stop_p90, as written (ur5e.json:rungs.factory.wrist_1_joint.score.stop_p90_mrad (worst of 6 joints))"
+   },
+   "factory_stop_p90": {
+    "value": 124.4579,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=factory].stop_p90, as written (ur5e.json:rungs.factory.wrist_1_joint.score.stop_p90_mrad (worst of 6 joints))"
+   },
+   "oracle_stop_p90": {
+    "value": 0.1551,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=oracle].stop_p90, as written (ur5e.json:rungs.oracle.elbow_joint.score.stop_p90_mrad (worst of 6 joints))"
+   },
+   "tracking_rms": {
+    "value": 86.7019,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=factory].tracking_rms, as written (ur5e.json:rungs.factory.wrist_1_joint.score.tracking_rms_mrad (worst of 6 joints))"
+   },
+   "factory_tracking_rms": {
+    "value": 86.7019,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=factory].tracking_rms, as written (ur5e.json:rungs.factory.wrist_1_joint.score.tracking_rms_mrad (worst of 6 joints))"
+   },
+   "oracle_tracking_rms": {
+    "value": 0.2013,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=oracle].tracking_rms, as written (ur5e.json:rungs.oracle.wrist_1_joint.score.tracking_rms_mrad (worst of 6 joints))"
+   }
+  },
+  {
+   "id": "analytic",
+   "situation": "analytic",
+   "title": "Analytic start",
+   "order": 1,
+   "stop_p90": {
+    "value": 1.324,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=analytic].stop_p90, as written (ur5e.json:rungs.analytic.wrist_1_joint.score.stop_p90_mrad (worst of 6 joints))"
+   },
+   "factory_stop_p90": {
+    "value": 124.4579,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=factory].stop_p90, as written (ur5e.json:rungs.factory.wrist_1_joint.score.stop_p90_mrad (worst of 6 joints))"
+   },
+   "oracle_stop_p90": {
+    "value": 0.1551,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=oracle].stop_p90, as written (ur5e.json:rungs.oracle.elbow_joint.score.stop_p90_mrad (worst of 6 joints))"
+   },
+   "tracking_rms": {
+    "value": 1.0095,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=analytic].tracking_rms, as written (ur5e.json:rungs.analytic.wrist_1_joint.score.tracking_rms_mrad (worst of 6 joints))"
+   },
+   "factory_tracking_rms": {
+    "value": 86.7019,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=factory].tracking_rms, as written (ur5e.json:rungs.factory.wrist_1_joint.score.tracking_rms_mrad (worst of 6 joints))"
+   },
+   "oracle_tracking_rms": {
+    "value": 0.2013,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=oracle].tracking_rms, as written (ur5e.json:rungs.oracle.wrist_1_joint.score.tracking_rms_mrad (worst of 6 joints))"
+   }
+  },
+  {
+   "id": "tuned",
+   "situation": "tuned",
+   "title": "Tuned",
+   "order": 2,
+   "stop_p90": {
+    "value": 0.4059,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=tuned].stop_p90, as written (ur5e.json:rungs.tuned.elbow_joint.score.stop_p90_mrad (worst of 6 joints))"
+   },
+   "factory_stop_p90": {
+    "value": 124.4579,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=factory].stop_p90, as written (ur5e.json:rungs.factory.wrist_1_joint.score.stop_p90_mrad (worst of 6 joints))"
+   },
+   "oracle_stop_p90": {
+    "value": 0.1551,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=oracle].stop_p90, as written (ur5e.json:rungs.oracle.elbow_joint.score.stop_p90_mrad (worst of 6 joints))"
+   },
+   "tracking_rms": {
+    "value": 0.4333,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=tuned].tracking_rms, as written (ur5e.json:rungs.tuned.elbow_joint.score.tracking_rms_mrad (worst of 6 joints))"
+   },
+   "factory_tracking_rms": {
+    "value": 86.7019,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=factory].tracking_rms, as written (ur5e.json:rungs.factory.wrist_1_joint.score.tracking_rms_mrad (worst of 6 joints))"
+   },
+   "oracle_tracking_rms": {
+    "value": 0.2013,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=oracle].tracking_rms, as written (ur5e.json:rungs.oracle.wrist_1_joint.score.tracking_rms_mrad (worst of 6 joints))"
+   }
+  },
+  {
+   "id": "oracle",
+   "situation": "oracle",
+   "title": "Oracle (best possible)",
+   "order": 3,
+   "stop_p90": {
+    "value": 0.1551,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=oracle].stop_p90, as written (ur5e.json:rungs.oracle.elbow_joint.score.stop_p90_mrad (worst of 6 joints))"
+   },
+   "factory_stop_p90": {
+    "value": 124.4579,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=factory].stop_p90, as written (ur5e.json:rungs.factory.wrist_1_joint.score.stop_p90_mrad (worst of 6 joints))"
+   },
+   "oracle_stop_p90": {
+    "value": 0.1551,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=oracle].stop_p90, as written (ur5e.json:rungs.oracle.elbow_joint.score.stop_p90_mrad (worst of 6 joints))"
+   },
+   "tracking_rms": {
+    "value": 0.2013,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=oracle].tracking_rms, as written (ur5e.json:rungs.oracle.wrist_1_joint.score.tracking_rms_mrad (worst of 6 joints))"
+   },
+   "factory_tracking_rms": {
+    "value": 86.7019,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=factory].tracking_rms, as written (ur5e.json:rungs.factory.wrist_1_joint.score.tracking_rms_mrad (worst of 6 joints))"
+   },
+   "oracle_tracking_rms": {
+    "value": 0.2013,
+    "unit": "mrad",
+    "basis": "derived",
+    "note": "sim",
+    "source": "kpis.json rows[situation=oracle].tracking_rms, as written (ur5e.json:rungs.oracle.wrist_1_joint.score.tracking_rms_mrad (worst of 6 joints))"
+   }
+  }
+ ]
+}

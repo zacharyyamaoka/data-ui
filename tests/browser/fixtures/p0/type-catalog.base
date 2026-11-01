@@ -1,0 +1,34 @@
+# P0 fixture (tests/browser/p0_checks.py): sim2real's type catalog (dashboards/suite/2-type-catalog.base, and the rack's
+# run rail that dashboards/build.py wrote as one string) cut down to what gaps #9 and #14 need:
+#   - the servo dataset's default is a two-clause filter, one clause per select facet (gap #9: the device picker must
+#     still list every device, with counts);
+#   - two rails each stand over a `device` facet, defaulting to "J3 elbow" and "Scene camera" (gap #14: each rail draws
+#     its own default radio checked).
+data: runs.json
+clock: { data: servo, time: t, loop: true, rate: 2 }
+datasets:
+  runs: runs.json
+  servo:
+    data: servo.json
+    facets: [{ property: run_set, as: select, label: Runs }, { property: device, as: select, label: Servo }]
+    filters: 'run_set == "held-out" && device == "J3 elbow"'
+  camera:
+    data: camera.json
+    facets: [{ property: device, as: select, label: Camera }]
+    filters: 'device == "Scene camera"'
+layout:
+  panels:
+    - { view: Playback, w: 12 }
+    - { view: Servo samples, w: 6, h: 3 }
+    - { view: Camera frames, w: 6, h: 3 }
+views:
+  - type: playback
+    name: Playback
+  - type: table
+    name: Servo samples
+    from: servo
+    order: [t, run, device, situation, q_deg]
+  - type: table
+    name: Camera frames
+    from: camera
+    order: [t, run, device, frame_dt_ms]

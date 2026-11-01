@@ -1,0 +1,43 @@
+/* data-ui: select.css (docs/CONTRACT.md §15). Lane B owns this file. The bulk bar that replaces the pill row while
+   rows are selected (Shopify: "☑ 2 selected ▾ · actions · ⋯ · Show only selected"). The marks on selected rows and
+   cards live with their views (table.css, cards.css); .dv-sel is their shared class. */
+
+.dv-bulk[hidden] { display: none; }
+/* WHY a band over the header row, not a toolbar row (Zach, 2026-10-26, on Shopify's, screenshot 87): bar.js lays it at the
+   column header's top and height (the gallery: the top of the view), in --dv-band, a tint neither the bar nor the
+   header uses, so it never reads as a second toolbar */
+.dv-bulk:not([hidden]) { position: absolute; z-index: 8; left: 0; right: 0; display: flex; align-items: center; gap: 6px; min-width: 0;
+  padding: 0 8px; background: var(--dv-band); border-bottom: 1px solid var(--dv-border); font-size: 12.5px; overflow: visible; }
+/* split (open.css): the band covers the list's header, never the docked record pane beside it */
+data-views.dv-split > .dv-bulk:not([hidden]) { right: var(--dv-open-pane, 540px); }
+.dv-bulk-lead { position: relative; display: flex; align-items: center; gap: 4px; flex: 0 0 auto; }
+.dv-bulk-all { margin: 0 4px 0 2px; accent-color: var(--dv-accent); width: 15px; height: 15px; cursor: pointer; }
+.dv-bulk button { font: inherit; color: var(--dv-fg); cursor: pointer; white-space: nowrap; }
+.dv-bulk-count { background: none; border: 0; padding: 3px 6px; border-radius: var(--dv-radius); font-weight: 600; }
+.dv-bulk-count:hover { background: var(--dv-hover); }
+.dv-bulk-caret { color: var(--dv-muted); font-weight: 400; }
+.dv-bulk-actions { display: flex; align-items: center; gap: 6px; flex: 1 1 auto; min-width: 0; overflow: hidden; }
+.dv-bulk-act, .dv-bulk-more { flex: 0 0 auto; background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 999px; padding: 2px 11px; line-height: 18px; }
+.dv-bulk-act:hover:not([disabled]), .dv-bulk-more:hover { background: var(--dv-hover); }
+.dv-bulk-act[disabled] { opacity: .45; cursor: default; }
+.dv-bulk-act[hidden] { display: none; }
+.dv-bulk-icon { color: var(--dv-muted); margin-right: 5px; }
+.dv-bulk-morewrap { position: relative; flex: 0 0 auto; }
+.dv-bulk-morewrap[hidden] { display: none; }
+.dv-bulk-more { padding: 2px 9px; }
+.dv-bulk-menu { position: absolute; top: calc(100% + 4px); left: 0; z-index: 30; display: flex; flex-direction: column; min-width: 180px; padding: 4px;
+  background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: calc(var(--dv-radius) + 2px); box-shadow: 0 8px 24px rgb(0 0 0 / .14); }
+.dv-bulk-menu[hidden] { display: none; }
+.dv-bulk-menu button { text-align: left; background: none; border: 0; padding: 5px 8px; border-radius: var(--dv-radius); }
+.dv-bulk-menu button:hover:not([disabled]) { background: var(--dv-hover); }
+.dv-bulk-menu button[disabled] { opacity: .45; cursor: default; }
+.dv-bulk-overflow { left: auto; right: 0; }
+.dv-bulk-msg { color: var(--dv-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 0 1 auto; }
+.dv-bulk-msg:empty { display: none; }
+.dv-bulk-only { display: inline-flex; align-items: center; gap: 7px; flex: 0 0 auto; margin-left: auto; background: none; border: 0; padding: 2px 4px; color: var(--dv-fg); }
+.dv-switch { position: relative; width: 28px; height: 16px; border-radius: 999px; background: color-mix(in srgb, var(--dv-muted) 45%, var(--dv-bg)); transition: background .15s; }
+.dv-switch::after { content: ''; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--dv-bg); transition: transform .15s; }
+.dv-bulk-only[aria-checked="true"] .dv-switch { background: var(--dv-accent); }
+.dv-bulk-only[aria-checked="true"] .dv-switch::after { transform: translateX(12px); }
+.dv-bulk :focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+/* one row at every width: actions that do not fit fold into the ⋯ menu (selection.js fit()) */

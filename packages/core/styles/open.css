@@ -1,0 +1,139 @@
+/* How a record opens (src/open.js; docs/CONTRACT.md amendment 2026-10-26 (open modes)): the title link, the rich side
+   peek, its split / overlay / full-screen placement, the expand band and the grown card, link mode's checkbox. The
+   element carries data-open="expand|side|link" (the current view's mode) and, while the peek is open, dv-split
+   (docked beside the list) or dv-full (a phone's full screen); neither is the overlay. */
+
+/* WHY manipulation: a double-tap on a row would zoom; this drops the zoom and the tap delay (MDN touch-action) */
+data-views :is(tr.dv-row, .dv-cards-card) { touch-action: manipulation; }
+
+/* the title: a real link that reads as the title, underlined on hover (and on the whole row's hover in link mode) */
+.dv-stage a.dv-open-link, .dv-peek h2 a.dv-open-link { color: inherit; text-decoration: none; }
+.dv-stage a.dv-open-link:hover, .dv-peek h2 a.dv-open-link:hover,
+data-views[data-open="link"] :is(tr.dv-row, .dv-cards-card):hover a.dv-open-link { text-decoration: underline; text-underline-offset: 2px; }
+data-views[data-open="link"] .dv-cards-card { cursor: pointer; }
+
+/* link mode: the select box in the title cell (on a card, its top-left corner) */
+.dv-open-check { margin: 0 7px 0 0; vertical-align: -2px; accent-color: var(--dv-accent); cursor: pointer; }
+.dv-cards-card .dv-open-check { position: absolute; top: 8px; left: 8px; z-index: 1; width: 16px; height: 16px; margin: 0; }
+data-views .dv-row.dv-open-sel td, data-views .dv-row.dv-open-sel td:first-child { background: var(--dv-accent-bg); }
+data-views .dv-row.dv-open-sel td:first-child { box-shadow: inset 3px 0 0 var(--dv-accent); }
+.dv-cards-card.dv-open-sel { border-color: var(--dv-accent); box-shadow: 0 0 0 1px var(--dv-accent); }
+.dv-open-selected .dv-link { margin-left: 4px; }
+
+/* the rich peek: photo, title, kind, ‹ n of N ›, Open page, key specs, Specs / Sources */
+.dv-open-rec header { gap: 12px; }
+.dv-open-thumb { flex: 0 0 auto; width: 56px; height: 56px; object-fit: contain; background: var(--dv-subtle); border: 1px solid var(--dv-border); border-radius: var(--dv-radius); }
+.dv-open-nophoto { background: repeating-linear-gradient(135deg, var(--dv-subtle) 0 6px, var(--dv-bg) 6px 12px); }
+.dv-open-titles { flex: 1 1 auto; min-width: 0; }
+.dv-open-titles h2 { margin: 0; line-height: 1.25; overflow-wrap: anywhere; }
+.dv-open-sub { margin: 2px 0 0; color: var(--dv-muted); font-size: 12.5px; }
+.dv-open-back { display: none; flex: 0 0 auto; color: var(--dv-fg); border-color: var(--dv-border); }
+/* the trail: the records opened from inside the peek, over the title (Notion's side peek path); a crumb jumps back */
+.dv-open-trail ol { display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; margin: 0 0 3px; padding: 0; list-style: none; font-size: 12px; line-height: 18px; color: var(--dv-muted); min-width: 0; }
+.dv-open-trail li { min-width: 0; max-width: 100%; display: flex; }
+.dv-open-trail li > * { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 22ch; }
+.dv-open-trail li:last-child > * { max-width: 100%; }
+.dv-open-crumb { font: inherit; color: inherit; background: none; border: 0; border-radius: 4px; padding: 0 3px; margin: 0 -3px; cursor: pointer; }
+.dv-open-crumb:hover { color: var(--dv-fg); background: var(--dv-hover); }
+.dv-open-crumb:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: 0; }
+.dv-open-trail [aria-current] { color: var(--dv-fg); }
+.dv-open-sep { flex: 0 0 auto; }
+a.dv-open-expand { flex: 0 0 auto; color: var(--dv-fg); text-decoration: none; border-color: var(--dv-border); font-size: 15px; line-height: 1; }
+a.dv-open-rel { color: var(--dv-accent); text-decoration: none; }
+/* a key spec that names records wraps inside the pane (their titles run long), where a number stays on one line */
+.dv-open-chip:has(.dv-open-rel) { max-width: 100%; }
+.dv-open-chip dd:has(.dv-open-rel) { white-space: normal; }
+a.dv-open-rel:hover { text-decoration: underline; text-underline-offset: 2px; }
+.dv-open-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--dv-rule); }
+.dv-open-nav { display: inline-flex; align-items: center; gap: 2px; color: var(--dv-muted); font-size: 12.5px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dv-open-nav .dv-btn { font-size: 15px; line-height: 1; padding: 2px 8px; }
+.dv-open-pos { padding: 0 2px; }
+a.dv-open-page { color: var(--dv-accent); text-decoration: none; border-color: var(--dv-border); }
+a.dv-open-page:hover { text-decoration: underline; text-underline-offset: 2px; }
+.dv-open-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; padding: 0; }
+.dv-open-chip { border: 1px solid var(--dv-border); border-radius: var(--dv-radius); padding: 3px 8px; background: var(--dv-bg); min-width: 0; }
+.dv-open-chip dt { font-size: 10.5px; color: var(--dv-muted); white-space: nowrap; }
+.dv-open-chip dd { margin: 0; font-weight: 600; font-size: 12.5px; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--dv-fg); }
+.dv-open-sources { list-style: none; margin: 8px 0 0; padding: 0; }
+.dv-open-sources li { padding: 6px 0; border-bottom: 1px solid var(--dv-rule); font-size: 12.5px; }
+.dv-open-srcfield { display: inline-block; min-width: 110px; color: var(--dv-muted); }
+.dv-open-prov { color: var(--dv-muted); font-size: 11.5px; margin-top: 1px; }
+.dv-peek:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+
+/* side, split: the pane docks under the toolbar and the list narrows beside it (the pane keeps its own width, dragged
+   or remembered; src/open.js measures it into --dv-open-pane) */
+/* WHY the child combinator: a <data-views> embedded in the peek (a record section's view, CONTRACT §35) has a stage too,
+   and a descendant rule gave it the pane's margin, so it drew 0 px wide */
+data-views.dv-split > .dv-stage { margin-right: var(--dv-open-pane, 540px); }
+data-views.dv-split > .dv-peek { top: var(--dv-open-top, 0); box-shadow: none; border-radius: 0 0 var(--dv-radius) 0; }
+/* under frame="page|bleed" (CONTRACT §12) the page scrolls the rows and frame.css fixes the peek to the scroller's
+   visible box; split, it starts at the band's bottom as it is now (src/open.js measures it while the page scrolls), so
+   the pinned tabs and toolbar stay usable and the pane never scrolls away. The attribute raises the specificity, so
+   this wins over frame.css whatever order the two load in. */
+data-views.dv-split[data-scroll="page"] > .dv-peek { top: var(--dv-open-top, 0px); }
+
+/* side on a phone: the detail is the screen, with a Back that returns to the list */
+data-views.dv-full > .dv-peek, data-views.dv-full[data-scroll] > .dv-peek { position: fixed; inset: 0; z-index: 1000; width: 100%; max-width: none; border: 0; border-radius: 0; box-shadow: none; padding: 0 14px 24px; }
+data-views.dv-full > .dv-peek .dv-open-back { display: inline-block; }
+data-views.dv-full > .dv-peek .dv-close { display: none; }
+data-views.dv-full > .dv-splitter { display: none; }
+
+/* expand: the band under a row (part of the row's virtual item) and the grown card */
+data-views[data-open="expand"] .dv-scroll { container-type: inline-size; }
+data-views .dv-row.dv-open-on td, data-views .dv-row.dv-open-on td:first-child { background: var(--dv-subtle); border-bottom-color: transparent; }
+.dv-table tr.dv-open-band > td, .dv-table tr.dv-open-band > td:first-child { height: auto; padding: 0; white-space: normal; overflow: visible; position: static; background: var(--dv-subtle); border-right: 0; border-bottom: 1px solid var(--dv-border); cursor: default; }
+/* WHY sticky at the scroll box's visible left and 100cqw wide (the box is the container): the band's td spans every
+   column, but its content is laid out in the part of the table the reader sees, whatever the sideways scroll (Zach's
+   96.png: a narrow box showed only the band's first 70 px) */
+.dv-open-bandin { position: sticky; left: 0; width: 100cqw; display: flex; gap: 16px; padding: 10px 14px 14px; color: var(--dv-fg); }
+.dv-open-bandphoto { flex: 0 0 auto; width: 132px; height: 132px; object-fit: contain; background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: var(--dv-radius); }
+.dv-open-bandmain { flex: 1 1 auto; min-width: 0; }
+.dv-open-bandtop { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.dv-open-bandtop b { font-size: 14px; min-width: 0; overflow-wrap: anywhere; }
+.dv-open-bandtop .dv-open-sub { min-width: 0; overflow-wrap: anywhere; }
+.dv-open-bandtop .dv-open-page { margin-left: auto; }
+/* the inspector's properties: docs/CONTRACT.md §44 */
+.dv-fields th { position: relative; overflow-wrap: anywhere; }
+.dv-fields td { overflow-wrap: anywhere; }
+.dv-prop-rest { margin-top: 0; }
+.dv-prop-rest[hidden] { display: none; }
+.dv-prop-vis { position: absolute; top: 3px; right: 6px; width: 20px; height: 20px; padding: 2px; display: inline-grid; place-items: center; border: 0; border-radius: 4px; background: var(--dv-bg); color: var(--dv-muted); cursor: pointer; opacity: 0; }
+.dv-prop-vis svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.3; }
+.dv-fields tr:hover .dv-prop-vis, .dv-prop-vis:focus-visible, .dv-prop-vis[aria-expanded="true"] { opacity: 1; }
+.dv-prop-vis:hover { background: var(--dv-hover); color: var(--dv-fg); }
+@media (hover: none) { .dv-prop-vis { opacity: .6; } }
+.dv-prop-more, .dv-prop-add { display: flex; align-items: center; gap: 6px; width: 100%; margin: 6px 0 0; padding: 4px 0; font: inherit; font-size: 12.5px; color: var(--dv-muted); background: none; border: 0; border-radius: 4px; cursor: pointer; text-align: left; }
+.dv-prop-more:hover, .dv-prop-add:hover { color: var(--dv-fg); background: var(--dv-hover); }
+.dv-prop-more:focus-visible, .dv-prop-add:focus-visible, .dv-prop-vis:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -2px; }
+.dv-prop-more svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.dv-prop-more[aria-expanded="false"] svg { transform: rotate(-90deg); }
+.dv-prop-add span { width: 14px; text-align: center; }
+.dv-peek-slot:empty { display: none; }
+.dv-peek-pane { margin-top: 14px; }
+.dv-peek-pane > summary { font-size: 12px; font-weight: 600; color: var(--dv-muted); cursor: pointer; }
+.dv-src-note { margin-left: 6px; color: var(--dv-muted); font-size: 11.5px; white-space: nowrap; }
+.dv-vis { display: flex; flex-direction: column; min-width: 180px; }
+.dv-vis h5 { margin: 6px 8px 2px; font-size: 11px; font-weight: 600; color: var(--dv-muted); }
+.dv-vis-item { position: relative; padding: 4px 8px 4px 26px; font: inherit; font-size: 12.5px; text-align: left; color: var(--dv-fg); background: none; border: 0; border-radius: 4px; cursor: pointer; }
+.dv-vis-item:hover, .dv-vis-item:focus-visible { background: var(--dv-hover); }
+.dv-vis-item[aria-checked="true"]::before { content: '✓'; position: absolute; left: 9px; }
+.dv-open-bandin .dv-open-chips { margin-top: 6px; }
+/* WHY the side peek too: a chip draws on one line, so a long unbroken value (a URL) widened it past the panel and gave the peek a
+   sideways scroll; cut with an ellipsis, the whole value stays in the chip's hover and in the field below it */
+.dv-open-bandin .dv-open-chip, .dv-peek .dv-open-chip { max-width: 100%; }
+.dv-open-bandin .dv-open-chip :is(dt, dd), .dv-peek .dv-open-chip :is(dt, dd) { overflow: hidden; text-overflow: ellipsis; }
+.dv-open-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); gap: 0 18px; margin: 10px 0 0; }
+.dv-open-grid > div, .dv-open-list > div { display: flex; justify-content: space-between; gap: 8px; min-width: 0; border-bottom: 1px solid var(--dv-rule); font-size: 12px; line-height: 21px; }
+.dv-open-grid dt, .dv-open-list dt { color: var(--dv-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dv-open-grid dd, .dv-open-list dd { margin: 0; color: var(--dv-fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: right; font-variant-numeric: tabular-nums; }
+.dv-cards-card.dv-open-on { border-color: var(--dv-accent); }
+.dv-open-more { margin-top: 6px; border-top: 1px solid var(--dv-rule); padding-top: 4px; cursor: default; }
+.dv-open-list { margin: 0; }
+.dv-open-list > div { line-height: 18px; height: 19px; }
+.dv-open-more .dv-open-page { display: inline-block; margin-top: 6px; }
+.dv-open-more .dv-badge { line-height: 15px; }
+/* the photo goes above the fields when the box is narrow: the box's width, not the window's (a rail or a pane beside) */
+@container (max-width: 520px) {
+  .dv-open-bandin { flex-direction: column; gap: 8px; }
+  .dv-open-bandphoto { width: 96px; height: 96px; }
+}

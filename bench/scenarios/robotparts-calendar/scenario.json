@@ -1,0 +1,30 @@
+{
+  "id": "robotparts-calendar",
+  "title": "robotparts calendar (172 rows, calendar)",
+  "app": "robotparts",
+  "base": "views.base",
+  "view": null,
+  "rows": 172,
+  "synthetic": false,
+  "provenance": {
+    "from": "~/data-ui/gallery/examples/robotparts-calendar/calendar.json @ main 0dbc3d4",
+    "sha256": "cb2946f261687de476157cfee8a4624c3ca8f95592e3b6b886ba3a69804aba18",
+    "copied": "2026-10-26",
+    "note": "Robotparts' daily notes and releases placed on a calendar by date."
+  },
+  "interactions": {
+    "filter": {
+      "property": "kind",
+      "value": "release"
+    },
+    "sort": null,
+    "search": "jul",
+    "presets": [
+      "Month",
+      "List",
+      "Release week"
+    ],
+    "scroll": false,
+    "peek": true
+  }
+}

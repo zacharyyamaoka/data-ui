@@ -1,0 +1,39 @@
+# Proposal 4 · Mix-first ("the stream board"). A waste stream (a mix: types by composition, CONTRACT.md) is the page:
+# its composition as bars, the share table with an example object per type, and, in objects.base beside this file,
+# the sampled objects of that stream as 3D cards with their mass distribution. On the prototype page one stream picker
+# drives both files' filters (a dashboard: what <data-dashboard> will do once that lane lands). The question it answers
+# (Zach, Oct 15): a stream's mix and quick analysis, min/max weight, weight distribution, min/max size. New views.
+# The public sample has one mix: RECYC-QUEBEC's published 2023-24 municipal audit, mapped onto the library's types.
+# Check it: node bin/data-ui.mjs check gallery/examples/object-db-streams/views.base
+data: ../object-db-shelf/mixes.json
+facets:
+  - { property: mix_name, as: select, label: Stream, dropdown: true }
+properties:
+  mix_name: { displayName: Stream }
+  type: { displayName: Type }
+  share: { displayName: Share }
+  example: { displayName: Example object }
+  objects_in_sample: { displayName: Objects sampled }
+  typical_mass_g: { displayName: Typical mass }
+views:
+  - type: chart
+    name: Composition
+    chart:
+      mark: { type: bar }
+      encoding:
+        y: { field: type, sort: "-x", title: null }
+        x: { field: share, axis: { format: "%" }, title: "Share of the stream" }
+        color: { field: mix_name, title: Stream }
+    hover: { image: thumbnail, title: type, fields: [share, example, typical_mass_g, objects_in_sample] }
+  - type: table
+    name: Shares
+    order: [type, share, example, objects_in_sample, typical_mass_g, mix_name]
+    display: { share: bar, thumbnail: image }
+    groupBy: { property: mix_name, direction: ASC }
+    sort:
+      - { property: share, direction: DESC }
+  - type: pivot
+    name: Streams × types
+    splitBy: [mix_name]
+    groupBy: { property: type, direction: ASC }
+    value: { property: share, summary: Sum }

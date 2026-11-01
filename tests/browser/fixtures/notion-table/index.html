@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notion table · data-ui</title>
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: var(--dv-bg, Canvas); color: var(--dv-fg, CanvasText); }
+  h1 { margin: 0 0 2px; font-size: 18px; }
+  p { margin: 0 0 12px; color: var(--dv-muted, GrayText); font-size: 13px; }
+  data-views { height: calc(100vh - 92px); min-height: 420px; display: flex; }
+</style></head>
+<body>
+<h1>Launch checklist</h1>
+<p>Made-up data. Turn on Edit, then type in a cell, paste a block from a spreadsheet, right-click a row, or open a column's menu. Nothing is saved: a reload starts over.</p>
+<data-views id="sheet" src="views.base" edit-toggle toolbar="bar" selectable view-counts no-url aria-label="Launch checklist"></data-views>
+<script type="module" src="/dist/data-ui.js"></script>
+<script type="module" src="page.js"></script>
+</body></html>

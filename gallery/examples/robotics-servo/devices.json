@@ -1,0 +1,4 @@
+{"title":"Devices: the rack's two servos here","source":"/archive/datasets/bam_rig rack_2026-10-24 and rack_2026-10-25 (real runs), replayed through each motor's twin by sim2real dashboards/source/rack_replays.py (bam_rack_twin); written by gallery/examples/robotics-servo/source/build.py","schema":{"fields":[{"name":"device","type":"string"},{"name":"type","type":"string"},{"name":"label","type":"string"},{"name":"parent","type":"string"},{"name":"order","type":"integer"},{"name":"part","type":"string"}]},"rows":[
+{"device":"CAN 12","type":"servo","label":"CAN 12 · JMC 60ASM200 + moteus r4.11, 10:1","parent":"1-DOF rack","order":1,"part":"jmc-60asm200"},
+{"device":"CAN 14","type":"servo","label":"CAN 14 · SteadyWin GIM4305-10 + moteus c1, 10:1","parent":"1-DOF rack","order":2,"part":"steadywin-gim4305-10"}
+]}

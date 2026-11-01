@@ -1,0 +1,7 @@
+sku,name,price,qty,note,colour
+A-1,"Bolt, M3 x 8",1.50,100,plain,silver
+A-2,  padded  ,0.25,40,"two
+lines",black
+A-3,"""Quoted"" washer",12,,"",
+A-4,Nut M3,1.0,7,   ,silver
+A-5,Spring pin 2 x 10,0.80,0,"semi;colon, comma",

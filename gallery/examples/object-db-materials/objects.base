@@ -1,0 +1,22 @@
+# Proposal 5, panel 3: the objects as an Ashby chart, mass against bounding-box volume on log axes, coloured by
+# material; a constant-density line has slope 1. Click a point for its peek (an orbit viewer of its mesh).
+data: ../object-db-shelf/objects.json
+properties:
+  name: { displayName: Name }
+  mass_g: { displayName: Mass }
+  bbox_volume_ml: { displayName: Box volume }
+  material: { displayName: Material }
+views:
+  - type: chart
+    name: Ashby · mass vs volume
+    filters: '!mass_g.isEmpty() && !bbox_volume_ml.isEmpty()'
+    chart:
+      mark: { type: point, filled: true, size: 26 }
+      encoding:
+        x: { field: bbox_volume_ml, scale: { type: log }, title: "Bounding-box volume (mL)" }
+        y: { field: mass_g, scale: { type: log }, title: "Mass (g)" }
+        color: { field: material }
+    guides:
+      - { envelope: material, shape: hull }
+      - { indexLine: { slope: 1, through: median }, label: "constant g per mL (median)" }
+    hover: { image: thumbnail, title: name, fields: [material, type, mass_g, bbox_volume_ml, source] }

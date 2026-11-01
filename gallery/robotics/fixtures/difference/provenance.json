@@ -1,0 +1,20 @@
+{
+ "made_by": "source/make_difference_fixture.py",
+ "command": "uv run --with numpy --with scipy python3 gallery/robotics/fixtures/difference/source/make_difference_fixture.py",
+ "seed": 20261029,
+ "python": "3.14.6",
+ "numpy": "2.5.4",
+ "scipy": "1.18.1",
+ "difference": {
+  "a": "real",
+  "b": "target",
+  "poses": "per (run, body, frame)",
+  "samples": "per (run, device)"
+ },
+ "rows": {
+  "poses": 640,
+  "samples": 640,
+  "diff_poses": 152,
+  "diff_samples": 304
+ }
+}

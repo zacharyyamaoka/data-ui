@@ -1,0 +1,202 @@
+{
+ "id": "collection-routes",
+ "title": "Food-court collection routes, 14 Oct 2026 (synthetic)",
+ "titleProperty": "truck",
+ "source": "synthetic routes over real places: OSM food courts and the Vancouver South Transfer Station (\u00a9 OpenStreetMap contributors, ODbL)",
+ "attribution": {
+  "text": "© OpenStreetMap contributors",
+  "url": "https://www.openstreetmap.org/copyright"
+ },
+ "properties": {
+  "truck": {
+   "type": "text",
+   "label": "Truck"
+  },
+  "path": {
+   "type": "list",
+   "label": "Path (lat, lng)"
+  },
+  "km": {
+   "type": "number",
+   "label": "Length (straight-line)",
+   "unitText": "km",
+   "decimals": 1
+  },
+  "stops": {
+   "type": "number",
+   "label": "Pickups",
+   "decimals": 0
+  },
+  "kg": {
+   "type": "number",
+   "label": "Collected",
+   "unitText": "kg",
+   "decimals": 0
+  }
+ },
+ "rows": [
+  {
+   "id": "truck-a",
+   "truck": "Truck A",
+   "path": [
+    [
+     49.20734,
+     -123.11393
+    ],
+    [
+     49.18095,
+     -123.13502
+    ],
+    [
+     49.1758,
+     -123.13207
+    ],
+    [
+     49.16972,
+     -123.13326
+    ],
+    [
+     49.2287,
+     -123.00498
+    ],
+    [
+     49.20008,
+     -122.9114
+    ],
+    [
+     49.18472,
+     -122.79888
+    ],
+    [
+     49.03197,
+     -122.80171
+    ],
+    [
+     49.03813,
+     -123.08606
+    ],
+    [
+     49.03562,
+     -123.08868
+    ],
+    [
+     49.20734,
+     -123.11393
+    ]
+   ],
+   "km": {
+    "value": 89.11,
+    "basis": "derived",
+    "note": "sum of straight-line (haversine) legs, depot to depot"
+   },
+   "stops": 9,
+   "kg": 1087
+  },
+  {
+   "id": "truck-b",
+   "truck": "Truck B",
+   "path": [
+    [
+     49.20734,
+     -123.11393
+    ],
+    [
+     49.19592,
+     -123.12828
+    ],
+    [
+     49.19673,
+     -123.13989
+    ],
+    [
+     49.18597,
+     -123.13372
+    ],
+    [
+     49.18536,
+     -123.13451
+    ],
+    [
+     49.18435,
+     -123.13316
+    ],
+    [
+     49.18164,
+     -123.13507
+    ],
+    [
+     49.26063,
+     -123.25146
+    ],
+    [
+     49.26659,
+     -123.24272
+    ],
+    [
+     49.20734,
+     -123.11393
+    ]
+   ],
+   "km": {
+    "value": 28.88,
+    "basis": "derived",
+    "note": "sum of straight-line (haversine) legs, depot to depot"
+   },
+   "stops": 8,
+   "kg": 822
+  },
+  {
+   "id": "truck-c",
+   "truck": "Truck C",
+   "path": [
+    [
+     49.20734,
+     -123.11393
+    ],
+    [
+     49.23204,
+     -123.11782
+    ],
+    [
+     49.27186,
+     -123.13559
+    ],
+    [
+     49.28666,
+     -123.12079
+    ],
+    [
+     49.2867,
+     -123.11876
+    ],
+    [
+     49.28539,
+     -123.11732
+    ],
+    [
+     49.28454,
+     -123.11227
+    ],
+    [
+     49.2802,
+     -123.10642
+    ],
+    [
+     49.32513,
+     -123.13632
+    ],
+    [
+     49.20734,
+     -123.11393
+    ]
+   ],
+   "km": {
+    "value": 29.33,
+    "basis": "derived",
+    "note": "sum of straight-line (haversine) legs, depot to depot"
+   },
+   "stops": 8,
+   "kg": 1061
+  }
+ ]
+}

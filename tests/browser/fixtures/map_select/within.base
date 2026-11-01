@@ -1,0 +1,12 @@
+# tests/browser/map_select_checks.py: a dot, demand or site, is its row
+data: places.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    select: name
+    coordinates: at
+    layers:
+      - { type: within, of: 'kind == "site"', count: 'kind == "demand"', km: 30, title: Within }

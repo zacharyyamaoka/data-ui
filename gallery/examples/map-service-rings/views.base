@@ -1,0 +1,19 @@
+# Service rings around BC transfer stations, counting hospitals (docs/CONTRACT.md §42: rings).
+data: ../map-catchments/sites.json
+properties:
+  name: { displayName: Name }
+  kind: { displayName: Kind }
+  role: { displayName: Role }
+views:
+  - type: map
+    name: Rings around transfer stations
+    coordinates: location
+    mapTiles: ../map-food-heatmap/metro-vancouver.pmtiles
+    layers:
+      - { type: rings, of: 'kind == "transfer station"', count: 'role == "hospital"', km: [10, 25, 50], ofLabel: transfer stations, countLabel: hospitals }
+      - { type: points, filter: 'role == "hospital"', color: var(--data-series-1), radius: 4, title: Hospitals }
+      - { type: points, filter: 'kind == "transfer station"', color: var(--data-fg), radius: 4, title: Transfer stations }
+  - type: table
+    name: Sites
+    groupBy: { property: kind, direction: ASC }
+    order: [name, kind, role, location]

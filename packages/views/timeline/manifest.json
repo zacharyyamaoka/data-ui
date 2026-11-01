@@ -1,0 +1,9 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1.",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [
+    { "type": "timeline", "name": "Timeline", "icon": "gantt-chart", "summary": "Rows as bars (start to end) or points on a zoomable time axis, in lanes from groupBy, nested from subGroupBy, coloured by a property; a bar opens its record." }
+  ],
+  "npm": ["vis-timeline@8.5.5"]
+}

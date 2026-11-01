@@ -1,0 +1,86 @@
+# Kit gaps: every key the kit-gap fixes add, in one dashboard (tests/unit/check-kit-gaps.test.mjs and
+# tools/test_check_kit_gaps.py; each refused variant swaps one line). Timeseries annotations from a dataset and from the
+# view's own rows (gap 2), a run facet nested under its device (gap 8), an empty text for media cards (gap 9) and chart
+# fields that transforms create (gap 5).
+data: runs.json
+datasets:
+  runs:
+    data: runs.json
+    facets:
+      - { property: run, as: select, label: Run, parent: device }
+      - { property: device, as: select, label: Device }
+  samples:
+    data: samples.json
+  events:
+    data: events.json
+  media:
+    data: media.json
+links:
+  - { from: samples.run, to: runs.run }
+  - { from: events.run, to: runs.run }
+  - { from: media.run, to: runs.run }
+layout:
+  panels:
+    - { view: Current, w: 6 }
+    - { view: Mode strip, w: 6 }
+    - { view: Depth, w: 3 }
+    - { view: Band, w: 3 }
+    - { view: Pair, w: 6 }
+views:
+  - type: timeseries
+    name: Current
+    from: samples
+    timeseries:
+      x: t
+      'y': i_q_a
+      series: situation
+      annotations:
+        - { x: 0.25, label: fixed }
+        - { data: events, x: t, label: label, tone: warn }
+        - { x: t, label: event }
+  - type: chart
+    name: Mode strip
+    from: samples
+    chart:
+      transform:
+        - joinaggregate: [{ op: max, field: t, as: run_end }]
+      layer:
+        - transform:
+            - window: [{ op: lag, field: mode, as: before }]
+              sort: [{ field: t, order: ascending }]
+            - filter: 'datum.before === null || datum.mode !== datum.before'
+            - window: [{ op: lead, field: t, as: next_start }]
+              sort: [{ field: t, order: ascending }]
+            - calculate: 'datum.next_start === null ? datum.run_end : datum.next_start'
+              as: t_end
+          mark: { type: rect }
+          encoding:
+            x: { field: t, type: quantitative }
+            x2: { field: t_end }
+            color: { field: mode, type: nominal }
+        - transform:
+            - bin: { maxbins: 10 }
+              field: i_q_a
+              as: iq_bin
+            - fold: [i_q_a, w]
+          mark: { type: tick }
+          encoding:
+            x: { field: iq_bin, type: quantitative }
+            x2: { field: iq_bin_end }
+            'y': { field: value, type: quantitative }
+            color: { field: key, type: nominal }
+  - type: video
+    name: Depth
+    from: media
+    filters: 'kind == "depth"'
+    empty: No depth captured yet.
+  - type: image
+    name: Band
+    from: media
+    filters: 'kind == "band"'
+    image: poster
+    empty: No hyperspectral capture yet.
+  - type: video-compare
+    name: Pair
+    from: media
+    empty: Two clips are needed to compare.

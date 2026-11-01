@@ -1,0 +1,33 @@
+{
+  "id": "robotparts-actuators",
+  "title": "robotparts actuators table (1,149 rows, rich cells)",
+  "app": "robotparts",
+  "base": "views.base",
+  "view": null,
+  "rows": 1149,
+  "synthetic": false,
+  "provenance": {
+    "from": "~/data-ui/gallery/examples/robotparts-actuators/actuators.json @ main 0dbc3d4",
+    "sha256": "60684a21507c5fcf082c517cb8fc8c7302fd01856bb8229cc5a3df01a803d510",
+    "copied": "2026-10-26",
+    "note": "robotparts.dev's actuator catalog, release 2026.10.25, written by gallery/tools/build_examples.py; peak torque and mass are rich cells."
+  },
+  "interactions": {
+    "filter": {
+      "property": "brand",
+      "value": "Feetech"
+    },
+    "sort": {
+      "property": "peak_torque",
+      "direction": "DESC"
+    },
+    "search": "gim",
+    "presets": [
+      "Brand › form",
+      "Torque density",
+      "All, flat"
+    ],
+    "scroll": true,
+    "peek": true
+  }
+}

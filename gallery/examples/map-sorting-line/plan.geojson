@@ -1,0 +1,564 @@
+{
+ "type": "FeatureCollection",
+ "crs_note": "local metres, x east, y north, origin SW corner",
+ "synthetic": true,
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "walls",
+    "kind": "wall",
+    "name": "Building walls"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       40.0,
+       0.0
+      ],
+      [
+       40.0,
+       18.0
+      ],
+      [
+       0.0,
+       18.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "control-room-walls",
+    "kind": "wall",
+    "name": "Control room walls"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      0.0,
+      15.0
+     ],
+     [
+      6.0,
+      15.0
+     ],
+     [
+      6.0,
+      18.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "door-infeed",
+    "kind": "door",
+    "name": "Truck door"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      0.0,
+      6.0
+     ],
+     [
+      0.0,
+      12.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "conveyor",
+    "kind": "conveyor",
+    "name": "Conveyor"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      8.0,
+      9.0
+     ],
+     [
+      38.0,
+      9.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "infeed",
+    "kind": "infeed",
+    "name": "Infeed tipping floor"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       0.0,
+       4.0
+      ],
+      [
+       8.0,
+       4.0
+      ],
+      [
+       8.0,
+       14.0
+      ],
+      [
+       0.0,
+       14.0
+      ],
+      [
+       0.0,
+       4.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "robot-1",
+    "kind": "robot",
+    "name": "Robot cell 1"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       11.0,
+       7.0
+      ],
+      [
+       15.0,
+       7.0
+      ],
+      [
+       15.0,
+       11.0
+      ],
+      [
+       11.0,
+       11.0
+      ],
+      [
+       11.0,
+       7.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "robot-2",
+    "kind": "robot",
+    "name": "Robot cell 2"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       17.0,
+       7.0
+      ],
+      [
+       21.0,
+       7.0
+      ],
+      [
+       21.0,
+       11.0
+      ],
+      [
+       17.0,
+       11.0
+      ],
+      [
+       17.0,
+       7.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "robot-3",
+    "kind": "robot",
+    "name": "Robot cell 3"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       23.0,
+       7.0
+      ],
+      [
+       27.0,
+       7.0
+      ],
+      [
+       27.0,
+       11.0
+      ],
+      [
+       23.0,
+       11.0
+      ],
+      [
+       23.0,
+       7.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "robot-4",
+    "kind": "robot",
+    "name": "Robot cell 4"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       29.0,
+       7.0
+      ],
+      [
+       33.0,
+       7.0
+      ],
+      [
+       33.0,
+       11.0
+      ],
+      [
+       29.0,
+       11.0
+      ],
+      [
+       29.0,
+       7.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "bin-organics",
+    "kind": "bin",
+    "name": "Bin: organics"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       11.0,
+       3.0
+      ],
+      [
+       13.0,
+       3.0
+      ],
+      [
+       13.0,
+       5.0
+      ],
+      [
+       11.0,
+       5.0
+      ],
+      [
+       11.0,
+       3.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "bin-pet",
+    "kind": "bin",
+    "name": "Bin: PET"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       14.0,
+       3.0
+      ],
+      [
+       16.0,
+       3.0
+      ],
+      [
+       16.0,
+       5.0
+      ],
+      [
+       14.0,
+       5.0
+      ],
+      [
+       14.0,
+       3.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "bin-aluminium",
+    "kind": "bin",
+    "name": "Bin: aluminium"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       17.5,
+       3.0
+      ],
+      [
+       19.5,
+       3.0
+      ],
+      [
+       19.5,
+       5.0
+      ],
+      [
+       17.5,
+       5.0
+      ],
+      [
+       17.5,
+       3.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "bin-paper",
+    "kind": "bin",
+    "name": "Bin: paper"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       23.5,
+       3.0
+      ],
+      [
+       25.5,
+       3.0
+      ],
+      [
+       25.5,
+       5.0
+      ],
+      [
+       23.5,
+       5.0
+      ],
+      [
+       23.5,
+       3.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "bin-film",
+    "kind": "bin",
+    "name": "Bin: film"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       29.5,
+       3.0
+      ],
+      [
+       31.5,
+       3.0
+      ],
+      [
+       31.5,
+       5.0
+      ],
+      [
+       29.5,
+       5.0
+      ],
+      [
+       29.5,
+       3.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "bin-residue",
+    "kind": "bin",
+    "name": "Bin: residue"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       38.2,
+       8.0
+      ],
+      [
+       39.8,
+       8.0
+      ],
+      [
+       39.8,
+       10.0
+      ],
+      [
+       38.2,
+       10.0
+      ],
+      [
+       38.2,
+       8.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "baler",
+    "kind": "baler",
+    "name": "Baler"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       30.0,
+       13.0
+      ],
+      [
+       36.0,
+       13.0
+      ],
+      [
+       36.0,
+       16.5
+      ],
+      [
+       30.0,
+       16.5
+      ],
+      [
+       30.0,
+       13.0
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "control-room",
+    "kind": "room",
+    "name": "Control room"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       0.0,
+       15.0
+      ],
+      [
+       6.0,
+       15.0
+      ],
+      [
+       6.0,
+       18.0
+      ],
+      [
+       0.0,
+       18.0
+      ],
+      [
+       0.0,
+       15.0
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

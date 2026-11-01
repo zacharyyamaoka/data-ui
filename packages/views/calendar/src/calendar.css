@@ -1,0 +1,28 @@
+/* type: calendar. Event Calendar's own stylesheet comes first (index.js); its --ec-* properties are mapped onto the
+   private --dv-* tokens here, so the grid follows the host's theme. Colours only from tokens. */
+
+.dv-view-calendar { position: relative; flex: 1 1 auto; min-height: 0; }
+.dv-cal-box { position: absolute; inset: 0; padding: 8px 10px 10px; }
+.dv-cal-mount { height: 100%; }
+.dv-view-calendar .ec {
+  color-scheme: light; font: inherit;
+  --ec-bg-color: var(--dv-bg); --ec-text-color: var(--dv-fg); --ec-border-color: var(--dv-border);
+  --ec-button-bg-color: var(--dv-bg); --ec-button-border-color: var(--dv-border); --ec-button-text-color: var(--dv-fg);
+  --ec-button-active-bg-color: var(--dv-subtle); --ec-button-active-border-color: var(--dv-border); --ec-button-active-text-color: var(--dv-fg);
+  --ec-today-bg-color: var(--dv-accent-bg); --ec-highlight-color: var(--dv-hover); --ec-popup-bg-color: var(--dv-bg);
+  --ec-event-bg-color: var(--dv-accent); --ec-event-text-color: var(--dv-on-accent); --ec-now-indicator-color: var(--dv-warn);
+  --ec-bg-event-color: var(--dv-subtle);
+}
+.dv-view-calendar.dv-dark .ec { color-scheme: dark; }
+.dv-view-calendar .ec-toolbar { margin-bottom: 8px; gap: 6px; }
+.dv-view-calendar .ec-title { font-size: 15px; font-weight: 600; }
+.dv-view-calendar .ec-button { font-size: 12.5px; padding: 3px 9px; border-radius: var(--dv-radius); }
+.dv-view-calendar .ec-day-head, .dv-view-calendar .ec-col-head { color: var(--dv-muted); font-weight: 500; font-size: 12px; }
+.dv-view-calendar .ec-day.ec-other-month, .dv-view-calendar .ec-day.ec-other-month .ec-day-head { color: var(--dv-muted); }
+
+/* events: tinted with their group's series colour, a bar of it on the left; the peeked one outlined */
+.dv-view-calendar .ec-event.dv-cal-event { border-left: 3px solid var(--dv-item); border-radius: 4px; cursor: pointer; font-size: 12px; }
+.dv-view-calendar .ec-event.dv-cal-event:hover { filter: brightness(.97); }
+.dv-view-calendar .ec-event.dv-cal-event.dv-active { outline: 2px solid var(--dv-accent); outline-offset: 1px; }
+.dv-view-calendar .ec-list .ec-event.dv-cal-event { border-left: 0; }
+.dv-view-calendar .ec-list .ec-event-tag { background: var(--dv-item); }

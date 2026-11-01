@@ -1,0 +1,212 @@
+# Servo · Playback + Gates: the Servo template (gallery/examples/robotics-servo) with the diagnostics and gates overlay
+# (docs/CONTRACT.md §35, docs/peps/0010-robotics-playback.md §10). Every dataset and view of the template is here as it
+# is there, reading its files (../robotics-servo/); the overlay adds two gate datasets written by source/build.py with
+# RobotDx's diagnostics library from each run's own npz (real rack data, Oct 24-25 2026) and the views that draw them:
+# a gate matrix (tracker.column), a KPI trend with its target, a limits band, a level history and status cells.
+# data-ui computes no gate: every verdict, value, limit and window is a row.
+data: ../robotics-servo/runs.json
+style:
+  chrome: minimal
+  numbers: { digits: 4, compact: true }
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+clock: { data: samples, time: t }
+datasets:
+  runs:
+    data: ../robotics-servo/runs.json
+    label: Runs
+    facets:
+      # newest first (the rail's order is the facet's order: runs.json by started, latest first). WHY parent: a run is one
+      # servo's, so the Servo facet lists both while a run is picked, and picking the other moves the run to its newest
+      # (CONTRACT §7, kit gap 8)
+      - property: run
+        as: select
+        label: Run
+        parent: devices
+        order: [
+          10-25/dataset_rotor/can12_rest2/s03, 10-25/dataset_rotor/can12_rest2/s01, 10-25/dataset_rotor/can12_rest/s05, 10-25/dataset_rotor/can12_rest/s03,
+          10-25/dataset_rotor/can12_rest/s01, 10-25/dataset_rotor/can12/s11, 10-25/dataset_rotor/can12/s09, 10-25/dataset_rotor/can12/s07,
+          10-25/dataset_rotor/can12/s05, 10-25/dataset_rotor/can12/s03, 10-25/dataset_rotor/can12/s01, 10-25/cogging_phase/can12_b/s01,
+          10-25/cogging_phase/can12_a/s01, 10-24/floors/can14/s09, 10-24/floors/can14/s07, 10-24/floors/can14/s05,
+          10-24/floors/can14/s03, 10-24/floors/can14/s01, 10-24/dataset/can14/s23, 10-24/dataset/can14/s21,
+          10-24/dataset/can14/s19, 10-24/dataset/can14/s17, 10-24/dataset/can14/s15, 10-24/dataset/can14/s13,
+          10-24/dataset/can14/s11, 10-24/dataset/can14/s09, 10-24/dataset/can14/s07, 10-24/dataset/can14/s05,
+          10-24/dataset/can14/s03, 10-24/dataset/can14/s01, 10-24/session_11/s03, 10-24/session_11/s01,
+          10-24/session_10/s13, 10-24/session_10/s11, 10-24/session_10/s09, 10-24/session_10/s07,
+          10-24/session_09/s15, 10-24/session_09/s13, 10-24/session_09/s11, 10-24/session_09/s09]
+      - { property: devices, as: select, label: Servo }
+      - { property: kind, label: Run kind }
+  samples:
+    data: ../robotics-servo/samples.json
+    label: Samples
+    facets:
+      - { property: situation, label: Show }
+  # difference(a, b) of samples.json (source/build_diff.py, gallery/robotics/difference.py): each situation against the
+  # target, the twin against real
+  diff:
+    data: ../robotics-servo/diff_samples.json
+    label: Difference
+  # every rack run of CAN 12 and CAN 14 (278), decimated for coverage (source/build_coverage.py). WHY no link: a run pick
+  # must never empty the coverage panels (PEP 0010 §6); its own servo pick opens on the newest run's servo
+  coverage:
+    data: ../robotics-servo/coverage_samples.csv
+    label: Coverage
+    facets:
+      - { property: device, as: select, label: Coverage · servo }
+    filters: 'device == "CAN 12"'
+  # the gates overlay (CONTRACT §35): RobotDx's checks of every run, and the same checks per 1 s window. WHY the checks
+  # unlinked: the matrix and the KPI trend show every run whatever is picked; the windows follow the run pick
+  checks:
+    data: checks.json
+    label: Run checks
+  windows:
+    data: windows.json
+    label: Check windows
+links:
+  # WHY one-way (CONTRACT §33, sim2real gap #8): the runs' picks narrow the samples; the samples' Show never narrows the runs
+  - { from: runs.run, to: samples.run, direction: one-way }
+  # WHY three links: the rail's Servo and Show reach the difference rows on device and situation, not just the run
+  # (CONTRACT §32: every direct link filters)
+  - { from: diff.run, to: samples.run }
+  - { from: diff.device, to: samples.device }
+  - { from: diff.situation, to: samples.situation }
+  # WHY one-way: the run pick narrows the windows; a window never narrows the runs
+  - { from: runs.run, to: windows.run, direction: one-way }
+layout:
+  panels:
+    - { view: Runs, w: 12, h: 3 }
+    - text: "**Gates** · Each run's checks: tracking against the target, the twin's error against 1.5 × the station's floor, board temperature, faults and the sample rate, and the speed and angle against the station's own limits per 1 s window. Computed by `source/build.py` with RobotDx's diagnostics library (robotdx.diagnostics, the rack's npz read-only); the page computes none of it. A cell opens its check in the side peek, with the data in its window; the evidence link plays the run there."
+      w: 12
+    - { view: Run checks, w: 7, h: 4 }
+    - { view: Twin error per run, w: 5, h: 4 }
+    - { view: Playback, w: 12 }
+    - { view: Angle, w: 8, h: 3 }
+    - { view: Angle error, w: 4, h: 3 }
+    - { view: Velocity, w: 6, h: 3 }
+    - { view: Torque, w: 6, h: 3 }
+    - { view: Speed against its ceiling, w: 6, h: 3 }
+    - { view: Check history, w: 6, h: 3 }
+    - text: "**Coverage** · every rack run of the servo picked under *Coverage · servo* (Oct 23-25), from `coverage_samples.csv`: 1 Hz plus each run's min and max rows (w = 0), so the whiskers are the full-rate extremes. Unlinked: a run pick never empties it."
+      w: 12
+    - { view: Angle coverage, w: 4, h: 3 }
+    - { view: Velocity coverage, w: 4, h: 3 }
+    - { view: Phase space, w: 4, h: 3 }
+    - { view: Check rows, w: 12, h: 4 }
+properties:
+  when: { displayName: Started }
+  duration_s: { displayName: Duration }
+  q_rms_mrad: { displayName: Twin q RMS }
+views:
+  # the runs table picks a run on the rail (a picker, CONTRACT §33); the newest, its first row, when the page opens
+  # (PEP 0010 §6: "defaulting to the newest run")
+  - type: table
+    name: Runs
+    from: runs
+    select: run
+    selected: first
+    order: [when, run, devices, kind, duration_s, q_rms_mrad, held_out, twin]
+    sort:
+      - { property: started, direction: DESC }
+  - type: playback
+    name: Playback
+    playback: { readout: true }
+  - type: timeseries
+    name: Angle
+    from: samples
+    timeseries: { x: t, 'y': q_deg, series: situation, dash: [target], legend: top, unit: '°' }
+  # e_q = target − x (b − a, CONTRACT §5): where the angle should have been
+  - type: timeseries
+    name: Angle error
+    from: diff
+    filters: 'reference == "target"'
+    timeseries: { x: t, 'y': e_q_mrad, series: situation, legend: top, unit: mrad, rules: [{ 'y': 0 }] }
+  - type: timeseries
+    name: Velocity
+    from: samples
+    timeseries: { x: t, 'y': qd_deg_s, series: situation, dash: [target], legend: top, unit: '°/s' }
+  - type: timeseries
+    name: Torque
+    from: samples
+    timeseries: { x: t, 'y': tau_nm, series: situation, legend: top, unit: 'N·m' }
+  # COVERAGE (PEP 0010 §5.4 and §6): Vega-Lite over coverage_samples.csv. Σ w at 1 Hz is seconds; the extremes' rows
+  # (w = 0) add no time and make min and max exact
+  - type: chart
+    name: Angle coverage
+    from: coverage
+    chart:
+      layer:
+        - mark: { type: bar, binSpacing: 1 }
+          encoding:
+            x: { field: q_deg, bin: { maxbins: 60 }, title: 'q (deg)' }
+            'y': { aggregate: sum, field: w, title: time at angle (s) }
+        # the full-rate min and max (exact: every run's extreme rows are in the file)
+        # WHY each layer titles x as the bars do: Vega-Lite joins the layers' axis titles into one
+        - mark: { type: rule, strokeDash: [3, 3] }
+          encoding: { x: { aggregate: min, field: q_deg, title: 'q (deg)' } }
+        - mark: { type: rule, strokeDash: [3, 3] }
+          encoding: { x: { aggregate: max, field: q_deg, title: 'q (deg)' } }
+        - mark: { type: text, align: left, baseline: top, dx: 3, 'y': 2, fontSize: 10 }
+          encoding: { x: { aggregate: min, field: q_deg, title: 'q (deg)' }, text: { aggregate: min, field: q_deg, format: '.1f' } }
+        - mark: { type: text, align: right, baseline: top, dx: -3, 'y': 2, fontSize: 10 }
+          encoding: { x: { aggregate: max, field: q_deg, title: 'q (deg)' }, text: { aggregate: max, field: q_deg, format: '.1f' } }
+  - type: chart
+    name: Velocity coverage
+    from: coverage
+    chart:
+      mark: { type: boxplot, extent: min-max }
+      encoding:
+        x: { field: kind, type: nominal, title: run kind }
+        'y': { field: qd_deg_s, type: quantitative, title: 'qd (deg/s)' }
+  - type: chart
+    name: Phase space
+    from: coverage
+    chart:
+      mark: rect
+      encoding:
+        x: { field: q_deg, bin: { maxbins: 40 }, title: 'q (deg)' }
+        'y': { field: qd_deg_s, bin: { maxbins: 40 }, title: 'qd (deg/s)' }
+        color: { aggregate: sum, field: w, title: s, scale: { range: ['var(--data-subtle)', 'var(--data-series-1)'] } }
+  # ---- the gates overlay (CONTRACT §35; PEP 0010 §10's hints). Everything below reads rows source/build.py wrote
+  # gate_matrix: one row per run (newest first), one column per check; a cell opens its row, its evidence and the data
+  - type: tracker
+    name: Run checks
+    from: checks
+    groupBy: { property: run, direction: DESC }
+    sort:
+      - { property: order, direction: ASC }
+    tracker: { state: verdict, column: title, label: message }
+    display: { verdict: status, evidence: link }
+    record:
+      sections:
+        - { name: Verdict, properties: [verdict, value, unit, target, error_hi, message] }
+        - name: Evidence
+          properties: [evidence, t0, t1]
+          view: { type: timeseries, name: Angle in the window, from: samples, filters: 'run == this.run && t >= this.t0 && t <= this.t1', timeseries: { x: t, 'y': q_deg, series: situation, dash: [target], legend: top, unit: '°' } }
+        - { name: Provenance, properties: [subject, diagnostic, basis, source, record, started] }
+  # kpi_trend: the twin's q error per run against its target, 1.5 × the station's floor (each row's own target)
+  - type: kpi
+    name: Twin error per run
+    from: checks
+    filters: 'title == "Twin error"'
+    groupBy: { property: device }
+    groupOrder: [CAN 12, CAN 14]
+    kpi: { value: { property: value }, spark: { x: started, 'y': value }, target: target, compare: { against: target, better: lower } }
+  # threshold_band: the largest |qd| in each 1 s window against the station's own speed ceiling (bam_rack_twin)
+  - type: timeseries
+    name: Speed against its ceiling
+    from: windows
+    filters: 'title == "Speed"'
+    timeseries: { x: t, 'y': value, series: device, limits: { warn: [warn_lo, warn_hi], error: [error_lo, error_hi] }, legend: top, unit: '°/s' }
+  # level_history: each windowed check's verdict over the picked run
+  - type: levels
+    name: Check history
+    from: windows
+    levels: { state: verdict, by: title, label: message }
+  # every check of every run, its verdict as a status badge
+  - type: table
+    name: Check rows
+    from: checks
+    order: [run, title, verdict, value, unit, target, message]
+    display: { verdict: status }
+    sort:
+      - { property: started, direction: DESC }
+      - { property: order, direction: ASC }

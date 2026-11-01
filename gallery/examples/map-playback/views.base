@@ -1,0 +1,22 @@
+# Play back the synthetic collection day (docs/CONTRACT.md §42: time).
+data: ../map-collection-routes/day.json
+properties:
+  name: { displayName: Name }
+  truck: { displayName: Truck }
+  at: { displayName: Time }
+  kg: { displayName: Collected }
+views:
+  - type: map
+    name: Playback
+    coordinates: location
+    mapTiles: ../map-food-heatmap/metro-vancouver.pmtiles
+    time: { property: at, trail: 10800, zone: America/Vancouver }
+    layers:
+      - { type: lines, path: path, color: truck, filter: 'kind == "route"', title: Routes }
+      - { type: points, filter: 'kind != "route"', color: truck, size: { property: kg, max: 12 }, title: Pickups by truck }
+  - type: table
+    name: Pickups in order
+    filters: 'kind != "route"'
+    order: [at, name, truck, kg]
+    sort:
+      - { property: at, direction: ASC }

@@ -1,0 +1,256 @@
+{
+ "id": "deployments",
+ "title": "Deployments",
+ "titleProperty": "name",
+ "source": "One Dof Test Rack: gallery/examples/robotics-deployments (real). Every other row: synthetic, written by source/build.py",
+ "properties": {
+  "deployment": {
+   "type": "text",
+   "label": "Deployment",
+   "hidden": true
+  },
+  "name": {
+   "type": "text",
+   "label": "Name"
+  },
+  "robot_model": {
+   "type": "text",
+   "label": "Robot model"
+  },
+  "site": {
+   "type": "text",
+   "label": "Site"
+  },
+  "city": {
+   "type": "text",
+   "label": "City"
+  },
+  "status": {
+   "type": "text",
+   "label": "Status",
+   "display": "badge",
+   "colors": {
+    "running": 6,
+    "idle": 1,
+    "fault": 8,
+    "offline": 0
+   }
+  },
+  "last_run": {
+   "type": "date",
+   "label": "Last run"
+  },
+  "runs": {
+   "type": "number",
+   "label": "Runs"
+  },
+  "coordinates": {
+   "type": "list",
+   "label": "Coordinates",
+   "hidden": true
+  },
+  "basis": {
+   "type": "text",
+   "label": "Data",
+   "display": "badge",
+   "colors": {
+    "real": 7,
+    "synthetic": 0
+   }
+  }
+ },
+ "rows": [
+  {
+   "id": "one-dof-test-rack",
+   "deployment": "one-dof-test-rack",
+   "name": "One Dof Test Rack",
+   "robot_model": "1-DOF rack",
+   "site": "Test bench",
+   "city": "Vancouver",
+   "status": "idle",
+   "coordinates": [
+    49.2827,
+    -123.1207
+   ],
+   "basis": "real",
+   "runs": 4,
+   "last_run": "2026-10-29"
+  },
+  {
+   "id": "sorter-a1",
+   "deployment": "sorter-a1",
+   "name": "Sorter A1",
+   "robot_model": "Arm sorter Mk2",
+   "site": "Hospital site A",
+   "city": "Victoria",
+   "status": "running",
+   "coordinates": [
+    48.4284,
+    -123.3656
+   ],
+   "basis": "synthetic",
+   "runs": 4,
+   "last_run": "2026-10-28"
+  },
+  {
+   "id": "sorter-a2",
+   "deployment": "sorter-a2",
+   "name": "Sorter A2",
+   "robot_model": "Arm sorter Mk2",
+   "site": "Hospital site A",
+   "city": "Victoria",
+   "status": "fault",
+   "coordinates": [
+    48.4284,
+    -123.3656
+   ],
+   "basis": "synthetic",
+   "runs": 3,
+   "last_run": "2026-10-24"
+  },
+  {
+   "id": "sorter-b1",
+   "deployment": "sorter-b1",
+   "name": "Sorter B1",
+   "robot_model": "Arm sorter Mk3",
+   "site": "Hospital site B",
+   "city": "Kelowna",
+   "status": "running",
+   "coordinates": [
+    49.888,
+    -119.496
+   ],
+   "basis": "synthetic",
+   "runs": 2,
+   "last_run": "2026-10-26"
+  },
+  {
+   "id": "gantry-c1",
+   "deployment": "gantry-c1",
+   "name": "Gantry C1",
+   "robot_model": "Gantry sorter Mk1",
+   "site": "Transfer station C",
+   "city": "Prince George",
+   "status": "idle",
+   "coordinates": [
+    53.9171,
+    -122.7497
+   ],
+   "basis": "synthetic",
+   "runs": 3,
+   "last_run": "2026-10-28"
+  },
+  {
+   "id": "sorter-d1",
+   "deployment": "sorter-d1",
+   "name": "Sorter D1",
+   "robot_model": "Arm sorter Mk3",
+   "site": "Food court site D",
+   "city": "Calgary",
+   "status": "running",
+   "coordinates": [
+    51.0447,
+    -114.0719
+   ],
+   "basis": "synthetic",
+   "runs": 3,
+   "last_run": "2026-10-28"
+  },
+  {
+   "id": "sorter-e1",
+   "deployment": "sorter-e1",
+   "name": "Sorter E1",
+   "robot_model": "Arm sorter Mk3",
+   "site": "Hospital site E",
+   "city": "Toronto",
+   "status": "running",
+   "coordinates": [
+    43.6532,
+    -79.3832
+   ],
+   "basis": "synthetic",
+   "runs": 4,
+   "last_run": "2026-10-28"
+  },
+  {
+   "id": "gantry-e2",
+   "deployment": "gantry-e2",
+   "name": "Gantry E2",
+   "robot_model": "Gantry sorter Mk1",
+   "site": "Hospital site E",
+   "city": "Toronto",
+   "status": "idle",
+   "coordinates": [
+    43.6532,
+    -79.3832
+   ],
+   "basis": "synthetic",
+   "runs": 2,
+   "last_run": "2026-10-26"
+  },
+  {
+   "id": "sorter-f1",
+   "deployment": "sorter-f1",
+   "name": "Sorter F1",
+   "robot_model": "Arm sorter Mk2",
+   "site": "Materials site F",
+   "city": "Montréal",
+   "status": "offline",
+   "coordinates": [
+    45.5019,
+    -73.5674
+   ],
+   "basis": "synthetic",
+   "runs": 2,
+   "last_run": "2026-10-29"
+  },
+  {
+   "id": "sorter-g1",
+   "deployment": "sorter-g1",
+   "name": "Sorter G1",
+   "robot_model": "Arm sorter Mk3",
+   "site": "Food court site G",
+   "city": "Seattle",
+   "status": "running",
+   "coordinates": [
+    47.6062,
+    -122.3321
+   ],
+   "basis": "synthetic",
+   "runs": 3,
+   "last_run": "2026-10-29"
+  },
+  {
+   "id": "gantry-h1",
+   "deployment": "gantry-h1",
+   "name": "Gantry H1",
+   "robot_model": "Gantry sorter Mk1",
+   "site": "Transfer station H",
+   "city": "San Francisco",
+   "status": "fault",
+   "coordinates": [
+    37.7749,
+    -122.4194
+   ],
+   "basis": "synthetic",
+   "runs": 4,
+   "last_run": "2026-10-29"
+  },
+  {
+   "id": "sorter-i1",
+   "deployment": "sorter-i1",
+   "name": "Sorter I1",
+   "robot_model": "Arm sorter Mk2",
+   "site": "Hospital site I",
+   "city": "Chicago",
+   "status": "idle",
+   "coordinates": [
+    41.8781,
+    -87.6298
+   ],
+   "basis": "synthetic",
+   "runs": 4,
+   "last_run": "2026-10-28"
+  }
+ ]
+}

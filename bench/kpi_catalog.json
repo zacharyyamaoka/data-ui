@@ -1,0 +1,359 @@
+{
+ "schema": "vt-kpi-catalog/1",
+ "unit_of_iteration": "run",
+ "title": "data-ui speed on real scenarios",
+ "producer": {
+  "name": "data-ui bench/runner.py (npm run bench), published by bench/publish.py",
+  "bench_version": "data-ui-bench/1",
+  "repo": "~/data-ui",
+  "doc": "bench/KPIS.md"
+ },
+ "headline_scenario": "robotparts-actuators",
+ "kpis": [
+  {
+   "id": "first_paint_ms",
+   "title": "First useful paint (p95, cold)",
+   "unit": "ms",
+   "direction": "lower",
+   "level": 0,
+   "parent": null,
+   "target": 1000,
+   "computed_from": "runs",
+   "scale": "linear",
+   "cpu_sensitive": true,
+   "description": "Navigation start to the frame that shows the first view's rows (data-ui:first-render, then the next presented frame), on robotparts' 1,149 actuators with the rail, in a new browser context (empty cache). 95th percentile of the runs. Every scenario and row count is a slice. Slices of a WebGL scenario (the map) carry labels.renderer: gpu or software (bench/KPIS.md, Per host).",
+   "formula": "p95 over cold loads of (paint after data-ui:first-render \u2212 navigation start), scenario robotparts-actuators",
+   "facets": [
+    "scenario",
+    "phase",
+    "rows",
+    "app",
+    "view"
+   ],
+   "reference_lines": [
+    {
+     "value": 1000,
+     "label": "1 s: RAIL's load budget (the target)"
+    }
+   ]
+  },
+  {
+   "id": "first_paint_warm_ms",
+   "title": "First useful paint (p95, warm)",
+   "unit": "ms",
+   "direction": "lower",
+   "level": 1,
+   "parent": "first_paint_ms",
+   "target": 500,
+   "computed_from": "runs",
+   "scale": "linear",
+   "cpu_sensitive": true,
+   "description": "The same page reloaded in the same context: compiled code and the HTTP cache warm (files revalidate with 304s). What a returning visitor sees.",
+   "formula": "p95 over warm loads of first useful paint, robotparts-actuators",
+   "facets": [
+    "scenario",
+    "phase",
+    "rows",
+    "app",
+    "view"
+   ]
+  },
+  {
+   "id": "first_paint_worst_ms",
+   "title": "First useful paint, worst real scenario (p95, cold)",
+   "unit": "ms",
+   "direction": "lower",
+   "level": 1,
+   "parent": "first_paint_ms",
+   "target": 1000,
+   "computed_from": "runs",
+   "scale": "linear",
+   "cpu_sensitive": true,
+   "description": "The slowest of the real (not synthetic) scenarios: catches a regression the headline's table cannot see (a chart, a map, a board). labels.scenario names it. A map scenario's points carry labels.renderer (gpu or software) and labels.renderer_string (the WebGL renderer): headless Chromium's default WebGL is SwiftShader, a CPU rasteriser, so a software map number is not a GPU one.",
+   "formula": "max over real scenarios of p95(cold first useful paint)",
+   "facets": [
+    "scenario"
+   ]
+  },
+  {
+   "id": "interactive_ms",
+   "title": "Time to interactive (p95, cold)",
+   "unit": "ms",
+   "direction": "lower",
+   "level": 1,
+   "parent": "first_paint_ms",
+   "target": 1500,
+   "computed_from": "runs",
+   "scale": "linear",
+   "cpu_sensitive": true,
+   "description": "From navigation to the end of the last long task (>50 ms) before a 500 ms quiet window that starts at or after first useful paint (Lighthouse's TTI with a 500 ms window instead of 5 s). After it, a tick, a sort or a keystroke is handled at once.",
+   "formula": "p95 over cold loads of TTI(quiet = 500 ms), robotparts-actuators",
+   "facets": [
+    "scenario",
+    "phase",
+    "rows"
+   ]
+  },
+  {
+   "id": "blocking_ms",
+   "title": "Total blocking time (p95, cold)",
+   "unit": "ms",
+   "direction": "lower",
+   "level": 1,
+   "parent": "first_paint_ms",
+   "target": 200,
+   "computed_from": "runs",
+   "scale": "linear",
+   "cpu_sensitive": true,
+   "description": "Lighthouse's TBT: the sum over long tasks between first contentful paint and TTI of (duration \u2212 50 ms). The time the page could not answer input while loading. Lighthouse calls \u2264 200 ms good.",
+   "formula": "p95 over cold loads of \u03a3 max(0, longtask \u2212 50 ms) in [FCP, TTI]",
+   "facets": [
+    "scenario",
+    "phase",
+    "rows"
+   ]
+  },
+  {
+   "id": "interaction_ms",
+   "title": "Interaction latency (p95)",
+   "unit": "ms",
+   "direction": "lower",
+   "level": 1,
+   "parent": null,
+   "target": 100,
+   "computed_from": "runs",
+   "scale": "linear",
+   "cpu_sensitive": true,
+   "description": "Input to the next presented frame after data-ui has redrawn: a rail checkbox ticked and unticked, a column header clicked, a preset tab clicked, a search keystroke, a row clicked to open the peek. Real trusted input; t0 is the event's own timestamp, the end the frame after data-views-render (or data-views-open). INP's definition, measured per interaction. Slices: kind and scenario.",
+   "formula": "p95 over every interaction on robotparts-actuators",
+   "facets": [
+    "scenario",
+    "kind",
+    "rows"
+   ],
+   "reference_lines": [
+    {
+     "value": 100,
+     "label": "100 ms: RAIL's response budget (the target)"
+    },
+    {
+     "value": 200,
+     "label": "200 ms: INP 'good'"
+    }
+   ]
+  },
+  {
+   "id": "scroll_frame_ms",
+   "title": "Scroll frame time on 10,000 rows (p95)",
+   "unit": "ms",
+   "direction": "lower",
+   "level": 1,
+   "parent": null,
+   "target": 16.7,
+   "computed_from": "runs",
+   "scale": "linear",
+   "cpu_sensitive": true,
+   "description": "Frame-to-frame time (requestAnimationFrame) while the table scrolls 120 px a frame for 2 s, on the synthetic 10,000-row table. 16.7 ms is 60 frames a second.",
+   "formula": "p95 of rAF intervals while scrolling, large-table@10000",
+   "facets": [
+    "scenario",
+    "rows"
+   ]
+  },
+  {
+   "id": "load_kb",
+   "title": "Bytes on first load (gzip)",
+   "unit": "KB",
+   "direction": "lower",
+   "level": 1,
+   "parent": "first_paint_ms",
+   "target": 200,
+   "computed_from": "runs",
+   "scale": "linear",
+   "cpu_sensitive": false,
+   "description": "Every file the cold load fetched (page, core, css, the view bundles actually needed, the .base and the data), each at its gzip -6 size: what a static host sends compressed. The bench serves loopback uncompressed, so labels carry the raw bytes too.",
+   "formula": "\u03a3 gzip(file) over the cold load's requests, robotparts-actuators",
+   "facets": [
+    "scenario",
+    "rows"
+   ]
+  },
+  {
+   "id": "first_paint_100k_ms",
+   "title": "First useful paint at 100,000 rows (p95, cold)",
+   "unit": "ms",
+   "direction": "lower",
+   "level": 1,
+   "parent": "first_paint_ms",
+   "target": 2000,
+   "computed_from": "runs",
+   "scale": "log",
+   "cpu_sensitive": true,
+   "description": "The synthetic actuator table at 100,000 rows (sampled from the real 1,149): where the row model, the rail's counts and parsing stop being free. The rows slice of first_paint_ms holds 1k, 10k, 100k and 150k.",
+   "formula": "p95 over cold loads of first useful paint, large-table@100000",
+   "facets": [
+    "scenario",
+    "rows"
+   ]
+  },
+  {
+   "id": "model_ms",
+   "title": "Row model build per interaction (p95)",
+   "unit": "ms",
+   "direction": "lower",
+   "level": 2,
+   "parent": "interaction_ms",
+   "target": null,
+   "computed_from": "runs",
+   "scale": "linear",
+   "cpu_sensitive": true,
+   "description": "data-ui:model (filter, search, sort, group) inside each interaction. Where Intl.Collator caching shows.",
+   "formula": "p95 of \u03a3 data-ui:model per interaction, robotparts-actuators",
+   "facets": [
+    "scenario",
+    "kind",
+    "rows"
+   ]
+  },
+  {
+   "id": "render_ms",
+   "title": "Render (model + view draw) per interaction (p95)",
+   "unit": "ms",
+   "direction": "lower",
+   "level": 2,
+   "parent": "interaction_ms",
+   "target": null,
+   "computed_from": "runs",
+   "scale": "linear",
+   "cpu_sensitive": true,
+   "description": "data-ui:render: the model, the toolbar and the view's update(), before style, layout and paint. render \u2212 model is the view's own draw: where Intl.NumberFormat caching and the tbody rebuild show.",
+   "formula": "p95 of \u03a3 data-ui:render per interaction, robotparts-actuators",
+   "facets": [
+    "scenario",
+    "kind",
+    "rows"
+   ]
+  },
+  {
+   "id": "rail_ms",
+   "title": "Rail recount per interaction (p95)",
+   "unit": "ms",
+   "direction": "lower",
+   "level": 2,
+   "parent": "interaction_ms",
+   "target": null,
+   "computed_from": "runs",
+   "scale": "linear",
+   "cpu_sensitive": true,
+   "description": "data-ui:rail: the <data-facets> count-and-draw passes inside each interaction (a sort or a keystroke recounts the rail today).",
+   "formula": "p95 of \u03a3 data-ui:rail per interaction, robotparts-actuators",
+   "facets": [
+    "scenario",
+    "kind",
+    "rows"
+   ]
+  },
+  {
+   "id": "heap_mb",
+   "title": "JS heap after load",
+   "unit": "MB",
+   "direction": "lower",
+   "level": 2,
+   "parent": "first_paint_ms",
+   "target": null,
+   "computed_from": "runs",
+   "scale": "log",
+   "cpu_sensitive": false,
+   "description": "CDP's JSHeapUsedSize after a forced GC, once the page is interactive: the data, the model and the views. p50 of cold loads.",
+   "formula": "p50 over cold loads of JSHeapUsedSize after GC",
+   "facets": [
+    "scenario",
+    "rows"
+   ]
+  },
+  {
+   "id": "dom_added",
+   "title": "DOM nodes added per interaction (p50)",
+   "unit": "nodes",
+   "direction": "lower",
+   "level": 2,
+   "parent": "interaction_ms",
+   "target": null,
+   "computed_from": "runs",
+   "scale": "linear",
+   "cpu_sensitive": false,
+   "description": "Nodes the page inserted during one interaction (a MutationObserver). A full tbody rebuild shows here even when the rows did not change.",
+   "formula": "p50 of added nodes per interaction, robotparts-actuators",
+   "facets": [
+    "scenario",
+    "kind"
+   ]
+  },
+  {
+   "id": "mesh_first_frame_outline_pct",
+   "title": "3D first-frame vs thumbnail outline error (%)",
+   "unit": "%",
+   "direction": "lower",
+   "level": 1,
+   "parent": null,
+   "target": 3,
+   "computed_from": "checks",
+   "scale": "linear",
+   "cpu_sensitive": false,
+   "description": "When a 3D card or viewer opens from its thumbnail, its first frame must be the thumbnail: the same pose, and an outline (silhouette bounding box) whose width and height agree with the thumbnail's within 3 %. The worst |ratio - 1| over the object-db-shelf case's 10 cards (5 real scans, 5 MuJoCo primitives), measured in the page by npm test (gallery/examples/object-db-shelf/checks.py camera_match), published by tools/publish_checks.py. Spec: docs/CONTRACT.md \u00a716. Zach, 2026-10-26: \"please add this as a spec and test gate to data-ui ... so we don't regress on this\".",
+   "formula": "max over cards of max(|live_w / poster_w - 1|, |live_h / poster_h - 1|) x 100, frame 0 under prefers-reduced-motion",
+   "facets": [],
+   "reference_lines": [
+    {
+     "value": 3,
+     "label": "3 %: the gate (CONTRACT \u00a716)"
+    }
+   ]
+  }
+ ],
+ "gates": [
+  {
+   "id": "no_page_errors",
+   "title": "Every scenario healthy: no page error, no missing part",
+   "bound": {
+    "op": "==",
+    "value": 0
+   },
+   "applies_to": "page_errors",
+   "description": "Every scenario loads, draws and takes its interactions with no uncaught exception, its view drawn as the .base asks (no fallback, no error box), and its rail drawn when it has one. A failing scenario publishes no KPI numbers at all (null, labels.verdict FAILED, labels.why): a page that paints its rows while a part of it threw (the 150,000-row rail's stack overflow on 0dbc3d4) would otherwise pass every paint KPI. Pass/fail, never averaged; slices name the failing scenarios."
+  },
+  {
+   "id": "stable_samples",
+   "title": "Every scenario's own samples agree: cold first paints spread with a CV of 0.5 or less",
+   "bound": {
+    "op": "<=",
+    "value": 0.5
+   },
+   "applies_to": "first_paint_cv",
+   "description": "The coefficient of variation of each scenario's cold first useful paints, judged only on a quiet machine. An app whose own loads disagree (100, 100, 100, 100 and 1,000 ms) is a result about the app, not noise: its KPI points are published as measured, with labels.stability unstable, and this gate fails for it (Codex, finding 6, 2026-10-27, where such a run was filed as noise and its 1,000 ms p95 left the series). Measured under interference its pass is null (pending) whatever the CV: an additive slowdown raises the mean and lowers the CV ([100, 100, 100, 100, 1000] is 1.437; add 1,000 ms to each and it is 0.314), so a low CV there certifies nothing (judge r2, finding 3). The whole-bench line is the worst judged CV: false when any scenario is unstable, null when any is pending. Never routed away from the series. bench/trust.py."
+  },
+  {
+   "id": "timing_valid",
+   "title": "The current build's timings were measured without interference (else they are not in the series)",
+   "bound": {
+    "op": "==",
+    "value": 0
+   },
+   "applies_to": "suppressed_timing_sets",
+   "description": "Per scenario, how many of its timing sample sets (cold loads, warm loads, interactions, scroll) were suppressed: measured under interference, so bench/publish.py kept their KPI points out of the series (or, with --include-noisy, published them hollow). Pass when none; null when the scenario FAILED (no_page_errors reports it). The whole-bench line is the sum, false when any scenario's timings were suppressed, and names them; labels.headline says when the headline scenario's were. Every line carries labels.code_sha and labels.why. WHY (judge r2, finding 3, 2026-10-27): Vibe Tracks' headline skips null points, so a run whose timings were all suppressed left the previous build's fast number as the last word while no_page_errors and stable_samples both passed. A failing timing_valid is the next leg in vt brief: re-measure this build on a quiet machine. Never routed away from the series."
+  }
+ ],
+ "marks": {
+  "shape_by": "lane",
+  "hollow_by": {
+   "label": "trust",
+   "values": [
+    "noisy"
+   ]
+  },
+  "legend": {
+   "filled": "quiet machine",
+   "hollow": "a timing measured on a noisy machine (slow calibration or loaded CPUs): read with care. Bytes, DOM counts and heap are never hollow: a busy CPU does not change them"
+  }
+ }
+}

@@ -1,0 +1,10 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1. The outline (tree:) is TanStack sub-rows, nested by the core (rowmodel.js treeRows) into input.table.",
+  "entry": "src/index.js",
+  "status": "built",
+  "covers": ["Tree / hierarchy"],
+  "views": [
+    { "type": "list", "name": "List", "icon": "list", "summary": "One line per row: the title, then its properties inline or on their own lines, under group headings; with tree: an outline that folds." }
+  ],
+  "npm": ["@tanstack/virtual-core@3.19.7"]
+}

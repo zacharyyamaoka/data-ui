@@ -1,0 +1,7 @@
+# What the browser checks and tools/*.py import, at the versions they were last measured with on Zach's machine.
+# playwright matches tools/ci/versions.env (tools/ci.test.mjs holds them together).
+playwright==1.63.0
+numpy==2.5.2
+pillow==10.4.0
+pyyaml==6.0.1
+jsonschema==4.10.3

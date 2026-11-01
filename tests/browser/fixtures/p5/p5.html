@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P5 gates fixture</title>
+<!-- tests/browser/p5_checks.py: an empty page the checks fill with <data-dashboard> elements: the deployments twin's
+     Run checks view fed a keyed LiveDataset (RobotDx's windowed rows), and the checker fixture tests/fixtures/p5/gates.base.
+     Served from the repo root, so the kit is /dist/ and the gallery /gallery/examples/. -->
+<link rel="stylesheet" href="/dist/data-ui.css">
+<style>
+  body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: var(--data-bg, #fff); color: var(--data-fg, #111); }
+  @media (prefers-color-scheme: dark) { body { background: #111; color: #eee; } }
+</style>
+<script type="module">
+  import * as kit from '/dist/data-ui.js';
+  await import('/dist/dashboard.js');
+  window.kit = kit;
+  window.kitReady = true;
+</script>
+</head>
+<body>
+</body>
+</html>

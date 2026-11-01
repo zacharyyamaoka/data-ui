@@ -1,0 +1,192 @@
+# Vibe Tracks' track overview as one dashboard: every track with its headline KPI and history, the check runs rolled
+# up through child tracks, the last 30 days per track, and the newest runs. Linked datasets from Zach's real owner
+# bundle (source/build.py, build_series.py, build_days.py); grasping's figures stay out (SPEC §13). The grammar is
+# docs/peps/0004-dashboards.md; the cards are docs/peps/0005-dashboard-cards.md. A KPI dashboard: no clock.
+# Check it: node bin/data-ui.mjs check <this file>
+data: tracks.json
+facets:
+  - area
+  - health
+  - state
+properties:
+  title: { displayName: Track }
+  parent_title: { displayName: Parent }
+  headline_kpi: { displayName: Headline KPI }
+  headline: { displayName: Headline }
+  checks_passed: { displayName: Passing }
+  checks_run: { displayName: Checks }
+  pass_rate: { displayName: Pass rate, digits: 3 }
+  value: { digits: 3 }
+  track_title: { displayName: Track }
+  label: { displayName: KPI }
+  t: { displayName: When }
+  kind: { displayName: Kind }
+  day: { displayName: Day }
+  runs: { displayName: Runs }
+  judged_runs: { displayName: Judged runs }
+  passed_runs: { displayName: Passed runs }
+  verdict: { displayName: Verdict }
+# WHY one colour per name across every panel (PEP 0005 §5): a run kind is the same hue in the bars and the lines, and a
+# KPI's line keeps its hue wherever it is drawn; "Checks passing" wears the checks hue, "Tests with a purpose" the tests'.
+style:
+  chrome: minimal
+  numbers: { digits: 3, compact: true }
+  palette:
+    tests: "#2a78d6"
+    checks: "#19a979"
+    goldens: "#d4a72c"
+    gates: "#a259d9"
+    Waypoint trajectory length / Pro: "#e8743b"
+    Point-to-point planning time / Pro: "#d9578a"
+    Waypoint planning time / Pro: "#3fa7b5"
+    Checks passing: "#19a979"
+    Tests with a purpose: "#2a78d6"
+datasets:
+  tracks:
+    data: tracks.json
+    tree: { parent: parent }
+    rollup:
+      from: runs
+      latest: { by: t, per: suite }
+      values:
+        checks_passed: { property: passed, summary: Sum }
+        checks_run: { property: checks, summary: Sum }
+        pass_rate: { property: passed, summary: Ratio, per: checks }
+  kpis: kpis.json
+  runs:
+    data: runs.json
+    # WHY 5 s: Zach's live-updating ask: a dataset polls and the cards update in place (selection, scroll, rail kept)
+    refresh: 5s
+    facets:
+      - kind
+      - { property: t, as: date, label: Run date }
+  series: series.json
+  days: days.json
+links:
+  - { from: kpis.track, to: tracks.id }
+  - { from: runs.track, to: tracks.id }
+  - { from: series.track, to: tracks.id }
+  - { from: days.track, to: tracks.id }
+layout:
+  panels:
+    - text: |
+        ## Every track, computed from its runs
+        Headlines are each producer's own newest number, never recomputed; ▲▼ is the change since its previous
+        point. **Passing** and **Pass rate** are rolled up: the newest run of each suite, summed through every child
+        track. The runs reload every 5 s. Click a card, a bar or a track to narrow the whole page; click a run for
+        its details.
+      w: 12
+    - { view: Headlines, w: 12 }
+    # WHY both sized: a gauge without h collapses its arc, and the tracker beside it gets the same height so the row
+    # lines up (13 tracks × 30 days fit in 4.5 rows)
+    - { view: Judged runs passing, w: 3, h: 4.5 }
+    - { view: Last 30 days, w: 9, h: 4.5 }
+    - { view: Runs per week, w: 8, h: 3 }
+    - { view: Producer runs per track, w: 4, h: 3 }
+    - { view: Trajectory Generation vs Pro, w: 6, h: 3 }
+    - { view: Checks passing, w: 3, h: 3 }
+    - { view: Tests with a purpose, w: 3, h: 3 }
+    - { view: Tracks, w: 7, h: 5 }
+    - { view: Runs by track, w: 5, h: 5 }
+    - { views: [Latest runs, Pass rate by kind], title: Runs, w: 12, h: 5 }
+views:
+  # ---- the stat row: one KPI tile per track with a headline
+  - type: kpi
+    name: Headlines
+    from: kpis
+    select: track
+    filters: 'level == 0'
+    groupBy: { property: track_title }
+    sort:
+      - { property: t, direction: ASC }
+    kpi:
+      value: { property: value }
+      compare: { against: previous, better: better, neutral: 0.005 }
+      spark: { x: t, y: value }
+      format: { digits: 3, compact: true }
+  # ---- the last 30 days: a gauge over every judged run, and one tracker row per track
+  - type: gauge
+    name: Judged runs passing
+    from: days
+    gauge:
+      value: { property: passed_runs, summary: Ratio, per: judged_runs }
+      min: 0
+      max: 1
+      shape: arc
+      better: higher
+      label: Judged runs passing, last 30 days
+      bands: [{ to: 0.5, tone: bad }, { to: 0.9, tone: warn }, { tone: good }]
+  - type: tracker
+    name: Last 30 days
+    from: days
+    select: track
+    groupBy: { property: track_title }
+    sort:
+      - { property: day, direction: ASC }
+    tracker: { state: verdict, label: day, tones: { pass: good, mixed: warn, fail: bad, none: muted } }
+  # ---- change over time is a line (Zach, 2026-10-26; .claude/feedback.md)
+  - type: chart
+    name: Runs per week
+    from: runs
+    # no mark: a count over weeks is a line by default (docs/SPEC.md §8.5), one line per run kind
+    chart:
+      encoding:
+        x: { field: t, by: week, title: null, axis: { labelAngle: 0 } }
+        y: { aggregate: count, title: Check runs }
+        color: { field: kind, title: Kind }
+    hover: { title: run, fields: [track_title, suite, passed, checks] }
+  - type: barlist
+    name: Producer runs per track
+    from: days
+    select: track
+    barlist: { label: track_title, value: { property: runs, summary: Sum }, limit: 8 }
+  - type: timeseries
+    name: Trajectory Generation vs Pro
+    from: series
+    filters: 'track == "ruckig" && level <= 1'
+    timeseries:
+      x: t
+      y: value
+      series: label
+      mark: line
+      unit: × Pro
+      legend: top
+      rules: [{ y: 1, label: "= Pro (lower is better)" }]
+  - type: timeseries
+    name: Checks passing
+    from: series
+    filters: 'kpi == "checks_passing"'
+    timeseries: { x: t, y: value, series: label, mark: line, legend: none }
+  - type: timeseries
+    name: Tests with a purpose
+    from: series
+    filters: 'kpi == "checks_with_purpose"'
+    timeseries: { x: t, y: value, series: label, mark: line, legend: none }
+  # ---- the analysis below
+  - type: table
+    name: Tracks
+    select: id
+    tree: { parent: parent }
+    order: [title, health, state, headline_kpi, headline, checks_passed, checks_run, pass_rate]
+  - type: chart
+    name: Runs by track
+    from: runs
+    select: track
+    chart:
+      mark: bar
+      encoding:
+        y: { field: track_title, title: null, sort: -x }
+        x: { aggregate: count, title: Check runs }
+        color: { field: kind, title: Kind }
+  - type: table
+    name: Latest runs
+    from: runs
+    order: [t, track_title, suite, kind, passed, failed, checks, pass_rate, channel, branch, sha]
+    sort:
+      - { property: t, direction: DESC }
+  - type: pivot
+    name: Pass rate by kind
+    from: runs
+    groupBy: { property: track_title }
+    splitBy: [kind]
+    value: { property: pass_rate, summary: Average }

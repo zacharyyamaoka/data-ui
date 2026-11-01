@@ -1,0 +1,5543 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://data-ui.local/schemas/view.schema.json",
+  "title": "data-ui view file (.base)",
+  "description": "An Obsidian Bases .base file plus data-ui's extension keys (docs/SPEC.md §5). Every Bases file is a valid data-ui view file. Obsidian 1.14.5's serializers write unknown top-level, per-property and per-view keys back (read from its code), so the extensions survive Obsidian editing the file. Comments do not: Obsidian re-dumps the YAML. The keys and types of every view in docs/VIEWS.md are listed, so the checker knows them before each view is built (docs/CONTRACT.md §5).",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "$ref": "#/$defs/filters",
+      "description": "Bases: applies to every view, ANDed with each view's own filters."
+    },
+    "formulas": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Bases formulas. data-ui runs one, for display columns: [a, b].filter(!value.isEmpty())[0], the first non-empty of a list of columns (CONTRACT §36). Any other shows a dash, and Obsidian runs it; a headline KPI stays the producer's (SPEC §5.6)."
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/propertyConfig"
+      }
+    },
+    "summaries": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Bases: custom summary formulas by name."
+    },
+    "views": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/view"
+      }
+    },
+    "defaultView": {
+      "type": "string",
+      "description": "data-ui: the view (by name) the page opens on; a host's persistView hook writes the picked view here (docs/CONTRACT.md §37)."
+    },
+    "sharedColumns": {
+      "type": "boolean",
+      "description": "data-ui: a column's width and the column order, changed in one table view, change in every table view of the file (docs/CONTRACT.md §37)."
+    },
+    "page": {
+      "type": "array",
+      "description": "data-ui: a record's page, laid out apart from the table: each property's order, place and visibility (docs/CONTRACT.md §46).",
+      "items": {
+        "type": "object",
+        "required": ["property"],
+        "properties": {
+          "property": { "type": "string" },
+          "place": { "enum": ["top", "section"], "description": "`top`: the property list. `section`: a block on the page under its H1." },
+          "visible": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "display": {
+      "description": "Obsidian's own top-level key. data-ui never writes it; per-view display is views[].display."
+    },
+    "newItemFolder": {
+      "type": "string"
+    },
+    "newItemTemplate": {
+      "type": "string"
+    },
+    "summary": {
+      "$ref": "#/$defs/summary"
+    },
+    "facets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/facet"
+      },
+      "description": "data-ui: the McMaster-style left rail, top to bottom: a property, or {property, as: <kind>, ...options} (docs/CONTRACT.md §7). It edits the facet-shaped part of the all-views filter (SPEC §6)."
+    },
+    "data": {
+      "type": "string",
+      "description": "data-ui: the data this file views (a data file, or its schema sidecar), relative to this file."
+    },
+    "open": {
+      "$ref": "#/$defs/open",
+      "description": "data-ui: how a record opens in every view that does not say (docs/CONTRACT.md amendment 2026-10-26 (open modes)); default side."
+    },
+    "datasets": {
+      "type": "object",
+      "description": "data-ui dashboards (docs/peps/0004-dashboards.md): more data files by name, each a path relative to this file or {data, label, facets, filters, tree, rollup}. An entry whose data: is the top-level data: describes the default dataset. A data: that names a placeholder (runs/{run}.json) is read per pick: the one file the other datasets' picks leave, each {property} filled as one URL path segment (CONTRACT §33).",
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "object",
+            "required": [
+              "data"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "data": {
+                "type": "string",
+                "minLength": 1,
+                "description": "the data file, relative to the .base; with a {property} placeholder (runs/{run}.json), the file read for the one value the links leave that property (CONTRACT §33)"
+              },
+              "label": {
+                "type": "string"
+              },
+              "facets": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/facet"
+                }
+              },
+              "filters": {
+                "$ref": "#/$defs/filters"
+              },
+              "tree": {
+                "type": "object",
+                "required": [
+                  "parent"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "parent": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "rollup": {
+                "type": "object",
+                "required": [
+                  "from",
+                  "values"
+                ],
+                "additionalProperties": false,
+                "description": "computed columns: a summary of another dataset's rows through the one link between them, climbing tree: (child → parent); drawn as derived cells",
+                "properties": {
+                  "from": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "latest": {
+                    "type": "object",
+                    "required": [
+                      "by"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "by": {
+                        "type": "string"
+                      },
+                      "per": {
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "values": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "object",
+                      "required": [
+                        "property"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "property": {
+                          "type": "string"
+                        },
+                        "summary": {
+                          "enum": [
+                            "Sum",
+                            "Average",
+                            "Median",
+                            "Min",
+                            "Max",
+                            "Count",
+                            "Filled",
+                            "Unique",
+                            "Ratio"
+                          ]
+                        },
+                        "per": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "refresh": {
+                "type": "string",
+                "pattern": "^\\d+(\\.\\d+)?(ms|s|m)$",
+                "description": "data-ui: re-fetch this file on the interval (10s, 500ms, 1m); panels update in place"
+              },
+              "live": {
+                "$ref": "#/$defs/live"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "links": {
+      "type": "array",
+      "description": "data-ui dashboards: how two datasets' rows relate; a pick on one side narrows the other (a semi-join, never a new column). direction: one-way narrows only the to side (CONTRACT §33)",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "type": "string",
+            "pattern": "^[^.]+\\.[^.]+$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^[^.]+\\.[^.]+$"
+          },
+          "direction": {
+            "enum": [
+              "one-way",
+              "two-way"
+            ],
+            "description": "data-ui (CONTRACT §33): one-way, the from side's picks narrow the to side and never the other way (Power BI's single cross-filter direction); two-way, the default, either side narrows the other"
+          }
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "description": "data-ui dashboards: places this file's views (and markdown text) on a grid; <data-dashboard> draws it, Obsidian shows the views as tabs",
+      "additionalProperties": false,
+      "properties": {
+        "columns": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 24
+        },
+        "rowHeight": {
+          "type": "number",
+          "minimum": 40
+        },
+        "panels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "view": {
+                "type": "string"
+              },
+              "views": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "text": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "w": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 24
+              },
+              "h": {
+                "type": "number",
+                "minimum": 1
+              },
+              "toolbar": {
+                "enum": [
+                  "none",
+                  "compact",
+                  "full"
+                ]
+              },
+              "editToggle": {
+                "type": "boolean",
+                "description": "data-ui: the panel's table gets the Edit / View switch (docs/CONTRACT.md §40)"
+              },
+              "style": {
+                "$ref": "#/$defs/style"
+              },
+              "hidden": {
+                "type": "boolean",
+                "description": "data-ui: the panel stays in the file, in its place, and is not drawn (the editor's Hide)"
+              },
+              "key": {
+                "type": "string",
+                "minLength": 1,
+                "description": "data-ui: the panel's stable id (default: its view's slug)"
+              },
+              "t": {
+                "type": "number",
+                "description": "data-ui (CONTRACT §34): the instant this panel stands at, in seconds: its views read a clock of their own, paused at t, not the dashboard's (what Add to dashboard writes for \"At this moment\")"
+              }
+            },
+            "oneOf": [
+              {
+                "required": [
+                  "view"
+                ]
+              },
+              {
+                "required": [
+                  "views"
+                ]
+              },
+              {
+                "required": [
+                  "text"
+                ]
+              }
+            ]
+          }
+        },
+        "arrange": {
+          "type": "boolean",
+          "description": "data-ui: offer the Arrange (drag and resize) toggle; default true"
+        }
+      }
+    },
+    "style": {
+      "$ref": "#/$defs/style"
+    },
+    "clock": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui dashboards: one playback clock (docs/peps/0005-dashboard-cards.md §4)",
+      "properties": {
+        "data": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the dataset whose time column spans the clock"
+        },
+        "time": {
+          "type": "string",
+          "minLength": 1,
+          "description": "its time column (seconds)"
+        },
+        "rate": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "loop": {
+          "type": "boolean"
+        },
+        "fps": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "primary": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the video view whose frames drive t while playing"
+        }
+      }
+    },
+    "rerun": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui dashboards: the Open in Rerun backdoor",
+      "properties": {
+        "rrd": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the .rrd file, relative to this file (tools/rerun_export.py writes it)"
+        },
+        "sdk": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        }
+      },
+      "required": [
+        "rrd"
+      ]
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui live data (docs/peps/0012-live-data.md §1): this page's browser buffer for every live dataset (default 256MB)",
+      "properties": {
+        "bytes": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?\\s*(B|KB|MB|GB)$"
+            }
+          ],
+          "description": "a byte budget: a number or 64MB, 1.5GB (the page's default is 256MB)"
+        }
+      }
+    },
+    "before": {
+      "type": "string",
+      "description": "data-ui (CONTRACT §28): a Markdown block above the views (a view's own before: wins)"
+    },
+    "after": {
+      "type": "string",
+      "description": "data-ui (CONTRACT §28): a Markdown block below the views (a view's own after: wins)"
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "openMode": {
+      "enum": [
+        "expand",
+        "side",
+        "link"
+      ]
+    },
+    "open": {
+      "description": "data-ui: how a record opens: expand (a band under the row, the card grows), side (the side peek: docked beside the list from splitAt px of the element's width, over it below, full screen on a phone) or link (the row is a link to the record's page). Short form `open: side`; long form `open: {mode, splitAt, url}`.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/openMode"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "mode": {
+              "$ref": "#/$defs/openMode"
+            },
+            "splitAt": {
+              "type": "number",
+              "minimum": 0,
+              "description": "side: the element's width (px) from which the peek docks beside the list instead of over it; default 1100"
+            },
+            "url": {
+              "type": "string",
+              "minLength": 1,
+              "description": "the property that holds each record's page URL; default the dataset's linkProperty. No URL: no title link, no Open page, and link falls back to side"
+            }
+          }
+        }
+      ]
+    },
+    "filters": {
+      "description": "A Bases filter: an expression string, or exactly one of and / or / not over a list of filters.",
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "object",
+          "required": [
+            "and"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "and": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/filters"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "or"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "or": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/filters"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "not"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "not": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/filters"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "direction": {
+      "enum": [
+        "ASC",
+        "DESC"
+      ]
+    },
+    "group": {
+      "type": "object",
+      "required": [
+        "property"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "property": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "$ref": "#/$defs/direction"
+        },
+        "by": {
+          "$ref": "#/$defs/timeGrain",
+          "description": "data-ui: group a date by its day, ISO week (from Monday), month, quarter or year, in time order (the written date; never shifted by a time zone)."
+        },
+        "path": {
+          "description": "data-ui (PEP 0020): read the value as a path and nest to any depth, on table, list and cards: dotted splits text at each '.', any other word is the separator, a list cell is a path as declared. Counts roll up; direct rows come before child groups.",
+          "type": "string",
+          "minLength": 1
+        },
+        "gaps": {
+          "type": "boolean",
+          "description": "data-ui, with by: keep every bucket from the first to the last, the empty ones with no rows (a time series)."
+        },
+        "bins": {
+          "description": "data-ui (CONTRACT §20): group a number by the half-open bucket [min, max) it falls in, ascending: edges [250, 1000, 5000] (reads < 250, 250 – 1,000, …, ≥ 5,000), labelled buckets [{label, min, max}], or auto (nice edges from the data, as the rail's buckets kind). The number twin of by:.",
+          "oneOf": [
+            {
+              "const": "auto"
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "min": {
+                    "type": "number"
+                  },
+                  "max": {
+                    "type": "number"
+                  },
+                  "maxOpen": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "log": {
+          "type": "boolean",
+          "description": "data-ui, with bins: auto: decade edges for a number spanning decades"
+        },
+        "unit": {
+          "type": "string",
+          "description": "data-ui, with bins: the unit the bucket labels are written in, scaled along its ladder (mL -> L); default the column's unitText"
+        }
+      }
+    },
+    "timeGrain": {
+      "enum": [
+        "day",
+        "week",
+        "month",
+        "quarter",
+        "year"
+      ]
+    },
+    "display": {
+      "enum": [
+        "text",
+        "number",
+        "bar",
+        "dist",
+        "sparkline",
+        "badge",
+        "image",
+        "link",
+        "value",
+        "range",
+        "stats",
+        "markdown",
+        "outline",
+        "preview",
+        "clock",
+        "age",
+        "status",
+        "media",
+        "checkbox",
+        "avatar",
+        "date"
+      ],
+      "description": "avatar and date: docs/CONTRACT.md §43: an initials chip before the name; a date as an admin index writes it (Today, Apr 10, Jul 25, 2023)."
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui (docs/CONTRACT.md §43): the summary card's cells, side by side; at the top level for <data-summary for>, on a view for type: summary (or to override the top level while that view is open).",
+      "properties": {
+        "scope": {
+          "enum": [
+            "all",
+            "filtered"
+          ],
+          "description": "all (default): the file's rows; filtered: the rows the all-views filter leaves (never the search)."
+        },
+        "cells": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "label"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "note": {
+                "type": "string",
+                "description": "the definition the dotted underline's tooltip shows"
+              },
+              "filters": {
+                "$ref": "#/$defs/filters"
+              },
+              "when": {
+                "type": "object",
+                "required": [
+                  "property",
+                  "is"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "property": {
+                    "type": "string"
+                  },
+                  "is": {
+                    "enum": [
+                      "today",
+                      "this-week",
+                      "this-month",
+                      "this-quarter",
+                      "this-year",
+                      "past",
+                      "upcoming"
+                    ]
+                  }
+                }
+              },
+              "value": {
+                "oneOf": [
+                  {
+                    "enum": [
+                      "count",
+                      "Count"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "property"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "property": {
+                        "type": "string"
+                      },
+                      "summary": {
+                        "type": "string",
+                        "description": "a Bases summary or the kit's alias; Earliest / Latest for a date"
+                      }
+                    }
+                  }
+                ]
+              },
+              "spark": {
+                "type": "object",
+                "required": [
+                  "x"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "x": {
+                    "type": "string"
+                  },
+                  "grain": {
+                    "enum": [
+                      "day",
+                      "week",
+                      "month",
+                      "quarter",
+                      "year"
+                    ]
+                  }
+                }
+              },
+              "format": {
+                "$ref": "#/$defs/numberFormat"
+              }
+            }
+          }
+        }
+      }
+    },
+    "propertyConfig": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "facet": {
+          "enum": [
+            "values",
+            "select",
+            "toggle",
+            "has",
+            "range",
+            "slider",
+            "slider-histogram",
+            "buckets",
+            "rating",
+            "min-level",
+            "date",
+            "chips",
+            "swatch",
+            "gallery",
+            "picture-list",
+            "grid",
+            "listbox",
+            "tree",
+            "search",
+            "popular",
+            "current",
+            "none"
+          ],
+          "description": "data-ui: how the rail shows this property."
+        },
+        "display": {
+          "$ref": "#/$defs/display",
+          "description": "data-ui: the default cell display in every view."
+        },
+        "description": {
+          "type": "string",
+          "description": "data-ui: what the property means; a rail facet's ⓘ shows it"
+        },
+        "digits": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 21,
+          "description": "data-ui: significant figures for this number (the stored value stays on hover)"
+        },
+        "compact": {
+          "type": "boolean",
+          "description": "data-ui: write 26,512 as 26.5K"
+        },
+        "decimals": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 20,
+          "description": "data-ui: fixed decimals for this number"
+        },
+        "type": {
+          "enum": [
+            "text",
+            "number",
+            "select",
+            "multi_select",
+            "status",
+            "date",
+            "person",
+            "files",
+            "checkbox",
+            "url",
+            "phone",
+            "email",
+            "rating",
+            "currency",
+            "percent",
+            "duration",
+            "relation",
+            "rollup",
+            "formula",
+            "id",
+            "created_time",
+            "edited_time"
+          ],
+          "description": "data-ui (CONTRACT §28): the property's type (Notion's names); how its cells and its peek field draw. The data's storage type is unchanged."
+        },
+        "icon": {
+          "type": "string",
+          "description": "data-ui (CONTRACT §28): the header's icon: a name from the kit's icon set (star, flag, gauge, …) or an emoji"
+        },
+        "options": {
+          "description": "data-ui (CONTRACT §28): a select / multi-select / status's options: a list [{value, color, group}] or a map {value: color}",
+          "type": [
+            "array",
+            "object"
+          ]
+        },
+        "format": {
+          "enum": [
+            "number_with_commas",
+            "number",
+            "percent",
+            "currency"
+          ],
+          "description": "data-ui (CONTRACT §28): a number's format"
+        },
+        "currency": {
+          "type": "string",
+          "description": "an ISO 4217 code (USD, EUR, CAD, …)"
+        },
+        "abbreviate": {
+          "type": "boolean"
+        },
+        "showAs": {
+          "enum": [
+            "number",
+            "bar",
+            "ring",
+            "select",
+            "checkbox",
+            "check",
+            "toggle"
+          ],
+          "description": "a number as a bar or ring (Notion's Show as); a status as a select or a checkbox; a checkbox as a check or a toggle"
+        },
+        "color": {
+          "enum": [
+            "default",
+            "gray",
+            "brown",
+            "orange",
+            "yellow",
+            "green",
+            "blue",
+            "purple",
+            "pink",
+            "red"
+          ]
+        },
+        "divideBy": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "a bar or ring draws value / divideBy (default: 1 for a percent, else the column's largest)"
+        },
+        "showNumber": {
+          "type": "boolean"
+        },
+        "dateFormat": {
+          "enum": [
+            "full",
+            "short",
+            "mdy",
+            "dmy",
+            "ymd",
+            "relative"
+          ]
+        },
+        "timeFormat": {
+          "enum": [
+            "none",
+            "12h",
+            "24h"
+          ]
+        },
+        "durationUnit": {
+          "enum": [
+            "ms",
+            "s",
+            "min",
+            "h"
+          ]
+        },
+        "durationFormat": {
+          "enum": [
+            "h:mm",
+            "h:mm:ss",
+            "h:mm:ss.SSS",
+            "human"
+          ]
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "a rating's maximum"
+        },
+        "ratingIcon": {
+          "enum": [
+            "star",
+            "heart",
+            "flag",
+            "circle"
+          ]
+        },
+        "urlDisplay": {
+          "enum": [
+            "full",
+            "short"
+          ]
+        },
+        "prefix": {
+          "type": "string",
+          "description": "an ID's prefix (ACT → ACT-12)"
+        },
+        "dist": {
+          "enum": [
+            "strip",
+            "box",
+            "violin"
+          ],
+          "description": "data-ui (CONTRACT §28): how a distribution cell draws its values"
+        },
+        "wrap": {
+          "type": "boolean"
+        },
+        "from": {
+          "type": "string",
+          "description": "data-ui (CONTRACT §28): a property this one reads its values from (Duplicate property)"
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "data-ui (CONTRACT §28): hidden from every view (Delete property on a property the data keeps)"
+        }
+      },
+      "additionalProperties": true
+    },
+    "facet": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "data-ui: one rail facet, {property, as: <kind>, ...options} (docs/CONTRACT.md §7, amendment 2026-10-26 (filters)). An unknown kind draws as values, with a warning.",
+          "properties": {
+            "property": {
+              "type": "string",
+              "description": "the property it filters (a tree's first level, a has or search group's first property)"
+            },
+            "as": {
+              "enum": [
+                "values",
+                "select",
+                "toggle",
+                "has",
+                "range",
+                "slider",
+                "slider-histogram",
+                "buckets",
+                "rating",
+                "min-level",
+                "date",
+                "chips",
+                "swatch",
+                "gallery",
+                "picture-list",
+                "grid",
+                "listbox",
+                "tree",
+                "search",
+                "popular",
+                "current",
+                "nav"
+              ],
+              "description": "the kind: how the rail draws it"
+            },
+            "label": {
+              "type": "string",
+              "description": "the heading; default the property's displayName"
+            },
+            "info": {
+              "type": "string",
+              "description": "the ⓘ help text; default properties.<p>.description, then the field's note"
+            },
+            "diagram": {
+              "type": "string",
+              "description": "a drawing at the top of the facet showing what the property measures (a path relative to this file; a .svg is drawn in the text colour)"
+            },
+            "collapsed": {
+              "type": "boolean",
+              "description": "the group starts folded"
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "values shown before \"Show N more\" (default 8; grid 12; swatch and chips 12)"
+            },
+            "sort": {
+              "enum": [
+                "count",
+                "alpha",
+                "value"
+              ],
+              "description": "value order: by count (default), alphabetically, or by value (numbers in order)"
+            },
+            "order": {
+              "type": "array",
+              "description": "an explicit value order"
+            },
+            "searchable": {
+              "type": "boolean",
+              "description": "a find box over the values (default: on for a long values, picture-list, grid or listbox)"
+            },
+            "unit": {
+              "type": "string",
+              "description": "the unit in the label; default the field's unitText"
+            },
+            "log": {
+              "type": "boolean",
+              "description": "slider, slider-histogram, buckets: a log scale, for a property spanning decades"
+            },
+            "bins": {
+              "type": "integer",
+              "minimum": 2,
+              "description": "slider-histogram: the number of bars (default 24)"
+            },
+            "buckets": {
+              "type": "array",
+              "description": "buckets: edges [1, 10, 100] (reads < 1, 1–10, 10–100, ≥ 100) or [{label, min, max}]; default nice edges from the data",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "min": {
+                        "type": "number"
+                      },
+                      "max": {
+                        "type": "number"
+                      },
+                      "maxOpen": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "choices": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "range: min and max as dropdowns of these values (Zillow) instead of number boxes"
+            },
+            "presets": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^(year|\\d+[dwmy])$"
+              },
+              "description": "date: relative presets, 7d 4w 6m 1y year (default 7d, 30d, year)"
+            },
+            "older": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^(year|\\d+[dwmy])$"
+              },
+              "description": "date: \"older than\" presets for staleness (default 30d, 1y)"
+            },
+            "images": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "swatch, gallery, picture-list: value -> image path (relative to this file)"
+            },
+            "image": {
+              "type": "string",
+              "description": "swatch, gallery, picture-list: a property holding each value's image"
+            },
+            "colors": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "swatch: value -> CSS colour"
+            },
+            "columns": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 6,
+              "description": "gallery, grid, swatch: tiles per row"
+            },
+            "exclude": {
+              "type": "boolean",
+              "description": "values: each value gets an exclude button (Kibana's \"filter out\"): {not: [p == v]}"
+            },
+            "value": {
+              "description": "toggle: the value the switch turns on (default true; Algolia's `on`, renamed because YAML 1.1 readers such as PyYAML take an `on:` key for true). Quote yes / no."
+            },
+            "text": {
+              "type": "string",
+              "description": "toggle: the switch's label"
+            },
+            "any": {
+              "type": "string",
+              "description": "select: the label of the empty choice (default Any)"
+            },
+            "dropdown": {
+              "type": "boolean",
+              "description": "select: a dropdown instead of radio buttons (Algolia menuSelect)"
+            },
+            "max": {
+              "type": "integer",
+              "description": "rating, min-level: the top level (default the data's)"
+            },
+            "min": {
+              "type": "integer",
+              "description": "rating, min-level: the bottom level (default 1)"
+            },
+            "style": {
+              "enum": [
+                "stars",
+                "steps"
+              ],
+              "description": "rating: stars (default) or Level ≥ N steps"
+            },
+            "size": {
+              "type": "integer",
+              "minimum": 2,
+              "description": "listbox: visible rows"
+            },
+            "levels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "tree: the properties of each level, outer first (Algolia's lvl0, lvl1)"
+            },
+            "properties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "has: the properties it can check; search: the properties it searches"
+            },
+            "match": {
+              "enum": [
+                "all",
+                "any",
+                "contains",
+                "startsWith"
+              ],
+              "description": "has: all of (default) or any of; search: contains (default) or startsWith"
+            },
+            "placeholder": {
+              "type": "string",
+              "description": "search: the box's placeholder"
+            },
+            "options": {
+              "type": "array",
+              "description": "popular: the shortcuts, each a filter expression or {label, filter}",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "filter"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "filter": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "follow": {
+              "enum": [
+                "groupBy"
+              ],
+              "description": "nav: list the groups of the views' current (effective) groupBy, following the grouping when it switches (the default when nav names no property)"
+            },
+            "clear": {
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "description": "nav: an 'All <label>' row at the top that gives every group back (a text names it)"
+            },
+            "parent": {
+              "type": "string",
+              "minLength": 1,
+              "description": "data-ui (kit gap 8, CONTRACT §7): another facet of this rail whose pick this facet's values nest under (a run under its device): that facet lists every value whatever this one picks, and a pick there that this one's no longer fits moves this one to its first listed value that does (Grafana's chained variables)"
+            }
+          }
+        }
+      ]
+    },
+    "value": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "property": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "description": "Average, Median, Min, Max, Sum, Range, Spread (max - min), Unique, Filled, Empty, Count (Bases names), or Ratio with per. Lowercase aliases median, mean, min, max, count, spread are accepted."
+        },
+        "per": {
+          "type": "string",
+          "description": "data-ui: with summary Ratio, the cell is Σproperty / Σper over its rows (Vibe Tracks' ratio-of-sums KPI, PEP 0005)."
+        },
+        "display": {
+          "$ref": "#/$defs/display"
+        }
+      }
+    },
+    "view": {
+      "type": "object",
+      "required": [
+        "type",
+        "name"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Bases: table, cards, list, kanban, map. data-ui adds pivot, chart, kpi, calendar, timeline, graph, lineage, record, compare and source, and the dashboard cards timeseries, trajectory, scene3d, video, video-compare, image, gauge, bullet, barlist, tracker and playback (docs/peps/0005-dashboard-cards.md), the live cards plot and levels (docs/peps/0012-live-data.md), and the 3D cards trajectory3d and voxels (docs/peps/0010-robotics-playback.md). See docs/VIEWS.md and docs/CONTRACT.md §5, §21, §24, §25, §26 and §32. An unknown type is a warning, never an error: it may be another Obsidian plugin's view.",
+          "examples": [
+            "table",
+            "cards",
+            "list",
+            "kanban",
+            "map",
+            "pivot",
+            "chart",
+            "kpi",
+            "calendar",
+            "timeline",
+            "graph",
+            "record",
+            "compare",
+            "source",
+            "lineage",
+            "timeseries",
+            "trajectory",
+            "scene3d",
+            "trajectory3d",
+            "voxels",
+            "video",
+            "video-compare",
+            "image",
+            "gauge",
+            "bullet",
+            "barlist",
+            "tracker",
+            "playback",
+            "plot",
+            "levels"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "filters": {
+          "$ref": "#/$defs/filters"
+        },
+        "order": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sort": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "property",
+              "direction"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "property": {
+                "type": "string"
+              },
+              "direction": {
+                "$ref": "#/$defs/direction"
+              }
+            }
+          }
+        },
+        "groupBy": {
+          "$ref": "#/$defs/group"
+        },
+        "groupOrder": {
+          "type": "array"
+        },
+        "columnSize": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "rowHeight": {
+          "type": "string",
+          "description": "Bases table row height; 'tall' and 'extra' are seen in Zach's vault."
+        },
+        "wrap": {
+          "type": "boolean",
+          "description": "data-ui table: cells wrap instead of clipping with an ellipsis (docs/CONTRACT.md §15)."
+        },
+        "freeze": {
+          "enum": [
+            0,
+            1
+          ],
+          "description": "data-ui table: how many leading columns stay put while the table scrolls sideways; default 1 (docs/CONTRACT.md §15)."
+        },
+        "cellEdit": {
+          "type": "boolean",
+          "description": "data-ui table: false keeps this view's cells from editing in place on an editable page (docs/CONTRACT.md §37)."
+        },
+        "addRow": {
+          "type": "boolean",
+          "description": "data-ui table: the add row above the rows; wins over the element's add-row attribute (docs/CONTRACT.md §37)."
+        },
+        "pageSize": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "data-ui table (docs/CONTRACT.md §43): rows per page of a flat table, with Shopify's pager under the rows; unset, every row scrolls."
+        },
+        "maxBadges": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "data-ui table (docs/CONTRACT.md \u00a743): a badge list shows this many, then +N; every value stays in the cell's title."
+        },
+        "avatar": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "data-ui table (docs/CONTRACT.md \u00a743): the avatar display's chip colour: the slot `colors` gives the value of the property `color` names, else that column's badge colour, else a stable hue (default: of the name).",
+          "properties": {
+            "color": {
+              "type": "string"
+            },
+            "colors": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8
+              },
+              "description": "a value of `color` to its colour slot (0 muted, 1-8 the series)"
+            }
+          }
+        },
+        "summary": {
+          "$ref": "#/$defs/summary"
+        },
+        "summaries": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "cardSize": {
+          "type": "number",
+          "minimum": 50,
+          "maximum": 800,
+          "description": "Bases cards (Obsidian 1.14.5: slider 50-800, default 200)."
+        },
+        "image": {
+          "type": "string",
+          "description": "Bases cards and kanban: the property holding each card's image. data-ui's image card (type: image) shows it, with caption: under it."
+        },
+        "imageFit": {
+          "enum": [
+            "cover",
+            "contain"
+          ]
+        },
+        "imageAspectRatio": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "maxColumns": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12,
+          "description": "data-ui cards: the gallery never lays out more than this many columns, however wide; unset is no cap (docs/CONTRACT.md §15)."
+        },
+        "subGroupBy": {
+          "$ref": "#/$defs/group",
+          "description": "table lane: the second group level (Notion's sub-group)."
+        },
+        "splitBy": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "table lane: pivot columns, outer first."
+        },
+        "value": {
+          "$ref": "#/$defs/value",
+          "description": "table lane: what a pivot cell (or a kpi card) shows."
+        },
+        "display": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/display"
+          },
+          "description": "table lane: per-column display."
+        },
+        "units": {
+          "enum": [
+            "column",
+            "inline"
+          ]
+        },
+        "fold": {
+          "enum": [
+            "open",
+            "closed"
+          ]
+        },
+        "chart": {
+          "$ref": "#/$defs/chart"
+        },
+        "guides": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/guide"
+          }
+        },
+        "hover": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "data-ui: the hover card a chart dot or a card shows.",
+          "properties": {
+            "image": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "fields": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "kpi": {
+          "$ref": "#/$defs/kpi"
+        },
+        "markers": {
+          "enum": [
+            "bullet",
+            "number",
+            "none"
+          ],
+          "description": "Bases list: the marker before each row."
+        },
+        "indentProperties": {
+          "type": "boolean",
+          "description": "Bases list: properties on their own indented lines."
+        },
+        "separator": {
+          "type": "string",
+          "description": "Bases list: between inline properties (default ', ')."
+        },
+        "columnWidth": {
+          "type": "number",
+          "minimum": 200,
+          "maximum": 500,
+          "description": "Bases kanban: column width in px (default 280)."
+        },
+        "masonry": {
+          "type": "boolean",
+          "description": "data-ui cards: pack cards of different heights (TanStack Virtual lanes)."
+        },
+        "sketch": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "diameter": {
+              "type": "string",
+              "minLength": 1
+            },
+            "length": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "description": "data-ui cards: a to-scale side view drawn from two dimension properties, where there is no photo."
+        },
+        "mesh": {
+          "type": "string",
+          "minLength": 1,
+          "description": "data-ui cards: the property holding each card's 3D model (glb / gltf / obj / stl / ply URL); the card shows `image` as its poster and turns the model on hover (docs/CONTRACT.md §23)."
+        },
+        "meshView": {
+          "type": "string",
+          "minLength": 1,
+          "description": "data-ui cards and peek: the property holding each row's poster camera {dir: [x, y, z], fov, box: [x0, y0, x1, y1]}, so the live model's first frame matches its poster (docs/CONTRACT.md §23)."
+        },
+        "meshBackground": {
+          "enum": ["match", "light", "theme"],
+          "description": "data-ui cards and peek: the live model's backdrop: match (default: the poster's own background colour), light (white) or theme (transparent)."
+        },
+        "meshInteract": {
+          "enum": ["hover", "click", "none"],
+          "description": "data-ui cards: when a card's model goes live: hover (a turntable while the pointer is over it, the default), click, or none (the poster only; the peek still shows the model)."
+        },
+        "lightbox": {
+          "type": "boolean",
+          "description": "data-ui cards: open a card's image or video full screen (PhotoSwipe)."
+        },
+        "media": {
+          "type": "string",
+          "minLength": 1,
+          "description": "data-ui cards: the property holding an image or video URL for the lightbox (default: image)."
+        },
+        "caption": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "data-ui cards: the properties under a lightbox image."
+        },
+        "start": {
+          "type": "string",
+          "minLength": 1,
+          "description": "data-ui calendar and timeline: the property holding each row's date or start (ISO 8601)."
+        },
+        "end": {
+          "type": "string",
+          "minLength": 1,
+          "description": "data-ui calendar and timeline: the property holding each row's end (ISO 8601); none means a point in time."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "description": "data-ui calendar and timeline: the property an event or bar is labelled with (default: the dataset's title property)."
+        },
+        "calendarView": {
+          "enum": [
+            "month",
+            "week",
+            "day",
+            "list",
+            "resourceTimeline"
+          ],
+          "description": "data-ui calendar: the grid it opens on."
+        },
+        "color": {
+          "type": "string",
+          "minLength": 1,
+          "description": "data-ui timeline: the property that colours each bar (a series slot per value)."
+        },
+        "zoom": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "min": {
+              "type": "string"
+            },
+            "max": {
+              "type": "string"
+            }
+          },
+          "description": "data-ui timeline: the narrowest and widest window, as ISO 8601 durations (PT1H, P1Y)."
+        },
+        "coordinates": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Maps plugin: the property holding [lat, lng] (or 'lat, lng')."
+        },
+        "markerIcon": {
+          "type": "string",
+          "description": "Maps plugin: a lucide icon name, or a property."
+        },
+        "markerColor": {
+          "type": "string",
+          "description": "Maps plugin: a colour, var(--data-series-N), or a property."
+        },
+        "center": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "Maps plugin: [lat, lng] the map opens on."
+        },
+        "defaultZoom": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 24
+        },
+        "minZoom": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 24
+        },
+        "maxZoom": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 24
+        },
+        "mapHeight": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Maps plugin: px."
+        },
+        "mapTiles": {
+          "type": "string",
+          "description": "Maps plugin: the basemap. data-ui: a self-hosted .pmtiles file (relative to this file), never a tile CDN."
+        },
+        "mapTilesDark": {
+          "type": "string"
+        },
+        "tree": {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "parent"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "parent": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "the property holding the parent row's id"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": [
+                "path"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "the property holding a dotted path"
+                },
+                "separator": {
+                  "type": "string"
+                }
+              }
+            }
+          ],
+          "description": "data-ui table and list: nest rows under a parent (TanStack sub-rows)."
+        },
+        "edges": {
+          "type": "object",
+          "required": [
+            "property"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "type": "string",
+              "minLength": 1,
+              "description": "the property listing other rows' ids"
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "description": "data-ui graph: where the edges come from. Required: no edge is ever inferred."
+        },
+        "layout": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "engine": {
+              "enum": [
+                "flow",
+                "mermaid"
+              ],
+              "description": "who draws it: flow (the default; React Flow laid out by dagre, pan and zoom) or mermaid (a static Mermaid flowchart of the same nodes and edges)"
+            },
+            "algorithm": {
+              "enum": [
+                "dagre"
+              ]
+            },
+            "direction": {
+              "enum": [
+                "LR",
+                "TB",
+                "RL",
+                "BT"
+              ]
+            }
+          },
+          "description": "data-ui graph: the automatic layout."
+        },
+        "sourceColumn": {
+          "type": "boolean",
+          "description": "false: no \"<label> source\" column in this table, which a view that names the value and no column of it otherwise keeps (CONTRACT §36)."
+        },
+        "record": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "visibility": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string",
+                "enum": [
+                  "show",
+                  "hideEmpty",
+                  "hide"
+                ]
+              },
+              "description": "data-ui inspector (CONTRACT §44): where a property shows in the record, apart from the row: show (always), hideEmpty (only with a value), hide (behind N more properties). A property with no word follows its column: a visible column shows, the rest wait behind N more."
+            },
+            "sections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "additionalProperties": false,
+                "anyOf": [
+                  {
+                    "required": [
+                      "properties"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "view"
+                    ]
+                  }
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "properties": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "view": {
+                    "$ref": "#/$defs/view",
+                    "description": "data-ui (CONTRACT §35, PEP 0010 §10's evidence hint): an inline view of any type, drawn in the side peek under the section's fields over the rows of its from: dataset (default: the view's own), its filters' this.<column> bound to the peeked row"
+                  }
+                }
+              }
+            }
+          },
+          "description": "data-ui record: the sheet's sections, top to bottom."
+        },
+        "edit": {
+          "type": "boolean",
+          "description": "data-ui record (and the peek): inputs from the property schema; a submit is host.propose()."
+        },
+        "compare": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "rows": {
+              "oneOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "number"
+                    ]
+                  },
+                  "minItems": 2,
+                  "maxItems": 6
+                },
+                {
+                  "const": "selection"
+                }
+              ]
+            },
+            "better": {
+              "type": "object",
+              "additionalProperties": {
+                "enum": [
+                  "higher",
+                  "lower"
+                ]
+              }
+            },
+            "diffOnly": {
+              "type": "boolean"
+            }
+          },
+          "description": "data-ui compare: 2-6 rows side by side."
+        },
+        "facets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/facet"
+          },
+          "description": "data-ui: this view's own rail (a recipe), replacing the file's facets: while the view is open; [] shows none"
+        },
+        "open": {
+          "$ref": "#/$defs/open",
+          "description": "data-ui: how a record opens in this view; it wins over the file's top-level open: and the element's open attribute"
+        },
+        "from": {
+          "type": "string",
+          "minLength": 1,
+          "description": "data-ui dashboards: the dataset this view reads (a datasets: name); default the file's data:"
+        },
+        "select": {
+          "type": "string",
+          "minLength": 1,
+          "description": "data-ui dashboards: a click on this view selects the clicked rows' values of this property, and every other panel narrows to them (cross-filter)"
+        },
+        "selected": {
+          "description": "data-ui dashboards (CONTRACT §33, sim2real gap #7): what select: selects when the page opens with no s.<panel>= in its URL: first (the first row the view draws, under its sort and its panel's filter), a value, or a list of values ([first] is the literal); a picker's preset picks on its rail",
+          "oneOf": [
+            {
+              "type": [
+                "string",
+                "number",
+                "boolean"
+              ]
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean"
+                ]
+              }
+            }
+          ]
+        },
+        "hiddenSeries": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          },
+          "description": "data-ui (CONTRACT §34, §31): the series the view's legend hides when it opens and nothing else names a hidden set (no l= in the URL, none set by the host): their legend names. A reader's toggles still win; drawing state, never a filter (rows and counts are unchanged). Add to dashboard writes it for a series added from a legend: every other series hidden"
+        },
+        "timeseries": {
+          "$ref": "#/$defs/timeseries"
+        },
+        "trajectory": {
+          "$ref": "#/$defs/trajectory"
+        },
+        "scene3d": {
+          "$ref": "#/$defs/scene3d"
+        },
+        "trajectory3d": {
+          "$ref": "#/$defs/trajectory3d"
+        },
+        "voxels": {
+          "$ref": "#/$defs/voxels"
+        },
+        "video": {
+          "$ref": "#/$defs/video"
+        },
+        "overlay": {
+          "$ref": "#/$defs/overlay"
+        },
+        "gauge": {
+          "$ref": "#/$defs/gauge"
+        },
+        "bullet": {
+          "$ref": "#/$defs/bullet"
+        },
+        "barlist": {
+          "$ref": "#/$defs/barlist"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "enum": [
+                "on",
+                "off",
+                "show",
+                "hide",
+                "none"
+              ]
+            }
+          ],
+          "description": "data-ui: whether the status line (\"119 of 119 rows · 9 groups\") shows under this view; it wins over the element's status attribute; default on (docs/CONTRACT.md §18)"
+        },
+        "playback": {
+          "$ref": "#/$defs/playback"
+        },
+        "style": {
+          "$ref": "#/$defs/style"
+        },
+        "controls": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "enum": [
+                "on",
+                "off",
+                "show",
+                "hide",
+                "none"
+              ]
+            }
+          ],
+          "description": "data-ui: whether the view's own control bar shows (today the chart's Encode / Rows bar); it wins over the element's controls attribute; default on (docs/CONTRACT.md §18)"
+        },
+        "rollup": {
+          "$ref": "#/$defs/rollup"
+        },
+        "columnGroups": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": "data-ui (CONTRACT §16): a header over several columns, {label: [properties]}; the table draws one header row per level, as a pivot's column groups"
+        },
+        "stats": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "median",
+                    "min",
+                    "max",
+                    "n",
+                    "dist",
+                    "value",
+                    "low",
+                    "high",
+                    "basis"
+                  ]
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parts": {
+                    "type": "array",
+                    "items": {
+                      "enum": [
+                        "median",
+                        "min",
+                        "max",
+                        "n",
+                        "dist",
+                        "value",
+                        "low",
+                        "high",
+                        "basis"
+                      ]
+                    }
+                  },
+                  "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "description": "data-ui (CONTRACT §16): the sub-columns of a property shown with display: stats (default median | min | max | n | dist for a column of values, value | low | high | basis for rich cells)"
+        },
+        "intro": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "data-ui (CONTRACT §16): the view's answer first, above its rows: a few lines of markdown and KPI cards (an inline type: kpi view entry over the same data and rail filter)",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "kpi": {
+              "type": "object",
+              "description": "a view entry drawn as type: kpi (filters, groupBy, groupOrder, sort, kpi)"
+            }
+          }
+        },
+        "before": {
+          "type": "string",
+          "description": "data-ui (CONTRACT §28): a Markdown block drawn above the view"
+        },
+        "after": {
+          "type": "string",
+          "description": "data-ui (CONTRACT §28): a Markdown block drawn below the view"
+        },
+        "freeze": {
+          "type": [
+            "string",
+            "boolean",
+            "integer"
+          ],
+          "description": "data-ui (CONTRACT §28, Notion's Freeze): the columns through this property stay put when the table scrolls sideways; false: none; default the first"
+        },
+        "wrap": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "data-ui (CONTRACT §28, Notion's Wrap in view): these columns wrap their text"
+        },
+        "dist": {
+          "type": "object",
+          "additionalProperties": {
+            "enum": [
+              "strip",
+              "box",
+              "violin"
+            ]
+          },
+          "description": "data-ui (CONTRACT §28): a distribution column drawn as a strip (default), a box or a violin"
+        },
+        "rows": {
+          "enum": [
+            "all",
+            "filtered"
+          ],
+          "description": "data-ui source: every row as loaded (all, the default) or only the rows the view's filters, search and limit leave (filtered) (docs/CONTRACT.md §24)."
+        },
+        "lineage": {
+          "$ref": "#/$defs/lineage"
+        },
+        "sections": {
+          "type": "boolean",
+          "description": "data-ui, cards (CONTRACT §20): groupBy as section titles (H1) and subGroupBy as sub-headers (H2), the rows with no second-level value straight under the title; implied by tiles"
+        },
+        "tiles": {
+          "$ref": "#/$defs/tiles"
+        },
+        "groupings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/grouping"
+          },
+          "description": "data-ui (CONTRACT §20): the ways this view can be grouped; grouping: <id> picks one"
+        },
+        "grouping": {
+          "type": "string",
+          "minLength": 1,
+          "description": "data-ui (CONTRACT §20): the groupings entry in use (an id no entry has keeps the view's own groupBy, with a warning)"
+        },
+        "switcher": {
+          "enum": [
+            "tabs",
+            "segmented",
+            "dropdown",
+            "none"
+          ],
+          "description": "data-ui, cards (CONTRACT §20): a 'Group by' control above the grid, one entry per groupings item (default none)"
+        },
+        "keepFilter": {
+          "type": "boolean",
+          "description": "data-ui (CONTRACT §20): switching the grouping keeps a nav pick on the previous grouping's property (default: it is cleared, as McMaster resets)"
+        },
+        "tracker": {
+          "$ref": "#/$defs/tracker"
+        },
+        "at": {
+          "$ref": "#/$defs/at"
+        },
+        "plot": {
+          "$ref": "#/$defs/plot"
+        },
+        "levels": {
+          "$ref": "#/$defs/levels"
+        },
+        "empty": {
+          "type": "string",
+          "minLength": 1,
+          "description": "data-ui (kit gap 9): what a media card (video, video-compare, image) says when the view leaves it no row (default: No rows match this view.)"
+        },
+        "space": {
+          "type": "string",
+          "enum": [
+            "geo",
+            "local"
+          ],
+          "description": "data-ui map (CONTRACT §42): geo (default; coordinates are [lat, lng]) or local (coordinates are [x, y] metres on a plan; no basemap)."
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/mapLayer"
+          },
+          "description": "data-ui map (CONTRACT §42): what the map draws, bottom to top. Without it the view is Bases' Maps markers."
+        },
+        "time": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "property"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "property": {
+                  "type": "string",
+                  "description": "a date-time (or number) property"
+                },
+                "trail": {
+                  "type": "number",
+                  "description": "seconds of history kept on the map behind the playhead",
+                  "minimum": 0
+                },
+                "speed": {
+                  "type": "number",
+                  "description": "time units per wall-clock ms; default: the whole span in 12 s"
+                },
+                "zone": {
+                  "type": "string",
+                  "description": "IANA time zone for the bar's label"
+                },
+                "format": {
+                  "type": "string",
+                  "enum": [
+                    "time",
+                    "date"
+                  ]
+                }
+              }
+            }
+          ],
+          "description": "data-ui map (CONTRACT §42): a play / scrub bar over this property; follows the dashboard's clock when its .base declares clock:, and otherwise plays by speed."
+        },
+        "multiples": {
+          "type": "object",
+          "required": [
+            "by"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "by": {
+              "type": "string",
+              "description": "one small map per value of this property"
+            },
+            "columns": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 6
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12
+            },
+            "values": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "number"
+                ]
+              }
+            }
+          },
+          "description": "data-ui map (CONTRACT §42): small multiples with shared classes and one camera."
+        },
+        "swipe": {
+          "type": "object",
+          "required": [
+            "left",
+            "right"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "left": {
+              "type": "object",
+              "required": [
+                "filter"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "filter": {
+                  "type": "string",
+                  "description": "a Bases filter expression: the rows on this side"
+                },
+                "label": {
+                  "type": "string"
+                }
+              }
+            },
+            "right": {
+              "type": "object",
+              "required": [
+                "filter"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "filter": {
+                  "type": "string",
+                  "description": "a Bases filter expression: the rows on this side"
+                },
+                "label": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "data-ui map (CONTRACT §42): two maps split by a draggable divider, shared classes and camera."
+        },
+        "draw": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "polygon"
+              ]
+            }
+          ],
+          "description": "data-ui map (CONTRACT §42): a Draw an area button; the panel counts the rows inside."
+        },
+        "drawBy": {
+          "type": "string",
+          "description": "data-ui map: break the drawn area's rows down by this property"
+        },
+        "drawSum": {
+          "type": "string",
+          "description": "data-ui map: sum this number over the drawn area's rows"
+        },
+        "legend": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "open",
+                "closed",
+                "off"
+              ]
+            }
+          ],
+          "description": "data-ui map: the legend panel (resizable, foldable); default open."
+        },
+        "pitch": {
+          "type": "number",
+          "description": "data-ui map: the camera tilt in degrees when the view has extruded layers",
+          "minimum": 0,
+          "maximum": 70
+        }
+      },
+      "additionalProperties": true,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "chart"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "chart"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "kpi"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "kpi"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "pivot"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "splitBy"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "graph"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "edges"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "calendar"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "start"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "timeline"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "start"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "lineage"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "lineage"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "plot"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "plot"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "levels"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "levels"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "voxels"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "required": [
+              "voxels"
+            ]
+          }
+        }
+      ]
+    },
+    "chart": {
+      "type": "object",
+      "description": "A Vega-Lite view specification minus data, datasets, $schema and config: data-ui supplies the view's filtered rows and the theme from the page's tokens (SPEC §8). Inside this block the vocabulary is Vega-Lite's; everywhere else it is Bases'. With no mark, Show Me's defaults pick one from the encoded fields' types (SPEC §8.5): an encoding alone is a chart.",
+      "anyOf": [
+        {
+          "required": [
+            "mark"
+          ]
+        },
+        {
+          "required": [
+            "layer"
+          ]
+        },
+        {
+          "required": [
+            "encoding"
+          ]
+        }
+      ],
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "data"
+            ]
+          },
+          {
+            "required": [
+              "datasets"
+            ]
+          },
+          {
+            "required": [
+              "$schema"
+            ]
+          },
+          {
+            "required": [
+              "config"
+            ]
+          }
+        ]
+      },
+      "properties": {
+        "mark": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/markType"
+            },
+            {
+              "type": "object",
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "$ref": "#/$defs/markType"
+                }
+              }
+            }
+          ]
+        },
+        "encoding": {
+          "$ref": "#/$defs/encoding"
+        },
+        "layer": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "transform": {
+          "type": "array"
+        },
+        "params": {
+          "type": "array"
+        },
+        "title": {},
+        "description": {
+          "type": "string"
+        },
+        "resolve": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "markType": {
+      "enum": [
+        "arc",
+        "area",
+        "bar",
+        "image",
+        "line",
+        "point",
+        "rect",
+        "rule",
+        "text",
+        "tick",
+        "trail",
+        "circle",
+        "square",
+        "geoshape",
+        "boxplot",
+        "errorband",
+        "errorbar"
+      ]
+    },
+    "encoding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "$ref": "#/$defs/channel"
+        },
+        "y": {
+          "$ref": "#/$defs/channel"
+        },
+        "x2": {
+          "$ref": "#/$defs/channel"
+        },
+        "y2": {
+          "$ref": "#/$defs/channel"
+        },
+        "xOffset": {
+          "$ref": "#/$defs/channel"
+        },
+        "yOffset": {
+          "$ref": "#/$defs/channel"
+        },
+        "xError": {
+          "$ref": "#/$defs/channel"
+        },
+        "yError": {
+          "$ref": "#/$defs/channel"
+        },
+        "xError2": {
+          "$ref": "#/$defs/channel"
+        },
+        "yError2": {
+          "$ref": "#/$defs/channel"
+        },
+        "theta": {
+          "$ref": "#/$defs/channel"
+        },
+        "theta2": {
+          "$ref": "#/$defs/channel"
+        },
+        "radius": {
+          "$ref": "#/$defs/channel"
+        },
+        "radius2": {
+          "$ref": "#/$defs/channel"
+        },
+        "longitude": {
+          "$ref": "#/$defs/channel"
+        },
+        "latitude": {
+          "$ref": "#/$defs/channel"
+        },
+        "longitude2": {
+          "$ref": "#/$defs/channel"
+        },
+        "latitude2": {
+          "$ref": "#/$defs/channel"
+        },
+        "color": {
+          "$ref": "#/$defs/channel"
+        },
+        "fill": {
+          "$ref": "#/$defs/channel"
+        },
+        "stroke": {
+          "$ref": "#/$defs/channel"
+        },
+        "opacity": {
+          "$ref": "#/$defs/channel"
+        },
+        "fillOpacity": {
+          "$ref": "#/$defs/channel"
+        },
+        "strokeOpacity": {
+          "$ref": "#/$defs/channel"
+        },
+        "strokeWidth": {
+          "$ref": "#/$defs/channel"
+        },
+        "strokeDash": {
+          "$ref": "#/$defs/channel"
+        },
+        "size": {
+          "$ref": "#/$defs/channel"
+        },
+        "angle": {
+          "$ref": "#/$defs/channel"
+        },
+        "shape": {
+          "$ref": "#/$defs/channel"
+        },
+        "text": {
+          "$ref": "#/$defs/channel"
+        },
+        "tooltip": {
+          "$ref": "#/$defs/channel"
+        },
+        "href": {
+          "$ref": "#/$defs/channel"
+        },
+        "description": {
+          "$ref": "#/$defs/channel"
+        },
+        "detail": {
+          "$ref": "#/$defs/channel"
+        },
+        "key": {
+          "$ref": "#/$defs/channel"
+        },
+        "order": {
+          "$ref": "#/$defs/channel"
+        },
+        "facet": {
+          "$ref": "#/$defs/channel"
+        },
+        "row": {
+          "$ref": "#/$defs/channel"
+        },
+        "column": {
+          "$ref": "#/$defs/channel"
+        }
+      }
+    },
+    "channel": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string",
+              "minLength": 1
+            },
+            "type": {
+              "enum": [
+                "quantitative",
+                "nominal",
+                "ordinal",
+                "temporal",
+                "geojson"
+              ],
+              "description": "Optional in data-ui: filled from the dataset's schema when left out."
+            },
+            "scale": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    "linear",
+                    "log",
+                    "pow",
+                    "sqrt",
+                    "symlog",
+                    "time",
+                    "utc",
+                    "ordinal",
+                    "band",
+                    "point",
+                    "quantile",
+                    "quantize",
+                    "threshold",
+                    "bin-ordinal"
+                  ]
+                }
+              }
+            },
+            "by": {
+              "$ref": "#/$defs/timeGrain",
+              "description": "data-ui, on a date field: one band per bucket (day, ISO week, month, quarter, year), the same buckets a group level's by: makes, every bucket from the first to the last in time order; aggregate the other channel (count) for one mark per bucket."
+            }
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+    "guide": {
+      "description": "data-ui chart guides Vega-Lite cannot say in one line. Each compiles to a Vega-Lite layer.",
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "rule"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "rule": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": false,
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              }
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "envelope"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "envelope": {
+              "type": "string",
+              "description": "Ashby: one envelope per value of this property, around its points (in log space on log axes)."
+            },
+            "shape": {
+              "enum": [
+                "hull",
+                "ellipse"
+              ]
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "indexLine"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "indexLine": {
+              "type": "object",
+              "required": [
+                "slope"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "slope": {
+                  "type": "number",
+                  "description": "On log-log axes a line of constant y / x^slope (Ashby's performance index)."
+                },
+                "through": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "description": "'median' (default), a row id, or the index's value."
+                }
+              }
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "kpi": {
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false,
+      "description": "data-ui KPI card(s): one card, or one per group when the view has groupBy. Vocabulary after Evidence's BigValue.",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/value"
+        },
+        "compare": {
+          "type": "object",
+          "required": [
+            "against",
+            "better"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "against": {
+              "type": "string",
+              "description": "previous (the window before), target, or a property."
+            },
+            "better": {
+              "type": "string",
+              "minLength": 1,
+              "description": "higher, lower, or a property of the data whose newest value (higher | lower) is each card's direction, so one view holds KPIs that point both ways (docs/CONTRACT.md amendment 2026-10-26 (core pass))."
+            },
+            "neutral": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Relative band inside which a change is drawn neutral, never coloured."
+            }
+          }
+        },
+        "spark": {
+          "type": "object",
+          "required": [
+            "x",
+            "y"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "x": {
+              "type": "string"
+            },
+            "y": {
+              "type": "string"
+            },
+            "window": {
+              "type": "string",
+              "description": "ISO 8601 duration, e.g. P30D."
+            }
+          }
+        },
+        "target": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ],
+          "description": "a number, or (CONTRACT §35) a property: the newest row's value, as the gauge reads min, max and target"
+        },
+        "gate": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            }
+          }
+        },
+        "format": {
+          "$ref": "#/$defs/numberFormat"
+        }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui (CONTRACT §35; PEP 0010 §10's threshold_band hint, RobotDx's Limits): {warn: [lo, hi], error: [lo, hi]} on a time series or a plot, drawn per series as dashed rules and the zones beyond them. Each end is a number, a property (read per series from the rows drawn), or null (no limit on that side).",
+      "properties": {
+        "warn": {
+          "$ref": "#/$defs/limitPair"
+        },
+        "error": {
+          "$ref": "#/$defs/limitPair"
+        }
+      }
+    },
+    "limitPair": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "description": "[low end, high end]: a number, a property, or null"
+    },
+    "numberFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui: how a number is written: digits = significant figures (an integer part is never cut), compact = 26.5K. The stored value stays on hover.",
+      "properties": {
+        "digits": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 21
+        },
+        "compact": {
+          "type": "boolean"
+        }
+      }
+    },
+    "timeseries": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui: a time-series card (docs/peps/0005-dashboard-cards.md §2b)",
+      "properties": {
+        "x": {
+          "type": "string",
+          "minLength": 1,
+          "description": "time column: seconds (follows the clock) or a date column (no playhead)"
+        },
+        "limits": {
+          "$ref": "#/$defs/limits"
+        },
+        "y": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            }
+          ],
+          "description": "one or more value columns"
+        },
+        "series": {
+          "type": "string",
+          "minLength": 1,
+          "description": "a column whose values split the series (situation)"
+        },
+        "mark": {
+          "enum": [
+            "line",
+            "area",
+            "step"
+          ]
+        },
+        "scale": {
+          "enum": [
+            "linear",
+            "log",
+            "symlog"
+          ]
+        },
+        "unit": {
+          "type": "string"
+        },
+        "dash": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "a horizontal threshold",
+            "properties": {
+              "y": {
+                "oneOf": [{ "type": "number" }, { "type": "string", "minLength": 1 }],
+                "description": "a number, or a property the rows give (sim2real gap #6): per series, a constant drawn across x or a step line where it changes"
+              },
+              "label": {
+                "type": "string"
+              },
+              "tone": {
+                "enum": [
+                  "good",
+                  "warn",
+                  "bad",
+                  "muted",
+                  "neutral"
+                ]
+              }
+            },
+            "required": [
+              "y"
+            ]
+          }
+        },
+        "bands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "a shaded y band or x (time) band",
+            "properties": {
+              "y": {
+                "type": "array",
+                "items": { "oneOf": [{ "type": "number" }, { "type": "string", "minLength": 1 }] },
+                "minItems": 2,
+                "maxItems": 2,
+                "description": "[lower, upper]: each a number or a property the rows give (per series; a step band where they change)"
+              },
+              "x": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "label": {
+                "type": "string"
+              },
+              "tone": {
+                "enum": [
+                  "good",
+                  "warn",
+                  "bad",
+                  "muted",
+                  "neutral"
+                ]
+              }
+            }
+          }
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "description": "a vertical marker, as written",
+                "properties": {
+                  "x": { "type": "number" },
+                  "label": { "type": "string" },
+                  "tone": { "enum": ["good", "warn", "bad", "muted", "neutral"], "description": "its mark's and label's colour (default muted)" }
+                },
+                "required": ["x"]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "description": "data-ui (kit gap 2, CONTRACT §25): a marker per row whose x is a time: of `data` (another dataset of the dashboard, read as a layer: filtered as a panel on it, CONTRACT §32), else of the view's own rows; a row whose label is empty is left out",
+                "properties": {
+                  "data": { "type": "string", "minLength": 1, "description": "the dataset its rows come from (default: the view's own)" },
+                  "x": { "type": "string", "minLength": 1, "description": "the time column" },
+                  "label": { "type": "string", "minLength": 1, "description": "the label column" },
+                  "tone": { "enum": ["good", "warn", "bad", "muted", "neutral"], "description": "its marks' and labels' colour (default muted)" }
+                },
+                "required": ["x"]
+              }
+            ]
+          }
+        },
+        "legend": {
+          "enum": [
+            "top",
+            "none"
+          ]
+        },
+        "height": {
+          "type": "number",
+          "minimum": 60
+        },
+        "interactive": {
+          "type": "boolean",
+          "description": "data-ui: a Foxglove/Rerun-style plot: pan, zoom (x, y, box), double-click reset, click moves the time cursor, legend click hides / alt-click isolates, a ? help popover and a maximise button (default false: the simple chart)"
+        }
+      },
+      "required": [
+        "y"
+      ]
+    },
+    "trajectory": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui: a 2D path vs target card, equal aspect, marker on the clock",
+      "properties": {
+        "x": {
+          "type": "string",
+          "minLength": 1,
+          "description": "path x column"
+        },
+        "y": {
+          "type": "string",
+          "minLength": 1,
+          "description": "path y column"
+        },
+        "series": {
+          "type": "string",
+          "minLength": 1,
+          "description": "split column"
+        },
+        "target": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string",
+          "minLength": 1,
+          "description": "colour the path by this column"
+        },
+        "tolerance": {
+          "type": "number",
+          "minimum": 0
+        },
+        "t": {
+          "type": "string",
+          "minLength": 1,
+          "description": "time column"
+        },
+        "trail": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ]
+    },
+    "scene3d": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui: a 3D card on the page's one WebGL context: the path / stick-robot keys of PEP 0005 (x, y, z, series, target, t, skeleton, robot, up), and CONTRACT §32's stage (unit, projection, show, decay, fade, axes, density, workspace) and layers (Layer 1's primitives)",
+      "properties": {
+        "x": {
+          "type": "string",
+          "minLength": 1,
+          "description": "x (m)"
+        },
+        "y": {
+          "type": "string",
+          "minLength": 1,
+          "description": "y (m)"
+        },
+        "z": {
+          "type": "string",
+          "minLength": 1,
+          "description": "z (m)"
+        },
+        "series": {
+          "type": "string",
+          "minLength": 1,
+          "description": "split column"
+        },
+        "target": {
+          "type": "string"
+        },
+        "t": {
+          "type": "string",
+          "minLength": 1,
+          "description": "time column"
+        },
+        "skeleton": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          }
+        },
+        "up": {
+          "enum": [
+            "z",
+            "y"
+          ]
+        },
+        "robot": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "model",
+            "links"
+          ],
+          "description": "data-ui: a meshed robot instead of the stick skeleton (docs/peps/0005-dashboard-cards.md §2b): a GLB whose nodes are named by link, posed per row from <link>_x/_y/_z (m) and <link>_qw/_qx/_qy/_qz (MuJoCo's wxyz order) columns; the skeleton stays the fallback",
+          "properties": {
+            "model": {
+              "type": "string",
+              "minLength": 1,
+              "description": "the GLB, relative to the data file (one node per link, named exactly as `links`)"
+            },
+            "links": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            },
+            "ghost": {
+              "type": "string",
+              "description": "the series value drawn as a translucent ghost (default: the scene's target)"
+            }
+          }
+        },
+        "unit": {
+          "$ref": "#/$defs/sceneUnit"
+        },
+        "projection": {
+          "$ref": "#/$defs/projection"
+        },
+        "show": {
+          "$ref": "#/$defs/show"
+        },
+        "decay": {
+          "$ref": "#/$defs/decay"
+        },
+        "fade": {
+          "type": "boolean",
+          "description": "the trail fades with age (default true)"
+        },
+        "axes": {
+          "$ref": "#/$defs/axesMode"
+        },
+        "density": {
+          "$ref": "#/$defs/density"
+        },
+        "layers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/layer"
+          }
+        },
+        "workspace": {
+          "$ref": "#/$defs/workspace"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "x",
+            "y",
+            "z"
+          ]
+        },
+        {
+          "required": [
+            "layers"
+          ]
+        }
+      ]
+    },
+    "vec3": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "data-ui (CONTRACT §32): a direction or a point, [x, y, z], in the scene's frame"
+    },
+    "columns3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "three columns: x, y, z"
+    },
+    "columns4": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "a quaternion's four columns in w, x, y, z order (unitless; the trajectory contract's and MuJoCo's order)"
+    },
+    "sceneUnit": {
+      "enum": [
+        "m",
+        "cm",
+        "mm"
+      ],
+      "description": "data-ui (CONTRACT §32): the length unit of every column a 3D view reads (default m); a glTF model, metres by its spec, is scaled to it"
+    },
+    "projection": {
+      "description": "data-ui (CONTRACT §32): perspective (orbit; the default) or an orthographic view along one of the six faces, named from the scene's up axis (top looks down it), or {dir, up}: dir is the direction the camera looks, up the screen's up (default the scene's up axis, or +y when dir lies along it)",
+      "oneOf": [
+        {
+          "enum": [
+            "perspective",
+            "top",
+            "bottom",
+            "front",
+            "back",
+            "left",
+            "right"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "dir"
+          ],
+          "properties": {
+            "dir": {
+              "$ref": "#/$defs/vec3"
+            },
+            "up": {
+              "$ref": "#/$defs/vec3"
+            }
+          }
+        }
+      ]
+    },
+    "show": {
+      "enum": [
+        "all",
+        "trail"
+      ],
+      "description": "data-ui (CONTRACT §32): every time step, or the trail up to the clock's t that decay sets (Zach: \"Show all time steps\" | \"Decay\")"
+    },
+    "decay": {
+      "description": "data-ui (CONTRACT §32): how far the trail reaches behind t, in seconds (never samples): 0 is the current sample, inf everything up to t",
+      "oneOf": [
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "enum": [
+            "inf"
+          ]
+        }
+      ]
+    },
+    "axesMode": {
+      "enum": [
+        "auto",
+        "none"
+      ],
+      "description": "data-ui (CONTRACT §32): auto draws ticks in the scene's unit on a face-aligned (2D) view; none draws none"
+    },
+    "density": {
+      "type": "number",
+      "minimum": 1,
+      "description": "data-ui (CONTRACT §32): markers per path for points, frames, arrows and arcs (stride = samples ÷ density, plus the last sample); the dial runs 4 to 400 on a log scale, default 20"
+    },
+    "workspace": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui (CONTRACT §32): the reachable volume, drawn as a translucent fill and its edges: a glTF model (relative to the view's data file, metres by its spec) or a box [[x0, y0, z0], [x1, y1, z1]] in the scene's unit",
+      "properties": {
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "box": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/vec3"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "model"
+          ]
+        },
+        {
+          "required": [
+            "box"
+          ]
+        }
+      ]
+    },
+    "layer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primitive"
+      ],
+      "description": "data-ui (CONTRACT §32): one Layer 1 primitive drawn from columns, one draw call per layer; the vocabulary is Rerun's archetypes (Points3D, LineStrips3D, TransformAxes3D, Arrows3D, Asset3D, Boxes3D)",
+      "properties": {
+        "primitive": {
+          "enum": [
+            "points",
+            "lines",
+            "frames",
+            "arrows",
+            "arcs",
+            "meshes",
+            "boxes"
+          ]
+        },
+        "data": {
+          "type": "string",
+          "minLength": 1,
+          "description": "another dataset of the dashboard, filtered as a panel on it would be (input.layers[<dataset>]); default the view's own rows"
+        },
+        "x": {
+          "type": "string",
+          "minLength": 1
+        },
+        "y": {
+          "type": "string",
+          "minLength": 1
+        },
+        "z": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quat": {
+          "$ref": "#/$defs/columns4"
+        },
+        "from": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 3,
+          "maxItems": 4,
+          "description": "arrows: the tail's x, y, z columns; arcs: the own orientation's quaternion columns"
+        },
+        "to": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 3,
+          "maxItems": 4,
+          "description": "arrows: the head's x, y, z columns; arcs: the reference orientation's quaternion columns"
+        },
+        "at": {
+          "$ref": "#/$defs/columns3"
+        },
+        "min": {
+          "$ref": "#/$defs/columns3"
+        },
+        "max": {
+          "$ref": "#/$defs/columns3"
+        },
+        "by": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            }
+          ],
+          "description": "one path (lines) or one model (meshes) per distinct value"
+        },
+        "color": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the column whose value picks the colour (seriesColor: style.palette, then style.families); default the first by column"
+        },
+        "dash": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "values of the colour column drawn dashed (the target)"
+        },
+        "t": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the time column (default the scene's t)"
+        },
+        "density": {
+          "$ref": "#/$defs/density"
+        },
+        "axes": {
+          "enum": [
+            "xyz",
+            "z"
+          ],
+          "description": "frames: the full triad (X red, Y green, Z blue) or the Z axis alone, in the series' colour"
+        },
+        "length": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "frames and arcs: the axis length, in the scene's unit"
+        },
+        "scale": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "arrows: drawn this many times as long, display only (the card says so); default 1"
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "description": "meshes: the GLB, relative to the layer's data file; one node per link"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "description": "meshes: the link names; each row holds <link>_x/_y/_z (the scene's unit) and <link>_qw/_qx/_qy/_qz"
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "primitive": {
+                "enum": [
+                  "points",
+                  "lines",
+                  "frames"
+                ]
+              }
+            },
+            "required": [
+              "primitive"
+            ]
+          },
+          "then": {
+            "required": [
+              "x",
+              "y",
+              "z"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "primitive": {
+                "const": "frames"
+              }
+            },
+            "required": [
+              "primitive"
+            ]
+          },
+          "then": {
+            "required": [
+              "quat"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "primitive": {
+                "const": "arrows"
+              }
+            },
+            "required": [
+              "primitive"
+            ]
+          },
+          "then": {
+            "required": [
+              "from",
+              "to"
+            ],
+            "properties": {
+              "from": {
+                "maxItems": 3
+              },
+              "to": {
+                "maxItems": 3
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "primitive": {
+                "const": "arcs"
+              }
+            },
+            "required": [
+              "primitive"
+            ]
+          },
+          "then": {
+            "required": [
+              "at",
+              "from",
+              "to"
+            ],
+            "properties": {
+              "from": {
+                "minItems": 4
+              },
+              "to": {
+                "minItems": 4
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "primitive": {
+                "const": "meshes"
+              }
+            },
+            "required": [
+              "primitive"
+            ]
+          },
+          "then": {
+            "required": [
+              "model",
+              "links"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "primitive": {
+                "const": "boxes"
+              }
+            },
+            "required": [
+              "primitive"
+            ]
+          },
+          "then": {
+            "required": [
+              "min",
+              "max"
+            ]
+          }
+        }
+      ]
+    },
+    "trajectory3d": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui (CONTRACT §32; built in PEP 0010 P1b): the trajectory viewer, a thin binding of the trajectory contract (gallery/robotics/CONTRACT.md) onto scene3d's primitives and stage. Every column key defaults to the contract's column name.",
+      "properties": {
+        "poses": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "the pose columns (default x_mm, y_mm, z_mm, [quat_w, quat_x, quat_y, quat_z], frame, body)",
+          "properties": {
+            "x": {
+              "type": "string",
+              "minLength": 1
+            },
+            "y": {
+              "type": "string",
+              "minLength": 1
+            },
+            "z": {
+              "type": "string",
+              "minLength": 1
+            },
+            "quat": {
+              "$ref": "#/$defs/columns4"
+            },
+            "frame": {
+              "type": "string",
+              "minLength": 1
+            },
+            "body": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "series": {
+          "type": "string",
+          "minLength": 1,
+          "description": "one trajectory per value (default situation)"
+        },
+        "family": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the colour family's column (default style.families.property, else source)"
+        },
+        "run": {
+          "type": "string",
+          "minLength": 1,
+          "description": "many runs per series draw at opacity auto (default run)"
+        },
+        "t": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the time column, seconds (default t)"
+        },
+        "target": {
+          "type": "string",
+          "description": "the series value that is the reference: dashed, muted, the robot's ghost, Compare's default b (default the series whose family is target)"
+        },
+        "unit": {
+          "$ref": "#/$defs/sceneUnit"
+        },
+        "up": {
+          "enum": [
+            "z",
+            "y"
+          ],
+          "description": "the scene's up axis (default z, the robotics convention): the faces are named from it"
+        },
+        "modes": {
+          "type": "object",
+          "description": "per series value, how it draws (default [line])",
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "line",
+                "points",
+                "frames",
+                "frames-z"
+              ]
+            }
+          }
+        },
+        "compare": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "data"
+          ],
+          "description": "time-matched arrows from a(t) to b(t), and Z-arcs where a series draws frames-z, from a difference dataset (the contract's diff_poses: a's columns as poses names them, b's under ref_<name>, the reference's name under reference)",
+          "properties": {
+            "data": {
+              "type": "string",
+              "minLength": 1,
+              "description": "the difference dataset (a layer dataset)"
+            },
+            "pairs": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "description": "[a, b] series pairs to draw (default every pair in the data whose b is the target)"
+            },
+            "scale": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "arrows drawn this many times as long, display only (the card says \"arrows ×N\"); default 1"
+            }
+          }
+        },
+        "density": {
+          "$ref": "#/$defs/density"
+        },
+        "show": {
+          "$ref": "#/$defs/show"
+        },
+        "decay": {
+          "$ref": "#/$defs/decay"
+        },
+        "fade": {
+          "type": "boolean",
+          "description": "the trail fades with age (default true)"
+        },
+        "projection": {
+          "$ref": "#/$defs/projection"
+        },
+        "axes": {
+          "$ref": "#/$defs/axesMode"
+        },
+        "robots": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "model",
+            "links"
+          ],
+          "description": "one robot per series, posed at t from link poses (the producer runs FK)",
+          "properties": {
+            "data": {
+              "type": "string",
+              "minLength": 1,
+              "description": "the link-pose dataset (a layer dataset; default the view's own rows)"
+            },
+            "model": {
+              "type": "string",
+              "minLength": 1,
+              "description": "the GLB, relative to the robots' data file; one node per link"
+            },
+            "links": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            },
+            "series": {
+              "type": "object",
+              "description": "per series value: its robot's colour (series: the series' own, the default; muted; a slot 1-8; a CSS colour), opacity and show",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "color": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 8
+                      }
+                    ]
+                  },
+                  "opacity": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "show": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "opacity": {
+          "oneOf": [
+            {
+              "enum": [
+                "auto"
+              ]
+            },
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          ],
+          "description": "a path's opacity; auto is exactly 1/n over a family's n paths, no floor (PEP 0010 P2)"
+        },
+        "color": {
+          "type": "string",
+          "minLength": 1,
+          "description": "a number property each path is painted by, per vertex, on the sequential ramp over the drawn rows' min..max (CONTRACT §35, path_overlay); the target is not painted"
+        },
+        "tolerance": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "the target path again as a translucent tube of this radius, in the stage's unit (CONTRACT §35, path_overlay)"
+        },
+        "workspace": {
+          "$ref": "#/$defs/workspace"
+        }
+      }
+    },
+    "voxels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "x",
+        "y",
+        "z",
+        "cell"
+      ],
+      "description": "data-ui (CONTRACT §32; built in PEP 0010 P2): the discretised space, binned in the view (Rerun's VoxelGridMap; BAM Reach's grid): a 3D grid of boxes or a slice as an image heatmap",
+      "properties": {
+        "x": {
+          "type": "string",
+          "minLength": 1
+        },
+        "y": {
+          "type": "string",
+          "minLength": 1
+        },
+        "z": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "$ref": "#/$defs/sceneUnit"
+        },
+        "up": {
+          "enum": [
+            "z",
+            "y"
+          ],
+          "description": "the scene's up axis (default z, the robotics convention): the faces are named from it"
+        },
+        "cell": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "the cell's edge, in the scene's unit"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "description": "time (Σ w ÷ hz: seconds spent), runs (distinct runs per cell), count (rows; the default), or a property of pre-gridded rows"
+        },
+        "summary": {
+          "enum": [
+            "Average",
+            "Median",
+            "Min",
+            "Max",
+            "Sum"
+          ],
+          "description": "for a property value: Bases' summary names (default Average)"
+        },
+        "scale": {
+          "enum": [
+            "sequential",
+            "verdict"
+          ],
+          "description": "sequential (one hue, light to dark; the default) or verdict (bad to good; the gates overlay only)"
+        },
+        "better": {
+          "enum": [
+            "higher",
+            "lower"
+          ],
+          "description": "for scale: verdict, which end of the domain is good (default higher; CONTRACT §35)"
+        },
+        "slice": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "axis"
+          ],
+          "properties": {
+            "axis": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "at": {
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "enum": [
+                    "all"
+                  ]
+                }
+              ],
+              "description": "a coordinate in the scene's unit, or all: a sum through the depth"
+            }
+          }
+        },
+        "projection": {
+          "$ref": "#/$defs/projection"
+        },
+        "axes": {
+          "$ref": "#/$defs/axesMode"
+        },
+        "workspace": {
+          "$ref": "#/$defs/workspace"
+        },
+        "min": {
+          "type": "number",
+          "description": "cells below this are not drawn"
+        },
+        "w": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the weight column (default w: 1 on the time grid, 0 on kept extremes)"
+        },
+        "run": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the run column for value: runs (default run)"
+        },
+        "hz": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "the rows' display rate, for value: time"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "value": {
+                "const": "time"
+              }
+            },
+            "required": [
+              "value"
+            ]
+          },
+          "then": {
+            "required": [
+              "hz"
+            ]
+          }
+        }
+      ]
+    },
+    "families": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui (CONTRACT §32): colour series by family: a series' family is its rows' value of property; colors maps a family to a slot 1-8, muted (or 0) or a CSS colour. A family the map does not list is muted and dotted. Merges like palette: property is replaced, colors merge key by key",
+      "properties": {
+        "property": {
+          "type": "string",
+          "minLength": 1
+        },
+        "colors": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    "video": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui: a video card that follows the clock",
+      "properties": {
+        "src": {
+          "type": "string",
+          "minLength": 1,
+          "description": "media column (default src)"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "caption column"
+        },
+        "primary": {
+          "type": "boolean"
+        }
+      }
+    },
+    "overlay": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui: video-compare: two clips overlaid (wipe, onion skin, difference, side by side)",
+      "properties": {
+        "src": {
+          "type": "string",
+          "minLength": 1,
+          "description": "media column (default src)"
+        },
+        "by": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the property telling the two clips apart"
+        },
+        "a": {},
+        "b": {},
+        "mode": {
+          "enum": [
+            "wipe",
+            "onion",
+            "difference",
+            "side"
+          ]
+        },
+        "split": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "gauge": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui: a progress bar or arc gauge",
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "object",
+              "required": [
+                "property"
+              ],
+              "properties": {
+                "property": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "per": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "min": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        },
+        "max": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        },
+        "target": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        },
+        "shape": {
+          "enum": [
+            "bar",
+            "arc"
+          ]
+        },
+        "better": {
+          "enum": [
+            "higher",
+            "lower"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "bands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "a band up to `to` (the last has none)",
+            "properties": {
+              "to": {
+                "type": "number"
+              },
+              "tone": {
+                "enum": [
+                  "good",
+                  "warn",
+                  "bad",
+                  "muted",
+                  "neutral"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "bullet": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui: bullet chart(s)",
+      "properties": {
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "object",
+              "required": [
+                "property"
+              ],
+              "properties": {
+                "property": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "per": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "target": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        },
+        "max": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "label column"
+        },
+        "better": {
+          "enum": [
+            "higher",
+            "lower"
+          ]
+        },
+        "bands": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "barlist": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui: a ranked bar list / leaderboard",
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "label column"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "object",
+              "required": [
+                "property"
+              ],
+              "properties": {
+                "property": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "per": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "better": {
+          "enum": [
+            "higher",
+            "lower"
+          ]
+        }
+      },
+      "required": [
+        "label",
+        "value"
+      ]
+    },
+    "playback": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui: the dashboard clock's control (a Rerun-style time panel)",
+      "properties": {
+        "speeds": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "range": {
+          "type": "boolean"
+        },
+        "readout": {
+          "type": "boolean"
+        },
+        "variant": {
+          "enum": [
+            "bar",
+            "rerun",
+            "rerun-streams",
+            "youtube",
+            "tracks",
+            "foxglove",
+            "range"
+          ],
+          "description": "data-ui: which playback control (docs/peps/0005-dashboard-cards.md §4b): bar (default), rerun and rerun-streams (Rerun's time panel), youtube, tracks (a video editor's multi-track timeline), foxglove, range (an overview with a brushed range, Grafana-style)"
+        },
+        "switcher": {
+          "type": "boolean",
+          "description": "data-ui: show a small drop-down on the card to switch variants live (remembered per reader); for reviewing the proposals"
+        }
+      }
+    },
+    "style": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui: how a dashboard (or one panel or view) looks (docs/peps/0005-dashboard-cards.md §5)",
+      "properties": {
+        "theme": {
+          "enum": [
+            "auto",
+            "light",
+            "dark"
+          ]
+        },
+        "surface": {
+          "enum": [
+            "transparent",
+            "filled",
+            "outline"
+          ]
+        },
+        "radius": {
+          "type": "number",
+          "minimum": 0
+        },
+        "pad": {
+          "type": "number",
+          "minimum": 0
+        },
+        "gap": {
+          "type": "number",
+          "minimum": 0
+        },
+        "title": {
+          "enum": [
+            "top",
+            "inside",
+            "none"
+          ]
+        },
+        "density": {
+          "enum": [
+            "comfortable",
+            "compact"
+          ]
+        },
+        "chrome": {
+          "enum": [
+            "minimal",
+            "full"
+          ]
+        },
+        "numbers": {
+          "$ref": "#/$defs/numberFormat"
+        },
+        "palette": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "families": {
+          "$ref": "#/$defs/families"
+        }
+      }
+    },
+    "rollup": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui (CONTRACT §16): roll the rows up to the kept dimensions; every other one is aggregated per column. Group levels (and a pivot's splitBy) are always kept. A click on a rolled-up row or cell lists the rows behind it.",
+      "properties": {
+        "keep": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "the dimensions to keep (properties)"
+        },
+        "agg": {
+          "type": "object",
+          "additionalProperties": {
+            "enum": [
+              "median",
+              "mean",
+              "min",
+              "max",
+              "count",
+              "spread",
+              "sum",
+              "Median",
+              "Average",
+              "Min",
+              "Max",
+              "Count",
+              "Spread",
+              "Sum",
+              "Range"
+            ]
+          },
+          "description": "per number column: median (default), mean, min, max, count, spread (max - min), sum"
+        },
+        "dims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "the dimensions the Roll up menu offers (default: every visible text property)"
+        }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "required": [
+        "parents"
+      ],
+      "additionalProperties": false,
+      "description": "data-ui lineage (docs/CONTRACT.md §21): a tree of life over rows that name their parents. Required: parents; no edge is ever inferred.",
+      "properties": {
+        "parents": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the property listing each row's parent ids; the first is the tree parent, further ones are splices (dashed)"
+        },
+        "x": {
+          "type": "string",
+          "minLength": 1,
+          "description": "an ordinal property: one column (or ring) per distinct value, in order; default: the depth"
+        },
+        "xLabel": {
+          "type": "string",
+          "minLength": 1,
+          "description": "a property naming each x value's column (a round's short name)"
+        },
+        "image": {
+          "type": "string",
+          "minLength": 1,
+          "description": "a property holding each row's picture; a row with none draws its label"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "a property holding each mark's label; default: the data's title"
+        },
+        "focus": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "description": "a row id: it and its every ancestor (over all parents) draw as the trunk"
+        },
+        "kept": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "number",
+                "boolean"
+              ]
+            }
+          },
+          "description": "{property: [values]}: rows with one of these values are kept; a row with no kept descendant, off the trunk, is extinct"
+        },
+        "extinct": {
+          "enum": [
+            "show",
+            "collapse"
+          ],
+          "description": "show: extinct lines as thin stubs; collapse (default): each fan of them folds into +N"
+        },
+        "layout": {
+          "enum": [
+            "rectangular",
+            "radial"
+          ],
+          "description": "rectangular (default): x left to right; radial: a ring per x value"
+        }
+      }
+    },
+    "tiles": {
+      "type": "object",
+      "required": [
+        "property"
+      ],
+      "additionalProperties": false,
+      "description": "data-ui (CONTRACT §20), cards: inside each section, one tile per distinct value of property (a sub-category) instead of one card per row: a picture, the value and its count",
+      "properties": {
+        "property": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the property whose values are the tiles"
+        },
+        "image": {
+          "type": "string",
+          "description": "the property holding a tile's picture, from the first of its rows (default the view's image)"
+        },
+        "link": {
+          "type": "string",
+          "description": "a property whose value (on a tile's first row) the tile links to; without it a click filters to the tile's rows"
+        },
+        "all": {
+          "type": "boolean",
+          "description": "an 'All <group>' tile first"
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "keep this many tiles (most rows first) and end with 'Every <property> (N)'"
+        },
+        "size": {
+          "type": "number",
+          "minimum": 40,
+          "maximum": 400,
+          "description": "the tile's width in px (default 120)"
+        }
+      }
+    },
+    "grouping": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false,
+      "description": "data-ui (CONTRACT §20): one way to group a view; when the view's grouping names it, its groupBy, subGroupBy and tiles replace the view's own (one it leaves out is none)",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "description": "the switcher's text; default the id"
+        },
+        "groupBy": {
+          "$ref": "#/$defs/group"
+        },
+        "subGroupBy": {
+          "$ref": "#/$defs/group"
+        },
+        "tiles": {
+          "$ref": "#/$defs/tiles"
+        }
+      }
+    },
+    "tracker": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui: a tracker grid (Tremor's Tracker; named tracker because §18 made status: the status-line key)",
+      "properties": {
+        "state": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the column whose value colours a cell"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "hover / caption column"
+        },
+        "column": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the matrix's columns (CONTRACT §35, the gate matrix): one column per value of this property, one row per groupBy group"
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          },
+          "description": "the matrix's column order: values of column (each drawn even when no row has it); default the order the view's rows first show them"
+        },
+        "order": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "best to worst: which state a cell several rows reach draws (the worst); default the status vocabulary's order"
+        },
+        "tones": {
+          "type": "object",
+          "additionalProperties": {
+            "enum": [
+              "good",
+              "warn",
+              "bad",
+              "muted",
+              "neutral"
+            ]
+          }
+        }
+      },
+      "required": [
+        "state"
+      ]
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "data-ui live data (docs/peps/0012-live-data.md §3): how much a live dataset keeps in the browser; the oldest chunks go first, the newest of every stream always stays",
+      "properties": {
+        "bytes": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?\\s*(B|KB|MB|GB)$"
+            }
+          ],
+          "description": "a byte budget: a number or 64MB, 1.5GB (the page's default is 256MB)"
+        },
+        "age": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(ms|s|m|h)$"
+            }
+          ],
+          "description": "keep at most this much time (15m, 900s; a number is seconds)"
+        }
+      }
+    },
+    "live": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "time"
+      ],
+      "description": "data-ui live data (docs/peps/0012-live-data.md §7.2): this dataset grows while the page is open. With sse: an EventSource, with poll: a fetch on an interval, with neither the page pushes rows (dashboard.datasets.<name>.append); recorded: true makes the data: rows a finished recording drawn the same way. data: stays the properties and the backlog.",
+      "properties": {
+        "time": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the time property (seconds; Unix seconds for a host)"
+        },
+        "stream": {
+          "type": "string",
+          "minLength": 1,
+          "description": "an append dataset's stream property (one joint, one signal): retention keeps the newest rows of each, latest-at answers per stream"
+        },
+        "key": {
+          "type": "string",
+          "minLength": 1,
+          "description": "makes the dataset keyed: rows replace by this property (a tree, checks, configuration); each replacement is a version at its time"
+        },
+        "sse": {
+          "type": "string",
+          "minLength": 1,
+          "description": "a server-sent-events URL, relative to this file; the browser resumes with Last-Event-ID"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "the SSE event names that carry rows (default message and rows)"
+        },
+        "poll": {
+          "type": "string",
+          "minLength": 1,
+          "description": "a URL fetched every `every`, relative to this file"
+        },
+        "every": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(ms|s|m|h)$"
+            }
+          ],
+          "description": "the polling interval (default 1s, never under 100ms)"
+        },
+        "since": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the query parameter that carries the last cursor (since=<cursor>)"
+        },
+        "cursor": {
+          "type": "string",
+          "minLength": 1,
+          "description": "a dotted path to the next cursor in the polled body"
+        },
+        "rows": {
+          "type": "string",
+          "minLength": 1,
+          "description": "a dotted path to the rows in the polled or SSE body; an array on the way is flattened"
+        },
+        "retention": {
+          "$ref": "#/$defs/retention"
+        },
+        "stale": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(ms|s|m|h)$"
+            }
+          ],
+          "description": "no data for this long reads as stale (default 5s)"
+        },
+        "recorded": {
+          "type": "boolean",
+          "description": "the data: rows are a finished recording: no source, a fixed end, the same views rewound and replayed"
+        }
+      }
+    },
+    "at": {
+      "description": "data-ui live data (docs/peps/0012-live-data.md §5.1): what this view shows at the clock's t: latest (the newest row of each stream, or each key's record), all (every retained row up to t) or a duration (30s: the rows in the window ending at t)",
+      "oneOf": [
+        {
+          "enum": [
+            "latest",
+            "all"
+          ]
+        },
+        {
+          "type": "string",
+          "pattern": "^\\d+(\\.\\d+)?(ms|s|m|h)$"
+        }
+      ]
+    },
+    "plot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "y"
+      ],
+      "description": "data-ui: the live plot (docs/peps/0012-live-data.md §6.2): dense signals over time drawn by uPlot, min and max per pixel column, following the clock",
+      "properties": {
+        "x": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the time property (default the dataset's time)"
+        },
+        "limits": {
+          "$ref": "#/$defs/limits"
+        },
+        "y": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            }
+          ],
+          "description": "one or more number properties"
+        },
+        "series": {
+          "type": "string",
+          "minLength": 1,
+          "description": "a property whose values split the series (default the dataset's stream)"
+        },
+        "only": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "draw these series only"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "dash": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "series (or properties) drawn dashed"
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "y"
+            ],
+            "properties": {
+              "y": {
+                "oneOf": [{ "type": "number" }, { "type": "string", "minLength": 1 }],
+                "description": "a number, or a property the rows give (sim2real gap #6): per series, a constant drawn across x or a step line where it changes"
+              },
+              "label": {
+                "type": "string"
+              },
+              "tone": {
+                "enum": [
+                  "good",
+                  "warn",
+                  "bad",
+                  "muted",
+                  "neutral"
+                ]
+              }
+            }
+          }
+        },
+        "bands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "y": {
+                "type": "array",
+                "items": { "oneOf": [{ "type": "number" }, { "type": "string", "minLength": 1 }] },
+                "minItems": 2,
+                "maxItems": 2,
+                "description": "[lower, upper]: each a number or a property the rows give (per series; a step band where they change)"
+              },
+              "label": {
+                "type": "string"
+              },
+              "tone": {
+                "enum": [
+                  "good",
+                  "warn",
+                  "bad",
+                  "muted",
+                  "neutral"
+                ]
+              }
+            }
+          }
+        },
+        "legend": {
+          "enum": [
+            "top",
+            "none"
+          ]
+        },
+        "height": {
+          "type": "number",
+          "minimum": 60
+        }
+      }
+    },
+    "levels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state"
+      ],
+      "description": "data-ui: a level history (docs/peps/0012-live-data.md §6.3): one strip per stream, one bar per time bin, the worst level held in the bin; a bin with no data is an empty outline",
+      "properties": {
+        "state": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the level property"
+        },
+        "by": {
+          "type": "string",
+          "minLength": 1,
+          "description": "one strip per value of this property (default the dataset's stream)"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "a property shown on hover (the message)"
+        },
+        "order": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "the levels from best to worst (default ok, warn, unknown, stale, error)"
+        },
+        "tones": {
+          "type": "object",
+          "additionalProperties": {
+            "enum": [
+              "good",
+              "warn",
+              "bad",
+              "muted",
+              "neutral"
+            ]
+          },
+          "description": "level -> tone"
+        },
+        "bar": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 40,
+          "description": "bar width in px (default 3, with a 2 px gap)"
+        }
+      }
+    },
+    "mapLayer": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false,
+      "description": "One map layer (CONTRACT §42). Property-valued keys are checked against the data.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "markers",
+            "points",
+            "heatmap",
+            "hexbin",
+            "regions",
+            "flows",
+            "lines",
+            "rings",
+            "catchments",
+            "within",
+            "labels"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "the layer's legend title"
+        },
+        "filter": {
+          "type": "string",
+          "description": "a Bases filter expression: only these rows"
+        },
+        "coordinates": {
+          "type": "string",
+          "description": "the position property (default: the view's coordinates)"
+        },
+        "color": {
+          "type": "string",
+          "description": "a property (series slots), a colour, or var(--data-series-N)"
+        },
+        "size": {
+          "type": "object",
+          "required": [
+            "property"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "type": "string"
+            },
+            "max": {
+              "type": "number",
+              "description": "radius in px at the largest value"
+            }
+          }
+        },
+        "radius": {
+          "type": "number",
+          "minimum": 0
+        },
+        "cluster": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "radius": {
+                  "type": "number"
+                },
+                "maxZoom": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "label": {
+          "type": "string",
+          "description": "points: a row property; regions: a feature property of the geometry file"
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "weight": {
+          "type": "string",
+          "description": "heatmap: weight each row by this number"
+        },
+        "intensity": {
+          "type": "number"
+        },
+        "ink": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 7,
+          "description": "which series token colours the ramp"
+        },
+        "points": {
+          "type": "boolean"
+        },
+        "pointsFrom": {
+          "type": "number"
+        },
+        "resolution": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 12,
+          "description": "H3 resolution"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "regions: the row property coloured"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "property": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string",
+                  "enum": [
+                    "count",
+                    "sum",
+                    "mean",
+                    "max"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "classes": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "method": {
+              "type": "string",
+              "enum": [
+                "quantile",
+                "equal",
+                "jenks",
+                "manual"
+              ]
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9
+            },
+            "breaks": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "scheme": {
+              "type": "string",
+              "enum": [
+                "sequential",
+                "diverging"
+              ]
+            },
+            "low": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 7
+            }
+          }
+        },
+        "extrude": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "property": {
+                  "type": "string"
+                },
+                "max": {
+                  "type": "number",
+                  "description": "metres at the largest value"
+                }
+              }
+            }
+          ]
+        },
+        "geometry": {
+          "type": "string",
+          "description": "a GeoJSON file relative to this .base"
+        },
+        "key": {
+          "type": "string",
+          "description": "the feature property that matches join:"
+        },
+        "join": {
+          "type": "string",
+          "description": "the row property that matches key:"
+        },
+        "summary": {
+          "type": "string",
+          "enum": [
+            "first",
+            "sum",
+            "mean",
+            "min",
+            "max"
+          ]
+        },
+        "bivariate": {
+          "type": "object",
+          "required": [
+            "x",
+            "y"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "x": {
+              "type": "string"
+            },
+            "y": {
+              "type": "string"
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 4
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "quantile",
+                "equal",
+                "jenks"
+              ]
+            },
+            "inkX": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 7
+            },
+            "inkY": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 7
+            }
+          }
+        },
+        "labelProperty": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string",
+          "description": "flows: the origin position property"
+        },
+        "to": {
+          "type": "string",
+          "description": "flows: the destination position property"
+        },
+        "width": {
+          "type": "object",
+          "required": [
+            "property"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "type": "string"
+            },
+            "max": {
+              "type": "number",
+              "description": "px at the largest value"
+            }
+          }
+        },
+        "bow": {
+          "type": "number"
+        },
+        "path": {
+          "type": "string",
+          "description": "lines: a property holding a list of positions"
+        },
+        "dashed": {
+          "type": "boolean"
+        },
+        "note": {
+          "type": "string"
+        },
+        "of": {
+          "type": "string",
+          "description": "rings / catchments / within: a filter expression for the sites"
+        },
+        "count": {
+          "type": "string",
+          "description": "a filter expression for the rows counted (default: every row that is not a site)"
+        },
+        "km": {
+          "oneOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "minItems": 1
+            }
+          ]
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "step": {
+          "type": "number"
+        },
+        "ofLabel": {
+          "type": "string"
+        },
+        "countLabel": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string",
+          "description": "labels: the property each callout says"
+        },
+        "detail": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "dx": {
+          "type": "string",
+          "description": "a property: callout offset px"
+        },
+        "dy": {
+          "type": "string",
+          "description": "a property: callout offset px"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "at",
+              "text"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "at": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "text": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "dx": {
+                "type": "number"
+              },
+              "dy": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

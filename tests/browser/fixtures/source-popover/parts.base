@@ -1,0 +1,11 @@
+# Made-up actuators, a record per part: two values with several sources each (a pick is the row's), a numeric column,
+# an undeclared source, an entry's own unit and address, a relative source address (tests/browser/source_popover_checks.py)
+data: parts.json
+views:
+  - type: table
+    name: Parts
+    order: [name, torque, mass]
+    units: inline
+  - type: record
+    name: Record
+    order: [name, torque, mass]

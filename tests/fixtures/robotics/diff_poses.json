@@ -1,0 +1,108 @@
+{
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s"
+   },
+   {
+    "name": "run",
+    "type": "string"
+   },
+   {
+    "name": "situation",
+    "type": "string"
+   },
+   {
+    "name": "source",
+    "type": "string"
+   },
+   {
+    "name": "reference",
+    "type": "string"
+   },
+   {
+    "name": "body",
+    "type": "string"
+   },
+   {
+    "name": "frame",
+    "type": "string"
+   },
+   {
+    "name": "x_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "y_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "z_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "ref_x_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "ref_y_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "ref_z_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "err_mm",
+    "type": "number",
+    "unit": "mm"
+   },
+   {
+    "name": "quat_w",
+    "type": "number"
+   },
+   {
+    "name": "quat_x",
+    "type": "number"
+   },
+   {
+    "name": "quat_y",
+    "type": "number"
+   },
+   {
+    "name": "quat_z",
+    "type": "number"
+   },
+   {
+    "name": "ref_quat_w",
+    "type": "number"
+   },
+   {
+    "name": "ref_quat_x",
+    "type": "number"
+   },
+   {
+    "name": "ref_quat_y",
+    "type": "number"
+   },
+   {
+    "name": "ref_quat_z",
+    "type": "number"
+   },
+   {
+    "name": "err_rot_mrad",
+    "type": "number",
+    "unit": "mrad"
+   }
+  ]
+ },
+ "rows": []
+}

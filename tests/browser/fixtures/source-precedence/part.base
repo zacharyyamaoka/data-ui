@@ -1,0 +1,15 @@
+# A made-up actuator's datasheet: one row per field, its Nominal from four sources (tests/browser/source_precedence_checks.py)
+data: part.json
+views:
+  - type: table
+    name: Datasheet
+    order: [field, nominal]
+    groupBy: { property: section }
+    units: inline
+  - type: table
+    name: Flat
+    order: [field, nominal]
+    units: inline
+  - type: cards
+    name: Cards
+    order: [field, nominal]

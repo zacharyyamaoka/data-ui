@@ -1,0 +1,29 @@
+/* Shopify admin's look (Polaris tokens, as Tycoon's S6 shell copies them: tycoon-worktrees/shopify-shell
+   packages/shell/src/shells/s6/s6.css, read 2026-10-28), mapped onto data-ui's --data-*. The gallery scopes a skin to
+   .data-ui-skin; the app page (app/index.html) puts the class on <body>. Polaris' page is a grey well under white cards
+   (light) and #1a1a1a under #303030 cards (dark); the nav is dark in both, as the 2025 admin draws it. */
+.data-ui-skin {
+  --p-bg: rgb(241, 241, 241); --p-surface: rgb(255, 255, 255); --p-surface-2: rgb(247, 247, 247); --p-hover: rgb(247, 247, 247);
+  --p-text: rgb(48, 48, 48); --p-text-2: rgb(97, 97, 97); --p-border: rgb(227, 227, 227); --p-border-2: rgb(235, 235, 235);
+  --p-brand: rgb(48, 48, 48); --p-on-brand: rgb(255, 255, 255); --p-critical: rgb(199, 10, 36);
+  --p-font: Inter, -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .data-ui-skin {
+    --p-bg: rgb(26, 26, 26); --p-surface: rgb(48, 48, 48); --p-surface-2: rgb(58, 58, 58); --p-hover: rgb(64, 64, 64);
+    --p-text: rgb(227, 227, 227); --p-text-2: rgb(181, 181, 181); --p-border: rgb(74, 74, 74); --p-border-2: rgb(66, 66, 66);
+    --p-brand: rgb(227, 227, 227); --p-on-brand: rgb(48, 48, 48); --p-critical: rgb(254, 129, 145);
+  }
+}
+:root[data-theme="dark"] .data-ui-skin {
+  --p-bg: rgb(26, 26, 26); --p-surface: rgb(48, 48, 48); --p-surface-2: rgb(58, 58, 58); --p-hover: rgb(64, 64, 64);
+  --p-text: rgb(227, 227, 227); --p-text-2: rgb(181, 181, 181); --p-border: rgb(74, 74, 74); --p-border-2: rgb(66, 66, 66);
+  --p-brand: rgb(227, 227, 227); --p-on-brand: rgb(48, 48, 48); --p-critical: rgb(254, 129, 145);
+}
+/* the mapping: this is all a vanilla app writes */
+.data-ui-skin {
+  --data-bg: var(--p-surface); --data-fg: var(--p-text); --data-muted: var(--p-text-2); --data-subtle: var(--p-surface-2);
+  --data-border: var(--p-border); --data-rule: var(--p-border-2); --data-hover: var(--p-hover); --data-accent: var(--p-brand);
+  --data-on-accent: var(--p-on-brand); --data-warn: var(--p-critical); --data-font: var(--p-font);
+  --data-radius: 8px; --data-card-radius: 12px;
+}

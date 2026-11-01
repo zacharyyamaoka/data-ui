@@ -1,0 +1,97 @@
+# Actuator charts: robotparts' 1,149 actuators as chart presets, one .base file. Each preset is a view; inside
+# `chart:` the vocabulary is Vega-Lite's (docs/SPEC.md §8), everything else is Bases'. The rail filters every chart.
+# Check it: node bin/data-ui.mjs check <this file>
+data: ../robotparts-actuators/actuators.json
+facets:
+  - brand
+  - form
+  - drivetrain
+  - buses
+  - { property: peak_torque, as: range }
+  - { property: mass, as: range }
+  - { property: price, as: range }
+properties:
+  model: { displayName: Model }
+  brand: { displayName: Brand }
+  form: { displayName: Form }
+  drivetrain: { displayName: Drivetrain }
+  peak_torque: { displayName: Peak torque }
+  rated_torque: { displayName: Rated torque }
+  max_speed: { displayName: Max speed }
+  mass: { displayName: Mass }
+  gear_ratio: { displayName: Ratio }
+  voltage: { displayName: Voltage }
+  od: { displayName: OD }
+  length: { displayName: Length }
+  buses: { displayName: Bus }
+  torque_density: { displayName: Peak N·m/kg }
+  price: { displayName: Price from }
+  sellers: { displayName: Sellers }
+  level: { displayName: Level }
+views:
+  - type: chart
+    name: Torque vs mass
+    chart:
+      mark: { type: point, filled: true }
+      encoding:
+        x: { field: mass, scale: { type: log } }
+        y: { field: peak_torque, scale: { type: log } }
+        color: { field: brand }
+    hover: { image: photo, title: name, fields: [peak_torque, mass, torque_density, price, drivetrain] }
+  - type: chart
+    name: Ashby · torque vs mass
+    chart:
+      mark: { type: point, filled: true, size: 22 }
+      encoding:
+        x: { field: mass, scale: { type: log } }
+        y: { field: peak_torque, scale: { type: log } }
+        color: { field: drivetrain }
+    guides:
+      - { envelope: drivetrain, shape: hull }
+      - { indexLine: { slope: 1, through: median }, label: "constant N·m per g (median)" }
+    hover: { image: photo, title: name, fields: [peak_torque, mass, torque_density, drivetrain, brand] }
+  - type: chart
+    name: Torque density
+    filters: '!torque_density.isEmpty()'
+    chart:
+      mark: { type: point, filled: true }
+      encoding:
+        x: { field: mass, scale: { type: log } }
+        y: { field: torque_density }
+        color: { field: form }
+    guides:
+      - { rule: { y: 50 }, label: "50 N·m/kg" }
+    hover: { image: photo, title: name, fields: [torque_density, peak_torque, mass, form, price] }
+  - type: chart
+    name: Price vs torque
+    chart:
+      mark: { type: point, filled: true }
+      encoding:
+        x: { field: peak_torque, scale: { type: log } }
+        y: { field: price, scale: { type: log } }
+        color: { field: drivetrain }
+        size: { field: torque_density }
+    hover: { image: photo, title: name, fields: [price, peak_torque, torque_density, drivetrain, brand] }
+  - type: chart
+    name: By form
+    chart:
+      mark: { type: point, filled: true }
+      encoding:
+        x: { field: mass, scale: { type: log } }
+        y: { field: peak_torque, scale: { type: log } }
+        color: { field: drivetrain }
+        facet: { field: form, columns: 3 }
+    hover: { image: photo, title: name }
+  - type: chart
+    name: Median torque by brand
+    filters: 'form == "integrated actuator"'
+    chart:
+      mark: bar
+      encoding:
+        x: { field: brand, sort: -y, title: Brand (integrated actuators) }
+        y: { field: peak_torque, aggregate: median }
+  - type: table
+    name: Rows
+    order: [model, brand, form, drivetrain, peak_torque, mass, torque_density, price]
+    sort:
+      - { property: peak_torque, direction: DESC }

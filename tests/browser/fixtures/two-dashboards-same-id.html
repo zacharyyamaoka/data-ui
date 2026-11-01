@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>two dashboards, one id fixture</title>
+<!-- gallery/examples/dashboard-cards/checks_dashboard.py, judge round 2 #4: two dashboards written with the same id
+     is an authoring error the page reports (the later one lists it under its problems and warns in the console); its
+     URL scope is numbered (#t.dup= / #t.dup-2=) so the two still keep their own times (docs/peps/0005-dashboard-cards.md §4). The check serves this file at
+     gallery/dashboard-cards/two-dashboards.html of the built site (page.route), so views.base and the kit resolve
+     as on the case's own page. -->
+<link rel="stylesheet" href="../../kit/data-ui.css">
+<link rel="stylesheet" href="../../site.css">
+</head>
+<body>
+<main class="wrap wide">
+  <h1>Two dashboards, one id</h1>
+  <data-dashboard id="dup" src="views.base" aria-label="First dashboard"></data-dashboard>
+  <data-dashboard id="dup" src="views.base" aria-label="Second dashboard"></data-dashboard>
+</main>
+<script type="module" src="../../site.js"></script>
+</body>
+</html>

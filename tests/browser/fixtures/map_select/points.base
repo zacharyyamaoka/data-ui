@@ -1,0 +1,12 @@
+# tests/browser/map_select_checks.py: points pick and mark by feature-state
+data: places.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    select: name
+    coordinates: at
+    layers:
+      - { type: points, radius: 7, title: Places }

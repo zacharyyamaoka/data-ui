@@ -1,0 +1,10 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1. split: Mermaid (the mermaid engine) is its own chunks, fetched on first use (amendment 2026-10-27, graph layout engines).",
+  "entry": "src/index.js",
+  "status": "built",
+  "split": true,
+  "views": [
+    { "type": "graph", "name": "Graph", "icon": "workflow", "summary": "Rows as nodes, edges from a property listing other rows' ids. Engine flow (default): React Flow laid out by dagre; group by draws subflows; pan, zoom, minimap. Engine mermaid: the same graph as a static Mermaid flowchart. A node opens its record." }
+  ],
+  "npm": ["@xyflow/react@12.12.0", "react@19.3.1", "react-dom@19.3.1", "@dagrejs/dagre@3.1.3", "mermaid@12.2.0"]
+}

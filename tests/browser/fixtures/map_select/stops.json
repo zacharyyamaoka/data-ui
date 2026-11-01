@@ -1,0 +1,87 @@
+{
+ "id": "map-select-stops",
+ "title": "Stops (synthetic)",
+ "titleProperty": "name",
+ "source": "synthetic: written by hand for tests/browser/map_select_checks.py",
+ "properties": {
+  "name": {
+   "type": "text",
+   "label": "Name"
+  },
+  "at": {
+   "type": "list",
+   "label": "At",
+   "hidden": true
+  },
+  "when": {
+   "type": "datetime",
+   "label": "When"
+  },
+  "t": {
+   "type": "number",
+   "label": "t"
+  }
+ },
+ "rows": [
+  {
+   "id": "s0",
+   "name": "Stop 0",
+   "at": [
+    49.2,
+    -122.5
+   ],
+   "when": "2026-10-14T00:00:00Z",
+   "t": 0
+  },
+  {
+   "id": "s1",
+   "name": "Stop 1",
+   "at": [
+    49.300000000000004,
+    -122.2
+   ],
+   "when": "2026-10-14T01:00:00Z",
+   "t": 3600
+  },
+  {
+   "id": "s2",
+   "name": "Stop 2",
+   "at": [
+    49.400000000000006,
+    -121.9
+   ],
+   "when": "2026-10-14T02:00:00Z",
+   "t": 7200
+  },
+  {
+   "id": "s3",
+   "name": "Stop 3",
+   "at": [
+    49.5,
+    -121.6
+   ],
+   "when": "2026-10-14T03:00:00Z",
+   "t": 10800
+  },
+  {
+   "id": "s4",
+   "name": "Stop 4",
+   "at": [
+    49.6,
+    -121.3
+   ],
+   "when": "2026-10-14T04:00:00Z",
+   "t": 14400
+  },
+  {
+   "id": "s5",
+   "name": "Stop 5",
+   "at": [
+    49.7,
+    -121.0
+   ],
+   "when": "2026-10-14T05:00:00Z",
+   "t": 18000
+  }
+ ]
+}

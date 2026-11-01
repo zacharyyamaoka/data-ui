@@ -1,0 +1,59 @@
+{
+ "name": "links",
+ "title": "Link poses",
+ "description": "One row per t × run × situation: each link's pose, from the producer's forward kinematics (the card only poses it). Per link, <link>_x / _y / _z (its origin, in the scene's unit, declared in the producer's sidecar) and <link>_qw / _qx / _qy / _qz (unitless): scene3d.robot's columns as built.",
+ "rowsPer": [
+  "t",
+  "run",
+  "situation"
+ ],
+ "required": [
+  "t",
+  "run",
+  "situation",
+  "source"
+ ],
+ "patterns": [
+  {
+   "name": "<link>_x, <link>_y, <link>_z",
+   "type": "number",
+   "unit": "the scene's unit"
+  },
+  {
+   "name": "<link>_qw, <link>_qx, <link>_qy, <link>_qz",
+   "type": "number"
+  }
+ ],
+ "schema": {
+  "fields": [
+   {
+    "name": "t",
+    "type": "number",
+    "unit": "s",
+    "description": "seconds from the run's start (the target's start)"
+   },
+   {
+    "name": "run",
+    "type": "string",
+    "description": "the run's stable, unique id (runs.json)"
+   },
+   {
+    "name": "situation",
+    "type": "string",
+    "description": "one way of playing the run, one series on screen: real, real B, twin v7, model 2, target"
+   },
+   {
+    "name": "source",
+    "type": "string",
+    "description": "the situation's family: real, sim (every model, twin, replay or prediction) or target; it picks the hue",
+    "constraints": {
+     "enum": [
+      "real",
+      "sim",
+      "target"
+     ]
+    }
+   }
+  ]
+ }
+}

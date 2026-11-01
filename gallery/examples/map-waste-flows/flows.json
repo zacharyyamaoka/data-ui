@@ -1,0 +1,370 @@
+{
+ "id": "metro-vancouver-garbage-flows",
+ "title": "Metro Vancouver garbage flows between facilities, 2024 (synthetic split)",
+ "titleProperty": "from",
+ "source": "Metro Vancouver 2024 Solid Waste System fact sheets; City of Vancouver 2024 Annual Report for the Vancouver Landfill; Metro Vancouver 2024 ISWRMP Biennial Report (draft); facility points © OpenStreetMap contributors, ODbL",
+ "attribution": {
+  "text": "© OpenStreetMap contributors",
+  "url": "https://www.openstreetmap.org/copyright"
+ },
+ "properties": {
+  "from": {
+   "type": "text",
+   "label": "From"
+  },
+  "to": {
+   "type": "text",
+   "label": "To"
+  },
+  "origin": {
+   "type": "list",
+   "label": "Origin (lat, lng)"
+  },
+  "destination": {
+   "type": "list",
+   "label": "Destination (lat, lng)"
+  },
+  "tonnes": {
+   "type": "number",
+   "label": "Tonnes",
+   "unitText": "t/yr",
+   "decimals": 0
+  },
+  "year": {
+   "type": "number",
+   "label": "Year",
+   "decimals": 0
+  },
+  "material": {
+   "type": "text",
+   "label": "Material"
+  },
+  "basis": {
+   "type": "text",
+   "label": "Basis"
+  },
+  "source": {
+   "type": "text",
+   "label": "Source"
+  },
+  "page": {
+   "type": "number",
+   "label": "PDF page",
+   "decimals": 0
+  },
+  "note": {
+   "type": "text",
+   "label": "Note"
+  }
+ },
+ "rows": [
+  {
+   "id": "central-surrey-to-contingency",
+   "from": "Central Surrey Recycling and Waste Centre",
+   "to": "Contingency landfills (out of region, unnamed)",
+   "origin": [
+    49.12497,
+    -122.79693
+   ],
+   "destination": {
+    "value": null,
+    "why": "Metro Vancouver does not name its three contingency landfills"
+   },
+   "tonnes": 2409,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 10,327 t in the ratio of the published destination totals; the destination total (151,539 t) is published"
+  },
+  {
+   "id": "central-surrey-to-landfill",
+   "from": "Central Surrey Recycling and Waste Centre",
+   "to": "Vancouver Landfill",
+   "origin": [
+    49.12497,
+    -122.79693
+   ],
+   "destination": [
+    49.09801,
+    -123.00459
+   ],
+   "tonnes": 6450,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 10,327 t in the ratio of the published destination totals; the destination total (405,722 t) is published"
+  },
+  {
+   "id": "central-surrey-to-wte",
+   "from": "Central Surrey Recycling and Waste Centre",
+   "to": "Metro Vancouver Waste-to-Energy Facility",
+   "origin": [
+    49.12497,
+    -122.79693
+   ],
+   "destination": [
+    49.18635,
+    -122.97776
+   ],
+   "tonnes": 1339,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 10,327 t in the ratio of the published destination totals; the destination total (84,196 t) is published"
+  },
+  {
+   "id": "langley-to-contingency",
+   "from": "Langley Recycling and Waste Centre",
+   "to": "Contingency landfills (out of region, unnamed)",
+   "origin": [
+    49.0219,
+    -122.46792
+   ],
+   "destination": {
+    "value": null,
+    "why": "Metro Vancouver does not name its three contingency landfills"
+   },
+   "tonnes": 1773,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 7,601 t in the ratio of the published destination totals; the destination total (151,539 t) is published"
+  },
+  {
+   "id": "langley-to-landfill",
+   "from": "Langley Recycling and Waste Centre",
+   "to": "Vancouver Landfill",
+   "origin": [
+    49.0219,
+    -122.46792
+   ],
+   "destination": [
+    49.09801,
+    -123.00459
+   ],
+   "tonnes": 4747,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 7,601 t in the ratio of the published destination totals; the destination total (405,722 t) is published"
+  },
+  {
+   "id": "langley-to-wte",
+   "from": "Langley Recycling and Waste Centre",
+   "to": "Metro Vancouver Waste-to-Energy Facility",
+   "origin": [
+    49.0219,
+    -122.46792
+   ],
+   "destination": [
+    49.18635,
+    -122.97776
+   ],
+   "tonnes": 985,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 7,601 t in the ratio of the published destination totals; the destination total (84,196 t) is published"
+  },
+  {
+   "id": "maple-ridge-to-contingency",
+   "from": "Maple Ridge Recycling and Waste Centre",
+   "to": "Contingency landfills (out of region, unnamed)",
+   "origin": {
+    "value": null,
+    "why": "not mapped as a waste facility in OpenStreetMap (checked 2026-10-28)"
+   },
+   "destination": {
+    "value": null,
+    "why": "Metro Vancouver does not name its three contingency landfills"
+   },
+   "tonnes": 2201,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 9,435 t in the ratio of the published destination totals; the destination total (151,539 t) is published"
+  },
+  {
+   "id": "maple-ridge-to-landfill",
+   "from": "Maple Ridge Recycling and Waste Centre",
+   "to": "Vancouver Landfill",
+   "origin": {
+    "value": null,
+    "why": "not mapped as a waste facility in OpenStreetMap (checked 2026-10-28)"
+   },
+   "destination": [
+    49.09801,
+    -123.00459
+   ],
+   "tonnes": 5893,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 9,435 t in the ratio of the published destination totals; the destination total (405,722 t) is published"
+  },
+  {
+   "id": "maple-ridge-to-wte",
+   "from": "Maple Ridge Recycling and Waste Centre",
+   "to": "Metro Vancouver Waste-to-Energy Facility",
+   "origin": {
+    "value": null,
+    "why": "not mapped as a waste facility in OpenStreetMap (checked 2026-10-28)"
+   },
+   "destination": [
+    49.18635,
+    -122.97776
+   ],
+   "tonnes": 1223,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 9,435 t in the ratio of the published destination totals; the destination total (84,196 t) is published"
+  },
+  {
+   "id": "north-surrey-to-contingency",
+   "from": "North Surrey Recycling and Waste Centre",
+   "to": "Contingency landfills (out of region, unnamed)",
+   "origin": [
+    49.18052,
+    -122.68688
+   ],
+   "destination": {
+    "value": null,
+    "why": "Metro Vancouver does not name its three contingency landfills"
+   },
+   "tonnes": 54899,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 235,338 t in the ratio of the published destination totals; the destination total (151,539 t) is published"
+  },
+  {
+   "id": "north-surrey-to-landfill",
+   "from": "North Surrey Recycling and Waste Centre",
+   "to": "Vancouver Landfill",
+   "origin": [
+    49.18052,
+    -122.68688
+   ],
+   "destination": [
+    49.09801,
+    -123.00459
+   ],
+   "tonnes": 146984,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 235,338 t in the ratio of the published destination totals; the destination total (405,722 t) is published"
+  },
+  {
+   "id": "north-surrey-to-wte",
+   "from": "North Surrey Recycling and Waste Centre",
+   "to": "Metro Vancouver Waste-to-Energy Facility",
+   "origin": [
+    49.18052,
+    -122.68688
+   ],
+   "destination": [
+    49.18635,
+    -122.97776
+   ],
+   "tonnes": 30502,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 235,338 t in the ratio of the published destination totals; the destination total (84,196 t) is published"
+  },
+  {
+   "id": "united-boulevard-to-contingency",
+   "from": "United Boulevard Recycling and Waste Centre",
+   "to": "Contingency landfills (out of region, unnamed)",
+   "origin": [
+    49.23003,
+    -122.87202
+   ],
+   "destination": {
+    "value": null,
+    "why": "Metro Vancouver does not name its three contingency landfills"
+   },
+   "tonnes": 61524,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 263,736 t in the ratio of the published destination totals; the destination total (151,539 t) is published"
+  },
+  {
+   "id": "united-boulevard-to-landfill",
+   "from": "United Boulevard Recycling and Waste Centre",
+   "to": "Vancouver Landfill",
+   "origin": [
+    49.23003,
+    -122.87202
+   ],
+   "destination": [
+    49.09801,
+    -123.00459
+   ],
+   "tonnes": 164720,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 263,736 t in the ratio of the published destination totals; the destination total (405,722 t) is published"
+  },
+  {
+   "id": "united-boulevard-to-wte",
+   "from": "United Boulevard Recycling and Waste Centre",
+   "to": "Metro Vancouver Waste-to-Energy Facility",
+   "origin": [
+    49.23003,
+    -122.87202
+   ],
+   "destination": [
+    49.18635,
+    -122.97776
+   ],
+   "tonnes": 34183,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "synthetic",
+   "note": "invented split of the station's published 263,736 t in the ratio of the published destination totals; the destination total (84,196 t) is published"
+  },
+  {
+   "id": "vsts-to-landfill",
+   "from": "Vancouver South Transfer Station",
+   "to": "Vancouver Landfill",
+   "origin": [
+    49.20734,
+    -123.11393
+   ],
+   "destination": [
+    49.09801,
+    -123.00459
+   ],
+   "tonnes": 140013,
+   "year": 2024,
+   "material": "garbage",
+   "basis": "published",
+   "source": "https://vancouver.ca/files/cov/2024-annual-report-vancouver-landfill.pdf",
+   "page": 17
+  },
+  {
+   "id": "wte-to-landfill",
+   "from": "Metro Vancouver Waste-to-Energy Facility",
+   "to": "Vancouver Landfill",
+   "origin": [
+    49.18635,
+    -122.97776
+   ],
+   "destination": [
+    49.09801,
+    -123.00459
+   ],
+   "tonnes": 39347,
+   "year": 2024,
+   "material": "bottom ash",
+   "basis": "published",
+   "source": "https://vancouver.ca/files/cov/2024-annual-report-vancouver-landfill.pdf",
+   "page": 18
+  }
+ ]
+}

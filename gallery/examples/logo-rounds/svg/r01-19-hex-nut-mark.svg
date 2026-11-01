@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Hex nut mark">
+<title>Hex nut mark</title>
+<defs><mask id="m19" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64"><rect width="64" height="64" fill="#fff"/><circle cx="32" cy="32" r="13" fill="#000"/><circle cx="32" cy="32" r="22" fill="none" stroke="#000" stroke-width="1.6"/></mask></defs>
+<g mask="url(#m19)"><polygon points="32,3 57.11,17.5 57.11,46.5 32,61 6.89,46.5 6.89,17.5" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></g>
+<path d="M32 22.5A9.5 9.5 0 1 0 41.5 32" fill="none" style="stroke:var(--a,#e4572e)" stroke-width="3.6" stroke-linecap="round"/>
+</svg>

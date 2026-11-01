@@ -1,0 +1,9 @@
+{
+  "$comment": "One view folder = one lazy bundle (dist/views/<folder>.js). The build registers every type listed here; docs/CONTRACT.md §1. Loading this bundle also defines <data-summary for>. docs/CONTRACT.md §43.",
+  "entry": "src/index.js",
+  "status": "built",
+  "views": [
+    { "type": "summary", "name": "Summary", "icon": "gauge", "summary": "One card of metrics side by side (Shopify admin's metric strip): each a label whose dotted underline gives its definition, a count or summary of the rows, and a sparkline only where there is a series." }
+  ],
+  "npm": []
+}

@@ -1,0 +1,50 @@
+/* type: summary and <data-summary>: one card, cells side by side, hairlines between them (Polaris' metric strip:
+   radius 12 px, cells 12 px 16 px, the label 13 px semibold over a dotted underline, the value 16/24 px semibold).
+   Colours are the private --dv-* tokens. --data-card-radius (CONTRACT §43) is the card's corner; default twice
+   --data-radius, Polaris' 12 px over its 6 px. */
+
+data-summary { display: block; container-type: inline-size; color: var(--dv-fg); font: 13px/1.35 var(--dv-font); }
+data-summary[hidden] { display: none; }
+data-summary, .dv-view-summary { --dv-card-radius: var(--data-card-radius, calc(var(--dv-radius) * 2)); }
+.dv-view-summary { flex: 1 1 auto; min-height: 0; overflow: auto; }
+.dv-summary-wrap { padding: 12px; container-type: inline-size; }
+.dv-summary-empty { color: var(--dv-muted); margin: 0; }
+
+/* one row of equal cells, a hairline before every cell but the first; never clipped, so a definition can leave it */
+.dv-summary-card { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); background: var(--dv-bg);
+  border: 1px solid var(--dv-border); border-radius: var(--dv-card-radius); }
+.dv-summary-cell { position: relative; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+  padding: 12px 16px; outline: none; }
+.dv-summary-cell + .dv-summary-cell { border-left: 1px solid var(--dv-border); }
+.dv-summary-cell:first-child { border-radius: var(--dv-card-radius) 0 0 var(--dv-card-radius); }
+.dv-summary-cell:last-child { border-radius: 0 var(--dv-card-radius) var(--dv-card-radius) 0; }
+.dv-summary-cell:only-child { border-radius: var(--dv-card-radius); }
+.dv-summary-cell[tabindex] { cursor: pointer; }
+.dv-summary-cell[tabindex]:hover { background: var(--dv-hover); }
+.dv-summary-cell:focus-visible { box-shadow: inset 0 0 0 2px var(--dv-accent); }
+.dv-summary-label { font-weight: 650; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dv-summary-defined { border-bottom: 1px dotted var(--dv-muted); cursor: help; }
+.dv-summary-line { display: flex; align-items: center; gap: 8px; min-width: 0; max-width: 100%; }
+.dv-summary-value { font-size: 16px; line-height: 24px; font-weight: 650; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dv-summary-unit { color: var(--dv-muted); font-size: 12.5px; font-weight: 450; margin-left: 4px; }
+.dv-summary-none { color: var(--dv-muted); font-weight: 450; }
+.dv-summary-delta { color: var(--dv-muted); font-size: 12px; white-space: nowrap; }
+.dv-summary-spark { flex: none; overflow: visible; }
+.dv-summary-spark path { fill: none; stroke: var(--dv-series-1); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.dv-summary-cell[data-error] .dv-summary-label { color: var(--dv-warn); }
+
+/* the definition: a tooltip under the label on hover, and while the cell has the keyboard's focus (the cell's
+   aria-describedby names it for a screen reader either way) */
+.dv-summary-tip { position: absolute; z-index: 20; top: calc(100% - 8px); left: 12px; width: max-content; max-width: min(280px, calc(100% - 24px));
+  padding: 6px 10px; border-radius: var(--dv-radius); background: var(--dv-fg); color: var(--dv-bg); font-size: 12px; font-weight: 450;
+  line-height: 1.4; white-space: normal; pointer-events: none; opacity: 0; visibility: hidden; transition: opacity .12s; }
+.dv-summary-label:hover + .dv-summary-tip, .dv-summary-cell:focus-visible > .dv-summary-tip { opacity: 1; visibility: visible; }
+
+/* a phone: two cells to a row, a hairline between the two and above the second row */
+@container (max-width: 520px) {
+  .dv-summary-card { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dv-summary-cell + .dv-summary-cell { border-left: 0; }
+  .dv-summary-cell:nth-child(2n) { border-left: 1px solid var(--dv-border); }
+  .dv-summary-cell:nth-child(n + 3) { border-top: 1px solid var(--dv-border); }
+  .dv-summary-cell:is(:first-child, :last-child) { border-radius: 0; }
+}

@@ -1,0 +1,61 @@
+# Vibe Tracks' KPI section as data-ui views: one row per KPI reading (Vibe Tracks' synthetic grasp bench, its
+# committed fixture), the headline card with its run history, the smaller cards beside it, and the history as charts.
+# Check it: node bin/data-ui.mjs check <this file>
+data: kpis.json
+facets:
+  - label
+  - model
+  - lane
+  - { property: t, as: range }
+properties:
+  label: { displayName: KPI }
+  t: { displayName: When }
+  value: { displayName: Value }
+  better: { displayName: Better }
+  model: { displayName: Model }
+  lane: { displayName: Lane }
+  bench: { displayName: Bench }
+  commit: { displayName: Commit }
+  runs: { displayName: Runs }
+  run_ids: { displayName: Run ids }
+views:
+  - type: kpi
+    name: KPIs
+    groupBy: { property: label }
+    groupOrder: [Successful picks per minute (SPPM), Computation time, Grasp success, Computation time p95, Bench score]
+    sort:
+      - { property: t, direction: ASC }
+    kpi:
+      value: { property: value }
+      compare: { against: previous, better: better, neutral: 0.01 }
+      spark: { x: t, y: value }
+  - type: chart
+    name: SPPM history
+    filters: 'kpi == "sppm"'
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: t, title: Build }
+        y: { field: value, title: Successful picks per minute }
+        color: { field: model }
+    guides:
+      - { rule: { y: 30 }, label: "one robot at a 2 s cycle: 30 picks/min" }
+    hover: { title: label, fields: [value, model, t, runs, lane] }
+  - type: chart
+    name: Every KPI
+    filters: 'kpi != "bench_score"'
+    chart:
+      mark: { type: line, point: true }
+      encoding:
+        x: { field: t, title: null }
+        y: { field: value, title: null }
+        facet: { field: label, columns: 2 }
+      resolve: { scale: { y: independent } }
+    hover: { title: label, fields: [value, model, t, runs] }
+  - type: table
+    name: Readings
+    order: [label, t, value, model, lane, runs, bench, commit]
+    groupBy: { property: label }
+    sort:
+      - { property: t, direction: DESC }
+    fold: closed

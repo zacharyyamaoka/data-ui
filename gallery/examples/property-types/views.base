@@ -1,0 +1,54 @@
+# Property types (docs/CONTRACT.md §28): Notion's "Projects" table and every type data-ui draws, from one .base file.
+# Each property says its type and its type's options under properties:; the data (projects.json) stays as stored.
+# Check it: node bin/data-ui.mjs check <this file>
+data: projects.json
+after: |
+  **Every column is a property type**, set in this file's `properties:` (Notion calls it *Type*): a status is a dot and
+  its label, a select a coloured pill, a number can show as a bar or a ring, a date has its format. Click a column's
+  header for Notion's menu: rename it, pick its icon, change its type, filter, sort, calculate, roll up, freeze, hide or
+  wrap it. The stored values never change; only how they are drawn.
+properties:
+  number: { displayName: ID, type: id, prefix: PRJ }
+  name: { displayName: Project name, type: text, icon: text }
+  status:
+    displayName: Status
+    type: status
+    description: Where the project stands (Notion's three groups)
+    options:
+      - { value: Not started, color: gray, group: todo }
+      - { value: Planning, color: blue, group: todo }
+      - { value: In Progress, color: yellow, group: in_progress }
+      - { value: Done, color: green, group: done }
+  owner: { displayName: Owner, type: person }
+  priority: { displayName: Priority, type: select, options: { High: red, Medium: yellow, Low: green } }
+  completion: { displayName: Completion, type: percent, decimals: 2, showAs: bar, color: green, description: Share of the project done }
+  budget: { displayName: Budget, type: currency, currency: USD, decimals: 0 }
+  spent: { displayName: Spent, type: rollup, format: currency, currency: USD, decimals: 0, showAs: ring, divideBy: 30500, color: blue }
+  due: { displayName: Due, type: date, dateFormat: short }
+  edited: { displayName: Last edited, type: edited_time, dateFormat: relative }
+  tags: { displayName: Tags, type: multi_select, options: { ai: purple, tables: blue, web: gray, api: orange, mobile: pink } }
+  rating: { displayName: Confidence, type: rating, max: 5, color: yellow }
+  shipped: { displayName: Shipped, type: checkbox }
+  url: { displayName: Link, type: url, urlDisplay: short }
+  email: { displayName: Email, type: email }
+  phone: { displayName: Phone, type: phone }
+  files: { displayName: Files & media, type: files }
+  effort: { displayName: Effort, type: duration, durationUnit: s, durationFormat: h:mm }
+  depends_on: { displayName: Depends on, type: relation }
+views:
+  - type: table
+    name: All
+    order: [name, status, owner, priority, completion]
+    columnSize: { name: 300 }
+  - type: table
+    name: Every type
+    order: [number, name, status, owner, priority, completion, budget, spent, due, edited, tags, rating, shipped, url, email, phone, files, effort, depends_on]
+    summaries: { budget: Sum, completion: Average, shipped: Checked, status: Unique }
+  - type: table
+    name: By status
+    order: [name, owner, priority, completion, budget, due]
+    groupBy: { property: status, direction: ASC }
+    summaries: { budget: Sum, completion: Average }
+    # offered for roll-up: owner and priority (status groups, so it is always kept); kept both, so one row per project
+    # until a column menu's "Roll up across Owner" folds the owners away
+    rollup: { keep: [owner, priority], dims: [owner, priority], agg: { budget: sum, completion: mean } }

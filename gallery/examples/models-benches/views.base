@@ -1,0 +1,62 @@
+# Models × benches: the CAN 14 twin-error comparison (suite bam-rack/1), one row per model and run. The pivot is the
+# table lane's preset; the charts put every run per model against the twin-grade line (1.5 × the 1.08 mrad floor).
+# Check it: node bin/data-ui.mjs check <this file>
+data: models.json
+facets:
+  - family
+  - suite
+  - test
+  - { property: q_rms_mrad, as: range }
+properties:
+  variant: { displayName: Model }
+  model: { displayName: Model id }
+  backend: { displayName: Backend }
+  family: { displayName: Family }
+  rung: { displayName: Rung }
+  about: { displayName: What it models }
+  suite: { displayName: Suite }
+  test: { displayName: Test }
+  run: { displayName: Run }
+  q_rms_mrad: { displayName: q RMS }
+  x_floor: { displayName: × floor }
+  bench_steps: { displayName: Bench steps }
+  bench_min: { displayName: Bench time }
+  sensors_missing: { displayName: Sensors the rack lacks }
+views:
+  - type: pivot
+    name: Benchmarks
+    order: [variant]
+    groupBy: { property: family }
+    splitBy: [suite, test]
+    value: { property: q_rms_mrad, summary: Median, display: dist }
+  - type: chart
+    name: Every run per model
+    chart:
+      mark: { type: tick, thickness: 2, size: 26 }
+      encoding:
+        x: { field: q_rms_mrad, scale: { type: log } }
+        y: { field: variant }
+        color: { field: suite }
+    guides:
+      - { rule: { x: 1.0818 }, label: "floor 1.08" }
+      - { rule: { x: 1.6227 }, label: "twin-grade ≤ 1.62" }
+      - { rule: { x: 2.1636 }, label: "every class ≤ 2.16" }
+    hover: { title: variant, fields: [q_rms_mrad, x_floor, suite, test, run] }
+  - type: chart
+    name: Median per model
+    chart:
+      mark: bar
+      encoding:
+        x: { field: q_rms_mrad, aggregate: median }
+        y: { field: variant, sort: x }
+        color: { field: family }
+    guides:
+      - { rule: { x: 1.6227 }, label: "twin-grade ≤ 1.62 mrad" }
+  - type: table
+    name: All runs
+    order: [variant, suite, test, run, q_rms_mrad, x_floor]
+    groupBy: { property: variant }
+    sort:
+      - { property: q_rms_mrad, direction: DESC }
+    display: { q_rms_mrad: bar }
+    fold: closed

@@ -1,0 +1,175 @@
+/* The dashboard editor (dist/dashboard-edit.js): loaded on Edit, so the reading view has none of it. Calm by default (memory
+   feedback_calm_ui_progressive_disclosure): hairlines, one accent, quiet until hovered or selected; the dashboard stays
+   the main thing on screen. Colours are the kit's --dv-* and the dashboard's --dd-* tokens, so light, dark and a host's
+   theme carry over; the editor's own sizes are the --dde-* tokens below. Classes are dde-*. */
+
+data-dashboard[data-editing] {
+  --dde-outline-width: 240px;
+  --dde-options-width: 300px;
+  --dde-pane-gap: 12px;
+  --dde-pane-radius: var(--dd-radius, 12px);
+  --dde-strip: 28px;
+  --dde-row: 28px;
+  --dde-grip: 28px;
+  --dde-field-gap: 8px;
+  --dde-control: var(--dv-bg);
+  --dde-mark: color-mix(in srgb, var(--dv-accent) 12%, transparent);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  column-gap: var(--dde-pane-gap);
+  align-items: start;
+}
+data-dashboard[data-editing] > .dd-problems { grid-column: 1 / -1; grid-row: 1; }
+data-dashboard[data-editing] > .dd-body { grid-column: 2; grid-row: 2; min-width: 0; }
+
+/* ---- the side panels: one kind (pane.js). The width is --data-panel-width once dragged or remembered (CONTRACT §11) */
+.dde-pane { grid-row: 2; position: sticky; top: calc(var(--data-sticky-top, 0px) + var(--dde-pane-gap)); display: flex; flex-direction: column; box-sizing: border-box;
+  max-width: 100%; max-height: calc(100vh - var(--data-sticky-top, 0px) - var(--dde-pane-gap) * 2); overflow: hidden;
+  color: var(--dv-fg); background: var(--dd-card); border: 1px solid var(--dd-line); border-radius: var(--dde-pane-radius); }
+.dde-pane-left { grid-column: 1; width: var(--data-panel-width, var(--dde-outline-width)); }
+.dde-pane-right { grid-column: 3; width: var(--data-panel-width, var(--dde-options-width)); }
+.dde-pane-h { flex: none; display: flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 6px 0 12px; }
+.dde-pane-h h3 { flex: 1 1 auto; min-width: 0; margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .01em; color: var(--dv-muted); }
+.dde-pane-b { flex: 1 1 auto; min-height: 0; overflow: auto; padding: 0 6px 8px; }
+.dde-pane-b[hidden] { display: none; }
+.dde-fold { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; padding: 0; color: var(--dv-muted); background: none; border: 0; border-radius: 6px; cursor: pointer; }
+.dde-fold:hover { color: var(--dv-fg); background: var(--dv-hover); }
+.dde-fold:focus-visible, .dde-row:focus-visible, .dde-q:focus-visible, .dde-btn:focus-visible, .dde-seg button:focus-visible, .dde-mi:focus-visible, .dde-diff:focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -1px; }
+/* folded: a strip that holds only its button; the boundary has nothing to drag */
+data-dashboard[data-editing] .dde-pane[data-folded] { width: var(--dde-strip); }
+.dde-pane[data-folded] .dde-pane-h { padding: 0; justify-content: center; }
+.dde-pane[data-folded] h3 { display: none; }
+.dde-pane[data-folded] + .dv-splitter { display: none; }
+.dde-ico { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---- the bar: quiet status, tools, Save */
+data-dashboard[data-editing] .dd-bar { flex-wrap: wrap; }
+data-dashboard[data-editing] .dd-chips:empty { display: none; }
+data-dashboard[data-editing] .dd-actions { flex: 1 1 auto; flex-wrap: wrap; align-items: center; justify-content: flex-end; min-width: 0; }
+.dde-status { flex: 1 1 auto; min-width: 0; font-size: 12.5px; color: var(--dv-muted); overflow-wrap: anywhere; }
+.dde-tool { display: inline-flex; align-items: center; padding: 4px 6px; }
+.dd-act.dde-tool:disabled { opacity: .4; cursor: default; }
+.dd-act.dde-primary, .dde-btn.dde-primary { color: var(--dv-on-accent); background: var(--dv-accent); border-color: transparent; }
+.dd-act.dde-primary:hover, .dde-btn.dde-primary:hover { background: color-mix(in srgb, var(--dv-accent) 88%, var(--dv-fg)); }
+.dd-act.dde-primary:disabled { color: var(--dv-muted); background: none; border-color: var(--dd-line); cursor: default; opacity: 1; }
+
+/* ---- the canvas: the grid of gridstack (arrange.js), each panel a quiet outline, the selected one the accent */
+data-dashboard[data-editing] :is(.dd-panel-menu, .dd-panel-pop) { display: none; }
+data-dashboard[data-editing] .dd-rail { display: none; }
+data-dashboard[data-editing] .dd-rail + .dv-splitter { display: none; }
+data-dashboard[data-editing] .dd-body.dd-has-rail { grid-template-columns: minmax(0, 1fr); }
+data-dashboard[data-editing][data-dde-filters] .dd-rail { display: flex; }
+data-dashboard[data-editing][data-dde-filters] .dd-rail + .dv-splitter { display: block; }
+data-dashboard[data-editing][data-dde-filters] .dd-body.dd-has-rail { grid-template-columns: auto minmax(0, 1fr); }
+data-dashboard[data-editing] .dd-grid.grid-stack > .dd-panel.grid-stack-item { outline: 0; cursor: default; }
+data-dashboard[data-editing] .grid-stack-item > .grid-stack-item-content { padding: var(--dd-p-pad, 16px); box-shadow: inset 0 0 0 1px var(--dd-line); }
+data-dashboard[data-editing] .dd-panel[data-surface="transparent"] > .grid-stack-item-content, data-dashboard[data-editing] .dd-panel-text > .grid-stack-item-content { padding: 4px 8px; }
+data-dashboard[data-editing][data-density="compact"] .grid-stack-item > .grid-stack-item-content { padding: calc(var(--dd-p-pad, 16px) * .6); }
+data-dashboard[data-editing] .dd-panel[data-dde-selected] > .grid-stack-item-content { box-shadow: inset 0 0 0 2px var(--dv-accent); }
+data-dashboard[data-editing] .dd-panel[data-dde-selected]:not(.grid-stack-item) { box-shadow: 0 0 0 2px var(--dv-accent); }
+data-dashboard[data-editing] .grid-stack-placeholder > .placeholder-content { background: var(--dde-mark); border: 1px dashed var(--dv-accent); border-radius: var(--dd-p-radius, 12px); }
+data-dashboard[data-editing] .dd-grid { min-height: 120px; }
+data-dashboard[data-editing] .dd-panel[data-type="playback"] > .grid-stack-item-content { justify-content: center; }
+/* the grip: the panel's top edge, its title row included, and quiet until the panel is hovered */
+.dde-grip { position: absolute; z-index: 6; inset: 0 0 auto 0; height: var(--dde-grip); display: flex; align-items: center; padding: 0 6px; color: var(--dv-muted); cursor: grab; touch-action: none; }
+.dde-grip .dde-ico { opacity: 0; transition: opacity .12s ease; }
+.dd-panel:hover .dde-grip .dde-ico, .dd-panel[data-dde-selected] .dde-grip .dde-ico { opacity: 1; }
+.grid-stack-item.ui-draggable-dragging .dde-grip { cursor: grabbing; }
+/* where a queued item will land: a line on the panel's edge */
+.dd-panel[data-dde-drop]::after { content: ""; position: absolute; z-index: 7; background: var(--dv-accent); pointer-events: none; }
+.dd-panel[data-dde-drop="top"]::after { inset: 2px 6px auto 6px; height: 3px; }
+.dd-panel[data-dde-drop="bottom"]::after { inset: auto 6px 2px 6px; height: 3px; }
+.dd-panel[data-dde-drop="left"]::after { inset: 6px auto 6px 2px; width: 3px; }
+.dd-panel[data-dde-drop="right"]::after { inset: 6px 2px 6px auto; width: 3px; }
+
+/* ---- the outline */
+.dde-tree { display: flex; flex-direction: column; }
+.dde-row { display: flex; align-items: center; gap: 6px; min-height: var(--dde-row); padding: 0 4px 0 2px; font-size: 12.5px; color: var(--dv-fg); border-radius: 6px; cursor: default; outline-offset: -1px; }
+.dde-row > .dde-ico:first-child { color: var(--dv-muted); opacity: 0; cursor: grab; }
+.dde-row:hover > .dde-ico:first-child, .dde-row:focus-visible > .dde-ico:first-child { opacity: 1; }
+.dde-row > .dde-ico { color: var(--dv-muted); }
+.dde-row:hover { background: var(--dv-hover); }
+.dde-row[aria-selected="true"] { background: var(--dde-mark); }
+.dde-row[data-hidden] .dde-tl, .dde-row[data-hidden] > .dde-ico { opacity: .45; }
+.dde-tl { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dde-ra { flex: none; display: inline-flex; padding: 2px; color: var(--dv-muted); background: none; border: 0; border-radius: 4px; cursor: pointer; opacity: 0; }
+.dde-row:hover .dde-ra, .dde-row:focus-within .dde-ra, .dde-row[data-hidden] .dde-ra { opacity: 1; }
+.dde-ra:hover { color: var(--dv-fg); background: var(--dv-hover); }
+.dde-kids { display: flex; flex-direction: column; }
+.dde-kid { padding-left: 24px; }
+.dde-row[data-drop="reorder-before"] { box-shadow: inset 0 2px 0 var(--dv-accent); }
+.dde-row[data-drop="reorder-after"] { box-shadow: inset 0 -2px 0 var(--dv-accent); }
+.dde-row[data-drop="combine"] { background: var(--dde-mark); box-shadow: inset 0 0 0 1px var(--dv-accent); }
+
+/* ---- the queue, under the tree: it takes no room when empty */
+.dde-queue { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--dd-line); }
+.dde-queue h4 { display: flex; gap: 6px; margin: 0 6px 4px; font-size: 12px; font-weight: 600; color: var(--dv-muted); }
+.dde-queue h4 span { font-weight: 400; }
+.dde-q { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 6px; align-items: center; padding: 5px 6px; font-size: 12.5px; color: var(--dv-fg); border-radius: 6px; cursor: grab; }
+.dde-q:hover { background: var(--dv-hover); }
+.dde-q > .dde-ico { color: var(--dv-muted); }
+.dde-q small { grid-column: 2; font-size: 11px; color: var(--dv-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ---- the options pane, and the review it becomes */
+.dde-sec { padding: 8px 6px; display: flex; flex-direction: column; gap: var(--dde-field-gap); }
+.dde-sec + .dde-sec { border-top: 1px solid var(--dd-line); }
+.dde-field { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; font-size: 12.5px; }
+.dde-field > span:first-child { color: var(--dv-muted); }
+.dde-col { flex-direction: column; align-items: stretch; gap: 4px; }
+.dde-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: var(--dde-field-gap); }
+.dde-value { color: var(--dv-fg); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dde-unit { display: inline-flex; align-items: center; gap: 4px; }
+.dde-unit small { color: var(--dv-muted); font-size: 11px; }
+.dde-unit input { width: 54px; }
+.dde-pane input[type="text"], .dde-pane input[type="number"], .dde-pane select, .dde-pane textarea { box-sizing: border-box; min-width: 0; font: inherit; font-size: 12.5px; color: var(--dv-fg); background: var(--dde-control); border: 1px solid var(--dd-line); border-radius: 6px; padding: 4px 6px; }
+.dde-pane textarea { resize: vertical; }
+.dde-pane :is(input, select, textarea):focus-visible { outline: 2px solid var(--dv-accent); outline-offset: -1px; }
+.dde-check { display: flex; align-items: center; gap: 6px; font-size: 12.5px; }
+.dde-check input { margin: 0; accent-color: var(--dv-accent); }
+.dde-seg { display: grid; grid-template-columns: repeat(auto-fit, minmax(58px, 1fr)); gap: 4px; }
+.dde-seg button { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 5px 2px; font: inherit; font-size: 11px; color: var(--dv-muted); background: none; border: 1px solid var(--dd-line); border-radius: 6px; cursor: pointer; }
+.dde-seg button:hover { color: var(--dv-fg); background: var(--dv-hover); }
+.dde-seg button[aria-checked="true"] { color: var(--dv-fg); background: var(--dde-mark); border-color: var(--dv-accent); }
+.dde-row-btns { display: inline-flex; gap: 4px; }
+.dde-btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; font: inherit; font-size: 12.5px; color: var(--dv-fg); background: none; border: 1px solid var(--dd-line); border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+.dde-btn:hover { background: var(--dv-hover); }
+.dde-btn:disabled { opacity: .4; cursor: default; }
+.dde-foot { flex-direction: row; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+.dde-note { margin: 0; padding: 4px 6px; font-size: 12px; color: var(--dv-muted); overflow-wrap: anywhere; }
+.dde-moved { margin: 0; padding: 6px 8px; font-size: 12.5px; color: var(--dv-fg); background: color-mix(in srgb, var(--dv-warn) 14%, transparent); border-radius: 6px; }
+.dde-changes { margin: 0; padding: 0 0 0 16px; font-size: 12.5px; color: var(--dv-fg); }
+.dde-diff { margin: 0; padding: 4px 0; max-height: 46vh; overflow: auto; font: 11.5px/1.5 var(--dv-mono); color: var(--dv-muted); background: var(--dv-subtle); border-radius: 6px; }
+/* WHY wrapped, not clipped: the review is where a reader decides, so every changed character is on screen with no sideways scroll */
+.dde-dl { display: grid; grid-template-columns: 34px 12px minmax(0, 1fr); padding-right: 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.dde-dl i { padding-right: 6px; text-align: right; font-style: normal; opacity: .6; }
+.dde-dl b { font-weight: 400; }
+.dde-dadd { color: var(--dv-fg); background: color-mix(in srgb, var(--dv-accent) 14%, transparent); }
+.dde-ddel { color: var(--dv-fg); background: color-mix(in srgb, var(--dv-warn) 12%, transparent); }
+.dde-dgap { display: block; padding-left: 46px; }
+
+/* ---- the Add menu and Exit's question */
+.dde-menu { position: fixed; z-index: 70; min-width: 180px; padding: 4px; display: flex; flex-direction: column; color: var(--dv-fg); font: 12.5px/1.4 var(--dv-font); background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 10px; box-shadow: 0 8px 28px color-mix(in srgb, var(--dv-fg) 16%, transparent); }
+.dde-mi { font: inherit; text-align: left; color: var(--dv-fg); background: none; border: 0; border-radius: 6px; padding: 6px 10px; cursor: pointer; }
+.dde-mi:hover { background: var(--dv-hover); }
+.dde-sep { height: 1px; margin: 4px 6px; background: var(--dv-border); }
+.dde-dialog { max-width: min(420px, calc(100vw - 32px)); padding: 16px; color: var(--dv-fg); font: 13px/1.45 var(--dv-font); background: var(--dv-bg); border: 1px solid var(--dv-border); border-radius: 12px; }
+.dde-dialog::backdrop { background: color-mix(in srgb, var(--dv-fg) 24%, transparent); }
+.dde-dialog h3 { margin: 0 0 6px; font-size: 14px; }
+.dde-dialog p { margin: 0 0 14px; color: var(--dv-muted); }
+.dde-actions { display: flex; justify-content: flex-end; gap: 6px; }
+
+/* ---- a narrow dashboard (under 700 px, the attribute editor.js sets): one column; the panes stack in the page, full width, folded to a row */
+data-dashboard[data-editing][data-dde-narrow] { grid-template-columns: minmax(0, 1fr); }
+data-dashboard[data-editing][data-dde-narrow] > .dd-body { grid-column: 1; grid-row: 3; }
+data-dashboard[data-editing][data-dde-narrow] .dde-pane { grid-column: 1; position: static; max-height: none; margin-bottom: 8px; }
+data-dashboard[data-editing][data-dde-narrow] :is(.dde-pane, .dde-pane[data-folded]) { width: 100%; }
+data-dashboard[data-editing][data-dde-narrow] .dde-pane-left { grid-row: 1; }
+data-dashboard[data-editing][data-dde-narrow] .dde-pane-right { grid-row: 2; }
+data-dashboard[data-editing][data-dde-narrow] .dde-pane[data-folded] .dde-pane-h { padding: 0 6px 0 12px; justify-content: flex-start; }
+data-dashboard[data-editing][data-dde-narrow] .dde-pane[data-folded] h3 { display: block; }
+data-dashboard[data-editing][data-dde-narrow] .dde-pane-b { max-height: none; overflow: visible; }
+data-dashboard[data-editing][data-dde-narrow] .dde-diff { max-height: 40vh; }
+data-dashboard[data-editing][data-dde-narrow] .dd-panel { position: relative; }
+data-dashboard[data-editing][data-dde-narrow][data-dde-filters] .dd-body.dd-has-rail { grid-template-columns: minmax(0, 1fr); }
+
+@media (prefers-reduced-motion: reduce) { .dde-grip .dde-ico { transition: none; } }

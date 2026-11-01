@@ -1,0 +1,14 @@
+# Board B of tests/browser/dx_asks_checks.py: the same shared config dataset as board A, its own file, path b. A panel
+# added from here must read path b's file, never the shared dataset's url (board A's, which made it first).
+datasets:
+  config:
+    data: ../config.json?path=b
+views:
+  - type: table
+    name: Settings
+    from: config
+    filters: 'path == "b"'
+    order: [key, value]
+layout:
+  panels:
+    - { view: Settings, w: 12, h: 3 }

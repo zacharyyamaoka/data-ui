@@ -1,0 +1,12 @@
+# tests/browser/map_select_checks.py: an arc is its row
+data: places.json
+layout:
+  panels:
+    - { view: Map, w: 12, h: 6 }
+views:
+  - type: map
+    name: Map
+    select: name
+    coordinates: at
+    layers:
+      - { type: flows, from: at, to: to, filter: 'kind == "demand"', width: { property: tonnes, max: 10 }, title: Flows }

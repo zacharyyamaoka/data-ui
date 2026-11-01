@@ -1,0 +1,36 @@
+# P2 fixture (tests/browser/p2_checks.py): coverage over 137 runs of one synthetic tool path (runs137.json,
+# make_fixture.py; family real). Each view is one check's starting point; the checks then change its keys through the
+# host (setView) or the card's own controls, as a reader would. Cells are 25 mm, anchored at the frame's origin.
+data: runs137.json
+views:
+  # every run at opacity: auto (1/n over the family's 137 paths), inside a box workspace
+  - type: trajectory3d
+    name: Many
+    style: { families: { property: source, colors: { real: 1, sim: 2, target: muted } } }
+    trajectory3d: { workspace: { box: [[0, -150, 50], [300, 150, 250]] } }
+  - type: voxels
+    name: Count
+    style: { families: { property: source, colors: { real: 1, sim: 2, target: muted } } }
+    voxels: { x: x_mm, 'y': y_mm, z: z_mm, unit: mm, cell: 25 }
+  - type: voxels
+    name: Time
+    style: { families: { property: source, colors: { real: 1, sim: 2, target: muted } } }
+    voxels: { x: x_mm, 'y': y_mm, z: z_mm, unit: mm, cell: 25, value: time, hz: 10 }
+  - type: voxels
+    name: Runs
+    style: { families: { property: source, colors: { real: 1, sim: 2, target: muted } } }
+    voxels: { x: x_mm, 'y': y_mm, z: z_mm, unit: mm, cell: 25, value: runs }
+  # the 2D heatmap: one z slice seen from the top
+  - type: voxels
+    name: Slice
+    style: { families: { property: source, colors: { real: 1, sim: 2, target: muted } } }
+    voxels: { x: x_mm, 'y': y_mm, z: z_mm, unit: mm, cell: 25, projection: top, slice: { axis: z, at: 137.5 } }
+  # the workspace alone (one point inside it): the Robot arm template's model, seen from the top
+  - type: scene3d
+    name: Hull
+    filters: 'run == "m/r001" && t == 0'
+    scene3d:
+      unit: mm
+      projection: top
+      layers: [{ primitive: points, x: x_mm, 'y': y_mm, z: z_mm }]
+      workspace: { model: ../../../../gallery/examples/robotics-arm/media/workspace.glb }

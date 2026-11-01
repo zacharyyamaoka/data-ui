@@ -1,0 +1,33 @@
+{
+  "id": "vibetracks-runs",
+  "title": "Vibe Tracks aruco-studio producer runs (700 rows, flat)",
+  "app": "vibetracks",
+  "base": "views.base",
+  "view": null,
+  "rows": 700,
+  "synthetic": false,
+  "provenance": {
+    "from": "~/vt/zach/producers/aruco-studio/runs_table.jsonl (vt-run/1) @ file mtime 2026-10-26, flattened by source/build.py",
+    "sha256": "a8b16072231d33452c0011e12d65bbed0a97f2eef3fe22b7263a7599610c2e60",
+    "copied": "2026-10-26",
+    "note": "Aruco Studio's feature benchmark runs (cpython, pyodide-node, browser hosts) as one row per run; written by Vibe Tracks' aruco-studio producer."
+  },
+  "interactions": {
+    "filter": {
+      "property": "host",
+      "value": "browser"
+    },
+    "sort": {
+      "property": "warm_ms_sum",
+      "direction": "DESC"
+    },
+    "search": "grid",
+    "presets": [
+      "Runs",
+      "By host",
+      "Host × marker"
+    ],
+    "scroll": true,
+    "peek": true
+  }
+}

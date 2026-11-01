@@ -1,0 +1,1590 @@
+{
+ "id": "robotparts-calendar",
+ "title": "Releases and daily notes",
+ "titleProperty": "title",
+ "source": "git -C ~/robotparts tag -l 'release/*' + file names and frontmatter dates of ~/zach_brain/Sources/Daily Notes (no note content)",
+ "properties": {
+  "title": {
+   "type": "text",
+   "label": "Title",
+   "width": 240
+  },
+  "kind": {
+   "type": "text",
+   "label": "Kind",
+   "display": "badge",
+   "colors": {
+    "release": 8,
+    "daily note": 1
+   }
+  },
+  "date": {
+   "type": "date",
+   "label": "Date"
+  },
+  "created": {
+   "type": "date",
+   "label": "Note created",
+   "readOnly": true
+  },
+  "modified": {
+   "type": "date",
+   "label": "Note modified",
+   "readOnly": true
+  },
+  "commit": {
+   "type": "text",
+   "label": "Tagged commit"
+  }
+ },
+ "rows": [
+  {
+   "id": "note-jun-7-2021",
+   "title": "Jun 7 2021",
+   "kind": "daily note",
+   "date": "2021-06-07",
+   "created": "2026-06-10T18:49:54",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-feb-27-2026",
+   "title": "Feb 27 2026",
+   "kind": "daily note",
+   "date": "2026-02-27",
+   "created": "2026-05-30T18:29:24",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-2026-04-30",
+   "title": "2026-04-30",
+   "kind": "daily note",
+   "date": "2026-04-30",
+   "created": "2026-04-30T05:49:23",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-2026-05-02",
+   "title": "2026-05-02",
+   "kind": "daily note",
+   "date": "2026-05-02",
+   "created": "2026-05-02T07:58:34",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-2026-05-15",
+   "title": "2026-05-15",
+   "kind": "daily note",
+   "date": "2026-05-15",
+   "created": "2026-05-15T07:16:32",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-2026-05-16",
+   "title": "2026-05-16",
+   "kind": "daily note",
+   "date": "2026-05-16",
+   "created": "2026-05-16T12:42:11",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-2026-05-17",
+   "title": "2026-05-17",
+   "kind": "daily note",
+   "date": "2026-05-17",
+   "created": "2026-05-17T07:41:12",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-2026-05-18",
+   "title": "2026-05-18",
+   "kind": "daily note",
+   "date": "2026-05-18",
+   "created": "2026-05-18T06:08:11",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-2026-05-19",
+   "title": "2026-05-19",
+   "kind": "daily note",
+   "date": "2026-05-19",
+   "created": "2026-05-19T05:34:20",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-may-19-2026",
+   "title": "May 19 2026",
+   "kind": "daily note",
+   "date": "2026-05-19",
+   "created": "2026-05-19T07:56:23",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-may-20-2026",
+   "title": "May 20 2026",
+   "kind": "daily note",
+   "date": "2026-05-20",
+   "created": "2026-05-20T06:58:06",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-may-21-2026",
+   "title": "May 21 2026",
+   "kind": "daily note",
+   "date": "2026-05-21",
+   "created": "2026-05-21T06:53:47",
+   "modified": "2026-06-10T19:30:54",
+   "commit": null
+  },
+  {
+   "id": "note-may-22-2026",
+   "title": "May 22 2026",
+   "kind": "daily note",
+   "date": "2026-05-22",
+   "created": "2026-05-22T11:48:07",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-may-23-2026",
+   "title": "May 23 2026",
+   "kind": "daily note",
+   "date": "2026-05-23",
+   "created": "2026-05-23T13:14:56",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-may-24-2026",
+   "title": "May 24 2026",
+   "kind": "daily note",
+   "date": "2026-05-24",
+   "created": "2026-05-28T15:43:36",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-may-25-2026",
+   "title": "May 25 2026",
+   "kind": "daily note",
+   "date": "2026-05-25",
+   "created": "2026-05-28T15:43:36",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-may-26-2026",
+   "title": "May 26 2026",
+   "kind": "daily note",
+   "date": "2026-05-26",
+   "created": "2026-05-28T15:47:09",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-may-27-2026",
+   "title": "May 27 2026",
+   "kind": "daily note",
+   "date": "2026-05-27",
+   "created": "2026-05-28T15:47:09",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-may-28-2026",
+   "title": "May 28 2026",
+   "kind": "daily note",
+   "date": "2026-05-28",
+   "created": "2026-05-28T15:47:09",
+   "modified": "2026-06-11T13:29:24",
+   "commit": null
+  },
+  {
+   "id": "note-may-29-2026",
+   "title": "May 29 2026",
+   "kind": "daily note",
+   "date": "2026-05-29",
+   "created": "2026-05-29T11:38:48",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-may-30-2026",
+   "title": "May 30 2026",
+   "kind": "daily note",
+   "date": "2026-05-30",
+   "created": "2026-05-30T06:41:36",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-may-31-2026",
+   "title": "May 31 2026",
+   "kind": "daily note",
+   "date": "2026-05-31",
+   "created": "2026-05-31T06:40:50",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-jun-1-2026",
+   "title": "Jun 1 2026",
+   "kind": "daily note",
+   "date": "2026-06-01",
+   "created": "2026-06-01T18:22:58",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-jun-2-2026",
+   "title": "Jun 2 2026",
+   "kind": "daily note",
+   "date": "2026-06-02",
+   "created": "2026-06-02T05:36:26",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-jun-3-2026",
+   "title": "Jun 3 2026",
+   "kind": "daily note",
+   "date": "2026-06-03",
+   "created": "2026-06-03T03:03:25",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-jun-4-2026",
+   "title": "Jun 4 2026",
+   "kind": "daily note",
+   "date": "2026-06-04",
+   "created": "2026-06-04T05:39:55",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-jun-5-2026",
+   "title": "Jun 5 2026",
+   "kind": "daily note",
+   "date": "2026-06-05",
+   "created": "2026-06-05T06:02:50",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-jun-6-2026",
+   "title": "Jun 6 2026",
+   "kind": "daily note",
+   "date": "2026-06-06",
+   "created": "2026-06-06T05:27:15",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-jun-7-2026",
+   "title": "Jun 7 2026",
+   "kind": "daily note",
+   "date": "2026-06-07",
+   "created": "2026-06-07T05:22:55",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-jun-8-2026",
+   "title": "Jun 8 2026",
+   "kind": "daily note",
+   "date": "2026-06-08",
+   "created": "2026-06-08T03:56:39",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-jun-9-2026",
+   "title": "Jun 9 2026",
+   "kind": "daily note",
+   "date": "2026-06-09",
+   "created": "2026-06-09T03:27:51",
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-jun-10-2026",
+   "title": "Jun 10 2026",
+   "kind": "daily note",
+   "date": "2026-06-10",
+   "created": "2026-06-10T06:07:18",
+   "modified": "2026-06-10T19:39:05",
+   "commit": null
+  },
+  {
+   "id": "note-jun-11-2026",
+   "title": "Jun 11 2026",
+   "kind": "daily note",
+   "date": "2026-06-11",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-06-12T08:25:56",
+   "commit": null
+  },
+  {
+   "id": "note-jun-12-2026",
+   "title": "Jun 12 2026",
+   "kind": "daily note",
+   "date": "2026-06-12",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-jun-13-2026",
+   "title": "Jun 13 2026",
+   "kind": "daily note",
+   "date": "2026-06-13",
+   "created": "2026-06-13T08:26:05",
+   "modified": "2026-06-13T16:17:44",
+   "commit": null
+  },
+  {
+   "id": "note-jun-14-2026",
+   "title": "Jun 14 2026",
+   "kind": "daily note",
+   "date": "2026-06-14",
+   "created": "2026-06-14T07:42:36",
+   "modified": "2026-06-14T19:39:15",
+   "commit": null
+  },
+  {
+   "id": "note-jun-15-2026",
+   "title": "Jun 15 2026",
+   "kind": "daily note",
+   "date": "2026-06-15",
+   "created": "2026-06-15T06:27:40",
+   "modified": "2026-06-15T16:03:00",
+   "commit": null
+  },
+  {
+   "id": "note-jun-16-2026",
+   "title": "Jun 16 2026",
+   "kind": "daily note",
+   "date": "2026-06-16",
+   "created": "2026-06-16T06:33:50",
+   "modified": "2026-06-17T08:11:25",
+   "commit": null
+  },
+  {
+   "id": "note-jun-17-2026",
+   "title": "Jun 17 2026",
+   "kind": "daily note",
+   "date": "2026-06-17",
+   "created": "2026-06-17T06:01:17",
+   "modified": "2026-06-17T06:02:18",
+   "commit": null
+  },
+  {
+   "id": "note-jun-18-2026",
+   "title": "Jun 18 2026",
+   "kind": "daily note",
+   "date": "2026-06-18",
+   "created": "2026-06-18T02:58:04",
+   "modified": "2026-06-18T19:48:57",
+   "commit": null
+  },
+  {
+   "id": "note-jun-19-2026",
+   "title": "Jun 19 2026",
+   "kind": "daily note",
+   "date": "2026-06-19",
+   "created": "2026-06-19T05:19:03",
+   "modified": "2026-06-19T06:17:46",
+   "commit": null
+  },
+  {
+   "id": "note-jun-20-2026",
+   "title": "Jun 20 2026",
+   "kind": "daily note",
+   "date": "2026-06-20",
+   "created": "2026-06-20T02:07:34",
+   "modified": "2026-06-20T07:05:18",
+   "commit": null
+  },
+  {
+   "id": "note-jun-21-2026",
+   "title": "Jun 21 2026",
+   "kind": "daily note",
+   "date": "2026-06-21",
+   "created": "2026-06-21T06:57:09",
+   "modified": "2026-07-08T05:15:38",
+   "commit": null
+  },
+  {
+   "id": "note-jun-22-2026",
+   "title": "Jun 22 2026",
+   "kind": "daily note",
+   "date": "2026-06-22",
+   "created": "2026-06-22T07:36:19",
+   "modified": "2026-06-22T18:15:19",
+   "commit": null
+  },
+  {
+   "id": "note-jun-23-2026",
+   "title": "Jun 23 2026",
+   "kind": "daily note",
+   "date": "2026-06-23",
+   "created": "2026-06-23T06:14:55",
+   "modified": "2026-06-23T16:27:44",
+   "commit": null
+  },
+  {
+   "id": "note-jun-24-2026",
+   "title": "Jun 24 2026",
+   "kind": "daily note",
+   "date": "2026-06-24",
+   "created": "2026-06-24T13:04:34",
+   "modified": "2026-06-24T12:57:25",
+   "commit": null
+  },
+  {
+   "id": "note-jun-25-2026",
+   "title": "Jun 25 2026",
+   "kind": "daily note",
+   "date": "2026-06-25",
+   "created": "2026-06-25T05:29:08",
+   "modified": "2026-06-30T05:40:10",
+   "commit": null
+  },
+  {
+   "id": "note-jun-26-2026",
+   "title": "Jun 26 2026",
+   "kind": "daily note",
+   "date": "2026-06-26",
+   "created": "2026-06-26T06:03:45",
+   "modified": "2026-06-26T21:11:44",
+   "commit": null
+  },
+  {
+   "id": "note-jun-27-2026",
+   "title": "Jun 27 2026",
+   "kind": "daily note",
+   "date": "2026-06-27",
+   "created": "2026-06-27T07:28:14",
+   "modified": "2026-06-27T20:59:05",
+   "commit": null
+  },
+  {
+   "id": "note-jun-28-2026",
+   "title": "Jun 28 2026",
+   "kind": "daily note",
+   "date": "2026-06-28",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-06-28T19:24:29",
+   "commit": null
+  },
+  {
+   "id": "note-jun-29-2026",
+   "title": "Jun 29 2026",
+   "kind": "daily note",
+   "date": "2026-06-29",
+   "created": "2026-06-29T05:52:20",
+   "modified": "2026-06-29T20:15:51",
+   "commit": null
+  },
+  {
+   "id": "note-jun-30-2026",
+   "title": "Jun 30 2026",
+   "kind": "daily note",
+   "date": "2026-06-30",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-07-08T05:15:38",
+   "commit": null
+  },
+  {
+   "id": "note-jul-1-2026",
+   "title": "Jul 1 2026",
+   "kind": "daily note",
+   "date": "2026-07-01",
+   "created": "2026-07-01T09:28:42",
+   "modified": "2026-07-08T05:32:55",
+   "commit": null
+  },
+  {
+   "id": "note-jul-2-2026",
+   "title": "Jul 2 2026",
+   "kind": "daily note",
+   "date": "2026-07-02",
+   "created": "2026-07-02T10:15:33",
+   "modified": "2026-07-03T05:54:24",
+   "commit": null
+  },
+  {
+   "id": "note-jul-3-2026",
+   "title": "Jul 3 2026",
+   "kind": "daily note",
+   "date": "2026-07-03",
+   "created": "2026-07-03T05:47:49",
+   "modified": "2026-07-04T06:05:54",
+   "commit": null
+  },
+  {
+   "id": "note-jul-4-2026",
+   "title": "Jul 4 2026",
+   "kind": "daily note",
+   "date": "2026-07-04",
+   "created": "2026-07-04T04:58:11",
+   "modified": "2026-07-04T18:09:01",
+   "commit": null
+  },
+  {
+   "id": "note-jul-5-2026",
+   "title": "Jul 5 2026",
+   "kind": "daily note",
+   "date": "2026-07-05",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-07-06T07:36:45",
+   "commit": null
+  },
+  {
+   "id": "note-jul-6-2026",
+   "title": "Jul 6 2026",
+   "kind": "daily note",
+   "date": "2026-07-06",
+   "created": "2026-07-06T07:23:27",
+   "modified": "2026-07-06T14:20:19",
+   "commit": null
+  },
+  {
+   "id": "note-jul-7-2026",
+   "title": "Jul 7 2026",
+   "kind": "daily note",
+   "date": "2026-07-07",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-08-19T08:23:29",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-8-2026",
+   "title": "Daily Note - Jul 8 2026",
+   "kind": "daily note",
+   "date": "2026-07-08",
+   "created": "2026-07-08T05:29:41",
+   "modified": "2026-07-08T18:49:09",
+   "commit": null
+  },
+  {
+   "id": "note-jul-8-2026",
+   "title": "Jul 8 2026",
+   "kind": "daily note",
+   "date": "2026-07-08",
+   "created": "2026-07-08T05:08:16",
+   "modified": "2026-07-08T05:15:08",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-9-2026",
+   "title": "Daily Note - Jul 9 2026",
+   "kind": "daily note",
+   "date": "2026-07-09",
+   "created": "2026-07-09T05:24:00",
+   "modified": "2026-07-10T10:33:35",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-10-2026",
+   "title": "Daily Note - Jul 10 2026",
+   "kind": "daily note",
+   "date": "2026-07-10",
+   "created": "2026-07-10T09:27:38",
+   "modified": "2026-07-10T10:02:49",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-11-2026",
+   "title": "Daily Note - Jul 11 2026",
+   "kind": "daily note",
+   "date": "2026-07-11",
+   "created": "2026-07-11T05:11:26",
+   "modified": "2026-07-11T18:45:09",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-12-2026",
+   "title": "Daily Note - Jul 12 2026",
+   "kind": "daily note",
+   "date": "2026-07-12",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-13-2026",
+   "title": "Daily Note - Jul 13 2026",
+   "kind": "daily note",
+   "date": "2026-07-13",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-14-2026",
+   "title": "Daily Note - Jul 14 2026",
+   "kind": "daily note",
+   "date": "2026-07-14",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-07-15T04:19:16",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-15-2026",
+   "title": "Daily Note - Jul 15 2026",
+   "kind": "daily note",
+   "date": "2026-07-15",
+   "created": "2026-07-15T04:08:17",
+   "modified": "2026-07-16T05:55:29",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-16-2026",
+   "title": "Daily Note - Jul 16 2026",
+   "kind": "daily note",
+   "date": "2026-07-16",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-07-16T14:38:44",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-17-2026",
+   "title": "Daily Note - Jul 17 2026",
+   "kind": "daily note",
+   "date": "2026-07-17",
+   "created": "2026-07-17T01:21:29",
+   "modified": "2026-07-17T16:35:38",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-18-2026",
+   "title": "Daily Note - Jul 18 2026",
+   "kind": "daily note",
+   "date": "2026-07-18",
+   "created": "2026-07-18T07:43:07",
+   "modified": "2026-07-19T09:36:13",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-19-2026",
+   "title": "Daily Note - Jul 19 2026",
+   "kind": "daily note",
+   "date": "2026-07-19",
+   "created": "2026-07-19T12:38:19",
+   "modified": "2026-07-19T20:45:39",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-20-2026",
+   "title": "Daily Note - Jul 20 2026",
+   "kind": "daily note",
+   "date": "2026-07-20",
+   "created": "2026-07-20T13:12:49",
+   "modified": "2026-07-20T18:15:06",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-21-2026",
+   "title": "Daily Note - Jul 21 2026",
+   "kind": "daily note",
+   "date": "2026-07-21",
+   "created": "2026-07-21T05:56:20",
+   "modified": "2026-07-22T05:38:25",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-22-2026",
+   "title": "Daily Note - Jul 22 2026",
+   "kind": "daily note",
+   "date": "2026-07-22",
+   "created": "2026-07-22T05:09:42",
+   "modified": "2026-07-28T09:05:07",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-23-2026",
+   "title": "Daily Note - Jul 23 2026",
+   "kind": "daily note",
+   "date": "2026-07-23",
+   "created": "2026-07-23T05:36:21",
+   "modified": "2026-07-28T09:05:01",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-24-2026",
+   "title": "Daily Note - Jul 24 2026",
+   "kind": "daily note",
+   "date": "2026-07-24",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-07-24T17:30:09",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-25-2026",
+   "title": "Daily Note - Jul 25 2026",
+   "kind": "daily note",
+   "date": "2026-07-25",
+   "created": "2026-07-25T06:45:23",
+   "modified": "2026-07-28T09:05:00",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-26-2026",
+   "title": "Daily Note - Jul 26 2026",
+   "kind": "daily note",
+   "date": "2026-07-26",
+   "created": "2026-07-26T19:47:54",
+   "modified": "2026-07-26T19:48:28",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-27-2026",
+   "title": "Daily Note - Jul 27 2026",
+   "kind": "daily note",
+   "date": "2026-07-27",
+   "created": "2026-07-27T08:10:39",
+   "modified": "2026-07-28T09:04:10",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-28-2026",
+   "title": "Daily Note - Jul 28 2026",
+   "kind": "daily note",
+   "date": "2026-07-28",
+   "created": "2026-07-28T08:46:01",
+   "modified": "2026-07-28T09:04:05",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-29-2026",
+   "title": "Daily Note - Jul 29 2026",
+   "kind": "daily note",
+   "date": "2026-07-29",
+   "created": "2026-07-29T03:32:27",
+   "modified": "2026-07-30T05:36:52",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-30-2026",
+   "title": "Daily Note - Jul 30 2026",
+   "kind": "daily note",
+   "date": "2026-07-30",
+   "created": "2026-07-30T05:36:52",
+   "modified": "2026-07-31T15:38:17",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-jul-31-2026",
+   "title": "Daily Note - Jul 31 2026",
+   "kind": "daily note",
+   "date": "2026-07-31",
+   "created": "2026-07-31T15:38:14",
+   "modified": "2026-08-01T20:36:40",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-1-2026",
+   "title": "Daily Note - Aug 1 2026",
+   "kind": "daily note",
+   "date": "2026-08-01",
+   "created": "2026-08-01T07:16:12",
+   "modified": "2026-08-02T06:46:52",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-2-2026",
+   "title": "Daily Note - Aug 2 2026",
+   "kind": "daily note",
+   "date": "2026-08-02",
+   "created": "2026-08-02T02:46:07",
+   "modified": "2026-08-03T06:35:42",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-3-2026",
+   "title": "Daily Note - Aug 3 2026",
+   "kind": "daily note",
+   "date": "2026-08-03",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-08-11T13:46:39",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-4-2026",
+   "title": "Daily Note - Aug 4 2026",
+   "kind": "daily note",
+   "date": "2026-08-04",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-8-2026",
+   "title": "Daily Note - Aug 8 2026",
+   "kind": "daily note",
+   "date": "2026-08-08",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-9-2026",
+   "title": "Daily Note - Aug 9 2026",
+   "kind": "daily note",
+   "date": "2026-08-09",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-10-2026",
+   "title": "Daily Note - Aug 10 2026",
+   "kind": "daily note",
+   "date": "2026-08-10",
+   "created": "2026-08-10T07:18:04",
+   "modified": "2026-08-13T18:15:40",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-11-2026",
+   "title": "Daily Note - Aug 11 2026",
+   "kind": "daily note",
+   "date": "2026-08-11",
+   "created": "2026-08-10T23:15:05",
+   "modified": "2026-08-12T05:25:16",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-12-2026",
+   "title": "Daily Note - Aug 12 2026",
+   "kind": "daily note",
+   "date": "2026-08-12",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-08-12T10:42:59",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-13-2026",
+   "title": "Daily Note - Aug 13 2026",
+   "kind": "daily note",
+   "date": "2026-08-13",
+   "created": "2026-08-13T03:59:28",
+   "modified": "2026-08-14T05:45:13",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-14-2026",
+   "title": "Daily Note - Aug 14 2026",
+   "kind": "daily note",
+   "date": "2026-08-14",
+   "created": "2026-08-14T16:33:19",
+   "modified": "2026-08-15T05:29:28",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-15-2026",
+   "title": "Daily Note - Aug 15 2026",
+   "kind": "daily note",
+   "date": "2026-08-15",
+   "created": "2026-08-15T06:03:39",
+   "modified": "2026-08-15T06:26:51",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-16-2026",
+   "title": "Daily Note - Aug 16 2026",
+   "kind": "daily note",
+   "date": "2026-08-16",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-17-2026",
+   "title": "Daily Note - Aug 17 2026",
+   "kind": "daily note",
+   "date": "2026-08-17",
+   "created": "2026-08-17T06:03:58",
+   "modified": "2026-08-17T10:23:51",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-18-2026",
+   "title": "Daily Note - Aug 18 2026",
+   "kind": "daily note",
+   "date": "2026-08-18",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-19-2026",
+   "title": "Daily Note - Aug 19 2026",
+   "kind": "daily note",
+   "date": "2026-08-19",
+   "created": "2026-08-19T08:11:53",
+   "modified": "2026-08-19T17:58:04",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-20-2026",
+   "title": "Daily Note - Aug 20 2026",
+   "kind": "daily note",
+   "date": "2026-08-20",
+   "created": "2026-08-20T06:48:18",
+   "modified": "2026-08-21T14:11:37",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-21-2026-v0",
+   "title": "Daily Note - Aug 21 2026 (v0)",
+   "kind": "daily note",
+   "date": "2026-08-21",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-21-2026",
+   "title": "Daily Note - Aug 21 2026",
+   "kind": "daily note",
+   "date": "2026-08-21",
+   "created": "2026-08-21T06:59:17",
+   "modified": "2026-08-25T10:41:25",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-22-2026",
+   "title": "Daily Note - Aug 22 2026",
+   "kind": "daily note",
+   "date": "2026-08-22",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-08-22T22:32:46-07:00",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-23-2026",
+   "title": "Daily Note - Aug 23 2026",
+   "kind": "daily note",
+   "date": "2026-08-23",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-24-2026",
+   "title": "Daily Note - Aug 24 2026",
+   "kind": "daily note",
+   "date": "2026-08-24",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-08-25T05:01:22",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-25-2026",
+   "title": "Daily Note - Aug 25 2026",
+   "kind": "daily note",
+   "date": "2026-08-25",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-08-30T07:50:20",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-26-2026",
+   "title": "Daily Note - Aug 26 2026",
+   "kind": "daily note",
+   "date": "2026-08-26",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-08-27T00:39:53",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-27-2026",
+   "title": "Daily Note - Aug 27 2026",
+   "kind": "daily note",
+   "date": "2026-08-27",
+   "created": "2026-08-27T00:07:45",
+   "modified": "2026-08-27T00:08:02",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-28-2026",
+   "title": "Daily Note - Aug 28 2026",
+   "kind": "daily note",
+   "date": "2026-08-28",
+   "created": "2026-08-28T11:39:24",
+   "modified": "2026-08-30T08:08:19",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-29-2026",
+   "title": "Daily Note - Aug 29 2026",
+   "kind": "daily note",
+   "date": "2026-08-29",
+   "created": "2026-08-29T12:17:34",
+   "modified": "2026-08-30T08:08:15",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-30-2026",
+   "title": "Daily Note - Aug 30 2026",
+   "kind": "daily note",
+   "date": "2026-08-30",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-aug-31-2026",
+   "title": "Daily Note - Aug 31 2026",
+   "kind": "daily note",
+   "date": "2026-08-31",
+   "created": "2026-08-31T09:15:44",
+   "modified": "2026-08-31T09:19:03",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-1-2026",
+   "title": "Daily Note - Sep 1 2026",
+   "kind": "daily note",
+   "date": "2026-09-01",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-09-30T08:42:59",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-2-2026",
+   "title": "Daily Note - Sep 2 2026",
+   "kind": "daily note",
+   "date": "2026-09-02",
+   "created": "2026-09-02T10:28:24",
+   "modified": "2026-09-02T10:31:30",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-3-2026",
+   "title": "Daily Note - Sep 3 2026",
+   "kind": "daily note",
+   "date": "2026-09-03",
+   "created": "2026-09-03T07:51:00",
+   "modified": "2026-09-03T08:56:21",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-4-2026",
+   "title": "Daily Note - Sep 4 2026",
+   "kind": "daily note",
+   "date": "2026-09-04",
+   "created": "2026-09-04T07:50:40",
+   "modified": "2026-09-04T07:50:53",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-5-2026",
+   "title": "Daily Note - Sep 5 2026",
+   "kind": "daily note",
+   "date": "2026-09-05",
+   "created": "2026-09-05T21:39:27",
+   "modified": "2026-09-05T21:57:14",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-6-2026",
+   "title": "Daily Note - Sep 6 2026",
+   "kind": "daily note",
+   "date": "2026-09-06",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-09-07T07:26:14",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-7-2026",
+   "title": "Daily Note - Sep 7 2026",
+   "kind": "daily note",
+   "date": "2026-09-07",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-09-28T08:46:25",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-8-2026",
+   "title": "Daily Note - Sep 8 2026",
+   "kind": "daily note",
+   "date": "2026-09-08",
+   "created": "2026-09-08T03:37:57",
+   "modified": "2026-09-09T10:15:11",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-9-2026",
+   "title": "Daily Note - Sep 9 2026",
+   "kind": "daily note",
+   "date": "2026-09-09",
+   "created": "2026-09-09T05:16:47",
+   "modified": "2026-09-09T16:50:20",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-10-2026",
+   "title": "Daily Note - Sep 10 2026",
+   "kind": "daily note",
+   "date": "2026-09-10",
+   "created": "2026-09-10T17:11:25",
+   "modified": "2026-09-11T08:58:59",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-11-2026",
+   "title": "Daily Note - Sep 11 2026",
+   "kind": "daily note",
+   "date": "2026-09-11",
+   "created": "2026-09-11T15:23:18",
+   "modified": "2026-09-11T15:23:29",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-13-2026",
+   "title": "Daily Note - Sep 13 2026",
+   "kind": "daily note",
+   "date": "2026-09-13",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-14-2026",
+   "title": "Daily Note - Sep 14 2026",
+   "kind": "daily note",
+   "date": "2026-09-14",
+   "created": "2026-09-14T13:59:44",
+   "modified": "2026-09-14T16:59:56",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-15-2026",
+   "title": "Daily Note - Sep 15 2026",
+   "kind": "daily note",
+   "date": "2026-09-15",
+   "created": "2026-09-15T08:08:47",
+   "modified": "2026-09-15T19:33:37",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-16-2026",
+   "title": "Daily Note - Sep 16 2026",
+   "kind": "daily note",
+   "date": "2026-09-16",
+   "created": "2026-09-16T05:34:40",
+   "modified": "2026-09-16T07:10:43",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-17-2026",
+   "title": "Daily Note - Sep 17 2026",
+   "kind": "daily note",
+   "date": "2026-09-17",
+   "created": "2026-09-17T14:07:12",
+   "modified": "2026-09-18T19:16:39",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-18-2026",
+   "title": "Daily Note - Sep 18 2026",
+   "kind": "daily note",
+   "date": "2026-09-18",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-09-19T05:44:43",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-19-2026",
+   "title": "Daily Note - Sep 19 2026",
+   "kind": "daily note",
+   "date": "2026-09-19",
+   "created": "2026-09-19T05:44:43",
+   "modified": "2026-09-19T18:06:29",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-20-2026",
+   "title": "Daily Note - Sep 20 2026",
+   "kind": "daily note",
+   "date": "2026-09-20",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-09-30T08:44:17",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-21-2026",
+   "title": "Daily Note - Sep 21 2026",
+   "kind": "daily note",
+   "date": "2026-09-21",
+   "created": "2026-09-21T06:19:29",
+   "modified": "2026-09-22T16:11:51",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-22-2026",
+   "title": "Daily Note - Sep 22 2026",
+   "kind": "daily note",
+   "date": "2026-09-22",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-09-23T08:07:42",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-23-2026",
+   "title": "Daily Note - Sep 23 2026",
+   "kind": "daily note",
+   "date": "2026-09-23",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-09-24T10:56:56",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-24-2026",
+   "title": "Daily Note - Sep 24 2026",
+   "kind": "daily note",
+   "date": "2026-09-24",
+   "created": "2026-09-24T06:39:49",
+   "modified": "2026-09-25T10:30:22",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-25-2026",
+   "title": "Daily Note - Sep 25 2026",
+   "kind": "daily note",
+   "date": "2026-09-25",
+   "created": "2026-09-25T08:17:27",
+   "modified": "2026-09-25T14:31:54",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-26-2026",
+   "title": "Daily Note - Sep 26 2026",
+   "kind": "daily note",
+   "date": "2026-09-26",
+   "created": "2026-09-26T08:50:52",
+   "modified": "2026-09-30T08:43:13",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-27-2026",
+   "title": "Daily Note - Sep 27 2026",
+   "kind": "daily note",
+   "date": "2026-09-27",
+   "created": "2026-09-27T08:48:36",
+   "modified": "2026-09-30T08:43:16",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-28-2026",
+   "title": "Daily Note - Sep 28 2026",
+   "kind": "daily note",
+   "date": "2026-09-28",
+   "created": "2026-09-28T08:14:57",
+   "modified": "2026-09-28T17:19:59",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-29-2026",
+   "title": "Daily Note - Sep 29 2026",
+   "kind": "daily note",
+   "date": "2026-09-29",
+   "created": "2026-09-29T06:11:51",
+   "modified": "2026-09-30T08:42:52",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-sep-30-2026",
+   "title": "Daily Note - Sep 30 2026",
+   "kind": "daily note",
+   "date": "2026-09-30",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-10-02T09:06:06",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-1-2026",
+   "title": "Daily Note - Oct 1 2026",
+   "kind": "daily note",
+   "date": "2026-10-01",
+   "created": null,
+   "modified": null,
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-2-2026",
+   "title": "Daily Note - Oct 2 2026",
+   "kind": "daily note",
+   "date": "2026-10-02",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-10-03T07:30:47",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-3-2026",
+   "title": "Daily Note - Oct 3 2026",
+   "kind": "daily note",
+   "date": "2026-10-03",
+   "created": "2026-10-03T07:30:46",
+   "modified": "2026-10-04T12:59:11",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-4-2026",
+   "title": "Daily Note - Oct 4 2026",
+   "kind": "daily note",
+   "date": "2026-10-04",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-10-05T05:37:37",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-5-2026",
+   "title": "Daily Note - Oct 5 2026",
+   "kind": "daily note",
+   "date": "2026-10-05",
+   "created": "2026-10-05T04:31:49",
+   "modified": "2026-10-06T05:22:10",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-6-2026",
+   "title": "Daily Note - Oct 6 2026",
+   "kind": "daily note",
+   "date": "2026-10-06",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-10-07T06:06:46",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-7-2026",
+   "title": "Daily Note - Oct 7 2026",
+   "kind": "daily note",
+   "date": "2026-10-07",
+   "created": "2026-10-07T06:19:00",
+   "modified": "2026-10-08T05:00:26",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-8-2026",
+   "title": "Daily Note - Oct 8 2026",
+   "kind": "daily note",
+   "date": "2026-10-08",
+   "created": "2026-10-08T04:44:07",
+   "modified": "2026-10-14T05:41:03",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-9-2026",
+   "title": "Daily Note - Oct 9 2026",
+   "kind": "daily note",
+   "date": "2026-10-09",
+   "created": "2026-10-09T03:58:13",
+   "modified": "2026-10-10T12:00:25",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-10-2026",
+   "title": "Daily Note - Oct 10 2026",
+   "kind": "daily note",
+   "date": "2026-10-10",
+   "created": "2026-10-10T12:00:11",
+   "modified": "2026-10-11T06:51:31",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-11-2026",
+   "title": "Daily Note - Oct 11 2026",
+   "kind": "daily note",
+   "date": "2026-10-11",
+   "created": "2026-10-11T06:51:30",
+   "modified": "2026-10-12T08:29:22",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-12-2026",
+   "title": "Daily Note - Oct 12 2026",
+   "kind": "daily note",
+   "date": "2026-10-12",
+   "created": "2026-10-12T07:50:52",
+   "modified": "2026-10-12T14:15:37",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-13-2026",
+   "title": "Daily Note - Oct 13 2026",
+   "kind": "daily note",
+   "date": "2026-10-13",
+   "created": "2026-10-13T10:25:48",
+   "modified": "2026-10-14T05:09:50",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-14-2026",
+   "title": "Daily Note - Oct 14 2026",
+   "kind": "daily note",
+   "date": "2026-10-14",
+   "created": "2026-10-14T04:33:34",
+   "modified": "2026-10-15T17:21:57",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-15-2026",
+   "title": "Daily Note - Oct 15 2026",
+   "kind": "daily note",
+   "date": "2026-10-15",
+   "created": "2026-10-15T09:51:41",
+   "modified": "2026-10-15T18:31:53",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-16-2026",
+   "title": "Daily Note - Oct 16 2026",
+   "kind": "daily note",
+   "date": "2026-10-16",
+   "created": "2026-10-16T07:43:06",
+   "modified": "2026-10-18T14:18:47",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-17-2026",
+   "title": "Daily Note - Oct 17 2026",
+   "kind": "daily note",
+   "date": "2026-10-17",
+   "created": "2026-10-17T07:07:30",
+   "modified": "2026-10-18T11:25:20",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-18-2026",
+   "title": "Daily Note - Oct 18 2026",
+   "kind": "daily note",
+   "date": "2026-10-18",
+   "created": "2026-10-18T16:18:38",
+   "modified": "2026-10-20T11:45:27",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-20-2026",
+   "title": "Daily Note - Oct 20 2026",
+   "kind": "daily note",
+   "date": "2026-10-20",
+   "created": "2026-10-20T11:21:14",
+   "modified": "2026-10-21T06:15:30",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-21-2026",
+   "title": "Daily Note - Oct 21 2026",
+   "kind": "daily note",
+   "date": "2026-10-21",
+   "created": "2026-10-21T06:15:30",
+   "modified": "2026-10-22T04:25:26",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-22-2026",
+   "title": "Daily Note - Oct 22 2026",
+   "kind": "daily note",
+   "date": "2026-10-22",
+   "created": "2026-06-09T04:36:22",
+   "modified": "2026-10-23T07:19:48",
+   "commit": null
+  },
+  {
+   "id": "release-2026.10.22.1",
+   "title": "robotparts 2026.10.22.1",
+   "kind": "release",
+   "date": "2026-10-22T14:32:56-07:00",
+   "created": null,
+   "modified": null,
+   "commit": "d398b4d"
+  },
+  {
+   "id": "release-2026.10.22.2",
+   "title": "robotparts 2026.10.22.2",
+   "kind": "release",
+   "date": "2026-10-22T21:40:58-07:00",
+   "created": null,
+   "modified": null,
+   "commit": "73a2c39"
+  },
+  {
+   "id": "release-2026.10.22.3",
+   "title": "robotparts 2026.10.22.3",
+   "kind": "release",
+   "date": "2026-10-22T22:11:23-07:00",
+   "created": null,
+   "modified": null,
+   "commit": "e59a24c"
+  },
+  {
+   "id": "release-2026.10.22.4",
+   "title": "robotparts 2026.10.22.4",
+   "kind": "release",
+   "date": "2026-10-22T22:23:47-07:00",
+   "created": null,
+   "modified": null,
+   "commit": "b5b60ed"
+  },
+  {
+   "id": "note-daily-note-oct-23-2026",
+   "title": "Daily Note - Oct 23 2026",
+   "kind": "daily note",
+   "date": "2026-10-23",
+   "created": "2026-10-23T07:04:58",
+   "modified": "2026-10-24T06:40:33",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-24-2026",
+   "title": "Daily Note - Oct 24 2026",
+   "kind": "daily note",
+   "date": "2026-10-24",
+   "created": "2026-10-24T05:58:03",
+   "modified": "2026-10-25T10:52:44",
+   "commit": null
+  },
+  {
+   "id": "note-daily-note-oct-25-2026",
+   "title": "Daily Note - Oct 25 2026",
+   "kind": "daily note",
+   "date": "2026-10-25",
+   "created": "2026-10-25T10:52:43",
+   "modified": "2026-10-25T18:35:16",
+   "commit": null
+  },
+  {
+   "id": "release-2026.10.25",
+   "title": "robotparts 2026.10.25",
+   "kind": "release",
+   "date": "2026-10-25T15:02:18-07:00",
+   "created": null,
+   "modified": null,
+   "commit": "5a36442"
+  },
+  {
+   "id": "release-2026.10.25.1",
+   "title": "robotparts 2026.10.25.1",
+   "kind": "release",
+   "date": "2026-10-25T21:34:02-07:00",
+   "created": null,
+   "modified": null,
+   "commit": "80012db"
+  }
+ ]
+}

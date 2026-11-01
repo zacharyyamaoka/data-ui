@@ -1,0 +1,90 @@
+# PEP 0010 P1a (docs/CONTRACT.md §32): every key the amendment adds, in one dashboard. Both checkers must pass it with
+# no problem (tests/unit/check-robotics.test.mjs, tools/test_check_robotics.py); the tests make each refused variant by
+# swapping one line. The .json files beside it hold only their fields: the checkers read names, never rows.
+data: runs.json
+style:
+  families: { property: source, colors: { real: 1, sim: 2, target: muted } }
+datasets:
+  runs: runs.json
+  poses: { data: poses.json, facets: [situation] }
+  diff: diff_poses.json
+  links: links.json
+  coverage: coverage_poses.json
+  bounds: bounds.json
+  grid: grid.json
+links:
+  - { from: poses.run, to: runs.run }
+  - { from: diff.run, to: runs.run }
+  - { from: diff.situation, to: poses.situation }
+  - { from: links.run, to: runs.run }
+layout:
+  panels:
+    - { view: Runs, w: 12 }
+    - { view: Path, w: 6 }
+    - { view: Layers, w: 6 }
+    - { view: Coverage, w: 4 }
+    - { view: Reach, w: 4 }
+    - { view: Top, w: 4 }
+views:
+  - { type: table, name: Runs, from: runs, select: run }
+  - type: trajectory3d
+    name: Path
+    from: poses
+    select: situation
+    trajectory3d:
+      poses: { x: x_mm, y: y_mm, z: z_mm, quat: [quat_w, quat_x, quat_y, quat_z], frame: frame, body: body }
+      series: situation
+      family: source
+      run: run
+      t: t
+      target: target
+      unit: mm
+      up: z
+      modes: { real: [line], twin: [line, frames-z], target: [line] }
+      compare: { data: diff, pairs: [[twin, real], [real, target]], scale: 1 }
+      density: 20
+      show: trail
+      decay: 0.5
+      fade: true
+      projection: perspective
+      axes: auto
+      robots:
+        data: links
+        model: media/ur5e_links.glb
+        links: [base, shoulder_link]
+        series: { twin: { color: series, opacity: 0.5 }, target: { opacity: 0.2 }, real B: { show: false } }
+      opacity: auto
+      workspace: { model: media/reach_hull.glb, opacity: 0.12 }
+  - type: scene3d
+    name: Layers
+    from: poses
+    scene3d:
+      unit: mm
+      t: t
+      projection: { dir: [-1, -1, -1], up: [0, 0, 1] }
+      show: all
+      decay: inf
+      fade: false
+      axes: none
+      density: 40
+      layers:
+        - { primitive: lines, x: x_mm, y: y_mm, z: z_mm, by: [run, situation], color: situation, dash: [target] }
+        - { primitive: points, x: x_mm, y: y_mm, z: z_mm, density: 20 }
+        - { primitive: frames, x: x_mm, y: y_mm, z: z_mm, quat: [quat_w, quat_x, quat_y, quat_z], axes: z, length: 30 }
+        - { primitive: arrows, data: diff, from: [x_mm, y_mm, z_mm], to: [ref_x_mm, ref_y_mm, ref_z_mm], color: situation, scale: 10 }
+        - { primitive: arcs, data: diff, at: [x_mm, y_mm, z_mm], from: [quat_w, quat_x, quat_y, quat_z], to: [ref_quat_w, ref_quat_x, ref_quat_y, ref_quat_z] }
+        - { primitive: meshes, data: links, model: media/ur5e_links.glb, links: [base, shoulder_link], by: situation, opacity: 0.5 }
+        - { primitive: boxes, data: bounds, min: [x0_mm, y0_mm, z0_mm], max: [x1_mm, y1_mm, z1_mm], opacity: 0.1 }
+      workspace: { box: [[-900, -400, 0], [-300, 200, 600]], opacity: 0.1 }
+  - type: voxels
+    name: Coverage
+    from: coverage
+    voxels: { x: x_mm, y: y_mm, z: z_mm, unit: mm, cell: 25, value: time, hz: 20, w: w, scale: sequential, slice: { axis: z, at: 300 }, projection: top, min: 1 }
+  - type: voxels
+    name: Reach
+    from: grid
+    voxels: { x: x_mm, y: y_mm, z: z_mm, unit: mm, cell: 25, value: reach, summary: Average, scale: verdict, slice: { axis: z, at: all } }
+  - type: scene3d
+    name: Top
+    from: poses
+    scene3d: { x: x_mm, y: y_mm, z: z_mm, series: situation, target: target, t: t, unit: mm, projection: top, axes: auto }
